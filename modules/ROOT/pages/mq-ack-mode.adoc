@@ -1,0 +1,204 @@
+= About Acknowledgement Mode
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: mq, ack, nack, exception, strategy, mode
+
+Anypoint MQ lets you determine how to process messages in Anypoint Studio using the Anypoint MQ connector.
+
+Two acknowledgement responses can occur:
+
+* *Acknowledgement* (ack) - Indicates that an application has received a message.
+* *Negative Acknowledgement* (nack) - Indicates that an application doesn't
+want the current message. MQ returns the message to the queue so
+that another application can receive the message.
+
+The Anypoint MQ connector provides tools for setting these states globally or locally in your Studio application.
+
+*Notes:*
+
+* With the Mule 4 Anypoint MQ connector, when using Ack and Nack components, you need to pass an AnypointMQMessageContext object. This object is in the MQ connector attributes to the Subscriber or Consumer components. You can insert `#[attributes]` in the Ack or Nack component that follows a Subscriber or Consumer and the MQ connector passes the AnypointMQMessageContext object for you.
+* Other operations can potentially overwrite `#[attributes]` with new values, so if such operators exist in your flow between the Subscriber or Consumer and Ack/Nack, be sure to save Subscriber or Consumer's attributes in a variable to avoid losing it.
+
+Flow example:
+
+[source,xml,linenums]
+----
+<flow name="flow">
+    <anypoint-mq:subscriber doc:name="Subscriber" config-ref="Anypoint_MQ_Default_subscriber" destination="test"/>
+    <logger level="INFO" doc:name="Logger" message="Received MQ msg: #[payload]"/>
+    <anypoint-mq:ack doc:name="Ack" config-ref="Anypoint_MQ_Default_subscriber" messageContext="#[attributes]"/>
+</flow>
+----
+
+== Global and Local States
+
+The Anypoint MQ connector provides global and local states for specifying how your Studio application receives messages from a queue.
+
+=== Global State
+
+Lets you specify use the Studio Global Element Properties menu to specify a strategy for processing all messages in a flow. The global state provides these choices:
+
+* *AUTO* - The Anypoint MQ connector automatically sends an Ack or Nack at the end of a flow depending on whether the MQ connector detects a Catch Exception Strategy (ACK) or a Rollback Exception Strategy (NACK). See <<autoflow,Creating an Auto Acknowledge Flow in Anypoint Studio>> for an example.
++
+There are two possible outcomes:
++
+** ACK - The flow succeeds or a Catch Exception Strategy occurs. This code shows the Catch Exception Strategy:
++
+[source,xml,linenums]
+----
+<catch-exception-strategy doc:name="Catch Exception Strategy"
+    when="exception.causedBy(UnsupportedOperationException)">
+    <logger message="Will ACK" level="ERROR" doc:name="Logger"/>
+</catch-exception-strategy>
+----
++
+** NACK - A Rollback Exception Strategy occurs:
++
+[source,xml,linenums]
+----
+<rollback-exception-strategy doc:name="Rollback Exception Strategy">
+    <logger message="Will NACK" level="ERROR" doc:name="Logger"/>
+</rollback-exception-strategy>
+----
++
+* *MANUAL* - An application indicates that it sends its own Ack or Nack using the Anypoint MQ connector local state. The MQ connector doesn't provide any actions automatically. See <<manualflow,Creating a Manual Acknowledge Flow in Anypoint Studio>> for an example.
+* *NONE* - An application receives a message and the MQ connector immediately acknowledges and deletes the message. This state risks losing the message if it is not consumed correctly, but is typically used when there is a flow of constantly updating messages, such as a news feed where each subsequent message provides more detail on any messages that preceded the message. This state takes a risk, but makes coding easier. See <<noneflow,Creating a None Acknowledge Flow in Anypoint Studio>> for an example. *Note:* In Mule 4 MQ, NONE is called IMMEDIATE, but has the same functionality.
++
+You can set the global state in the *Acknowledgement Mode* field:
++
+image::mq-global-mode-set.png[]
+
+=== Local State
+
+Lets you manually add Anypoint MQ connector instances into your flow with the *Operation* field set to *ack* or *nack* depending on whether the application is receiving or rejecting a message.
+
+You can set a local state using the Anypoint MQ connector's *Operation* field:
+
+image::mq-connector-ops.png[]
+
+[[autoflow]]
+== Creating an Auto Acknowledge Flow in Anypoint Studio
+
+If you are using the *auto* state, set a `choice-exception-strategy` and the Anypoint MQ connector automatically sends the ack or nack depending on what exception choices you make. The code that follows illustrates the use of the *auto* state.
+
+The following code demonstrates the Studio flows:
+
+image::mq-ack-flow.png[MQ acknowledgement mode flows]
+
+In this example, are these two flows:
+
+* *autoHttp* - Sets up an HTTP Connector to listen at `0.0.0.0:8081`, sets an Anypoint MQ connector to publish messages, and sets the acknowledgement mode to *auto*.
+* *autoMq* - Sets an Anypoint MQ connector to consume messages and uses the Java class <<randomerror,RandomError>> to create possible exceptions to cause the Auto function to send an acknowledgment or a negative acknowledgement depending on the choices. The logger lists the ACK or NACK choices on the console.
++
+The Error handling section of the flow contains a Catch Exception Strategy to cause the MQ connector to send the ACK, and a Rollback Exception Strategy to cause the MQ connector to send the NACK.
+
+=== Auto XML Code
+
+The XML code for the Auto Acknowledgement Mode is:
+
+[source,xml,linenums]
+----
+include::{examplesdir}/mq-ack-modes-01.xml[]
+----
+
+[NOTE]
+====
+Ensure that you set the Client ID (mq.clientId) and Client Secret (mq.clientSecret) values in a properties file. In this case, they are set in the /ackmodes/classes/ackmodes.properties file, which contains:
+
+[source,text,linenums]
+----
+# Contents of this file are not meant to be shared with the wide public
+
+mq.clientId=<Client_ID>
+mq.clientSecret=<Client_Secret>
+
+----
+====
+
+See <<randomerror,Random Error Generator>> for an explanation of how exceptions are thrown using a Java testing program, which is called in this statement:
+
+[source,xml]
+----
+<component class="ackmodes.RandomError" doc:name="Java"/>
+----
+
+[[manualflow]]
+== Creating a Manual Acknowledge Flow in Anypoint Studio
+
+You can set the Manual Acknowledgement Mode from the Anypoint MQ connector's Global Element Properties:
+
+image::mq-global-mode-set.png[]
+
+In the manual flow, the choice-exception-strategy is also set as in the flow. In this case, the application uses individual Anypoint MQ connector instances with the operation set to either Ack or Nack depending on exceptions sent by the <<randomerror,Random Error Java Class>>.
+
+image::mq-manual-flow.png[]
+
+=== Manual XML Code
+
+The XML code for the Manual Acknowledgement Mode is:
+
+[source,xml,linenums]
+----
+include::{examplesdir}/mq-ack-modes-02.xml[]
+----
+
+See <<randomerror,Random Error Generator>> for an explanation of how exceptions are thrown using a Java testing program, which is called in this statement:
+
+[source,xml]
+----
+<component class="ackmodes.RandomError" doc:name="Java"/>
+----
+
+[[noneflow]]
+== Creating a None Acknowledge Mode in Anypoint Studio
+
+You can set the NONE Acknowledgement Mode from the Anypoint MQ connector's Global Element Properties:
+
+image::mq-global-mode-set.png[]
+
+In the NONE flow, the Anypoint MQ connector always sends an ACK no matter what occurs.
+*Note:* NONE is called IMMEDIATE in the Mule 4 Anypoint MQ connector even though the functionality is the same.
+
+The example that follows emphasizes this risk by using the Java class <<randomerror,RandomError>> to create possible exceptions, but ignores the exceptions and sends the ACK regardless:
+
+[source,xml,linenums]
+----
+<component class="ackmodes.RandomError" doc:name="Java"/>
+<logger level="ERROR" doc:name="Logger" message="Always ACKs as soon as a message is received"/>
+----
+
+image::mq-none-flow.png[]
+
+Using this mode simplifies an application, but increases the risk. This mode is best when messages are constantly updating each other, such as in a news feed where details unfold in a news event. If an exception did occur, the next message would have a chance for obtaining the correct content.
+
+=== None XML Code
+
+The XML code for the None Acknowledgement Mode is:
+
+[source,xml,linenums]
+----
+include::{examplesdir}/mq-ack-modes-03.xml[]
+----
+
+[[randomerror]]
+== Random Error Generator
+
+The following Java test program generates random errors that you can use to test your application. This program gets a random integer between 0 and 100, and makes these choices depending on the value:
+
+[%header,cols="10a,30a,60a"]
+|===
+|Value |Error State |What happens in the Studio Flow
+|0 - 32 |No error, returns the passed event context. |Passes through and the application sends an ACK
+|33 - 65 |Error, returns an illegal state exception. |Application sends a NACK
+|66 - 100 |Error, returns an unsupported operation exception. |Application sends an ACK
+|===
+
+[source,java,linenums]
+----
+include::{examplesdir}/mq-ack-modes-04.java[]
+----
+
+== See Also
+
+* xref:index.adoc[Anypoint MQ]

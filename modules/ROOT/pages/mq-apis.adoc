@@ -1,0 +1,595 @@
+= To Use the Anypoint MQ REST APIs
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: mq, destinations, queues, exchanges
+
+The Anypoint MQ APIs let you use REST to send and receive messages, administer queues and message exchanges, and analyze results.
+
+Anypoint MQ provides these APIs:
+
+* <<mqadminapi,Anypoint MQ Administration API>>
+* <<mqbrokerapi,Anypoint MQ Broker API>>
+* <<mqstatapi,Anypoint MQ Statistics API>>
+
+Anypoint MQ portals are available in the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/[Developer portal].
+
+[[getoeb]]
+== To Get an Organization ID, Environment ID, and Access Token
+
+Using xref:access-management::audit-logging.adoc#to-configure-anypoint-mq-audit-logging[MQ Audit Logging],
+you can easily view the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ.
+
+However, getting the access (bearer) token requires using either a command like curl or an application like Postman. The example that follows uses curl.
+If you are a Windows user, you need to link:https://curl.haxx.se/download.html[download a curl
+command] before accessing the information.
+
+*Note:* The access token has a default time to live of 1 hour. This is the same TTL that users get when they log into the Anypoint Platform. The TTL is set in the Access Management screen for an organization in the Default Session Timeout value.
+
+To get API access information:
+
+. Log into Anypoint Platform.
+. Click MQ, Client Apps, and click the blue plus circle icon to create an app.
+. Get the Client ID and Client Secret and plug these values into the curl command below replacing `CLIENT_ID` and `CLIENT_SECRET`:
++
+----
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "client_id=CLIENT_ID&client_secret=CLIENT_SECRET&grant_type=client_credentials" "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/authorize"
+----
++
+See the xref:index.adoc[Anypoint MQ starting page] for the regions MQ and FIFO are available in.
++
+. Submit the curl command.
++
+This returns output similar to:
++
+[source,json]
+----
+{"access_token":"<token>","simple_client":{"envId":"<env_ID>","orgId":"<org-ID>"},"token_type":"bearer"}
+----
+
+== About the Workflow for an API
+
+The following example with the Broker API illustrates the workflow for accessing an API:
+
+image::mq-api-workflow.png[]
+
+Steps:
+
+. An application sends a request to Anypoint MQ and sets how long to hold the lock on the message.
+. Anypoint MQ sends the message and the lock ID.
+. The application acknowledges the message and requests Anypoint MQ to delete the message, or the application negatively acknowledges the message and requests Anypoint MQ to make the message available to other applications. The application sends the message ID and lock ID to Anypoint MQ. For additional information on setting automatic ack or nack, see the xref:mq-ack-mode.adoc[Acknowledgement Mode] guide.
+. If no action is taken and the duration of a lock's time to live expires, the message is negatively acknowledged and returns to the queue to be available for other applications.
+
+== About API Access Examples
+
+The following examples let you test Anypoint MQ from either the <<excoliuscu,command line using curl>>, or from a <<expostbro,combination of Postman, Anypoint Studio, and a browser>>.
+
+[[excoliuscu]]
+=== About Example: Command Line Using Curl
+
+The examples in this section use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[MQ Broker API] to publish and consume messages. You need to substitute the placeholder string, `42544254-4254-4254-4254-425442544254` for the proper values for authorization and token strings. These examples use Postman to access the queue.
+
+The following *curl* command publishes a message:
+
+[source,console,linenums]
+----
+curl -X PUT -H "Content-Type: application/json" \
+-H "Authorization: bearer 42544254-4254-4254-4254-425442544254" \
+-H "Cache-Control: no-cache" \
+-H "Postman-Token: 42544254-4254-4254-42544254-425442544254" \
+-d '{ \
+  "properties": {
+    "userDefinedHeader": "User defined stuff",
+    "anotherUserDefinedHeader": "Random stuff"
+  },
+
+  "body": "This is a message payload"
+}
+' "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/42544254-4254-4254-4254-425442544254/environments/42544254-4254-4254-4254-425442544254/destinations/postmanExchange/messages/552"
+----
+
+The following curl command gets a message:
+
+[source,console,linenums]
+----
+curl -X GET -H "Authorization: bearer 42544254-4254-4254-4254-425442544254" \
+-H "Cache-Control: no-cache" \
+-H "Postman-Token: 42544254-4254-4254-4254-425442544254" \
+"https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/42544254-4254-4254-4254-425442544254/environments/42544254-4254-4254-4254-425442544254/destinations/postmanQueue/messages?pollingTime=10000&batchSize=1&lockTtl=10000"
+----
+
+See the xref:index.adoc[Anypoint MQ starting page] for the regions MQ and FIFO are available in.
+
+[[expostbro]]
+=== About Example: Postman, Studio, and Browser
+
+This example lets you access the Anypoint MQ APIs from these products:
+
+* <<postsetup,Postman>>
+* <<studiosetup,Anypoint Studio>>
+* <<browsersetup,A Browser>>
+
+[[postsetup]]
+==== To Set Up Postman
+
+The https://www.getpostman.com/[Postman] application provides a platform for accessing the Anypoint MQ APIs.
+After downloading and installing Postman, supply this information to create an environment:
+
+* <<getoeb,Organization ID>>
+* <<getoeb,Environment ID>>
+* <<getoeb,Bearer (Authentication) Token>>
+* Host ID (from Anypoint Platform/MQ)
+* Client ID (from Anypoint Platform/MQ)
+* Client Secret (from Anypoint Platform/MQ)
+* A queue name - You can set this in Postman
+
+After you are able to authorize to an Anypoint MQ API, publish a message, consume the message, and get the lock ID from the returned information in the Body.
+
+For example, this information is returned from the consume (GET) command:
+
+[source,json,linenums]
+----
+{
+    "properties": {
+      "anotherUserDefinedHeader": "Random stuff",
+      "userDefinedHeader": "User defined stuff"
+    },
+    "headers": {
+      "messageId": "514",
+      "lockId": "<lockIDvalue>",
+      "created": "Fri, 24 Jun 2016 21:17:57 GMT",
+      "deliveryCount": "2"
+    },
+    ...
+----
+
+After you have the lock ID, you can add it to your Postman environment to facilitate future requests.
+
+[[studiosetup]]
+=== To Set Up Anypoint Studio for API Access
+
+Anypoint Studio lets you create a Mule application that uses the Anypoint MQ connector.
+The steps in this section are summarized.
+
+You can set up a Studio project with:
+
+* An HTTP connector: Host 0.0.0.0, Port 8081, and path in the properties menu set to the `/mq/{messageId}` value.
+* Anypoint MQ connector with the client ID and secret you got from Anypoint Platform > MQ, and the Destination set to the queue you created in Postman.
+* Logger with Message set to the `#[payload]` value.
+
+Right-click the project name in the Package Explorer window and click *Run As* > *Mule Application*.
+
+Ensure that the Console messages end with the "DEPLOYED" value.
+
+Go back to Postman and publish a new message.
+
+[[browsersetup]]
+=== To Set Up a Browser for API Access
+
+Browse to this address: +0.0.0.0:8081+.
+The browser displays the message sent by Postman, which the Anypoint MQ connector received, and the HTTP connector sent to the browser.
+
+[[mqadminapi]]
+== About the Anypoint MQ Admin API
+
+https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Admin API] - Create and manage applications, queues, and message exchanges.
+
+In the Admin API portal, click Download to download the RAML or the API as a Mule Plugin.
+
+image::mq-rest-admin-portal.png[]
+
+== To Create a FIFO Queue in the Admin API Portal
+
+You can create a FIFO queue from the Admin API portal by including the new `"fifo": true` field.
+
+*Note:* The organization from which you use the Administration portal must have an Anypoint MQ FIFO entitlement.  See link:/anypoint-mq/ for the regions MQ is available in.
+
+If needed, see <<getoeb,Get an Organization ID, Environment ID, and Bearer Token>>.
+
+For the following path using the `PUT` operation:
+
+[listing]
+/organizations/{organizationId}/environments/{environmentId}/regions/{regionId}/destinations/queues/{queueId}
+
+Use this body:
+
+[source,json,linenums]
+----
+{
+  "defaultTtl" : 120000,
+  "defaultLockTtl" : 10000,
+  "encrypted" : false,
+  "fifo" : true
+}
+----
+
+[[mqbrokerapi]]
+== About the Anypoint MQ Broker Portal
+
+https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Broker API] - Publish, consume, ack, and nack messages between queues and message exchanges.
+
+In the Broker API portal, click Download to download the RAML or the API as a Mule Plugin.
+
+image::mq-rest-broker-portal.png[]
+
+[[mqstatapi]]
+== About the Anypoint the MQ Stats Portal
+
+https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Stats API] - Perform statistical analysis of queue performance.
+
+In the Stats API portal, click Download to download the RAML or the API as a Mule Plugin.
+
+image::mq-rest-stats-portal.png[]
+
+[[exstatapi]]
+== Example: MQ Stats API Use
+
+These statistics are provided:
+
+* messagesVisible - The number of messages that can be retrieved from a queue.
+* messagesSent - The number of messages added to a queue.
+* messagesReceived - The number of messages received in a queue.
+* messagesAcked - The number of messages ACKed. Also includes any messages deleted using the Anypoint Platform > MQ
+user interface.
+
+Example request to list statistics for July 26 to July 28, 2018:
+
+[source,json,linenums]
+----
+curl -X GET \
+'https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORGANIZATION_ID/environments/ENV_ID/regions/us-east-1/queues/randomQueue/?startDate=Thu%2C%2026%20Jul%202018%2000%3A00%3A00%20GMT&endDate=Sat%2C%2028%20Jul%202018%2020%3A00%3A00%20GMT&period=600' \
+  -H 'authorization: Bearer BEARER_TOKEN' \
+  -H 'cache-control: no-cache' \
+  -H 'postman-token: ACCESS_TOKEN'
+----
+
+<<getoeb,Get the missing information in the placeholders>>.
+
+Example response:
+
+[source,json,linenums]
+----
+{
+  "destination": "myDestination",
+  "messages": [
+    {
+      "date": "2018-07-26T00:00:00.000+0000",
+      "value": 2126
+    },
+    {
+      "date": "2018-07-27T00:00:00.000+0000",
+      "value": 2126
+    },
+    {
+      "date": "2018-07-28T00:00:00.000+0000",
+      "value": 587
+    }
+  ],
+  "inflightMessages": [
+    {
+      "date": "2018-07-26T00:00:00.000+0000",
+      "value": 0
+    },
+    {
+      "date": "2018-07-27T00:00:00.000+0000",
+      "value": 0
+    },
+    {
+      "date": "2018-07-28T00:00:00.000+0000",
+      "value": 0
+    }
+  ],
+  "messagesVisible": [
+    {
+      "date": "2018-07-26T00:00:00.000+0000",
+      "value": 2126
+    },
+    {
+      "date": "2018-07-27T00:00:00.000+0000",
+      "value": 2126
+    },
+    {
+      "date": "2018-07-28T00:00:00.000+0000",
+      "value": 587
+    }
+  ],
+  "messagesSent": [
+    {
+      "date": "2018-07-26T00:00:00.000+0000",
+      "value": 0
+    },
+    {
+      "date": "2018-07-27T00:00:00.000+0000",
+      "value": 0
+    },
+    {
+      "date": "2018-07-28T00:00:00.000+0000",
+      "value": 0
+    }
+  ],
+  "messagesReceived": [
+    {
+      "date": "2018-07-26T00:00:00.000+0000",
+      "value": 0
+    },
+    {
+      "date": "2018-07-27T00:00:00.000+0000",
+      "value": 0
+    },
+    {
+      "date": "2018-07-28T00:00:00.000+0000",
+      "value": 0
+    }
+  ],
+  "messagesAcked": [
+    {
+      "date": "2018-07-26T00:00:00.000+0000",
+      "value": 0
+    },
+    {
+      "date": "2018-07-27T00:00:00.000+0000",
+      "value": 0
+    },
+    {
+      "date": "2018-07-28T00:00:00.000+0000",
+      "value": 0
+    }
+  ]
+}
+----
+
+== Example: Create Queues and Exchanges
+
+To create queues and exchanges programatically, you can use
+a language such as groovy.
+
+The following example consists of the `cloudhub.properties` file where
+you list the queues and exchanges to create, and a script file that
+references the properties file.
+
+=== About Dates
+
+Anypoint MQ lets you specify start and end dates for the Stats API in standard ISO 8601 format.
+
+For example: `2018-03-01T13:00:00Z`
+
+=== To Invoke a Command
+
+After modifying the <<groovyprops,properties file>> for access
+to your Anypoint Platform account, use this command to start the
+<<groovyscript,script file>>:
+
+`groovy <program_name>.groovy`
+
+[[groovyprops]]
+=== About the Properties File
+
+The following example properties file defines the access credentials,
+<<getoeb,organization and environment IDs>>, region ID,
+and the names of the queues and exchanges to create:
+
+[source,text,linenums]
+----
+username="<anypoint_platform_username>"
+password="<anypoint_platform_password>"
+organizationID="<organization_ID>"
+environmentID {
+    development="<development_environment_ID>"
+    qa="<qa_environment_ID>"
+    staging="<staging_environment_ID>"
+    production="<production_environment_ID>"
+}
+regionID="us-east-1"
+
+queues=[
+    "Queue1",
+    "Queue2",
+    "QueueN",
+]
+
+exchanges=[
+    "Exchange1",
+    "Exchange2",
+    "ExchangeN"
+]
+----
+
+See the xref:index.adoc[Anypoint MQ starting page] for the regions MQ and FIFO are available in.
+
+[[groovyscript]]
+=== About the Script File
+
+The following example script creates the queues and exchanges listed
+in the <<groovyprops,properties file>>.
+
+[source,java,linenums]
+----
+package guru.oso.mule
+
+@Grab(group = 'org.apache.httpcomponents', module = 'httpclient', version = '4.5.3')
+
+import groovy.json.JsonBuilder
+import groovy.json.JsonSlurper
+import org.apache.http.client.methods.HttpGet
+import org.apache.http.client.methods.HttpPost
+import org.apache.http.client.methods.HttpPut
+import org.apache.http.entity.StringEntity
+import org.apache.http.impl.client.HttpClientBuilder
+
+class AnypointMQAdminClient {
+
+  static String HOST = "https://anypoint.mulesoft.com"
+
+    static void main(String[] args) {
+
+        def props
+
+        if (args) {
+            props = new ConfigSlurper().parse(new File(args[0]).toURI().toURL())
+        } else {
+            props = new ConfigSlurper().parse(new File("cloudhub.properties").toURI().toURL())
+        }
+
+        def envID = props.environmentID.production
+
+        def token = authenticate(props.username, props.password)
+
+        retrieveDestinations(props, token, envID)
+
+//        def creator = new AnypointMQCreator()
+//        creator.createQueues(props, token, envID)
+//        creator.createExchanges(props, token, envID)
+
+    }
+
+    static authenticate(String username, String password) {
+
+      // build JSON
+        def map = [:]
+        map["username"] = username
+        map["password"] = password
+        def jsonBody = new JsonBuilder(map).toString()
+
+        // build HTTP POST
+        def url = HOST + '/accounts/login'
+        def post = new HttpPost(url)
+
+        post.addHeader("Content-Type", "application/json")
+        post.setEntity(new StringEntity(jsonBody))
+
+        // execute
+        def client = HttpClientBuilder.create().build()
+        def response = client.execute(post)
+
+        // read and print response
+        def bufferedReader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()))
+        def jsonResponse = bufferedReader.getText()
+        println "response: \n" + jsonResponse
+
+        // parse and return token
+        def slurper = new JsonSlurper()
+        def resultMap = slurper.parseText(jsonResponse)
+
+        return resultMap["access_token"]
+
+    }
+
+    static retrieveDestinations(ConfigObject props, String token, String envID) {
+
+        def orgID = props.organizationID
+        def regionID = props.regionID
+
+        // build HTTP GET
+        def getDestinationsURL = HOST + '/mq/admin/api/v1/organizations/' + orgID + '/environments/' + envID + '/regions/' + regionID + '/destinations'
+        def getDestinations = new HttpGet(getDestinationsURL)
+
+        // set token
+        getDestinations.setHeader("Authorization", "Bearer " + token)
+
+        // execute
+        def client = HttpClientBuilder.create().build()
+        def response = client.execute(getDestinations)
+
+        // parse and print results
+        def bufferedReader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()))
+        def jsonResponse = bufferedReader.getText()
+        println "response: \n" + jsonResponse
+
+    }
+
+    static retrieveQueue(ConfigObject props, String token, String envID, String queueID) {
+
+        def orgID = props.organizationID
+        def regionID = props.regionID
+
+        // build HTTP GET
+        def getQueueURL = HOST + '/mq/admin/api/v1/organizations/' + orgID + '/environments/' + envID + '/regions/' + regionID + '/destinations/queues/' + queueID
+        def getQueue = new HttpGet(getQueueURL)
+
+        // set token
+        getQueue.addHeader("Authorization", "Bearer " + token)
+
+        // execute
+        def client = HttpClientBuilder.create().build()
+        def response = client.execute(getQueue)
+
+        // parse and print results
+        def bufferedReader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()))
+        def jsonResponse = bufferedReader.getText()
+        println "response: \n" + jsonResponse
+
+    }
+
+    static createQueues(ConfigObject props, String token, String envID) {
+
+        def orgID = props.organizationID
+        def regionID = props.regionID
+
+        def queues = props.queues
+
+        queues.each { queueID ->
+
+            def putQueueURL = HOST + '/mq/admin/api/v1/organizations/' + orgID + '/environments/' + envID + '/regions/' + regionID + '/destinations/queues/' + queueID
+            def putQueue = new HttpPut(putQueueURL)
+
+            putQueue.addHeader("Content-Type", "application/json")
+            putQueue.addHeader("Authorization", "Bearer " + token)
+
+            def queueMap = [:]
+            queueMap["defaultTtl"] = 604800000
+            queueMap["defaultLockTtl"] = 120000
+            queueMap["encrypted"] = false
+            queueMap["fifo"] = false
+
+            def putQueueJSONBody = new JsonBuilder(queueMap).toString()
+            putQueue.setEntity(new StringEntity(putQueueJSONBody))
+
+            def client = HttpClientBuilder.create().build()
+            def response = client.execute(putQueue)
+
+            def bufferedReader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()))
+            def jsonResponse = bufferedReader.getText()
+            println "response: \n" + jsonResponse
+
+        }
+
+    }
+
+    static createExchanges(ConfigObject props, String token, String envID) {
+
+        def orgID = props.organizationID
+        def regionID = props.regionID
+
+        def exchanges = props.exchanges
+
+        exchanges.each { exchangeID ->
+
+            def putExchangeURL = HOST + '/mq/admin/api/v1/organizations/' + orgID + '/environments/' + envID + '/regions/' + regionID + '/destinations/exchanges/' + exchangeID
+            def putExchange = new HttpPut(putExchangeURL)
+
+            putExchange.addHeader("Content-Type", "application/json")
+            putExchange.addHeader("Authorization", "Bearer " + token)
+
+            def exchangeMap = [:]
+            exchangeMap["encrypted"] = false
+
+            def putExchangeJSONBody = new JsonBuilder(exchangeMap).toString()
+            putExchange.setEntity(new StringEntity(putExchangeJSONBody))
+
+            def client = HttpClientBuilder.create().build()
+            def response = client.execute(putExchange)
+
+            def bufferedReader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()))
+            def jsonResponse = bufferedReader.getText()
+            println "response: \n" + jsonResponse
+
+        }
+
+    }
+
+}
+----
+
+== See Also
+
+* xref:index.adoc[Anypoint MQ]

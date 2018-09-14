@@ -1,0 +1,38 @@
+= To Configure a Client Application
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: mq, client, application, app
+
+An Anypoint MQ client application lets you register an application in MQ. When registered, MQ lists
+the application's client ID and client secret which you need to configure the Anypoint MQ Connector in Anypoint Studio.
+
+*Note:* An application does not have to exist to register it.
+
+To register an application:
+
+. In Anypoint Platform, click *MQ*.
+. Click *Client Apps* from the left nav bar:
++
+image::mq-client-apps-in-nav.png[width="177"]
++
+. Click the blue plus circle:
++
+image::mq-blue-plus-circle.png[Create client app circle button about two-thirds to the right below the task bar]
++
+. Specify the name of the client application.
++
+image::mq-create-client-app-window.png[]
++
+. Click *Save Changes*.
+. Click the client app entry to view the client ID and secret values:
++
+image::mq-client-apps-detail2.png[]
++
+. Click the Copy button for the ID or secret to copy the value to your computer's clipboard.
+
+*Note*: If using the Chrome browser and the Copy buttons don't function, click *Settings* > *Show advanced settings* > *Privacy* > *Content settings* > *Plugins* > *Detect and run important plugin content*.
+
+== See Also
+
+* xref:index.adoc[Anypoint MQ]
