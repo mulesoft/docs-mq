@@ -1,5 +1,6 @@
 .xref:index.adoc[Anypoint MQ]
-* xref:mq-understanding.adoc[About Anypoint MQ]
+* xref:index.adoc[About Anypoint MQ]
+* xref:mq-understanding.adoc[Understanding Anypoint MQ]
 * xref:mq-tutorial.adoc[Tutorial: To Use Anypoint MQ]
 * xref:mq-access-management.adoc[To set Environment, User, and Role Access]
 * xref:mq-queues.adoc[To Configure Queues]

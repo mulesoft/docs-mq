@@ -1,4 +1,4 @@
-= About Anypoint MQ
+= Understanding Anypoint MQ
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
