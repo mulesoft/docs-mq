@@ -1,5 +1,5 @@
 name: mq
 title: MQ
-version: 'latest'
+version: master
 nav:
 - modules/ROOT/nav.adoc
