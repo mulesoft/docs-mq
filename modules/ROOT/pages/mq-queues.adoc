@@ -1,4 +1,4 @@
-= To Configure Queues
+= Configuring Queues
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -19,7 +19,7 @@ Organization administrators or owners can view the current and past months usage
 
 If you or another person in your organization has not created an environment, user access, and roles for accessing Anypoint MQ, see xref:mq-access-management.adoc[Anypoint MQ Access Management] before starting this guide.
 
-== To Create a Queue
+== Creating a Queue
 
 A queue is a temporary storage area for a message. You can use the MQ feature in Anypoint Platform to create a queue, and send and receive messages to a queue. You can also send and receive messages to a queue using Anypoint Studio.
 
@@ -76,7 +76,7 @@ Message content (called a payload) can be text, JSON, or CSV (comma-separated va
 *Note:* If you need to delete a queue, see xref:mq-faq.adoc#how-do-i-delete-a-queue[How do I delete a queue?]
 
 [[fifoqueues]]
-== About FIFO Queues
+== FIFO Queues
 
 For applications where the order of messages needs to be strictly preserved and enforced, Anypoint MQ provides first in, first out (FIFO) processing to enable ordering of messages. With FIFO, Anypoint MQ ensures that the order in which messages are placed in a queue is the same order in which messages can be retrieved.
 
@@ -86,7 +86,7 @@ Topics:
 * <<FIFO-Related Documentation>>
 * <<About FIFO Exactly Once Delivery>>
 
-=== FIFO Notes
+=== FIFO Queue Notes
 
 * A FIFO queue cannot be bound to a message exchange.
 * Encrypting a FIFO queue does not affect the order or the contents of messages consumed.
@@ -106,11 +106,11 @@ Other FIFO-related information in the Anypoint MQ documentation set:
 * xref:mq-apis.adoc#create-a-fifo-queue-from-the-administration-portal[Create a FIFO Queue From the Administration Portal] - How to create a FIFO queue using the Anypoint MQ REST API.
 * xref:release-notes::mq/mq-release-notes.adoc#version-1-5-0-january-28-2017[Release Notes] reference.
 
-=== About FIFO Exactly Once Delivery
+=== FIFO Exactly Once Delivery
 
 For applications such as those used in transactional use cases where messages need to be processed exactly once, Anypoint MQ supports exactly once delivery of messages when messages are published to FIFO queues. FIFO queues supports deduplication of messages. For example, if you retry sending a message with the same message ID within the 5-minute deduplication interval to a FIFO queue, Anypoint MQ guarantees the messages with the same message ID are retrieved and processed exactly once by the subscriber. When building applications requiring this feature on Anypoint Studio, you can set the message ID in publisher settings inside Anypoint MQ connector. If a message ID is not explicitly set, MQ auto generates a unique message ID for each message that's sent to a queue.
 
-== About Dead Letter Queues
+== Dead Letter Queues
 
 Anypoint MQ provides dead letter queue (DLQ) support. This ensures that messages that cannot be successfully delivered are sent for backup to a queue known as the dead letter queue. The dead letter queue enables the ability to sideline and isolate the unsuccessfully processed messages. Users can then analyze the messages sent to the DLQ and determine why those messages were not successfully processed. A DLQ is practically the same as any other queue--it's just a queue that receives undelivered messages. Also a queue can't be a DLQ of itself - you need at least two queues for one to be a DLQ.
 
@@ -127,7 +127,7 @@ See also <<fifoqueues,About FIFO Queues>>.
 * If a queue has a dead letter queue enabled, then viewing the source queue's messages in the Anypoint MQ Message Browser counts against the number of maximum deliveries. This is because viewing a message and returning it to the queue counts as a nack, and therefore is an unsuccessful delivery attempt. Deleting the message in the browser rather than returning it to the queue prevents the message from being counted against the maximum deliveries, but then of course, the message is gone.
 
 
-=== To Assign a DLQ to a Queue
+=== Assigning a DLQ to a Queue
 
 When you create a queue, if you check Assign a Dead Letter Queue, the following
 additional fields appear:
@@ -141,11 +141,11 @@ The following flowchart shows the logic for how messages are sent to a DLQ:
 
 image::mq-dlq-flowchart.png[]
 
-=== To Recover Messages from a DLQ
+=== Recovering Messages from a DLQ
 
 If you need to recover messages from the DLQ, use the REST API to get the message from the queue, and write the message to a new queue. For more information, see xref:mq-apis.adoc#mqadminapi[MQ Administration REST API].
 
-==== To Determine Which Queues are DLQs
+==== Determining Which Queues are DLQs
 
 You can view  details of each queue to see whether it has any dead letter *sources* (that is, whether any other queues are using this queue as a DLQ).
 
@@ -168,7 +168,7 @@ For example:
 }
 ----
 
-== To Send a Message to a Queue
+== Sending a Message to a Queue
 
 *Note:* The maximum message size if 10 MB.
 
@@ -193,7 +193,7 @@ image::mq-msg-sender-text-payload2.png[]
 +
 . Click *Send*.
 
-== To Verify the Message in a Queue
+== Verifying the Message in a Queue
 
 To verify that the message arrived in the queue, either return to the Destinations screen to observe the number of messages in the queue, or you can assume the message is in the queue, and you can <<To Get a Message From a Queue>>.
 
@@ -208,7 +208,7 @@ the queue:
 +
 image::mq-msgs-in-queue2.png[]
 
-=== To Get a Message From a Queue
+=== Getting a Message From a Queue
 
 To get a message from a queue:
 
@@ -255,7 +255,7 @@ Organization administrators or owners can view the current and past months usage
 
 In the next section, you can try alternate ways of formatting messages.
 
-== To Send a CSV or JSON Message
+== Sending a CSV or JSON Message
 
 To send a JSON message:
 
@@ -290,7 +290,7 @@ To send a CSV message:
 +
 . Click *Message Browser* and the message ID to view the message.
 
-== To Purge Messages from a Queue
+== Purging Messages from a Queue
 
 After expanding a queue's details, you can purge all the messages in the queue
 by clicking the Purge Messages icon:
@@ -305,5 +305,5 @@ image::mqfifo-purge-messages.png[]
 
 == See Also
 
-* xref:index.adoc[Anypoint MQ].
-* xref:mq-exchanges.adoc[To Configure Message Exchanges].
+* xref:index.adoc[Anypoint MQ]
+* xref:mq-exchanges.adoc[Configuring Message Exchanges]

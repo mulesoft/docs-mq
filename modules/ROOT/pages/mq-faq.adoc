@@ -264,5 +264,5 @@ image::mq-delete-exchange.png[]
 
 * xref:index.adoc[Anypoint MQ]
 * https://support.mulesoft.com[Contact MuleSoft Support]
-* xref:3.8@mule-runtime::amqp-connector.adoc[MuleSoft Active MQ]
+* xref:3.9@mule-runtime::amqp-connector.adoc[MuleSoft Active MQ]
 * https://www.rabbitmq.com/[Rabbit MQ]
