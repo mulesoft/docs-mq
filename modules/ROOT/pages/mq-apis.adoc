@@ -21,8 +21,7 @@ Using xref:access-management::audit-logging.adoc#to-configure-anypoint-mq-audit-
 you can easily view the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ.
 
 However, getting the access (bearer) token requires using either a command like curl or an application like Postman. The example that follows uses curl.
-If you are a Windows user, you need to link:https://curl.haxx.se/download.html[download a curl
-command] before accessing the information.
+If you are a Windows user, you need to https://curl.haxx.se/download.html[download a curl command] before accessing the information.
 
 *Note:* The access token has a default time to live of 1 hour. This is the same TTL that users get when they log into the Anypoint Platform. The TTL is set in the Access Management screen for an organization in the Default Session Timeout value.
 
@@ -182,7 +181,7 @@ image::mq-rest-admin-portal.png[]
 
 You can create a FIFO queue from the Admin API portal by including the new `"fifo": true` field.
 
-*Note:* The organization from which you use the Administration portal must have an Anypoint MQ FIFO entitlement.  See link:/anypoint-mq/ for the regions MQ is available in.
+*Note:* The organization from which you use the Administration portal must have an Anypoint MQ FIFO entitlement. See xref:index.adoc[Anypoint MQ] for the regions MQ is available in.
 
 If needed, see <<getoeb,Get an Organization ID, Environment ID, and Bearer Token>>.
 
