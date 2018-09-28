@@ -1,4 +1,4 @@
-= To Use the Anypoint MQ REST APIs
+= Using MQ REST APIs
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -15,7 +15,7 @@ Anypoint MQ provides these APIs:
 Anypoint MQ portals are available in the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/[Developer portal].
 
 [[getoeb]]
-== To Get an Organization ID, Environment ID, and Access Token
+== Getting an Organization ID, Environment ID, and Access Token
 
 Using xref:access-management::audit-logging.adoc#to-configure-anypoint-mq-audit-logging[MQ Audit Logging],
 you can easily view the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ.
@@ -46,7 +46,7 @@ This returns output similar to:
 {"access_token":"<token>","simple_client":{"envId":"<env_ID>","orgId":"<org-ID>"},"token_type":"bearer"}
 ----
 
-== About the Workflow for an API
+== Workflow for an API
 
 The following example with the Broker API illustrates the workflow for accessing an API:
 
@@ -59,12 +59,12 @@ Steps:
 . The application acknowledges the message and requests Anypoint MQ to delete the message, or the application negatively acknowledges the message and requests Anypoint MQ to make the message available to other applications. The application sends the message ID and lock ID to Anypoint MQ. For additional information on setting automatic ack or nack, see the xref:mq-ack-mode.adoc[Acknowledgement Mode] guide.
 . If no action is taken and the duration of a lock's time to live expires, the message is negatively acknowledged and returns to the queue to be available for other applications.
 
-== About API Access Examples
+== API Access Examples
 
 The following examples let you test Anypoint MQ from either the <<excoliuscu,command line using curl>>, or from a <<expostbro,combination of Postman, Anypoint Studio, and a browser>>.
 
 [[excoliuscu]]
-=== About Example: Command Line Using Curl
+=== Example: Command Line Using Curl
 
 The examples in this section use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[MQ Broker API] to publish and consume messages. You need to substitute the placeholder string, `42544254-4254-4254-4254-425442544254` for the proper values for authorization and token strings. These examples use Postman to access the queue.
 
@@ -100,7 +100,7 @@ curl -X GET -H "Authorization: bearer 42544254-4254-4254-4254-425442544254" \
 See the xref:index.adoc[Anypoint MQ starting page] for the regions MQ and FIFO are available in.
 
 [[expostbro]]
-=== About Example: Postman, Studio, and Browser
+=== Example: Postman, Studio, and Browser
 
 This example lets you access the Anypoint MQ APIs from these products:
 
@@ -109,7 +109,7 @@ This example lets you access the Anypoint MQ APIs from these products:
 * <<browsersetup,A Browser>>
 
 [[postsetup]]
-==== To Set Up Postman
+==== Setting Up Postman
 
 The https://www.getpostman.com/[Postman] application provides a platform for accessing the Anypoint MQ APIs.
 After downloading and installing Postman, supply this information to create an environment:
@@ -145,7 +145,7 @@ For example, this information is returned from the consume (GET) command:
 After you have the lock ID, you can add it to your Postman environment to facilitate future requests.
 
 [[studiosetup]]
-=== To Set Up Anypoint Studio for API Access
+=== Setting Studio for API Access
 
 Anypoint Studio lets you create a Mule application that uses the Anypoint MQ connector.
 The steps in this section are summarized.
@@ -163,13 +163,13 @@ Ensure that the Console messages end with the "DEPLOYED" value.
 Go back to Postman and publish a new message.
 
 [[browsersetup]]
-=== To Set Up a Browser for API Access
+=== Setting Browser API Access
 
 Browse to this address: +0.0.0.0:8081+.
 The browser displays the message sent by Postman, which the Anypoint MQ connector received, and the HTTP connector sent to the browser.
 
 [[mqadminapi]]
-== About the Anypoint MQ Admin API
+== Using the Admin API
 
 https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Admin API] - Create and manage applications, queues, and message exchanges.
 
@@ -177,13 +177,13 @@ In the Admin API portal, click Download to download the RAML or the API as a Mul
 
 image::mq-rest-admin-portal.png[]
 
-== To Create a FIFO Queue in the Admin API Portal
+== Creating a FIFO Queue in the Admin API Portal
 
 You can create a FIFO queue from the Admin API portal by including the new `"fifo": true` field.
 
 *Note:* The organization from which you use the Administration portal must have an Anypoint MQ FIFO entitlement. See xref:index.adoc[Anypoint MQ] for the regions MQ is available in.
 
-If needed, see <<getoeb,Get an Organization ID, Environment ID, and Bearer Token>>.
+If needed, see <<getoeb,Getting an Organization ID, Environment ID, and Bearer Token>>.
 
 For the following path using the `PUT` operation:
 
@@ -203,7 +203,7 @@ Use this body:
 ----
 
 [[mqbrokerapi]]
-== About the Anypoint MQ Broker Portal
+== Using the Broker Portal
 
 https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Broker API] - Publish, consume, ack, and nack messages between queues and message exchanges.
 
@@ -212,7 +212,7 @@ In the Broker API portal, click Download to download the RAML or the API as a Mu
 image::mq-rest-broker-portal.png[]
 
 [[mqstatapi]]
-== About the Anypoint the MQ Stats Portal
+== Using the MQ Stats Portal
 
 https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Stats API] - Perform statistical analysis of queue performance.
 
@@ -346,13 +346,13 @@ The following example consists of the `cloudhub.properties` file where
 you list the queues and exchanges to create, and a script file that
 references the properties file.
 
-=== About Dates
+=== Dates
 
 Anypoint MQ lets you specify start and end dates for the Stats API in standard ISO 8601 format.
 
 For example: `2018-03-01T13:00:00Z`
 
-=== To Invoke a Command
+=== Invoking a Command
 
 After modifying the <<groovyprops,properties file>> for access
 to your Anypoint Platform account, use this command to start the
@@ -361,7 +361,7 @@ to your Anypoint Platform account, use this command to start the
 `groovy <program_name>.groovy`
 
 [[groovyprops]]
-=== About the Properties File
+=== Configuring a Properties File
 
 The following example properties file defines the access credentials,
 <<getoeb,organization and environment IDs>>, region ID,
@@ -396,7 +396,7 @@ exchanges=[
 See the xref:index.adoc[Anypoint MQ starting page] for the regions MQ and FIFO are available in.
 
 [[groovyscript]]
-=== About the Script File
+=== Creating a Script File
 
 The following example script creates the queues and exchanges listed
 in the <<groovyprops,properties file>>.
@@ -434,10 +434,6 @@ class AnypointMQAdminClient {
         def token = authenticate(props.username, props.password)
 
         retrieveDestinations(props, token, envID)
-
-//        def creator = new AnypointMQCreator()
-//        creator.createQueues(props, token, envID)
-//        creator.createExchanges(props, token, envID)
 
     }
 

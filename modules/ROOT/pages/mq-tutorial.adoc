@@ -1,4 +1,4 @@
-= Tutorial: To Use Anypoint MQ
+= Tutorial: Using Anypoint MQ
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -12,14 +12,14 @@ Anypoint MQ also provides a connector that works with Anypoint Studio.
 
 == Prerequisites
 
-. Read xref:mq-understanding.adoc[About Anypoint MQ].
+. Read xref:mq-understanding.adoc[Understanding MQ].
 . Create an Anypoint Platform account to configure an environment, user permissions, register applications in MQ, and to create queues and message exchanges. You can access Anypoint MQ in the Anypoint Platform and the left navigation bar.
 . An Enterprise license is required to use MQ. Contact the MuleSoft Sales team to get a free trial.
 . Download and install Anypoint Studio.
 
 Queue and message exchange names can contain alphanumeric characters (a-z, A-Z, 0-9), dots (.), and dashes (-). All other characters are not allowed. Queue and message exchange names are limited to 127 characters in length.
 
-== To Create a Queue
+== Creating a Queue
 
 A queue provides a temporary area for holding messages. Applications
 push messages to the queue, and other applications consume
@@ -43,7 +43,7 @@ image::mq-create-q-screen-dlq.png[]
 Default TTL (time-to-live) and Default Lock TTL values. A message lock makes a message unavailable to other applications while locked. A locked message does not block other messages to be read.
 . If you want your queue encrypted,
 slide the encryption slider to the right.
-. If your organization previously created a dead letter queue where undeliverable messages go, click *Assign a Dead Letter Queue* to enable this option. For more information on dead letter queues, see xref:mq-queues.adoc#create-a-queue[To Create a Queue].
+. If your organization previously created a dead letter queue where undeliverable messages go, click *Assign a Dead Letter Queue* to enable this option. For more information on dead letter queues, see xref:mq-queues.adoc#create-a-queue[Creating a Queue].
 . When done, click *Save Changes*:
 +
 The queue creates and you are returned to the *Destinations* screen.
@@ -53,9 +53,9 @@ what you see next:
 
 image::mq-entryui.png[]
 
-*Note:* If you need to delete a queue, see xref:mq-faq.adoc#how-do-i-delete-a-queue[How do I delete a queue?] in the xref:mq-faq.adoc[Anypoint MQ FAQ].
+*Note:* If you need to delete a queue, see xref:mq-faq.adoc#how-do-i-delete-a-queue[How do I delete a queue?] in the xref:mq-faq.adoc[MQ FAQ].
 
-== To Send a Message to a Queue
+== Sending a Message to a Queue
 
 . Log into Anypoint Platform and click MQ.
 . Click Destinations.
@@ -75,14 +75,14 @@ image::mq-msg-sender-text-payload2.png[]
 +
 . Click *Send*.
 
-== To Verify the Message in a Queue
+== Verifying the Message in a Queue
 
 . Click Destinations.
 . Click the right side of the queue entry to view details and see the number of messages in the queue:
 +
 image::mq-num-queued-msgs.png[]
 
-== To Get a Message From a Queue
+== Getting a Message From a Queue
 
 . Follow the directions in <<To Send a Message to a Queue>> and
 advance to Step 6, except click *Message Browser*:
@@ -106,14 +106,14 @@ before Anypoint MQ deletes it.
 +
 image::mq-click-retmsgs2.png[]
 +
-Alternatively, you can delete the message by clicking the trash can icon. Anypoint MQ provides three modes for how messages delete after they are viewed. For more information, see xref:mq-ack-mode.adoc[Anypoint MQ Acknowledgement Mode].
+Alternatively, you can delete the message by clicking the trash can icon. Anypoint MQ provides three modes for how messages delete after they are viewed. For more information, see xref:mq-ack-mode.adoc[Acknowledging Messages].
 +
 image::mq-message-delete-trash-can-icon2.png[]
 
 Now you are able to send and receive messages in Anypoint MQ. In the next section, you can try
 alternate ways of formatting messages.
 
-== To Send a CSV or JSON Message
+== Sending a CSV or JSON Message
 
 . Click *Message Sender*.
 . Set the *Type* to *JSON*.
@@ -146,7 +146,7 @@ To send a CSV message:
 +
 . Click Message Browser and the message ID to view the message.
 
-== To Register a Client Application
+== Registering a Client Application
 
 . Log into Anypoint Platform and click MQ.
 . Click Client App:
@@ -162,16 +162,16 @@ image::mq-create-client-app-name.png[]
 paste the Client ID and Client Secret
 into the configuration for Anypoint Studio in <<To Create an Application>>.
 
-== To Configure Studio for the Anypoint MQ Connector Plugin
+== Configuring Studio for the Anypoint MQ Connector Plugin
 
 . In Anypoint Studio, click the Exchange icon in the Studio taskbar.
 . Click Login in Anypoint Exchange.
 . Search for the Anypoint MQ connector and click Install.
 . Follow the prompts to install the connector.
 
-See: xref:3.8@mule-runtime::anypoint-mq-connector.adoc[Anypoint MQ Connector]
+See: xref:3.9@mule-runtime::anypoint-mq-connector.adoc[Anypoint MQ Connector]
 
-== To Create an Application
+== Creating an Application
 
 . Create a new Mule Project. Click File > New > Mule Project. Name the project "mqdemo".
 . Search for "http" and drag the HTTP Connector to the Studio Canvas.
@@ -208,7 +208,7 @@ image::mq-client-id-and-secret-values.png[]
 +
 .. Copy the Anypoint Platform's *Client App* > *Client Secret* value to the Studio *Client Secret* field.
 +
-See: xref:3.8@mule-runtime::anypoint-mq-connector.adoc[Anypoint MQ Connector]
+See: xref:3.9@mule-runtime::anypoint-mq-connector.adoc[Anypoint MQ Connector]
 +
 .. Click *OK*.
 . Click the *Operation* field and specify the `publish` operation.
@@ -227,7 +227,7 @@ image::mq-logger-properties.png[]
 +
 . Save your project.
 
-== To Verify XML
+== Verifying XML
 
 After you configure your application using the MQ Connector, you can check your configuration against this XML.
 
@@ -235,10 +235,44 @@ Click Configuration XML in Studio and compare your XML to the following. If need
 
 [source,xml,linenums]
 ----
-include::{examplesdir}/mq-tutorial.xml[]
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:anypoint-mq="http://www.mulesoft.org/schema/mule/anypoint-mq" 
+xmlns:http="http://www.mulesoft.org/schema/mule/http" 
+xmlns="http://www.mulesoft.org/schema/mule/core" 
+xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core 
+http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http 
+http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/anypoint-mq 
+http://www.mulesoft.org/schema/mule/anypoint-mq/current/mule-anypoint-mq.xsd">
+    <http:listener-config name="HTTP_Listener_Configuration" 
+    host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/>
+    <anypoint-mq:config name="Anypoint_MQ_Configuration" 
+    doc:name="Anypoint MQ Configuration">
+        <anypoint-mq:provider 
+        url="https://mq-us-east-1.anypoint.mulesoft.com/api/v1" 
+        clientId="<client_ID_value>" clientSecret="<client_secret-value>"/>
+    </anypoint-mq:config>
+    <flow name="mqdemoFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" 
+        path="/mq/{messageId}" doc:name="HTTP"/>
+        <set-payload value="#[message.inboundProperties.'http.uri.params'.messageId]" 
+        doc:name="Set Payload"/>
+        <anypoint-mq:publish config-ref="Anypoint_MQ_Configuration" 
+        doc:name="Anypoint MQ" destination="MyDemoQueue"/>
+        <logger message="MQ Message = #[payload]" level="INFO" 
+        doc:name="Logger"/>
+    </flow>
+</mule>
 ----
 
-== To Run the Studio Application
+== Running the Studio Application
 
 In Anypoint Studio, click the project name in Package Explorer, and click Run > Run As > Mule Application.
 
@@ -267,7 +301,7 @@ INFO  <date_and_time> [main] org.mule.module.launcher.StartupSummaryDeploymentLi
 *******************************************************************************************
 ----
 
-== To Test Your Application
+== Testing Your Application
 
 Get a REST plugin for your browser so that you can send POST requests. Typical software:
 
@@ -288,7 +322,7 @@ To set up Postman for a REST POST:
 . Click *Send* to post the message. You can send more than one message if you prefer.
 . View the resulting reply from the Anypoint Studio web server.
 
-== To View Your Message in Anypoint MQ
+== Viewing Your Message
 
 . Log into Anypoint Platform and click MQ.
 . Click Destinations.
@@ -314,7 +348,7 @@ You can repeat this process by returning to your REST POST application and sendi
 In the next section, we build on your knowledge, first with an administrative task of creating user roles and then creating and testing message exchanges, which let you send one message to multiple queues.
 
 [[advancedmq]]
-== To Create a Message Exchange
+== Creating a Message Exchange
 
 A message exchange groups one or more queues so that a message sent to the message exchange goes to all bound queues.
 
@@ -329,7 +363,7 @@ A message exchange groups one or more queues so that a message sent to the messa
 
 To delete a message exchange, see xref:mq-faq.adoc#how-do-i-delete-an-exchange[How do I delete a Message Exchange?] in the xref:mq-faq.adoc[Anypoint MQ FAQ].
 
-== To Bind a Queue to a Message Exchange
+== Binding a Queue to a Message Exchange
 
 . Log into Anypoint Platform and click MQ.
 . Click Destinations.
@@ -344,7 +378,7 @@ image::mq-where-to-click-x2.png[]
 +
 image::mq-bind-queue-to-exchange2.png[]
 
-== To Send a Message to a Message Exchange
+== Sending a Message to a Message Exchange
 
 Sending a message to a message exchange is very similar to sending a message to a queue.
 The only difference is that you can get the message from any queue bound to a message exchange.

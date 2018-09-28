@@ -1,4 +1,4 @@
-= To Configure Message Exchanges
+= Configuring Message Exchanges
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -39,7 +39,7 @@ image::mq-exchange-details2.png[]
 
 *Note:* If you need to delete a message exchange, see xref:mq-faq.adoc#how-do-i-delete-a-message-exchange[How do I delete a message exchange?]
 
-== To Bind a Queue to a Message Exchange
+== Binding a Queue to a Message Exchange
 
 To bind a queue to a message exchange:
 
@@ -57,7 +57,7 @@ image::mq-where-to-click-x2.png[]
 image::mq-bind-queue-to-exchange2.png[]
 
 
-== To Send a Message to a Message Exchange
+== Sending a Message to a Message Exchange
 
 Sending a message to a message exchange is very similar to sending a message to a queue. The only difference is that you can get the message from any queue bound to a message exchange. The maximum message size sent to a message exchange is 10 MB.
 
