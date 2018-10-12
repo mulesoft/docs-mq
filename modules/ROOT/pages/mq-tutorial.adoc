@@ -10,6 +10,9 @@ https://anypoint.mulesoft.com/#/signin[Anypoint Platform] that
 lets you send messages to a queue or message exchange, and then read the messages from a queue.
 Anypoint MQ also provides a connector that works with Anypoint Studio.
 
+*Note:* The MQ connector description in this tutorial is for Studio 6 and Mule 3. However the MQ user interface descriptions
+work for both Mule 3 and Mule 4.
+
 == Prerequisites
 
 . Read xref:mq-understanding.adoc[Understanding MQ].
@@ -84,7 +87,7 @@ image::mq-num-queued-msgs.png[]
 
 == Getting a Message From a Queue
 
-. Follow the directions in <<To Send a Message to a Queue>> and
+. Follow the directions in <<Sending a Message to a Queue>> and
 advance to Step 6, except click *Message Browser*:
 +
 image::mq-click-msg-browser2.png[]
@@ -400,10 +403,10 @@ image::mq-exchange-msg-sender2.png[]
 image::mq-exchange-payload2.png[]
 
 You can now use the Message Browser to get the message from the MyDemoQueue as described
-in <<To Get a Message From a Queue>>.
+in <<Sending a Message to a Queue>>.
 
 You can also send comma-separated value (CSV) or JSON content in the payload by changing
-the message Type value. For more information, see <<To Send a CSV or JSON Message>>.
+the message Type value. For more information, see <<Sending a CSV or JSON Message>>.
 
 == See Also
 
