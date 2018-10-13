@@ -403,7 +403,7 @@ image::mq-exchange-msg-sender2.png[]
 image::mq-exchange-payload2.png[]
 
 You can now use the Message Browser to get the message from the MyDemoQueue as described
-in <<Sending a Message to a Queue>>.
+in <<Getting a Message From a Queue>>.
 
 You can also send comma-separated value (CSV) or JSON content in the payload by changing
 the message Type value. For more information, see <<Sending a CSV or JSON Message>>.
