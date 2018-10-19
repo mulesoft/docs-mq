@@ -92,7 +92,7 @@ Topics:
 * Encrypting a FIFO queue does not affect the order or the contents of messages consumed.
 * FIFO queues have a limit of 300 TPS; however, if you batch 10 messages per each read and write operation (maximum) using the API, FIFO queues can support up to 3,000 TPS.
 * FIFO permits up to 10 inflight messages per queue.
-* See the xref:mq::index.adoc[Anypoint MQ starting page] for the regions MQ and FIFO are available in.
+* See the https://docs.mulesoft.com/mq/[Anypoint MQ starting page] for the regions MQ and FIFO are available in.
 * Only a FIFO dead letter queue can be used as a DLQ for a FIFO queue.
 * When publishing to FIFO queues,
 if you specify a custom Message ID and the Message ID is the same on multiple messages, messages containing the same Message IDs are not redelivered.
@@ -305,5 +305,5 @@ image::mqfifo-purge-messages.png[]
 
 == See Also
 
-* xref:mq::index.adoc[Anypoint MQ]
+* https://docs.mulesoft.com/mq/[Anypoint MQ]
 * xref:mq-exchanges.adoc[Configure a Message Exchange]

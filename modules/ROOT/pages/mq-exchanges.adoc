@@ -88,4 +88,4 @@ the message *Type* value. For more information, see xref:mq-queues.adoc#to-send-
 
 == See Also
 
-* xref:mq::index.adoc[Anypoint MQ]
+* https://docs.mulesoft.com/mq/[Anypoint MQ]
