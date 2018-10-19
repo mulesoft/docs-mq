@@ -1,4 +1,4 @@
-= Configuring Message Exchanges
+= Configure a Message Exchange
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -13,7 +13,7 @@ A message exchange lets you send a message to one or more xref:mq-queues.adoc[qu
 * Message exchange names are limited to 127 characters in length.
 * The maximum size of a message sent to a message exchange is 10 MB.
 
-Before creating a message exchange, create one or more queues. For more information, see xref:mq-queues.adoc#to-create-a-queue[To Create a Queue].
+Before creating a message exchange, create one or more queues. For more information, see xref:mq-queues.adoc#to-create-a-queue[Create a Queue].
 
 To create a message exchange:
 
@@ -39,7 +39,7 @@ image::mq-exchange-details2.png[]
 
 *Note:* If you need to delete a message exchange, see xref:mq-faq.adoc#how-do-i-delete-a-message-exchange[How do I delete a message exchange?]
 
-== Binding a Queue to a Message Exchange
+== Bind a Queue to a Message Exchange
 
 To bind a queue to a message exchange:
 
@@ -57,7 +57,7 @@ image::mq-where-to-click-x2.png[]
 image::mq-bind-queue-to-exchange2.png[]
 
 
-== Sending a Message to a Message Exchange
+== Send a Message to a Message Exchange
 
 Sending a message to a message exchange is very similar to sending a message to a queue. The only difference is that you can get the message from any queue bound to a message exchange. The maximum message size sent to a message exchange is 10 MB.
 
@@ -81,11 +81,11 @@ image::mq-exchange-msg-sender2.png[]
 image::mq-exchange-payload2.png[]
 
 You can now use the Message Browser to get the message from the MyDemoQueue as described
-in xref:mq-queues.adoc#to-get-a-message-from-a-queue[To Get a Message From a Queue].
+in xref:mq-queues.adoc#to-get-a-message-from-a-queue[Get a Message From a Queue].
 
 You can also send comma-separated value (CSV) or JSON content in the payload by changing
-the message *Type* value. For more information, see xref:mq-queues.adoc#to-send-a-csv-or-json-message[To Send a CSV or JSON Message].
+the message *Type* value. For more information, see xref:mq-queues.adoc#to-send-a-csv-or-json-message[Send a CSV or JSON Message].
 
 == See Also
 
-* xref:index.adoc[Anypoint MQ]
+* xref:mq::index.adoc[Anypoint MQ]

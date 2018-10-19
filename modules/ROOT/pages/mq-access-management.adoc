@@ -1,4 +1,4 @@
-= Setting Environment, User, and Role Access
+= Set Environment, User, and Role Access
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -6,7 +6,7 @@ endif::[]
 
 Anypoint Platform lets you manage the xref:access-management::managing-permissions.adoc[roles] of those who administer the MQ features in Anypoint Platform for your organization.
 
-== Creating an Environment
+== Create an Environment
 
 Before you can give yourself MQ access permissions, you need an environment to associate permissions with.
 
@@ -20,7 +20,7 @@ image::mq-add-env.png[]
 +
 image::mq-create-env.png[]
 
-== Giving Users MQ Access Permissions
+== Give Users MQ Access Permissions
 
 First give yourself MQ access permissions and then give others in your organization access.
 
@@ -47,7 +47,7 @@ image::mq-perms-display.png[]
 +
 You can use this display to delete permissions if needed.
 
-== Creating an Admin Role
+== Create an Admin Role
 
 You can create a role that you can apply to other users in your organization.
 While you don't need roles to complete this tutorial, when you use MQ as an administrator or developer, you should create
@@ -77,7 +77,7 @@ The settings are:
 * View clients: Can view all the Client Apps and their Client App IDs and Client Secrets.
 
 
-=== Adding Additional Roles For MQ Access
+=== Add Additional Roles For MQ Access
 
 After you create an admin role, you can optionally create other roles for users in your organization who need Anypoint MQ access in Anypoint Platform.
 
@@ -112,7 +112,7 @@ You can also delete a role from the Roles list page by clicking the checkbox for
 +
 image::mq-delete-role.png[]
 
-== Switching Environments
+== Switch Environments
 
 . In MQ, click Production: image:mq-production-button.png[].
 . In Switch Environment, click the name of another environment,
@@ -121,4 +121,4 @@ such as Sandbox (if you previously created a Sandbox environment) and click Swit
 
 == See Also
 
-* xref:index.adoc[Anypoint MQ]
+* xref:mq::index.adoc[Anypoint MQ]

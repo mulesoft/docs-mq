@@ -1,4 +1,4 @@
-= Viewing Usage Graphs
+= View Usage Graphs
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -14,7 +14,7 @@ were received.
 * Up to 10 messages can be retrieved from a single API call, which only bills as one request.  Even if the request to retrieve messages does not return a message, like if the queue is empty, it still bills as a single API request.
 * Monthly billing usage information is delayed by 24 hours.
 
-== Accessing MQ Usage
+== Access MQ Usage
 
 To view MQ usage:
 
@@ -39,4 +39,4 @@ image::mq-message-unit-color.png[]
 
 == See Also
 
-* xref:index.adoc[Anypoint MQ]
+* xref:mq::index.adoc[Anypoint MQ]
