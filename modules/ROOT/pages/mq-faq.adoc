@@ -14,14 +14,14 @@ you can use the MuleSoft Active MQ or Rabbit MQ.
 [[regions]]
 == What regions is MQ available in?
 
-See the xref:mq::index.adoc[Anypoint MQ starting page] for the regions MQ and FIFO are available in.
+See the https://docs.mulesoft.com/mq/[Anypoint MQ starting page] for the regions MQ and FIFO are available in.
 
 == Why can't I see FIFO Queue in the menu to create a queue?
 
 If the blue create button doesn't list *FIFO Queue*:
 
 * Ensure you have an Anypoint MQ FIFO entitlement. Check with your MuleSoft representative.
-* Ensure that your region setting is correct -- see the xref:mq::index.adoc[Anypoint MQ starting page] for the regions FIFO is available in.
+* Ensure that your region setting is correct -- see the https://docs.mulesoft.com/mq/[Anypoint MQ starting page] for the regions FIFO is available in.
 
 == How do I create and send messages into MQ from Mule?
 
@@ -262,7 +262,7 @@ image::mq-delete-exchange.png[]
 
 == See Also
 
-* xref:mq::index.adoc[Anypoint MQ]
+* https://docs.mulesoft.com/mq/[Anypoint MQ]
 * https://support.mulesoft.com[Contact MuleSoft Support]
 * xref:3.9@mule-runtime::amqp-connector.adoc[MuleSoft Active MQ]
 * https://www.rabbitmq.com/[Rabbit MQ]

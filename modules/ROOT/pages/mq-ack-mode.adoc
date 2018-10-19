@@ -387,4 +387,4 @@ public class RandomError implements Callable {
 
 == See Also
 
-* xref:mq::index.adoc[Anypoint MQ]
+* https://docs.mulesoft.com/mq/[Anypoint MQ]
