@@ -6,17 +6,7 @@ endif::[]
 
 Anypoint MQ is a multi-tenant, cloud messaging service that enables customers to perform advanced asynchronous messaging scenarios between their applications. Anypoint MQ is fully integrated with Anypoint Platform, offering role based access control, client application management, and connectors.
 
-Anypoint MQ is available in:
-
-* North America: Northern Virginia (us-east-1), Oregon (us-west-2), and Central Canada (ca-central-1)
-* EU: Ireland (eu-west-1) and London (eu-west-2)
-* APAC: Singapore (ap-southeast-1) and Sydney (ap-southeast-2)
-* FIFO queues are available in Ireland (eu-west-1), Northern Virginia (us-east-1), and Oregon (us-west-2).
-
-*See:* xref:3.9@mule-runtime::anypoint-mq-connector.adoc[Mule 3 MQ Connector],
-xref:connectors::anypoint-mq/anypoint-mq-connector.adoc[Mule 4 MQ Connector],
-xref:mq-apis.adoc[REST APIs],
-xref:mq-faq.adoc[FAQ], and
+*See:* xref:mq-faq.adoc[MQ FAQ] and
 xref:release-notes::mq/anypoint-mq-release-notes.adoc[Release Notes].
 
 *Note:* Anypoint MQ does not support use with CloudHub Insight or Anypoint Monitoring.
@@ -65,7 +55,7 @@ In Anypoint Studio:
 
 Test:
 
-. Use a REST client such as Postman to send or receive a message.
+. Use a REST client such as curl or Postman to send or receive a message.
 +
 The Anypoint MQ application sends the string as a message to the queue or message exchange you specified.
 +
