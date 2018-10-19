@@ -40,7 +40,7 @@ To get API access information:
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "client_id=CLIENT_ID&client_secret=CLIENT_SECRET&grant_type=client_credentials" "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/authorize"
 ----
 +
-See the https://docs.mulesoft.com/mq/[Anypoint MQ starting page] for the regions that MQ and FIFO are available in.
+See the xref:mq-faq.adoc[MQ FAQ] for the regions that MQ and FIFO are available in.
 +
 . Submit the curl command.
 +
@@ -102,7 +102,7 @@ curl -X GET -H "Authorization: bearer 42544254-4254-4254-4254-425442544254" \
 "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/42544254-4254-4254-4254-425442544254/environments/42544254-4254-4254-4254-425442544254/destinations/postmanQueue/messages?pollingTime=10000&batchSize=1&lockTtl=10000"
 ----
 
-See the https://docs.mulesoft.com/mq/[Anypoint MQ starting page] for the regions MQ and FIFO are available in.
+See the xref:mq-faq.adoc[MQ FAQ] for the regions MQ and FIFO are available in.
 
 [[expostbro]]
 === Example: Postman, Studio, and Browser
@@ -186,7 +186,7 @@ image::mq-rest-admin-portal.png[]
 
 You can create a FIFO queue from the Admin API portal by including the new `"fifo": true` field.
 
-*Note:* The organization from which you use the Administration portal must have an Anypoint MQ FIFO entitlement. See https://docs.mulesoft.com/mq/[Anypoint MQ] for the regions MQ is available in.
+*Note:* The organization from which you use the Administration portal must have an Anypoint MQ FIFO entitlement. See xref:mq-faq.adoc[MQ FAQ] for the regions MQ is available in.
 
 If needed, see <<getoeb,Get an Organization ID, Environment ID, and Bearer Token>>.
 
@@ -398,7 +398,7 @@ exchanges=[
 ]
 ----
 
-See the https://docs.mulesoft.com/mq/[Anypoint MQ starting page] for the regions MQ and FIFO are available in.
+See the xref:mq-faq.adoc[MQ FAQ] for the regions MQ and FIFO are available in.
 
 [[groovyscript]]
 === Create a Script File
@@ -592,4 +592,4 @@ class AnypointMQAdminClient {
 
 == See Also
 
-* https://docs.mulesoft.com/mq/[Anypoint MQ]
+* xref:mq-faq.adoc[MQ FAQ]

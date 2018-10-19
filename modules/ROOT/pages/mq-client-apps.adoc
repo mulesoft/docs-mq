@@ -35,4 +35,4 @@ image::mq-client-apps-detail2.png[]
 
 == See Also
 
-* https://docs.mulesoft.com/mq/[Anypoint MQ]
+* xref:mq-faq.adoc[MQ FAQ]

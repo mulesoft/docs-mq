@@ -434,4 +434,4 @@ the message Type value. For more information, see <<Send a CSV or JSON Message>>
 
 == See Also
 
-* https://docs.mulesoft.com/mq/[Anypoint MQ]
+* xref:mq-faq.adoc[MQ FAQ]

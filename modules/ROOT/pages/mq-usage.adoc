@@ -18,7 +18,7 @@ were received.
 
 To view MQ usage:
 
-. Log into https://anypoint.mulesoft.com/#/signin[Anypoint Platform].
+. Log into Anypoint Platform.
 . Click *Access Management* from the left navigation bar or from the starting Anypoint Platform screen.
 +
 image::mq-access-mgmt-access.png[]
@@ -39,4 +39,4 @@ image::mq-message-unit-color.png[]
 
 == See Also
 
-* https://docs.mulesoft.com/mq/[Anypoint MQ]
+* xref:mq-faq.adoc[MQ FAQ]

@@ -10,7 +10,7 @@ Anypoint Platform lets you manage the xref:access-management::managing-permissio
 
 Before you can give yourself MQ access permissions, you need an environment to associate permissions with.
 
-. Log into https://anypoint.mulesoft.com/#/signin[Anypoint Platform].
+. Log into Anypoint Platform.
 . Click *Access Management* from the left navigation bar or click *Access Management* from the main Anypoint Platform screen.
 . Click *Environments* from the left Access Management choices, and click *Add environment*:
 +
@@ -121,4 +121,4 @@ such as Sandbox (if you previously created a Sandbox environment) and click Swit
 
 == See Also
 
-* https://docs.mulesoft.com/mq/[Anypoint MQ]
+* xref:mq-faq.adoc[MQ FAQ]
