@@ -38,7 +38,7 @@ image::mq-destinations-option.png[]
 . Click the blue plus icon image:mq-blue-plus-icon.png[]
 . In the drop-down, click *Queue*:
 +
-image::mq-create-choices.png[]
+// image::mq-create-choices.png[]
 +
 image::mq-create-q-screen-dlq.png[]
 +
