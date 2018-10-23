@@ -191,9 +191,9 @@ processing failed, you would use the Nack operation to negatively acknowledge th
 
 See: xref:3.9@mule-runtime::anypoint-mq-connector.adoc[Anypoint MQ Connector]
 
-== Create a Studio 7 Application
+// == Create a Studio 7 Application
 
-XXX
+// XXX
 
 == Create a Studio 6 Application
 
