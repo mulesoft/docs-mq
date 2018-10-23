@@ -54,14 +54,14 @@ This returns output similar to:
 
 For the Admin API and Stats API, get the access token from the Anypoint
 Platform user with this curl command:
-+
+
 [source,bash]
 ----
 curl -X POST -H "Content-Type: application/json" -d '{"username":"USERNAME", "password":"PASSWORD"}' https://anypoint.mulesoft.com/accounts/login
 ----
-+
+
 This returns output similar to:
-+
+
 [source,json,linenums]
 ----
 {
