@@ -1,4 +1,4 @@
-= Configuring Queues
+= Configure a Queue
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -19,7 +19,7 @@ Organization administrators or owners can view the current and past months usage
 
 If you or another person in your organization has not created an environment, user access, and roles for accessing Anypoint MQ, see xref:mq-access-management.adoc[Anypoint MQ Access Management] before starting this guide.
 
-== Creating a Queue
+== Create a Queue
 
 A queue is a temporary storage area for a message. You can use the MQ feature in Anypoint Platform to create a queue, and send and receive messages to a queue. You can also send and receive messages to a queue using Anypoint Studio.
 
@@ -32,7 +32,7 @@ queue where message ordering is not guaranteed.
 FIFO queues are a best fit for applications requiring strict message ordering and exactly once delivery, but where message delivery speed is of less importance.
 Standard queues are a best fit for applications where messages need to be delivered quickly.
 
-See also <<fifoqueues,About FIFO Queues>>.
+See also <<fifoqueues,FIFO Queues>>.
 
 To create a queue or FIFO queue:
 
@@ -43,7 +43,7 @@ To create a queue or FIFO queue:
 +
 image::mq-blue-create.png[]
 +
-. Click Queue, Exchange, or FIFO Queue. For Exchange, see xref:mq-exchanges.adoc[To Configure Message Exchanges].
+. Click Queue, Exchange, or FIFO Queue. For Exchange, see xref:mq-exchanges.adoc[Configure Message Exchanges].
 . Fill in the fields in the Create Queue or Create FiFO Queue screen.
 +
 image::mq-create-q-screen-dlq.png[]
@@ -53,7 +53,7 @@ image::mq-create-q-screen-dlq.png[]
 ** Default TTL - How long unprocessed messages persist before being deleted. The maximum TTL is 2 weeks.
 ** Default Lock TTL - If there is a server failure and a message is not acknowledged, specifies the duration that a message would wait before being put back into the queue. A locked message does not block other messages to be read. The lock makes a message unavailable to other applications while locked. The maximum Lock TTL is 12 hours.
 ** Encryption (Optional) - Set the queue to encrypted. Anypoint MQ uses PBE with MD5 and triple DES to encrypt messages.
-** [[qdlq]]Assign a Dead Letter Queue (Optional) - Set the dead letter queue (DLQ) name. The DLQ is a previously created queue where undeliverable messages are sent to. For more information, see <<About Dead Letter Queues>>.
+** [[qdlq]]Assign a Dead Letter Queue (Optional) - Set the dead letter queue (DLQ) name. The DLQ is a previously created queue where undeliverable messages are sent to. For more information, see <<Dead Letter Queues>>.
 +
 If you are creating your first queue in a new MQ account, MQ does not support assigning the dead letter queue to the sole queue in the system - you need at least two queues to assign one queue to be a dead letter queue.
 +
@@ -69,7 +69,7 @@ After you expand the detail for a dead letter queue and if a queue is associated
 
 image::mqfifo-dlq-types.png[]
 
-See <<To Send a Message to a Queue>> for how Anypoint Platform lets you send
+See <<Send a Message to a Queue>> for how Anypoint Platform lets you send
 messages to a queue and view, return the messages to the queue, or delete the messages.
 Message content (called a payload) can be text, JSON, or CSV (comma-separated values).
 
@@ -84,15 +84,15 @@ Topics:
 
 * <<FIFO Notes>>
 * <<FIFO-Related Documentation>>
-* <<About FIFO Exactly Once Delivery>>
+* <<FIFO Exactly Once Delivery>>
 
-=== FIFO Queue Notes
+=== FIFO Notes
 
 * A FIFO queue cannot be bound to a message exchange.
 * Encrypting a FIFO queue does not affect the order or the contents of messages consumed.
 * FIFO queues have a limit of 300 TPS; however, if you batch 10 messages per each read and write operation (maximum) using the API, FIFO queues can support up to 3,000 TPS.
 * FIFO permits up to 10 inflight messages per queue.
-* See the xref:index.adoc[Anypoint MQ starting page] for the regions MQ and FIFO are available in.
+* See the xref:mq-faq.adoc[MQ FAQ] for the regions MQ and FIFO are available in.
 * Only a FIFO dead letter queue can be used as a DLQ for a FIFO queue.
 * When publishing to FIFO queues,
 if you specify a custom Message ID and the Message ID is the same on multiple messages, messages containing the same Message IDs are not redelivered.
@@ -101,10 +101,10 @@ if you specify a custom Message ID and the Message ID is the same on multiple me
 
 Other FIFO-related information in the Anypoint MQ documentation set:
 
-* <<To Create a Queue>> - How to create a FIFO queue.
+* <<Create a Queue>> - How to create a FIFO queue.
 * <<dlqfifo,FIFO Notes>> - Determine if a queue is FIFO or non-FIFO.
 * xref:mq-apis.adoc#create-a-fifo-queue-from-the-administration-portal[Create a FIFO Queue From the Administration Portal] - How to create a FIFO queue using the Anypoint MQ REST API.
-* xref:release-notes::mq/mq-release-notes.adoc#version-1-5-0-january-28-2017[Release Notes] reference.
+* xref:release-notes::mq/mq-release-notes.adoc[Release Notes].
 
 === FIFO Exactly Once Delivery
 
@@ -118,7 +118,7 @@ Anypoint MQ provides dead letter queue (DLQ) support. This ensures that messages
 
 * A dead letter queue must be either non-FIFO or FIFO. Messages sent to a FIFO dead letter queue must
 originate from a FIFO queue. Messages sent to a non-FIFO DLQ must originate from a non-FIFO queue.
-See also <<fifoqueues,About FIFO Queues>>.
+See also <<fifoqueues,FIFO Queues>>.
 * The DLQ is in the same region as other queues.
 * If a message sent to the DLQ is an actual dead letter that came from another queue, then it is not charged against the billable message units.  However, the DLQ is just like any other queue and a client can send messages to it directly.  If a client sends a message directly to a DLQ, those messages are charged.
 * The time to live (TTL) value, or whether the queue is encrypted depends on how you created the queue you use as a DLQ.
@@ -127,7 +127,7 @@ See also <<fifoqueues,About FIFO Queues>>.
 * If a queue has a dead letter queue enabled, then viewing the source queue's messages in the Anypoint MQ Message Browser counts against the number of maximum deliveries. This is because viewing a message and returning it to the queue counts as a nack, and therefore is an unsuccessful delivery attempt. Deleting the message in the browser rather than returning it to the queue prevents the message from being counted against the maximum deliveries, but then of course, the message is gone.
 
 
-=== Assigning a DLQ to a Queue
+=== Assign a DLQ to a Queue
 
 When you create a queue, if you check Assign a Dead Letter Queue, the following
 additional fields appear:
@@ -141,11 +141,11 @@ The following flowchart shows the logic for how messages are sent to a DLQ:
 
 image::mq-dlq-flowchart.png[]
 
-=== Recovering Messages from a DLQ
+=== Recover Messages from a DLQ
 
 If you need to recover messages from the DLQ, use the REST API to get the message from the queue, and write the message to a new queue. For more information, see xref:mq-apis.adoc#mqadminapi[MQ Administration REST API].
 
-==== Determining Which Queues are DLQs
+==== Determine Which Queues are DLQs
 
 You can view  details of each queue to see whether it has any dead letter *sources* (that is, whether any other queues are using this queue as a DLQ).
 
@@ -168,13 +168,13 @@ For example:
 }
 ----
 
-== Sending a Message to a Queue
+== Send a Message to a Queue
 
 *Note:* The maximum message size if 10 MB.
 
 To send a message to a queue:
 
-. Log into https://anypoint.mulesoft.com/#/signin[Anypoint Platform].
+. Log into Anypoint Platform.
 . In the top task bar, click *MQ*.
 . Click *Destinations*.
 . Click the queue entry in Destinations to view details about
@@ -193,9 +193,9 @@ image::mq-msg-sender-text-payload2.png[]
 +
 . Click *Send*.
 
-== Verifying the Message in a Queue
+== Verify the Message in a Queue
 
-To verify that the message arrived in the queue, either return to the Destinations screen to observe the number of messages in the queue, or you can assume the message is in the queue, and you can <<To Get a Message From a Queue>>.
+To verify that the message arrived in the queue, either return to the Destinations screen to observe the number of messages in the queue, or you can assume the message is in the queue, and you can <<Get a Message From a Queue>>.
 
 To return to the Destinations screen to verify that the message is in the queue:
 
@@ -208,11 +208,11 @@ the queue:
 +
 image::mq-msgs-in-queue2.png[]
 
-=== Getting a Message From a Queue
+=== Get a Message From a Queue
 
 To get a message from a queue:
 
-. Follow the directions in <<To Send a Message to a Queue>> and
+. Follow the directions in <<Send a Message to a Queue>> and
 advance to Step 6, except click *Message Browser*:
 +
 image::mq-click-msg-browser2.png[]
@@ -243,7 +243,7 @@ determines how long the message is available before Anypoint MQ deletes it.
 +
 image::mq-click-retmsgs2.png[]
 +
-Alternatively, you can delete the message by clicking the trash can icon. In Anypoint MQ, deleting a message is called an `ack` - For information on how Anypoint MQ processes ack  messages for you, see xref:mq-ack-mode.adoc[Acknowledgement Mode].
+Alternatively, you can delete the message by clicking the trash can icon. In Anypoint MQ, deleting a message is called an `ack` - For information on how Anypoint MQ processes ack  messages for you, see xref:mq-ack-mode.adoc[Acknowledgment Mode].
 +
 image::mq-message-delete-trash-can-icon2.png[]
 
@@ -255,7 +255,7 @@ Organization administrators or owners can view the current and past months usage
 
 In the next section, you can try alternate ways of formatting messages.
 
-== Sending a CSV or JSON Message
+== Send a CSV or JSON Message
 
 To send a JSON message:
 
@@ -290,7 +290,7 @@ To send a CSV message:
 +
 . Click *Message Browser* and the message ID to view the message.
 
-== Purging Messages from a Queue
+== Purge Messages from a Queue
 
 After expanding a queue's details, you can purge all the messages in the queue
 by clicking the Purge Messages icon:
@@ -305,5 +305,5 @@ image::mqfifo-purge-messages.png[]
 
 == See Also
 
-* xref:index.adoc[Anypoint MQ]
-* xref:mq-exchanges.adoc[Configuring Message Exchanges]
+* xref:mq-faq.adoc[MQ FAQ]
+* xref:mq-exchanges.adoc[Configure a Message Exchange]

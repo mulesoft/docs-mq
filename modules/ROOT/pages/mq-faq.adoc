@@ -6,6 +6,11 @@ endif::[]
 
 This document lists frequently asked questions about Anypoint MQ.
 
+*See Also:* xref:3.9@mule-runtime::anypoint-mq-connector.adoc[Mule 3 MQ Connector],
+xref:connectors::anypoint-mq/anypoint-mq-connector.adoc[Mule 4 MQ Connector],
+xref:mq-apis.adoc[REST APIs],
+xref:release-notes::mq/anypoint-mq-release-notes.adoc[Release Notes].
+
 == Why is MQ not shown in Anypoint Platform?
 
 Anypoint MQ requires a separate Enterprise subscription and is not included in the Anypoint Platform trial version. Contact MuleSoft Support for more information. If you don't have an Enterprise subscription,
@@ -14,14 +19,17 @@ you can use the MuleSoft Active MQ or Rabbit MQ.
 [[regions]]
 == What regions is MQ available in?
 
-See the xref:index.adoc[Anypoint MQ starting page] for the regions MQ and FIFO are available in.
+* North America: Northern Virginia (us-east-1), Oregon (us-west-2), and Central Canada (ca-central-1)
+* EU: Ireland (eu-west-1) and London (eu-west-2)
+* APAC: Singapore (ap-southeast-1) and Sydney (ap-southeast-2)
+* FIFO queues are available in Ireland (eu-west-1), Northern Virginia (us-east-1), and Oregon (us-west-2).
 
 == Why can't I see FIFO Queue in the menu to create a queue?
 
 If the blue create button doesn't list *FIFO Queue*:
 
 * Ensure you have an Anypoint MQ FIFO entitlement. Check with your MuleSoft representative.
-* Ensure that your region setting is correct -- see the xref:index.adoc[Anypoint MQ starting page] for the regions FIFO is available in.
+* Ensure that your region setting is correct (per the previous "What regions is MQ available in?" section).
 
 == How do I create and send messages into MQ from Mule?
 
@@ -263,6 +271,6 @@ image::mq-delete-exchange.png[]
 == See Also
 
 * xref:mq::index.adoc[Anypoint MQ]
-* https://support.mulesoft.com[Contact MuleSoft Support]
+* https://support.mulesoft.com/s/knowledge[Knowledge Base Articles]
 * xref:3.9@mule-runtime::amqp-connector.adoc[MuleSoft Active MQ]
 * https://www.rabbitmq.com/[Rabbit MQ]
