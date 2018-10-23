@@ -25,12 +25,11 @@ If you are a Windows user, you need to https://curl.haxx.se/download.html[downlo
 
 *Notes:* 
 
-* The access token can only be used with the Broker API. Do not use this access token 
-with the Stats and Admin APIs. For those APIs, you get the access token from the Anypoint
-Platform user.
-* The access token has a default time to live of 1 hour. This is the same TTL that users get when they log into the Anypoint Platform. The TTL is set in the Access Management screen for an organization in the Default Session Timeout value.
+* The access token in this section can only be used with the Broker API. Do not use this access token 
+with the Stats and Admin APIs. See <<Admin API and Stats API Access Token>> to get that access token.
+* The access token for any MQ API has a default time to live (TTL) of 180 minutes. This is the same TTL that users get when they log into the Anypoint Platform. The TTL is set in the Access Management screen for an organization in the Default Session Timeout value.
 
-To get API access information:
+To get the Broker API access token:
 
 . Log into Anypoint Platform.
 . Click MQ, Client Apps, and click the blue plus circle icon to create an app.
@@ -49,6 +48,27 @@ This returns output similar to:
 [source,json]
 ----
 {"access_token":"<token>","simple_client":{"envId":"<env_ID>","orgId":"<org-ID>"},"token_type":"bearer"}
+----
+
+=== Admin API and Stats API Access Token
+
+For the Admin API and Stats API, get the access token from the Anypoint
+Platform user with this curl command:
++
+[source,bash]
+----
+curl -X POST -H "Content-Type: application/json" -d '{"username":"USERNAME", "password":"PASSWORD"}' https://anypoint.mulesoft.com/accounts/login
+----
++
+This returns output similar to:
++
+[source,json,linenums]
+----
+{
+  "access_token": "42424242-4242-4242-4242-424242424242",
+  "token_type": "bearer",
+  "redirectUrl": "/home/"
+}
 ----
 
 == Workflow for an API
