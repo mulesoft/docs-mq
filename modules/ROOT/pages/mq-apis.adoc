@@ -33,9 +33,7 @@ Steps:
 The Anypoint MQ Admin API provides access to Anypoint MQ administrative functionality.
 
 You can get the access token from the Anypoint Platform user. The access token is also known as the Bearer.
-
-The access token has a default time to live (TTL) of 60 minutes. The TTL duration is set in the Access Management 
-screen for an organization in the Default Session Timeout value and can range from 15 minutes to 180 minutes.
+The access token has a default time to live (TTL) of 60 minutes. 
 
 You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ. See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[MQ Audit Logging].
 
@@ -59,17 +57,15 @@ This returns output similar to:
 
 https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Admin API] - Create and manage applications, queues, and message exchanges.
 
-In the Admin API portal, click Download to download the RAML or the API as a Mule Plugin.
+In the Admin API portal, click *Download* to download the API as a RAML, Mule 3 zipped connector file, or as a Mule 4 connector JAR file.
 
 image::mq-rest-admin-portal.png[]
 
-=== Create a FIFO Queue in the Admin API
+=== Create a FIFO Queue in the Admin API Portal
 
-You can create a FIFO queue from the Admin API portal by including the new `"fifo": true` field.
+You can create a FIFO queue from the Admin API portal by including the `"fifo": true` field.
 
 *Note:* The organization from which you use the Administration portal must have an Anypoint MQ FIFO entitlement. See xref:mq-faq.adoc[MQ FAQ] for the regions MQ is available in.
-
-If needed, see <<getoeb,Get an Organization ID, Environment ID, and Bearer Token>>.
 
 For the following path using the `PUT` operation:
 
@@ -98,7 +94,7 @@ You can get the organization ID and environment ID in the `payload.txt` file tha
 Getting the access (bearer) token requires using either a command like curl or an application like Postman. The example that follows uses curl.
 If you are a Windows user, you need to https://curl.haxx.se/download.html[download a curl command] before accessing the information.
 
-*Note:*  The access token in this section can only be used with the Broker API. Do not use this access token 
+The access token in this section can only be used with the Broker API. Do not use this access token 
 with the Stats and Admin APIs. 
 
 To get the Broker API access token:
@@ -122,9 +118,9 @@ This returns output similar to:
 {"access_token":"<token>","simple_client":{"envId":"<env_ID>","orgId":"<org-ID>"},"token_type":"bearer"}
 ----
 
-https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Broker API] - Publish, consume, ack, and nack messages between queues and message exchanges.
+https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Broker API Portal] - Publish, consume, ack, and nack messages between queues and message exchanges.
 
-In the Broker API, click Download to download the RAML or the API as a Mule Plugin.
+In the Broker API portal, click *Download* to download the API as a RAML, Mule 3 zipped connector file, or as a Mule 4 connector JAR file.
 
 image::mq-rest-broker-portal.png[]
 
@@ -134,9 +130,7 @@ image::mq-rest-broker-portal.png[]
 The Anypoint MQ Statistics API provides access to Anypoint MQ message queues.
 
 You can get the access token from the Anypoint Platform user. The access token is also known as the Bearer.
-
-The access token has a default time to live (TTL) of 60 minutes. The TTL duration is set in the Access Management 
-screen for an organization in the Default Session Timeout value and can range from 15 minutes to 180 minutes.
+The access token has a default time to live (TTL) of 60 minutes. 
 
 You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ. See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[MQ Audit Logging]. 
 
@@ -160,7 +154,7 @@ This returns output similar to:
 
 https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Stats API] - Perform statistical analysis of queue performance.
 
-In the Stats API, click Download to download the RAML or the API as a Mule Plugin.
+In the Stats API portal, click *Download* to download the API as a RAML, Mule 3 zipped connector file, or as a Mule 4 connector JAR file.
 
 image::mq-rest-stats-portal.png[]
 
@@ -600,7 +594,7 @@ For example, this information is returned from the consume (GET) command:
 After you have the lock ID, you can add it to your Postman environment to facilitate future requests.
 
 [[studiosetup]]
-=== Set Studio for API Access
+=== Set Up Studio for API Access
 
 Anypoint Studio lets you create a Mule application that uses the Anypoint MQ connector.
 The steps in this section are summarized.
