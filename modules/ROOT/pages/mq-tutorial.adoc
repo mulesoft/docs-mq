@@ -38,15 +38,13 @@ image::mq-destinations-option.png[]
 . Click the blue plus icon image:mq-blue-plus-icon.png[]
 . In the drop-down, click *Queue*:
 +
-// image::mq-create-choices.png[]
+image::mq-create-choices.png[]
 +
-image::mq-create-q-screen-dlq.png[]
+image::mq-create-demo-queue.png[]
 +
-. In the Create Queue screen, specify a name for the queue, and if needed, change the
-Default TTL (time-to-live) and Default Lock TTL values. A message lock makes a message unavailable to other applications while locked. A locked message does not block other messages to be read.
-. If you want your queue encrypted,
-slide the encryption slider to the right.
-. If your organization previously created a dead letter queue where undeliverable messages go, click *Assign a Dead Letter Queue* to enable this option. For more information on dead letter queues, see xref:mq-queues.adoc#create-a-queue[Create a Queue].
+. In the Create Queue screen, specify a name for the queue. This tutorial uses the `MyDemoQueue` value. 
++
+The TTL is the time to live, that is, how long a message can stay in a queue before being deleted. The default lock TTL determines how long a message is unavailable to other applications. A locked message does not block other messages from being read.
 . When done, click *Save Changes*:
 +
 The queue creates and you are returned to the *Destinations* screen.
@@ -168,19 +166,71 @@ into the configuration for Anypoint Studio in <<Create an Application>>.
 
 == Configure MQ in Design Center
 
-. Before starting to configure an application in Design Center, open a window to Anypoint 
-Platform > MQ and determine which queue you want to access, and have a client application available to get it's client ID and secret from.
-. In Anypoint Platform > Design Center, click Create.
-. Provide a project name and click Create.
+IMPORTANT: Disable password programs such as LastPass or Okta in your browser before using Design Center. Otherwise, the password program inserts passwords in the HTTP Listener's TLS tab. The rogue passwords in the TLS tab cause the app to fail. 
+
+Before starting to configure an application in Design Center, leave a window open to Anypoint 
+Platform > MQ. Determine the queue you want to access and have a client application available to get its client ID and secret from.
+
+. In Anypoint Platform > Design Center, click Create > Mule Application:
++
+image::mq-dc-create.png[]
++
+. Provide a project name and click Create. In this tutorial, the app is called `mqdemo`:
++
+image::mq-dc-new-mule-app.png[]
++
+. In the help wizard, click *Go straight to Canvas*.
++
+image::mq-dc-go-straight.png[]
++
 . Select a trigger for the action that starts the MQ connector access. The 
-simplest is to use an HTTP Listener, which we use in this tutorial to initiate access using the curl command. Alternatively you can use MQ as a Subscriber to retrieve messages from a destination name, or specify a Scheduler to accept input at prescribed times. 
+simplest is to use an HTTP Listener, which we use in this tutorial to initiate access using the curl command. Alternatively you can use MQ as a Subscriber to retrieve messages from a destination name, or specify a Scheduler to accept input at prescribed times.
++
+Type in a few letters in the trigger search box, such as "HT" and select the HTTP Listener:
++
+image::mq-dc-http-find.png[]
++
 . In the HTTP Listener, set the Path to the `/mq/{messageId}` value.
-. Click the plus symbol to the right of the trigger.
++
+image::mq-dc-http-path.png[]
++
+. Click the plus symbol to the right of the trigger:
++
+image::mq-dc-click-plus.png[]
++
 . In the Component menu, select the Mule Anypoint MQ Connector.
-. For this tutorial, select the Publish operation. For the other operations, if you were constructing your application to receive a message sent from a queue, you would use the Consume operation. If your application had tests to determine if message processing succeeded, you would use the Ack operation  
+. For this tutorial, select the Publish operation:
++
+image::mq-dc-publish-op.png[]
++
+For the other operations, if you were constructing your application to receive a message sent from a queue, you would use the Consume operation. If your application had tests to determine if message processing succeeded, you would use the Ack operation  
 to acknowledge that a message was received and could be deleted. Similarly if message 
-processing failed, you would use the Nack operation to negatively acknowledge the message. In the case of Nack, the message would be returned to the queue to await accessing. 
-. In the Destination, specify the name of queue you want to access.
+processing failed, you would use the Nack operation to negatively acknowledge the message. In the case of Nack, the message would be returned to the queue to await accessing.
++ 
+. In the *Destination*, specify the name of queue you want to access from your Anypoint Platform > MQ window, such as the MyDemoQueue that was created earlier in this tutorial. Then click
+*Set Up*.
++
+image::mq-dc-destination.png[]
++
+. Copy the Client ID and Client Secret from your Anypoint Platform > MQ window. In the MQ 
+window, click Client Apps and click the name of an application. Click Copy for each ID and 
+secret values and paste each in the Design Center window.
++
+image::mq-dc-client-id-secret.png[]
++
+. Click *Test* to ensure that you have access to your MQ app. If successful,
+the green Test Successful box appears. If not, ensure that the client ID, client secret,
+and URL values are correct. If the URL does not match that in Anypoint Platform > MQ, copy
+the URL from MQ to the Design Center screen and try the Test again.
++
+image::mq-dc-test-connection.png[]
++
+. Click the Run button. 
++
+image::mq-dc-run-btn.png[]
++
+image::mq-dc-running.png[]
+
 
 == Configure Studio for the MQ Connector Plugin
 
