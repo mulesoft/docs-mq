@@ -1,6 +1,7 @@
 .xref:index.adoc[Anypoint MQ]
 * xref:index.adoc[About Anypoint MQ]
 * xref:mq-understanding.adoc[MQ Terminology]
+* xref:mq-faq.adoc[FAQ: Anypoint MQ]
 * xref:mq-tutorial.adoc[Tutorial: Create a Queue and a Message Exchange]
 * xref:mq-access-management.adoc[Set Environment, User, and Role Access]
 * xref:mq-queues.adoc[Configure a Queue]
@@ -9,4 +10,3 @@
 * xref:mq-ack-mode.adoc[Acknowledge Messages]
 * xref:mq-apis.adoc[MQ REST APIs]
 * xref:mq-usage.adoc[View Usage Graphs]
-* xref:mq-faq.adoc[FAQ: Anypoint MQ]
