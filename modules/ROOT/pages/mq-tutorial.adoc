@@ -549,14 +549,14 @@ http://www.mulesoft.org/schema/mule/anypoint-mq/current/mule-anypoint-mq.xsd">
 
 A message exchange groups one or more queues so that a message sent to the message exchange goes to all bound queues.
 
-. Log into Anypoint Platform and click MQ.
+. Log into Anypoint Platform > MQ.
 . Click Destinations.
 . Click the blue plus icon image:mq-blue-plus-icon.png[]
 . Click Exchange.
 . Specify the name `MyDemoExchange`.
 . Click the checkbox to bind MyDemoQueue to this message exchange.
 . Click Save Changes.
-. In the Destinations screen. click the message exchange Type to list its details.
+. In the Destinations screen, click the message exchange Type to list its details.
 
 To delete a message exchange, see xref:mq-faq.adoc#how-do-i-delete-an-exchange[How do I delete a Message Exchange?] in the xref:mq-faq.adoc[Anypoint MQ FAQ].
 
@@ -571,7 +571,7 @@ what you see next:
 +
 image::mq-where-to-click-x2.png[]
 +
-. In the Exchange menu, click Bind for each queue you want to bind to the message exchange:
+. In the message exchange menu, click Bind for each queue you want to bind to the message exchange:
 +
 image::mq-bind-queue-to-exchange2.png[]
 
@@ -580,7 +580,7 @@ image::mq-bind-queue-to-exchange2.png[]
 Sending a message to a message exchange is very similar to sending a message to a queue.
 The only difference is that you can get the message from any queue bound to a message exchange.
 
-. Log into Anypoint Platform and click MQ.
+. Log into Anypoint Platform > MQ.
 . Click Destinations.
 . Click the `MessageExchange` entry in Destinations to view details about
 the message exchange.
