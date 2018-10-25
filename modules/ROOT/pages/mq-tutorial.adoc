@@ -286,15 +286,6 @@ You can now configure MQ in Design Center, submit REST API commands to the MQ Br
 and use MQ to view the results.
 
 
-== Configure Studio for the MQ Connector Plugin
-
-. In Anypoint Studio, click the Exchange icon in the Studio taskbar.
-. Click Login in Anypoint Exchange.
-. Search for the Anypoint MQ connector and click Install.
-. Follow the prompts to install the connector.
-
-See: xref:3.9@mule-runtime::anypoint-mq-connector.adoc[Anypoint MQ Connector]
-
 == Create a Studio 7 Application
 
 You can use Anypoint Studio 7 to create an MQ application much the same way as you
@@ -442,6 +433,10 @@ http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 *Note:* This section applies only to Anypoint Studio 6. For Studio 7, see the earlier section
 <<Create a Studio 7 Application>>.
 
+. In Studio 6, click the Exchange icon in the Studio taskbar.
+. Click Login in Anypoint Exchange.
+. Search for the Anypoint MQ connector and click Install.
+. Follow the prompts to install the connector.
 . Create a new Mule Project. Click File > New > Mule Project. Name the project "mqdemo".
 . Search for "http" and drag the HTTP Connector to the Studio Canvas.
 +
