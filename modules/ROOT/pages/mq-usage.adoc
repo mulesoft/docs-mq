@@ -20,11 +20,6 @@ To view MQ usage:
 
 . Log into Anypoint Platform.
 . Click *Access Management* from the left navigation bar or from the starting Anypoint Platform screen.
-+
-image::mq-access-mgmt-access.png[]
-+
-TIP: You can open or close the left navigation bar by pressing the Escape key on your keyboard.
-+
 . Click *MQ* in the SUBSCRIPTION section:
 +
 image::mq-subscription.png[]

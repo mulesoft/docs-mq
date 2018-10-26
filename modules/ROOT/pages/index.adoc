@@ -17,6 +17,7 @@ xref:release-notes::mq/anypoint-mq-release-notes.adoc[Release Notes].
 |===
 |Guide|Description
 |xref:mq-understanding.adoc[MQ Terminology] |Explains MQ terminology.
+|xref:mq-faq.adoc[FAQ: Anypoint MQ] |Frequently asked questions with answers.
 |xref:mq-tutorial.adoc[Tutorial: Create a Queue and Message Exchange] |Walks through creating a queue, a client app, sets up Anypoint Studio, and sends and receives messages. The tutorial also adds a message exchange and shows its differences from a queue.
 |xref:mq-access-management.adoc[Set Environment, User, and Role Access] |Assigns MQ environment, user, and role access.
 |xref:mq-queues.adoc[Configure a Queue] |Uses Anypoint Platform to create queues, send messages to a queue, and get messages from a queue. This topic also describes xref:mq-queues.adoc#about-dead-letter-queues[Dead Letter Queues] and xref:mq-queues.adoc#fifoqueues[FIFO Queues].
@@ -29,7 +30,6 @@ application's client ID and client secret.
 |xref:mq-apis.adoc[MQ REST APIs] |Accesses Anypoint MQ functionality using REST. Contains section on xref:mq-apis.adoc#to-create-a-fifo-queue-from-the-administration-portal[how to create a FIFO queue] using a REST API.
 |xref:mq-usage.adoc[View Usage Graphs] |Describes how to view MQ usage information from the Anypoint Platform's Access Management section.
 |xref:mq-ack-mode.adoc[Acknowledge a Message] |Explains global and local ack and nack states.
-|xref:mq-faq.adoc[FAQ: Anypoint MQ] |Frequently asked questions with answers.
 |xref:release-notes::mq/anypoint-mq-release-notes.adoc[Release Notes] |Summarizes release information for the Anypoint MQ Cloud and Anypoint MQ Connector products.
 |===
 
