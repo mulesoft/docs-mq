@@ -166,7 +166,7 @@ into the configuration for Anypoint Studio in <<Create an Application>>.
 
 == Configure MQ in Design Center
 
-IMPORTANT: Disable password programs such as LastPass or Okta in your browser before using Design Center. Otherwise, the password program inserts passwords in the HTTP Listener's TLS tab. The rogue passwords in the TLS tab cause the app to fail. 
+IMPORTANT: Disable password programs such as LastPass or Okta in your browser before using Design Center. Otherwise, the password program inserts passwords in the HTTP Listener's TLS tab. The passwords in the TLS tab cause the app to fail. 
 
 Before starting to configure an application in Design Center, leave a window open to Anypoint 
 Platform > MQ. Determine the queue you want to access and have a client application available to get its client ID and secret from.
@@ -233,30 +233,13 @@ image::mq-dc-running.png[]
 
 === Testing Your Design Center App
 
-. From a command prompt or terminal, submit this curl command to get an MQ Broker API access
-token:
-+
-[source,json]
-----
-$ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "client_id=CLIENT_ID&client_secret=CLIENT_SECRET&grant_type=client_credentials" "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/authorize"
-----
-+
-You can get the values for CLIENT_ID and CLIENT_SECRET from your Anypoint Platform > MQ > Client Apps screen. 
-+
-The output of the curl command is:
-+
-[source,json]
-----
-{"access_token":"ACCESS_TOKEN","simple_client":{"envId":"ENVIRONMENT_ID","orgId":"ORGANIZATION_ID"},"token_type":"bearer"}
-----
-+
-. Put the ACCESS_TOKEN value into this command and run this command from a command prompt to send the "body" value as an MQ message:
+. Run this command from a command prompt to send the "body" value as an MQ message. The "100" value in the URL 
+specifies the message ID value per the `/mq{messageId}` value in the HTTP Listener, which is the identifier for your message:
 +
 [source,json,linenums]
 ----
 curl -X POST \
   http://DEPLOYMENT_URL/mq/100 \
-  -H 'authorization: Bearer ACCESS_TOKEN' \
   -H 'content-type: application/json' \
   -d '[  {   
     "body": "Welcome to MuleSoft!"
@@ -354,7 +337,7 @@ the application and copy the *App url* value:
 +
 image::mq-app-url.png[]
 +
-. In the following command, replace DEPLOYMENT_URL with the *App url* value from Runtime Manager. Run this command from a command prompt to send the "body" value as an MQ message. You no longer need the authorization header that was required to access the Design Center application. Runtime Manager takes care of authorization for you.
+. In the following command, replace DEPLOYMENT_URL with the *App url* value from Runtime Manager. Run this command from a command prompt to send the "body" value as an MQ message. 
 +
 [source,json,linenums]
 ----
