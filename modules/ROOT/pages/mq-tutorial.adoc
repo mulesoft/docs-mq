@@ -85,8 +85,7 @@ image::mq-num-queued-msgs.png[]
 
 == Get a Message From a Queue
 
-. Follow the directions in <<Send a Message to a Queue>> and
-advance to Step 6, except click *Message Browser*:
+. In Anypoint Platform > MQ, click *Message Browser*:
 +
 image::mq-click-msg-browser2.png[]
 +
@@ -162,7 +161,7 @@ image::mq-create-client-app-name.png[]
 +
 . Leave the Client Apps window open as you need to copy and
 paste the Client ID and Client Secret
-into the configuration for Anypoint Studio in <<Create an Application>>.
+into the configuration for Anypoint Studio.
 
 == Configure MQ in Design Center
 

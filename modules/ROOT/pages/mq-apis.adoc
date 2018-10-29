@@ -8,9 +8,9 @@ The Anypoint MQ APIs let you use REST to send and receive messages, administer q
 
 Anypoint MQ provides these APIs:
 
-* <<mqadminapi,Admin API>>
-* <<mqbrokerapi,Broker API>>
-* <<mqstatapi,Stats API>>
+* <<mqadminapi,MQ Admin API>>
+* <<mqbrokerapi,MQ Broker API>>
+* <<mqstatapi,MQ Stats API>>
 
 Anypoint MQ portals are available in the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/[Developer portal].
 
@@ -26,6 +26,16 @@ Steps:
 . Anypoint MQ sends the message and the lock ID.
 . The application acknowledges the message and requests Anypoint MQ to delete the message, or the application negatively acknowledges the message and requests Anypoint MQ to make the message available to other applications. The application sends the message ID and lock ID to Anypoint MQ. For additional information on setting automatic ack or nack, see the xref:mq-ack-mode.adoc[Acknowledgment Mode] guide.
 . If no action is taken and the duration of a lock's time to live expires, the message is negatively acknowledged and returns to the queue to be available for other applications.
+
+== Authorize API Access
+
+Before accessing an API, you need to acquire an access token:
+
+* <<mqadminapi,MQ Admin API>> - Get an access token for the Anypoint Platform user.
+* <<mqbrokerapi,MQ Broker API>> - Get a token from Anypoint MQ by supplying the client ID and client secret for an MQ application.
+* <<mqstatapi,MQ Stats API>> - Get an access token for the Anypoint Platform user.
+
+The curl command for each is explained in the API sections.
 
 [[mqadminapi]]
 == MQ Admin API
