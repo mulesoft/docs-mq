@@ -29,7 +29,7 @@ Steps:
 
 == Authorize API Access
 
-Before submitting an API access, you need to acquire an access token:
+Before accessing an API, you need to acquire an access token:
 
 * <<mqadminapi,MQ Admin API>> - Get an access token for the Anypoint Platform user.
 * <<mqbrokerapi,MQ Broker API>> - Get a token from Anypoint MQ by supplying the client ID and client secret for an MQ application.
