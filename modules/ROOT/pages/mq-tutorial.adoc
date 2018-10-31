@@ -291,7 +291,7 @@ values you set and get in Anypoint Platform > MQ are also in the Production envi
 image::mq-st7-exchange.png[]
 +
 . In Exchange, click Login and supply your Anypoint Platform username and password.
-. Search for the Mule Anypoint MQ Connector, click *Add to project*, and click Proceed.
+. Search for the Anypoint MQ Connector, click *Add to project*, and click Proceed.
 . Click HTTP in the Mule Palette:
 +
 image::mq-st7-mule-palette.png[]
@@ -371,7 +371,7 @@ image::mq-st7-big-picture.png[]
 
 === Studio 7 XML
 
-[source,xml,linenums]
+[source,console,linenums]
 ----
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -482,7 +482,7 @@ After you configure your application using the MQ Connector, you can check your 
 
 Click Configuration XML in Studio and compare your XML to the following. If needed, you can make corrections.
 
-[source,xml,linenums]
+[source,console,linenums]
 ----
 <?xml version="1.0" encoding="UTF-8"?>
 
