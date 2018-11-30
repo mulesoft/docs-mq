@@ -2,7 +2,6 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: mq, destinations, queues, exchanges
 
 The Anypoint MQ APIs let you use REST to send and receive messages, administer queues and message exchanges, and analyze results.
 
@@ -31,14 +30,18 @@ Steps:
 
 Before accessing an API, you need to acquire an access token:
 
-* <<mqadminapi,MQ Admin API>> - Get an access token for the Anypoint Platform user.
+* <<mqadminapi,MQ Admin API>> - Get an access token for an Anypoint Platform user.
 * <<mqbrokerapi,MQ Broker API>> - Get a token from Anypoint MQ by supplying the client ID and client secret for an MQ application.
-* <<mqstatapi,MQ Stats API>> - Get an access token for the Anypoint Platform user.
+* <<mqstatapi,MQ Stats API>> - Get an access token for an Anypoint Platform user.
 
 The curl command for each is explained in the API sections.
 
 [[mqadminapi]]
 == MQ Admin API
+
+* Browse queues and message exchanges
+* Create queues and message exchanges
+* Manage bindings for message exchanges
 
 The Anypoint MQ Admin API provides access to Anypoint MQ administrative functionality.
 
@@ -95,7 +98,9 @@ Use this body:
 ----
 
 [[mqbrokerapi]]
-== MQ Broker API 
+== MQ Broker API
+
+This API lets you send and receive messages from queues and message exchanges.
 
 The Anypoint MQ Broker API allows clients to send and receive messages from queues and exchanges.
 
@@ -136,6 +141,11 @@ image::mq-rest-broker-portal.png[]
 
 [[mqstatapi]]
 == MQ Stats API
+
+* Browse statistics for queues and message exchanges.  
+* View the number of messages currently in a queue. 
+* View historical data for queue activity over time. 
+* View your entire organization's usage of MQ for billing purposes.
 
 The Anypoint MQ Statistics API provides access to Anypoint MQ message queues.
 
