@@ -2,7 +2,6 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: mq, faq, questions, answers
 
 This document lists frequently asked questions about Anypoint MQ.
 
@@ -21,15 +20,12 @@ you can use the MuleSoft Active MQ or Rabbit MQ.
 
 * North America: Northern Virginia (us-east-1), Oregon (us-west-2), and Central Canada (ca-central-1)
 * EU: Ireland (eu-west-1) and London (eu-west-2)
-* APAC: Singapore (ap-southeast-1) and Sydney (ap-southeast-2)
-* FIFO queues are available in Ireland (eu-west-1), Northern Virginia (us-east-1), and Oregon (us-west-2).
+* APAC: Singapore (ap-southeast-1) and Sydney (ap-southeast-2), 
+* FIFO queues are available in Ireland (eu-west-1), Sydney (ap-southeast-2), Northern Virginia (us-east-1), and Oregon (us-west-2).
 
 == Why can't I see FIFO Queue in the menu to create a queue?
 
-If the blue create button doesn't list *FIFO Queue*:
-
-* Ensure you have an Anypoint MQ FIFO entitlement. Check with your MuleSoft representative.
-* Ensure that your region setting is correct (per the previous "What regions is MQ available in?" section).
+If the blue create button doesn't list *FIFO Queue*, ensure that your region setting is correct (per the previous "What regions is MQ available in?" section).
 
 == How do I create and send messages into MQ from Mule?
 
