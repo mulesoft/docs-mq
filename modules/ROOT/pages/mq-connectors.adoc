@@ -7,7 +7,7 @@ Anypoint MQ Connectors are available at:
 
 [%header,cols="50a,50a"]
 |===
-|Mule 3 |Mule 4
+|Mule 3: |Mule 4:
 |
 
 * xref:3.9@mule-runtime::anypoint-mq-connector.adoc[Mule 3 MQ Connector]
@@ -20,6 +20,13 @@ Anypoint MQ Connectors are available at:
 
 |===
 
+== MQ APIs
+
+* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Anypoint MQ Admin API]
+* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint MQ Broker API]
+* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoing MQ Stats API]
+
 == See Also
 
-xref:release-notes::mq/anypoint-mq-release-notes.adoc[MQ Release Notes]
+* xref:mq-faq.adoc[MQ FAQ]
+* xref:release-notes::mq/anypoint-mq-release-notes.adoc[MQ Release Notes]

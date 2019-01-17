@@ -13,7 +13,7 @@ This guide describes how to create a queue using Anypoint Platform.
 * Queue names are limited to 127 characters in length.
 * The maximum size of a message is 10 MB.
 * The maximum time to live (TTL) for a message is 2 weeks. The maximum lock TTL is 12 hours.
-* Anypoint MQ supports up to 120,000 in flight messages per non-FIFO queue. FIFO queues are limited to 10 in flight messages per queue.
+* Anypoint MQ supports up to 120,000 in-flight messages per non-FIFO queue. FIFO queues are limited to 10 in flight messages per queue.
 
 Organization administrators or owners can view the current and past months usage - the total number of messages and API requests. This information is accessed from the Access Management page. For more information, see xref:mq-usage.adoc[Anypoint MQ Usage Information].
 

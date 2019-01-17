@@ -8,7 +8,7 @@ publish/subscribe queue mechanism. Anypoint MQ provides a user interface built i
 Anypoint Platform that lets you send messages to a queue or message exchange, 
 and then read the messages from a queue. Anypoint MQ also provides a connector 
 that works with Anypoint Studio. See xref:mq-connectors.adoc[MQ Connectors] for 
-more information.
+information about Mule 3 and Mule 4 connectors that you can use with Anypoint Studio.
 
 == Prerequisites
 
