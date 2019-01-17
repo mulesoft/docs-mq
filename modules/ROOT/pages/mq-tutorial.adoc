@@ -2,13 +2,13 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: mq, tutorial, queue, exchange, message exchange, client, postman
 
 This tutorial helps you send and receive messages using Anypoint MQ using a 
 publish/subscribe queue mechanism. Anypoint MQ provides a user interface built into
 Anypoint Platform that lets you send messages to a queue or message exchange, 
 and then read the messages from a queue. Anypoint MQ also provides a connector 
-that works with Anypoint Studio.
+that works with Anypoint Studio. See xref:mq-connectors.adoc[MQ Connectors] for 
+more information.
 
 == Prerequisites
 
@@ -230,7 +230,7 @@ image::mq-dc-run-btn.png[]
 +
 image::mq-dc-running.png[]
 
-=== Testing Your Design Center App
+=== Test Your Design Center App
 
 . Run this command from a command prompt to send the "body" value as an MQ message. The "100" value in the URL 
 specifies the message ID value per the `/mq{messageId}` value in the HTTP Listener, which is the identifier for your message:
@@ -274,7 +274,7 @@ You can use Anypoint Studio 7 to create an MQ application much the same way as y
 created in Design Center. Studio 7 enables you to create the application, 
 you can test the program, and then package the application into a zip file to 
 put into Anypoint Platform > Runtime Manager. Runtime Manager serves the application so
-you can submit curl commands as you did in the previous <<Configure MQ in Design Center>> section.
+you can submit curl commands as you did in the previous <<Configure MQ in Design Center>> section. See xref:mq-connectors.adoc[MQ Connectors] for more information.
 
 Prerequisites: 
 

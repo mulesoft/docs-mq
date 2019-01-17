@@ -5,8 +5,7 @@ endif::[]
 
 This document lists frequently asked questions about Anypoint MQ.
 
-*See Also:* xref:3.9@mule-runtime::anypoint-mq-connector.adoc[Mule 3 MQ Connector],
-xref:connectors::anypoint-mq/anypoint-mq-connector.adoc[Mule 4 MQ Connector],
+*See Also:* xref:mq-connectors.adoc[MQ Connectors], 
 xref:mq-apis.adoc[REST APIs],
 xref:release-notes::mq/anypoint-mq-release-notes.adoc[Release Notes].
 

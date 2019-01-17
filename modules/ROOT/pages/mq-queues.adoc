@@ -5,7 +5,7 @@ endif::[]
 
 Anypoint MQ is a messaging broker that lets applications communicate by publishing a Mule Message to a queue so that another application can consume the message.
 
-This guide describes how to create a queue using Anypoint Platform.
+This guide describes how to create a queue using Anypoint Platform. 
 
 *Notes*:
 
@@ -307,3 +307,4 @@ image::mqfifo-purge-messages.png[]
 
 * xref:mq-faq.adoc[MQ FAQ]
 * xref:mq-exchanges.adoc[Configure a Message Exchange]
+* xref:mq-connectors.adoc[MQ Connectors]
