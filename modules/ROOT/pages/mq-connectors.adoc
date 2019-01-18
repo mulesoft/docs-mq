@@ -11,11 +11,19 @@ Anypoint MQ Connectors are available at:
 |
 
 * xref:3.9@mule-runtime::anypoint-mq-connector.adoc[Mule 3 MQ Connector]
+** xref:3.9@mule-runtime::anypoint-mq-connector-reference.adoc[Mule 3 MQ Connector Reference]
+** xref:connector/mq-connector-release-notes.adoc[Mule 3 MQ Connector Release Notes]
 * https://www.mulesoft.com/exchange/org.mule.tooling.messaging/mule-module-anypoint-mq-ee-studio/[Anypoint Exchange Mule 3 MQ Connector]
 
 |
 
 * xref:connectors::anypoint-mq/anypoint-mq-connector.adoc[Mule 4 MQ Connector]
+** xref:connectors::anypoint-mq/anypoint-mq-ack.adoc[Message Acknowledgment]
+** xref:connectors::anypoint-mq/anypoint-mq-listener.adoc[Listen For New Messages]
+** xref:connectors::anypoint-mq/anypoint-mq-consume.adoc[Consume Operation]
+** xref:connectors::anypoint-mq/anypoint-mq-publish.adoc[Publish Messages]
+** xref:connectors::anypoint-mq/anypoint-mq-connector-reference.adoc[Connector Reference]
+** xref:connector/anypoint-mq-connector-release-notes-mule-4.adoc[Mule 4 MQ Connector Release Notes]
 * https://www.mulesoft.com/exchange/com.mulesoft.connectors/anypoint-mq-connector/[Anypoint Exchange Mule 4 MQ Connector]
 
 |===
