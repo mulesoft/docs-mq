@@ -2,11 +2,10 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: mq, destinations, queues, exchanges
 
 Anypoint MQ is a multi-tenant, cloud messaging service that enables customers to perform advanced asynchronous messaging scenarios between their applications. Anypoint MQ is fully integrated with Anypoint Platform, offering role based access control, client application management, and connectors.
 
-*See:* xref:mq-faq.adoc[MQ FAQ] and
+*See:* xref:mq-connectors.adoc[MQ Connectors], xref:mq-faq.adoc[MQ FAQ] and
 xref:release-notes::mq/anypoint-mq-release-notes.adoc[Release Notes].
 
 *Note:* Anypoint MQ does not support use with CloudHub Insight or Anypoint Monitoring. Instead you can use the xref:mq-usage.adoc[MQ usage graphs] to view consumed data and API requests and how many message units were received, or you can use the xref:mq-apis.adoc#mqstatapi[MQ Stats API] to perform statistical analysis of queue performance.
@@ -18,6 +17,7 @@ xref:release-notes::mq/anypoint-mq-release-notes.adoc[Release Notes].
 |Guide|Description
 |xref:mq-understanding.adoc[MQ Terminology] |Explains MQ terminology.
 |xref:mq-faq.adoc[FAQ: Anypoint MQ] |Frequently asked questions with answers.
+|xref:mq-connectors.adoc[MQ Connectors] |Links to MQ connectors and Anypoint Exchange.
 |xref:mq-tutorial.adoc[Tutorial: Create a Queue and Message Exchange] |Walks through creating a queue, a client app, sets up Anypoint Studio, and sends and receives messages. The tutorial also adds a message exchange and shows its differences from a queue.
 |xref:mq-access-management.adoc[Set Environment, User, and Role Access] |Assigns MQ environment, user, and role access.
 |xref:mq-queues.adoc[Configure a Queue] |Uses Anypoint Platform to create queues, send messages to a queue, and get messages from a queue. This topic also describes xref:mq-queues.adoc#about-dead-letter-queues[Dead Letter Queues] and xref:mq-queues.adoc#fifoqueues[FIFO Queues].

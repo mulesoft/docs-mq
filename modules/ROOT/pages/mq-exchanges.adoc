@@ -2,7 +2,6 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: mq, message, exchange, message exchange
 
 A message exchange lets you send a message to one or more xref:mq-queues.adoc[queues] that are bound to the message exchange.
 
@@ -89,3 +88,4 @@ the message *Type* value. For more information, see xref:mq-queues.adoc#to-send-
 == See Also
 
 * xref:mq-faq.adoc[MQ FAQ]
+* xref:mq-connectors.adoc[MQ Connectors]
