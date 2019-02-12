@@ -578,7 +578,7 @@ This example lets you access the Anypoint MQ APIs from these products:
 * <<browsersetup,Browser>>
 
 [[postsetup]]
-==== Set Up Postman
+=== Set Up Postman
 
 The https://www.getpostman.com/[Postman] application provides a platform for accessing the Anypoint MQ APIs.
 After downloading and installing Postman, supply this information to create an environment:
