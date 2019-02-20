@@ -4,31 +4,31 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: mq, access, roles, environment, anypoint platform
 
-Anypoint Platform lets you manage the xref:access-management::managing-permissions.adoc[roles] of those who administer the MQ features in Anypoint Platform for your organization.
+Anypoint Platform lets you manage the xref:access-management::managing-permissions.adoc[roles] of those who administer the Anypoint MQ features in Anypoint Platform for your organization.
 
 == Create an Environment
 
-Before you can give yourself MQ access permissions, you need an environment to associate permissions with.
+Before you can give yourself Anypoint MQ access permissions, you need an environment to associate permissions with.
 
 . Log into Anypoint Platform.
 . Click *Access Management* from the left navigation bar or click *Access Management* from the main Anypoint Platform screen.
-. Click *Environments* from the left Access Management choices, and click *Add environment*:
+. Click *Environments* under *ACCESS MANAGEMENT*, and click *Add environment*:
 +
 image::mq-add-env.png[]
 +
-. In the Add Environment screen, provide a name for your environment, and click either Production or Sandbox. You may want to create separate environments for each. A sandbox is used to test applications, whereas production is the public view. For this tutorial, you can choose *Production*.
+. In the *Add Environment* screen, provide a name for your environment, and click either *Production* or *Sandbox*. You may want to create separate environments for each. A sandbox is used to test applications, whereas production is the public view. For this tutorial, you can choose *Production*.
 +
 image::mq-create-env.png[]
 
-== Give Users MQ Access Permissions
+== Give Users Anypoint MQ Access Permissions
 
-First give yourself MQ access permissions and then give others in your organization access.
+First give yourself Anypoint MQ access permissions and then give others in your organization access.
 
-Assign user permissions to yourself for use with MQ. These permissions let you create client applications, and destinations by creating queues and exchanges. You can use this same information to assign user permissions for others in your organization.
+Assign user permissions to yourself for use with Anypoint MQ. These permissions let you create client applications, and destinations by creating queues and exchanges. You can use the same information to assign user permissions for others in your organization.
 
 To assign user permissions:
 
-. In Anypoint Platform, click Access Management and Users.
+. In Anypoint Platform, click *Access Management and Users*.
 . Click a user name value:
 +
 image::mq-am-users.png[]
@@ -50,18 +50,18 @@ You can use this display to delete permissions if needed.
 == Create an Admin Role
 
 You can create a role that you can apply to other users in your organization.
-While you don't need roles to complete this tutorial, when you use MQ as an administrator or developer, you should create
+While you don't need roles to complete this tutorial, when you use Anypoint MQ as an administrator or developer, you should create
 roles for all those in your organization who use MQ.
 
 Creating a role lets you assign access rights to users in your organization, such as for administrators, developers, or for those who only view information but don't change it.
 
-. In Anypoint Platform, click Access Management and Roles.
-. Click Add Role.
+. In Anypoint Platform, click *Access Management and Roles*.
+. Click *Add Role*.
 +
 image::mq-roles-add-role.png[]
 +
 . Name the role `Admin Role` and click the *Add role* button.
-. Click the Role name and click *MQ*.
+. Click the role name and click *MQ*.
 . Specify the *Production* Environment, and set all the Permissions by clicking *Select All*:
 +
 image::mq-admin-role-detail.png[]
@@ -70,14 +70,18 @@ image::mq-admin-role-detail.png[]
 
 The settings are:
 
-* Clear destinations: Same privileges as View destinations, plus can purge messages.
-* Manage clients: Same privileges as View clients, plus can create Client Apps.
-* Manage destinations: Same privileges as View destinations and Clear destinations, plus can create new queues and message exchanges, edit existing queues and message exchange settings, access Message Sender and Browser pages, and can also delete.
-* View destinations: Can view all the destinations with their settings (ID, Type, Default TTL and Default Lock TTL), "In Queue" messages, and "In Flight" messages.
-* View clients: Can view all the Client Apps and their Client App IDs and Client Secrets.
+* *Clear destinations*: Same privileges as *View destinations*, plus permission to purge messages
+* *Manage clients*: Same privileges as *View clients*, plus permission to create client apps
+* *Manage destinations*: Same privileges as *View destinations* and *Clear destinations*, plus permission to:
+    ** Create new queues and message exchanges
+    ** Edit existing queues and message exchange settings
+    ** Access *Message Sender* and *Browser* pages
+    ** Delete messages
+* *View clients*: View all client apps and the client App IDs and client secrets for each client app
+* *View destinations*: View all destinations and each destination's settings (*ID*, *Type*, *Default TTL* and *Default Lock TTL*); view *In Queue* messages and *In Flight* messages
 
 
-=== Add Additional Roles For MQ Access
+=== Add Additional Roles For Anypoint MQ Access
 
 After you create an admin role, you can optionally create other roles for users in your organization who need Anypoint MQ access in Anypoint Platform.
 
@@ -108,17 +112,17 @@ image::mq-perms-display.png[]
 +
 You can use this display to delete permissions if needed, or you can delete the role.
 +
-You can also delete a role from the Roles list page by clicking the checkbox for an entry, and then clicking *Delete role*.
+You can also delete a role from the *Roles* list page by clicking the checkbox for an entry, and then clicking *Delete role*.
 +
 image::mq-delete-role.png[]
 
 == Switch Environments
 
-. In MQ, click Production: image:mq-production-button.png[].
-. In Switch Environment, click the name of another environment,
-such as Sandbox (if you previously created a Sandbox environment) and click Switch.
-. To change your default environment, click Open Your Profile To Change The Default Environment. Set the Default Environment to a different environment.
+. In *Management Center*, click *MQ* > *Production*: image:mq-production-button.png[].
+. In *Switch Environment* you can change to a different environment or change your default environment:
+    ** To swtich to a different environment, click the name of that environment, for example *Sandbox* if you previously created a Sandbox environment, and click *Switch*.
+    ** To change your default environment, click *Open Your Profile To Change The Default Environment* and choose a different environment.
 
 == See Also
 
-* xref:mq-faq.adoc[MQ FAQ]
+* xref:mq-faq.adoc[Anypoint MQ FAQ]

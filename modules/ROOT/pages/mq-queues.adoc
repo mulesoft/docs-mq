@@ -7,13 +7,14 @@ Anypoint MQ is a messaging broker that lets applications communicate by publishi
 
 This guide describes how to create a queue using Anypoint Platform. 
 
-*Notes*:
-
+[NOTE]
+====
 * Queue names can contain alphanumeric characters (a-z, A-Z, 0-9), dots (.), and dashes (-). All other characters are not allowed.
 * Queue names are limited to 127 characters in length.
 * The maximum size of a message is 10 MB.
 * The maximum time to live (TTL) for a message is 2 weeks. The maximum lock TTL is 12 hours.
 * Anypoint MQ supports up to 120,000 in-flight messages per non-FIFO queue. FIFO queues are limited to 10 in flight messages per queue.
+====
 
 Organization administrators or owners can view the current and past months usage - the total number of messages and API requests. This information is accessed from the Access Management page. For more information, see xref:mq-usage.adoc[Anypoint MQ Usage Information].
 
@@ -37,28 +38,28 @@ See also <<fifoqueues,FIFO Queues>>.
 To create a queue or FIFO queue:
 
 . Log into Anypoint Platform.
-. Click MQ from the left navigation bar or from the main Anypoint Platform screen.
-. Click Destinations.
-. Click the blue plus circle.
+. Click *MQ* from the left navigation bar or from the main Anypoint Platform screen.
+. Click *Destinations*.
+. Click the blue plus-circle icon.
 +
 image::mq-blue-create.png[]
 +
-. Click Queue, Exchange, or FIFO Queue. For Exchange, see xref:mq-exchanges.adoc[Configure Message Exchanges].
-. Fill in the fields in the Create Queue or Create FiFO Queue screen.
+. Click *Queue*, *Exchange*, or *FIFO Queue*. For Exchange, see xref:mq-exchanges.adoc[Configure Message Exchanges].
+. Fill in the fields in *Create Queue* or *Create FiFO Queue*.
 +
 image::mq-create-q-screen-dlq.png[]
 +
-** ID - Specify a queue name, which can contain these characters: a-z, A-Z, 0-9, period (.), and hyphen (-). Queue names cannot contain spaces or other characters, and can be up to 127 characters in length. The maximum size of a message is 10 MB.
+** *ID* - Specify a queue name, which can contain these characters: a-z, A-Z, 0-9, period (.), and hyphen (-). Queue names cannot contain spaces or other characters, and can be up to 127 characters in length. The maximum size of a message is 10 MB.
 +
-** Default TTL - How long unprocessed messages persist before being deleted. The maximum TTL is 2 weeks.
-** Default Lock TTL - If there is a server failure and a message is not acknowledged, specifies the duration that a message would wait before being put back into the queue. A locked message does not block other messages to be read. The lock makes a message unavailable to other applications while locked. The maximum Lock TTL is 12 hours.
-** Encryption (Optional) - Set the queue to encrypted. Anypoint MQ uses PBE with MD5 and triple DES to encrypt messages.
-** [[qdlq]]Assign a Dead Letter Queue (Optional) - Set the dead letter queue (DLQ) name. The DLQ is a previously created queue where undeliverable messages are sent to. For more information, see <<Dead Letter Queues>>.
+** *Default TTL* - How long unprocessed messages persist before being deleted. The maximum TTL is 2 weeks.
+** *Default Lock TTL* - If there is a server failure and a message is not acknowledged, specifies the duration that a message would wait before being put back into the queue. A locked message does not block other messages to be read. The lock makes a message unavailable to other applications while locked. The maximum Lock TTL is 12 hours.
+** *Encryption (Optional)* - Set the queue to encrypted. Anypoint MQ uses PBE with MD5 and triple DES to encrypt messages.
+** [*[qdlq]]Assign a Dead Letter Queue (Optional)* - Set the dead letter queue (DLQ) name. The DLQ is a previously created queue where undeliverable messages are sent to. For more information, see <<Dead Letter Queues>>.
 +
 If you are creating your first queue in a new MQ account, MQ does not support assigning the dead letter queue to the sole queue in the system - you need at least two queues to assign one queue to be a dead letter queue.
 +
-. Click Save Changes.
-. In the Destinations screen, click the right side of the queue entry to list its details.
+. Click *Save Changes*.
+. In the *Destinations* screen, click the right side of the queue entry to list its details.
 +
 The details for a queue are:
 +
@@ -73,7 +74,8 @@ See <<Send a Message to a Queue>> for how Anypoint Platform lets you send
 messages to a queue and view, return the messages to the queue, or delete the messages.
 Message content (called a payload) can be text, JSON, or CSV (comma-separated values).
 
-*Note:* If you need to delete a queue, see xref:mq-faq.adoc#how-do-i-delete-a-queue[How do I delete a queue?]
+[NOTE]
+If you need to delete a queue, see xref:mq-faq.adoc#how-do-i-delete-a-queue[How do I delete a queue?]
 
 [[fifoqueues]]
 == FIFO Queues
@@ -112,11 +114,11 @@ For applications such as those used in transactional use cases where messages ne
 
 == Dead Letter Queues
 
-Anypoint MQ provides dead letter queue (DLQ) support. This ensures that messages that cannot be successfully delivered are sent for backup to a queue known as the dead letter queue. The dead letter queue enables the ability to sideline and isolate the unsuccessfully processed messages. Users can then analyze the messages sent to the DLQ and determine why those messages were not successfully processed. A DLQ is practically the same as any other queue--it's just a queue that receives undelivered messages. Also a queue can't be a DLQ of itself - you need at least two queues for one to be a DLQ.
+Anypoint MQ provides dead letter queue (DLQ) support to ensure that messages that cannot be successfully delivered are sent for backup to a queue known as the dead letter queue. The dead letter queue enables the ability to sideline and isolate the unsuccessfully processed messages. Users can then analyze the messages sent to the DLQ and determine why those messages were not successfully processed. A DLQ is practically the same as any other queue--it's just a queue that receives undelivered messages. Also a queue can't be a DLQ of itself - you need at least two queues for one to be a DLQ.
 
-*Important Notes on DLQs:*
+*Important Notes about Dead Letter Queues:*
 
-* A dead letter queue must be either non-FIFO or FIFO. Messages sent to a FIFO dead letter queue must
+* A dead letter queue (DLQ) must be either non-FIFO or FIFO. Messages sent to a FIFO dead letter queue must
 originate from a FIFO queue. Messages sent to a non-FIFO DLQ must originate from a non-FIFO queue.
 See also <<fifoqueues,FIFO Queues>>.
 * The DLQ is in the same region as other queues.
@@ -124,18 +126,16 @@ See also <<fifoqueues,FIFO Queues>>.
 * The time to live (TTL) value, or whether the queue is encrypted depends on how you created the queue you use as a DLQ.
 * Both a DLQ and the queue writing to it must be in the same geographical region and environment, and owned by the same Anypoint Platform account.
 * Undeliverable messages that re-route to the DLQ use the source queue's encryption (regardless of the DLQ's encryption setting), but messages sent directly to the DLQ by a client, use the DLQ's encryption setting. Organizations need to ensure their operational requirements for encryption are met. If an organization's policy is that all messages be encrypted, then all queues must be encrypted if their undeliverable messages go to the DLQ.
-* If a queue has a dead letter queue enabled, then viewing the source queue's messages in the Anypoint MQ Message Browser counts against the number of maximum deliveries. This is because viewing a message and returning it to the queue counts as a nack, and therefore is an unsuccessful delivery attempt. Deleting the message in the browser rather than returning it to the queue prevents the message from being counted against the maximum deliveries, but then of course, the message is gone.
-
+* If a queue has a dead letter queue enabled, then viewing the source queue's messages in the Anypoint MQ *Message Browser* counts against the number of maximum deliveries. Viewing a message and returning it to the queue counts as a nack, and therefore is an unsuccessful delivery attempt. Deleting the message in the browser rather than returning it to the queue prevents the message from being counted against the maximum deliveries, but then of course, the message is gone.
 
 === Assign a DLQ to a Queue
 
-When you create a queue, if you check Assign a Dead Letter Queue, the following
-additional fields appear:
+When you create a queue, if you check *Assign a Dead Letter Queue*, the following additional fields appear:
 
 image::mq-create-q-dlq.png[]
 
-* Dead Letter Queue Name - Choose a previously created queue name from the drop-down list.
-* Reroute after 10 attempts (Optional) - Indicates how many attempts Anypoint MQ tries to deliver messages in the queue before rerouting the message to the dead letter queue. If not specified, the default value is 10 tries. This value ranges from 1 to 1000 attempts.
+* *Dead Letter Queue Name* - Choose a previously created queue name from the drop-down list.
+* *Reroute after 10 attempts* (Optional) - Indicates how many attempts Anypoint MQ tries to deliver messages in the queue before rerouting the message to the dead letter queue. If not specified, the default value is 10 tries. This value ranges from 1 to 1000 attempts.
 
 The following flowchart shows the logic for how messages are sent to a DLQ:
 
@@ -149,7 +149,7 @@ If you need to recover messages from the DLQ, use the REST API to get the messag
 
 You can view  details of each queue to see whether it has any dead letter *sources* (that is, whether any other queues are using this queue as a DLQ).
 
-You can also view this from the REST Administration API from the Get Queue REST endpoint. If DLQ is set, the returned entities contain the deadLetterSources field. For more information, see xref:mq-apis.adoc#mqadminapi[MQ Administration REST API].
+You can also view details of each queue from the REST Administration API, using the Get Queue REST endpoint. If DLQ is set, the returned entities contain the `deadLetterSources` field. For more information, see xref:mq-apis.adoc#mqadminapi[Anypoint MQ Administration REST API].
 
 For example:
 
@@ -170,7 +170,8 @@ For example:
 
 == Send a Message to a Queue
 
-*Note:* The maximum message size if 10 MB.
+[NOTE]
+The maximum message size is 10 MB.
 
 To send a message to a queue:
 
@@ -195,9 +196,9 @@ image::mq-msg-sender-text-payload2.png[]
 
 == Verify the Message in a Queue
 
-To verify that the message arrived in the queue, either return to the Destinations screen to observe the number of messages in the queue, or you can assume the message is in the queue, and you can <<Get a Message From a Queue>>.
+To verify that the message arrived in the queue, either return to the *Destinations* screen to observe the number of messages in the queue, or you can assume the message is in the queue, and you can <<Get a Message From a Queue>>.
 
-To return to the Destinations screen to verify that the message is in the queue:
+To return to the *Destinations* screen to verify that the message is in the queue:
 
 . Click *Destinations*:
 +
@@ -221,10 +222,13 @@ image::mq-click-msg-browser2.png[]
 +
 image::mq-get-messages2.png[]
 +
-*Note:* If you are retrieving messages from a FIFO queue, click the
+[NOTE]
+====
+If you are retrieving messages from a FIFO queue, click the
 checkbox to acknowledge that if you view messages here through the browser, and if an
 application is also consuming messages from this same queue programmatically,
 the order of the messages received from the FIFO queue may be out of order.
+====
 +
 image::mqfifo-message-browser.png[]
 +
@@ -249,7 +253,9 @@ image::mq-message-delete-trash-can-icon2.png[]
 
 Now you are able to send and receive messages in Anypoint MQ.
 
-*Note:* In Anypoint MQ, messages are read through long polling where the server holds the request open until new data is available. Anypoint MQ delivers a batch of messages with a single read.
+
+[NOTE]
+In Anypoint MQ, messages are read through long polling where the server holds the request open until new data is available. Anypoint MQ delivers a batch of messages with a single read.
 
 Organization administrators or owners can view the current and past months usage - the total number of messages and API requests. This information is accessed from the Access Management page. For more information, see xref:mq-usage.adoc[Anypoint MQ Usage Information].
 
