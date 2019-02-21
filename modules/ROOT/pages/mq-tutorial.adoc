@@ -7,18 +7,18 @@ This tutorial helps you send and receive messages using Anypoint MQ using a
 publish/subscribe queue mechanism. Anypoint MQ provides a user interface built into
 Anypoint Platform that lets you send messages to a queue or message exchange, 
 and then read the messages from a queue. Anypoint MQ also provides a connector 
-that works with Anypoint Studio. See xref:mq-connectors.adoc[MQ Connectors] for 
+that works with Anypoint Studio. See xref:mq-connectors.adoc[Anypoint MQ Connectors] for 
 information about Mule 3 and Mule 4 connectors that you can use with Anypoint Studio.
 
 == Prerequisites
 
-. Read xref:mq-understanding.adoc[MQ Terminology].
+. Read xref:mq-understanding.adoc[Anypoint MQ Terminology].
 . Create an Anypoint Platform account to configure an environment, user permissions, register applications in MQ, and to create queues and message exchanges. You can access Anypoint MQ in the Anypoint Platform and the left navigation bar.
 . An Enterprise license is required to use MQ. Contact the MuleSoft Sales team to get a free trial.
 . Download and install Anypoint Studio.
-. You need a https://curl.haxx.se[curl command] to test MQ in this tutorial. 
+. You need a https://curl.haxx.se[`curl` command] to test Anypoint MQ in this tutorial. 
 
-Queue and message exchange names can contain alphanumeric characters (a-z, A-Z, 0-9), dots (.), and dashes (-). All other characters are not allowed. Queue and message exchange names are limited to 127 characters in length.
+Queue and message exchange names can contain alphanumeric characters (a-z, A-Z, 0-9), dots (.), and dashes (-). No other characters are allowed. Queue and message exchange names are limited to 127 characters in length.
 
 == Create a Queue
 
@@ -30,8 +30,8 @@ waiting area so that other applications can read them. Messages persist until th
 time to live (TTL) value expires. By default, a message persists in Anypoint MQ
 for up to 7 days. The minimum message TTL is 1 minute and the maximum is 14 days.
 
-. Log into Anypoint Platform and click MQ.
-. Click Destinations:
+. Log into Anypoint Platform and click *MQ*.
+. Click *Destinations*:
 +
 image::mq-destinations-option.png[]
 +
@@ -42,26 +42,27 @@ image::mq-create-choices.png[]
 +
 image::mq-create-demo-queue.png[]
 +
-. In the Create Queue screen, specify a name for the queue. This tutorial uses the `MyDemoQueue` value. 
+. In the *Create Queue* screen, specify a name for the queue. This tutorial uses `MyDemoQueue`. 
 +
 The TTL is the time to live, that is, how long a message can stay in a queue before being deleted. The default lock TTL determines how long a message is unavailable to other applications. A locked message does not block other messages from being read.
 . When done, click *Save Changes*:
 +
 The queue creates and you are returned to the *Destinations* screen.
++
+[NOTE]
+====
+Where you click on a queue entry in the Destinations screen governs what you see next:
 
-*Note*: Where you click on a queue entry in the Destinations screen governs
-what you see next:
+image:mq-entryui.png[]
+====
 
-image::mq-entryui.png[]
-
-*Note:* If you need to delete a queue, see xref:mq-faq.adoc#how-do-i-delete-a-queue[How do I delete a queue?] in the xref:mq-faq.adoc[MQ FAQ].
+If you need to delete a queue, see xref:mq-faq.adoc#how-do-i-delete-a-queue[How do I delete a queue?] in the xref:mq-faq.adoc[Anypoint MQ FAQ].
 
 == Send a Message to a Queue
 
-. Log into Anypoint Platform and click MQ.
-. Click Destinations.
-. Click the MyDemoQueue entry in Destinations to view details about
-the queue.
+. Log into Anypoint Platform and click *MQ*.
+. Click *Destinations*.
+. Click the `MyDemoQueue` entry in *Destinations* to view details about the queue.
 . Click the left side of the queue entry to open the Messaging feature, or click the right side of the queue entry and click the arrow to the right of the queue name:
 +
 image::mq-access-messaging2.png[]
@@ -78,14 +79,14 @@ image::mq-msg-sender-text-payload2.png[]
 
 == Verify the Message in a Queue
 
-. Click Destinations.
+. Click *Destinations*.
 . Click the right side of the queue entry to view details and see the number of messages in the queue:
 +
 image::mq-num-queued-msgs.png[]
 
 == Get a Message From a Queue
 
-. In Anypoint Platform > MQ, click *Message Browser*:
+. In *Anypoint Platform* > *MQ*, click *Message Browser*:
 +
 image::mq-click-msg-browser2.png[]
 +
@@ -98,7 +99,7 @@ image::mq-get-messages2.png[]
 image::mq-click-id2.png[]
 +
 . If you want to return the message to the queue, so other applications can read
-the message, click the Return Messages icon - this is the default condition. 
+the message, click the Return Messages icon - this is the default behavior. 
 If you switch screens back to the Message Sender or to Destinations, messages 
 automatically return to the queue. In Anypoint MQ, returning the messages to the 
 queue is known as `nack` - the message is not altered. However, the time to 
@@ -149,32 +150,32 @@ To send a CSV message:
 
 == Register a Client Application
 
-. Log into Anypoint Platform and click MQ.
-. Click Client App:
+. Log into Anypoint Platform and click *MQ*.
+. Click *Client App*:
 +
 image::mq-click-client-apps.png[]
 +
-. Click the blue plus icon image:mq-blue-plus-icon.png[]
-. Specify an application name such as `DemoClientApp` and click Save Changes.
+. Click the blue plus icon image:mq-blue-plus-icon.png[].
+. Specify an application name such as `DemoClientApp` and click *Save Changes*.
 +
 image::mq-create-client-app-name.png[]
 +
-. Leave the Client Apps window open as you need to copy and
-paste the Client ID and Client Secret
+. Leave the *Client Apps* window open as you need to copy and
+paste the client ID and client secret
 into the configuration for Anypoint Studio.
 
-== Configure MQ in Design Center
+== Configure Anypoint MQ in Design Center
 
 IMPORTANT: Disable password programs such as LastPass or Okta in your browser before using Design Center. Otherwise, the password program inserts passwords in the HTTP Listener's TLS tab. The passwords in the TLS tab cause the app to fail. 
 
-Before starting to configure an application in Design Center, leave a window open to Anypoint 
-Platform > MQ. Determine the queue you want to access and have a client application available to get its client ID and secret from.
+Before starting to configure an application in Design Center, leave a browser window open to *Anypoint 
+Platform* > *MQ*. Determine the queue you want to access and have a client application available so you can copy its client ID and secret.
 
-. In Anypoint Platform > Design Center, click Create > Mule Application:
+. In *Anypoint Platform* > *Design Center*, click *Create* > *Mule Application*:
 +
 image::mq-dc-create.png[]
 +
-. Provide a project name and click Create. In this tutorial, the app is called `mqdemo`:
+. Provide a project name and click *Create*. In this tutorial, the app is called `mqdemo`:
 +
 image::mq-dc-new-mule-app.png[]
 +
@@ -182,14 +183,14 @@ image::mq-dc-new-mule-app.png[]
 +
 image::mq-dc-go-straight.png[]
 +
-. Select a trigger for the action that starts the MQ connector access. The 
-simplest is to use an HTTP Listener, which we use in this tutorial to initiate access using the curl command. Alternatively you can use MQ as a Subscriber to retrieve messages from a destination name, or specify a Scheduler to accept input at prescribed times.
+. Select a trigger for the action that starts Anypoint MQ connector access. The 
+simplest trigger is HTTP Listener, which we use in this tutorial to initiate access using a `curl` command. Alternatively you can use Anypoint MQ as a subscriber to retrieve messages from a destination name, or specify a scheduler to accept input at prescribed times.
 +
 Type in a few letters in the trigger search box, such as "HT" and select the HTTP Listener:
 +
 image::mq-dc-http-find.png[]
 +
-. In the HTTP Listener, set the Path to the `/mq/{messageId}` value.
+. In the HTTP Listener, set the *Path* to the `/mq/{messageId}` value.
 +
 image::mq-dc-http-path.png[]
 +
@@ -197,34 +198,34 @@ image::mq-dc-http-path.png[]
 +
 image::mq-dc-click-plus.png[]
 +
-. In the Component menu, select the Mule Anypoint MQ Connector.
-. For this tutorial, select the Publish operation:
+. In the *Component* menu, select the Mule Anypoint MQ Connector.
+. For this tutorial, select the *Publish* operation:
 +
 image::mq-dc-publish-op.png[]
 +
-For the other operations, if you were constructing your application to receive a message sent from a queue, you would use the Consume operation. If your application had tests to determine if message processing succeeded, you would use the Ack operation  
+For the other operations, if you were constructing your application to receive a message sent from a queue, you would use the *Consume* operation. If your application had tests to determine if message processing succeeded, you would use the *Ack* operation  
 to acknowledge that a message was received and could be deleted. Similarly if message 
-processing failed, you would use the Nack operation to negatively acknowledge the message. In the case of Nack, the message would be returned to the queue to await accessing.
+processing failed, you would use the *Nack* operation to negatively acknowledge the message. In the case of *Nack*, the message would be returned to the queue to await accessing.
 + 
-. In the *Destination*, specify the name of queue you want to access from your Anypoint Platform > MQ window, such as the MyDemoQueue that was created earlier in this tutorial. Then click
+. In the *Destination*, specify the name of queue you want to access from your *Anypoint Platform* > *MQ* browser window, such as `MyDemoQueue` that was created earlier in this tutorial. Then click
 *Set Up*.
 +
 image::mq-dc-destination.png[]
 +
-. Copy the Client ID and Client Secret from your Anypoint Platform > MQ window. In the MQ 
-window, click Client Apps and click the name of an application. Click Copy for each ID and 
+. Copy the client ID and client secret from your *Anypoint Platform* > *MQ* browser window. In the *MQ* 
+window, click *Client Apps* and click the name of an application. Click *Copy* for each ID and 
 secret values and paste each in the Design Center window.
 +
 image::mq-dc-client-id-secret.png[]
 +
-. Click *Test* to ensure that you have access to your MQ app. If successful,
-the green Test Successful box appears. If not, ensure that the client ID, client secret,
-and URL values are correct. If the URL does not match that in Anypoint Platform > MQ, copy
-the URL from MQ to the Design Center screen and try the Test again.
+. Click *Test* to ensure that you have access to your Anypoint MQ app. If successful,
+the green *Test Successful* box appears. If not, ensure that the client ID, client secret,
+and URL values are correct. If the URL does not match that in *Anypoint Platform* > *MQ*, copy
+the URL from Anypoint MQ to the Design Center screen and click *Test* again.
 +
 image::mq-dc-test-connection.png[]
 +
-. Click the Run button. 
+. Click the *Run* button. 
 +
 image::mq-dc-run-btn.png[]
 +
@@ -232,7 +233,7 @@ image::mq-dc-running.png[]
 
 === Test Your Design Center App
 
-. Run this command from a command prompt to send the "body" value as an MQ message. The "100" value in the URL 
+. Run this command from a command prompt to send the `body` value as an Anypoint MQ message. The `100` value in the URL 
 specifies the message ID value per the `/mq{messageId}` value in the HTTP Listener, which is the identifier for your message:
 +
 [source,json,linenums]
@@ -246,11 +247,11 @@ curl -X POST \
 ]'
 ----
 +
-You can find the value for DEPLOYMENT_URL in the detail for your application in Design Center window:
+You can find the value for `DEPLOYMENT_URL` in the detail for your application in Design Center window:
 +
 image::mq-dc-details.png[]
 +
-. In Anypoint Platform > MQ, click the name of the queue you specified as the Destination in Design Center. Click *Message Browser*:
+. In *Anypoint Platform* > *MQ*, click the name of the queue you specified as the Destination in Design Center. Click *Message Browser*:
 +
 image::mq-msg-browser.png[]
 +
@@ -258,40 +259,40 @@ image::mq-msg-browser.png[]
 +
 image::mq-get-messages.png[]
 +
-. Click the ID value in the message page to view the message contents:
+. Click the *ID* value in the message page to view the message contents:
 +
 image::mp-dc-test-in-mq.png[]
 +
-. Try changing the body text in the curl command and repeating the steps to view the message.
+. Try changing the body text in the `curl` command and repeating the steps to view the message.
 
-You can now configure MQ in Design Center, submit REST API commands to the MQ Broker API, 
-and use MQ to view the results.
+You can now configure Anypoint MQ in Design Center, submit REST API commands to the MQ Broker API, 
+and use Anypoint MQ to view the results.
 
 
 == Create a Studio 7 Application
 
-You can use Anypoint Studio 7 to create an MQ application much the same way as you
+You can use Anypoint Studio 7 to create an Anypoint MQ application much the same way as you
 created in Design Center. Studio 7 enables you to create the application, 
 you can test the program, and then package the application into a zip file to 
-put into Anypoint Platform > Runtime Manager. Runtime Manager serves the application so
-you can submit curl commands as you did in the previous <<Configure MQ in Design Center>> section. See xref:mq-connectors.adoc[MQ Connectors] for more information.
+put into *Anypoint Platform* > *Runtime Manager*. Runtime Manager serves the application so
+you can submit `curl` commands as you did in the previous <<Configure Anypoint MQ in Design Center>> section. See xref:mq-connectors.adoc[MQ Connectors] for more information.
 
 Prerequisites: 
 
 * Studio 7 requires that you install https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html[Oracle Java SDK 8]. Earlier versions of Java or versions after version 8 are not supported. 
 * In Anypoint Platform, change the environment to *Production* and ensure that any 
-values you set and get in Anypoint Platform > MQ are also in the Production environment.
+values you set and get in *Anypoint Platform* > *MQ* are also in the Production environment.
 * If you have not done so already, https://www.mulesoft.com/lp/dl/studio[download and install Anypoint Studio 7].
 
-=== Configure Studio 7 for MQ
+=== Configure Studio 7 for Anypoint MQ
 
-. Start Studio, click File > New > Mule Project, and give the the project a name such as `mq`.
+. Start Studio, click *File* > *New* > *Mule Project*, and give the the project a name such as `mq`.
 . Click the Exchange icon in the toolbar:
 +
 image::mq-st7-exchange.png[]
 +
 . In Exchange, click Login and supply your Anypoint Platform username and password.
-. Search for the Anypoint MQ Connector, click *Add to project*, and click Proceed.
+. Search for the Anypoint MQ Connector, click *Add to project*, and click *Proceed*.
 . Click HTTP in the Mule Palette:
 +
 image::mq-st7-mule-palette.png[]
@@ -301,42 +302,42 @@ image::mq-st7-mule-palette.png[]
 +
 image::mq-st7-flow.png[]
 +
-. Click the Listener icon. Set the General > Path to the `/mq/{messageId}` value:
+. Click the Listener icon. Set *General* > *Path* to `/mq/{messageId}`:
 +
 image::mq-st7-listener-path.png[]
 +
 . Click the green plus button to the right of the *Connector configuration* field.
-. Set the Host to 0.0.0.0 and the Port to 8081. Leave all other values as they are:
+. Set *Host* to `0.0.0.0` and *Port* to `8081`. Leave all other values as they are:
 +
 image::mq-st7-globals.png[]
 +
-. Click the MQ Publish icon. Set the Destination to the name of a queue in Anypoint Platform > MQ. Ensure that the queue is in the Production environment.
+. Click the MQ Publish icon. Set *Destination* to the name of a queue in *Anypoint Platform* > *MQ*. Ensure that the queue is in the Production environment.
 . Click the green plus button to the right of the *Connector configuration* field.
-. Set the URL field to the URL in MQ:
+. Set the URL field to the URL in *MQ*:
 +
 image::mq-url.png[]
 +
-. In MQ, click Client Apps. If needed create a new app. Copy the Client ID and Client Secret to the clipboard and paste each into Studio. Ensure that MQ is in the Production environment.
+. In *MQ*, click *Client Apps*. If needed, create a new app. Copy the client ID and client secret to the clipboard and paste each into Studio. Ensure that *MQ* displays the Production environment.
 +
 image::mq-st7-id-secret.png[]
 +
 . Click *Test Connection* to ensure the values are correct.
 . Save your project. Right click the name of your app in Package Explorer and click
-Anypoint Platform > Deploy to CloudHub.
+*Anypoint Platform* > *Deploy to CloudHub*.
 +
 image::mq-st7-deploy.png[]
 +
-If you see this message: "You do not have permission to deploy new applications in this environment. Please select an existing application to redeploy" -- Change the environment so that environment is *not* the Design environment, such as to set the environment to Production.
-To change the environment, click the *Design* box in the upper left, and select another environment.
+If you see this message: `You do not have permission to deploy new applications in this environment. Please select an existing application to redeploy`, change the environment so that it is *not* the Design environment. For example, set the environment to Production or Sandbox.
+To change the environment, click *Design* in the upper left corner, and select another environment.
 +
 You may also need to change the name of the application to deploy it successfully.
 +
-. Browse to Anypoint Platform > Runtime Manager. Ensure the application is running. Click
+. Browse to *Anypoint Platform* > *Runtime Manager*. Ensure the application is running. Click
 the application and copy the *App url* value:
 +
 image::mq-app-url.png[]
 +
-. In the following command, replace DEPLOYMENT_URL with the *App url* value from Runtime Manager. Run this command from a command prompt to send the "body" value as an MQ message. 
+. In the following command, replace `DEPLOYMENT_URL` with the *App url* value from Runtime Manager. Run this command from a command prompt to send the "body" value as an Anypoint MQ message. 
 +
 [source,json,linenums]
 ----
@@ -349,14 +350,14 @@ curl -X POST \
 ]'
 ----
 +
-If you see a 404 message for Destination not found, verify that the name of the queue 
-in the Studio 7 MQ Publish > Destination field matches the name of the queue in Anypoint Platform > MQ.
+If you see a 404 message for destination not found, verify that the name of the queue 
+in the Studio 7 *MQ Publish* > *Destination* field matches the name of the queue in *Anypoint Platform* > *MQ*.
 +
 You can redeploy your application by right-clicking the project in Studio 7 and 
-selecting Anypoint Platform > Deploy to CloudHub. This command lets you update the
+selecting *Anypoint Platform* > *Deploy to CloudHub*. This command lets you update the
 app in Runtime Manager.
 +
-. In Anypoint Platform > MQ (in the Production environment), click the queue name, click
+. In *Anypoint Platform* > *MQ* (in the Production environment), click the queue name, click
 Message Browser, Get Messages, and click the message to view the content of the message:
 +
 image::mq-runtime-mgr-result.png[]
@@ -364,7 +365,7 @@ image::mq-runtime-mgr-result.png[]
 
 === Studio 7 Summary View
 
-The following view shows the MQ app in Package Explorer, the position of the HTTP Listener and
+The following view shows the Anypoint MQ app in Package Explorer, the position of the HTTP Listener and
 MQ Publish, and the Publish properties:
 
 image::mq-st7-big-picture.png[]
@@ -412,28 +413,28 @@ http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 
 == Create a Studio 6 Application
 
-*Note:* This section applies only to Anypoint Studio 6. For Studio 7, see the earlier section
+This section applies only to Anypoint Studio 6. For Studio 7, see the earlier section
 <<Create a Studio 7 Application>>.
 
 . In Studio 6, click the Exchange icon in the Studio taskbar.
-. Click Login in Anypoint Exchange.
-. Search for the Anypoint MQ connector and click Install.
+. Click *Login* in Anypoint Exchange.
+. Search for the Anypoint MQ connector and click *Install*.
 . Follow the prompts to install the connector.
-. Create a new Mule Project. Click File > New > Mule Project. Name the project "mqdemo".
-. Search for "http" and drag the HTTP Connector to the Studio Canvas.
+. Create a new Mule Project. Click *File* > *New* > *Mule Project*. Name the project `mqdemo`.
+. Search for `http` and drag the HTTP connector to the Studio canvas.
 +
 image::mq-connector-visual-flow.png[]
 +
-. Search for "set" and drag *Set Payload* to the Canvas.
-. Search for "mq" and drag the *Anypoint MQ* connector icon to the canvas.
-. Search for "logger" and drag *Logger* to the Canvas.
-. Click the HTTP Connector and click the green plus sign to the right of *Connector Configuration*:
-. In the HTTP Connector's Global Element Properties accept the defaults, and click OK.
+. Search for `set` and drag *Set Payload* to the canvas.
+. Search for `mq` and drag the *Anypoint MQ* connector icon to the canvas.
+. Search for `logger` and drag *Logger* to the canvas.
+. Click the HTTP connector and click the green plus sign to the right of *Connector Configuration*.
+. In the HTTP Connector's *Global Element Properties* menu, accept the defaults, and click OK.
 . Set the Path to `/mq/{messageId}`:
 +
 image::mq-http-path.png[]
 +
-. Click Set Payload in the Canvas and set the Value to:
+. Click *Set Payload* in the canvas and set the value to:
 +
 ----
 #[message.inboundProperties.'http.uri.params'.messageId]
@@ -441,8 +442,8 @@ image::mq-http-path.png[]
 +
 image::mq-set-payload.png[]
 +
-. Click the Anypoint MQ connector, and click the green plus sign to the right of Connector Configuration:
-. In the MQ Connector's Global Element Properties window, add the information from Anypoint Platform:
+. Click the Anypoint MQ connector, and click the green plus sign to the right of *Connector Configuration*.
+. In Anypoint MQ Connector's *Global Element Properties* window, add the information from Anypoint Platform:
 +
 image::mq-connector-properties.png[]
 +
@@ -463,9 +464,7 @@ image::mq-operation-publish.png[]
 +
 image::mq-destination-queue2.png[]
 +
-. Click the *Logger* and set the Message field to:
-+
-*MQ Message: #[payload]*
+. Click the *Logger* and set the Message field to `MQ Message: #[payload]`:
 +
 image::mq-logger-properties.png[]
 +
@@ -478,7 +477,7 @@ send a curl command to send a message to MQ.
 
 === Studio 6 XML
 
-After you configure your application using the MQ Connector, you can check your configuration against this XML.
+After you configure your application using the Anypoint MQ Connector, you can check your configuration against this XML.
 
 Click Configuration XML in Studio and compare your XML to the following. If needed, you can make corrections.
 
@@ -526,29 +525,32 @@ http://www.mulesoft.org/schema/mule/anypoint-mq/current/mule-anypoint-mq.xsd">
 
 A message exchange groups one or more queues so that a message sent to the message exchange goes to all bound queues.
 
-. Log into Anypoint Platform > MQ.
-. Click Destinations.
+. Log into *Anypoint Platform* > *MQ*.
+. Click *Destinations*.
 . Click the blue plus icon image:mq-blue-plus-icon.png[]
-. Click Exchange.
+. Click *Exchange*.
 . Specify the name `MyDemoExchange`.
-. Click the checkbox to bind MyDemoQueue to this message exchange.
-. Click Save Changes.
-. In the Destinations screen, click the message exchange Type to list its details.
+. Click the checkbox to bind `MyDemoQueue` to this message exchange.
+. Click *Save Changes*.
+. In the *Destinations* screen, click the message exchange *Type* to list its details.
 
 To delete a message exchange, see xref:mq-faq.adoc#how-do-i-delete-an-exchange[How do I delete a Message Exchange?] in the xref:mq-faq.adoc[Anypoint MQ FAQ].
 
 == Bind a Queue to a Message Exchange
 
-. Log into Anypoint Platform and click MQ.
-. Click Destinations.
-. Click the left side of the message exchange entry in Destinations.
+. Log into Anypoint Platform and click *MQ*.
+. Click *Destinations*.
+. Click the left side of the message exchange entry in *Destinations*.
 +
-*Note*: Where you click on a message exchange entry in the Destinations table governs
+[NOTE]
+====
+Where you click on a message exchange entry, the *Destinations* table governs
 what you see next:
+
+image:mq-where-to-click-x2.png[]
+====
 +
-image::mq-where-to-click-x2.png[]
-+
-. In the message exchange menu, click Bind for each queue you want to bind to the message exchange:
+. In the message exchange menu, click *Bind* for each queue you want to bind to the message exchange:
 +
 image::mq-bind-queue-to-exchange2.png[]
 
@@ -557,23 +559,23 @@ image::mq-bind-queue-to-exchange2.png[]
 Sending a message to a message exchange is very similar to sending a message to a queue.
 The only difference is that you can get the message from any queue bound to a message exchange.
 
-. Log into Anypoint Platform > MQ.
-. Click Destinations.
-. Click the `MessageExchange` entry in Destinations to view details about
+. Log into *Anypoint Platform* > *MQ*.
+. Click *Destinations*.
+. Click the `MessageExchange` entry in *Destinations* to view details about
 the message exchange.
-. Click the MessageExchange link in the details screen to access the Message Sender:
+. Click the *MessageExchange* link in the details screen to access the *Message Sender*:
 +
 image::mq-exchange-msg-access2.png[]
 +
-. Click Message Sender:
+. Click *Message Sender*:
 +
 image::mq-exchange-msg-sender2.png[]
 +
-. Type the contents of the Payload and click Send:
+. Type the contents of the *Payload* and click *Send*:
 +
 image::mq-exchange-payload2.png[]
 
-You can now use the Message Browser to get the message from the MyDemoQueue as described
+You can now use the *Message Browser* to get the message from `MyDemoQueue` as described
 in <<Get a Message From a Queue>>.
 
 You can also send comma-separated value (CSV) or JSON content in the payload by changing
@@ -581,4 +583,4 @@ the message Type value. For more information, see <<Send a CSV or JSON Message>>
 
 == See Also
 
-* xref:mq-faq.adoc[MQ FAQ]
+* xref:mq-faq.adoc[Anypoint MQ FAQ]

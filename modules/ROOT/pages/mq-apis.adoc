@@ -1,4 +1,4 @@
-= MQ REST APIs
+= Anypoint MQ REST APIs
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -7,9 +7,9 @@ The Anypoint MQ APIs let you use REST to send and receive messages, administer q
 
 Anypoint MQ provides these APIs:
 
-* <<mqadminapi,MQ Admin API>>
-* <<mqbrokerapi,MQ Broker API>>
-* <<mqstatapi,MQ Stats API>>
+* <<mqadminapi,Anypoint MQ Admin API>>
+* <<mqbrokerapi,Anypoint MQ Broker API>>
+* <<mqstatapi,Anypoint MQ Stats API>>
 
 Anypoint MQ portals are available in the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/[Developer portal].
 
@@ -30,14 +30,14 @@ Steps:
 
 Before accessing an API, you need to acquire an access token:
 
-* <<mqadminapi,MQ Admin API>> - Get an access token for an Anypoint Platform user.
-* <<mqbrokerapi,MQ Broker API>> - Get a token from Anypoint MQ by supplying the client ID and client secret for an MQ application.
-* <<mqstatapi,MQ Stats API>> - Get an access token for an Anypoint Platform user.
+* <<mqadminapi,Anypoint MQ Admin API>> - Get an access token for an Anypoint Platform user.
+* <<mqbrokerapi,Anypoint MQ Broker API>> - Get a token from Anypoint MQ by supplying the client ID and client secret for an MQ application.
+* <<mqstatapi,Anypoint MQ Stats API>> - Get an access token for an Anypoint Platform user.
 
-The curl command for each is explained in the API sections.
+The `curl` command for each is explained in the API sections.
 
 [[mqadminapi]]
-== MQ Admin API
+== Anypoint MQ Admin API
 
 * Browse queues and message exchanges
 * Create queues and message exchanges
@@ -57,7 +57,7 @@ You can use this curl command to get the access token:
 curl -X POST -H "Content-Type: application/json" -d '{"username":"USERNAME", "password":"PASSWORD"}' https://anypoint.mulesoft.com/accounts/login
 ----
 
-This returns output similar to:
+The command returns output similar to:
 
 [source,json,linenums]
 ----
@@ -78,7 +78,7 @@ image::mq-rest-admin-portal.png[]
 
 You can create a FIFO queue from the Admin API portal by including the `"fifo": true` field.
 
-*Note:* The organization from which you use the Administration portal must have an Anypoint MQ FIFO entitlement. See xref:mq-faq.adoc[MQ FAQ] for the regions MQ is available in.
+*Note:* The organization from which you use the Administration portal must have an Anypoint MQ FIFO entitlement. See xref:mq-faq.adoc[Anypoint MQ FAQ] for the regions where Anypoint MQ is available.
 
 For the following path using the `PUT` operation:
 
@@ -98,7 +98,7 @@ Use this body:
 ----
 
 [[mqbrokerapi]]
-== MQ Broker API
+== Anypoint MQ Broker API
 
 This API lets you send and receive messages from queues and message exchanges.
 
@@ -115,18 +115,18 @@ with the Stats and Admin APIs.
 To get the Broker API access token:
 
 . Log into Anypoint Platform.
-. Click MQ, Client Apps, and click the blue plus circle icon to create an app.
-. Get the Client ID and Client Secret and plug these values into the curl command below replacing `CLIENT_ID` and `CLIENT_SECRET`:
+. Click *MQ*, *Client Apps*, and click the blue plus-circle icon to create an app.
+. Get the client ID and client secret and use these values in the curl command below replacing `CLIENT_ID` and `CLIENT_SECRET`:
 +
 ----
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "client_id=CLIENT_ID&client_secret=CLIENT_SECRET&grant_type=client_credentials" "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/authorize"
 ----
 +
-See the xref:mq-faq.adoc[MQ FAQ] for the regions that MQ and FIFO are available in.
+See the xref:mq-faq.adoc[Anypoint MQ FAQ] for the regions where Anypoint MQ and FIFO are available.
 +
 . Submit the curl command.
 +
-This returns output similar to:
+The command returns output similar to:
 +
 [source,json]
 ----
@@ -140,12 +140,12 @@ In the Broker API portal, click *Download* to download the API as a RAML, Mule 3
 image::mq-rest-broker-portal.png[]
 
 [[mqstatapi]]
-== MQ Stats API
+== Anypoint MQ Stats API
 
 * Browse statistics for queues and message exchanges.  
 * View the number of messages currently in a queue. 
 * View historical data for queue activity over time. 
-* View your entire organization's usage of MQ for billing purposes.
+* View your entire organization's usage of Anypoint MQ for billing purposes.
 
 The Anypoint MQ Statistics API provides access to Anypoint MQ message queues.
 
@@ -179,14 +179,14 @@ In the Stats API portal, click *Download* to download the API as a RAML, Mule 3 
 image::mq-rest-stats-portal.png[]
 
 [[exstatapi]]
-== Example: MQ Stats API
+== Example: Anypoint MQ Stats API
 
 These statistics are provided:
 
-* messagesVisible - The number of messages that can be retrieved from a queue.
-* messagesSent - The number of messages added to a queue.
-* messagesReceived - The number of messages received in a queue.
-* messagesAcked - The number of messages ACKed. Also includes any messages deleted using the Anypoint Platform > MQ
+* `messagesVisible` - The number of messages that can be retrieved from a queue.
+* `messagesSent` - The number of messages added to a queue.
+* `messagesReceived` - The number of messages received in a queue.
+* `messagesAcked` - The number of messages ACKed. Also includes any messages deleted using the *Anypoint Platform* > *MQ*
 user interface.
 
 Example request to list statistics for July 26 to July 28, 2018:
@@ -347,7 +347,7 @@ exchanges=[
 ]
 ----
 
-See the xref:mq-faq.adoc[MQ FAQ] for the regions MQ and FIFO are available in.
+See the xref:mq-faq.adoc[MQ FAQ] for the regions that Anypoint MQ and FIFO are available in.
 
 === Create a Script File
 
@@ -564,7 +564,7 @@ curl -X GET -H "Authorization: bearer 42544254-4254-4254-4254-425442544254" \
 "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/42544254-4254-4254-4254-425442544254/environments/42544254-4254-4254-4254-425442544254/destinations/postmanQueue/messages?pollingTime=10000&batchSize=1&lockTtl=10000"
 ----
 
-See the xref:mq-faq.adoc[MQ FAQ] for the regions MQ and FIFO are available in.
+See the xref:mq-faq.adoc[MQ FAQ] for the regions that Anypoint MQ and FIFO are available in.
 
 [[expostbro]]
 == Example: Postman, Studio, and Browser
@@ -589,7 +589,7 @@ After downloading and installing Postman, supply this information to create an e
 * Host ID (from Anypoint Platform/MQ)
 * Client ID (from Anypoint Platform/MQ)
 * Client Secret (from Anypoint Platform/MQ)
-* A queue name - You can set this in Postman
+* A queue name - You can set this queue name in Postman
 
 After you are able to authorize access to an Anypoint MQ API, then publish a message, consume the message, and get the lock ID from the returned information in the body.
 
@@ -621,21 +621,24 @@ The steps in this section are summarized.
 
 You can set up a Studio project with:
 
-* An HTTP connector: Host 0.0.0.0, Port 8081, and path in the properties menu set to the `/mq/{messageId}` value.
-* Anypoint MQ connector with the client ID and secret you got from Anypoint Platform > MQ, and the Destination set to the queue you created in Postman.
-* Logger with Message set to the `#[payload]` value.
+* An HTTP connector: 
+  ** Host `0.0.0.0`
+  ** Port `8081`
+  ** Path in the properties menu set to `/mq/{messageId}`.
+* Anypoint MQ connector with the client ID and client secret from *Anypoint Platform* > *MQ*, and the *Destination* set to the queue you created in Postman.
+* Logger with *Message* set to the `#[payload]` value.
 
-Right-click the project name in the Package Explorer window and click *Run As* > *Mule Application*.
+Right-click the project name in the *Package Explorer* window and click *Run As* > *Mule Application*.
 
-Ensure that the Console messages end with the "DEPLOYED" value.
+Ensure that the Console messages end with the `DEPLOYED` value.
 
 Go back to Postman and publish a new message.
 
 [[browsersetup]]
 ==== Browser Access
 
-After you set up an HTTP Listener in Studio, browse to this address: +0.0.0.0:8081+. The browser displays the message sent by Postman, which the Anypoint MQ connector received, and the HTTP connector sent to the browser.
+After you set up an HTTP Listener in Studio, browse to the address `0.0.0.0:8081`. The browser displays the message sent by Postman, which the Anypoint MQ connector received, and the HTTP connector sent to the browser.
 
 == See Also
 
-* xref:mq-faq.adoc[MQ FAQ]
+* xref:mq-faq.adoc[Anypoint MQ FAQ]

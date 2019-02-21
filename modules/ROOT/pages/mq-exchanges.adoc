@@ -5,12 +5,13 @@ endif::[]
 
 A message exchange lets you send a message to one or more xref:mq-queues.adoc[queues] that are bound to the message exchange.
 
-*Notes:*
-
+[NOTE]
+====
 * FIFO does not support the use of a message exchange. Similarly, FIFO queues cannot be bound to a message exchange.
 * Message exchange names can contain alphanumeric characters (a-z, A-Z, 0-9), dots (.), and dashes (-). All other characters are not allowed.
 * Message exchange names are limited to 127 characters in length.
 * The maximum size of a message sent to a message exchange is 10 MB.
+====
 
 Before creating a message exchange, create one or more queues. For more information, see xref:mq-queues.adoc#to-create-a-queue[Create a Queue].
 
@@ -28,15 +29,20 @@ image::mq-create-an-exchange.png[]
 +
 image::mq-name-the-exchange.png[]
 +
-NOTE: Message exchange names can only contain these characters: a-z, A-Z, 0-9, period (.), and hyphen (-). Message exchange names cannot contain spaces or other characters, and the name can be up to 127 characters in length.
+[NOTE]
+====
+* Message exchange names can only contain these characters: a-z, A-Z, 0-9, period (.), and hyphen (-). Message exchange names cannot contain spaces or other characters.
+* The message exchange name can be up to 127 characters in length.
+====
 +
 . Click the checkbox to bind MyDemoQueue to this message exchange.
 . Click *Save Changes*.
 . In the Destinations screen. click the message exchange name to list its details:
 +
 image::mq-exchange-details2.png[]
-
-*Note:* If you need to delete a message exchange, see xref:mq-faq.adoc#how-do-i-delete-a-message-exchange[How do I delete a message exchange?]
++
+[NOTE]
+If you need to delete a message exchange, see xref:mq-faq.adoc#how-do-i-delete-a-message-exchange[How do I delete a message exchange?]
 
 == Bind a Queue to a Message Exchange
 
@@ -47,14 +53,16 @@ To bind a queue to a message exchange:
 . Click *Destinations*.
 . Click the left side of the message exchange entry in Destinations.
 +
-*Note*: Where you click on a message exchange entry in the Destinations table governs what you see next:
-+
-image::mq-where-to-click-x2.png[]
+[NOTE]
+====
+Where you click on a message exchange entry in the Destinations table governs what you see next:
+
+image:mq-where-to-click-x2.png[]
+====
 +
 . In the Exchange menu, click *Bind* or *Unbind* for each queue you want to bind to or unbind from the message exchange:
 +
 image::mq-bind-queue-to-exchange2.png[]
-
 
 == Send a Message to a Message Exchange
 
@@ -79,7 +87,7 @@ image::mq-exchange-msg-sender2.png[]
 +
 image::mq-exchange-payload2.png[]
 
-You can now use the Message Browser to get the message from the MyDemoQueue as described
+You can now use the Message Browser to get the message from MyDemoQueue as described
 in xref:mq-queues.adoc#to-get-a-message-from-a-queue[Get a Message From a Queue].
 
 You can also send comma-separated value (CSV) or JSON content in the payload by changing
@@ -87,5 +95,5 @@ the message *Type* value. For more information, see xref:mq-queues.adoc#to-send-
 
 == See Also
 
-* xref:mq-faq.adoc[MQ FAQ]
-* xref:mq-connectors.adoc[MQ Connectors]
+* xref:mq-faq.adoc[Anypoint MQ FAQ]
+* xref:mq-connectors.adoc[Anypoint MQ Connectors]
