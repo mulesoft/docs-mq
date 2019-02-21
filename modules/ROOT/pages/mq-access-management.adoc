@@ -55,7 +55,7 @@ roles for all those in your organization who use MQ.
 
 Creating a role lets you assign access rights to users in your organization, such as for administrators, developers, or for those who only view information but don't change it.
 
-. In Anypoint Platform, click *Access Management and Roles*.
+. In Anypoint Platform, click *Access Management* > *Roles*.
 . Click *Add Role*.
 +
 image::mq-roles-add-role.png[]

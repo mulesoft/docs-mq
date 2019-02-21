@@ -53,8 +53,8 @@ image::mq-create-q-screen-dlq.png[]
 +
 ** *Default TTL* - How long unprocessed messages persist before being deleted. The maximum TTL is 2 weeks.
 ** *Default Lock TTL* - If there is a server failure and a message is not acknowledged, specifies the duration that a message would wait before being put back into the queue. A locked message does not block other messages to be read. The lock makes a message unavailable to other applications while locked. The maximum Lock TTL is 12 hours.
-** *Encryption (Optional)* - Set the queue to encrypted. Anypoint MQ uses PBE with MD5 and triple DES to encrypt messages.
-** [*[qdlq]]Assign a Dead Letter Queue (Optional)* - Set the dead letter queue (DLQ) name. The DLQ is a previously created queue where undeliverable messages are sent to. For more information, see <<Dead Letter Queues>>.
+** *Encryption* (Optional) - Set the queue to encrypted. Anypoint MQ uses PBE with MD5 and triple DES to encrypt messages.
+** [[qdlq]]*Assign a Dead Letter Queue* (Optional) - Set the dead letter queue (DLQ) name. The DLQ is a previously created queue where undeliverable messages are sent to. For more information, see <<Dead Letter Queues>>.
 +
 If you are creating your first queue in a new MQ account, MQ does not support assigning the dead letter queue to the sole queue in the system - you need at least two queues to assign one queue to be a dead letter queue.
 +

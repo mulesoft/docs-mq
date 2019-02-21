@@ -145,7 +145,7 @@ image::mq-rest-broker-portal.png[]
 * Browse statistics for queues and message exchanges.  
 * View the number of messages currently in a queue. 
 * View historical data for queue activity over time. 
-* View your entire organization's usage of Aypoint MQ for billing purposes.
+* View your entire organization's usage of Anypoint MQ for billing purposes.
 
 The Anypoint MQ Statistics API provides access to Anypoint MQ message queues.
 
@@ -625,7 +625,7 @@ You can set up a Studio project with:
   ** Host `0.0.0.0`
   ** Port `8081`
   ** Path in the properties menu set to `/mq/{messageId}`.
-* Anypoint MQ connector with the client ID and client secret from *Anypoint Platform > MQ*, and the *Destination* set to the queue you created in Postman.
+* Anypoint MQ connector with the client ID and client secret from *Anypoint Platform* > *MQ*, and the *Destination* set to the queue you created in Postman.
 * Logger with *Message* set to the `#[payload]` value.
 
 Right-click the project name in the *Package Explorer* window and click *Run As* > *Mule Application*.
