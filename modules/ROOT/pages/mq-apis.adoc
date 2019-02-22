@@ -265,6 +265,7 @@ startDate=Wed%2C%2014%20Nov%202018%2021%3A53%3A08%20GMT
         }
      ]
 }
+----
 
 Note that period is an integer here. It's the granularity of datapoints in seconds.
 
