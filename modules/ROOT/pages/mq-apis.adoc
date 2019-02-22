@@ -141,21 +141,21 @@ In the Broker API portal, click *Download* to download the API as a RAML, Mule 3
 image::mq-rest-broker-portal.png[]
 
 [[mqstatapi]]
-== Anypoint MQ Stats API
+== Anypoint MQ Statistics API
 
 Use cases:
 
 * Anypoint MQ metrics:
-** Real time stats for queues
-** Historic stats for queues
-** Historic stats for message exchanges
+** Real time statistics for queues
+** Historic statistics for queues
+** Historic statistics for message exchanges
 * Usage metrics - View your entire organization's usage of Anypoint MQ for billing purposes:
 ** Usage per environment
 ** Usage per organization
 * Browse statistics for queues and message exchanges  
 * View the number of messages currently in a queue
 
-=== Use the Stats API
+=== Use the Statistics API
 
 The Anypoint MQ Statistics API provides access to Anypoint MQ message queues.
 
@@ -164,7 +164,7 @@ The access token has a default time to live (TTL) of 60 minutes.
 
 You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ. See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[MQ Audit Logging]. 
 
-You can use this curl command to get the access token:
+You can use this `curl` command to get the access token:
 
 [source,bash]
 ----
@@ -182,19 +182,19 @@ This returns output similar to:
 }
 ----
 
-https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Stats API] - Perform statistical analysis of queue performance.
+https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Statistics API] - Perform statistical analysis of queue performance.
 
-In the Stats API portal, click *Download* to download the API as a RAML, Mule 3 zipped connector file, or as a Mule 4 connector JAR file.
+In the Statistics API portal, click *Download* to download the API as a RAML, Mule 3 zipped connector file, or as a Mule 4 connector JAR file.
 
 image::mq-rest-stats-portal.png[]
 
-=== Real Time Stats for Queues
+=== Real Time Statistics for Queues
 
-You can get an immediate snapshot of how many messages are in the queue and how many are in-flight (see xref::mq-understanding.adoc[Anypoint MQ Terminology] for what in-flight messages are). This data is updated in near real-time. The Stats API can fetch real time stats for multiple queues, which returns a comma separated list. 
+You can get an immediate snapshot of how many messages are in the queue and how many are in-flight (see xref::mq-understanding.adoc[Anypoint MQ Terminology] for what in-flight messages are). This data is updated in near real-time. The Statistics API can fetch real time statistics for multiple queues, and returns a comma separated list. 
 
 `/queues?destinationIds={queue1},{queue2}`
 
-==== Sample Request and Response
+*Sample Request and Response:*
 
 [source,example,linenums]
 ----
@@ -210,13 +210,13 @@ http://localhost:8080/api/v1/organizations/<org_ID>/environments/<env_ID>/region
 ]
 ----
 
-=== Historic Stats for a Queue
+=== Historic Statistics for a Queue
 
-This API can be used to fetch historic stats for a queue. Internally, we use AWS Client to query for cloudwatch metrics. Check CloudWatchStatsService.java for implementation. It does not get updated in real-time, there is an approximate latency of 5-10 minutes before data is published. Retention period of historical data is 15 months. Also, to keep the volume of data under control, historical data is stored at reduced levels of granularity. Data points with a period of less than 60 seconds are available for 3 hours,  one minute data points are available for 15 days, five minute data points for 63 days and one hour data points for 15 months.
+This API can be used to fetch historic stats for a queue, however it does not get updated in real-time, and there is an approximate latency of 5 to 10 minutes before data is published. The retention period of historical data is 15 months. Also, to keep the volume of data under control, historical data is stored at reduced levels of granularity. Data points with a period of less than 60 seconds are available for 3 hours, one minute data points are available for 15 days, five minute data points for 63 days, and one hour data points for 15 months.
 
 `/queues/{queueId}?startDate=...&endDate=...&period=...`
 
-Sample Request and Response:
+*Sample Request and Response:*
 
 [source,example,linenums]
 ----
@@ -240,15 +240,15 @@ http://localhost:8080/api/v1/organizations/<org_ID>/environments/<env_ID>/region
 }
 ----
 
-The duration is an integer. It's the granularity of data points in seconds.
+The duration is an integer and is the granularity of data points in seconds.
 
-=== Historic Stats for Exchanges
+=== Historic Statistics for Exchanges
 
-Use cloudwatch here as the above API. Retention policies are same as above.
+Retention policies are same as in the previous <<Historic Statistics for a Queue>> section.
 
 `/exchanges/{exchangeId}?startDate=...&endDate=...&period=...`
 
-Sample Request and Response:
+*Sample Request and Response:*
 
 [source,example,linenums]
 ----
@@ -272,12 +272,11 @@ Note that period is an integer here. It's the granularity of datapoints in secon
 
 === Usage Metrics by Environment 
 
-We use Analytics service to store this data. This API can be used to sum up the usage for MQ across all environments for a particular organization. This is not realtime and has a latency (TODO: Document the expected latency after talking with Analytics)
+Anypoint MQ uses the Mule Analytics service to store usage metric data. The Statistics API can be used to sum up the usage for Anypoint MQ across all environments for a particular organization. This is not real time and has a latency.
 
-/environments/{environmentId}?startDate=...&endDate=...&period=...
+`/environments/{environmentId}?startDate=...&endDate=...&period=...`
 
-
-Sample Request and Response:
+*Sample Request and Response:*
 
 [source,example,linenums]
 ----
@@ -311,11 +310,11 @@ The `period` duration supports these values:
 
 === Usage Metrics by Organization
 
-We use Analytics service to store this data. This API can be used to sum up the usage for MQ across master organization
+Anypoint MQ uses the Mule Analytics service to store usage metric data for an organization. The Statistics API can be used to sum up the usage for Anypoint MQ across the master business organization:
 
-/organizations/{organizationId}?startDate=...&endDate=...&period=...
+`/organizations/{organizationId}?startDate=...&endDate=...&period=...`
 
-Sample Request and Response:
+*Sample Request and Response:*
 
 [source,example,linenums]
 ----
@@ -348,7 +347,7 @@ The `period` duration supports these values:
 `3months`
 
 [[exstatapi]]
-=== Example: Anypoint MQ Stats API
+=== Example: Anypoint MQ Statistics API
 
 These statistics are provided:
 
