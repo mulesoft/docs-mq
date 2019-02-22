@@ -142,10 +142,19 @@ image::mq-rest-broker-portal.png[]
 [[mqstatapi]]
 == Anypoint MQ Stats API
 
-* Browse statistics for queues and message exchanges.  
-* View the number of messages currently in a queue. 
-* View historical data for queue activity over time. 
-* View your entire organization's usage of Anypoint MQ for billing purposes.
+Use cases:
+
+* Anypoint MQ metrics:
+** Real time stats for queues
+** Historic stats for queues
+** Historic stats for message exchanges
+* Usage metrics - View your entire organization's usage of Anypoint MQ for billing purposes:
+** Usage per environment
+** Usage per organization
+* Browse statistics for queues and message exchanges  
+* View the number of messages currently in a queue
+
+=== Use the Stats API
 
 The Anypoint MQ Statistics API provides access to Anypoint MQ message queues.
 
@@ -178,8 +187,167 @@ In the Stats API portal, click *Download* to download the API as a RAML, Mule 3 
 
 image::mq-rest-stats-portal.png[]
 
+=== Real Time Stats for Queues
+
+You can get an immediate snapshot of how many messages are in the queue and how many are in-flight (see xref::mq-understanding.adoc[Anypoint MQ Terminology] for what in-flight messages are). This data is updated in near real-time. The Stats API can fetch real time stats for multiple queues, which returns a comma separated list. 
+
+`/queues?destinationIds={queue1},{queue2}`
+
+==== Sample Request and Response
+
+[source,example,linenums]
+----
+http://localhost:8080/api/v1/organizations/<org_ID>/environments/<env_ID>/regions/us-east-1
+/queues?destinationIds=<dest_ID>
+
+[
+  {
+      "destination": "95bgpyxYsVyFE",
+      "messages": 0,
+      "inflightMessages": 0
+  }
+]
+----
+
+=== Historic Stats for a Queue
+
+This API can be used to fetch historic stats for a queue. Internally, we use AWS Client to query for cloudwatch metrics. Check CloudWatchStatsService.java for implementation. It does not get updated in real-time, there is an approximate latency of 5-10 minutes before data is published. Retention period of historical data is 15 months. Also, to keep the volume of data under control, historical data is stored at reduced levels of granularity. Data points with a period of less than 60 seconds are available for 3 hours,  one minute data points are available for 15 days, five minute data points for 63 days and one hour data points for 15 months.
+
+`/queues/{queueId}?startDate=...&endDate=...&period=...`
+
+Sample Request and Response:
+
+[source,example,linenums]
+----
+http://localhost:8080/api/v1/organizations/<org_ID>/environments/<env_ID>/regions/us-east-1
+/queues/95bgpyxYsVyFE?startDate=Thursday, 8 Nov 2018 04:49:37 GMT
+&endDate=Sun, 11 Nov 2018 04:60:44 GMT
+&period=600
+
+{
+    "destination": "95bgpyxYsVyFE",
+    "messages": [
+        {
+            "date": "2018-11-08T04:59:37.000+0000",
+            "value": 0
+        },
+        {
+            "date": "2018-11-08T05:09:37.000+0000",
+            "value": 0
+        }
+    ]
+}
+----
+
+The duration is an integer. It's the granularity of data points in seconds.
+
+=== Historic Stats for Exchanges
+
+Use cloudwatch here as the above API. Retention policies are same as above.
+
+`/exchanges/{exchangeId}?startDate=...&endDate=...&period=...`
+
+Sample Request and Response:
+
+[source,example,linenums]
+----
+https://localhost:8080/api/v1/organizations/<org_ID>/environments/<env_ID>/regions/us-east-1
+/exchanges/exchange-test?
+startDate=Wed%2C%2014%20Nov%202018%2021%3A53%3A08%20GMT
+&endDate=Wed%2C%2014%20Nov%202018%2022%3A53%3A08%20GMT
+&period=360
+
+{
+    "destination": "exchange-test",
+    "messagesPublished": [
+        {
+            "date": "2018-11-14T21:59:08.000+0000",
+            "value": 0
+        }
+     ]
+}
+
+Note that period is an integer here. It's the granularity of datapoints in seconds.
+
+=== Usage Metrics by Environment 
+
+We use Analytics service to store this data. This API can be used to sum up the usage for MQ across all environments for a particular organization. This is not realtime and has a latency (TODO: Document the expected latency after talking with Analytics)
+
+/environments/{environmentId}?startDate=...&endDate=...&period=...
+
+
+Sample Request and Response:
+
+[source,example,linenums]
+----
+http://localhost:8080/api/v1  /organizations/<org_ID>/environments/<env_ID>
+?startDate=Thursday, 8 Nov 2018 04:49:37 GMT
+&endDate=Sun, 11 Nov 2018 04:60:44 GMT
+&period=1day
+
+[
+    {
+        "timestamp": "2018-11-08T00:00Z",
+        "apiRequestCount": 0,
+        "messageReceiptCount": 0,
+        "billableUnitCount": 0,
+        "messageByteCount": 0
+    }
+]
+----
+
+The `period` duration supports these values: 
+
+`1minute` +
+`15minutes` +
+`1hour` +
+`3hours` +
+`1day` +
+`7days` +
+`1month` +
+`3months`
+
+
+=== Usage Metrics by Organization
+
+We use Analytics service to store this data. This API can be used to sum up the usage for MQ across master organization
+
+/organizations/{organizationId}?startDate=...&endDate=...&period=...
+
+Sample Request and Response:
+
+[source,example,linenums]
+----
+http://localhost:8080/api/v1
+/organizations/cdb7b584-d2ce-464d-b3b6-579d638879bc
+?startDate=Thursday, 8 Nov 2018 04:49:37 GMT
+&endDate=Sun, 11 Nov 2018 04:60:44 GMT
+&period=1day
+
+[
+    {
+        "timestamp": "2018-11-08T00:00Z",
+        "apiRequestCount": 0,
+        "messageReceiptCount": 0,
+        "billableUnitCount": 0,
+        "messageByteCount": 0
+    }
+]
+----
+
+The `period` duration supports these values: 
+
+`1minute` +
+`15minutes` +
+`1hour` +
+`3hours` +
+`1day` +
+`7days` +
+`1month` +
+`3months`
+
 [[exstatapi]]
-== Example: Anypoint MQ Stats API
+=== Example: Anypoint MQ Stats API
 
 These statistics are provided:
 
