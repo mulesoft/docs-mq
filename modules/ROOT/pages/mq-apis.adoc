@@ -267,7 +267,7 @@ startDate=Wed%2C%2014%20Nov%202018%2021%3A53%3A08%20GMT
 }
 ----
 
-Note that period is an integer here. It's the granularity of datapoints in seconds.
+Note that period is an integer here. It's the granularity of data points in seconds.
 
 === Usage Metrics by Environment 
 
@@ -295,18 +295,6 @@ https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<org_ID>/environment
 ]
 ----
 
-The `period` duration supports these values: 
-
-`1minute` +
-`15minutes` +
-`1hour` +
-`3hours` +
-`1day` +
-`7days` +
-`1month` +
-`3months`
-
-
 === Usage Metrics by Organization
 
 The Stats API can be used to sum up the usage for Anypoint MQ across the master business organization:
@@ -332,17 +320,6 @@ startDate=Thursday, 8 Nov 2018 04:49:37 GMT
     }
 ]
 ----
-
-The `period` duration supports these values: 
-
-`1minute` +
-`15minutes` +
-`1hour` +
-`3hours` +
-`1day` +
-`7days` +
-`1month` +
-`3months`
 
 [[exstatapi]]
 === Example: Anypoint MQ Stats API
