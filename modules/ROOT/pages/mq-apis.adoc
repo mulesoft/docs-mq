@@ -271,7 +271,7 @@ Note that period is an integer here. It's the granularity of datapoints in secon
 
 === Usage Metrics by Environment 
 
-Anypoint MQ uses the Mule Analytics service to store usage metric data. The Stats API can be used to sum up the usage for Anypoint MQ across all environments for a particular organization. This is not real time and has a latency.
+The Stats API can be used to sum up the usage for Anypoint MQ across all environments for a particular organization. This is not real time and has a latency.
 
 `/environments/{environmentId}?startDate=...&endDate=...&period=...`
 
@@ -309,7 +309,7 @@ The `period` duration supports these values:
 
 === Usage Metrics by Organization
 
-Anypoint MQ uses the Mule Analytics service to store usage metric data for an organization. The Stats API can be used to sum up the usage for Anypoint MQ across the master business organization:
+The Stats API can be used to sum up the usage for Anypoint MQ across the master business organization:
 
 `/organizations/{organizationId}?startDate=...&endDate=...&period=...`
 
