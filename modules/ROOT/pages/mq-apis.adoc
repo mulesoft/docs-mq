@@ -196,7 +196,7 @@ You can get an immediate snapshot of how many messages are in the queue and how 
 
 [source,example,linenums]
 ----
-http://localhost:8080/api/v1/organizations/<org_ID>/environments/<env_ID>/regions/us-east-1
+https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<org_ID>/environments/<env_ID>/regions/us-east-1
 /queues?destinationIds=<dest_ID>
 
 [
@@ -218,7 +218,7 @@ This API can be used to fetch historic stats for a queue, however it does not ge
 
 [source,example,linenums]
 ----
-http://localhost:8080/api/v1/organizations/<org_ID>/environments/<env_ID>/regions/us-east-1
+https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<org_ID>/environments/<env_ID>/regions/us-east-1
 /queues/95bgpyxYsVyFE?startDate=Thursday, 8 Nov 2018 04:49:37 GMT
 &endDate=Sun, 11 Nov 2018 04:60:44 GMT
 &period=600
@@ -250,7 +250,7 @@ Retention policies are same as in the previous <<Historic Statistics for a Queue
 
 [source,example,linenums]
 ----
-https://localhost:8080/api/v1/organizations/<org_ID>/environments/<env_ID>/regions/us-east-1
+https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<org_ID>/environments/<env_ID>/regions/us-east-1
 /exchanges/exchange-test?
 startDate=Wed%2C%2014%20Nov%202018%2021%3A53%3A08%20GMT
 &endDate=Wed%2C%2014%20Nov%202018%2022%3A53%3A08%20GMT
@@ -279,7 +279,7 @@ Anypoint MQ uses the Mule Analytics service to store usage metric data. The Stat
 
 [source,example,linenums]
 ----
-http://localhost:8080/api/v1  /organizations/<org_ID>/environments/<env_ID>
+https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<org_ID>/environments/<env_ID>
 ?startDate=Thursday, 8 Nov 2018 04:49:37 GMT
 &endDate=Sun, 11 Nov 2018 04:60:44 GMT
 &period=1day
@@ -317,9 +317,8 @@ Anypoint MQ uses the Mule Analytics service to store usage metric data for an or
 
 [source,example,linenums]
 ----
-http://localhost:8080/api/v1
-/organizations/cdb7b584-d2ce-464d-b3b6-579d638879bc
-?startDate=Thursday, 8 Nov 2018 04:49:37 GMT
+https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/cdb7b584-d2ce-464d-b3b6-579d638879bc?
+startDate=Thursday, 8 Nov 2018 04:49:37 GMT
 &endDate=Sun, 11 Nov 2018 04:60:44 GMT
 &period=1day
 
