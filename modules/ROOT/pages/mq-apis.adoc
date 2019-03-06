@@ -277,7 +277,7 @@ Note that period is an integer here. It's the granularity of data points in seco
 
 The Stats API can be used to sum up the usage for Anypoint MQ across all environments for a particular organization. This is not real time and has a latency.
 
-`/environments/{environmentId}?startDate=...&endDate=...&period=...`
+`/environments/ENVIRONMENT_ID?startDate=...&endDate=...&period=...`
 
 *Sample Request and Response:*
 
@@ -476,7 +476,7 @@ username="<anypoint_platform_username>"
 password="<anypoint_platform_password>"
 organizationID="ORGANIZATION_ID"
 environmentID {
-    development="DEVELOPMENT_ENVIRONMENT_ID>"
+    development="DEVELOPMENT_ENVIRONMENT_ID"
     qa="QA_ENVIRONMENT_ID"
     staging="STAGING_ENVIRONMENT_ID"
     production="PRODUCTION_ENVIRONMENT_ID"
