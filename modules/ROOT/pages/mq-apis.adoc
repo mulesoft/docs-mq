@@ -613,7 +613,7 @@ class AnypointMQAdminClient {
         println "Response: \n" + jsonResponse
     }
 
-    static createQueues(ConfigObject props, String token, String envID) {
+    static createQueues(ConfigObject props, String token, String ENVIRONMENT_ID) {
 
         def ORGANIZATION_ID = props.organizationID
         def REGION_URL = props.regionID
