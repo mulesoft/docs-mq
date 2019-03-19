@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:imagesdir: ../assets/images/
 
 The Anypoint MQ APIs let you use REST to send and receive messages, administer queues and message exchanges, and analyze results.
 
@@ -82,8 +83,8 @@ You can create a FIFO queue from the Admin API portal by including the `"fifo": 
 
 For the following path using the `PUT` operation:
 
-[listing]
-/organizations/{organizationId}/environments/{environmentId}/regions/{regionId}/destinations/queues/{queueId}
+[source]
+/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/destinations/queues/QUEUE_ID
 
 Use this body:
 
@@ -130,7 +131,7 @@ The command returns output similar to:
 +
 [source,json]
 ----
-{"access_token":"<token>","simple_client":{"envId":"<env_ID>","orgId":"<org-ID>"},"token_type":"bearer"}
+{"access_token":"<token>","simple_client":{"envId":"ENVIRONMENT_ID","orgId":"ORGANIZATION_ID"},"token_type":"bearer"}
 ----
 
 https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Broker API Portal] - Publish, consume, ack, and nack messages between queues and message exchanges.
@@ -142,19 +143,30 @@ image::mq-rest-broker-portal.png[]
 [[mqstatapi]]
 == Anypoint MQ Stats API
 
-* Browse statistics for queues and message exchanges.  
-* View the number of messages currently in a queue. 
-* View historical data for queue activity over time. 
-* View your entire organization's usage of Anypoint MQ for billing purposes.
+Use cases:
 
-The Anypoint MQ Statistics API provides access to Anypoint MQ message queues.
+* Anypoint MQ metrics:
+** Real time statistics for queues
+** Historic statistics for queues
+** Historic statistics for message exchanges
+* Usage metrics - View your entire organization's usage of Anypoint MQ for billing purposes:
+** Usage per environment
+** Usage per organization
+* Browse statistics for queues and message exchanges  
+* View the number of messages currently in a queue
 
-You can get the access token from the Anypoint Platform user. The access token is also known as the Bearer.
-The access token has a default time to live (TTL) of 60 minutes. 
+For more information, see the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API] in the MuleSoft developer portal.
 
+=== Use the Anypoint MQ Stats API
+
+NOTE: To access the Anypoint MQ Stats API, you must first authenticate using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Anypoint Access Management API].
+
+To use the Stats API, you can get the access token from the Anypoint Platform user.
+The access token is also known as the Bearer.
+The access token has a default time to live (TTL) of 60 minutes.
 You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ. See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[MQ Audit Logging]. 
 
-You can use this curl command to get the access token:
+You can use this `curl` command to get the access token:
 
 [source,bash]
 ----
@@ -172,14 +184,151 @@ This returns output similar to:
 }
 ----
 
-https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Stats API] - Perform statistical analysis of queue performance.
+https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API] - Perform statistical analysis of queue performance.
 
 In the Stats API portal, click *Download* to download the API as a RAML, Mule 3 zipped connector file, or as a Mule 4 connector JAR file.
 
 image::mq-rest-stats-portal.png[]
 
+=== Real Time Statistics for Queues
+
+You can get an immediate snapshot of how many messages are in the queue and how many are in-flight (see xref::mq-understanding.adoc[Anypoint MQ Terminology] for what in-flight messages are). This data is updated in near real-time. The Statistics API can fetch real time statistics for multiple queues, and returns a comma separated list. 
+
+`/queues?destinationIds={queue1},{queue2}`
+
+*Sample Request and Response:*
+
+[source,example,linenums]
+----
+https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_URL
+/queues?destinationIds=DESTINATION_ID
+
+[
+  {
+      "destination": "95bgpyxYsVyFE",
+      "messages": 0,
+      "inflightMessages": 0
+  }
+]
+----
+
+=== Historic Statistics for a Queue
+
+This API can be used to fetch historic stats for a queue, however it does not get updated in real-time, and there is an approximate latency of 5 to 10 minutes before data is published. The retention period of historical data is 15 months. Also, to keep the volume of data under control, historical data is stored at reduced levels of granularity. Data points with a period of less than 60 seconds are available for 3 hours, one minute data points are available for 15 days, five minute data points for 63 days, and one hour data points for 15 months.
+
+`/queues/{queueId}?startDate=...&endDate=...&period=...`
+
+*Sample Request and Response:*
+
+[source,example,linenums]
+----
+https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_URL
+/queues/95bgpyxYsVyFE?startDate=Thursday, 8 Nov 2018 04:49:37 GMT
+&endDate=Sun, 11 Nov 2018 04:60:44 GMT
+&period=600
+
+{
+    "destination": "95bgpyxYsVyFE",
+    "messages": [
+        {
+            "date": "2018-11-08T04:59:37.000+0000",
+            "value": 0
+        },
+        {
+            "date": "2018-11-08T05:09:37.000+0000",
+            "value": 0
+        }
+    ]
+}
+----
+
+The duration is an integer and is the granularity of data points in seconds.
+
+=== Historic Statistics for Exchanges
+
+Retention policies are same as in the previous <<Historic Statistics for a Queue>> section.
+
+`/exchanges/{exchangeId}?startDate=...&endDate=...&period=...`
+
+*Sample Request and Response:*
+
+[source,example,linenums]
+----
+https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_URL
+/exchanges/exchange-test?
+startDate=Wed%2C%2014%20Nov%202018%2021%3A53%3A08%20GMT
+&endDate=Wed%2C%2014%20Nov%202018%2022%3A53%3A08%20GMT
+&period=360
+
+{
+    "destination": "exchange-test",
+    "messagesPublished": [
+        {
+            "date": "2018-11-14T21:59:08.000+0000",
+            "value": 0
+        }
+     ]
+}
+----
+
+Note that period is an integer here. It's the granularity of data points in seconds.
+
+=== Usage Metrics by Environment 
+
+The Stats API can be used to sum up the usage for Anypoint MQ across all environments for a particular organization. This is not real time and has a latency.
+
+`/environments/ENVIRONMENT_ID?startDate=...&endDate=...&period=...`
+
+*Sample Request and Response:*
+
+[source,example,linenums]
+----
+https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID
+?startDate=Thursday, 8 Nov 2018 04:49:37 GMT
+&endDate=Sun, 11 Nov 2018 04:60:44 GMT
+&period=1day
+
+[
+    {
+        "timestamp": "2018-11-08T00:00Z",
+        "apiRequestCount": 0,
+        "messageReceiptCount": 0,
+        "billableUnitCount": 0,
+        "messageByteCount": 0
+    }
+]
+----
+
+=== Usage Metrics by Organization
+
+The Stats API can be used to sum up the usage for Anypoint MQ across the master business organization:
+
+`/organizations/ORGANIZATION_ID?startDate=...&endDate=...&period=...`
+
+*Sample Request and Response:*
+
+[source,example,linenums]
+----
+https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORGANIZATION_ID?
+startDate=Thursday, 8 Nov 2018 04:49:37 GMT
+&endDate=Sun, 11 Nov 2018 04:60:44 GMT
+&period=1day
+
+[
+    {
+        "timestamp": "2018-11-08T00:00Z",
+        "apiRequestCount": 0,
+        "messageReceiptCount": 0,
+        "billableUnitCount": 0,
+        "messageByteCount": 0
+    }
+]
+----
+
 [[exstatapi]]
-== Example: Anypoint MQ Stats API
+=== Example: Anypoint MQ Stats API
+
+NOTE: To access the Anypoint MQ Stats API, you must first authenticate using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Anypoint Access Management API].
 
 These statistics are provided:
 
@@ -194,7 +343,7 @@ Example request to list statistics for July 26 to July 28, 2018:
 [source,json,linenums]
 ----
 curl -X GET \
-'https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORGANIZATION_ID/environments/ENV_ID/regions/us-east-1/queues/randomQueue/?startDate=Thu%2C%2026%20Jul%202018%2000%3A00%3A00%20GMT&endDate=Sat%2C%2028%20Jul%202018%2020%3A00%3A00%20GMT&period=600' \
+'https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_URL/queues/randomQueue/?startDate=Thu%2C%2026%20Jul%202018%2000%3A00%3A00%20GMT&endDate=Sat%2C%2028%20Jul%202018%2020%3A00%3A00%20GMT&period=600' \
   -H 'authorization: Bearer BEARER_TOKEN' \
   -H 'cache-control: no-cache' \
   -H 'postman-token: ACCESS_TOKEN'
@@ -325,14 +474,14 @@ and the names of the queues and exchanges to create:
 ----
 username="<anypoint_platform_username>"
 password="<anypoint_platform_password>"
-organizationID="<organization_ID>"
+organizationID="ORGANIZATION_ID"
 environmentID {
-    development="<development_environment_ID>"
-    qa="<qa_environment_ID>"
-    staging="<staging_environment_ID>"
-    production="<production_environment_ID>"
+    development="DEVELOPMENT_ENVIRONMENT_ID"
+    qa="QA_ENVIRONMENT_ID"
+    staging="STAGING_ENVIRONMENT_ID"
+    production="PRODUCTION_ENVIRONMENT_ID"
 }
-regionID="us-east-1"
+regionID="REGION_URL"
 
 queues=[
     "Queue1",
@@ -382,9 +531,9 @@ class AnypointMQAdminClient {
             props = new ConfigSlurper().parse(new File("cloudhub.properties").toURI().toURL())
         }
 
-        def envID = props.environmentID.production
+        def ENVIRONMENT_ID = props.environmentID.production
         def token = authenticate(props.username, props.password)
-        retrieveDestinations(props, token, envID)
+        retrieveDestinations(props, token, ENVIRONMENT_ID)
     }
 
     static authenticate(String username, String password) {
@@ -409,7 +558,7 @@ class AnypointMQAdminClient {
         // read and print response
         def bufferedReader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()))
         def jsonResponse = bufferedReader.getText()
-        println "response: \n" + jsonResponse
+        println "Response: \n" + jsonResponse
 
         // parse and return token
         def slurper = new JsonSlurper()
@@ -418,14 +567,14 @@ class AnypointMQAdminClient {
         return resultMap["access_token"]
     }
 
-    static retrieveDestinations(ConfigObject props, String token, String envID) {
+    static retrieveDestinations(ConfigObject props, String token, String ENVIRONMENT_ID) {
 
-        def orgID = props.organizationID
-        def regionID = props.regionID
+        def ORGANIZATION_ID = props.organizationID
+        def REGION_URL = props.regionID
 
         // build HTTP GET
-        def getDestinationsURL = HOST + '/mq/admin/api/v1/organizations/' + orgID + 
-          '/environments/' + envID + '/regions/' + regionID + '/destinations'
+        def getDestinationsURL = HOST + '/mq/admin/api/v1/organizations/' + ORGANIZATION_ID + 
+          '/environments/' + ENVIRONMENT_ID + '/regions/' + REGION_URL + '/destinations'
         def getDestinations = new HttpGet(getDestinationsURL)
 
         // set token
@@ -438,17 +587,17 @@ class AnypointMQAdminClient {
         // parse and print results
         def bufferedReader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()))
         def jsonResponse = bufferedReader.getText()
-        println "response: \n" + jsonResponse
+        println "Response: \n" + jsonResponse
     }
 
-    static retrieveQueue(ConfigObject props, String token, String envID, String queueID) {
+    static retrieveQueue(ConfigObject props, String token, String ENVIRONMENT_ID, String QUEUE_ID) {
 
-        def orgID = props.organizationID
-        def regionID = props.regionID
+        def ORGANIZATION_ID = props.organizationID
+        def REGION_URL = props.regionID
 
         // build HTTP GET
-        def getQueueURL = HOST + '/mq/admin/api/v1/organizations/' + orgID + '/environments/' + 
-          envID + '/regions/' + regionID + '/destinations/queues/' + queueID
+        def getQueueURL = HOST + '/mq/admin/api/v1/organizations/' + ORGANIZATION_ID + '/environments/' + 
+          ENVIRONMENT_ID + '/regions/' + REGION_URL + '/destinations/queues/' + QUEUE_ID
         def getQueue = new HttpGet(getQueueURL)
 
         // set token
@@ -461,19 +610,19 @@ class AnypointMQAdminClient {
         // parse and print results
         def bufferedReader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()))
         def jsonResponse = bufferedReader.getText()
-        println "response: \n" + jsonResponse
+        println "Response: \n" + jsonResponse
     }
 
-    static createQueues(ConfigObject props, String token, String envID) {
+    static createQueues(ConfigObject props, String token, String ENVIRONMENT_ID) {
 
-        def orgID = props.organizationID
-        def regionID = props.regionID
+        def ORGANIZATION_ID = props.organizationID
+        def REGION_URL = props.regionID
         def queues = props.queues
 
-        queues.each { queueID ->
+        queues.each { QUEUE_ID ->
 
-            def putQueueURL = HOST + '/mq/admin/api/v1/organizations/' + orgID + '/environments/' + 
-              envID + '/regions/' + regionID + '/destinations/queues/' + queueID
+            def putQueueURL = HOST + '/mq/admin/api/v1/organizations/' + ORGANIZATION_ID + '/environments/' + 
+              ENVIRONMENT_ID + '/regions/' + REGION_URL + '/destinations/queues/' + QUEUE_ID
             def putQueue = new HttpPut(putQueueURL)
 
             putQueue.addHeader("Content-Type", "application/json")
@@ -493,20 +642,20 @@ class AnypointMQAdminClient {
 
             def bufferedReader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()))
             def jsonResponse = bufferedReader.getText()
-            println "response: \n" + jsonResponse
+            println "Response: \n" + jsonResponse
         }
     }
 
-    static createExchanges(ConfigObject props, String token, String envID) {
+    static createExchanges(ConfigObject props, String token, String ENVIRONMENT_ID) {
 
-        def orgID = props.organizationID
-        def regionID = props.regionID
+        def ORGANIZATION_ID = props.organizationID
+        def REGION_URL = props.regionID
 
         def exchanges = props.exchanges
 
         exchanges.each { exchangeID ->
 
-            def putExchangeURL = HOST + '/mq/admin/api/v1/organizations/' + orgID + '/environments/' + envID + '/regions/' + regionID + '/destinations/exchanges/' + exchangeID
+            def putExchangeURL = HOST + '/mq/admin/api/v1/organizations/' + ORGANIZATION_ID + '/environments/' + ENVIRONMENT_ID + '/regions/' + REGION_URL + '/destinations/exchanges/' + EXCHANGE_ID
             def putExchange = new HttpPut(putExchangeURL)
 
             putExchange.addHeader("Content-Type", "application/json")
@@ -523,7 +672,7 @@ class AnypointMQAdminClient {
 
             def bufferedReader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()))
             def jsonResponse = bufferedReader.getText()
-            println "response: \n" + jsonResponse
+            println "Response: \n" + jsonResponse
         }
     }
 }
@@ -583,8 +732,8 @@ This example lets you access the Anypoint MQ APIs from these products:
 The https://www.getpostman.com/[Postman] application provides a platform for accessing the Anypoint MQ APIs.
 After downloading and installing Postman, supply this information to create an environment:
 
-* Organization ID
-* Environment ID
+* ORGANIZATION_ID
+* ENVIRONMENT_ID
 * Bearer (Authentication) Token
 * Host ID (from Anypoint Platform/MQ)
 * Client ID (from Anypoint Platform/MQ)
