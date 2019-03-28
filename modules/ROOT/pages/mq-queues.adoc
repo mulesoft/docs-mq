@@ -92,8 +92,8 @@ Topics:
 * FIFO permits up to 10 inflight messages per queue.
 * See the xref:mq-faq.adoc[MQ FAQ] for the regions MQ and FIFO are available in.
 * Only a FIFO dead letter queue can be used as a DLQ for a FIFO queue.
-* When publishing to FIFO queues,
-if you specify a custom Message ID and the Message ID is the same on multiple messages, messages containing the same Message IDs are not redelivered.
+
+IMPORTANT: When publishing to FIFO queues, if you specify a custom Message ID and the Message ID is the same on multiple messages, messages containing the same Message IDs are not redelivered.
 
 === FIFO-Related Documentation
 
