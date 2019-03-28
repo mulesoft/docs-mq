@@ -2,7 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: mq, access, roles, environment, anypoint platform
+:imagesdir: ../assets/images/
 
 Anypoint Platform lets you manage the xref:access-management::managing-permissions.adoc[roles] of those who administer the Anypoint MQ features in Anypoint Platform for your organization.
 

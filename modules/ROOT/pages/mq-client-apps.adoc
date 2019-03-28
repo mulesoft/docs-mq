@@ -2,7 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: mq, client, application, app
+:imagesdir: ../assets/images/
 
 An Anypoint MQ client application lets you register an application in Anypoint MQ. When registered, Anypoint MQ lists
 the application's client ID and client secret which you need to configure the Anypoint MQ Connector in Anypoint Studio.

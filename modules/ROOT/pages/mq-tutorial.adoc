@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:imagesdir: ../assets/images/
 
 This tutorial helps you send and receive messages using Anypoint MQ using a 
 publish/subscribe queue mechanism. Anypoint MQ provides a user interface built into
