@@ -19,7 +19,7 @@ image::mq-client-apps-in-nav.png[width="177"]
 +
 . Click the blue plus circle:
 +
-image::mq-blue-plus-circle.png[Create client app circle button about two-thirds to the right below the task bar]
+image::mq-blue-plus-icon.png[Create client app circle button about two-thirds to the right below the task bar]
 +
 . Specify the name of the client application.
 +
