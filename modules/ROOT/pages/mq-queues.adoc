@@ -86,7 +86,7 @@ Topics:
 
 === FIFO Notes
 
-IMPORTANT: If multiple messages are sent to a FIFO queue containing the same message ID, the first message to arrive is kept as the valid message. Subsequent messages within the deduplication interval of 5 minutes are considered duplicates and are discarded. For example once the queue sees a message with ID `12345`, then for the next 5 minutes the FIFO queue discards any messages with the `ID 12345`.
+IMPORTANT: If multiple messages are sent to a FIFO queue containing the same message ID, the first message to arrive is kept as the valid message. Subsequent messages within the deduplication interval of 5 minutes are considered duplicates and are discarded. For example once the queue sees a message with ID `12345`, then for the next 5 minutes the FIFO queue discards any messages with the ID `12345`.
 
 * A FIFO queue cannot be bound to a message exchange.
 * Encrypting a FIFO queue does not affect the order or the contents of messages consumed.
