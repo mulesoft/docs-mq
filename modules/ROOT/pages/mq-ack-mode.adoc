@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:imagesdir: ../assets/images/
 
 IMPORTANT: This guide applies only to Mule 3 and Studio 6. For Mule 4 acknowledge information, see xref:connectors::anypoint-mq/anypoint-mq-ack.adoc[Message Acknowledgment].
 

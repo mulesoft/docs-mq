@@ -2,7 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: mq, access, roles, environment, anypoint platform
+:imagesdir: ../assets/images/
 
 Anypoint Platform lets you manage the xref:access-management::managing-permissions.adoc[roles] of those who administer the Anypoint MQ features in Anypoint Platform for your organization.
 
@@ -39,7 +39,7 @@ image::mq-acc-mgmt-user-detail.png[]
 +
 . Click the blue plus icon to save your settings:
 +
-image::mq-blue-plus-circle.png[]
+image::mq-blue-plus-icon.png[]
 +
 A summary list appears:
 +
@@ -78,7 +78,7 @@ The settings are:
     ** Access *Message Sender* and *Browser* pages
     ** Delete messages
 * *View clients*: View all client apps and the client App IDs and client secrets for each client app
-* *View destinations*: View all destinations and each destination's settings (*ID*, *Type*, *Default TTL* and *Default Lock TTL*); view *In Queue* messages and *In Flight* messages
+* *View destinations*: View all destinations and each destination's settings (*ID*, *Type*, *Message TTL* and *Message Lock Default TTL*); view *In Queue* messages and *In Flight* messages
 
 
 === Add Additional Roles For Anypoint MQ Access
@@ -104,7 +104,7 @@ image::mq-acc-mgmt-user-detail.png[]
 +
 . Click the blue plus icon to save your settings:
 +
-image::mq-blue-plus-circle.png[]
+image::mq-blue-plus-icon.png[]
 +
 A summary list appears:
 +

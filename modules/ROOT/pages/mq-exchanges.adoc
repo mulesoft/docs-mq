@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:imagesdir: ../assets/images/
 
 A message exchange lets you send a message to one or more xref:mq-queues.adoc[queues] that are bound to the message exchange.
 

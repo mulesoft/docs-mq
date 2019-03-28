@@ -2,7 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: mq, usage, graph, subscription, message units, requests, api, received
+:imagesdir: ../assets/images/
 
 You can view a chart indicating how much data and API requests have been consumed, and shows how many message units
 were received.

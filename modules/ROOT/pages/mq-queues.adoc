@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:imagesdir: ../assets/images/
 
 Anypoint MQ is a messaging broker that lets applications communicate by publishing a Mule Message to a queue so that another application can consume the message.
 
@@ -47,12 +48,12 @@ image::mq-blue-create.png[]
 . Click *Queue*, *Exchange*, or *FIFO Queue*. For Exchange, see xref:mq-exchanges.adoc[Configure Message Exchanges].
 . Fill in the fields in *Create Queue* or *Create FiFO Queue*.
 +
-image::mq-create-q-screen-dlq.png[]
+image::mq-create-queues.png[]
 +
 ** *ID* - Specify a queue name, which can contain these characters: a-z, A-Z, 0-9, period (.), and hyphen (-). Queue names cannot contain spaces or other characters, and can be up to 127 characters in length. The maximum size of a message is 10 MB.
 +
-** *Default TTL* - How long unprocessed messages persist before being deleted. The maximum TTL is 2 weeks.
-** *Default Lock TTL* - If there is a server failure and a message is not acknowledged, specifies the duration that a message would wait before being put back into the queue. A locked message does not block other messages to be read. The lock makes a message unavailable to other applications while locked. The maximum Lock TTL is 12 hours.
+** *Message TTL* - (Time to live) - How long unprocessed messages persist before being deleted. The maximum TTL is 2 weeks.
+** *Message Lock Default TTL* - If there is a server failure and a message is not acknowledged, specifies the duration that a message would wait before being put back into the queue. A locked message does not block other messages to be read. The lock makes a message unavailable to other applications while locked. The maximum Lock TTL is 12 hours.
 ** *Encryption* (Optional) - Set the queue to encrypted. Anypoint MQ uses PBE with MD5 and triple DES to encrypt messages.
 ** [[qdlq]]*Assign a Dead Letter Queue* (Optional) - Set the dead letter queue (DLQ) name. The DLQ is a previously created queue where undeliverable messages are sent to. For more information, see <<Dead Letter Queues>>.
 +
@@ -63,12 +64,7 @@ If you are creating your first queue in a new MQ account, MQ does not support as
 +
 The details for a queue are:
 +
-image::mq-dlq-dest.png[]
-
-[[dlqfifo]]
-After you expand the detail for a dead letter queue and if a queue is associated with the DLQ, the detail message indicates whether the DLQ is for FIFO or not:
-
-image::mqfifo-dlq-types.png[]
+image::mq-queue-details.png[]
 
 See <<Send a Message to a Queue>> for how Anypoint Platform lets you send
 messages to a queue and view, return the messages to the queue, or delete the messages.
@@ -90,14 +86,14 @@ Topics:
 
 === FIFO Notes
 
+IMPORTANT: If multiple messages are sent to a FIFO queue containing the same message ID, the first message to arrive is kept as the valid message. Subsequent messages within the deduplication interval of 5 minutes are considered duplicates and are discarded. For example once the queue sees a message with ID `12345`, then for the next 5 minutes the FIFO queue discards any messages with the ID `12345`.
+
 * A FIFO queue cannot be bound to a message exchange.
 * Encrypting a FIFO queue does not affect the order or the contents of messages consumed.
 * FIFO queues have a limit of 300 TPS; however, if you batch 10 messages per each read and write operation (maximum) using the API, FIFO queues can support up to 3,000 TPS.
 * FIFO permits up to 10 inflight messages per queue.
 * See the xref:mq-faq.adoc[MQ FAQ] for the regions MQ and FIFO are available in.
 * Only a FIFO dead letter queue can be used as a DLQ for a FIFO queue.
-* When publishing to FIFO queues,
-if you specify a custom Message ID and the Message ID is the same on multiple messages, messages containing the same Message IDs are not redelivered.
 
 === FIFO-Related Documentation
 
