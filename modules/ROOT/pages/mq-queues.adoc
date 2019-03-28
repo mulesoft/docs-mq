@@ -86,14 +86,14 @@ Topics:
 
 === FIFO Notes
 
+IMPORTANT: If multiple messages are sent to a FIFO queue containing the same message ID, the first message to arrive is kept as the valid message. Subsequent messages are considered duplicates and are discarded as they arrive due to the deduplication feature built into FIFO.
+
 * A FIFO queue cannot be bound to a message exchange.
 * Encrypting a FIFO queue does not affect the order or the contents of messages consumed.
 * FIFO queues have a limit of 300 TPS; however, if you batch 10 messages per each read and write operation (maximum) using the API, FIFO queues can support up to 3,000 TPS.
 * FIFO permits up to 10 inflight messages per queue.
 * See the xref:mq-faq.adoc[MQ FAQ] for the regions MQ and FIFO are available in.
 * Only a FIFO dead letter queue can be used as a DLQ for a FIFO queue.
-
-IMPORTANT: When publishing to FIFO queues, if you specify a custom Message ID and the Message ID is the same on multiple messages, messages containing the same Message IDs are discarded.
 
 === FIFO-Related Documentation
 
