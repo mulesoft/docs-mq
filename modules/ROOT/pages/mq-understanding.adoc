@@ -31,7 +31,7 @@ Anypoint MQ includes the follow features:
 * Client management: Create client applications tokens.
 * Large payloads: Anypoint MQ supports payloads up to 10 MB in size.
 * Disaster recovery: Within each region, Anypoint MQ services deploy to multiple availability zones (AZs) to provide high availability (HA). If service in one availability zone goes down, the Anypoint MQ service operates normally in that region. If all  availability zones go down in a region, then the Anypoint MQ service is unavailable in that region until at least one of the availability zones comes back up. However, the storage solution for Anypoint MQ is durable, which means no message is lost for messages that were already in the Anypoint MQ system before service was interrupted.
-* Encrypted queues: Queue data can optionally be encrypted, ensuring that companies can be compliant with their data at rest policies. Anypoint MQ messages are encrypted server-side with NIST recommended encryption algorithms.
+* Encrypted queues: Queue data can optionally be encrypted, ensuring that companies can be compliant with their data at rest policies. Anypoint MQ messages are encrypted server-side.
 
 == Queues
 
