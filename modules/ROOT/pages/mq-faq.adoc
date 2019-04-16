@@ -72,7 +72,7 @@ You can have the same object name for queues and exchanges between environments,
 
 == How can I restrict access to a queue or message exchange?
 
-You can use * Anypoint Platform* > *Access Management* > *Business Groups or Environments*. Queues and message exchanges created in a business group or environment are only visible to those with access to the business group or environment.
+You can use *Anypoint Platform* > *Access Management* > *Business Groups or Environments*. Queues and message exchanges created in a business group or environment are only visible to those with access to the business group or environment.
 
 == Can I use Anypoint MQ on premises?
 
@@ -143,10 +143,6 @@ Retries for sending messages to Anypoint MQ broker are always synchronous. By co
 == Are retries governed by the maxRedelivery setting?
 
 Retries are arbitrary. `maxRedelivery` refers to a parameter which comes with the message saying how many times the messages were delivered but not processed (either NACK or TimeOut).
-
-== How do I configure the number of messages to retry?
-
-The Anypoint MQ connector can process at most 10 messages in a queue, but that’s related to the prefetch configuration. The  connector does not queue, if fetches at most 10 messages and processes them. The connector does not have an internal queue for later processing messages.
 
 == Can I consume Anypoint MQ messages in batches?
 
