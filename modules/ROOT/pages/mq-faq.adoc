@@ -144,10 +144,6 @@ Retries for sending messages to Anypoint MQ broker are always synchronous. By co
 
 Retries are arbitrary. `maxRedelivery` refers to a parameter which comes with the message saying how many times the messages were delivered but not processed (either NACK or TimeOut).
 
-== How do I configure the number of messages to retry?
-
-The Anypoint MQ connector can process at most 10 messages in a queue, but that’s related to the prefetch configuration. The  connector does not queue, if fetches at most 10 messages and processes them. The connector does not have an internal queue for later processing messages.
-
 == Can I consume Anypoint MQ messages in batches?
 
 Yes, the REST API supports the `batchSize` query parameter which lets you retrieve up to 10 messages in a single call (default value). The maximum number that can be retrieved are 10 messages in a single call, you can configure a lower value with the Prefetch Config parameter in the Anypoint MQ Connector.
