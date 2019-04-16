@@ -72,7 +72,7 @@ You can have the same object name for queues and exchanges between environments,
 
 == How can I restrict access to a queue or message exchange?
 
-You can use * Anypoint Platform* > *Access Management* > *Business Groups or Environments*. Queues and message exchanges created in a business group or environment are only visible to those with access to the business group or environment.
+You can use *Anypoint Platform* > *Access Management* > *Business Groups or Environments*. Queues and message exchanges created in a business group or environment are only visible to those with access to the business group or environment.
 
 == Can I use Anypoint MQ on premises?
 
