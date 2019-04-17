@@ -79,7 +79,7 @@ image::mq-crm-to-dbs.png[CRM sends msg to Anypoint MQ that apps receive]
 
 Using Anypoint MQ, the Salesforce application sends a pub/sub message to a message exchange, and the two applications receive the message from the message exchange and convey the message to their respective databases.
 
-== Glossary
+== Terminology
 
 * Ack/Nack: 
     ** Ack - An application receives a message and Anypoint MQ deletes the message. For more information, see xref:mq-ack-mode.adoc[Acknowledge a Message].
