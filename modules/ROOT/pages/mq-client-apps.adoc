@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :imagesdir: ../assets/images/
 
-An Anypoint MQ client application lets you register an application in Anypoint MQ. When registered, Anypoint MQ lists
+You can register a Mule application in Anypoint MQ. When registered, Anypoint MQ lists
 the application's client ID and client secret which you need to configure the Anypoint MQ Connector in Anypoint Studio.
 
 [NOTE]
