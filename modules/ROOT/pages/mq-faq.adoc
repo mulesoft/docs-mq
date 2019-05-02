@@ -12,7 +12,7 @@ xref:release-notes::mq/anypoint-mq-release-notes.adoc[Release Notes].
 
 == Why is MQ not shown in Anypoint Platform?
 
-Anypoint MQ requires a separate Enterprise subscription and is not included in the Anypoint Platform trial version. Contact MuleSoft Support for more information. If you don't have an Enterprise subscription, you can use the MuleSoft Active MQ or Rabbit MQ.
+Anypoint MQ requires a separate Enterprise subscription and is not included in the Anypoint Platform trial version. Contact MuleSoft Support for more information. If you don't have an Enterprise subscription, you can use Apache Active MQ or Rabbit MQ.
 
 [[regions]]
 == In which regions is MQ available?
@@ -78,7 +78,7 @@ You can use *Anypoint Platform* > *Access Management* > *Business Groups or Envi
 
 You can publish a message from an on-premises system to Anypoint MQ and have another on-premises
 subscriber pull messages off of Anypoint MQ. Currently Anypoint MQ cannot be deployed on-premises.
-If you need a messaging source on-premises, you can use MuleSoft Active MQ instead.
+If you need a messaging source on-premises, you can use Apache Active MQ instead.
 
 == How does Anypoint MQ handle disaster recovery and high availability failover?
 
@@ -262,5 +262,5 @@ image::mq-delete-exchange.png[]
 == See Also
 
 * https://support.mulesoft.com/s/knowledge[Knowledge Base Articles]
-* xref:3.9@mule-runtime::amqp-connector.adoc[MuleSoft Active MQ]
+* https://activemq.apache.org/[Apache Active MQ]
 * https://www.rabbitmq.com/[Rabbit MQ]
