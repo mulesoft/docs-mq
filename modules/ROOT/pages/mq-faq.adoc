@@ -40,6 +40,10 @@ If your application requires an additional layer of encryption security, then yo
 
 When you have a queue encrypted, the messages are stored encrypted but they are decrypted when they are read. Encryption and decryption are automatic and transparent to the final user. There's no option to disable the automatic decryption. If you need to encrypt the message so that the payload remains encrypted, manually encrypt the content.
 
+== How can I send a Java Object as a message?
+
+The body of an Anypoint MQ message is sent as a String as part of a JSON message, thus any content that needs to be published should be serializable in a String format from which you can later deserialize. One way to do this is to serialize the Java object to its JSON representation using DataWeave, which can be serialized and deserialized from a String. Sending Java objects that don't have a proper String serialization causes the message to be unreadable on the receiving end.
+
 == Can I share messages or queues between regions?
 
 No, queues and message exchanges are unique to the region in which they were created and cannot share messages or queues between regions. Developers can manually create custom programs that load balance between regions, but Anypoint MQ itself does not provide multi-region support.
