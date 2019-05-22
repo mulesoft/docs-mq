@@ -42,8 +42,7 @@ When you have a queue encrypted, the messages are stored encrypted but they are 
 
 == How can I send a Java Object as a message?
 
-The body of an Anypoint MQ message is sent as a String as part of a JSON message, thus any content that needs to published should be serializable in a String format from which you can later deserialize. One way to do this is to serialize the Java object to its JSON representation using DataWeave, which can be serialized and deserialized from a String. 
-Sending Java objects that don't have a proper String serialization causes the message to be unreadable on the receiving end.
+The body of an Anypoint MQ message is sent as a String as part of a JSON message, thus any content that needs to published should be serializable in a String format from which you can later deserialize. One way to do this is to serialize the Java object to its JSON representation using DataWeave, which can be serialized and deserialized from a String. Sending Java objects that don't have a proper String serialization causes the message to be unreadable on the receiving end.
 
 == Can I share messages or queues between regions?
 
