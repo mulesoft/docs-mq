@@ -167,9 +167,6 @@ to keep the TCP socket open for up to 20 seconds to fulfill your request if ther
 
 == How can I process messages one by one?
 
-[NOTE]
-More than one in-flight message can occur if the processing time between `anypoint-mq:consume` and `anypoint-mq:ack` is higher than the value of the *Message Lock Default TTL* setting for the queue.
-// Make sure to create an exception strategy and NACK the message accordingly.
 
 To process messages one by one, set the Anypoint MQ connector to the `consume` operation.
 This operation retrieves a message from the queue or receives null if a message is not available.
@@ -178,23 +175,17 @@ Then, depending on your Mule version:
 
 *Mule 4*
 
-* Set `maxConcurrency="1"` on the flow.
-+
+Set `maxConcurrency="1"` on the flow.
+
 This attribute sets the number of simultaneous invocations that component can receive an any given time to 1.
 
-* Set a scheduler to fire the process regularly.
 
 Mule 4 Example:
 
 [source,xml,linenums]
 ----
 <flow name="testanypointmq1by1Flow4" maxConcurrency="1">
-    <scheduler>
-            <scheduling-strategy>
-                <fixed-frequency frequency="10" timeUnit="SECONDS"/>
-            </scheduling-strategy>
-        </scheduler>
-        <logger doc:name="Logger" level="INFO" message="Flow triggered" />
+    <logger doc:name="Logger" level="INFO" message="Flow triggered" />
     <anypoint-mq:consume config-ref="Anypoint_MQ_Configuration" destination="queuename" doc:name="Anypoint MQ"/>
     <logger doc:name="Logger" level="INFO" message="Processing message received. #[payload]"/>
     <anypoint-mq:ack config-ref="Anypoint_MQ_Configuration" doc:name="Anypoint MQ"/>
@@ -224,6 +215,10 @@ Mule 3 Example:
     <logger doc:name="Logger" level="INFO" message="Message processed."/>
 </flow>
 ----
+
+[NOTE]
+More than one in-flight message can occur if the processing time between `anypoint-mq:consume` and `anypoint-mq:ack` is higher than the value of the *Message Lock Default TTL* setting for the queue.
+// Make sure to create an exception strategy and NACK the message accordingly.
 
 == Can we see the Anypoint MQ headers in the browse message options?
 
