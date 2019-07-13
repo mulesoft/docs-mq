@@ -179,16 +179,20 @@ Set `maxConcurrency="1"` on the flow.
 
 This attribute sets the number of simultaneous invocations that component can receive an any given time to 1.
 
-
 Mule 4 Example:
 
 [source,xml,linenums]
 ----
 <flow name="testanypointmq1by1Flow4" maxConcurrency="1">
-    <logger doc:name="Logger" level="INFO" message="Flow triggered" />
-    <anypoint-mq:consume config-ref="Anypoint_MQ_Configuration" destination="queuename" doc:name="Anypoint MQ"/>
-    <logger doc:name="Logger" level="INFO" message="Processing message received. #[payload]"/>
-    <anypoint-mq:ack config-ref="Anypoint_MQ_Configuration" doc:name="Anypoint MQ"/>
+    <logger level="INFO" doc:name="Logger" message="Flow triggered" />
+    <anypoint-mq:consume doc:name="Anypoint MQ"
+       config-ref="Anypoint_MQ_Config"
+       destination="queuename" />
+       <logger level="INFO" doc:name="Logger" message="Processing message received. #[payload]"/>
+    <anypoint-mq:ack
+        ackToken="#[vars.currentAckToken]"
+        config-ref="Anypoint_MQ_Config"
+        doc:name="Anypoint MQ"/>
     <logger doc:name="Logger" level="INFO" message="Message processed."/>
 </flow>
 ----
@@ -215,6 +219,9 @@ Mule 3 Example:
     <logger doc:name="Logger" level="INFO" message="Message processed."/>
 </flow>
 ----
+<anypoint-mq:consume doc:name="Consume" doc:id="3ff7a169-f3c9-4e93-ab02-9db178cd6e32" config-ref="Anypoint_MQ_Default_subscriber" destination="/mq/{messageId}" />
+		<logger level="INFO" doc:name="Logger" doc:id="36fdd310-c7a8-4f3c-b844-adc8ca06d349" />
+
 
 [NOTE]
 More than one in-flight message can occur if the processing time between `anypoint-mq:consume` and `anypoint-mq:ack` is higher than the value of the *Message Lock Default TTL* setting for the queue.
