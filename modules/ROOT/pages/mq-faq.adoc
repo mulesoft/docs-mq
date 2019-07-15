@@ -175,9 +175,9 @@ Then, depending on your Mule version:
 
 *Mule 4*
 
-Set `maxConcurrency="1"` on the flow.
+Add the `maxConcurrency="1"` attribute to the `flow` element.
 
-This attribute sets the number of simultaneous invocations that component can receive an any given time to 1.
+Specify this attribute to set the number of simultaneous invocations that a component can receive at any given time to 1.
 
 Mule 4 Example:
 
@@ -201,7 +201,7 @@ Mule 4 Example:
 
 * Set `processingStrategy="synchronous"` on the flow.
 +
-This attribute specifies to process messages in the same thread that initially received the message.
+Specify this attribute to process messages in the same thread that initially received the message.
 
 * Set a poll scope to fire the process regularly.
 
@@ -219,9 +219,6 @@ Mule 3 Example:
     <logger doc:name="Logger" level="INFO" message="Message processed."/>
 </flow>
 ----
-<anypoint-mq:consume doc:name="Consume" doc:id="3ff7a169-f3c9-4e93-ab02-9db178cd6e32" config-ref="Anypoint_MQ_Default_subscriber" destination="/mq/{messageId}" />
-		<logger level="INFO" doc:name="Logger" doc:id="36fdd310-c7a8-4f3c-b844-adc8ca06d349" />
-
 
 [NOTE]
 More than one in-flight message can occur if the processing time between `anypoint-mq:consume` and `anypoint-mq:ack` is higher than the value of the *Message Lock Default TTL* setting for the queue.
