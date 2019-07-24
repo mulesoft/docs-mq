@@ -7,24 +7,23 @@ Anypoint MQ Connectors are available for Mule 3 and Mule 4.
 
 == Anypoint MQ Connector 3.x - Mule 4
 
-* xref:3.x@connectors/anypoint-mq/anypoint-mq-connector.adoc[Anypoint MQ Connector 3.x - Mule 4]
-* xref:connectors/anypoint-mq/3.x/anypoint-mq-connector.adoc[Anypoint MQ Connector 3.x - Mule 4]
-** xref:connectors/anypoint-mq/3.x/anypoint-mq-ack.adoc[ACK and NACK Operations]
-** xref:connectors:anypoint-mq/3.x/anypoint-mq-listener.adoc[Subscribe Operation]
-** xref:connectors:anypoint-mq/3.x/anypoint-mq-consume.adoc[Consume Operation]
-** xref:connectors:anypoint-mq/3.x/anypoint-mq-publish.adoc[Publish Operation]
-** xref:connectors:anypoint-mq/3.x/anypoint-mq-connector-reference.adoc[Anypoint MQ Connector 3.x Reference]
+* xref:connectors::anypoint-mq/3.x/anypoint-mq-connector.adoc[Anypoint MQ Connector 3.x - Mule 4]
+** xref:connectors::anypoint-mq/3.x/anypoint-mq-ack.adoc[ACK and NACK Operations]
+** xref:connectors::anypoint-mq/3.x/anypoint-mq-listener.adoc[Subscribe Operation]
+** xref:connectors::anypoint-mq/3.x/anypoint-mq-consume.adoc[Consume Operation]
+** xref:connectors::anypoint-mq/3.x/anypoint-mq-publish.adoc[Publish Operation]
+** xref:connectors::anypoint-mq/3.x/anypoint-mq-connector-reference.adoc[Anypoint MQ Connector 3.x Reference]
 ** xref:release-notes::connector/anypoint-mq-connector-release-notes-mule-4.adoc[Anypoint MQ Connector Release Notes - Mule 4]
 * https://www.mulesoft.com/exchange/com.mulesoft.connectors/anypoint-mq-connector/[Link to Anypoint MQ Connector - Mule 4 on Anypoint Exchange]
 
 == Anypoint MQ Connector 2.x - Mule 4
 
-* xref:connectors:anypoint-mq/2.x/anypoint-mq-connector.adoc[Anypoint MQ Connector 2.x - Mule 4]
-** xref:connectors:anypoint-mq/2.x/anypoint-mq-ack.adoc[ACK and NACK Operations]
-** xref:connectors:anypoint-mq/2.x/anypoint-mq-listener.adoc[Subscribe Operation]
-** xref:connectors:anypoint-mq/2.x/anypoint-mq-consume.adoc[Consume Operation]
-** xref:connectors:anypoint-mq/2.x/anypoint-mq-publish.adoc[Publish Operation]
-** xref:connectors:anypoint-mq/2.x/anypoint-mq-connector-reference.adoc[Anypoint MQ Connector 2.x Reference]
+* xref:connectors::anypoint-mq/2.x/anypoint-mq-connector.adoc[Anypoint MQ Connector 2.x - Mule 4]
+** xref:connectors::anypoint-mq/2.x/anypoint-mq-ack.adoc[ACK and NACK Operations]
+** xref:connectors::anypoint-mq/2.x/anypoint-mq-listener.adoc[Subscribe Operation]
+** xref:connectors::anypoint-mq/2.x/anypoint-mq-consume.adoc[Consume Operation]
+** xref:connectors::anypoint-mq/2.x/anypoint-mq-publish.adoc[Publish Operation]
+** xref:connectors::anypoint-mq/2.x/anypoint-mq-connector-reference.adoc[Anypoint MQ Connector 2.x Reference]
 ** xref:release-notes::connector/anypoint-mq-connector-release-notes-mule-4.adoc[Anypoint MQ Connector Release Notes - Mule 4]
 * https://www.mulesoft.com/exchange/com.mulesoft.connectors/anypoint-mq-connector/[Link to Anypoint MQ Connector - Mule 4 on Anypoint Exchange]
 
