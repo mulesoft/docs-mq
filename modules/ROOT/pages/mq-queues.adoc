@@ -7,7 +7,6 @@ endif::[]
 
 A _queue_ is a temporary storage area for a message. You can create queues, FIFO queues, and dead letter queues in Anypoint Platform. You can also send and receive messages from a queue in Anypoint Studio.
 
-
 Using Anypoint MQ, you can create two types of queue: 
 
 * Standard queue
@@ -26,6 +25,13 @@ You can assign either queue type as a dead letter queue. See <<Dead Letter Queue
 
 When you create a queue, you can optionally choose to encrypt all messages in the queue. If enabled,
 Anypoint MQ encrypts messages using PBE with MD5 and Triple DES, and with a 168-bit key.
+
+
+[NOTE]
+In Anypoint MQ, messages are read through long polling where the server holds the request open until new data is available. Anypoint MQ delivers a batch of messages with a single read.
+
+Organization administrators or owners can view the current and past months usage - the total number of messages and API requests. This information is accessed from the Access Management page. For more information, see xref:mq-usage.adoc[View Usage Graphs].
+
 
 == Prerequisites
 
@@ -85,17 +91,151 @@ image::mq-queue-details.png[]
 For information on sending messages to a queue, viewing messages,  returning messages to a queue, and deleting messages, see <<Send a Message to a Queue>>.
 
 
+== Send a Message to a Queue
+
+Message content (called a payload) can be text, JSON, or CSV (comma-separated values). The maximum size of a message is 10 MB.
+
+To send a message to a queue:
+
+. Log into Anypoint Platform.
+. Click *MQ* in the left navigation bar or in the main Anypoint Platform screen.
+. Click *Destinations* in the left pane.
+. Click the queue ID or details label to access the Messaging feature:
++
+image::mq-queue-details.png[]
++
+. In the settings page, click *Message Sender* in the left pane.
+. Type text in the *Payload* such as `Hello Mules` (leave the *Type* field set to *Text*).
++
+If you specified *Assign Default Delivery Delay* for the queue, you see the default delivery delay. You can override that value for this message.
++
+image::mq-msg-sender-text-payload2[]
++
+. Click *Send*.
+
+== Verify a Message in a Queue
+
+To verify that the message arrived in the queue, either return to the *Destinations* screen to observe the number of messages in the queue, or you can <<Get a Message From a Queue, get a message from the queue>>.
+
+To return to the *Destinations* screen to verify that the message is in the queue:
+
+. Click *Destinations* in the left pane.
+. Click the queue entry in Destinations to view details about the queue in the right pane.
+. In the *Destinations* screen, click the queue type for the queue to display its details in the right pane.
++
+The detail pane shows a message in the queue:
++
+image::mq-msgs-in-queue2.png[]
+
+== Get a Message From a Queue
+
+To get a message from a queue:
+
+. Log into Anypoint Platform.
+. Click *MQ* in the left navigation bar or in the main Anypoint Platform screen.
+. Click *Destinations* in the left pane.
+. Click the queue ID or details label to access the Messaging feature:
++
+image::mq-queue-details.png[]
++
+. In the settings page, click *Message Browser* in the left pane.
+. Click *Get Messages*.
+. If you are retrieving messages from a FIFO queue, click the checkbox to acknowledge 
+that viewing messages through the browser might cause other consumers of the queue to receive messages out of order.
++
+image::mqfifo-message-browser.png[]
++
+. Click the message ID value to view the message payload in the right pane.
++
+image::mq-click-id2.png[]
++
+. If you want to return the message to the queue, for example, if other applications want to read the message, click the *Return Messages* icon:
++
+image::mq-click-retmsgs2.png[]
++
+If you switch screens back to the Message Sender or Destinations screens, messages automatically return to the queue.
++
+In Anypoint MQ, returning the messages to the queue is known as NACK - the message is not altered. However,
+the time to live (TTL) value you set when you created your queue determines how long the message is available before Anypoint MQ deletes it.
++
+Alternatively, you can delete the message by clicking the trash can icon in the details pane. 
++
+image::mq-message-delete-trash-can-icon2.png[]
+
+In Anypoint MQ, deleting a message is called an ACK. For information on how Anypoint MQ processes ACK messages, see xref:mq-ack-mode.adoc[Acknowledge a Message].
+
+
+== Send a CSV or JSON Message
+
+To send a JSON message:
+
+. Log into Anypoint Platform.
+. Click *MQ* in the left navigation bar or in the main Anypoint Platform screen.
+. Click *Destinations* in the left pane.
+. Click the queue ID or details label to access the Messaging feature.
+. In the settings page, click *Message Sender* in the left pane.
+. Set the *Type* to *JSON*.
+. Set the *Payload* to:
++
+[source,json,linenums]
+----
+{
+"animal that walks":"dog",
+"animal that swims":"fish",
+"animal that flies":"parrot"
+}
+----
++
+. Click *Send*.
+. Click *Message Browser*, and then click *Get Messages*.
+. Click the message ID to view the message:
++
+image::mq-json-get-msg2.png[]
+
+To send a CSV message:
+
+. Log into Anypoint Platform.
+. Click *MQ* in the left navigation bar or in the main Anypoint Platform screen.
+. Click *Destinations* in the left pane.
+. Click the queue ID or details label to access the Messaging feature.
+. In the settings page, click *Message Sender* in the left pane.
+. Set the *Type* to *CSV*.
+. Set the *Payload* to:
++
+----
+"dog",
+"fish",
+"parrot"
+----
++
+. Click *Send*.
+. Click *Message Browser*, and then click *Get Messages*.
+. Click the message ID to view the message:
++
+image::mq-csv-get-msg2.png[]
+
+
+== Purge Messages from a Queue
+
+You can purge all the messages in the queue by clicking the *Purge Messages* icon in the details pane:
+
+image::mqfifo-purge-msgs-icon.png[]
+
+An alert message appears. Click the checkbox to verify that you want to purge all messages in the queue:
+
+image::mqfifo-purge-messages.png[]
+
 == Delete a Queue
 
 To delete a queue:
 
 . Click *Destinations*.
 . In the *Destinations* screen, click the queue type for the queue to display its details in the right pane.
+. Click the trash can icon in the upper right.
 +
 image::mq-click-type-q2.png[]
 +
-. Click the trash can icon in the upper right.
-. In the Delete Queue menu, click the checkbox:
+. In the *Delete Queue* popup, click the checkbox:
 +
 image::mq-delete-queue.png[]
 +
@@ -118,11 +258,9 @@ If multiple messages are sent to a FIFO queue containing the same message ID, th
 * See the xref:mq-faq#regions[Anypoint MQ FAQ] for the regions that Anypoint MQ and FIFO queues are available in.
 * Only a FIFO dead letter queue can be used as a DLQ for a FIFO queue.
 
-To create a FIFO queue, see <<Create a Queue>>. To determine if a queue is FIFO or non-FIFO, view its details.
-For more information about FIFO queues, see:
+To create a FIFO queue, see <<Create a Queue>>. To determine if a queue is FIFO or non-FIFO, view its details. 
 
-* xref:mq-apis.adoc#create-a-fifo-queue-from-the-administration-portal[Create a FIFO Queue From the Administration Portal] - How to create a FIFO queue using the Anypoint MQ REST API.
-* xref:release-notes::mq/mq-release-notes.adoc[Release Notes].
+For more information about FIFO queues, see xref:mq-apis.adoc#create-a-fifo-queue-in-the-admin-api-portal[Create a FIFO Queue in the Admin API Portal].
 
 === FIFO Exactly Once Delivery
 
@@ -141,7 +279,7 @@ Anypoint MQ provides dead letter queue (DLQ) support to ensure that messages tha
 * A dead letter queue (DLQ) must be either non-FIFO or FIFO. Messages sent to a FIFO dead letter queue must
 originate from a FIFO queue. Messages sent to a non-FIFO DLQ must originate from a non-FIFO queue.
 See also <<fifoqueues,FIFO Queues>>.
-* The DLQ is in the same region as other queues.
+* The DLQ is in the same ref:mq-faq#regions[region] as other queues.
 * If a message sent to the DLQ is an actual dead letter that came from another queue, then it is not charged against the billable message units.  However, the DLQ is just like any other queue and a client can send messages to it directly.  If a client sends a message directly to a DLQ, those messages are charged.
 * The time to live (TTL) value, or whether the queue is encrypted depends on how you created the queue you use as a DLQ.
 * Both a DLQ and the queue writing to it must be in the same geographical region and environment, and owned by the same Anypoint Platform account.
@@ -194,144 +332,10 @@ For example:
 
 For more information, see xref:mq-apis.adoc#mqadminapi[Anypoint MQ Admin API].
 
-== Send a Message to a Queue
-
-Message content (called a payload) can be text, JSON, or CSV (comma-separated values). The maximum size of a message is 10 MB.
-
-To send a message to a queue:
-
-. Log into Anypoint Platform.
-. Click *MQ* in the left navigation bar or in the main Anypoint Platform screen.
-. Click *Destinations*.
-. Click the queue entry in Destinations to view details about the queue.
-. Click the queue ID or queue name in the details pane to open the Messaging feature:
-+
-image::mq-queue-details.png[]
-+
-. In the settings page, click *Message Sender* in the left pane.
-. Type text in the *Payload* such as `Hello Mules` (leave the *Type* field set to *Text*).
-+
-If you specified *Assign Default Delivery Delay* for the queue, you see the default delivery delay.
-. Click *Send*.
-
-== Verify the Message in a Queue
-
-To verify that the message arrived in the queue, either return to the *Destinations* screen to observe the number of messages in the queue, or you can assume the message is in the queue, and you can <<Get a Message From a Queue, get a message from the queue>>.
-
-To return to the *Destinations* screen to verify that the message is in the queue:
-
-. Click *Destinations*:
-+
-image::mq-click-destinations2.png[]
-
-. In the *Destinations* screen, click the queue type for the queue to display its details in the right pane.
-. Click the queue to see the queue detail in the right pane. The detail shows that a message is in
-the queue:
-+
-image::mq-msgs-in-queue2.png[]
-
-=== Get a Message From a Queue
-
-To get a message from a queue:
-
-. Follow the directions in <<Send a Message to a Queue>> and
-advance to Step 6, except click *Message Browser*:
-+
-image::mq-click-msg-browser2.png[]
-+
-. Click *Get Messages*.
-+
-image::mq-get-messages2.png[]
-+
-[NOTE]
-====
-If you are retrieving messages from a FIFO queue, click the
-checkbox to acknowledge that if you view messages here through the browser, and if an
-application is also consuming messages from this same queue programmatically,
-the order of the messages received from the FIFO queue may be out of order.
-====
-+
-image::mqfifo-message-browser.png[]
-+
-. Click the message ID value to view the message.
-+
-image::mq-click-id2.png[]
-+
-. If you want to return the message to the queue, such as if other applications
-may also want to read the message, click the *Return Messages* icon - this
-is the default condition. If you switch screens back to the Message Sender
-or to Destinations, messages automatically return to the queue.
-In Anypoint MQ, returning the messages to the queue is known
-as `nack` - the message is not altered. However,
-the time to live (TTL) value you set when you created your queue
-determines how long the message is available before Anypoint MQ deletes it.
-+
-image::mq-click-retmsgs2.png[]
-+
-Alternatively, you can delete the message by clicking the trash can icon. In Anypoint MQ, deleting a message is called an `ack` - For information on how Anypoint MQ processes ack  messages for you, see xref:mq-ack-mode.adoc[Acknowledgment Mode].
-+
-image::mq-message-delete-trash-can-icon2.png[]
-
-Now you are able to send and receive messages in Anypoint MQ.
-
-
-[NOTE]
-In Anypoint MQ, messages are read through long polling where the server holds the request open until new data is available. Anypoint MQ delivers a batch of messages with a single read.
-
-Organization administrators or owners can view the current and past months usage - the total number of messages and API requests. This information is accessed from the Access Management page. For more information, see xref:mq-usage.adoc[Anypoint MQ Usage Information].
-
-In the next section, you can try alternate ways of formatting messages.
-
-== Send a CSV or JSON Message
-
-To send a JSON message:
-
-. Click *Message Sender*.
-. Set the *Type* to *JSON*.
-. Set the *Payload* to:
-+
-[source,json,linenums]
-----
-{
-"animal that walks":"dog",
-"animal that swims":"fish",
-"animal that flies":"parrot"
-}
-----
-+
-. Click *Message Browser* and the message ID to view the message:
-+
-image::mq-json-get-msg2.png[]
-
-To send a CSV message:
-
-. Click *Message Sender*.
-. Set the *Type* to *CSV*.
-. Set the *Payload* to:
-+
-----
-"dog",
-"fish",
-"parrot"
-----
-+
-. Click *Message Browser* and the message ID to view the message.
-
-== Purge Messages from a Queue
-
-After expanding a queue's details, you can purge all the messages in the queue
-by clicking the Purge Messages icon:
-
-image::mqfifo-purge-msgs-icon.png[]
-
-An alert message appears. Click the checkbox to verify that you want to purge all
-messages in the queue:
-
-image::mqfifo-purge-messages.png[]
 
 
 == See Also
 
-* xref:mq-faq.adoc[MQ FAQ]
-* xref:mq-exchanges.adoc[Configure a Message Exchange]
-* xref:mq-connectors.adoc[MQ Connectors]
+* xref:mq-faq.adoc[Anypoint MQ FAQ]
+* xref:mq-exchanges.adoc[Configure Message Exchanges]
+* xref:mq-connectors.adoc[Anypoint MQ Connectors]

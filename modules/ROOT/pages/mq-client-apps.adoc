@@ -37,4 +37,4 @@ If using the Chrome browser and the Copy buttons don't function, click *Settings
 
 == See Also
 
-* xref:mq-faq.adoc[MQ FAQ]
+* xref:mq-faq.adoc[Anypoint MQ FAQ]

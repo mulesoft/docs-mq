@@ -162,7 +162,7 @@ The number of messages retrieved by the connector is sometimes fewer than the nu
 
 == Can non-Mule applications interface with Anypoint MQ?
 
-If you have non-Mule applications, you can use our xref:mq-apis.adoc[Anypoint MQ REST API] to send and receive messages.
+If you have non-Mule applications, you can use the xref:mq-apis.adoc[Anypoint MQ REST APIs] to send and receive messages.
 
 == What is the throughput capacity of Anypoint MQ?
 

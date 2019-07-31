@@ -24,7 +24,7 @@ Steps:
 
 . An application sends a request to Anypoint MQ and sets how long to hold the lock on the message.
 . Anypoint MQ sends the message and the lock ID.
-. The application acknowledges the message and requests Anypoint MQ to delete the message, or the application negatively acknowledges the message and requests Anypoint MQ to make the message available to other applications. The application sends the message ID and lock ID to Anypoint MQ. For additional information on setting automatic ack or nack, see the xref:mq-ack-mode.adoc[Acknowledgment Mode] guide.
+. The application acknowledges the message and requests Anypoint MQ to delete the message, or the application negatively acknowledges the message and requests Anypoint MQ to make the message available to other applications. The application sends the message ID and lock ID to Anypoint MQ. For additional information on setting automatic ACK or NACK, see xref:mq-ack-mode.adoc[Acknowledge a Message].
 . If no action is taken and the duration of a lock's time to live expires, the message is negatively acknowledged and returns to the queue to be available for other applications.
 
 == Authorize API Access
