@@ -22,9 +22,9 @@ image::mq-api-workflow.png[]
 
 Steps:
 
-. An application sends a request to Anypoint MQ and sets how long to hold the lock on the message.
+. An appsends a request to Anypoint MQ and sets how long to hold the lock on the message.
 . Anypoint MQ sends the message and the lock ID.
-. The application acknowledges the message and requests Anypoint MQ to delete the message, or the application negatively acknowledges the message and requests Anypoint MQ to make the message available to other applications. The application sends the message ID and lock ID to Anypoint MQ. For additional information on setting automatic ACK or NACK, see xref:mq-ack-mode.adoc[Acknowledge a Message].
+. The app acknowledges the message and requests Anypoint MQ to delete the message, or the app negatively acknowledges the message and requests Anypoint MQ to make the message available to other applications. The app sends the message ID and lock ID to Anypoint MQ. For additional information on setting automatic ACK or NACK, see xref:mq-ack-mode.adoc[Acknowledge a Message].
 . If no action is taken and the duration of a lock's time to live expires, the message is negatively acknowledged and returns to the queue to be available for other applications.
 
 == Authorize API Access
@@ -107,7 +107,7 @@ The Anypoint MQ Broker API allows clients to send and receive messages from queu
 
 You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ. See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[MQ Audit Logging].
 
-Getting the access (bearer) token requires using either a command like curl or an application like Postman. The example that follows uses curl.
+Getting the access (bearer) token requires using either a command like curl or an app like Postman. The example that follows uses curl.
 If you are a Windows user, you need to https://curl.haxx.se/download.html[download a curl command] before accessing the information.
 
 The access token in this section can only be used with the Broker API. Do not use this access token 
@@ -729,7 +729,7 @@ This example lets you access the Anypoint MQ APIs from these products:
 [[postsetup]]
 === Set Up Postman
 
-The https://www.getpostman.com/[Postman] application provides a platform for accessing the Anypoint MQ APIs.
+The https://www.getpostman.com/[Postman] appprovides a platform for accessing the Anypoint MQ APIs.
 After downloading and installing Postman, supply this information to create an environment:
 
 * ORGANIZATION_ID
@@ -765,7 +765,7 @@ After you have the lock ID, you can add it to your Postman environment to facili
 [[studiosetup]]
 === Set Up Studio for API Access
 
-Anypoint Studio lets you create a Mule application that uses the Anypoint MQ connector.
+Anypoint Studio lets you create a Mule app that uses the Anypoint MQ connector.
 The steps in this section are summarized.
 
 You can set up a Studio project with:

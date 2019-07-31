@@ -39,7 +39,7 @@ After you obtain an Enterprise subscription and contacted your MuleSoft represen
 
 Anypoint MQ messages are always transported using in-flight HTTPS encryption with the latest Transport Layer Security (TLS) protocols.  Additionally, if your Anypoint MQ queues are configured for encryption at rest, then the payloads are encrypted server-side.
 
-If your application requires an additional layer of encryption security, then you can encrypt the payloads yourself before publishing messages to Anypoint MQ; however, you must manage your own encryption keys for both the message publishers and the consumers.
+If your app requires an additional layer of encryption security, then you can encrypt the payloads yourself before publishing messages to Anypoint MQ; however, you must manage your own encryption keys for both the message publishers and the consumers.
 
 == Why do I see the message decrypted in the UI for my encrypted queues?
 
@@ -77,7 +77,7 @@ Anypoint MQ limits messages to 10 MB. If a larger size is required, you can spli
 
 That is, how do we ensure message exchanges or queues created in one environment are not confused or connected to message exchanges or queues created in a different environment if they have the same name?
 
-You can have the same object name for queues and exchanges between environments, but the Client ID and Client Secret must be different. It's not possible to access a production queue from a development environment if they don't have the corresponding application client IDs.
+You can have the same object name for queues and exchanges between environments, but the Client ID and Client Secret must be different. It's not possible to access a production queue from a development environment if they don't have the corresponding app client IDs.
 
 == How can I restrict access to a queue or message exchange?
 
@@ -110,7 +110,7 @@ You should also configure the HTTP connector so that Global Element Properties >
 
 == How can we replay/reprocess messages from DLQ?
 
-There is no built-in functionality to replay messages. Thus, you need to implement a special flow or application to consume those messages and forward them back to original queue for reprocessing.
+There is no built-in functionality to replay messages. Thus, you need to implement a special flow or app to consume those messages and forward them back to original queue for reprocessing.
 
 == How do we recover and handle failover?
 

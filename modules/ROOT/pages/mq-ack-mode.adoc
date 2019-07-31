@@ -1,21 +1,21 @@
-= Acknowledge a Message
+= Acknowledge Messages - Mule 3
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :imagesdir: ../assets/images/
 
-IMPORTANT: This guide applies only to Mule 3 and Studio 6. For Mule 4 acknowledge information, see xref:connectors::anypoint-mq/anypoint-mq-ack.adoc[ACK and NACK Operations].
+IMPORTANT: This guide applies only to Mule 3 and Studio 6. For Mule 4 acknowledge information, see xref:connectors::anypoint-mq/3.x/anypoint-mq-ack.adoc[ACK and NACK Operations].
 
 Anypoint MQ lets you determine how to process messages in Anypoint Studio using the Anypoint MQ connector.
 
 Two acknowledgment responses can occur:
 
-* Acknowledgment (ACK) - Indicates that an application has received a message.
-* Negative acknowledgment (NACK) - Indicates that an application doesn't
+* Acknowledgment (ACK) - Indicates that an app has received a message.
+* Negative acknowledgment (NACK) - Indicates that an app doesn't
 want the current message. Anypoint MQ returns the message to the queue so
-that another application can receive the message.
+that another app can receive the message.
 
-The Anypoint MQ connector provides tools for setting these states globally or locally in your Studio application.
+The Anypoint MQ connector provides tools for setting these states globally or locally in your Studio app.
 
 [NOTE]
 ====
@@ -36,7 +36,7 @@ Flow example:
 
 == Global and Local States
 
-The Anypoint MQ connector provides global and local states for specifying how your Studio application receives messages from a queue.
+The Anypoint MQ connector provides global and local states for specifying how your Studio app receives messages from a queue.
 
 === Global State
 
@@ -65,8 +65,8 @@ There are two possible outcomes:
 </rollback-exception-strategy>
 ----
 +
-* *MANUAL* - An application indicates that it sends its own ACK or NACK using the Anypoint MQ connector local state. The Anypoint MQ connector doesn't provide any actions automatically. See <<manualflow,Create a Manual Acknowledge Flow in Anypoint Studio>> for an example.
-* *NONE* - An application receives a message and the Anypoint MQ connector immediately acknowledges and deletes the message. This state risks losing the message if it is not consumed correctly, but is typically used when there is a flow of constantly updating messages, such as a news feed where each subsequent message provides more detail on any messages that preceded the message. This state takes a risk, but makes coding easier. See <<noneflow,Set NONE Acknowledge Mode>> for an example. 
+* *MANUAL* - An app indicates that it sends its own ACK or NACK using the Anypoint MQ connector local state. The Anypoint MQ connector doesn't provide any actions automatically. See <<manualflow,Create a Manual Acknowledge Flow in Anypoint Studio>> for an example.
+* *NONE* - An app receives a message and the Anypoint MQ connector immediately acknowledges and deletes the message. This state risks losing the message if it is not consumed correctly, but is typically used when there is a flow of constantly updating messages, such as a news feed where each subsequent message provides more detail on any messages that preceded the message. This state takes a risk, but makes coding easier. See <<noneflow,Set NONE Acknowledge Mode>> for an example. 
 +
 [NOTE]
 In Anypoint MQ Mule Connecter - Mule 4, NONE is called IMMEDIATE, but has the same functionality.
@@ -77,7 +77,7 @@ image::mq-global-mode-set.png[]
 
 === Local State
 
-Lets you manually add Anypoint MQ connector instances to your flow with the *Operation* field set to *ack* or *nack* depending on whether the application is receiving or rejecting a message.
+Lets you manually add Anypoint MQ connector instances to your flow with the *Operation* field set to *ack* or *nack* depending on whether the app is receiving or rejecting a message.
 
 You can set a local state using the Anypoint MQ connector's *Operation* field:
 
@@ -196,7 +196,7 @@ You can set the manual acknowledgment mode in Studio from the Anypoint MQ connec
 
 image::mq-global-mode-set.png[]
 
-In the manual flow, the `choice-exception-strategy` is also set as in the flow. In this case, the application uses individual Anypoint MQ connector instances with the operation set to either ACK or NACK depending on exceptions sent by the <<randomerror,Random Error Java Class>>.
+In the manual flow, the `choice-exception-strategy` is also set as in the flow. In this case, the app uses individual Anypoint MQ connector instances with the operation set to either ACK or NACK depending on exceptions sent by the <<randomerror,Random Error Java Class>>.
 
 image::mq-manual-flow.png[]
 
@@ -298,7 +298,7 @@ message="Always ACKs as soon as a message is received"/>
 
 image::mq-none-flow.png[]
 
-Using this mode simplifies an application, but increases the risk. This mode is best when messages are constantly updating each other, such as in a news feed where details unfold in a news event. If an exception did occur, the next message would have a chance for obtaining the correct content.
+Using this mode simplifies an app, but increases the risk. This mode is best when messages are constantly updating each other, such as in a news feed where details unfold in a news event. If an exception did occur, the next message would have a chance for obtaining the correct content.
 
 === NONE XML Code
 
@@ -358,12 +358,12 @@ http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
 [[randomerror]]
 == Random Error Generator
 
-The following Java test program generates random errors that you can use to test your application. This program gets a random integer between 0 and 100, and makes these choices depending on the value:
+The following Java test program generates random errors that you can use to test your app. This program gets a random integer between 0 and 100, and makes these choices depending on the value:
 
 [%header,cols="10a,30a,60a"]
 |===
 |Value |Error State |What happens in the Studio Flow
-|0 - 32 |No error, returns the passed event context. |Passes through and the application sends an ACK
+|0 - 32 |No error, returns the passed event context. |Passes through and the app sends an ACK
 |33 - 65 |Error, returns an illegal state exception. |Application sends a NACK
 |66 - 100 |Error, returns an unsupported operation exception. |Application sends an ACK
 |===

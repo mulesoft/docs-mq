@@ -1,19 +1,19 @@
-= Configure a Client Application
+= Configure Client Apps
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :imagesdir: ../assets/images/
 
-You can register a Mule application in Anypoint MQ. When registered, Anypoint MQ lists
-the application's client ID and client secret which you need to configure the Anypoint MQ Connector in Anypoint Studio.
+You can register a Mule app in Anypoint MQ. When registered, Anypoint MQ lists
+the client ID and client secret for the app, which you need to configure the Anypoint MQ Connector in Anypoint Studio.
 
 [NOTE]
-An application does not have to exist for you to register it.
+An app does not have to exist for you to register it.
 
-To register an application:
+To register an app:
 
 . In Anypoint Platform, click *MQ*.
-. Click *Client Apps* from the left nav bar:
+. Click *Client Apps* from the left navigation pane:
 +
 image::mq-client-apps-in-nav.png[width="177"]
 +
@@ -21,19 +21,15 @@ image::mq-client-apps-in-nav.png[width="177"]
 +
 image::mq-blue-plus-icon.png[Create client app circle button about two-thirds to the right below the task bar]
 +
-. Specify the name of the client application.
-+
-image::mq-create-client-app-window.png[]
-+
+. Specify the name of the client app.
 . Click *Save Changes*.
-. Click the client app entry to view the client ID and secret values:
+. Click the client app entry to view the client ID and secret values in the details pane:
 +
 image::mq-client-apps-detail2.png[]
 +
-. Click the Copy button for the ID or secret to copy the value to your computer's clipboard.
-
-[NOTE]
-If using the Chrome browser and the Copy buttons don't function, click *Settings* > *Show advanced settings* > *Privacy* > *Content settings* > *Plugins* > *Detect and run important plugin content*.
+. Click the *Copy* button for the ID or secret to copy the value to your clipboard.
+// +
+// If using the Chrome browser and the *Copy* buttons don't work, click *Settings* > *Advanced* > *Privacy and Security* > //////// *Content settings* > *Plugins* > *Detect and run important plugin content*.
 
 == See Also
 

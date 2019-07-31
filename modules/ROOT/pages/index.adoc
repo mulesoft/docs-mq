@@ -3,66 +3,47 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Anypoint MQ is a multi-tenant, cloud messaging service that enables customers to perform advanced asynchronous messaging scenarios between their applications. Anypoint MQ is fully integrated with Anypoint Platform, offering role based access control, client application management, and connectors.
+Anypoint MQ is a multi-tenant, cloud messaging service that enables customers to perform advanced asynchronous messaging scenarios between their applications. Anypoint MQ is fully integrated with Anypoint Platform, offering role based access control, client  management, and connectors.
 
-*See:* xref:mq-connectors.adoc[Anypoint MQ Connectors], xref:mq-faq.adoc[Anypoint MQ FAQ] and
-xref:release-notes::mq/anypoint-mq-release-notes.adoc[Anypoint MQ Release Notes].
+Anypoint MQ does not support use with CloudHub Insight or Anypoint Monitoring. Instead you can use the xref:mq-usage.adoc[Anypoint MQ usage graphs] to view consumed data and API requests and how many message units were received, or you can use the xref:mq-apis.html#mqstatapi[Anypoint MQ Stats API] to perform statistical analysis of queue performance.
 
-*Note:* Anypoint MQ does not support use with CloudHub Insight or Anypoint Monitoring. Instead you can use the xref:mq-usage.adoc[MQ usage graphs] to view consumed data and API requests and how many message units were received, or you can use the xref:mq-apis.adoc#mqstatapi[MQ Stats API] to perform statistical analysis of queue performance.
-
-== Anypoint MQ Documentation
-
-[%header%autowidth.spread]
-|===
-|Guide|Description
-|xref:mq-understanding.adoc[Anypoint MQ Terminology] |Explains Anypoint MQ terminology.
-|xref:mq-faq.adoc[FAQ: Anypoint MQ] |Frequently asked questions with answers.
-|xref:mq-connectors.adoc[Anypoint MQ Connectors] |Links to Anypoint MQ connectors and Anypoint Exchange.
-|xref:mq-tutorial.adoc[Tutorial: Create a Queue and Message Exchange] |Walks through creating a queue, a client app, sets up Anypoint Studio, and sends and receives messages. The tutorial also adds a message exchange and shows its differences from a queue.
-|xref:mq-access-management.adoc[Set Environment, User, and Role Access] |Assigns Anypoint MQ environment, user, and role access.
-|xref:mq-queues.adoc[Configure a Queue] |Uses Anypoint Platform to create queues, send messages to a queue, and get messages from a queue. This topic also describes xref:mq-queues.adoc#about-dead-letter-queues[Dead Letter Queues] and xref:mq-queues.adoc#fifoqueues[FIFO Queues].
-|xref:mq-exchanges.adoc[Configure a Message Exchange] |Describes how
-to send messages to a message exchange and view the message in queues. Also describes how to bind queues to a message exchange and how to unbind queues
-from a message exchange.
-|xref:mq-client-apps.adoc[Configure a Client Application] |Explains
-how to register an application in Anypoint MQ, and how to view and copy the
-application's client ID and client secret.
-|xref:mq-apis.adoc[Anypoint MQ REST APIs] |Accesses Anypoint MQ functionality using REST. Contains section on xref:mq-apis.adoc#to-create-a-fifo-queue-from-the-administration-portal[how to create a FIFO queue] using a REST API.
-|xref:mq-usage.adoc[View Usage Graphs] |Describes how to view Anypoint MQ usage information from the Anypoint Platform's Access Management section.
-|xref:mq-ack-mode.adoc[Acknowledge a Message] |Explains global and local ack and nack states.
-|xref:release-notes::mq/anypoint-mq-release-notes.adoc[Release Notes] |Summarizes release information for the Anypoint MQ Cloud and Anypoint MQ Connector products.
-|===
 
 == Anypoint MQ Workflow
 
-The steps that follow help you use Anypoint MQ. This same workflow is described in the xref:mq-tutorial.adoc[Anypoint MQ Tutorial].
+These are the high-level steps to use Anypoint MQ. This workflow is described in the xref:mq-tutorial.adoc[Anypoint MQ Tutorial].
 
 Install and configure Anypoint MQ:
 
 . Log into Anypoint Platform using your Enterprise Mule credentials, and click *MQ*.
 . Click *Access Management*, then *Users* or *Roles* to create an Anypoint MQ user or role.
-. From MQ, create a xref:mq-queues.adoc[queue], xref:mq-exchanges.adoc[message exchange], or a xref:mq-queues.adoc#fifoqueues[FIFO queue].
+. From *MQ*, create a xref:mq-queues.adoc[queue], xref:mq-exchanges.adoc[message exchange], or a xref:mq-queues.adoc#fifoqueues[FIFO queue].
 . Click a queue or message exchange name in the detail to access the Message Sender to send messages to a queue or message exchange, and to use the Message Browser to get messages from a queue.
-. From MQ, click Client Apps to register an application. You can view the client ID and client secret for the application.
+. From *MQ*, click *Client Apps* to register an app. You can view the client app ID and client secret for the app.
 
 In Anypoint Studio:
 
 . Install the Anypoint MQ connector using Anypoint Exchange.
 . Create a new Mule project with needed building blocks, such as an HTTP connector, Anypoint MQ connector, Set Payload, and a Logger.
-. Configure the Anypoint MQ connector and provide the Client ID and Secret of the application.
-. Set the Anypoint MQ connector's *Operation* to publish or consume messages, or to manually ack (accept a message) or nack (don't accept a message). Alternatively to ack or nack, Anypoint MQ can provide xref:mq-ack-mode.adoc[automatic Acknowledgment Mode]. If you set the Operation to publish, set the Destination to the name of a queue or message exchange that you created in Anypoint Platform. If you sent the Operation to consume, specify the name of a queue from which you want to receive messages.
-. Run the Mule application.
+. Configure the Anypoint MQ connector and provide the client app ID and client secret of the app.
+. Set the Anypoint MQ connector operation to publish or consume messages, or to accept (ACK) or not accept (NACK) a message. See xref:connectors::anypoint-mq/3.x/anypoint-mq-connector.adoc[Anypoint MQ Connector 3.x for Mule 4].
+//
+// Alternatively, Anypoint MQ can provide xref:mq-ack-mode.adoc[automatic Acknowledgment Mode]. If you set the Operation to publish, set the Destination to the name of a queue or message exchange that you created in Anypoint Platform. If you sent the Operation to consume, specify the name of a queue from which you want to receive messages.
+. Run the Mule app.
 
-Test:
+Test the queue:
 
 . Use a REST client such as curl or Postman to send or receive a message.
 +
-The Anypoint MQ application sends the string as a message to the queue or message exchange you specified.
+The Anypoint MQ  sends the string as a message to the queue or message exchange you specified.
 +
 . View your message in a browser or the Studio console.
 
 == See Also
 
+* xref:mq-understanding.adoc[Anypoint MQ Terminology]
+* xref:mq-connectors.adoc[Anypoint MQ Connectors]
+* xref:mq-faq.adoc[Anypoint MQ FAQ]
+* xref:release-notes::mq/anypoint-mq-release-notes.adoc[Anypoint MQ Release Notes]
 * https://support.mulesoft.com/s/global-search/anypoint%20mq[Support Knowledge Base for Anypoint MQ]
 * xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[Anypoint MQ Audit Logging]
 * xref:mq-queues.adoc#fifoqueues[FIFO Queues]
