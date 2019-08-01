@@ -19,6 +19,7 @@ Anypoint MQ:
 * Provides Anypoint Studio access, which makes the process of leveraging your queues and message exchanges as simple as drag, drop, and configure.
 * Displays usage statistics on the number of messages and API requests so you can manage peak usage and subscription parameters.
 * Provides dead letter queue capability for undeliverable messages.
+* Enables you to delay message delivery at the queue and message level.
 
 == Features
 
@@ -50,7 +51,7 @@ Create client applications tokens.
 Anypoint MQ supports payloads up to 10 MB.
 * *Disaster recovery*
 +
-Within each region, Anypoint MQ services deploy to multiple availability zones (AZs) to provide high availability (HA). If service in one availability zone goes down, the Anypoint MQ service operates normally in that region. If all  availability zones go down in a region, the Anypoint MQ service is unavailable in that region until at least one of the availability zones comes back up. Because the storage solution for Anypoint MQ is durable, messages that were already in the Anypoint MQ system before service was interrupted are retained.
+Within each region, Anypoint MQ services deploy to multiple availability zones (AZs) to provide high availability (HA). If service in one availability zone goes down, the Anypoint MQ service operates normally in that region. If all availability zones go down in a region, the Anypoint MQ service is unavailable in that region until at least one of the availability zones comes back up. Because the storage solution for Anypoint MQ is durable, messages that were already in the Anypoint MQ system before service was interrupted are retained.
 
 [[delay_queues]]
 * *Delay queues*
@@ -75,7 +76,9 @@ Delivery delay is not supported for individual messages in a FIFO queue.
 [[encrypt_queue]]
 * *Encrypted queues*
 +
-Queue data can optionally be encrypted, enabling companies to be compliant with their data at rest policies. Anypoint MQ messages are encrypted server-side.
+Messages in queues data can optionally be encrypted, enabling companies to be compliant with their data at rest policies. 
+If enabled, Anypoint MQ encrypts messages using PBE with MD5 and Triple DES, and with a 168-bit key.
+Anypoint MQ messages are encrypted server-side.
 
 == Queues
 
@@ -117,6 +120,7 @@ There is no limit on the number of messages in a queue. Each messages in a queue
 * *Long polling*
 +
 Messages are read through long polling. The server holds a request open until new data is available, and then Anypoint MQ delivers a batch of messages with a single read.
+
 * *Billing and charging*
 +
 Billing is based on the quantity of messages delivered to subscribers from queues, not the number of queues or message exchanges you create.
@@ -143,47 +147,67 @@ Using Anypoint MQ, the Salesforce app sends a pub/sub message to a message excha
 
 == Glossary
 
-* ACK/NACK: 
+* *ACK/NACK* 
 ** ACK
 +
 An app receives a message and Anypoint MQ deletes the message. For more information, see xref:mq-ack-mode.adoc[Acknowledge a Message].
 ** NACK
 +
 An app does not receive a message and Anypoint MQ does not delete the message.
-* Binding
+* *Binding*
 +
 Enables pub/sub apps bridge the simple pub/sub structure and use point-to-point features, such as sending a message to specific applications. Bindings identify which queues comprise a message exchange. In Anypoint Platform, by specifying which message queues are in a message exchange, Anypoint MQ creates and manages the bindings for you.
-* Dead letter queue
+* *Dead letter queue (DLQ)*
 +
 A queue that stores undeliverable messages from other queues.
 +
-The dead letter queue ensures that messages that cannot be successfully delivered are sent to a queue known for backup. The dead letter queue enables the ability to sideline and isolate the unsuccessfully processed messages. Users can then analyze the messages sent to DLQ and determine why those messages were not successfully processed. A DLQ is practically same as any other queue--it's just a queue that receives undelivered messages.
-* Destination - A message exchange or queue. Applications register to a destination and publish messages to the destination. Applications subscribe to a destination to receive a message. Anypoint MQ lets you configure Destinations by creating or maintaining queues or message exchanges. Anypoint Studio lets you configure destinations using the Anypoint MQ connector.
-* Durable message - A message that persists until its indicated client receives it.
-* In Flight - Messages awaiting ack or nack, or with an expired lock time-to-live setting. In flight messages are not visible to other consumers. Anypoint MQ supports up to 120,000 in flight messages per queue for non-FIFO queues. FIFO queues can have up to 10 in flight messages per queue.
-* Duration - Messages can persist in flight for up to 2 weeks after which messages older than 2 weeks are deleted. 
-* In Queue - Messages that have been sent.
-* Lock ID - A lock that lets an app read a queue exclusively. Anypoint MQ provides the lock when an app acks a message from a queue. A locked message does not block other messages to be read. The lock makes a message unavailable to other applications while locked.
-* Message - Serializable xref:3.9@mule-runtime::mule-message-structure.adoc[Mule Message] content that applications send and receive, so that the applications can communicate with each other.
-* Message Exchange - A pub/sub message source with multiple outputs. Applications register to subscribe to messages that the message exchange publishes.
-* On premises - Mule runtime that runs on a computer in your organization.
-* Point-to-point - A pattern that allows an app to send a message that only a single app can receive.
-* Pub/sub (publish/subscribe)
+The DLQ ensures that messages that cannot be successfully delivered are sent to a queue known for backup. The dead letter queue enables the ability to sideline and isolate the unsuccessfully processed messages. Users can then analyze the messages sent to DLQ and determine why those messages were not successfully processed. A DLQ is practically same as any other queue--it's just a queue that receives undelivered messages.
+* *Destination*
++
+A message exchange or queue. Applications register to a destination and publish messages to the destination. Applications subscribe to a destination to receive a message. Anypoint MQ lets you configure Destinations by creating or maintaining queues or message exchanges. Anypoint Studio lets you configure destinations using the Anypoint MQ connector.
+* *Durable message*
++
+A message that persists until its indicated client receives it.
+* *In Flight*
++
+Messages awaiting ack or nack, or with an expired lock time-to-live setting. In flight messages are not visible to other consumers. Anypoint MQ supports up to 120,000 in flight messages per queue for non-FIFO queues. FIFO queues can have up to 10 in flight messages per queue.
+* *Duration*
++
+Messages can persist in flight for up to 2 weeks after which messages older than 2 weeks are deleted. 
+* *In Queue*
+Messages that have been sent.
+* *Lock ID*
++
+A lock that lets an app read a queue exclusively. Anypoint MQ provides the lock when an app acks a message from a queue. A locked message does not block other messages to be read. The lock makes a message unavailable to other applications while locked.
+* *Message*
++
+Serializable xref:3.9@mule-runtime::mule-message-structure.adoc[Mule Message] content that applications send and receive, so that the applications can communicate with each other.
+* *Message Exchange*
++
+A pub/sub message source with multiple outputs. Applications register to subscribe to messages that the message exchange publishes.
+* *On premises*
++
+Mule runtime that runs on a computer in your organization.
+* *Point-to-point*
++
+A pattern that allows an app to send a message that only a single app can receive.
+* *Pub/sub (publish/subscribe)*
 +
 A pattern that enables messages to be distributed to multiple consumers.
-* Publisher
+* *Publisher*
 +
 An app that sends messages to Anypoint MQ.
-* Queue
+* *Queue*
 +
 A point-to-point message storage area that holds a message that a client receives.
-* Subscriber
+* *Subscriber*
 +
 An app that receives messages from Anypoint MQ.
-* Usage
+* *Usage*
 +
 A chart the illustrates how much data and API requests have been consumed.
 
 == See Also
 
 * xref:mq-faq.adoc[Anypoint MQ FAQ]
+* xref:mq-queues.adoc#dead-letter-queues[Dead Letter Queues]

@@ -132,7 +132,7 @@ Up to 10 messages can be retrieved from a single API call, which only bills as o
 
 == What's the maximum TPS for MQ?
 
-There is no maximum transactions per second (TPS) for normal queues or exchanges. FIFO queues have a limit of 300 TPS; however, if you batch 10 messages per each read and write operation (maximum) using the API, FIFO queues can support up to 3,000 TPS.
+There is no maximum transactions per second (TPS) for standard queues or exchanges. FIFO queues have a limit of 300 TPS; however, if you batch 10 messages per each read and write operation (maximum) using the API, FIFO queues can support up to 3,000 TPS.
 
 [[inflights]]
 == How many in-flight messages can I have per queue?

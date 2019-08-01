@@ -494,7 +494,7 @@ exchanges=[
 ]
 ----
 
-See the xref:mq-faq.adoc[MQ FAQ] for the regions in which Anypoint MQ and FIFO queues are available.
+See the xref:mq-faq#regions[Anypoint MQ FAQ]for the regions where Anypoint MQ and FIFO queues are available.
 
 === Create a Script File
 
