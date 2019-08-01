@@ -11,13 +11,13 @@ Using Anypoint MQ, you can create two types of queue:
 
 * Standard queue
 +
-These queues don't guarantee a specific message order. Standard queues are a best fit for applications where messages must be delivered quickly.
+These queues don't guarantee a specific message order. Standard queues are the best fit for applications where messages must be delivered quickly.
 +
 Anypoint MQ supports up to 120,000 in-flight messages per standard queue.
 
 * FIFO (first in, first out) queue
 +
-These queues ensure that your messages arrive in order. FIFO queues are a best fit for applications requiring strict message ordering and exactly once delivery, but where message delivery speed is of less importance. See <<FIFO Queues>>.
+These queues ensure that your messages arrive in order. FIFO queues are the best fit for applications requiring strict message ordering and exactly-once delivery, but where message delivery speed is of less importance. See <<FIFO Queues>>.
 +
 Anypoint MQ limits FIFO queues to 10 in-flight messages per FIFO queue.
 
@@ -33,7 +33,7 @@ You must create an environment, user access, and roles for accessing Anypoint MQ
 To create a queue or FIFO queue:
 
 . Log into Anypoint Platform.
-. Click *MQ* in the left navigation bar or in the main Anypoint Platform screen.
+. Click *MQ* in the left navigation bar or the main Anypoint Platform screen.
 . Click *Destinations*.
 . Click the blue plus-circle icon.
 +
@@ -53,7 +53,7 @@ Queue names can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9), perio
 ** *Message TTL* (Time to live) specifies how long unprocessed messages persist before being deleted. 
 +
 The maximum TTL for a message is 2 weeks.
-** *Message Lock Default TTL* specifies how long a message waits before being put back into the queue in the event of a server failure when the message is not acknowledged.
+** *Message Lock Default TTL* specifies how long a message waits before being put back into the queue in the event of  server failure when the message is not acknowledged.
 +
 The lock makes the message unavailable to other apps while locked, but does not block other messages from being read.
 +
@@ -83,7 +83,7 @@ See also <<Send a JSON Message to a Queue>> and <<Send a JSON Message to a Queue
 To send a text message to a queue:
 
 . Log into Anypoint Platform.
-. Click *MQ* in the left navigation bar or in the main Anypoint Platform screen.
+. Click *MQ* in the left navigation bar or the main Anypoint Platform screen.
 . Click *Destinations* in the left pane.
 . Click the queue ID or details label to access the Messaging feature:
 +
@@ -122,7 +122,7 @@ You can verify that a message arrived by retrieving it from the queue.
 To get a message from a queue:
 
 . Log into Anypoint Platform.
-. Click *MQ* in the left navigation bar or in the main Anypoint Platform screen.
+. Click *MQ* in the left navigation bar or the main Anypoint Platform screen.
 . Click *Destinations* in the left pane.
 . Click the queue ID or details label to access the Messaging feature:
 +
@@ -145,7 +145,7 @@ image::mq-click-retmsgs2.png[]
 +
 If you switch screens back to the *Message Sender* or *Destinations* screens, messages automatically return to the queue.
 +
-Returning the messages to the queue is a not acknowledgment (NACK). The message is not altered. However,
+Returning the messages to the queue is a not-acknowledgment (NACK). The message is not altered. However,
 the time to live (TTL) value you set when you created the queue determines how long the message is available before Anypoint MQ deletes it.
 +
 Alternatively, you can delete the message by clicking the trash can icon in the details pane. 
@@ -159,7 +159,7 @@ Deleting a message is an acknowledgment (ACK). For information about how Anypoin
 To send a JSON message to a queue:
 
 . Log into Anypoint Platform.
-. Click *MQ* in the left navigation bar or in the main Anypoint Platform screen.
+. Click *MQ* in the left navigation bar or the main Anypoint Platform screen.
 . Click *Destinations* in the left pane.
 . Click the queue ID or details label to access the Messaging feature.
 . In the settings page, click *Message Sender* in the left pane.
@@ -186,7 +186,7 @@ image::mq-json-get-msg2.png[]
 To send a CSV message to a queue:
 
 . Log into Anypoint Platform.
-. Click *MQ* in the left navigation bar or in the main Anypoint Platform screen.
+. Click *MQ* in the left navigation bar or the main Anypoint Platform screen.
 . Click *Destinations* in the left pane.
 . Click the queue ID or details label to access the Messaging feature.
 . In the settings page, click *Message Sender* in the left pane.
@@ -240,7 +240,7 @@ The time it takes to delete or purge a queue is approximately one minute. During
 [[fifoqueues]]
 == FIFO Queues
 
-For applications where the order of messages must be strictly preserved and enforced, Anypoint MQ provides first in, first out (FIFO) processing to enable message ordering. With FIFO queues, Anypoint MQ ensures that the order in which messages are placed in a queue is the same order in which messages are retrieved.
+For applications where the order of messages must be strictly preserved and enforced, Anypoint MQ provides first in, first out (FIFO) processing to enable message ordering. With FIFO queues, Anypoint MQ ensures that the order in which messages are placed in a queue is the same order messages are retrieved.
 
 FIFO queues: 
 
@@ -264,13 +264,13 @@ See the xref:mq-faq#regions[Anypoint MQ FAQ] for the regions where Anypoint MQ a
 
 For information about creating FIFO queues with the Admin API, see xref:mq-apis.adoc#create-a-fifo-queue-in-the-admin-api-portal[Create a FIFO Queue in the Admin API Portal].
 
-=== FIFO Exactly Once Delivery
+=== FIFO Exactly-Once Delivery
 
-For applications where messages must be processed exactly once, such as those used in transactional use cases, FIFO queues ensure exactly once message delivery.
+For applications where messages must be processed exactly once, such as those used in transactional use cases, FIFO queues ensure exactly-once message delivery.
 
 FIFO queues provide message deduplication. If multiple messages are sent to a FIFO queue containing the same message ID, the first message to arrive is kept as the valid message. Subsequent messages within the deduplication interval of 5 minutes are considered duplicates and are discarded. For example, after the queue sees a message with ID `12345` arrives in the queue, for the next 5 minutes, the FIFO queue discards any messages with the ID `12345`.
 
-When building applications in Anypoint Studio that require exactly once delivery, you can either:
+When building applications in Anypoint Studio that require exactly-once delivery, you can either:
 
 * Set the message ID in the publisher settings in the Anypoint MQ connector.
 * Let Anypoint MQ auto-generate a unique message ID for each message sent to a queue (default).
@@ -283,7 +283,7 @@ A DLQ is essentially the same as any other queue except that it receives only un
 
 You can't assign a single queue to be the dead letter queue. You must create at least two queues to be able to assign one as a DLQ. The DLQ must be the same type (standard or FIFO) as the queue writing to it.
 
-Both the DLQ and the queue writing to it must be in the same geographical xref:mq-faq.adoc#regions[region] and environment, and owned by the same Anypoint Platform account.
+Both the DLQ and the queue writing to it must be in the same geographical xref:mq-faq.adoc#regions[region] and environment and owned by the same Anypoint Platform account.
 
 === Encryption
 
@@ -297,9 +297,9 @@ If a queue has a dead letter queue assigned:
 
 * Viewing the messages in the source queue using the Anypoint MQ *Message Browser* counts against the number of maximum deliveries.
 * Viewing a message and returning it to the queue counts as a NACK operation, and is considered an unsuccessful delivery attempt.
-* Deleting the message in the *Message Browser* prevents it from being counted against the maximum deliveries, but then of course, the message is gone.
+* Deleting the message in the *Message Browser* prevents it from being counted against the maximum deliveries, but the message is lost.
 
-=== How Messages are Sent to a DLQ
+=== How Messages Are Sent to a DLQ
 
 This flowchart shows how messages are sent to a DLQ:
 
@@ -332,7 +332,7 @@ Specify how many attempts Anypoint MQ tries to deliver messages in the queue bef
 
 === Recover Messages from a DLQ
 
-You can recover messages from the DLQ, use the REST API to get the message from the queue, and write the message to a new queue. See xref:mq-apis.adoc#mqadminapi[Anypoint MQ Admin API].
+You can recover messages from the DLQ, use the REST API to get the message from the queue and write the message to a new queue. See xref:mq-apis.adoc#mqadminapi[Anypoint MQ Admin API].
 
 === Determine Whether a Queue is a DLQ
 
