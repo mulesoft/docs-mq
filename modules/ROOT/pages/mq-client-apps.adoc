@@ -27,7 +27,7 @@ image::mq-blue-plus-icon.png[Create client app circle button about two-thirds to
 +
 image::mq-client-apps-detail2.png[]
 +
-. Click the *Copy* button for the ID or secret to copy the value to your clipboard.
+. Click the *Copy* button for the client ID or client secret to copy the value to your clipboard.
 // +
 // If using the Chrome browser and the *Copy* buttons don't work, click *Settings* > *Advanced* > *Privacy and Security* > //////// *Content settings* > *Plugins* > *Detect and run important plugin content*.
 

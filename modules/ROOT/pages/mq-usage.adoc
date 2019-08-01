@@ -17,10 +17,10 @@ were received.
 
 == Access Anypoint MQ Usage
 
-To view MQ usage:
+To view Anypoint MQ usage:
 
 . Log into Anypoint Platform.
-. Click *Access Management* from the left navigation bar or from the starting Anypoint Platform screen.
+. Click *Access Management* in the left navigation bar or in the main Anypoint Platform screen.
 . Click *MQ* in the *SUBSCRIPTION* section:
 +
 image::mq-subscription.png[]

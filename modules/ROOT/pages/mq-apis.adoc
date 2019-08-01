@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :imagesdir: ../assets/images/
 
-The Anypoint MQ APIs let you use REST to send and receive messages, administer queues and message exchanges, and analyze results.
+The Anypoint MQ APIs enable you to use REST to send and receive messages, administer queues and message exchanges, and analyze results.
 
 Anypoint MQ provides these APIs:
 
@@ -22,17 +22,18 @@ image::mq-api-workflow.png[]
 
 Steps:
 
-. An appsends a request to Anypoint MQ and sets how long to hold the lock on the message.
+. An app sends a request to Anypoint MQ and sets how long to hold the lock on the message.
 . Anypoint MQ sends the message and the lock ID.
-. The app acknowledges the message and requests Anypoint MQ to delete the message, or the app negatively acknowledges the message and requests Anypoint MQ to make the message available to other applications. The app sends the message ID and lock ID to Anypoint MQ. For additional information on setting automatic ACK or NACK, see xref:mq-ack-mode.adoc[Acknowledge a Message].
-. If no action is taken and the duration of a lock's time to live expires, the message is negatively acknowledged and returns to the queue to be available for other applications.
+. The app acknowledges the message and requests Anypoint MQ to delete the message, or the app negatively acknowledges the message and requests Anypoint MQ to make the message available to other apps. The app sends the message ID and lock ID to Anypoint MQ. 
+// For additional information on setting automatic ACK or NACK, see xref:mq-ack-mode.adoc[Acknowledge a Message].
+. If no action is taken and the duration of a lock's time to live expires, the message is negatively acknowledged and returns to the queue to be available for other apps.
 
 == Authorize API Access
 
 Before accessing an API, you need to acquire an access token:
 
 * <<mqadminapi,Anypoint MQ Admin API>> - Get an access token for an Anypoint Platform user.
-* <<mqbrokerapi,Anypoint MQ Broker API>> - Get a token from Anypoint MQ by supplying the client ID and client secret for an MQ application.
+* <<mqbrokerapi,Anypoint MQ Broker API>> - Get a token from Anypoint MQ by supplying the client ID and client secret for an MQ app.
 * <<mqstatapi,Anypoint MQ Stats API>> - Get an access token for an Anypoint Platform user.
 
 The `curl` command for each is explained in the API sections.
@@ -40,16 +41,15 @@ The `curl` command for each is explained in the API sections.
 [[mqadminapi]]
 == Anypoint MQ Admin API
 
-* Browse queues and message exchanges
-* Create queues and message exchanges
-* Manage bindings for message exchanges
-
 The Anypoint MQ Admin API provides access to Anypoint MQ administrative functionality.
+
+You can use the 
+https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Admin API] to create and manage apps, queues, and message exchanges.
+
+You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ. See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[MQ Audit Logging].
 
 You can get the access token from the Anypoint Platform user. The access token is also known as the Bearer.
 The access token has a default time to live (TTL) of 60 minutes. 
-
-You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ. See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[MQ Audit Logging].
 
 You can use this curl command to get the access token:
 
@@ -68,8 +68,6 @@ The command returns output similar to:
   "redirectUrl": "/home/"
 }
 ----
-
-https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Admin API] - Create and manage applications, queues, and message exchanges.
 
 In the Admin API portal, click *Download* to download the API as a RAML, Mule 3 zipped connector file, or as a Mule 4 connector JAR file.
 
@@ -101,9 +99,7 @@ Use this body:
 [[mqbrokerapi]]
 == Anypoint MQ Broker API
 
-This API lets you send and receive messages from queues and message exchanges.
-
-The Anypoint MQ Broker API allows clients to send and receive messages from queues and exchanges.
+The Anypoint MQ Broker API enables clients to send and receive messages from queues and exchanges.
 
 You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ. See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[MQ Audit Logging].
 
@@ -116,7 +112,7 @@ with the Stats and Admin APIs.
 To get the Broker API access token:
 
 . Log into Anypoint Platform.
-. Click *MQ*, *Client Apps*, and click the blue plus-circle icon to create an app.
+. Click *MQ* > *Client Apps*, and then click the blue plus-circle icon to create an app.
 . Get the client ID and client secret and use these values in the curl command below replacing `CLIENT_ID` and `CLIENT_SECRET`:
 +
 ----
@@ -143,7 +139,11 @@ image::mq-rest-broker-portal.png[]
 [[mqstatapi]]
 == Anypoint MQ Stats API
 
-Use cases:
+The Anypoint MQ Stats API enables you to get statistics and metrics for queues and message exchanges.
+
+You can use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API] to perform statistical analysis of queue performance.
+
+Use the Stats API to retrieve:
 
 * Anypoint MQ metrics:
 ** Real time statistics for queues
@@ -152,8 +152,8 @@ Use cases:
 * Usage metrics - View your entire organization's usage of Anypoint MQ for billing purposes:
 ** Usage per environment
 ** Usage per organization
-* Browse statistics for queues and message exchanges  
-* View the number of messages currently in a queue
+* Statistics for queues and message exchanges  
+* Number of messages currently in a queue
 
 For more information, see the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API] in the MuleSoft developer portal.
 
@@ -163,7 +163,7 @@ NOTE: To access the Anypoint MQ Stats API, you must first authenticate using the
 
 To use the Stats API, you can get the access token from the Anypoint Platform user.
 The access token is also known as the Bearer.
-The access token has a default time to live (TTL) of 60 minutes.
+The default time to live (TTL) for the access token is 60 minutes.
 You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ. See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[MQ Audit Logging]. 
 
 You can use this `curl` command to get the access token:
@@ -184,7 +184,6 @@ This returns output similar to:
 }
 ----
 
-https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API] - Perform statistical analysis of queue performance.
 
 In the Stats API portal, click *Download* to download the API as a RAML, Mule 3 zipped connector file, or as a Mule 4 connector JAR file.
 
@@ -442,7 +441,7 @@ Example response:
 }
 ----
 
-== Example: Groovy - Create Queues and Exchanges
+== Example: Create Queues and Exchanges with Groovy
 
 To create queues and exchanges programatically, you can use a language such as groovy.
 
@@ -458,8 +457,7 @@ For example: `2018-10-23T13:00:00Z`
 
 === Invoke a Command
 
-After modifying the properties file for access
-to your Anypoint Platform account, use this command to start the
+After modifying the properties file for access to your Anypoint Platform account, use this command to start the
 script file:
 
 `groovy <program_name>.groovy`
@@ -496,12 +494,11 @@ exchanges=[
 ]
 ----
 
-See the xref:mq-faq.adoc[MQ FAQ] for the regions that Anypoint MQ and FIFO are available in.
+See the xref:mq-faq.adoc[MQ FAQ] for the regions in which Anypoint MQ and FIFO queues are available.
 
 === Create a Script File
 
-The following example script creates the queues and exchanges listed
-in the properties file.
+This example script creates the queues and exchanges listed in the properties file:
 
 [source,groovy,linenums]
 ----
@@ -681,8 +678,9 @@ class AnypointMQAdminClient {
 [[excoliuscu]]
 == Example: Broker API Publish a Message
 
-This example lets you test Anypoint MQ from the command line using curl.
-This example uses the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[MQ Broker API] to publish and consume messages. You need to substitute the placeholder string, `42544254-4254-4254-4254-425442544254` for the proper values for authorization and token strings. These examples use Postman to access the queue.
+This example uses the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[MQ Broker API] to publish and consume messages and test Anypoint MQ from the command line using curl.
+
+You must substitute the placeholder string, `42544254-4254-4254-4254-425442544254` for the proper values for authorization and token strings. These examples use Postman to access the queue.
 
 The following *curl* command publishes a message:
 
@@ -718,9 +716,7 @@ See the xref:mq-faq.adoc[MQ FAQ] for the regions that Anypoint MQ and FIFO are a
 [[expostbro]]
 == Example: Postman, Studio, and Browser
 
-This example lets you test Anypoint MQ from a combination of Postman, Anypoint Studio, and a browser.
-
-This example lets you access the Anypoint MQ APIs from these products:
+This example enables you to test Anypoint MQ from Postman, Anypoint Studio, and a browser:
 
 * <<postsetup,Postman>>
 * <<studiosetup,Anypoint Studio>>
@@ -729,18 +725,18 @@ This example lets you access the Anypoint MQ APIs from these products:
 [[postsetup]]
 === Set Up Postman
 
-The https://www.getpostman.com/[Postman] appprovides a platform for accessing the Anypoint MQ APIs.
+The https://www.getpostman.com/[Postman] app provides a platform for accessing the Anypoint MQ APIs.
 After downloading and installing Postman, supply this information to create an environment:
 
 * ORGANIZATION_ID
 * ENVIRONMENT_ID
 * Bearer (Authentication) Token
-* Host ID (from Anypoint Platform/MQ)
-* Client ID (from Anypoint Platform/MQ)
-* Client Secret (from Anypoint Platform/MQ)
-* A queue name - You can set this queue name in Postman
+* Host ID (from Anypoint Platform/Anypoint MQ)
+* Client ID (from Anypoint Platform/Anypoint MQ)
+* Client Secret (from Anypoint Platform/Anypoint MQ)
+* Queue name - You can set this queue name in Postman
 
-After you are able to authorize access to an Anypoint MQ API, then publish a message, consume the message, and get the lock ID from the returned information in the body.
+After you authorize access to an Anypoint MQ API, you can then publish a message, consume the message, and get the lock ID from the returned information in the body.
 
 For example, this information is returned from the consume (GET) command:
 
@@ -765,8 +761,8 @@ After you have the lock ID, you can add it to your Postman environment to facili
 [[studiosetup]]
 === Set Up Studio for API Access
 
-Anypoint Studio lets you create a Mule app that uses the Anypoint MQ connector.
-The steps in this section are summarized.
+Anypoint Studio enables you to create a Mule app that uses the Anypoint MQ connector.
+This sections summarizes the steps.
 
 You can set up a Studio project with:
 
@@ -777,11 +773,10 @@ You can set up a Studio project with:
 * Anypoint MQ connector with the client ID and client secret from *Anypoint Platform* > *MQ*, and the *Destination* set to the queue you created in Postman.
 * Logger with *Message* set to the `#[payload]` value.
 
-Right-click the project name in the *Package Explorer* window and click *Run As* > *Mule Application*.
-
+. Right-click the project name in the *Package Explorer* window and click *Run As* > *Mule Application*.
++
 Ensure that the Console messages end with the `DEPLOYED` value.
-
-Go back to Postman and publish a new message.
+.In Postman, publish a new message.
 
 [[browsersetup]]
 ==== Browser Access

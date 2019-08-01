@@ -175,7 +175,6 @@ to keep the TCP socket open for up to 20 seconds to fulfill your request if ther
 
 == How can I process messages one by one?
 
-
 To process messages one by one, set the Anypoint MQ connector to the `consume` operation.
 This operation retrieves a message from the queue or receives null if a message is not available.
 
@@ -207,10 +206,9 @@ Mule 4 Example:
 
 *Mule 3*
 
-* Set `processingStrategy="synchronous"` on the flow.
+. Set `processingStrategy="synchronous"` on the flow.
 +
 Specify this attribute to process messages in the same thread that initially received the message.
-
 * Set a poll scope to fire the process regularly.
 
 Mule 3 Example:
@@ -275,38 +273,11 @@ Use a global prefetch instead:
 
 == How do I delete a queue?
 
-To delete a queue:
-
-. Click *Destinations*.
-. Click the *right* side of the queue entry in the Destinations table:
-+
-image::mq-click-type-q2.png[]
-+
-. Click the trash can symbol in the upper right.
-. In the Delete Queue menu, click the checkbox:
-+
-image::mq-delete-queue.png[]
-+
-. Click *Delete Queue*.
-
-[NOTE]
-The time it takes to delete or purge a queue is approximately one minute. During this time, the status of the affected queue may not be updated.
+To delete a queue, see xref:mq-queues.adoc#delete-a-queue[Delete a Queue].
 
 == How do I delete a message exchange?
 
-To delete a message exchange:
-
-. Click *Destinations*.
-. Click the *right* side of the message exchange entry in the Destinations table:
-+
-image::mq-click-type-x2.png[]
-+
-. Click the trash can symbol in the upper right.
-. In the Delete Exchange menu, click the checkbox:
-+
-image::mq-delete-exchange.png[]
-+
-. Click *Delete Exchange*.
+To delete a message exchange, see xref:mq-exchanges.adoc#delete-a-message-exchange[Delete a Message Exchange].
 
 == See Also
 

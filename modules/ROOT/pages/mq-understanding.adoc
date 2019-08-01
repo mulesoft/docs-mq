@@ -24,35 +24,56 @@ Anypoint MQ:
 
 Anypoint MQ includes these features:
 
-* Queues and Message Exchanges:
+* *Queues and Message Exchanges*
 +
 Send messages to queues, pull messages from queues, create a message exchange to perform pub/sub scenarios to send a message to multiple queues.
-* Management console:
+* *Management console*
 +
 Monitor queue statistics, purge queues, and see how many messages are in flight using the management console.
-* Anypoint MQ connector:
+* *Anypoint MQ connector*
 +
 Send and receive messages from any Mule app, whether it’s deployed in CloudHub or used in a hybrid scenario and deployed on-premises.
-* Usage information: 
+* *Usage information*
 +
 Organization administrators or owners can view the current and past months usage, including the total number of messages and API requests. You access this information from the Access Management page. For more information, see xref:mq-usage.adoc[Anypoint MQ Usage Information].
-
-* REST API:
+* *REST API*
 +
 Use the REST API to easily communicate with non-Mule applications.
-* Environments and role based access control:
+* *Environments and role-based access control*
 +
 Anypoint MQ is fully integrated with Anypoint Access Management, allowing you to specify different environments for your queues, who can access each environment, and what they can do within each environment.
-* Client management:
+* *Client management*
 +
 Create client applications tokens.
-* Large payloads:
+* *Large payloads*
 +
 Anypoint MQ supports payloads up to 10 MB.
-* Disaster recovery:
+* *Disaster recovery*
 +
 Within each region, Anypoint MQ services deploy to multiple availability zones (AZs) to provide high availability (HA). If service in one availability zone goes down, the Anypoint MQ service operates normally in that region. If all  availability zones go down in a region, the Anypoint MQ service is unavailable in that region until at least one of the availability zones comes back up. Because the storage solution for Anypoint MQ is durable, messages that were already in the Anypoint MQ system before service was interrupted are retained.
-* Encrypted queues:
+
+[[delay_queues]]
+* *Delay queues*
++
+With delay queues, you can postpone delivery of new messages to a queue for a specified period of time. Consumers can't see messages sent to a delay queue for the duration of the delay period. The minimum delay for a queue is 0 milliseconds. The maximum is 15 minutes.
++ 
+If you change the queue delay for:
+
+** Standard queues, the setting change doesn't affect messages in the queue.
+** FIFO queues, the setting change is retroactive to all messages in the queue.
+
++
+You can override the default queue delay for a particular message in a standard queue only.
+
+[[delay_messages]]
+* *Delivery delay for messages*
++
+For messages in a standard queue, you can postpone delivery of a particular message to the queue for a specified period of time. Consumers can't see messages sent with delivery delay for the duration of the delay period. The minimum delivery delay for a message is 0 milliseconds. The maximum is 15 minutes.
++ 
+Delivery delay is not supported for individual messages in a FIFO queue.
+
+[[encrypt_queue]]
+* *Encrypted queues*
 +
 Queue data can optionally be encrypted, enabling companies to be compliant with their data at rest policies. Anypoint MQ messages are encrypted server-side.
 
@@ -64,33 +85,41 @@ image::mq-pub-q-sub.png[Anypoint MQ Publisher-Queue-Subscriber]
 
 Queues provide these benefits:
 
-* Horizontal scalability:
+* *Horizontal scalability*
 +
 By putting a message on a queue, the work to process that message can be distributed across a number of different subscribers.
-* Reliability:
+* *Reliability*
 +
 Queues ensure that messages are always processed, even in the case of failure.
 +
 In Anypoint MQ, reliability is provided with queues using a lock and xref:mq-ack-mode.adoc[acknowledge mechanism]. This ensures that a message is always processed, even in the case of failure.
 +
-* Decoupling:
+* *Decoupling*
 +
 A queue can be used as a communication mechanism between different applications and devices, allowing them to have different development life cycles or maintenance windows, without affecting other applications.
-* Aggregation:
+* *Aggregation*
 +
 Multiple message producers can publish to a single queue, which enables easy consumption by consumers.
++
+.. A consumer retrieves messages from a queue. This locks the messages, and makes the messages invisible to all other consumers.
+.. When retrieving, the consumer specifies a lock timeout. If the message is not processed within that time window, the message is made visible to other consumers to be processed. This ensures that if there was a failure of some sort, such as the consumer node crashed, a message can be processed by another node. A locked message does not block other messages to be read. The lock makes a message unavailable to other applications while locked.
++
+If a consumer processes a message successfully, the client acknowledges the message, and Anypoint MQ removes the message from the queue. For more information on how Anypoint MQ processes acknowledged messages, see xref:mq-ack-mode.adoc[Acknowledge a Message].
++
+If a consumer is not able to process a message, the message proceeds with a negative acknowledgment, and becomes visible on the queue again.
 
-
-* A consumer retrieves messages from a queue. This locks the messages, and makes the messages invisible to all other consumers.
-* When retrieving, the consumer specifies a lock timeout. If the message is not processed within that time window, the message is made visible to other consumers to be processed. This ensures that if there was a failure of some sort, such as the consumer node crashed, a message can be processed by another node. A locked message does not block other messages to be read. The lock makes a message unavailable to other applications while locked.
-* If a consumer processes a message successfully, the client acknowledges the message, and Anypoint MQ removes the message from the queue. For more information on how Anypoint MQ processes acknowledged messages, see xref:mq-ack-mode.adoc[Acknowledge a Message].
-* If a consumer is not able to process a message, the message proceeds with a negative acknowledgment, and becomes visible on the queue again.
-
-
-* Each queue has a Message time-to-live (TTL). TTL specifies how long the message is in the queue before Anypoint MQ expires the message and removes it from the queue.
-* Messages in a queue are limited to 10 MB per message. However, there is no limit on the number of messages in a queue.
-* Messages are read through long polling. The server holds a request open until new data is available, and then Anypoint MQ delivers a batch of messages with a single read.
-* Billing and charging for Anypoint MQ depends on the quantity of messages delivered to subscribers from queues, and is independent of the number of queues or message exchanges you create.
+* *Message TTL*
++
+Each queue has a message time-to-live (TTL). TTL specifies how long the message is in the queue before Anypoint MQ expires the message and removes it from the queue.
+* *Unlimited messages in a queue*
++
+There is no limit on the number of messages in a queue. Each messages in a queue is limited to 10 MB. 
+* *Long polling*
++
+Messages are read through long polling. The server holds a request open until new data is available, and then Anypoint MQ delivers a batch of messages with a single read.
+* *Billing and charging*
++
+Billing is based on the quantity of messages delivered to subscribers from queues, not the number of queues or message exchanges you create.
 
 == Clients
 

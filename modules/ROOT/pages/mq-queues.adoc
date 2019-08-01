@@ -70,12 +70,11 @@ The lock makes the message unavailable to other apps while locked, but does not 
 The maximum Lock TTL is 12 hours.
 ** *Assign Default Delivery Delay* specifies how long to delay delivery for messages sent to the queue.
 +
-You can specify to delay message delivery in milliseconds, seconds, minutes, hours, or days. 
-
+You can specify to delay message delivery in milliseconds, seconds, minutes, hours, or days. When you send a message, you can override the default delivery delay. See xref:mq-understanding.adoc#delay_queues[Delay queues].
 ** *Encryption* (optional) encrypts all messages in the queue.
 +
 Anypoint MQ uses PBE with MD5 and triple DES to encrypt messages.
-** [[qdlq]]*Assign a Dead Letter Queue* (optional) assigns the dead letter queue (DLQ).
+** *Assign a Dead Letter Queue* (optional) assigns the dead letter queue (DLQ).
 +
 The DLQ is a previously created queue to which to send undeliverable messages. See <<Dead Letter Queues>>.
 +
@@ -107,7 +106,13 @@ image::mq-queue-details.png[]
 . In the settings page, click *Message Sender* in the left pane.
 . Type text in the *Payload* such as `Hello Mules` (leave the *Type* field set to *Text*).
 +
-If you specified *Assign Default Delivery Delay* for the queue, you see the default delivery delay. You can override that value for this message.
+For messages in a standard queue, if you specified *Assign Default Delivery Delay*, you see the default delivery delay. You can override that value for this message or set a delivery delay for a message in a queue without delivery delay. 
++ 
+Delivery delay is not supported for individual messages in a FIFO queue.
++
+See xref:mq-understanding.adoc#delay_messages[Delivery delay for messages].
+
+** *Encryption* (optional) encrypts all messages in the queue. See xref:mq-understanding.adoc#encrypt_queue[Encrypted queues].
 +
 image::mq-msg-sender-text-payload2[]
 +
@@ -257,6 +262,7 @@ If multiple messages are sent to a FIFO queue containing the same message ID, th
 * FIFO permits up to 10 inflight messages per queue.
 * See the xref:mq-faq#regions[Anypoint MQ FAQ] for the regions that Anypoint MQ and FIFO queues are available in.
 * Only a FIFO dead letter queue can be used as a DLQ for a FIFO queue.
+* You can set delivery delay on all messages in a FIFO queue. Delivery delay is not supported for individual messages in a FIFO queue. If you change the delivery delay for a FIFO queue, the setting change is retroactive to all messages in the queue.
 
 To create a FIFO queue, see <<Create a Queue>>. To determine if a queue is FIFO or non-FIFO, view its details. 
 

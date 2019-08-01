@@ -41,9 +41,7 @@ image::mq-name-the-exchange.png[]
 . In the Destinations screen. click the message exchange name to list its details:
 +
 image::mq-exchange-details2.png[]
-+
-[NOTE]
-If you need to delete a message exchange, see xref:mq-faq.adoc#how-do-i-delete-a-message-exchange[How do I delete a message exchange?]
+
 
 == Bind a Queue to a Message Exchange
 
@@ -93,6 +91,24 @@ in xref:mq-queues.adoc#get-a-message-from-a-queue[Get a Message From a Queue].
 
 You can also send comma-separated value (CSV) or JSON content in the payload by changing
 the message *Type* value. For more information, see xref:mq-queues.adoc#send-a-csv-or-json-message[Send a CSV or JSON Message].
+
+
+== Delete a Message Exchange
+
+To delete a message exchange:
+
+. Click *Destinations*.
+. In the *Destinations* screen, click in the *Type* column for the message exchange to display its details in the right pane.
+. Click the trash can icon in the upper right.
++
+image::mq-click-type-e2.png[]
++
+. In the *Delete Exchange* popup, click the checkbox:
++
+image::mq-delete-exchange.png[]
++
+. Click *Delete Exchange*.
+
 
 == See Also
 
