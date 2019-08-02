@@ -70,7 +70,9 @@ image::mq-exchange-payload2.png[]
 See xref:mq-queues.adoc#get-a-message-from-a-queue[Get a Message From a Queue].
 
 You also send JSON content or comma-separated values (CSV) in the payload by changing
-the message *Type* value. See <<Send a JSON Message to a Queue>> and <<Send a JSON Message to a Queue>>.
+the message *Type* value. See 
+xref:mq-queues.adoc#send-a-json-message-to-a-queue[Send a JSON Message to a Queue] and 
+xref:mq-queues.adoc#send-a-csv-message-to-a-queue[Send a CSV Message to a Queue].
 
 == Delete a Message Exchange
 
