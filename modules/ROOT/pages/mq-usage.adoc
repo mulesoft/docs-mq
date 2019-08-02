@@ -19,13 +19,13 @@ were received.
 
 To view Anypoint MQ usage:
 
-. Log into Anypoint Platform.
+. Log in to Anypoint Platform.
 . Click *Access Management* in the left navigation bar or the main Anypoint Platform screen.
 . Click *MQ* in the *SUBSCRIPTION* section:
 +
 image::mq-subscription.png[]
 +
-. Click a chart duration value of *6m* - six months (default), *1y* - one year, or *2y* - two years:
+. Click a chart duration value of *6m* (six months, default), *1y* (one year), or *2y* (two years):
 +
 image::mq-usage-chart.png[]
 +

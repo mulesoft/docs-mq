@@ -8,7 +8,7 @@ Anypoint MQ is an enterprise, multi-tenant, cloud messaging service that perform
 
 The Anypoint MQ messaging broker enables applications to communicate by publishing a Mule message to a queue so that another app can consume the message.
 
-Anypoint MQ supports hybrid use cases, IoT where you collect data from different devices, and a REST API you can use with device applications. You can also use Anypoint MQ with other app frameworks such as node.js to communicate to queues.
+Anypoint MQ supports hybrid use cases, IoT in which you collect data from different devices, and a REST API you can use with device applications. You can also use Anypoint MQ with other app frameworks such as node.js to communicate to queues.
 
 Anypoint MQ:
 
@@ -18,7 +18,7 @@ Anypoint MQ:
 * Enables you to easily connect to non-Mule applications using the REST API.
 * Provides Anypoint Studio access, which makes the process of leveraging your queues and message exchanges as simple as drag, drop, and configure.
 * Displays usage statistics on the number of messages and API requests so you can manage peak usage and subscription parameters.
-* Provides dead letter queue capability for undeliverable messages.
+* Provides dead-letter queue capability for undeliverable messages.
 * Enables you to delay message delivery at the queue and message level.
 
 == Features
@@ -84,7 +84,7 @@ Anypoint MQ messages are encrypted server-side.
 
 == Queues
 
-Message queues provide temporary storage that enables applications to communicate in a scalable and reliable way. Publishers can publish messages into queues, and subscribers can receive messages from queues. You can create a dead letter queue to store undeliverable messages.
+Message queues provide temporary storage that enables applications to communicate in a scalable and reliable way. Publishers can publish messages into queues, and subscribers can receive messages from queues. You can create a dead-letter queue to store undeliverable messages.
 
 image::mq-pub-q-sub.png[Anypoint MQ Publisher-Queue-Subscriber]
 
@@ -137,7 +137,7 @@ With message exchanges you can to distribute a single message to multiple consum
 
 image::mq-pub-ex-sub.png[]
 
-For example, if a publisher publishes changes in the weather, and you have multiple apps that want to receive that data, you can use a message exchange to publish a single message to multiple queues for each app. A _binding_ is a relationship between the queue and message exchange, which tells the message exchange where to send messages to. A queue can be bound to multiple message exchanges.
+For example, if a publisher publishes changes in the weather, and you have multiple apps that want to receive that data, you can use a message exchange to publish a single message to multiple queues for each app. A _binding_ is a relationship between the queue and message exchange, which tells the message exchange where to send messages. A queue can be bound to multiple message exchanges.
 
 == Example
 
@@ -172,7 +172,7 @@ A message exchange or queue. Applications register to a destination and publish 
 A message that persists until its indicated client receives it.
 * *In Flight*
 +
-Messages awaiting ACK or NACK, or with an expired lock time-to-live setting. In-flight messages are not visible to other consumers. Anypoint MQ supports up to 120,000 in-flight messages per queue for non-FIFO queues. FIFO queues can have up to 10 in-flight messages per queue.
+Messages awaiting ACK or NACK, or with an expired lock time-to-live setting. In-flight messages are not visible to other consumers. Anypoint MQ supports up to 120,000 in-flight messages per queue for standard (non-FIFO) queues. FIFO queues can have up to 10 in-flight messages per queue.
 * *Duration*
 +
 Messages can persist in flight for up to 2 weeks after which messages older than 2 weeks are deleted. 
@@ -190,6 +190,9 @@ A pub/sub message source with multiple outputs. Applications register to subscri
 * *On-premises*
 +
 Mule runtime that runs on a computer in your organization.
+* *Payload*
++
+The message content, which can be text, JSON, or CSV (comma-separated values).
 * *Point-to-point*
 +
 A pattern that allows an app to send a message that only a single app can receive.

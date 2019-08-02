@@ -14,7 +14,7 @@ These are the high-level steps to use Anypoint MQ. This workflow is described in
 
 Install and configure Anypoint MQ:
 
-. Log into Anypoint Platform using your Enterprise Mule credentials, and click *MQ*.
+. Log in to Anypoint Platform using your Enterprise Mule credentials, and click *MQ*.
 . Click *Access Management*, then *Users* or *Roles* to create an Anypoint MQ user or role.
 . From *MQ*, create a xref:mq-queues.adoc[queue], xref:mq-exchanges.adoc[message exchange], or a xref:mq-queues.adoc#fifoqueues[FIFO queue].
 . Click a queue or message exchange name in the detail to access the Message Sender to send messages to a queue or message exchange, and to use the Message Browser to get messages from a queue.
@@ -34,7 +34,7 @@ Test the queue:
 
 . Use a REST client such as curl or Postman to send or receive a message.
 +
-The Anypoint MQ  sends the string as a message to the queue or message exchange you specified.
+The Anypoint MQ app sends the string as a message to the queue or message exchange you specified.
 +
 . View your message in a browser or the Studio console.
 

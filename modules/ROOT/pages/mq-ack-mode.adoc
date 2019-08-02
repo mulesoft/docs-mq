@@ -10,10 +10,8 @@ Anypoint MQ lets you determine how to process messages in Anypoint Studio using 
 
 Two acknowledgment responses can occur:
 
-* Acknowledgment (ACK) - Indicates that an app has received a message.
-* Negative acknowledgment (NACK) - Indicates that an app doesn't
-want the current message. Anypoint MQ returns the message to the queue so
-that another app can receive the message.
+* Acknowledgment (ACK) indicates that an app has received a message.
+* Negative acknowledgment (NACK) indicates that an app doesn't want the current message. Anypoint MQ returns the message to the queue so that another app can receive the message.
 
 The Anypoint MQ connector provides tools for setting these states globally or locally in your Studio app.
 
@@ -42,11 +40,15 @@ The Anypoint MQ connector provides global and local states for specifying how yo
 
 Use the Studio *Global Element Properties* menu to specify a strategy for processing all messages in a flow. The global state provides these choices:
 
-* *AUTO* - The Anypoint MQ connector automatically sends an ACK or NACK at the end of a flow depending on whether the Anypoint MQ connector detects a Catch Exception Strategy (ACK) or a Rollback Exception Strategy (NACK). See <<autoflow,Create an Auto Acknowledge Flow in Anypoint Studio>> for an example. AUTO is the default for the Mule 4 connector.
+* *AUTO*
++
+The Anypoint MQ connector automatically sends an ACK or NACK at the end of a flow depending on whether the Anypoint MQ connector detects a Catch Exception Strategy (ACK) or a Rollback Exception Strategy (NACK). See <<autoflow,Create an Auto Acknowledge Flow in Anypoint Studio>> for an example. AUTO is the default for the Mule 4 connector.
 +
 There are two possible outcomes:
 +
-** ACK - The flow succeeds or a Catch Exception Strategy occurs. This code shows the Catch Exception Strategy:
+** ACK
++
+The flow succeeds or a Catch Exception Strategy occurs. This code shows the Catch Exception Strategy:
 +
 [source,xml,linenums]
 ----
@@ -56,7 +58,9 @@ There are two possible outcomes:
 </catch-exception-strategy>
 ----
 +
-** NACK - A Rollback Exception Strategy occurs:
+** NACK
++
+A Rollback Exception Strategy occurs:
 +
 [source,xml,linenums]
 ----
@@ -65,8 +69,12 @@ There are two possible outcomes:
 </rollback-exception-strategy>
 ----
 +
-* *MANUAL* - An app indicates that it sends its own ACK or NACK using the Anypoint MQ connector local state. The Anypoint MQ connector doesn't provide any actions automatically. See <<manualflow,Create a Manual Acknowledge Flow in Anypoint Studio>> for an example.
-* *NONE* - An app receives a message and the Anypoint MQ connector immediately acknowledges and deletes the message. This state risks losing the message if it is not consumed correctly, but is typically used when there is a flow of constantly updating messages, such as a news feed where each subsequent message provides more detail on any messages that preceded the message. This state takes a risk, but makes coding easier. See <<noneflow,Set NONE Acknowledge Mode>> for an example. 
+* *MANUAL*
++
+An app indicates that it sends its own ACK or NACK using the Anypoint MQ connector local state. The Anypoint MQ connector doesn't provide any actions automatically. See <<manualflow,Create a Manual Acknowledge Flow in Anypoint Studio>> for an example.
+* *NONE*
++
+An app receives a message and the Anypoint MQ connector immediately acknowledges and deletes the message. This state risks losing the message if it is not consumed correctly, but is typically used when there is a flow of constantly updating messages, such as a news feed in which each subsequent message provides more detail on any messages that preceded the message. This state takes a risk, but makes coding easier. See <<noneflow,Set NONE Acknowledge Mode>> for an example. 
 +
 [NOTE]
 In Anypoint MQ Mule Connecter - Mule 4, NONE is called IMMEDIATE, but has the same functionality.
@@ -94,8 +102,12 @@ image::mq-ack-flow.png[MQ acknowledgment mode flows]
 
 The two flows in this example:
 
-* *autoHttp* - Sets up an HTTP Connector to listen at `0.0.0.0:8081`, sets an Anypoint MQ connector to publish messages, and sets the acknowledgment mode to *auto*.
-* *autoMq* - Sets an Anypoint MQ connector to consume messages and uses the Java class <<randomerror,RandomError>> to create possible exceptions to cause the Auto function to send an acknowledgment or a negative acknowledgment depending on the choices. The logger lists the ACK or NACK choices on the console.
+* *autoHttp*
++
+Sets up an HTTP Connector to listen at `0.0.0.0:8081`, sets an Anypoint MQ connector to publish messages, and sets the acknowledgment mode to *auto*.
+* *autoMq*
++
+Sets an Anypoint MQ connector to consume messages and uses the Java class <<randomerror,RandomError>> to create possible exceptions to cause the Auto function to send an acknowledgment or a negative acknowledgment depending on the choices. The logger lists the ACK or NACK choices on the console.
 +
 The Error handling section of the flow contains a Catch Exception Strategy to cause the Anypoint MQ connector to send the ACK, and a Rollback Exception Strategy to cause the Anypoint MQ connector to send the NACK.
 
@@ -298,7 +310,7 @@ message="Always ACKs as soon as a message is received"/>
 
 image::mq-none-flow.png[]
 
-Using this mode simplifies an app, but increases the risk. This mode is best when messages are constantly updating each other, such as in a news feed where details unfold in a news event. If an exception did occur, the next message would have a chance for obtaining the correct content.
+Using this mode simplifies an app, but increases the risk. This mode is best when messages are constantly updating each other, such as in a news feed in which details unfold in a news event. If an exception did occur, the next message would have a chance for obtaining the correct content.
 
 === NONE XML Code
 

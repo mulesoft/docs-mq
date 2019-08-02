@@ -31,7 +31,7 @@ waiting area so that other applications can read them. Messages persist until th
 time to live (TTL) value expires. By default, a message persists in Anypoint MQ
 for up to 7 days. The minimum message TTL is 1 minute and the maximum is 14 days.
 
-. Log into Anypoint Platform and click *MQ*.
+. Log in to Anypoint Platform and click *MQ*.
 . Click *Destinations*:
 +
 image::mq-destinations-option.png[]
@@ -61,7 +61,7 @@ If you need to delete a queue, see xref:mq-faq.adoc#how-do-i-delete-a-queue[How 
 
 == Send a Message to a Queue
 
-. Log into Anypoint Platform and click *MQ*.
+. Log in to Anypoint Platform and click *MQ*.
 . Click *Destinations*.
 . Click the `MyDemoQueue` entry in *Destinations* to view details about the queue.
 . Click the left side of the queue entry to open the Messaging feature, or click the right side of the queue entry and click the arrow to the right of the queue name:
@@ -100,10 +100,10 @@ image::mq-get-messages2.png[]
 image::mq-click-id2.png[]
 +
 . If you want to return the message to the queue, so other applications can read
-the message, click the Return Messages icon - this is the default behavior. 
+the message, click the Return Messages icon. This is the default behavior. 
 If you switch screens back to the Message Sender or to Destinations, messages 
 automatically return to the queue. In Anypoint MQ, returning the messages to the 
-queue is known as `nack` - the message is not altered. However, the time to 
+queue is known as `nack`. The message is not altered. However, the time to 
 live (TTL) value you set when you created your queue determines how long the 
 message is available before Anypoint MQ deletes it.
 +
@@ -151,7 +151,7 @@ To send a CSV message:
 
 == Register a Client Mule Application
 
-. Log into Anypoint Platform and click *MQ*.
+. Log in to Anypoint Platform and click *MQ*.
 . Click *Client App*:
 +
 image::mq-click-client-apps.png[]
@@ -472,7 +472,7 @@ image::mq-logger-properties.png[]
 . Save your project.
 
 You can test your app using the same curl command as in 
-<<Create a Studio 7 Mule Application>> - deploy your Mule app from 
+<<Create a Studio 7 Mule Application>>. Deploy your Mule app from 
 Studio to CloudHub and after the app starts in Runtime Manager, you can
 send a curl command to send a message to MQ.
 
@@ -526,7 +526,7 @@ http://www.mulesoft.org/schema/mule/anypoint-mq/current/mule-anypoint-mq.xsd">
 
 A message exchange groups one or more queues so that a message sent to the message exchange goes to all bound queues.
 
-. Log into *Anypoint Platform* > *MQ*.
+. Log in to *Anypoint Platform* > *MQ*.
 . Click *Destinations*.
 . Click the blue plus icon image:mq-blue-plus-icon.png[]
 . Click *Exchange*.
@@ -539,7 +539,7 @@ To delete a message exchange, see xref:mq-faq.adoc#how-do-i-delete-an-exchange[H
 
 == Bind a Queue to a Message Exchange
 
-. Log into Anypoint Platform and click *MQ*.
+. Log in to Anypoint Platform and click *MQ*.
 . Click *Destinations*.
 . Click the left side of the message exchange entry in *Destinations*.
 +
@@ -560,7 +560,7 @@ image::mq-bind-queue-to-exchange2.png[]
 Sending a message to a message exchange is very similar to sending a message to a queue.
 The only difference is that you can get the message from any queue bound to a message exchange.
 
-. Log into *Anypoint Platform* > *MQ*.
+. Log in to *Anypoint Platform* > *MQ*.
 . Click *Destinations*.
 . Click the `MessageExchange` entry in *Destinations* to view details about
 the message exchange.

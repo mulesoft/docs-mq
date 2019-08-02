@@ -17,7 +17,7 @@ Anypoint MQ requires a separate Enterprise subscription and is not included in t
 [[regions]]
 == In which regions is Anypoint MQ available?
 
-Anypoint MQ non-FIFO and FIFO queues are available in these regions:
+Anypoint MQ standard and FIFO queues are available in these regions:
 
 * North America:
 ** Northern Virginia (`us-east-1`)
@@ -57,7 +57,7 @@ The queues in each region are separate from those in other regions. You can name
 
 == How many messages can I fetch using the Anypoint MQ user interface?
 
-In *Anypoint Platform* > *MQ* > *Message Browser* you can fetch up to 50 non-FIFO messages. Up to 10 FIFO messages can be fetched.
+In *Anypoint Platform* > *MQ* > *Message Browser*, you can fetch up to 50 messages from a standard (non-FIFO) queue. For a FIFO queue, you can fetch up to 10 messages.
 The FIFO restriction is because there can only be up to 10 in-flight FIFO messages. For more information on in-flight messages, see <<inflights,How many in-flight messages can I have per queue?>>
 
 [[batchsize]]
@@ -65,15 +65,15 @@ The FIFO restriction is because there can only be up to 10 in-flight FIFO messag
 
 Anypoint MQ is a highly distributed messaging system, so the results of an API call to receive messages are not guaranteed to be entirely representative of what is fully in the queue. Anypoint MQ operates in a best-effort case. For example, if there are 5 messages in a queue, the system returns anywhere from 0-5 messages in a single API call depending on what distributed subsystems are accessed by that request. Subsequent API calls retrieve more messages and if you keep making API requests to receive messages, then you get all of them.  Normally in high throughput cases, repeated API calls happen extremely fast.  The Anypoint MQ connector, for example, continuously polls the Anypoint MQ backend for new messages and from the user perspective, the messages are processed nearly instantly even though many API calls were used.
 
-== What order are messages in a non-FIFO queue?
+== What order are messages in a standard (non-FIFO) queue?
 
-Standard (non-FIFO) queues do not guarantee order for messages. The message order is not random, but the order is not enforced. If message order is important, use a FIFO queue.
+Standard queues do not guarantee order for messages. The message order is not random, but the order is not enforced. If message order is important, use a FIFO queue.
 
 == Can messages be larger than 10 MB?
 
 Anypoint MQ limits messages to 10 MB.
 
-If a larger size is required, you can split the payload into multiple messages, or implement a claim check style service where you store the payload in a file system or blob storage, and then put a pointer to the payload in the message so it can be downloaded later. However, you must manage access control to the blob storage for both the sender and receiver. You also need to consider that messages can be received unordered unless you use a FIFO queue.
+If a larger size is required, you can split the payload into multiple messages, or implement a claim check style service in whi you store the payload in a file system or blob storage, and then put a pointer to the payload in the message so it can be downloaded later. However, you must manage access control to the blob storage for both the sender and receiver. You also need to consider that messages can be received unordered unless you use a FIFO queue.
 
 == Are message exchanges and queues unique and accessible only in their created environment?
 
@@ -101,7 +101,7 @@ Anypoint MQ does not have built-in support for duplicating messages or queues ac
 
 You cannot use reconnection strategies with the Anypoint MQ connector because it does not use a connection-based protocol. Instead, it uses REST behind the scenes.
 
-On the inbound side, you can easily mimic a retry strategy using a max redelivery attribute set to your maximum number of retries and an exception strategy to move to a dead letter queue (DLQ) when the limit is reached.
+On the inbound side, you can easily mimic a retry strategy using a max redelivery attribute set to your maximum number of retries and an exception strategy to move to a dead-letter queue (DLQ) when the limit is reached.
 
 On the outbound side, you should use the same triggering mechanism.
 Otherwise, you can use the `until-successful` element with this connector.
@@ -137,7 +137,7 @@ There is no maximum number of transactions per second (TPS) for standard queues 
 [[inflights]]
 == How many in-flight messages can I have per queue?
 
-Anypoint MQ supports up to 120,000 in-flight messages per each non-FIFO queue. FIFO queues permit up to 10 in-flight messages per FIFO queue due to the extra processing required for FIFO queues.
+Anypoint MQ supports up to 120,000 in-flight messages per each standard (non-FIFO) queue. FIFO queues permit up to 10 in-flight messages per FIFO queue due to the extra processing required for FIFO queues.
 
 An in-flight message is:
 

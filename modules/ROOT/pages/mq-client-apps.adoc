@@ -11,7 +11,7 @@ An app does not have to exist for you to register it.
 
 To register an app:
 
-. Log into Anypoint Platform.
+. Log in to Anypoint Platform.
 . Click *MQ* in the left navigation bar or the main Anypoint Platform screen.
 . Click *Destinations* in the left navigation pane.
 . Click *Client Apps* from the left navigation pane:

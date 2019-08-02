@@ -12,7 +12,7 @@ Before creating a message exchange, create one or more queues. For information, 
 
 To create a message exchange:
 
-. Log into Anypoint Platform.
+. Log in to Anypoint Platform.
 . Click *MQ* from the left navigation area or the main Anypoint Platform screen.
 . Click *Destinations*.
 . Click the blue plus circle.
@@ -37,7 +37,7 @@ image::mq-exchange-details2.png[]
 
 To bind a queue to a message exchange:
 
-. Log into Anypoint Platform.
+. Log in to Anypoint Platform.
 . Click *MQ* from the left navigation area or the main Anypoint Platform screen.
 . Click *Destinations*.
 . Click the message exchange ID.
@@ -51,7 +51,7 @@ Sending a message to a message exchange is similar to sending a message to a que
 
 To send a message to a message exchange:
 
-. Log into Anypoint Platform.
+. Log in to Anypoint Platform.
 . Click *MQ* from the left navigation area or the main Anypoint Platform screen.
 . Click *Destinations*.
 . Click the message exchange ID or details label to access the Messaging feature:
@@ -84,7 +84,7 @@ To delete a message exchange:
 +
 image::mq-click-type-e2.png[]
 +
-. In the *Delete Exchange* popup, click the checkbox:
+. In the *Delete Exchange* screen, click the checkbox:
 +
 image::mq-delete-exchange.png[]
 +

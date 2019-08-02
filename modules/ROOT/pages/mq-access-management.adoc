@@ -10,7 +10,7 @@ Anypoint Platform lets you manage the xref:access-management::managing-permissio
 
 Before you can give yourself Anypoint MQ access permissions, you need an environment with which to associate permissions.
 
-. Log into Anypoint Platform.
+. Log in to Anypoint Platform.
 . Click *Access Management* from the left navigation bar or click *Access Management* from the main Anypoint Platform screen.
 . Click *Environments* under *ACCESS MANAGEMENT*, and click *Add environment*:
 // +
@@ -129,7 +129,7 @@ You can also delete a role from the *Roles* page by clicking the checkbox for an
 
 . In Anypoint Platform, click *MQ*, and then click *Design*.
 // : image:mq-production-button.png[].
-. In the *Switch Environment* pop-up, you can switch a different environment or change your default environment:
+. In the *Switch Environment* screen, you can switch a different environment or change your default environment:
     ** To switch to a different environment, click the name of that environment, for example, *Sandbox* if you previously created a Sandbox environment, and click *Switch*.
     ** To change your default environment, click *Open your profile to change the default environment* and choose a different environment from the *Default* environment drop-down list.
 

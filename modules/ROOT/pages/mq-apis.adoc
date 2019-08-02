@@ -32,9 +32,15 @@ Steps:
 
 Before accessing an API, you need to acquire an access token:
 
-* <<mqadminapi,Anypoint MQ Admin API>> - Get an access token for an Anypoint Platform user.
-* <<mqbrokerapi,Anypoint MQ Broker API>> - Get a token from Anypoint MQ by supplying the client ID and client secret for an MQ app.
-* <<mqstatapi,Anypoint MQ Stats API>> - Get an access token for an Anypoint Platform user.
+* <<mqadminapi,Anypoint MQ Admin API>>
++
+Get an access token for an Anypoint Platform user.
+* <<mqbrokerapi,Anypoint MQ Broker API>>
++
+Get a token from Anypoint MQ by supplying the client ID and client secret for an MQ app.
+* <<mqstatapi,Anypoint MQ Stats API>>
++
+Get an access token for an Anypoint Platform user.
 
 The `curl` command for each is explained in the API sections.
 
@@ -111,7 +117,7 @@ with the Stats and Admin APIs.
 
 To get the Broker API access token:
 
-. Log into Anypoint Platform.
+. Log in to Anypoint Platform.
 . Click *MQ* > *Client Apps*, and then click the blue plus-circle icon to create an app.
 . Get the client ID and client secret and use these values in the curl command below replacing `CLIENT_ID` and `CLIENT_SECRET`:
 +
@@ -149,7 +155,9 @@ Use the Stats API to retrieve:
 ** Real-time statistics for queues
 ** Historical statistics for queues
 ** Historical statistics for message exchanges
-* Usage metrics - View your entire organization's usage of Anypoint MQ for billing purposes:
+* Usage metrics
++
+View your entire organization's usage of Anypoint MQ for billing purposes:
 ** Usage per environment
 ** Usage per organization
 * Statistics for queues and message exchanges  
@@ -331,10 +339,18 @@ NOTE: To access the Anypoint MQ Stats API, you must first authenticate using the
 
 These statistics are provided:
 
-* `messagesVisible` - The number of messages that can be retrieved from a queue.
-* `messagesSent` - The number of messages added to a queue.
-* `messagesReceived` - The number of messages received in a queue.
-* `messagesAcked` - The number of acknowledged messages, including any messages deleted using the *Anypoint Platform* > *MQ* user interface.
+* `messagesVisible`
++
+The number of messages that can be retrieved from a queue.
+* `messagesSent`
++
+The number of messages added to a queue.
+* `messagesReceived`
++
+The number of messages received in a queue.
+* `messagesAcked`
++
+The number of acknowledged messages, including any messages deleted using the *Anypoint Platform* > *MQ* user interface.
 
 Example request to list statistics for July 26 to July 28, 2018:
 
@@ -444,7 +460,7 @@ Example response:
 
 To create queues and exchanges programatically, you can use a language such as groovy.
 
-The following example consists of the `cloudhub.properties` file where
+The following example consists of the `cloudhub.properties` file in whi
 you list the queues and exchanges to create, and a script file that
 references the properties file.
 
@@ -733,7 +749,7 @@ After downloading and installing Postman, supply this information to create an e
 * Host ID (from Anypoint Platform/Anypoint MQ)
 * Client ID (from Anypoint Platform/Anypoint MQ)
 * Client Secret (from Anypoint Platform/Anypoint MQ)
-* Queue name - You can set this queue name in Postman
+* Queue name (you can set this queue name in Postman)
 
 After you authorize access to an Anypoint MQ API, you can then publish a message, consume the message, and get the lock ID from the returned information in the body.
 
