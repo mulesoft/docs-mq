@@ -146,9 +146,9 @@ You can use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform
 Use the Stats API to retrieve:
 
 * Anypoint MQ metrics:
-** Real time statistics for queues
-** Historic statistics for queues
-** Historic statistics for message exchanges
+** Real-time statistics for queues
+** Historical statistics for queues
+** Historical statistics for message exchanges
 * Usage metrics - View your entire organization's usage of Anypoint MQ for billing purposes:
 ** Usage per environment
 ** Usage per organization
@@ -189,9 +189,9 @@ In the Stats API portal, click *Download* to download the API as a RAML, Mule 3 
 
 image::mq-rest-stats-portal.png[]
 
-=== Real Time Statistics for Queues
+=== Real-Time Statistics for Queues
 
-You can get an immediate snapshot of how many messages are in the queue and how many are in-flight (see xref::mq-understanding.adoc[Anypoint MQ Terminology] for what in-flight messages are). This data is updated in near real-time. The Statistics API can fetch real time statistics for multiple queues, and returns a comma separated list. 
+You can get an immediate snapshot of how many messages are in the queue and how many are in-flight (see xref::mq-understanding.adoc[Anypoint MQ Terminology] for what in-flight messages are). This data is updated in almost real-time. The Statistics API can fetch real-time statistics for multiple queues and returns a comma-separated list. 
 
 `/queues?destinationIds={queue1},{queue2}`
 
@@ -211,9 +211,9 @@ https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORGANIZATION_ID/envi
 ]
 ----
 
-=== Historic Statistics for a Queue
+=== Historical Statistics for a Queue
 
-This API can be used to fetch historic stats for a queue, however it does not get updated in real-time, and there is an approximate latency of 5 to 10 minutes before data is published. The retention period of historical data is 15 months. Also, to keep the volume of data under control, historical data is stored at reduced levels of granularity. Data points with a period of less than 60 seconds are available for 3 hours, one minute data points are available for 15 days, five minute data points for 63 days, and one hour data points for 15 months.
+This API can be used to fetch historical statistics for a queue, however, it does not get updated in real-time, and there is an approximate latency of 5 to 10 minutes before data is published. The retention period of historical data is 15 months. Also, to keep the volume of data under control, historical data is stored at reduced levels of granularity. Data points with a period of fewer than 60 seconds are available for 3 hours, one-minute data points are available for 15 days, five-minute data points for 63 days, and one-hour data points for 15 months.
 
 `/queues/{queueId}?startDate=...&endDate=...&period=...`
 
@@ -243,9 +243,9 @@ https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORGANIZATION_ID/envi
 
 The duration is an integer and is the granularity of data points in seconds.
 
-=== Historic Statistics for Exchanges
+=== Historical Statistics for Exchanges
 
-Retention policies are same as in the previous <<Historic Statistics for a Queue>> section.
+Retention policies are the same as in the previous <<Historical Statistics for a Queue>> section.
 
 `/exchanges/{exchangeId}?startDate=...&endDate=...&period=...`
 
@@ -274,7 +274,7 @@ Note that period is an integer here. It's the granularity of data points in seco
 
 === Usage Metrics by Environment 
 
-The Stats API can be used to sum up the usage for Anypoint MQ across all environments for a particular organization. This is not real time and has a latency.
+The Stats API can be used to sum up the usage for Anypoint MQ across all environments for a particular organization. This is not real-time and has a latency.
 
 `/environments/ENVIRONMENT_ID?startDate=...&endDate=...&period=...`
 
@@ -334,8 +334,7 @@ These statistics are provided:
 * `messagesVisible` - The number of messages that can be retrieved from a queue.
 * `messagesSent` - The number of messages added to a queue.
 * `messagesReceived` - The number of messages received in a queue.
-* `messagesAcked` - The number of messages ACKed. Also includes any messages deleted using the *Anypoint Platform* > *MQ*
-user interface.
+* `messagesAcked` - The number of acknowledged messages, including any messages deleted using the *Anypoint Platform* > *MQ* user interface.
 
 Example request to list statistics for July 26 to July 28, 2018:
 
@@ -762,7 +761,7 @@ After you have the lock ID, you can add it to your Postman environment to facili
 === Set Up Studio for API Access
 
 Anypoint Studio enables you to create a Mule app that uses the Anypoint MQ connector.
-This sections summarizes the steps.
+This section summarizes the steps.
 
 You can set up a Studio project with:
 

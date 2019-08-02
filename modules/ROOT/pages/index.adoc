@@ -3,9 +3,9 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Anypoint MQ is a multi-tenant, cloud messaging service that enables customers to perform advanced asynchronous messaging scenarios between their applications. Anypoint MQ is fully integrated with Anypoint Platform, offering role based access control, client  management, and connectors.
+Anypoint MQ is a multi-tenant, cloud messaging service that enables customers to perform advanced asynchronous messaging scenarios between their applications. Anypoint MQ is fully integrated with Anypoint Platform, offering role-based access control, client management, and connectors.
 
-Anypoint MQ does not support use with CloudHub Insight or Anypoint Monitoring. Instead you can use the xref:mq-usage.adoc[Anypoint MQ usage graphs] access usage information. You can view the current and past usage, including consumed data, API requests, and the total number of messages received. You can also use the xref:mq-apis.adoc#mqstatapi[Anypoint MQ Stats API] to perform statistical analysis of queue performance.
+Anypoint MQ does not support use with CloudHub Insight or Anypoint Monitoring. Instead, you can use the xref:mq-usage.adoc[Anypoint MQ usage graphs] to access usage information. You can view the current and past usage, including consumed data, API requests, and the total number of messages received. You can also use the xref:mq-apis.adoc#mqstatapi[Anypoint MQ Stats API] to perform statistical analysis of queue performance.
 
 
 == Anypoint MQ Workflow

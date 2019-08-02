@@ -51,7 +51,7 @@ The selected environment and permissions appear below the drop-down list.
 You can delete items from this list by clicking the delete icon:
 +
 image::mq-delete-item.png[]
-+
+
 
 == Create an Admin Role
 
@@ -84,7 +84,7 @@ The settings are:
     ** Access *Message Sender* and *Browser* pages
     ** Delete messages
 * *View clients*: View all client apps and the client App IDs and client secrets for each client app
-* *View destinations*: View all destinations and each destination's settings (*ID*, *Type*, *Message TTL* and *Message Lock Default TTL*); view *In Queue* messages and *In Flight* messages
+* *View destinations*: View all destinations and each destination's settings (*ID*, *Type*, *Message TTL*,and *Message Lock Default TTL*). View *In Queue* messages and *In Flight* messages.
 
 
 === Add Other Roles For Anypoint MQ Access
@@ -100,7 +100,7 @@ After you create an admin role, you can optionally create other roles for users 
 // +
 // image::mq-add-role-edit-fields.png[]
 // +
-. In the list of roles, click the name of role you just created:
+. In the list of roles, click the name of the role you just created:
 // +
 // image::mq-roles-list.png[]
 // +
@@ -130,7 +130,7 @@ You can also delete a role from the *Roles* page by clicking the checkbox for an
 . In Anypoint Platform, click *MQ*, and then click *Design*.
 // : image:mq-production-button.png[].
 . In the *Switch Environment* pop-up, you can switch a different environment or change your default environment:
-    ** To switch to a different environment, click the name of that environment, for example *Sandbox* if you previously created a Sandbox environment, and click *Switch*.
+    ** To switch to a different environment, click the name of that environment, for example, *Sandbox* if you previously created a Sandbox environment, and click *Switch*.
     ** To change your default environment, click *Open your profile to change the default environment* and choose a different environment from the *Default* environment drop-down list.
 
 == See Also

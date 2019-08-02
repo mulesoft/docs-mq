@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :imagesdir: ../assets/images/
 
-Anypoint MQ is an enterprise, multi-tenant, cloud messaging service that performs advanced asynchronous messaging scenarios between applications. Anypoint MQ is fully integrated with Anypoint Platform, offering role based access control, client app management, and connectors.
+Anypoint MQ is an enterprise, multi-tenant, cloud messaging service that performs advanced asynchronous messaging scenarios between applications. Anypoint MQ is fully integrated with Anypoint Platform, offering role-based access control, client app management, and connectors.
 
 The Anypoint MQ messaging broker enables applications to communicate by publishing a Mule message to a queue so that another app can consume the message.
 
@@ -13,7 +13,7 @@ Anypoint MQ supports hybrid use cases, IoT where you collect data from different
 Anypoint MQ:
 
 * Provides fully hosted and managed queues and message exchanges in the cloud. A queue is a temporary storage area. A message exchange binds one or more queues so that a message sent to a message exchange appears in all its bound queues simultaneously.
-* Anypoint MQ is built on Anypoint Platform, meaning that queues and message exchanges offer the same management capabilities as the platform itself, from environments and business groups for multi-tenant role-based access control to client access management.
+* Is built on Anypoint Platform, which means that queues and message exchanges offer the same management capabilities as the platform itself, from environments and business groups for multi-tenant role-based access control to client access management.
 * Supports large payloads, encryption, queuing, and publish/subscribe (pub/sub) paradigms.
 * Enables you to easily connect to non-Mule applications using the REST API.
 * Provides Anypoint Studio access, which makes the process of leveraging your queues and message exchanges as simple as drag, drop, and configure.
@@ -36,7 +36,7 @@ Monitor queue statistics, purge queues, and see how many messages are in flight 
 Send and receive messages from any Mule app, whether it’s deployed in CloudHub or used in a hybrid scenario and deployed on-premises.
 * *Usage information*
 +
-Organization administrators or owners can view the current and past months usage, including the total number of messages and API requests. You access this information from the Access Management page. For more information, see xref:mq-usage.adoc[Anypoint MQ Usage Information].
+Organization administrators or owners can view the current and past months' usage, including the total number of messages and API requests. You access this information from the Access Management page. For more information, see xref:mq-usage.adoc[Anypoint MQ Usage Information].
 * *REST API*
 +
 Use the REST API to easily communicate with non-Mule applications.
@@ -49,6 +49,8 @@ Create client applications tokens.
 * *Large payloads*
 +
 Anypoint MQ supports payloads up to 10 MB.
+
+[[disaster_recovery]]
 * *Disaster recovery*
 +
 Within each region, Anypoint MQ services deploy to multiple availability zones (AZs) to provide high availability (HA). If service in one availability zone goes down, the Anypoint MQ service operates normally in that region. If all availability zones go down in a region, the Anypoint MQ service is unavailable in that region until at least one of the availability zones comes back up. Because the storage solution for Anypoint MQ is durable, messages that were already in the Anypoint MQ system before service was interrupted are retained.
@@ -56,7 +58,7 @@ Within each region, Anypoint MQ services deploy to multiple availability zones (
 [[delay_queues]]
 * *Delay queues*
 +
-With delay queues, you can postpone delivery of new messages to a queue for a specified period of time. Consumers can't see messages sent to a delay queue for the duration of the delay period. The minimum delay for a queue is 0 milliseconds. The maximum is 15 minutes.
+With delay queues, you can postpone the delivery of new messages to a queue for a specified period. Consumers can't see messages sent to a delay queue for the duration of the delay period. The minimum delay for a queue is 0 milliseconds. The maximum is 15 minutes.
 + 
 If you change the queue delay for:
 
@@ -67,11 +69,11 @@ If you change the queue delay for:
 You can override the default queue delay for a particular message in a standard queue only.
 
 [[delay_messages]]
-* *Delivery delay for messages*
+* *Delayed delivery for messages*
 +
-For messages in a standard queue, you can postpone delivery of a particular message to the queue for a specified period of time. Consumers can't see messages sent with delivery delay for the duration of the delay period. The minimum delivery delay for a message is 0 milliseconds. The maximum is 15 minutes.
+For messages in a standard queue, you can the postpone delivery of a particular message to the queue for a specified period. Consumers can't see messages sent with delivery delay for the duration of the delay period. The minimum delivery delay for a message is 0 milliseconds. The maximum is 15 minutes.
 + 
-Delivery delay is not supported for individual messages in a FIFO queue.
+Delayed delivery is not supported for individual messages in a FIFO queue.
 
 [[encrypt_queue]]
 * *Encrypted queues*
@@ -82,7 +84,7 @@ Anypoint MQ messages are encrypted server-side.
 
 == Queues
 
-Message queues provide temporary storage that enable applications to communicate in a scalable and reliable way. Publishers can publish messages into queues, and subscribers can receive messages from queues. You can create a dead letter queue to store undeliverable messages.
+Message queues provide temporary storage that enables applications to communicate in a scalable and reliable way. Publishers can publish messages into queues, and subscribers can receive messages from queues. You can create a dead letter queue to store undeliverable messages.
 
 image::mq-pub-q-sub.png[Anypoint MQ Publisher-Queue-Subscriber]
 
@@ -90,7 +92,7 @@ Queues provide these benefits:
 
 * *Horizontal scalability*
 +
-By putting a message on a queue, the work to process that message can be distributed across a number of different subscribers.
+By putting a message on a queue, the work to process that message can be distributed over multiple subscribers.
 * *Reliability*
 +
 Queues ensure that messages are always processed, even in the case of failure.
@@ -104,26 +106,26 @@ A queue can be used as a communication mechanism between different applications 
 +
 Multiple message producers can publish to a single queue, which enables easy consumption by consumers.
 +
-.. A consumer retrieves messages from a queue. This locks the messages, and makes the messages invisible to all other consumers.
+.. A consumer retrieves messages from a queue. This locks the messages and makes the messages invisible to all other consumers.
 .. When retrieving, the consumer specifies a lock timeout. If the message is not processed within that time window, the message is made visible to other consumers to be processed. This ensures that if there was a failure of some sort, such as the consumer node crashed, a message can be processed by another node. A locked message does not block other messages to be read. The lock makes a message unavailable to other applications while locked.
 +
 If a consumer processes a message successfully, the client acknowledges the message, and Anypoint MQ removes the message from the queue. For more information on how Anypoint MQ processes acknowledged messages, see xref:mq-ack-mode.adoc[Acknowledge a Message].
 +
-If a consumer is not able to process a message, the message proceeds with a negative acknowledgment, and becomes visible on the queue again.
+If a consumer is not able to process a message, the message proceeds with a negative acknowledgment and becomes visible in the queue again.
 
 * *Message TTL*
 +
 Each queue has a message time-to-live (TTL). TTL specifies how long the message is in the queue before Anypoint MQ expires the message and removes it from the queue.
 * *Unlimited messages in a queue*
 +
-There is no limit on the number of messages in a queue. Each messages in a queue is limited to 10 MB. 
+There is no limit on the number of messages in a queue. Each message in a queue is limited to 10 MB. 
 * *Long polling*
 +
 Messages are read through long polling. The server holds a request open until new data is available, and then Anypoint MQ delivers a batch of messages with a single read.
 
 * *Billing and charging*
 +
-Billing is based on the quantity of messages delivered to subscribers from queues, not the number of queues or message exchanges you create.
+Billing is based on the number of messages delivered to subscribers from queues, not the number of queues or message exchanges you create.
 
 == Clients
 
@@ -131,11 +133,11 @@ In Anypoint MQ, each consumer must be registered as a client app with a name, ID
 
 == Message Exchanges
 
-Message exchanges enable you to distribute a single message to many consumers.
+With message exchanges you can to distribute a single message to multiple consumers.
 
 image::mq-pub-ex-sub.png[]
 
-For example, if a publisher publishes changes in the weather, and you have multiple apps that want to receive that data, you can use a message exchange to publish a single message to multiple queues for each app. A _binding_ is the relationship between the queue and a message exchange, which tells the message exchange where to send messages to. A queue can be bound to multiple message exchanges.
+For example, if a publisher publishes changes in the weather, and you have multiple apps that want to receive that data, you can use a message exchange to publish a single message to multiple queues for each app. A _binding_ is a relationship between the queue and message exchange, which tells the message exchange where to send messages to. A queue can be bound to multiple message exchanges.
 
 == Example
 
@@ -156,12 +158,12 @@ An app receives a message and Anypoint MQ deletes the message. For more informat
 An app does not receive a message and Anypoint MQ does not delete the message.
 * *Binding*
 +
-Enables pub/sub apps bridge the simple pub/sub structure and use point-to-point features, such as sending a message to specific applications. Bindings identify which queues comprise a message exchange. In Anypoint Platform, by specifying which message queues are in a message exchange, Anypoint MQ creates and manages the bindings for you.
+Enables pub/sub apps to bridge the simple pub/sub structure and use point-to-point features, such as sending a message to specific applications. Bindings identify which queues comprise a message exchange. In Anypoint Platform, by specifying which message queues are bound to a message exchange, Anypoint MQ creates and manages the bindings for you.
 * *Dead letter queue (DLQ)*
 +
 A queue that stores undeliverable messages from other queues.
 +
-The DLQ ensures that messages that cannot be successfully delivered are sent to a queue known for backup. The dead letter queue enables the ability to sideline and isolate the unsuccessfully processed messages. Users can then analyze the messages sent to DLQ and determine why those messages were not successfully processed. A DLQ is practically same as any other queue--it's just a queue that receives undelivered messages.
+See xref:mq-queues.adoc#dead-letter-queues[Dead Letter Queues]
 * *Destination*
 +
 A message exchange or queue. Applications register to a destination and publish messages to the destination. Applications subscribe to a destination to receive a message. Anypoint MQ lets you configure Destinations by creating or maintaining queues or message exchanges. Anypoint Studio lets you configure destinations using the Anypoint MQ connector.
@@ -170,7 +172,7 @@ A message exchange or queue. Applications register to a destination and publish 
 A message that persists until its indicated client receives it.
 * *In Flight*
 +
-Messages awaiting ack or nack, or with an expired lock time-to-live setting. In flight messages are not visible to other consumers. Anypoint MQ supports up to 120,000 in flight messages per queue for non-FIFO queues. FIFO queues can have up to 10 in flight messages per queue.
+Messages awaiting ACK or NACK, or with an expired lock time-to-live setting. In-flight messages are not visible to other consumers. Anypoint MQ supports up to 120,000 in-flight messages per queue for non-FIFO queues. FIFO queues can have up to 10 in-flight messages per queue.
 * *Duration*
 +
 Messages can persist in flight for up to 2 weeks after which messages older than 2 weeks are deleted. 
@@ -178,14 +180,14 @@ Messages can persist in flight for up to 2 weeks after which messages older than
 Messages that have been sent.
 * *Lock ID*
 +
-A lock that lets an app read a queue exclusively. Anypoint MQ provides the lock when an app acks a message from a queue. A locked message does not block other messages to be read. The lock makes a message unavailable to other applications while locked.
+A lock that lets an app read a queue exclusively. Anypoint MQ provides the lock when an app acknowledges a message from a queue. A locked message does not block other messages to be read. The lock makes a message unavailable to other applications while locked.
 * *Message*
 +
-Serializable xref:3.9@mule-runtime::mule-message-structure.adoc[Mule Message] content that applications send and receive, so that the applications can communicate with each other.
+Serializable xref:3.9@mule-runtime::mule-message-structure.adoc[Mule Message] content that applications send and receive so that the applications can communicate with each other.
 * *Message Exchange*
 +
 A pub/sub message source with multiple outputs. Applications register to subscribe to messages that the message exchange publishes.
-* *On premises*
+* *On-premises*
 +
 Mule runtime that runs on a computer in your organization.
 * *Point-to-point*
@@ -205,7 +207,7 @@ A point-to-point message storage area that holds a message that a client receive
 An app that receives messages from Anypoint MQ.
 * *Usage*
 +
-A chart the illustrates how much data and API requests have been consumed.
+A chart that illustrates how much data and API requests have been consumed.
 
 == See Also
 
