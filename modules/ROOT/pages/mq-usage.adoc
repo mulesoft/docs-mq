@@ -10,26 +10,26 @@ were received.
 [NOTE]
 ====
 * Each message unit contains 100 KB of data in a message. Message units are counted by the number of encoded characters in a message. Anypoint MQ charges you an extra message unit for each 100 KB of extra data in a message over 100 KB.
-* Every API call to Anypoint MQ counts as one API request.  This includes sending, receiving, and acknowledging messages as well all operations on queues and exchanges.
-* Up to 10 messages can be retrieved from a single API call, which only bills as one request.  Even if the request to retrieve messages does not return a message, like if the queue is empty, it still bills as a single API request.
+* Every API call to Anypoint MQ counts as one API request.  This includes sending, receiving, and acknowledging messages as well as all operations on queues and exchanges.
+* Up to 10 messages can be retrieved from a single API call, which only bills as one request.  Even if the request to retrieve messages does not return a message, for example, if the queue is empty, it bills as a single API request.
 * Monthly billing usage information is delayed by 24 hours.
 ====
 
 == Access Anypoint MQ Usage
 
-To view MQ usage:
+To view Anypoint MQ usage:
 
-. Log into Anypoint Platform.
-. Click *Access Management* from the left navigation bar or from the starting Anypoint Platform screen.
+. Log in to Anypoint Platform.
+. Click *Access Management* in the left navigation bar or the main Anypoint Platform screen.
 . Click *MQ* in the *SUBSCRIPTION* section:
 +
 image::mq-subscription.png[]
 +
-. Click a chart duration value of *6m* - six months (default), *1y* - one year, or *2y* - two years:
+. Click a chart duration value of *6m* (six months, default), *1y* (one year), or *2y* (two years):
 +
 image::mq-usage-chart.png[]
 +
-The chart indicates the number of message units and API requests per month. The circle graphs indicate the percentage and amount of your license that you have used. The circle graphs turns red as the license limits get closer:
+The chart indicates the number of message units and API requests per month. The circle graphs indicate the percentage and amount of your license that you have used. The circle graphs changes to red as the license limits get closer:
 +
 image::mq-message-unit-color.png[]
 

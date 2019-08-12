@@ -4,20 +4,20 @@ include::_attributes.adoc[]
 endif::[]
 :imagesdir: ../assets/images/
 
-This document lists frequently asked questions about Anypoint MQ (MQ).
+This document lists frequently asked questions about Anypoint MQ.
 
 *See Also:* xref:mq-connectors.adoc[Anypoint MQ Connectors],
 xref:mq-apis.adoc[REST APIs],
 xref:release-notes::mq/anypoint-mq-release-notes.adoc[Release Notes].
 
-== Why is MQ not shown in Anypoint Platform?
+== Why is Anypoint MQ not shown in Anypoint Platform?
 
 Anypoint MQ requires a separate Enterprise subscription and is not included in the Anypoint Platform trial version. Contact MuleSoft Support for more information. If you don't have an Enterprise subscription, you can use Apache Active MQ or Rabbit MQ.
 
 [[regions]]
-== In which regions is MQ available?
+== In which regions is Anypoint MQ available?
 
-Anypoint MQ non-FIFO and FIFO queues are avilable in these regions:
+Anypoint MQ standard and FIFO queues are available in these regions:
 
 * North America:
 ** Northern Virginia (`us-east-1`)
@@ -33,13 +33,13 @@ Anypoint MQ non-FIFO and FIFO queues are avilable in these regions:
 
 == How do I create and send messages into Anypoint MQ from Mule runtime?
 
-After you obtain an Enterprise subscription and contacted your MuleSoft representative to activate Anypoint MQ, you can use Anypoint Platform to create a queue or message exchange, and send messages to it. For more information, see the xref:mq-tutorial.adoc[Anypoint MQ Tutorial].
+After you obtain an Enterprise subscription and contacted your MuleSoft representative to activate Anypoint MQ, you can use Anypoint Platform to create a queue or message exchange, and send messages to it. For more information, see the xref:mq-queues.adoc[Configure Queues] and xref:mq-exchanges.adoc[Configure Message Exchanges].
 
 == How does Anypoint MQ encrypt messages?
 
 Anypoint MQ messages are always transported using in-flight HTTPS encryption with the latest Transport Layer Security (TLS) protocols.  Additionally, if your Anypoint MQ queues are configured for encryption at rest, then the payloads are encrypted server-side.
 
-If your application requires an additional layer of encryption security, then you can encrypt the payloads yourself before publishing messages to Anypoint MQ; however, you must manage your own encryption keys for both the message publishers and the consumers.
+If your app requires an additional layer of encryption security, then you can encrypt the payloads yourself before publishing messages to Anypoint MQ. You must manage your encryption keys for both the message publishers and the consumers.
 
 == Why do I see the message decrypted in the UI for my encrypted queues?
 
@@ -47,70 +47,70 @@ When you have a queue encrypted, the messages are stored encrypted but they are 
 
 == How can I send a Java Object as a message?
 
-The body of an Anypoint MQ message is sent as a String as part of a JSON message, thus any content that needs to be published should be serializable in a String format from which you can later deserialize. One way to do this is to serialize the Java object to its JSON representation using DataWeave, which can be serialized and deserialized from a String. Sending Java objects that don't have a proper String serialization causes the message to be unreadable on the receiving end.
+The body of an Anypoint MQ message is sent as a string as part of a JSON message, thus any content that needs to be published should be serializable in a string format from which you can later deserialize. One way to do this is to serialize the Java object to its JSON representation using DataWeave, which can be serialized and deserialized from a string. Sending Java objects that don't have a proper string serialization causes the message to be unreadable on the receiving end.
 
 == Can I share messages or queues between regions?
 
 No, queues and message exchanges are unique to the region in which they were created and cannot share messages or queues between regions. Developers can manually create custom programs that load balance between regions, but Anypoint MQ itself does not provide multi-region support.
 
-Queues in each region are separate from those in other regions. You can name queues the same in each region, but queues can’t share messages across regions.
+The queues in each region are separate from those in other regions. You can name queues the same in each region, but queues can’t share messages across regions.
 
-== How many messages can I fetch using the MQ user interface?
+== How many messages can I fetch using the Anypoint MQ user interface?
 
-In *Anypoint Platform* > *MQ* > *Message Browser* you can fetch up to 50 non-FIFO messages. Up to 10 FIFO messages can be fetched.
+In *Anypoint Platform* > *MQ* > *Message Browser*, you can fetch up to 50 messages from a standard (non-FIFO) queue. For a FIFO queue, you can fetch up to 10 messages.
 The FIFO restriction is because there can only be up to 10 in-flight FIFO messages. For more information on in-flight messages, see <<inflights,How many in-flight messages can I have per queue?>>
 
 [[batchsize]]
 == Why do I receive fewer messages than my batch size when retrieving messages with the Anypoint MQ REST API?
 
-Anypoint MQ is a highly distributed messaging system, so the results of any one API call to receive messages are not guaranteed to be entirely representative of what is fully in the queue.  Anypoint MQ operates in a best-effort case. For example, if there are 5 messages in a queue, the system returns anywhere from 0-5 messages in a single API call depending on what distributed subsystems are accessed by that request.  Subsequent API calls retrieve more messages and if you keep making API requests to receive messages, then you get all of them.  Normally in high throughput cases repeated API calls happen extremely fast.  The MQ connector, for example, continuously polls the MQ backend for new messages and from the user perspective the messages process nearly instantly even though many API calls may have been used.
+Anypoint MQ is a highly distributed messaging system, so the results of an API call to receive messages are not guaranteed to be entirely representative of what is fully in the queue. Anypoint MQ operates in a best-effort case. For example, if there are 5 messages in a queue, the system returns anywhere from 0-5 messages in a single API call depending on what distributed subsystems are accessed by that request. Subsequent API calls retrieve more messages and if you keep making API requests to receive messages, then you get all of them.  Normally in high throughput cases, repeated API calls happen extremely fast.  The Anypoint MQ connector, for example, continuously polls the Anypoint MQ backend for new messages and from the user perspective, the messages are processed nearly instantly even though many API calls were used.
 
-== What order are messages in a non-FIFO queue?
+== What order are messages in a standard (non-FIFO) queue?
 
-Non-FIFO queues do not guarantee order for messages. Message order is not completely random, but order is not enforced. If you care about order at all, you have to use a FIFO queue.
+Standard queues do not guarantee order for messages. The message order is not random, but the order is not enforced. If message order is important, use a FIFO queue.
 
-== Can messages be bigger than 10 MB?
+== Can messages be larger than 10 MB?
 
-Anypoint MQ limits messages to 10 MB. If a larger size is required, you can split the payload into multiple messages, or implement a claim check style service where you store the payload in a file system or blob storage, and then put a pointer to the payload in the message so it can be downloaded later.  However, you need to manage access control to the blob storage for both the sender and receiver. You also need to consider that messages can be received unordered unless you use a FIFO queue.
+Anypoint MQ limits messages to 10 MB.
 
-== Are message exchanges and queues completely unique and only accessible in their created environment?
+If a larger size is required, you can split the payload into multiple messages, or implement a claim check style service in whi you store the payload in a file system or blob storage, and then put a pointer to the payload in the message so it can be downloaded later. However, you must manage access control to the blob storage for both the sender and receiver. You also need to consider that messages can be received unordered unless you use a FIFO queue.
+
+== Are message exchanges and queues unique and accessible only in their created environment?
 
 That is, how do we ensure message exchanges or queues created in one environment are not confused or connected to message exchanges or queues created in a different environment if they have the same name?
 
-You can have the same object name for queues and exchanges between environments, but the Client ID and Client Secret must be different. It's not possible to access a production queue from a development environment if they don't have the corresponding application client IDs.
+You can have the same object name for queues and exchanges in different environments, but the client app ID and client secret values must be unique. You can't access a production queue from a development environment if they don't have the corresponding client app IDs.
 
 == How can I restrict access to a queue or message exchange?
 
-You can use *Anypoint Platform* > *Access Management* > *Business Groups or Environments*. Queues and message exchanges created in a business group or environment are only visible to those with access to the business group or environment.
+You can use *Anypoint Platform* > *Access Management* > *Business Groups or Environments*. The queues and message exchanges created in a business group or environment are only visible to those with access to the business group or environment.
 
-== Can I use Anypoint MQ on premises?
+== Can I use Anypoint MQ on-premises?
 
 You can publish a message from an on-premises system to Anypoint MQ and have another on-premises
-subscriber pull messages off of Anypoint MQ. Currently Anypoint MQ cannot be deployed on-premises.
+subscriber pull messages from Anypoint MQ. Currently, Anypoint MQ cannot be deployed on-premises.
 If you need a messaging source on-premises, you can use Apache Active MQ instead.
 
 == How does Anypoint MQ handle disaster recovery and high availability failover?
 
-Within any given region, MQ services are deployed to multiple availability zones (AZs) to provide high availability (HA). If service in one availability zone goes down,  the Anypoint MQ service still operates normally in that region. If all of the availability zones go down in a region, then the Anypoint MQ service is unavailable in that region until at least one of the availability zones comes back up. However, the storage solution for MQ is durable, which means that there is no message loss for messages that were already in the MQ system before service was interrupted.
+Within each region, Anypoint MQ services deploy to multiple availability zones (AZs) to provide high availability (HA). If service in one availability zone goes down, the Anypoint MQ service operates normally in that region. If all availability zones go down in a region, the Anypoint MQ service is unavailable in that region until at least one of the availability zones comes back up. Because the storage solution for Anypoint MQ is durable, messages that were already in the Anypoint MQ system before service was interrupted are retained.
 
 Anypoint MQ does not have built-in support for duplicating messages or queues across regions.
 
 == Can I use a retry strategy with the Anypoint MQ connector?
 
-The Anypoint MQ connector does not exactly use a connection-based protocol,
-but uses REST behind the scenes, and therefore,
-you cannot use reconnection strategies with this connector.
+You cannot use reconnection strategies with the Anypoint MQ connector because it does not use a connection-based protocol. Instead, it uses REST behind the scenes.
 
-On the inbound side, you can easily mimic a retry strategy using a max redelivery attribute set to your maximum number of retries and an exception strategy to move to a DLQ when the limit is hit.
+On the inbound side, you can easily mimic a retry strategy using a max redelivery attribute set to your maximum number of retries and an exception strategy to move to a dead-letter queue (DLQ) when the limit is reached.
 
-On the outbound side, stick to the same triggering mechanism.
-Otherwise you can use the *until-successful* element with this connector.
+On the outbound side, you should use the same triggering mechanism.
+Otherwise, you can use the `until-successful` element with this connector.
 
-You should also configure the HTTP connector so that Global Element Properties > Set Max Redelivery is set to the `-1` value.
+You should also configure the HTTP connector so that *Global Element Properties* > *Set Max Redelivery* is set to the value of `-1`.
 
-== How can we replay/reprocess messages from DLQ?
+== How can we replay/reprocess messages from a DLQ?
 
-There is no built-in functionality to replay messages. Thus, you need to implement a special flow or application to consume those messages and forward them back to original queue for reprocessing.
+There is no built-in functionality to replay messages from a DLQ. You must implement a special flow or app to consume those messages and forward them back to the original queue for reprocessing.
 
 == How do we recover and handle failover?
 
@@ -118,7 +118,7 @@ The network that Anypoint MQ runs on provides high availability replications acr
 
 == How do we ensure a message is uniquely processed when failover occurs?
 
-If a server fails and failover occurs, messages continue to be processed on other servers in the network on which Anypoint MQ runs. Normal Anypoint MQ queues do not guarantee only-once message delivery, only FIFO queues support only-once message delivery. The high availability network deduplicates messages for FIFO queues automatically.
+If a server fails and failover occurs, messages continue to be processed by other servers on the network in which Anypoint MQ runs. Standard Anypoint MQ queues do not guarantee only-once message delivery. Only FIFO queues support only-once message delivery. The high availability network deduplicates messages for FIFO queues automatically.
 
 == Does Anypoint MQ guarantee message delivery?
 
@@ -126,43 +126,48 @@ Yes, Anypoint MQ guarantees "at least once" delivery of messages to the destinat
 
 == How are API requests calculated?
 
-Every API call to Anypoint MQ counts as one API request.  Counting each call as a request includes sending, receiving, and acknowledging messages as well all operations on queues and exchanges.
+Every API call to Anypoint MQ counts as one API request. Counting each call as a request includes sending, receiving, and acknowledging messages as well as all operations on queues and exchanges.
 
-Up to 10 messages can be retrieved from a single API call, which only bills as one request.  Even if the request to retrieve messages does not return a message, like if the queue is empty, it still bills as a single API request.
+Up to 10 messages can be retrieved from a single API call, which only bills as one request. Even if the request to retrieve messages does not return a message, for example, if the queue is empty, it still bills as a single API request.
 
-== What's the maximum TPS for MQ?
+== What's the maximum TPS for Anypoint MQ?
 
-There is no maximum transactions per second (TPS) for normal queues or exchanges. FIFO queues have a limit of 300 TPS; however, if you batch 10 messages per each read and write operation (maximum) using the API, FIFO queues can support up to 3,000 TPS.
+There is no maximum number of transactions per second (TPS) for standard queues or exchanges. FIFO queues have a limit of 300 TPS. If you batch 10 messages per each read and write operation (maximum) using the API, FIFO queues can support up to 3,000 TPS.
 
 [[inflights]]
 == How many in-flight messages can I have per queue?
 
-Anypoint MQ supports up to 120,000 in-flight messages per each non-FIFO queue. FIFO queues permit up to 10 in-flight messages per FIFO queue due to the extra processing required for FIFO queues.
-An in-flight message is a message received by a queue, but not deleted, that is, a message awaiting ACK or NACK, or a message with an expired
-*Message Lock Default TTL* (time-to-live) setting. A single queue can contain an unlimited number of messages; however the number of in-flight messages is limited. The maximum duration for any message, either in-flight or not is 2 weeks, after which Anypoint MQ deletes the message.
+Anypoint MQ supports up to 120,000 in-flight messages per each standard (non-FIFO) queue. FIFO queues permit up to 10 in-flight messages per FIFO queue due to the extra processing required for FIFO queues.
+
+An in-flight message is:
+
+* A message received by a queue, but not deleted.
+* A message awaiting ACK or NACK. 
+* A message with an expired *Message Lock Default TTL* (time-to-live) setting. 
+
+A single queue can contain an unlimited number of messages. The number of in-flight messages is limited. The maximum duration for any message, either in-flight or not, is 2 weeks, after which Anypoint MQ deletes the message.
 
 == Does the Anypoint MQ connector store the message and retry sending it?
 
-The connector does not store the message for resending it. The connector retries 5 times after which the message is discarded and it becomes the responsibility of the app for what to do with a message.
+The connector does not store the message for resending it. The connector retries 5 times after which the message is discarded and it becomes the responsibility of the app to decide what to do with a message.
 
 == Are retries synchronous or asynchronous relative to the Mule flow?
 
-Retries for sending messages to Anypoint MQ broker are always synchronous. By contrast, the client mode specifies how to establish the connection to the backend and does does not govern retries of message sending.
+Retries for sending messages to Anypoint MQ broker are always synchronous. By contrast, the client mode specifies how to establish the connection to the backend and does not govern message-sending retries.
 
 == Are retries governed by the maxRedelivery setting?
 
-Retries are arbitrary. `maxRedelivery` refers to a parameter which comes with the message saying how many times the messages were delivered but not processed (either NACK or TimeOut).
+Retries are arbitrary. The `maxRedelivery` parameter indicates how many times the messages were delivered but not processed (either NACK or TimeOut).
 
 == Can I consume Anypoint MQ messages in batches?
 
-Yes, the REST API supports the `batchSize` query parameter which lets you retrieve up to 10 messages in a single call (default value). The maximum number that can be retrieved are 10 messages in a single call, you can configure a lower value with the Prefetch Config parameter in the Anypoint MQ Connector.
+Yes. The REST API supports the `batchSize` query parameter, which lets you retrieve up to 10 messages in a single call (default value). The maximum number of messages that can be retrieved in a single call is 10. You can configure a lower value using the `Prefetch Config` parameter in the Anypoint MQ connector.
 
-[NOTE]
-The number of messages retrieved by the connector is sometimes fewer than the number configured; a number higher than 10 is overriden.
+The number of messages retrieved by the connector is sometimes fewer than the number configured. A number higher than 10 is overridden.
 
 == Can non-Mule applications interface with Anypoint MQ?
 
-If you have non-Mule applications, you can use our xref:mq-apis.adoc[Anypoint MQ REST API] to send and receive messages.
+If you have non-Mule applications, you can use the xref:mq-apis.adoc[Anypoint MQ REST APIs] to send and receive messages.
 
 == What is the throughput capacity of Anypoint MQ?
 
@@ -173,10 +178,9 @@ Anypoint MQ is horizontally scalable and supports higher throughputs as needed.
 Anypoint MQ provides long polling. You can do a REST request and ask the server
 to keep the TCP socket open for up to 20 seconds to fulfill your request if there are not enough messages.
 
-== How can I process messages one by one?
+== How can I process messages one at a time?
 
-
-To process messages one by one, set the Anypoint MQ connector to the `consume` operation.
+To process messages one at a time, set the Anypoint MQ connector to the `consume` operation.
 This operation retrieves a message from the queue or receives null if a message is not available.
 
 Then, depending on your Mule version:
@@ -207,10 +211,9 @@ Mule 4 Example:
 
 *Mule 3*
 
-* Set `processingStrategy="synchronous"` on the flow.
+. Set `processingStrategy="synchronous"` on the flow.
 +
 Specify this attribute to process messages in the same thread that initially received the message.
-
 * Set a poll scope to fire the process regularly.
 
 Mule 3 Example:
@@ -228,7 +231,6 @@ Mule 3 Example:
 </flow>
 ----
 
-[NOTE]
 More than one in-flight message can occur if the processing time between `anypoint-mq:consume` and `anypoint-mq:ack` is higher than the value of the *Message Lock Default TTL* setting for the queue.
 // Make sure to create an exception strategy and NACK the message accordingly.
 
@@ -238,19 +240,19 @@ Anypoint MQ provides direct access to the message ID and payload. You can see th
 
 == Add Anypoint MQ connector support to Mule shared resources?
 
-The only officially supported connectors and transports for shared resources are: HTTP/HTTPS, VM, JMS, JMS Caching Connection Factory, Database, WMQ, JBoss Transaction Manager, and Bitronix Transaction Manager.
+The only officially supported connectors and transports for shared resources are HTTP/HTTPS, VM, JMS, JMS Caching Connection Factory, Database, WMQ, JBoss Transaction Manager, and Bitronix Transaction Manager.
 
-== How do I create lots of queues and message exchanges?
+== How do I create many queues and message exchanges?
 
 You can use a `curl` command with the xref:mq-apis.adoc#mqadminapi[REST Administration API] in a `for` loop to create the number of queues and message exchanges you need. See an xref:mq-apis.adoc#excoliuscu[example `curl` command] that you can alter to create a queue or message exchange.
 
-== Does the messages per month usage charge pertain to all environments?
+== Do the messages-per-month usage charges pertain to all environments?
 
-Yes, to all environments.
+Yes. It applies to all environments.
 
 == Why am I seeing 400 bad request errors when using prefetch to receive messages?
 
-When using Anypoint MQ as a message processor with prefetch, only use a global prefetch configuration.
+When using Anypoint MQ as a message processor with prefetch, use only a global prefetch configuration.
 
 For example, the following local prefetch does not work:
 
@@ -275,38 +277,11 @@ Use a global prefetch instead:
 
 == How do I delete a queue?
 
-To delete a queue:
-
-. Click *Destinations*.
-. Click the *right* side of the queue entry in the Destinations table:
-+
-image::mq-click-type-q2.png[]
-+
-. Click the trash can symbol in the upper right.
-. In the Delete Queue menu, click the checkbox:
-+
-image::mq-delete-queue.png[]
-+
-. Click *Delete Queue*.
-
-[NOTE]
-The time it takes to delete or purge a queue is approximately one minute. During this time, the status of the affected queue may not be updated.
+To delete a queue, see xref:mq-queues.adoc#delete-a-queue[Delete a Queue].
 
 == How do I delete a message exchange?
 
-To delete a message exchange:
-
-. Click *Destinations*.
-. Click the *right* side of the message exchange entry in the Destinations table:
-+
-image::mq-click-type-x2.png[]
-+
-. Click the trash can symbol in the upper right.
-. In the Delete Exchange menu, click the checkbox:
-+
-image::mq-delete-exchange.png[]
-+
-. Click *Delete Exchange*.
+To delete a message exchange, see xref:mq-exchanges.adoc#delete-a-message-exchange[Delete a Message Exchange].
 
 == See Also
 
