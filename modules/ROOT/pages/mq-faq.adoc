@@ -67,7 +67,7 @@ Anypoint MQ is a highly distributed messaging system, so the results of an API c
 
 == What order are messages in a standard (non-FIFO) queue?
 
-Standard queues do not guarantee order for messages. The message order is not random, but the order is not enforced. If message order is important, use a xref:mq-faq.adoc#fifoqueues[FIFO queue].
+Standard queues do not guarantee order for messages. The message order is not random, but the order is not enforced. If message order is important, use a xref:mq-faq.adoc#fifoqueues[FIFO queue] or set the Anypoint MQ connector to the <<process-one-by-one,Consume operation>>.
 
 == Can messages be larger than 10 MB?
 
@@ -178,6 +178,7 @@ Anypoint MQ is horizontally scalable and supports higher throughputs as needed.
 Anypoint MQ provides long polling. You can do a REST request and ask the server
 to keep the TCP socket open for up to 20 seconds to fulfill your request if there are not enough messages.
 
+[process-one-by-one]
 == How can I process messages one at a time?
 
 You can use xref:mq-faq.adoc#fifoqueues[FIFO queues] to process messages in order.
@@ -216,7 +217,7 @@ Mule 4 Example:
 . Set `processingStrategy="synchronous"` on the flow.
 +
 Specify this attribute to process messages in the same thread that initially received the message.
-. Set a poll scope to fire the process regularly.
+. Set a poll scope to regularly fire the process.
 
 Mule 3 Example:
 

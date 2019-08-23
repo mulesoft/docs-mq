@@ -267,7 +267,7 @@ Encrypting a FIFO queue does not affect the order or the contents of messages co
 +
 When assigning a DLQ to a FIFO queue, the DLQ must also be a FIFO queue.
 * Cannot be bound to a message exchange
-* Should not be use with `prefetch` mode.
+* Should not be used with `prefetch` mode.
 
 To create a FIFO queue, see <<Create a Queue>>. To determine if a queue is FIFO or standard (non-FIFO), view its details. 
 
@@ -277,13 +277,13 @@ For information about creating FIFO queues with the Admin API, see xref:mq-apis.
 
 === FIFO Queues and Message Groups
 
-Message groups enable multiple consumers to access messages in a FIFO queue. A single consumer can access messages in a message group at a time. Message order is preserved within the message group.
+Message groups enable multiple consumers to access messages in a FIFO queue. Only one consumer can access messages in a message group at a time. Message order is preserved within the message group.
 
 You use the message group ID to specify the message group that the message belongs to. 
 
-The FIFO queue processes messages in the message group one by one, in order. Messages with different message group IDs might be processed out of order.
+The FIFO queue processes messages in the message group one by one, in the order they were added.  Message order is not enforced across message groups.
 
-If multiple applications send messages associated with the same message group ID to a FIFO queue, the messages are stored in the order they arrive. To preserve the order, make sure that each app uses a unique message group ID to send messages.
+If multiple applications send messages associated with the same message group ID to a FIFO queue, the messages are stored in the order they arrive. To preserve message order for an app, make sure that each app uses a specific message group ID to send messages.
 
 If one consumer accesses multiple message groups, the entire FIFO queue is blocked.
 
