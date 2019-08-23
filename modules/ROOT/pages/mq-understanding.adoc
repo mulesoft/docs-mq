@@ -20,6 +20,7 @@ Anypoint MQ:
 * Displays usage statistics on the number of messages and API requests so you can manage peak usage and subscription parameters.
 * Provides dead-letter queue capability for undeliverable messages.
 * Enables you to delay message delivery at the queue and message level.
+* Provides the ability to group messages in FIFO queues.
 
 == Features
 
@@ -75,6 +76,11 @@ For messages in a standard queue, you can the postpone delivery of a particular 
 + 
 Delayed delivery is not supported for individual messages in a FIFO queue.
 
+[Message_groups]
+* *Message groups*
++
+In FIFO queues, you can assign messages to a message group to enable multiple consumers to process messages from a single FIFO queue.
+
 [[encrypt_queue]]
 * *Encrypted queues*
 +
@@ -116,6 +122,10 @@ If a consumer is not able to process a message, the message proceeds with a nega
 * *Message TTL*
 +
 Each queue has a message time-to-live (TTL). TTL specifies how long the message is in the queue before Anypoint MQ expires the message and removes it from the queue.
+[message_lock_ttl]
+* *Message Lock Default TTL* 
+How long a message waits before being put back into the queue in the event of server failure when the message is not acknowledged.
+
 * *Unlimited messages in a queue*
 +
 There is no limit on the number of messages in a queue. Each message in a queue is limited to 10 MB. 
@@ -170,13 +180,18 @@ A message exchange or queue. Applications register to a destination and publish 
 * *Durable message*
 +
 A message that persists until its indicated client receives it.
-* *In Flight*
-+
-Messages awaiting ACK or NACK, or with an expired lock time-to-live setting. In-flight messages are not visible to other consumers. Anypoint MQ supports up to 120,000 in-flight messages per queue for standard (non-FIFO) queues. FIFO queues can have up to 10 in-flight messages per queue.
+
 * *Duration*
 +
 Messages can persist in flight for up to 2 weeks after which messages older than 2 weeks are deleted. 
+* *In Flight*
++
+Messages that have been removed from the queue, have not yet been acknowledged or not acknowledged, and have not been returned to the queue due to an expired <<message_lock_ttl,message lock TTL>>. In-flight messages are not visible to other consumers. 
++
+Anypoint MQ supports up to 120,000 in-flight messages per queue for standard (non-FIFO) queues. FIFO queues can have up to 10 in-flight messages per queue.
+
 * *In Queue*
++
 Messages that have been sent.
 * *Lock ID*
 +

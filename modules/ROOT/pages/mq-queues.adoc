@@ -76,8 +76,6 @@ image::mq-queue-details.png[]
 
 Message content can be text, JSON, or CSV (comma-separated values). The maximum size of a message is 10 MB. 
 
-See also <<Send a JSON Message to a Queue>> and <<Send a JSON Message to a Queue>>.
-
 To send a text message to a queue:
 
 . Log in to Anypoint Platform.
@@ -88,14 +86,27 @@ To send a text message to a queue:
 image::mq-queue-details.png[]
 +
 . In the settings page, click *Message Sender* in the left pane.
-. Leave the *Type* field set to *Text*.
-. In the *Payload* field, enter text, such as `Hello Mules`.
 +
-For messages in a standard queue, if you specified *Assign Default Delivery Delay*, you see the default delivery delay. You can override that value for this message or set a delivery delay for a message in a queue without delivery delay. 
-+ 
+** *Type* is *Text*, *CSV*, or *JSON*.
++
+See also 
+xref:mq-queues.adoc#send-a-json-message-to-a-queue[Send a JSON Message to a Queue] and 
+xref:mq-queues.adoc#send-a-csv-message-to-a-queue[Send a CSV Message to a Queue].
++
+** *Payload* contains the message payload text, such as `Hello Mules`.
+** *Delivery Delay* (standard queue only) indicates the time to delay the message delivery (optional). 
++
+If you specified *Assign Default Delivery Delay* on the standard queue, you see the default delivery delay. You can override that value for this message or set a delivery delay for a message in a queue without delivery delay. 
++
 Delayed delivery is not supported for individual messages in a FIFO queue.
 +
 See xref:mq-understanding.adoc#delay_messages[Delayed delivery for messages].
++
+** *Message Group ID* (FIFO queue only) specifies the message group to which the message belongs. 
++
+Message group IDs can contain up to 128 alphanumeric characters and punctuation (`!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~`). They cannot contain spaces. 
++
+See <<FIFO Queues and Message Groups,FIFO queues and message groups>>.
 . Click *Send*.
 
 == View the Number of Messages in a Queue
@@ -127,10 +138,11 @@ image::mq-queue-details.png[]
 . In the settings page, click *Message Browser* in the left pane.
 . Click *Get Messages*.
 . If you are retrieving messages from a FIFO queue, click the checkbox to acknowledge 
-that viewing messages through the browser might cause other consumers of the queue to receive messages out of order.
+that viewing messages through the browser might cause other consumers of the queue to be blocked from accessing messages in the queue.
 +
 image::mqfifo-message-browser.png[]
 +
+
 . Click the message ID value to view the message payload in the right pane.
 +
 image::mq-click-id2.png[]
@@ -171,6 +183,7 @@ To send a JSON message to a queue:
 }
 ----
 +
+For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue only), see <<Send a Message to a Queue>>.
 . Click *Send*.
 . Click *Message Browser*, and then click *Get Messages*.
 . Click the message ID to view the message:
@@ -195,6 +208,7 @@ To send a CSV message to a queue:
 "parrot"
 ----
 +
+For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue only), see <<Send a Message to a Queue>>.
 . Click *Send*.
 . Click *Message Browser*, and then click *Get Messages*.
 . Click the message ID to view the message:
@@ -253,12 +267,29 @@ Encrypting a FIFO queue does not affect the order or the contents of messages co
 +
 When assigning a DLQ to a FIFO queue, the DLQ must also be a FIFO queue.
 * Cannot be bound to a message exchange
+* Should not be use with `prefetch` mode.
 
 To create a FIFO queue, see <<Create a Queue>>. To determine if a queue is FIFO or standard (non-FIFO), view its details. 
 
 See the xref:mq-faq#regions[Anypoint MQ FAQ] for the regions in which Anypoint MQ and FIFO queues are available.
 
 For information about creating FIFO queues with the Admin API, see xref:mq-apis.adoc#create-a-fifo-queue-in-the-admin-api-portal[Create a FIFO Queue in the Admin API Portal].
+
+=== FIFO Queues and Message Groups
+
+Message groups enable multiple consumers to access messages in a FIFO queue. A single consumer can access messages in a message group at a time. Message order is preserved within the message group.
+
+You use the message group ID to specify the message group that the message belongs to. 
+
+The FIFO queue processes messages in the message group one by one, in order. Messages with different message group IDs might be processed out of order.
+
+If multiple applications send messages associated with the same message group ID to a FIFO queue, the messages are stored in the order they arrive. To preserve the order, make sure that each app uses a unique message group ID to send messages.
+
+If one consumer accesses multiple message groups, the entire FIFO queue is blocked.
+
+// In FIFO queues, messages are ordered based on message group ID. 
+
+If a message doesn't have an associated message group ID, the message is assigned to a default message group. If you require a single group of ordered messages, provide the same message group ID for messages sent to the FIFO queue.
 
 === FIFO Exactly-Once Delivery
 
