@@ -124,7 +124,7 @@ If a consumer is not able to process a message, the message proceeds with a nega
 Each queue has a message time-to-live (TTL). TTL specifies how long the message is in the queue before Anypoint MQ expires the message and removes it from the queue.
 [message_lock_ttl]
 * *Message Lock Default TTL* 
-How long a message waits before being put back into the queue in the event of server failure when the message is not acknowledged.
+How long a message waits when the message is not acknowledged before being put back into the queue, for example, in the event of server failure or when flow processing takes too long and times out.
 
 * *Unlimited messages in a queue*
 +
@@ -186,13 +186,17 @@ A message that persists until its indicated client receives it.
 Messages can persist in flight for up to 2 weeks after which messages older than 2 weeks are deleted. 
 * *In Flight*
 +
-Messages that have been removed from the queue, have not yet been acknowledged or not acknowledged, and have not been returned to the queue due to an expired <<message_lock_ttl,message lock TTL>>. In-flight messages are not visible to other consumers. 
+Messages that have been received from the queue 
+removed from the queue, have not yet been acknowledged or not acknowledged, and have not been returned to the queue due to an expired <<message_lock_ttl,message lock TTL>>. In-flight messages are not visible to other consumers. 
 +
-Anypoint MQ supports up to 120,000 in-flight messages per queue for standard (non-FIFO) queues. FIFO queues can have up to 10 in-flight messages per queue.
+Anypoint MQ supports up to 120,000 in-flight messages per queue for standard (non-FIFO) queues. FIFO queues can have up to 20,000 in-flight messages per queue.
 
 * *In Queue*
 +
 Messages that have been sent.
++
+Anypoint MQ supports up to 120,000 messages in queue for standard (non-FIFO) queues. FIFO queues can have up to 20,000 messages in queue.
+
 * *Lock ID*
 +
 A lock that lets an app read a queue exclusively. Anypoint MQ provides the lock when an app acknowledges a message from a queue. A locked message does not block other messages to be read. The lock makes a message unavailable to other applications while locked.
