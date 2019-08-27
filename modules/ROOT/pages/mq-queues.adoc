@@ -19,7 +19,7 @@ Anypoint MQ supports up to 120,000 in-flight messages per standard queue.
 +
 These queues ensure that your messages arrive in order. FIFO queues are the best fit for applications requiring strict message ordering and exactly-once delivery, but in which message delivery speed is of less importance. See <<FIFO Queues>>.
 +
-Anypoint MQ limits FIFO queues to 10 in-flight messages per FIFO queue.
+Anypoint MQ supports 10 in-flight messages per message group in a FIFO queue.
 
 You can assign either standard or FIFO queue type as a dead-letter queue (DLQ). See <<Dead Letter Queues>>.
 
@@ -105,6 +105,7 @@ See xref:mq-understanding.adoc#delay_messages[Delayed delivery for messages].
 ** *Message Group ID* (FIFO queue only) specifies the message group to which the message belongs. 
 +
 Message group IDs can contain up to 128 alphanumeric characters and punctuation (!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~). They cannot contain spaces. 
+// add screenshot here?
 +
 See <<FIFO Queues and Message Groups,FIFO queues and message groups>>.
 . Click *Send*.

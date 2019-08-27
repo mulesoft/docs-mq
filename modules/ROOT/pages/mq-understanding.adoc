@@ -185,11 +185,17 @@ A message that persists until its indicated client receives it.
 +
 Messages can persist in flight for up to 2 weeks after which messages older than 2 weeks are deleted. 
 * *In Flight*
+
++ 
+Messages that are: 
+
+** Received by a queue, but not deleted
+** Awaiting acknowledgment (ACK) or not acknowledgment (NACK)
+** Not returned to the queue due to an expired *Message Lock Default TTL* (time-to-live) setting
 +
-Messages that have been received from the queue 
-removed from the queue, have not yet been acknowledged or not acknowledged, and have not been returned to the queue due to an expired <<message_lock_ttl,message lock TTL>>. In-flight messages are not visible to other consumers. 
+In-flight messages are not visible to other consumers. 
 +
-Anypoint MQ supports up to 120,000 in-flight messages per queue for standard (non-FIFO) queues. FIFO queues can have up to 20,000 in-flight messages per queue.
+Anypoint MQ supports up to 120,000 in-flight messages per queue for standard (non-FIFO) queues. FIFO queues can have up to 10 in-flight messages in each message group.
 
 * *In Queue*
 +

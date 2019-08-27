@@ -58,7 +58,7 @@ The queues in each region are separate from those in other regions. You can name
 == How many messages can I fetch using the Anypoint MQ user interface?
 
 In *Anypoint Platform* > *MQ* > *Message Browser*, you can fetch up to 50 messages from a standard (non-FIFO) queue. For a FIFO queue, you can fetch up to 10 messages.
-The FIFO restriction is because there can only be up to 10 in-flight FIFO messages. For more information on in-flight messages, see <<inflights,How many in-flight messages can I have per queue?>>
+The FIFO restriction is because the FIFO queues are limited to 10 in-flight messages per message group. For more information on in-flight messages, see <<inflights,How many in-flight messages can I have per queue?>>
 
 [[batchsize]]
 == Why do I receive fewer messages than my batch size when retrieving messages with the Anypoint MQ REST API?
@@ -67,7 +67,7 @@ Anypoint MQ is a highly distributed messaging system, so the results of an API c
 
 == What order are messages in a standard (non-FIFO) queue?
 
-Standard queues attempt to preserve the order of messages, but strict order is not guaranteed. Because standard queues are designed to be scalable and distributed, they can't guaranted that messages are received in the same order that they are sent. If message order is important, use a xref:mq-faq.adoc#fifoqueues[FIFO queue] or set the Anypoint MQ connector to the <<process-one-by-one,Consume operation>>.
+Standard queues attempt to preserve the order of messages, but strict order is not guaranteed. Because standard queues are designed to be scalable and distributed, they can't guarantee that messages are received in the same order that they are sent. If message order is important, use a xref:mq-faq.adoc#fifoqueues[FIFO queue] or set the Anypoint MQ connector to the <<process-one-by-one,Consume operation>>.
 
 == Can messages be larger than 10 MB?
 
@@ -137,15 +137,9 @@ There is no maximum number of transactions per second (TPS) for standard queues 
 [[inflights]]
 == How many in-flight messages can I have per queue?
 
-Anypoint MQ supports up to 120,000 in-flight messages per each standard (non-FIFO) queue. FIFO queues permit up to 10 in-flight messages per FIFO queue due to the extra processing required for FIFO queues.
+Anypoint MQ supports up to 120,000 in-flight messages per each standard (non-FIFO) queue. FIFO queues allow up to 10 in-flight messages per message group due to the extra processing required for FIFO queues.
 
-An in-flight message is:
-
-* A message received by a queue, but not deleted.
-* A message awaiting ACK or NACK. 
-* A message with an expired *Message Lock Default TTL* (time-to-live) setting. 
-
-A single queue can contain an unlimited number of messages. The number of in-flight messages is limited. The maximum duration for any message, either in-flight or not, is 2 weeks, after which Anypoint MQ deletes the message.
+A single queue can contain an unlimited number of messages. The maximum duration for any message, either in-flight or not, is two weeks, after which Anypoint MQ deletes the message.
 
 == Does the Anypoint MQ connector store the message and retry sending it?
 
@@ -181,7 +175,7 @@ to keep the TCP socket open for up to 20 seconds to fulfill your request if ther
 [process-one-by-one]
 == How can I process messages one at a time?
 
-You can use xref:mq-faq.adoc#fifoqueues[FIFO queues] to process messages in order.
+You can use xref:mq-queues.adoc#fifoqueues[FIFO queues] to process messages in order.
 
 If you don't want to use FIFO queues, you can process messages one at a time by setting the Anypoint MQ connector to the `consume` operation.
 This operation retrieves a message from the queue or receives null if a message is not available.
