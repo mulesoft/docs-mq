@@ -185,7 +185,6 @@ A message that persists until its indicated client receives it.
 +
 Messages can persist in flight for up to 2 weeks after which messages older than 2 weeks are deleted. 
 * *In Flight*
-
 + 
 Messages that are: 
 
@@ -201,7 +200,7 @@ Anypoint MQ supports up to 120,000 in-flight messages per queue for standard (no
 +
 Messages that have been sent.
 +
-Anypoint MQ supports up to 120,000 messages in queue for standard (non-FIFO) queues. FIFO queues can have up to 20,000 messages in queue.
+Anypoint MQ supports unlimited messages in queue for both standard and FIFO queues.
 
 * *Lock ID*
 +
