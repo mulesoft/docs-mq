@@ -102,10 +102,13 @@ Delayed delivery is not supported for individual messages in a FIFO queue.
 +
 See xref:mq-understanding.adoc#delay_messages[Delayed delivery for messages].
 +
-** *Message Group ID* (FIFO queue only) specifies the message group to which the message belongs. 
+** *Message Group ID* (FIFO queue only) specifies the message group to which the message belongs.
 +
-Message group IDs can contain up to 128 alphanumeric characters and punctuation (!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~). They cannot contain spaces. 
-// add screenshot here?
+Message group IDs can contain up to 128 alphanumeric characters and punctuation (!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~). They cannot contain spaces.
++
+To preserve message order for an app, you might want to create a message group for each application to send messages.
++
+image::mq-fifo-msg-groups.png[]
 +
 See <<FIFO Queues and Message Groups,FIFO queues and message groups>>.
 . Click *Send*.
