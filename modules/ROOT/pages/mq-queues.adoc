@@ -294,7 +294,7 @@ For information about creating FIFO queues with the Admin API, see xref:mq-apis.
 
 Message groups enable multiple consumers to access messages in a FIFO queue. Only one consumer can access messages in a message group at a time. Message order is preserved within the message group. When a consumer is accessing a message group, other message groups in the FIFO queue are available to other consumers, reducing the chance that the FIFO queue is blocked.
 
-You use the message group ID to specify the message group that the message belongs to. 
+You use the message group ID to specify the message group to which the message belongs.
 
 The FIFO queue processes messages in the message group one by one, in the order they were added.  Message order is not enforced across message groups.
 

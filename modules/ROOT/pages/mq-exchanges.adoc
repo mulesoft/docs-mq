@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :imagesdir: ../assets/images/
 
-A _message exchange_ enables you to send a message to one or more xref:mq-queues.adoc[queues] that are bound to the message exchange. The maximum size of a message sent to a message exchange is 10 MB.
+Using a _message exchange_ you can send a message to one or more xref:mq-queues.adoc[queues] that are bound to the message exchange. The maximum size of a message sent to a message exchange is 10 MB.
 
 FIFO does not support the use of a message exchange. Similarly, FIFO queues cannot be bound to a message exchange.
 
