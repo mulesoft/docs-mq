@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :imagesdir: ../assets/images/
 
-A message exchange lets you send a message to one or more xref:mq-queues.adoc[queues] that are bound to the message exchange. The maximum size of a message sent to a message exchange is 10 MB.
+A _message exchange_ enables you to send a message to one or more xref:mq-queues.adoc[queues] that are bound to the message exchange. The maximum size of a message sent to a message exchange is 10 MB.
 
 FIFO does not support the use of a message exchange. Similarly, FIFO queues cannot be bound to a message exchange.
 
@@ -15,20 +15,20 @@ To create a message exchange:
 . Log in to Anypoint Platform.
 . Click *MQ* from the left navigation area or the main Anypoint Platform screen.
 . Click *Destinations*.
-. Click the blue plus circle.
-. Click *Exchange*.
+. Click the blue plus-circle icon to display the menu:
 +
 image::mq-create-an-exchange.png[]
 +
-. Name the message exchange. 
+. Click *Exchange*.
+. In the Create Exchange page, name the message exchange. 
 +
 Message exchange names can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9), periods (.), and hyphens (-). They cannot contain spaces or other characters. 
-. Click the checkbox to bind queues to this message exchange.
+. Click the checkboxes to bind queues to this message exchange:
 +
 image::mq-name-the-exchange.png[]
 +
 . Click *Save Changes*.
-. In the *Destinations* screen, click the message exchange type for the new exchange to display its details in the right pane:
+. In the Destinations page, click the message exchange type for the new exchange to display its details in the right pane:
 +
 image::mq-exchange-details2.png[]
 
@@ -37,13 +37,12 @@ image::mq-exchange-details2.png[]
 
 To bind a queue to a message exchange:
 
-. Log in to Anypoint Platform.
-. Click *MQ* from the left navigation area or the main Anypoint Platform screen.
-. Click *Destinations*.
-. Click the message exchange ID.
-. In the *Exchange Settings* page, click *Bind* or *Unbind* for each queue you want to bind to or unbind from the message exchange:
+. In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
+. Click the message exchange ID to display the Exchange Settings page:
 +
 image::mq-bind-queue-to-exchange2.png[]
++
+. In the settings page, click *Bind* or *Unbind* for each queue you want to bind to or unbind from the message exchange.
 
 == Send a Message to a Message Exchange
 
@@ -51,21 +50,19 @@ Sending a message to a message exchange is similar to sending a message to a que
 
 To send a message to a message exchange:
 
-. Log in to Anypoint Platform.
-. Click *MQ* from the left navigation area or the main Anypoint Platform screen.
-. Click *Destinations*.
-. Click the message exchange ID or details label to access the Messaging feature:
+. In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
+. Click the message exchange ID to display the Exchange Settings page:
 +
-image::mq-exchange-msg-access2.png[]
+image::mq-exchange-settings.png[]
 +
-. In the settings page, click *Message Sender* in the left pane.
-. Leave the *Type* field set to *Text*.
-. Enter text in the *Payload* field, such as `Hello Queues from myMessageExchange`.
-. Click *Send*.
+. In the settings page, click *Message Sender* in the left pane:
 +
 image::mq-exchange-payload2.png[]
 +
-. Click *View Messages* for a queue bound to the exchange to use the *Message Browser*.
+. Leave the *Type* field set to *Text*.
+. Enter text in the *Payload* field, such as `Hello Queues from myMessageExchange`.
+. Click *Send*.
+. Click *View Messages* for a queue bound to the exchange to view the queue with the Message Browser.
 +
 See xref:mq-queues.adoc#get-a-message-from-a-queue[Get a Message From a Queue].
 
@@ -80,18 +77,15 @@ If a message exchange is no longer needed, you can delete it. All queue bindings
 
 To delete a message exchange:
 
-. Click *Destinations*.
-. In the *Destinations* screen, click the type for the message exchange to display its details in the right pane.
-. Click the trash can icon in the upper right.
+. In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
+. In the Destinations page, click the message exchange type for the exchange to display its details in the right pane.
+. Click the trash can icon in the upper right:
 +
-image::mq-click-type-e2.png[]
+image::mq-exchange-delete.png[]
 +
-. In the *Delete Exchange* screen, click the checkbox:
+. In the Delete Exchange page, click the checkbox, then click *Delete Exchange*:
 +
 image::mq-delete-exchange.png[]
-+
-. Click *Delete Exchange*.
-
 
 == See Also
 

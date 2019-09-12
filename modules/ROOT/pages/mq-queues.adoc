@@ -23,6 +23,14 @@ Anypoint MQ supports 10 in-flight messages per message group in a FIFO queue.
 
 You can assign either standard or FIFO queue type as a dead-letter queue (DLQ). See <<Dead Letter Queues>>.
 
+Standard queues can be bound to a xref:mq-exchanges.adoc[_message exchange_], enabling you to send messages to multiple queues.
+
+You can filter queues by type in the Destinations page:
+
+image::mq-filters.png[]
+
+
+
 == Prerequisites
 
 You must create an environment, user access, and roles for accessing Anypoint MQ before configuring queues. See xref:mq-access-management.adoc[Configure Environment, User, and Role Access].
@@ -35,14 +43,14 @@ To create a standard queue or FIFO queue:
 . Log in to Anypoint Platform.
 . Click *MQ* in the left navigation bar or the main Anypoint Platform screen.
 . Click *Destinations*.
-. Click the blue plus-circle icon.
+. Click the blue plus-circle icon to display the menu:
 +
 image::mq-blue-create.png[]
 +
 . Select *Queue* or *FIFO Queue*.
 +
 For *Exchange*, see xref:mq-exchanges.adoc[Configure Message Exchanges].
-. Complete the fields in *Create Queue* or *Create FiFO Queue*.
+. Complete the fields in *Create Queue* or *Create FIFO Queue*:
 +
 image::mq-create-queues.png[]
 +
@@ -66,11 +74,15 @@ You can specify to delay message delivery in seconds, minutes, hours, or days. W
 +
 The DLQ is a previously created queue to which to send undeliverable messages. See <<Dead Letter Queues>>.
 . Click *Create Queue*.
-. In the *Destinations* screen, click the queue type for the new queue to display its details in the right pane.
-+
-The details for a queue are:
++ 
+The queue is created and appears in the Destinations page:
 +
 image::mq-queue-details.png[]
++
+From this page, you can: 
+
+* Click the queue type for the new queue to display its details in the right pane.
+* Click the queue ID or details label to display the Queue Settings page. 
 
 == Send a Message to a Queue
 
@@ -78,12 +90,10 @@ Message content can be text, JSON, or CSV (comma-separated values). The maximum 
 
 To send a text message to a queue:
 
-. Log in to Anypoint Platform.
-. Click *MQ* in the left navigation bar or the main Anypoint Platform screen.
-. Click *Destinations* in the left pane.
-. Click the queue ID or details label to access the Messaging feature:
+. In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
+. Click the queue ID to display the Queue Settings page:
 +
-image::mq-queue-details.png[]
+image::mq-queue-settings.png[]
 +
 . In the settings page, click *Message Sender* in the left pane.
 +
@@ -93,7 +103,7 @@ See also
 xref:mq-queues.adoc#send-a-json-message-to-a-queue[Send a JSON Message to a Queue] and 
 xref:mq-queues.adoc#send-a-csv-message-to-a-queue[Send a CSV Message to a Queue].
 +
-** *Payload* contains the message payload text, such as `Hello Mules`.
+** *Payload* contains the message payload text, such as `Hello Mules!`.
 ** *Delivery Delay* (standard queue only) indicates the time to delay the message delivery (optional). 
 +
 If you specified *Assign Default Delivery Delay* on the standard queue, you see the default delivery delay. You can override that value for this message or set a delivery delay for a message in a queue without delivery delay. 
@@ -115,11 +125,11 @@ See <<FIFO Queues and Message Groups,FIFO queues and message groups>>.
 
 == View the Number of Messages in a Queue
 
-You can verify that a message arrived in the queue by viewing the number of messages in the queue from the *Destinations* screen.
+You can verify that a message arrived in the queue by viewing the number of messages in the queue from the Destinations page.
 
 To see the number the messages in the queue:
 
-. Click *Destinations* in the left pane.
+. In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
 . Click the queue type for the queue to display its details in the right pane.
 +
 The detail pane shows the number of messages in the queue:
@@ -132,36 +142,33 @@ You can verify that a message arrived by retrieving it from the queue.
 
 To get a message from a queue:
 
-. Log in to Anypoint Platform.
-. Click *MQ* in the left navigation bar or the main Anypoint Platform screen.
-. Click *Destinations* in the left pane.
-. Click the queue ID or details label to access the Messaging feature:
+. In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
+. Click the queue ID to display the Queue Settings page:
 +
-image::mq-queue-details.png[]
+image::mq-queue-settings.png[]
 +
 . In the settings page, click *Message Browser* in the left pane.
-. Click *Get Messages*.
 . If you are retrieving messages from a FIFO queue, click the checkbox to acknowledge 
-that viewing messages through the browser might cause other consumers of the queue to be blocked from accessing messages in the queue.
+that viewing messages through the browser might cause other consumers of the queue to be blocked from accessing messages in the queue:
 +
 image::mqfifo-message-browser.png[]
 +
-
-. Click the message ID value to view the message payload in the right pane.
+. Click *Get Messages*.
+. Click the message row to view the message payload in the right pane:
 +
 image::mq-click-id2.png[]
-+
-. If you want to return the message to the queue (for example, if other applications want to read the message), click the *Return Messages* icon:
-+
+
+If you want to return the message to the queue (for example, if other applications want to read the message), click the *Return Messages* icon:
+
 image::mq-click-retmsgs2.png[]
-+
-If you return to the *Message Sender* or *Destinations* screens, messages automatically return to the queue.
-+
+
+If you return to the Message Sender or Destinations page, messages automatically return to the queue.
+
 Returning the messages to the queue is a not-acknowledgment operation (NACK). The message is not altered. However,
 the time to live (TTL) value you set when you created the queue determines how long the message is available before Anypoint MQ deletes it.
-+
-Alternatively, you can delete the message by clicking the trash can icon in the details pane. 
-+
+
+Alternatively, you can delete the message by clicking the trash can icon in the details pane:
+
 image::mq-message-delete-trash-can-icon2.png[]
 
 Deleting a message is an acknowledgment operation (ACK). For information about how Anypoint MQ processes ACK messages, see xref:mq-ack-mode.adoc[Acknowledge Messages].
@@ -170,10 +177,11 @@ Deleting a message is an acknowledgment operation (ACK). For information about h
 
 To send a JSON message to a queue:
 
-. Log in to Anypoint Platform.
-. Click *MQ* in the left navigation bar or the main Anypoint Platform screen.
-. Click *Destinations* in the left pane.
-. Click the queue ID or details label to access the Messaging feature.
+. In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
+. Click the queue ID to display the Queue Settings page:
++
+image::mq-queue-settings.png[]
++
 . In the settings page, click *Message Sender* in the left pane.
 . Set the *Type* to *JSON*.
 . In the *Payload* field, enter this text:
@@ -190,7 +198,7 @@ To send a JSON message to a queue:
 For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue only), see <<Send a Message to a Queue>>.
 . Click *Send*.
 . Click *Message Browser*, and then click *Get Messages*.
-. Click the message ID to view the message:
+. Click the message row to view the message payload in the right pane:
 +
 image::mq-json-get-msg2.png[]
 
@@ -198,10 +206,11 @@ image::mq-json-get-msg2.png[]
 
 To send a CSV message to a queue:
 
-. Log in to Anypoint Platform.
-. Click *MQ* in the left navigation bar or the main Anypoint Platform screen.
-. Click *Destinations* in the left pane.
-. Click the queue ID or details label to access the Messaging feature.
+. In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
+. Click the queue ID to display the Queue Settings page:
++
+image::mq-queue-settings.png[]
++
 . In the settings page, click *Message Sender* in the left pane.
 . Set the *Type* to *CSV*.
 . In the *Payload* field, enter this text:
@@ -215,18 +224,22 @@ To send a CSV message to a queue:
 For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue only), see <<Send a Message to a Queue>>.
 . Click *Send*.
 . Click *Message Browser*, and then click *Get Messages*.
-. Click the message ID to view the message:
+. Click the message row to view the message payload in the right pane:
 +
 image::mq-csv-get-msg2.png[]
 
 
 == Purge Messages from a Queue
 
-You can purge all the messages in the queue by clicking the *Purge Messages* icon in the details pane:
+To purge all the messages in the queue:
+
+. In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
+. Click the queue type for the queue to display its details in the right pane.
+. Click the *Purge Messages* icon in the details pane:
 
 image::mqfifo-purge-msgs-icon.png[]
 
-An alert message appears. Click the checkbox and then *Delete Messages* to verify that you want to purge all messages in the queue:
+In the Purge Messages page, click the checkbox, and then *Delete Messages* to verify that you want to purge all messages in the queue:
 
 image::mqfifo-purge-messages.png[]
 
@@ -236,17 +249,15 @@ If a queue is no longer needed, you can delete it. Any in-flight messages in the
 
 To delete a queue:
 
-. Click *Destinations*.
-. In the *Destinations* screen, click the queue type for the queue to display its details in the right pane.
-. Click the trash can icon in the upper right.
+. In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
+. Click the queue type for the queue to display its details in the right pane.
+. Click the trash can icon in the upper right:
 +
-image::mq-click-type-q2.png[]
+image::mq-delete-queue-icon.png[]
 +
-. In the *Delete Queue* screen, click the checkbox:
+. In the Delete Queue page, click the checkbox to verify that you want to delete the queue, and then click *Delete Queue*:
 +
 image::mq-delete-queue.png[]
-+
-. Click *Delete Queue*.
 +
 The time it takes to delete or purge a queue is approximately one minute. During this time, the status of the affected queue can't be updated.
 
