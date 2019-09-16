@@ -114,7 +114,7 @@ See xref:mq-understanding.adoc#delay_messages[Delayed delivery for messages].
 +
 ** *Message Group ID* (FIFO queue only) specifies the message group to which the message belongs.
 +
-Message group IDs can contain up to 128 alphanumeric characters and punctuation (!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~). They cannot contain spaces.
+Message group IDs can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9), periods (.), and hyphens (-). They cannot contain spaces or other characters.
 +
 To preserve message order for an app, you might want to create a message group for each application to send messages.
 +
@@ -275,6 +275,7 @@ However, if you batch 10 messages per each read and write operation (maximum) us
 * Support delivery delay on all messages in the FIFO queue
 +
 If you change the delivery delay for a FIFO queue, the setting change is retroactive to all messages in the queue. Delayed delivery is not supported for individual messages in a FIFO queue. 
+* Support multiple <<FIFO Queues and Message Groups,message groups>> 
 * Provide  encryption
 +
 Encrypting a FIFO queue does not affect the order or the contents of messages consumed.
@@ -294,7 +295,13 @@ For information about creating FIFO queues with the Admin API, see xref:mq-apis.
 
 Message groups enable multiple consumers to access messages in a FIFO queue. Only one consumer can access messages in a message group at a time. Message order is preserved within the message group. When a consumer is accessing a message group, other message groups in the FIFO queue are available to other consumers, reducing the chance that the FIFO queue is blocked.
 
-You use the message group ID to specify the message group to which the message belongs.
+You use the message group ID to specify the message group to which the message belongs:
+
+image::mq-fifo-msg-groups.png[]
+
+You can see which message group ID to which a message belongs in the details pane of the message browser: 
+
+image::mq-fifo-msg-groups.png[]
 
 The FIFO queue processes messages in the message group one by one, in the order they were added.  Message order is not enforced across message groups.
 
