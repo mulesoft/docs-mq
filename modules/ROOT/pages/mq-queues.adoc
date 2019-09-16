@@ -30,7 +30,6 @@ You can filter queues by type in the Destinations page:
 image::mq-filters.png[]
 
 
-
 == Prerequisites
 
 You must create an environment, user access, and roles for accessing Anypoint MQ before configuring queues. See xref:mq-access-management.adoc[Configure Environment, User, and Role Access].
@@ -82,7 +81,7 @@ image::mq-queue-details.png[]
 From this page, you can: 
 
 * Click the queue type for the new queue to display its details in the right pane.
-* Click the queue ID or details label to display the Queue Settings page. 
+* Click the queue ID or details label to display the *Queue Settings* page. 
 
 == Send a Message to a Queue
 
@@ -91,7 +90,7 @@ Message content can be text, JSON, or CSV (comma-separated values). The maximum 
 To send a text message to a queue:
 
 . In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
-. Click the queue ID to display the Queue Settings page:
+. Click the queue ID to display the *Queue Settings* page:
 +
 image::mq-queue-settings.png[]
 +
@@ -116,11 +115,11 @@ See xref:mq-understanding.adoc#delay_messages[Delayed delivery for messages].
 +
 Message group IDs can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9), periods (.), and hyphens (-). They cannot contain spaces or other characters.
 +
-To preserve message order for an app, you might want to create a message group for each application to send messages.
+To preserve message order for an app, you might want to create a message group for each application to send messages:
 +
 image::mq-fifo-msg-groups.png[]
 +
-See <<FIFO Queues and Message Groups,FIFO queues and message groups>>.
+See <<FIFO Queues and Message Groups>>.
 . Click *Send*.
 
 == View the Number of Messages in a Queue
@@ -143,7 +142,7 @@ You can verify that a message arrived by retrieving it from the queue.
 To get a message from a queue:
 
 . In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
-. Click the queue ID to display the Queue Settings page:
+. Click the queue ID to display the *Queue Settings* page:
 +
 image::mq-queue-settings.png[]
 +
@@ -154,7 +153,7 @@ that viewing messages through the browser might cause other consumers of the que
 image::mqfifo-message-browser.png[]
 +
 . Click *Get Messages*.
-. Click the message row to view the message payload in the right pane:
+. Click the message row to view the message payload in the details pane:
 +
 image::mq-click-id2.png[]
 
@@ -178,7 +177,7 @@ Deleting a message is an acknowledgment operation (ACK). For information about h
 To send a JSON message to a queue:
 
 . In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
-. Click the queue ID to display the Queue Settings page:
+. Click the queue ID to display the *Queue Settings* page:
 +
 image::mq-queue-settings.png[]
 +
@@ -198,7 +197,7 @@ image::mq-queue-settings.png[]
 For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue only), see <<Send a Message to a Queue>>.
 . Click *Send*.
 . Click *Message Browser*, and then click *Get Messages*.
-. Click the message row to view the message payload in the right pane:
+. Click the message row to view the message payload in the details pane:
 +
 image::mq-json-get-msg2.png[]
 
@@ -207,7 +206,7 @@ image::mq-json-get-msg2.png[]
 To send a CSV message to a queue:
 
 . In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
-. Click the queue ID to display the Queue Settings page:
+. Click the queue ID to display the *Queue Settings* page:
 +
 image::mq-queue-settings.png[]
 +
@@ -224,7 +223,7 @@ image::mq-queue-settings.png[]
 For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue only), see <<Send a Message to a Queue>>.
 . Click *Send*.
 . Click *Message Browser*, and then click *Get Messages*.
-. Click the message row to view the message payload in the right pane:
+. Click the message row to view the message payload in the details pane:
 +
 image::mq-csv-get-msg2.png[]
 
@@ -251,7 +250,7 @@ To delete a queue:
 
 . In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
 . Click the queue type for the queue to display its details in the right pane.
-. Click the trash can icon in the upper right:
+. Click the trash can icon in the upper right of the details pane:
 +
 image::mq-delete-queue-icon.png[]
 +
@@ -295,19 +294,31 @@ For information about creating FIFO queues with the Admin API, see xref:mq-apis.
 
 Message groups enable multiple consumers to access messages in a FIFO queue. Only one consumer can access messages in a message group at a time. Message order is preserved within the message group. When a consumer is accessing a message group, other message groups in the FIFO queue are available to other consumers, reducing the chance that the FIFO queue is blocked.
 
-You use the message group ID to specify the message group to which the message belongs:
-
-image::mq-fifo-msg-groups.png[]
-
-You can see which message group ID to which a message belongs in the details pane of the message browser: 
-
-image::mq-fifo-msg-groups.png[]
-
 The FIFO queue processes messages in the message group one by one, in the order they were added.  Message order is not enforced across message groups.
 
 If multiple applications send messages associated with the same message group ID to a FIFO queue, the messages are stored in the order they arrive. To preserve message order for an app, make sure that each app uses a specific message group ID to send messages.
 
 If a message doesn't have an associated message group ID, the message is assigned to a default message group. If you require a single group of ordered messages, provide the same message group ID for messages sent to the FIFO queue.
+
+==== Assign a Message Group ID to a Message
+
+To assign a message group ID to a message:
+
+. <<Send a Message to a Queue,Send a message to a queue>>.
+. In the *Message Sender*, specify the message group to which the message belongs:
++
+image::mq-fifo-msg-groups.png[]
+
+
+==== Determine the Message Group to Which a Message Belongs
+
+To see which message group a message belongs to:
+
+. <<Get a Message from a Queue,Get a message from the queue>>.
+. In the *Message Browser*, check the details pane for the message: 
++
+image::mq-fifo-msg-group-id.png[]
+
 
 === FIFO Exactly-Once Delivery
 
