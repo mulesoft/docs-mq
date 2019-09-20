@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :imagesdir: ../assets/images/
 
-Using a _message exchange_, you can send a message to one or more xref:mq-queues.adoc[queues] that are bound to the message exchange. The maximum size of a message sent to a message exchange is 10 MB.
+Using a _message exchange_, you can send a message to one or more standard xref:mq-queues.adoc[queues] that are bound to the message exchange. The maximum size of a message sent to a message exchange is 10 MB.
 
 FIFO does not support the use of a message exchange. Similarly, FIFO queues cannot be bound to a message exchange.
 
@@ -62,7 +62,7 @@ image::mq-exchange-payload2.png[]
 . Leave the *Type* field set to *Text*.
 . Enter text in the *Payload* field, such as `Hello Queues from myMessageExchange`.
 . Click *Send*.
-. Click *View Messages* for a queue bound to the exchange to view the queue with the Message Browser.
+. Click *View Messages* for a queue that is bound to the exchange to view the queue with the Message Browser.
 +
 See xref:mq-queues.adoc#get-a-message-from-a-queue[Get a Message From a Queue].
 
@@ -83,7 +83,7 @@ To delete a message exchange:
 +
 image::mq-exchange-delete.png[]
 +
-. In the Delete Exchange page, click the checkbox, then click *Delete Exchange*:
+. In the Delete Exchange page, click the checkbox, and then click *Delete Exchange*:
 +
 image::mq-delete-exchange.png[]
 

@@ -111,7 +111,7 @@ Delayed delivery is not supported for individual messages in a FIFO queue.
 +
 See xref:mq-understanding.adoc#delay_messages[Delayed delivery for messages].
 +
-** *Message Group ID* (FIFO queue only) specifies the message group to which the message belongs.
+** *Message Group ID* (FIFO queue only) specifies the group to which the message belongs.
 +
 Message group IDs can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9), periods (.), and hyphens (-). They cannot contain spaces or other characters.
 +
@@ -157,11 +157,11 @@ image::mqfifo-message-browser.png[]
 +
 image::mq-click-id2.png[]
 
-If you want to return the message to the queue (for example, if other applications want to read the message), click the *Return Messages* icon:
+If you want to return the message to the queue (for example, to enable other applications to read the message), click the *Return Messages* icon:
 
 image::mq-click-retmsgs2.png[]
 
-If you return to the Message Sender or Destinations page, messages automatically return to the queue.
+If you return to the Message Sender page or Destinations page, messages automatically return to the queue.
 
 Returning the messages to the queue is a not-acknowledgment operation (NACK). The message is not altered. However,
 the time to live (TTL) value you set when you created the queue determines how long the message is available before Anypoint MQ deletes it.
@@ -238,7 +238,7 @@ To purge all the messages in the queue:
 
 image::mqfifo-purge-msgs-icon.png[]
 
-In the Purge Messages page, click the checkbox, and then *Delete Messages* to verify that you want to purge all messages in the queue:
+In the Purge Messages page, select the checkbox, and then *Delete Messages* to verify that you want to purge all messages in the queue:
 
 image::mqfifo-purge-messages.png[]
 
@@ -254,7 +254,7 @@ To delete a queue:
 +
 image::mq-delete-queue-icon.png[]
 +
-. In the Delete Queue page, click the checkbox to verify that you want to delete the queue, and then click *Delete Queue*:
+. In the Delete Queue page, select the checkbox to verify that you want to delete the queue, and then click *Delete Queue*:
 +
 image::mq-delete-queue.png[]
 +
@@ -292,7 +292,7 @@ For information about creating FIFO queues with the Admin API, see xref:mq-apis.
 
 === FIFO Queues and Message Groups
 
-Message groups enable multiple consumers to access messages in a FIFO queue. Only one consumer can access messages in a message group at a time. Message order is preserved within the message group. When a consumer is accessing a message group, other message groups in the FIFO queue are available to other consumers, reducing the chance that the FIFO queue is blocked.
+Message groups enable multiple consumers to access messages in a FIFO queue. Only one consumer at a time can access messages in a message group. Message order is preserved within the message group. When a consumer is accessing a message group, other message groups in the FIFO queue are available to other consumers, reducing the chance that the FIFO queue is blocked.
 
 The FIFO queue processes messages in the message group one by one, in the order they were added.  Message order is not enforced across message groups.
 

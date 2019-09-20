@@ -65,7 +65,7 @@ The FIFO restriction exists because the FIFO queues are limited to 10 in-flight 
 
 Anypoint MQ is a highly distributed messaging system, so the results of an API call to receive messages are not guaranteed to be entirely representative of what is fully in the queue. Anypoint MQ operates in a best-effort case. For example, if there are 5 messages in a queue, the system returns anywhere from 0-5 messages in a single API call depending on what distributed subsystems are accessed by that request. Subsequent API calls retrieve more messages and if you keep making API requests to receive messages, then you get all of them.  Normally in high throughput cases, repeated API calls happen extremely fast.  The Anypoint MQ connector, for example, continuously polls the Anypoint MQ backend for new messages and from the user perspective, the messages are processed nearly instantly even though many API calls were used.
 
-== What order are messages in a standard (non-FIFO) queue?
+== In what order are messages in a standard (non-FIFO) queue?
 
 Standard queues attempt to preserve the order of messages, but strict order is not guaranteed. Because standard queues are designed to be scalable and distributed, they can't guarantee that messages are received in the same order that they are sent. If message order is important, use a xref:mq-faq.adoc#fifoqueues[FIFO queue] or set the Anypoint MQ connector to the <<process-one-by-one,Consume operation>>.
 
@@ -132,12 +132,12 @@ Up to 10 messages can be retrieved from a single API call, which only bills as o
 
 == What's the maximum TPS for Anypoint MQ?
 
-There is no maximum number of transactions per second (TPS) for standard queues or exchanges. FIFO queues have a limit of 300 TPS. If you batch 10 messages per each read and write operation (maximum) using the API, FIFO queues can support up to 3,000 TPS.
+There is no maximum number of transactions per second (TPS) for standard queues or exchanges. FIFO queues have a limit of 300 TPS. If you batch 10 messages per read and write operation (maximum) using the API, FIFO queues can support up to 3,000 TPS.
 
 [[inflights]]
 == How many in-flight messages can I have per queue?
 
-Anypoint MQ supports up to 120,000 in-flight messages per each standard (non-FIFO) queue. FIFO queues allow up to 10 in-flight messages per message group due to the extra processing required for FIFO queues.
+Anypoint MQ supports up to 120,000 in-flight messages per standard (non-FIFO) queue. FIFO queues allow up to 10 in-flight messages per message group due to the extra processing required.
 
 A single queue can contain an unlimited number of messages. The maximum duration for any message, either in-flight or not, is two weeks, after which Anypoint MQ deletes the message.
 
@@ -211,7 +211,7 @@ Mule 4 Example:
 . Set `processingStrategy="synchronous"` on the flow.
 +
 Specify this attribute to process messages in the same thread that initially received the message.
-. Set a poll scope to regularly fire the process.
+. Set a poll scope to fire the process at specified intervals.
 
 Mule 3 Example:
 
