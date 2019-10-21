@@ -228,7 +228,7 @@ Mule 3 Example:
 </flow>
 ----
 
-More than one in-flight message can occur if the processing time between `anypoint-mq:consume` and `anypoint-mq:ack` is higher than the value of the *Message Lock Default TTL* setting for the queue.
+More than one in-flight message can occur if the processing time between `anypoint-mq:consume` and `anypoint-mq:ack` is higher than the value of the *Default Acknowledgement Timeout* setting for the queue.
 // Make sure to create an exception strategy and NACK the message accordingly.
 
 == Can we see the Anypoint MQ headers in the browse message options?

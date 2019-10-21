@@ -25,9 +25,10 @@ You can assign either standard or FIFO queue type as a dead-letter queue (DLQ). 
 
 Standard queues can be bound to a xref:mq-exchanges.adoc[_message exchange_], enabling you to send messages to multiple queues.
 
-You can filter queues by type in the Destinations page:
+You can filter queues by type in the *Destinations* page:
 
-image::mq-filters.png[]
+.The arrow shows the filters at the top of the *Destinations* page.
+image::mq-filters.png[Filters at the top of the Destinations page]
 
 
 == Prerequisites
@@ -42,16 +43,18 @@ To create a standard queue or FIFO queue:
 . Log in to Anypoint Platform.
 . Click *MQ* in the left navigation bar or the main Anypoint Platform screen.
 . Click *Destinations*.
-. Click the blue plus-circle icon to display the menu:
+. Click the blue plus icon to display the menu:
 +
-image::mq-blue-create.png[]
+.The arrow shows the blue plus icon at the top of the *Destinations* page.
+image::mq-blue-create.png[Blue plus icon used for adding a queue]
 +
 . Select *Queue* or *FIFO Queue*.
 +
 For *Exchange*, see xref:mq-exchanges.adoc[Configure Message Exchanges].
 . Complete the fields in *Create Queue* or *Create FIFO Queue*:
 +
-image::mq-create-queues.png[]
+.The screenshot shows the *Create Queue* popup.
+image::mq-create-queues.png[Create Queue popup]
 +
 ** *ID* specifies the queue name.
 +
@@ -60,23 +63,24 @@ Queue names can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9), perio
 ** *Message TTL* (Time to live) specifies how long unprocessed messages persist before being deleted. 
 +
 The maximum TTL for a message is two weeks.
-** *Message Lock Default TTL* specifies how long a message waits before being put back into the queue in the event of  server failure when the message is not acknowledged.
+** *Default Acknowledgment Timeout* specifies how long a message waits before being put back into the queue in the event of server failure when the message is not acknowledged.
 +
 The lock makes the message unavailable to other apps while locked, but does not block other messages from being read.
 +
-The maximum Lock TTL is 12 hours.
+The maximum acknowledgement timeout is 12 hours.
 ** *Assign Default Delivery Delay* specifies how long to delay delivery for messages sent to the queue.
 +
 You can specify to delay message delivery in seconds, minutes, hours, or days. When you send a message, you can override the default delivery delay. See xref:mq-understanding.adoc#delay_queues[Delay queues].
-** *Encryption* (optional) encrypts all messages in the queue. See xref:mq-understanding.adoc#encrypt-queue[Encrypted queues].
-** *Assign a Dead Letter Queue* (optional) assigns the DLQ.
+** *Encryption* encrypts all messages in the queue. See xref:mq-understanding.adoc#encrypt-queue[Encrypted queues].
+** *Assign a Dead Letter Queue* assigns the DLQ.
 +
 The DLQ is a previously created queue to which to send undeliverable messages. See <<Dead Letter Queues>>.
 . Click *Create Queue*.
 + 
-The queue is created and appears in the Destinations page:
+The queue is created and appears in the *Destinations* page:
 +
-image::mq-queue-details.png[]
+.The *Destinations* page shows the ID, type, and details label for the queue.
+image::mq-queue-details.png[Destinations page with new queue]
 +
 From this page, you can: 
 
@@ -90,11 +94,11 @@ Message content can be text, JSON, or CSV (comma-separated values). The maximum 
 To send a text message to a queue:
 
 . In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
-. Click the queue ID to display the *Queue Settings* page:
-+
-image::mq-queue-settings.png[]
-+
+. Click the queue ID to display the *Queue Settings* page.
 . In the settings page, click *Message Sender* in the left pane.
++
+.The arrow shows the *Message Sender* option in the left pane.
+image::mq-message-sender-page.png[Message Sender option]
 +
 ** *Type* is *Text*, *CSV*, or *JSON*.
 +
@@ -117,7 +121,8 @@ Message group IDs can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9),
 +
 To preserve message order for an app, you might want to create a message group for each application to send messages:
 +
-image::mq-fifo-msg-groups.png[]
+.The arrow shows the *Message Group ID* field in the *Message Sender* page.
+image::mq-fifo-msg-groups.png[Message Group ID field for FIFO queues in the Message Sender page]
 +
 See <<FIFO Queues and Message Groups>>.
 . Click *Send*.
@@ -133,7 +138,8 @@ To see the number the messages in the queue:
 +
 The detail pane shows the number of messages in the queue:
 +
-image::mq-msgs-in-queue2.png[]
+.The arrow shows the number of messages in the queue in the details pane.
+image::mq-msgs-in-queue.png[]
 
 == Get a Message from a Queue
 
@@ -144,31 +150,32 @@ To get a message from a queue:
 . In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
 . Click the queue ID to display the *Queue Settings* page:
 +
-image::mq-queue-settings.png[]
+.The arrow shows the *Queue Settings* option in the *Destinations* page.
+image::mq-queue-settings.png[Queue Settings option]
 +
 . In the settings page, click *Message Browser* in the left pane.
 . If you are retrieving messages from a FIFO queue, click the checkbox to acknowledge 
 that viewing messages through the browser might cause other consumers of the queue to be blocked from accessing messages in the queue:
 +
-image::mqfifo-message-browser.png[]
+.The arrow shows the accept checkbox for getting messages from FIFO queues.
+image::mq-fifo-msg-browser.png[Accept checkbox for FIFO queues]
 +
 . Click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-image::mq-click-id2.png[]
+.The screenshot shows the message row, the message payload in the details pane, and the *Return Messages* icon.
+image::mq-msg-browser-payload-details.png[Selected message row, payload in the details pane, and *Return Messages* icon]
 
-If you want to return the message to the queue (for example, to enable other applications to read the message), click the *Return Messages* icon:
+If you want to return the message to the queue (for example, to enable other applications to read the message), click the *Return Messages* icon. 
 
-image::mq-click-retmsgs2.png[]
+If you return to the *Message Sender* page or *Destinations* page, messages automatically return to the queue.
 
-If you return to the Message Sender page or Destinations page, messages automatically return to the queue.
-
-Returning the messages to the queue is a not-acknowledgment operation (NACK). The message is not altered. However,
-the time to live (TTL) value you set when you created the queue determines how long the message is available before Anypoint MQ deletes it.
+Returning the messages to the queue is a not-acknowledgment operation (NACK). The message is not altered. However, the time to live (TTL) value you set when you created the queue determines how long the message is available before Anypoint MQ deletes it.
 
 Alternatively, you can delete the message by clicking the trash can icon in the details pane:
 
-image::mq-message-delete-trash-can-icon2.png[]
+.The arrow shows the trash can icon in the details pane for deleting a message in the message browser.
+image::mq-msg-browser-delete-icon.png[Trash can icon for deleting a message in the Message Browser]
 
 Deleting a message is an acknowledgment operation (ACK). For information about how Anypoint MQ processes ACK messages, see xref:mq-ack-mode.adoc[Acknowledge Messages].
 

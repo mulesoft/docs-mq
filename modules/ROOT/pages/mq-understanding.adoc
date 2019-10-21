@@ -123,7 +123,7 @@ If a consumer is not able to process a message, the message proceeds with a nega
 +
 Each queue has a message time-to-live (TTL). TTL specifies how long the message is in the queue before Anypoint MQ expires the message and removes it from the queue.
 [message_lock_ttl]
-* *Message Lock Default TTL* 
+* *Default Acknowledgement Timeout* 
 How long a message remains unacknowledged before being returned to the queue: for example, in the event of server failure or when flow processing takes too long and times out.
 
 * *Unlimited messages in a queue*
@@ -190,7 +190,7 @@ Messages that are:
 
 ** Received by a queue, but not deleted
 ** Awaiting acknowledgment (ACK) or not acknowledgment (NACK)
-** Not returned to the queue due to an expired *Message Lock Default TTL* (time-to-live) setting
+** Not returned to the queue due to an expired *Default Acknowledgement Timeout* (time-to-live) setting
 +
 In-flight messages are not visible to other consumers. 
 +
