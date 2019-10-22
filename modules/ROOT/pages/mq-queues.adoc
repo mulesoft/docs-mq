@@ -136,10 +136,10 @@ To see the number the messages in the queue:
 . In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
 . Click the queue type for the queue to display its details in the right pane.
 +
-The detail pane shows the number of messages in the queue:
+The details pane shows the number of messages in the queue:
 +
 .The arrow shows the number of messages in the queue in the details pane.
-image::mq-msgs-in-queue.png[]
+image::mq-msgs-in-queue.png[The number of messages in the queue in the details pane]
 
 == Get a Message from a Queue
 
@@ -157,13 +157,13 @@ image::mq-queue-settings.png[Queue Settings option]
 . If you are retrieving messages from a FIFO queue, click the checkbox to acknowledge 
 that viewing messages through the browser might cause other consumers of the queue to be blocked from accessing messages in the queue:
 +
-.The arrow shows the accept checkbox for getting messages from FIFO queues.
+.The arrow shows the accept checkbox for getting messages from a FIFO queue.
 image::mq-fifo-msg-browser.png[Accept checkbox for FIFO queues]
 +
 . Click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-.The screenshot shows the message row, the message payload in the details pane, and the *Return Messages* icon.
+.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, and (*3*) the *Return Messages* icon.
 image::mq-msg-browser-payload-details.png[Selected message row, payload in the details pane, and *Return Messages* icon]
 
 If you want to return the message to the queue (for example, to enable other applications to read the message), click the *Return Messages* icon. 
@@ -174,8 +174,8 @@ Returning the messages to the queue is a not-acknowledgment operation (NACK). Th
 
 Alternatively, you can delete the message by clicking the trash can icon in the details pane:
 
-.The arrow shows the trash can icon in the details pane for deleting a message in the message browser.
-image::mq-msg-browser-delete-icon.png[Trash can icon for deleting a message in the Message Browser]
+.The arrow shows the trash can icon in the details pane for deleting a message in the queue.
+image::mq-msg-browser-delete-icon.png[Trash can icon for deleting a message in the queue]
 
 Deleting a message is an acknowledgment operation (ACK). For information about how Anypoint MQ processes ACK messages, see xref:mq-ack-mode.adoc[Acknowledge Messages].
 
@@ -186,7 +186,8 @@ To send a JSON message to a queue:
 . In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
 . Click the queue ID to display the *Queue Settings* page:
 +
-image::mq-queue-settings.png[]
+.The arrow shows the *Queue Settings* option in the *Destinations* page.
+image::mq-queue-settings.png[Queue Settings option]
 +
 . In the settings page, click *Message Sender* in the left pane.
 . Set the *Type* to *JSON*.
@@ -206,7 +207,8 @@ For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue on
 . Click *Message Browser*, and then click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-image::mq-json-get-msg2.png[]
+.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, and (*3*) the *Return Messages* icon.
+image::mq-msg-browser-payload-details-json.png[Selected message row, JSON payload in the details pane, and *Return Messages* icon]
 
 == Send a CSV Message to a Queue
 
@@ -215,8 +217,8 @@ To send a CSV message to a queue:
 . In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
 . Click the queue ID to display the *Queue Settings* page:
 +
-image::mq-queue-settings.png[]
-+
+.The arrow shows the *Queue Settings* option in the *Destinations* page.
+image::mq-queue-settings.png[Queue Settings option]
 . In the settings page, click *Message Sender* in the left pane.
 . Set the *Type* to *CSV*.
 . In the *Payload* field, enter this text:
@@ -232,7 +234,8 @@ For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue on
 . Click *Message Browser*, and then click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-image::mq-csv-get-msg2.png[]
+.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, and (*3*) the *Return Messages* icon.
+image::mq-msg-browser-payload-details-csv.png[Selected message row, CSV payload in the details pane, and *Return Messages* icon]
 
 
 == Purge Messages from a Queue
@@ -242,12 +245,13 @@ To purge all the messages in the queue:
 . In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
 . Click the queue type for the queue to display its details in the right pane.
 . Click the *Purge Messages* icon in the details pane:
-
-image::mqfifo-purge-msgs-icon.png[]
-
-In the Purge Messages page, select the checkbox, and then *Delete Messages* to verify that you want to purge all messages in the queue:
-
-image::mqfifo-purge-messages.png[]
++
+.The arrow shows the *Purge Message* icon in the details pane.
+image::mq-purge-msgs-icon.png[Purge Messages icon in the details pane]
+. In the *Purge Messages* confirmation popup, select the checkbox, and then click *Delete Messages* to verify that you want to purge all messages in the queue:
++
+.The arrow shows the accept checkbox for purging messages from the queue.
+image::mq-purge-msgs-confirm.png[Accept checkbox for purging messages from a queue]
 
 == Delete a Queue
 
@@ -259,11 +263,13 @@ To delete a queue:
 . Click the queue type for the queue to display its details in the right pane.
 . Click the trash can icon in the upper right of the details pane:
 +
-image::mq-delete-queue-icon.png[]
+.The arrow shows the trash can icon in the details pane for deleting a queue.
+image::mq-delete-queue-icon.png[Trash can icon in the details pane for deleting a queue]
 +
-. In the Delete Queue page, select the checkbox to verify that you want to delete the queue, and then click *Delete Queue*:
+. In the *Delete Queue* confirmation popup, select the checkbox, and then click *Delete Queue* to verify that you want to delete the queue:
 +
-image::mq-delete-queue.png[]
+.The arrow shows the accept checkbox for deleting a queue.
+image::mq-delete-queue-confirm.png[Accept checkbox for deleting a queue]
 +
 The time it takes to delete or purge a queue is approximately one minute. During this time, the status of the affected queue can't be updated.
 
@@ -312,9 +318,11 @@ If a message doesn't have an associated message group ID, the message is assigne
 To assign a message group ID to a message:
 
 . <<Send a Message to a Queue,Send a message to a queue>>.
-. In the *Message Sender*, specify the message group to which the message belongs:
+. In the *Message Sender* page, specify the message group to which the message belongs:
 +
-image::mq-fifo-msg-groups.png[]
+.The arrow shows the *Message Group ID* field in the *Message Sender* page.
+image::mq-fifo-msg-groups.png[Message Group ID field for FIFO queues in the Message Sender page]
+
 
 
 ==== Determine the Message Group to Which a Message Belongs
@@ -324,7 +332,8 @@ To see which message group a message belongs to:
 . <<Get a Message from a Queue,Get a message from the queue>>.
 . In the *Message Browser*, check the details pane for the message: 
 +
-image::mq-fifo-msg-group-id.png[]
+.The arrow shows the *Message Group ID* value in the details pane for a message in the queue.
+image::mq-fifo-msg-group-id.png[Message Group ID value in the details pane for a message]
 
 
 === FIFO Exactly-Once Delivery
@@ -364,7 +373,7 @@ If a queue has a dead-letter queue assigned:
 * Viewing a message and returning it to the queue counts as a NACK operation and is considered an unsuccessful delivery attempt.
 * Deleting the message in the *Message Browser* prevents it from being counted against the maximum deliveries, but the message is lost.
 
-=== How Messages Are Sent to a DLQ
+=== How Messages are Sent to a DLQ
 
 This flowchart shows how messages are sent to a DLQ:
 
@@ -385,8 +394,10 @@ To assign a DLQ to a queue:
 . Toggle *Assign a Dead Letter Queue* to *On*.
 +
 The following additional fields appear:
++
+.The screenshot shows the DLQ fields in the *Create Queue* page.
+image::mq-create-q-dlq.png[DLQ fields in the Create Queue page]
 
-image::mq-create-q-dlq.png[]
 
 * *Dead Letter Queue Name* 
 +
@@ -403,7 +414,8 @@ You can recover messages from the DLQ using the REST API to get the message from
 
 You can see whether a queue is a DLQ by viewing its details:
 
-image::mq-queue-view-dlq.png[]
+.The screenshot shows the DLQ status in the details pane for the queue.
+image::mq-queue-view-dlq.png[DLQ status in the details pane]
 
 You can also view details of each queue from the REST Administration API, using the Get Queue REST endpoint. 
 
