@@ -15,22 +15,27 @@ To create a message exchange:
 . Log in to Anypoint Platform.
 . Click *MQ* from the left navigation area or the main Anypoint Platform screen.
 . Click *Destinations*.
-. Click the blue plus-circle icon to display the menu:
+. Click the blue plus icon to display the menu:
 +
-image::mq-create-an-exchange.png[]
+.The arrow shows the blue plus icon at the top of the *Destinations* page.
+image::mq-blue-create.png[Blue plus icon used for adding a message exchange]
 +
-. Click *Exchange*.
-. In the Create Exchange page, name the message exchange. 
+. Select *Exchange*.
++
+For *Queue* or *FIFO Queue*, see xref:mq-queues.adoc[Configure Queues].
+. In the *Create Exchange* page, name the message exchange. 
 +
 Message exchange names can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9), periods (.), and hyphens (-). They cannot contain spaces or other characters. 
 . Click the checkboxes to bind queues to this message exchange:
 +
-image::mq-name-the-exchange.png[]
+.The arrow shows the checkboxes to select to bind queues to the exchange.
+image::mq-exchange-bind-queues.png[Checkboxes to bind queues to an exchange]
 +
 . Click *Save Changes*.
-. In the Destinations page, click the message exchange type for the new exchange to display its details in the right pane:
+. In the *Destinations* page, click the message exchange type for the new exchange to display its details in the right pane:
 +
-image::mq-exchange-details2.png[]
+.The screen shows (*1*) where to click to display (*2*) the queues bound to the exchange in the details pane.
+image::mq-exchange-details-pane.png[Click the exchange type to display its details in the details pane]
 
 
 == Bind a Queue to a Message Exchange
@@ -38,11 +43,17 @@ image::mq-exchange-details2.png[]
 To bind a queue to a message exchange:
 
 . In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
-. Click the message exchange ID to display the Exchange Settings page:
+. Click the message exchange ID to display the *Exchange Settings* page:
 +
-image::mq-bind-queue-to-exchange2.png[]
+.The screen shows (*1*) the checkboxes to select multiple queues, (*2*) the *Unbind* and (*3*) *Bind* buttons to unbind or bind a single queue to the exchange.  
+image::mq-bind-queue-to-exchange2.png[Checkboxes for multiple select, Unbind, and Bind buttons]
 +
-. In the settings page, click *Bind* or *Unbind* for each queue you want to bind to or unbind from the message exchange.
+. In the settings page, click *Bind* or *Unbind* for each single queue you want to bind to or unbind from the message exchange.
++
+To select multiple queues to bind to the exchange, select the checkboxes and click the *Bind Selected Queues* button that appears:
++
+.The arrow shows the *Bind Selected Queues* button to bind a multiple queues to the exchange.  
+image::mq-exchange-bind-selected-queues.png[Bind Selected Queues button]
 
 == Send a Message to a Message Exchange
 
@@ -51,20 +62,18 @@ Sending a message to a message exchange is similar to sending a message to a que
 To send a message to a message exchange:
 
 . In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
-. Click the message exchange ID to display the Exchange Settings page:
-+
-image::mq-exchange-settings.png[]
-+
+. Click the message exchange ID to display the *Exchange Settings* page.
 . In the settings page, click *Message Sender* in the left pane:
 +
-image::mq-exchange-payload2.png[]
+.The arrow shows the *Message Sender* option for the exchange.  
+image::mq-exchange-payload.png[Message Sender option for the exchange]
 +
 . Leave the *Type* field set to *Text*.
 . Enter text in the *Payload* field, such as `Hello Queues from myMessageExchange`.
 . Click *Send*.
 . Click *View Messages* for a queue that is bound to the exchange to view the queue with the Message Browser.
 +
-See xref:mq-queues.adoc#get-a-message-from-a-queue[Get a Message From a Queue].
+See xref:mq-queues.adoc#get-a-message-from-a-queue[Get a Message from a Queue].
 
 You also send JSON content or comma-separated values (CSV) in the payload by changing
 the message *Type* value. See 
@@ -78,14 +87,15 @@ If a message exchange is no longer needed, you can delete it. All queue bindings
 To delete a message exchange:
 
 . In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
-. In the Destinations page, click the message exchange type for the exchange to display its details in the right pane.
+. In the *Destinations* page, click the message exchange type for the exchange to display its details in the right pane.
 . Click the trash can icon in the upper right:
 +
-image::mq-exchange-delete.png[]
-+
+.The arrow shows the trash can icon in the details pane for deleting an exchange.
+image::mq-exchange-delete.png[Trash can icon in the details pane for deleting an exchange]
 . In the Delete Exchange page, click the checkbox, and then click *Delete Exchange*:
 +
-image::mq-delete-exchange.png[]
+.The arrow shows the accept checkbox for deleting an exchange.
+image::mq-delete-exchange.png[Accept checkbox for deleting an exchange]
 
 == See Also
 
