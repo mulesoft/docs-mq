@@ -51,7 +51,7 @@ Creating a role enables you to assign access rights to users in your organizatio
 . Click *Roles* in the left menu, and then click the *Add Role* button.
 . Name the role `Admin Role` and click the *Add role* button.
 . Click *Admin Role* and click the *MQ* tab.
-. From the *Environment* drop-down, select *Production*.
+. From the *Environment* menu, select *Production*.
 . From the *Permissions* drop-down, select *Select all*.
 . Click the blue plus icon to add the selections.
 +
