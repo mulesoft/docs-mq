@@ -52,7 +52,7 @@ Creating a role enables you to assign access rights to users in your organizatio
 . Name the role `Admin Role` and click the *Add role* button.
 . Click *Admin Role* and click the *MQ* tab.
 . From the *Environment* menu, select *Production*.
-. From the *Permissions* drop-down, select *Select all*.
+. From the *Permissions* menu, select *Select all*.
 . Click the blue plus icon to add the selections.
 +
 Anypoint Platform displays your settings.
