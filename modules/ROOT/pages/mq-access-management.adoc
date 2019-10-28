@@ -59,7 +59,7 @@ Anypoint Platform displays your settings.
 
 The settings are:
 
-* *Clear destinations*:
+* *Clear destinations*
 +
 Same privileges as *View destinations*, plus permission to purge messages
 * *Manage clients*:
