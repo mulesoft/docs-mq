@@ -65,7 +65,7 @@ Same privileges as *View destinations*, plus permission to purge messages
 * *Manage clients*
 +
 Same privileges as *View clients*, plus permission to create client apps
-* *Manage destinations*:
+* *Manage destinations*
 +
 Same privileges as *View destinations* and *Clear destinations*, plus permission to:
 ** Create new queues and message exchanges
