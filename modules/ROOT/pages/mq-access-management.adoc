@@ -107,7 +107,7 @@ You can delete a role from the *Roles* page by selecting the checkbox for an ent
 
 To switch environments:
 
-. From Anypoint Platform, click *MQ* > *Design*.
+. From Anypoint Platform, click *MQ*, and then click *Design*.
 +
 .The arrow shows the environment button for switching environments.
 image::mq-switch-env.png[Environment button]
