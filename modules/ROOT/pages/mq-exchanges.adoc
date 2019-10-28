@@ -35,7 +35,7 @@ image::mq-exchange-bind-queues.png[Checkboxes to bind queues to an exchange]
 . In the *Destinations* page, click the message exchange type for the new exchange to display its details in the right pane:
 +
 .The screen shows (*1*) where to click to display (*2*) the queues bound to the exchange in the details pane.
-image::mq-exchange-details-pane.png[Click the exchange type to display its details in the details pane]
+image::mq-exchange-details-pane.png[Click the exchange type to display its details in the details pane.]
 
 
 == Bind a Queue to a Message Exchange
