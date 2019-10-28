@@ -45,7 +45,7 @@ You can delete items from this list by clicking the delete icon.
 You can create a role that you can apply to other users in your organization.
 While you don't need roles to complete the tutorial, when you use Anypoint MQ as an administrator or developer, you should create roles for users in your organization who use Anypoint MQ.
 
-Creating a role lets you assign access rights to users in your organization, such as for administrators, developers, or users who only view information but don't change it.
+Creating a role enables you to assign access rights to users in your organization, such as administrators, developers, or users (who only view information but don't change it).
 
 . From Anypoint Platform, click *Access Management*.
 . Click *Roles* in the left menu, and then click the *Add Role* button.
