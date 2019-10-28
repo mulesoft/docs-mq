@@ -72,7 +72,7 @@ Same privileges as *View destinations* and *Clear destinations*, plus permission
 ** Edit existing queues and message exchange settings
 ** Access *Message Sender* and *Browser* pages
 ** Delete messages
-* *View clients*:
+* *View clients*
 +
 View all client apps and the client App IDs and client secrets for each client app
 * *View destinations*:
