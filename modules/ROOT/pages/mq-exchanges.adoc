@@ -45,8 +45,8 @@ To bind a queue to a message exchange:
 . In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
 . Click the message exchange ID to display the *Exchange Settings* page:
 +
-.The screen shows (*1*) the checkboxes to select multiple queues, (*2*) the *Unbind* and (*3*) *Bind* buttons to unbind or bind a single queue to the exchange.  
-image::mq-bind-queue-to-exchange2.png[Checkboxes for multiple select, Unbind, and Bind buttons]
+.The screen shows (*1*) the checkboxes to select multiple queues and (*2*) the *Unbind* and (*3*) *Bind* buttons to unbind or bind a single queue to the exchange.  
+image::mq-bind-queue-to-exchange2.png[Checkboxes for multiple select, and Unbind and Bind buttons]
 +
 . In the settings page, click *Bind* or *Unbind* for each single queue you want to bind to or unbind from the message exchange.
 +
