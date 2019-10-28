@@ -248,7 +248,7 @@ To purge all the messages in the queue:
 +
 .The arrow shows the *Purge Message* icon in the details pane.
 image::mq-purge-msgs-icon.png[Purge Messages icon in the details pane]
-. In the *Purge Messages* confirmation popup, select the checkbox, and then click *Delete Messages* to verify that you want to purge all messages in the queue:
+. In the *Purge Messages* confirmation box, select the checkbox, and click *Delete Messages* to verify that you want to purge all messages in the queue.
 +
 .The arrow shows the accept checkbox for purging messages from the queue.
 image::mq-purge-msgs-confirm.png[Accept checkbox for purging messages from a queue]
