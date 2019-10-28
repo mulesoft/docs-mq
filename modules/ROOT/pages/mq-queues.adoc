@@ -71,7 +71,8 @@ The maximum acknowledgement timeout is 12 hours.
 ** *Assign Default Delivery Delay* specifies how long to delay delivery for messages sent to the queue.
 +
 You can specify to delay message delivery in seconds, minutes, hours, or days. When you send a message, you can override the default delivery delay. See xref:mq-understanding.adoc#delay_queues[Delay queues].
-** *Encryption* encrypts all messages in the queue. See xref:mq-understanding.adoc#encrypt-queue[Encrypted queues].
+** *Encryption* encrypts all messages in the queue. 
+See xref:mq-understanding.adoc#encrypt-queue[Encrypted queues].
 ** *Assign a Dead Letter Queue* assigns the DLQ.
 +
 The DLQ is a previously created queue to which to send undeliverable messages. See <<Dead Letter Queues>>.
