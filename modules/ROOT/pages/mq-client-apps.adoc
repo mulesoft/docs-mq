@@ -26,7 +26,7 @@ image::mq-client-app-add.png[Blue plus icon used for registering a client app]
 +
 The client secret value is obfuscated unless you click *Show*.
 +
-.The screen shows (*1*) the *Client App ID* field, (*2*) *Show* button, and (*3*) *Copy* button.  
+.The screen shows the (*1*) *Client App ID* field, (*2*) *Show* button, and (*3*) *Copy* button.  
 image::mq-client-apps-detail.png[Client App ID field, Show and Copy buttons]
 +
 . Click the *Copy* button for the client ID or client secret to copy the value to your clipboard.
