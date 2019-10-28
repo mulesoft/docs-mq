@@ -373,7 +373,7 @@ If a queue has a dead-letter queue assigned:
 * Viewing a message and returning it to the queue counts as a NACK operation and is considered an unsuccessful delivery attempt.
 * Deleting the message in the *Message Browser* prevents it from being counted against the maximum deliveries, but the message is lost.
 
-=== How Messages are Sent to a DLQ
+=== How Messages Are Sent to a DLQ
 
 This flowchart shows how messages are sent to a DLQ:
 
