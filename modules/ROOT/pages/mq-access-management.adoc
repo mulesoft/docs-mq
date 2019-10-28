@@ -12,7 +12,8 @@ Before you give yourself Anypoint MQ access permissions, create an environment w
 
 . From Anypoint Platform, select *Access Management*
 . Click *Environments* in the left menu, and click the *Add environment* button.
-. In the *Add environment* popup, provide a name for your environment, and click either *Production*, *Sandbox*, or *Design*. You might want to create separate environments for each. In this case, choose *Production*.
+. In the *Add environment* box, provide a name for your environment and click either *Production*, *Sandbox*, or *Design*. 
+You might want to create separate environments for each. In this case, choose *Production*.
 
 
 == Give Users Anypoint MQ Access Permissions
