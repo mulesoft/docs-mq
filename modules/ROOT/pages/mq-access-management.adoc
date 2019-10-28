@@ -111,7 +111,7 @@ To switch environments:
 +
 .The arrow shows the environment button for switching environments.
 image::mq-switch-env.png[Environment button]
-. In the *Switch Environment* popup, switch a different environment or change your default environment:
+. In the *Switch Environment* box, switch to a different environment or change your default environment:
 ** To switch to a different environment, click the name of that environment, for example, *Sandbox* if you previously created a Sandbox environment, and then click *Switch*.
 ** To change your default environment, click *Open your profile to change the default environment* and choose a different environment from the *Default* environment drop-down list.
 
