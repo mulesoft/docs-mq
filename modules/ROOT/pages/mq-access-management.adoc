@@ -101,7 +101,7 @@ The selected environment and permissions appear below the drop-down list.
 +
 You can delete items from this list by clicking the delete icon.
 
-You can delete a role from the *Roles* page by clicking the checkbox for an entry, clicking the *Delete role* button, then confirming the deletion by clicking *Yes, delete*.
+You can delete a role from the *Roles* page by selecting the checkbox for an entry, clicking the *Delete role* button, and then confirming the deletion by clicking *Yes, delete*.
 
 == Switch Environments
 
