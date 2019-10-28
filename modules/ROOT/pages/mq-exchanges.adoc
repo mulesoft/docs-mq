@@ -15,7 +15,7 @@ To create a message exchange:
 . Log in to Anypoint Platform.
 . Click *MQ* from the left navigation area or the main Anypoint Platform screen.
 . Click *Destinations*.
-. Click the blue plus icon to display the menu:
+. Click the blue plus icon (+) to display the menu:
 +
 .The arrow shows the blue plus icon at the top of the *Destinations* page.
 image::mq-blue-create.png[Blue plus icon used for adding a message exchange]
