@@ -43,7 +43,7 @@ To create a standard queue or FIFO queue:
 . Log in to Anypoint Platform.
 . Click *MQ* in the left navigation bar or the main Anypoint Platform screen.
 . Click *Destinations*.
-. Click the blue plus icon to display the menu:
+. Click the blue plus icon (+) to display the menu:
 +
 .The arrow shows the blue plus icon at the top of the *Destinations* page.
 image::mq-blue-create.png[Blue plus icon used for adding a queue]
