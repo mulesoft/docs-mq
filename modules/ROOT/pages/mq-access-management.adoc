@@ -26,7 +26,7 @@ To assign user permissions:
 
 . From Anypoint Platform, click *Access Management*.
 . Click *Users* in the left menu.
-. Click a user name value.
+. Click a user name.
 . Click *MQ* and set an environment and permissions:
 +
 .The screenshot shows the *MQ* tab, the blue plus icon, and the delete icon used for adding and deleting permissions to an environment.
