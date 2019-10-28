@@ -15,7 +15,7 @@ To register an app:
 . Click *MQ* in the left navigation bar or the main Anypoint Platform screen.
 . Click *Destinations* in the left navigation pane.
 . Click *Client Apps* from the left navigation pane:
-. Click the blue plus icon:
+. Click the blue plus (+) icon:
 +
 .The arrow shows the blue plus icon at the top of the *Client Apps* page.
 image::mq-client-app-add.png[Blue plus icon used for registering a client app]
