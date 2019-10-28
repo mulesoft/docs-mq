@@ -34,7 +34,7 @@ image::mq-acc-mgmt-user-detail.png[*MQ* tab]
 . Click the drop-down list and select an item from the menu.
 +
 For permissions, you can click *Select all* to set all permissions, or *Select none* to erase previously clicked settings.
-. Click the blue plus icon to add the selection.
+. Click the blue plus icon (+) to add the selection.
 +
 The selected environment and permissions appear below the drop-down list.
 +
