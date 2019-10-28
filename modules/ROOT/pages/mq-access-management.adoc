@@ -62,7 +62,7 @@ The settings are:
 * *Clear destinations*
 +
 Same privileges as *View destinations*, plus permission to purge messages
-* *Manage clients*:
+* *Manage clients*
 +
 Same privileges as *View clients*, plus permission to create client apps
 * *Manage destinations*:
