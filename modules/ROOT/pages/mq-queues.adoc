@@ -266,7 +266,7 @@ To delete a queue:
 .The arrow shows the trash can icon in the details pane for deleting a queue.
 image::mq-delete-queue-icon.png[Trash can icon in the details pane for deleting a queue]
 +
-. In the *Delete Queue* confirmation popup, select the checkbox, and then click *Delete Queue* to verify that you want to delete the queue:
+. In the *Delete Queue* confirmation box, select the checkbox and click *Delete Queue* to verify that you want to delete the queue.
 +
 .The arrow shows the accept checkbox for deleting a queue.
 image::mq-delete-queue-confirm.png[Accept checkbox for deleting a queue]
