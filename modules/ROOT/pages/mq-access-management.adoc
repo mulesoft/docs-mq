@@ -74,7 +74,7 @@ Same privileges as *View destinations* and *Clear destinations*, plus permission
 ** Delete messages
 * *View clients*
 +
-View all client apps and the client App IDs and client secrets for each client app
+View all client apps, as well as the client app IDs and client secrets for each client app
 * *View destinations*:
 +
 View all destinations and each destination's settings (*ID*, *Type*, *Message TTL*,and *Message Lock Default TTL*). View *In Queue* messages and *In Flight* messages.
