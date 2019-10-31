@@ -149,11 +149,7 @@ You can verify that a message arrived by retrieving it from the queue.
 To get a message from a queue:
 
 . In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
-. Click the queue ID to display the *Queue Settings* page:
-+
-.The arrow shows the *Queue Settings* option in the *Destinations* page.
-image::mq-queue-settings.png[Queue Settings option]
-+
+. Click the queue ID to display the *Queue Settings* page.
 . In the settings page, click *Message Browser* in the left pane.
 . If you are retrieving messages from a FIFO queue, click the checkbox to acknowledge 
 that viewing messages through the browser might cause other consumers of the queue to be blocked from accessing messages in the queue:

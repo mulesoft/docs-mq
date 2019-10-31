@@ -22,14 +22,14 @@ image::mq-client-app-add.png[Blue plus icon used for registering a client app]
 +
 . Specify the name of the client app.
 . Click *Save Changes*.
-. Click the client app entry to view the client ID and client secret value in the details pane.
+. Click the client app entry to view the client app ID and client secret value in the details pane.
 +
 The client secret value is obfuscated unless you click *Show*.
 +
 .The screen shows the (*1*) *Client App ID* field, (*2*) *Show* button, and (*3*) *Copy* button.  
 image::mq-client-apps-detail.png[Client App ID field, Show and Copy buttons]
 +
-. Click the *Copy* button for the client ID or client secret to copy the value to your clipboard.
+. Click the *Copy* button for the client app ID or client secret to copy the value to your clipboard.
 +
 Use the client ID and client secret values when configuring the connection types for Anypoint MQ Connector in a Mule app in Anypoint Studio.
 
