@@ -12,7 +12,9 @@ In this tutorial, you will:
 . Send messages to the queue, verify that they arrived, and view the message payload.
 . Register a Mule app in Anypoint MQ, which you then use to configure Anypoint MQ Connector. 
 . Create an app in Design Center, configure Anypoint MQ Connector, and test the connection.
-. Create an app in Anypoint Studio 7, configure Anypoint MQ Connector, and test the connection.
+. Create an app in Anypoint Studio, configure Anypoint MQ Connector, and test the connection.
++
+Depending on your Mule version, you will create your app in Studio 7 (Mule 4) or Studio 6 (Mule 3).
 
 == Prerequisites
 
@@ -316,9 +318,12 @@ image::mq-tutorial-msg-browser-payload-details-curl.png[Selected message row and
 You have successfully tested your app using a `curl` command to submit a REST API command to the Anypoint MQ Broker API and using Anypoint MQ to view the results. Next, you will create a Mule app in Anypoint Studio 7 and connect it to Anypoint MQ.
 
 
-== Create and Connect a Mule App to Anypoint MQ in Anypoint Studio 7
 
-In this lesson, you will use Anypoint Studio 7 to create a Mule app similar to the app you created in Design Center. In Studio 7, you can deploy the app to CloudHub and submit a `curl` command to test the connection. 
+
+
+== Create and Connect a Mule 4 App to Anypoint MQ in Anypoint Studio 7
+
+In this lesson, you will use Anypoint Studio 7 to create a Mule 4 app similar to the app you created in Design Center. In Studio 7, you can deploy the app to CloudHub and submit a `curl` command to test the connection. 
 
 === Prerequisites
 
@@ -345,18 +350,18 @@ image::mq-tutorial-studio7-exchange.png[Exchange icon in the Studio 7 toolbar]
 +
 .The screen shows (*1*) the *Provided by MuleSoft* option and (*2*) the search field.
 image::mq-tutorial-exchange.png[Provided by MuleSoft option and search field in Exchange]
-. Select the version of the Anypoint MQ Connector to install.
+. Select *Anypoint MQ Connector - Mule 4*.
 +
-The connector version depends on your Mule version (Mule 4 or Mule 3).
+Studio 7 supports Mule 4.
 . Click *Add to project*.
 +
-.The arrow shows the *Add to project* icon in the Studio 7 toolbar.
+.The arrow shows the *Add to project* icon in Exchange.
 image::mq-tutorial-exchange-add-to-project.png[Add to project icon in Exchange]
 . At the confirmation prompt, click *Proceed*, then click *OK*.
 . In the *Mule Palette*, click *HTTP*, and then drag the *Listener* to the Studio canvas.
 +
-.The screen shows (*1*) the *HTTP* and (*2*) *Listener* operations.
-image::mq-tutorial-studio7-palette.png[HTTP and Listener operations in Mule Palette]
+.The screen shows (*1*) the HTTP Connector and (*2*) the Listener operation.
+image::mq-tutorial-studio7-palette.png[HTTP Connector and Listener operations in Mule Palette]
 . Click *Anypoint MQ*, and then drag *Publish* to the *Process* area to the right of the Listener on the canvas:
 +
 .The arrow shows the *Publish* operation in the Studio 7 canvas.
@@ -365,15 +370,12 @@ image::mq-tutorial-studio7-flow.png[Publish operation in the Studio 7 canvas]
 . In the canvas, click *Listener*.
 . In the Listener properties window, set *General* > *Path* to `/mq/{messageId}`:
 +
-.The screen shows (*1*) the *Path* and (*2*) *Connector configuration* properties of the Listener.
+.The screen shows (*1*) the *Path* property and (*2*) the *Connector configuration* icon for the Listener.
 image::mq-tutorial-studio7-listener-props.png[Listener properties]
-+
 . Click the green plus icon (+) to the right of the *Connector configuration* field.
-. In the *Global Element Properties* window, verify that *Host* is set to `0.0.0.0` and *Port* is set to `8081`, and then click *OK*.
+. In the HTTP Listener *Global Element Properties* window, verify that *Host* is set to `0.0.0.0` and *Port* is set to `8081`, and then click *OK*.
 +
-.The screen shows (*1*) the *Host* and (*2*) *Port* properties of the HTTP Listener.
-image::mq-tutorial-studio7-http-config.png[Host and Port properties of the HTTP Listener]
-+
+The Listener properties window now indicates that there are no errors.
 . In the canvas, click *Publish*.
 . In the Publish properties window, set *Destination* to the `myDemoQueue` queue that you created earlier in *Anypoint Platform* > *MQ*. 
 +
@@ -409,7 +411,7 @@ image::mq-tutorial-deploy-app.png[Deploy Application button in the Deploying App
 
 You have successfully used Studio 7 to configure an app that connects to Anypoint MQ. Next, you will test the connection by submitting REST API commands to the Anypoint MQ Broker API and using Anypoint MQ to view the results.
 
-=== Test Your Studio 7 App
+=== Test Your App
 
 In this lesson, you will test your app using a `curl` command to submit a REST API command to the Anypoint MQ Broker API and use Anypoint MQ to view the results.
 
@@ -465,6 +467,9 @@ and use Anypoint MQ to view the results.
 
 You can use this XML to create the `mq-demo` app in Studio 7.
 
+Click *Configuration XML* tab in Studio and compare your XML to the following. Make corrections if needed.
+
+
 [source,console,linenums]
 ----
 
@@ -494,6 +499,159 @@ http://www.mulesoft.org/schema/mule/anypoint-mq http://www.mulesoft.org/schema/m
 </mule>
 
 ----
+
+
+
+== Create and Connect a Mule 3 App to Anypoint MQ in Anypoint Studio 6
+
+In this lesson, you will use Anypoint Studio 6 to create a Mule 3 app similar to the app you created in Design Center. In Studio 6, you can deploy the app to CloudHub and submit a `curl` command to test the connection. 
+
+
+This section applies only to Anypoint Studio 6. For Studio 7, see <<Create and Connect a Mule App to Anypoint MQ in Anypoint Studio 7>>.
+
+=== Prerequisites
+
+* Install Studio 6. 
++
+See xref:6.5@studio::download-and-launch-anypoint-studio[Download and Install Anypoint Studio].
+* In Anypoint Platform, change to any environment except Design.
++
+Ensure that the queue you created in *Anypoint Platform* > *MQ* is also in this environment.
+
+=== Configure a Mule 3 App with Anypoint MQ in Anypoint Studio 6
+
+To configure a Mule 3 app in Studio 6:
+
+. Start Studio, click *File* > *New* > *Mule Project*, name the project `mq-demo-studio-6`, and then click *Finish*.
+. Install the Anypoint MQ Connector:
+.. Click the *Exchange* icon in the toolbar:
++
+.The arrow shows the *Exchange* icon in the Studio 6 toolbar.
+image::mq-tutorial-studio6-exchange.png[Exchange icon in the Studio 6 toolbar]
+.. Enter your Anypoint Platform username and password.
+.. In Exchange, select *Provided by MuleSoft*, and then search for the Anypoint MQ Connector.
++
+.The screen shows (*1*) the *Provided by MuleSoft* option and (*2*) the search field.
+image::mq-tutorial-exchange.png[Provided by MuleSoft option and search field in Exchange]
+.. Select *Anypoint MQ Connector - Mule 3*.
++
+Studio 6 supports Mule 3.
+.. Click *Install*.
++
+.The arrow shows the *Install* icon in the Exchange page.
+image::mq-tutorial-exchange-install.png[Install icon in Exchange]
+.. At the prompt, check the items to install and click *Next* twice. 
+.. Accept the license agreement and click *Finish*.
+.. At the prompt, click *Restart Now* to finish installing the connector.
+. In the *Mule Palette*, drag *HTTP* to the Studio canvas.
++
+.The arrow shows the *HTTP* Connector.
+image::mq-tutorial-studio6-palette.png[HTTP Connector in Mule Palette]
+. In the *Mule Palette*:
+.. Search for `set`, and then drag *Set Payload* to the *Process* area to the right of HTTP on the canvas.
+.. Search for `mq`, and then drag *Anypoint MQ* to the canvas to the right of *Set Payload*.
+.. Search for `logger`, and then drag *Logger*  to the canvas to the right of *Anypoint MQ*.
++
+.The arrow shows the flow in the canvas.
+image::mq-tutorial-studio6-flow-complete.png[Flow in Studio 7 Canvas]
+. In the canvas, click *HTTP*.
+. In the HTTP properties window, set *General* > *Path* to `/mq/{messageId}`:
++
+.The screen shows (*1*) the *Path* property and (*2*) the *Connector configuration* icon for the HTTP Connector.
+image::mq-tutorial-studio6-http-props.png[HTTP properties]
+. Click the HTTP connector and click the green plus icon (+) to the right of *Connector Configuration*.
+. In the HTTP Connector *Global Element Properties* window, verify that *Host* is set to `0.0.0.0` and *Port* is set to `8081`, and then click *OK*.
++
+The HTTP properties window now indicates that there are no errors:
++
+. In the canvas, click *Set Payload*.
+. In the Set Payload properties window, set *General* > *Value* to:
++
+----
+#[message.inboundProperties.'http.uri.params'.messageId]
+----
++
+.The arrow shows the payload in the *Value* field.
+image::mq-tutorial-studio6-set-payload-props.png[Payload in the Value field]
+. In the canvas, click *Anypoint MQ*.
+. In the Anypoint MQ properties window, click the green plus icon (+) to the right of *Connector Configuration*.
+. In the Anypoint MQ Configuration *Global Element Properties* window, add the information from Anypoint Platform:
+. Click *Copy* in the *Destinations* page in Anypoint MQ to copy the URL and paste it in the *URL* field in Studio.
++
+.The arrow shows the *Copy* button on the Anypoint MQ *Destinations* page.
+image::mq-tutorial-url.png[Copy button on the Destinations page]
+. Copy the client app ID and client secret from the *Client Apps* page in Anypoint MQ to Studio:
++
+.The screen shows (*1*) the *Client App ID* field, (*2*) *Show* button, and (*3*) *Copy* button.  
+image::mq-tutorial-client-apps-detail.png[Client App ID field, Show and Copy buttons]
++
+.. In the *MQ* page, click *Client Apps* and click `DemoClientApp` to display the details pane.
+.. In the *MQ* details pane, click the *Copy* button for the *Client App ID* field and paste the value in the *Client App ID* field in the *Anypoint MQ Configuration* window.
+.. In the *MQ* details pane, click the *Copy* button for the *Client Secret* field and paste the value in the *Client Secret* field in *Anypoint MQ Configuration* window.
++
+.The screen shows (*1*) the *URL* field, (*2*) the *Client App ID* field, and (*3*) the *Client Secret* field.  
+image::mq-tutorial-studio6-mq-config.png[URL, Client App ID, and Client Secret fields in Anypoint MQ Configuration window]
+. Click *OK*.
+. In the Anypoint MQ properties window, click the *Operation* field and select *publish* from the menu.
+. Set *Destination* to the `myDemoQueue` queue that you created earlier in *Anypoint Platform* > *MQ*. 
++
+The queue must be in an environment other than Design.
++
+.The screen shows (*1*) the *Operation* and *Destination* properties in the Anypoint MQ properties window.
+image::mq-tutorial-studio6-mq-props.png[Operation and Destination properties for the Anypoint MQ configuration]
+. In the canvas, click *Logger*.
+. In the Logger properties window, set *General* > *Message* to `MQ Message: #[payload]`:
++
+.The arrow shows the *Message* field in the Logger properties window.
+image::mq-tutorial-studio6-logger-props.png[Message payload in Logger properties]
++
+. Save your project.
+. In *Package Explorer* in Studio, right-click `mq-demo-studio-6` and select *Anypoint Platform* > *Deploy to Cloud*.
+. At the prompt, select the environment to which to deploy the app.
+. In the Anypoint Platform *Deploying Application* window, click *Deploy Application*.
++
+.The arrow shows the *Deploy Application* button on the *Deploying Applications* page.
+image::mq-tutorial-deploy-app.png[Deploy Application button on the Deploying Applications page]
+
+You have successfully used Studio 6 to configure a Mule 3 app that connects to Anypoint MQ. Next, you will test the connection by submitting REST API commands to the Anypoint MQ Broker API and using Anypoint MQ to view the results.
+
+
+=== Test Your Mule 3 App in Studio 6
+
+To test your Mule 3 app, follow the steps in <<Test Your App>> to use a `curl` command to submit a REST API command to the Anypoint MQ Broker API and use Anypoint MQ to view the results.
+
+
+
+=== Studio 6 XML
+
+After you configure your app using the Anypoint MQ Connector, you can check your configuration against this XML.
+
+Click Configuration XML in Studio and compare your XML to the following. If needed, you can make corrections.
+
+[source,console,linenums]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:anypoint-mq="http://www.mulesoft.org/schema/mule/anypoint-mq" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+  xmlns:spring="http://www.springframework.org/schema/beans" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/anypoint-mq http://www.mulesoft.org/schema/mule/anypoint-mq/current/mule-anypoint-mq.xsd">
+    <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/>
+    <anypoint-mq:config name="Anypoint_MQ_Configuration" doc:name="Anypoint MQ Configuration">
+        <anypoint-mq:provider url="https://mq-us-east-1.anypoint.mulesoft.com/api/v1" clientId="CLIENT_ID" clientSecret="CLIENT_SECRET"/>
+    </anypoint-mq:config>
+    <flow name="mq-demo-studio-6Flow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/mq/{messageId}" doc:name="HTTP"/>
+        <set-payload value="#[message.inboundProperties.'http.uri.params'.messageId]" doc:name="Set Payload"/>
+        <anypoint-mq:publish config-ref="Anypoint_MQ_Configuration" destination="myDemoQueue" doc:name="Anypoint MQ"/>
+        <logger message="MQ Message: #[payload]" level="INFO" doc:name="Logger"/>
+    </flow>
+</mule>
+----
+
 
 
 == See Also
