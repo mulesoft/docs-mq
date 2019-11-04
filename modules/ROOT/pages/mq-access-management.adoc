@@ -29,7 +29,7 @@ To assign user permissions:
 . Click a user name.
 . Click *MQ* and set an environment and permissions:
 +
-.The screenshot shows the *MQ* tab, the blue plus icon, and the delete icon used for adding and deleting permissions to an environment.
+.The screenshot shows the *MQ* tab, the blue plus icon, and the delete icon used for adding permissions to and deleting permissions from an environment.
 image::mq-acc-mgmt-user-detail.png[*MQ* tab]
 . Click and select an item from the *Permissions* menu.
 +
