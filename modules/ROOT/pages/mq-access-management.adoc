@@ -31,7 +31,7 @@ To assign user permissions:
 +
 .The screenshot shows the *MQ* tab, the blue plus icon, and the delete icon used for adding permissions to and deleting permissions from an environment.
 image::mq-acc-mgmt-user-detail.png[*MQ* tab]
-. Click and select an item from the *Permissions* menu.
+. Click and select an item from the *Permissions* menu:
 +
 You can click *Select all* to set all permissions, or *Select none* to erase previously clicked settings.
 . Click the blue plus icon (+) to add the selection.
