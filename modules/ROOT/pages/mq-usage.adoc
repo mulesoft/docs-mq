@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :imagesdir: ../assets/images/
 
-You can view a chart indicating how much data and API requests have been consumed, and how many message units were received.
+You can view a chart indicating how much data and how many API requests have been consumed, and how many message units were received.
 
 * Each message unit contains 100 KB of data.
 +
