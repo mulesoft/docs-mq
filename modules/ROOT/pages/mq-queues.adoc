@@ -96,7 +96,7 @@ To send a text message to a queue:
 
 . In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
 . Click the queue ID to display the *Queue Settings* page.
-. In the settings page, click *Message Sender* in the left pane.
+. In the settings page, click *Message Sender* in the left pane:
 +
 .The arrow shows the *Message Sender* option in the left pane.
 image::mq-message-sender-page.png[Message Sender option]
