@@ -8,7 +8,7 @@ Anypoint Platform enables you to manage the roles of users who administer the An
 
 == Create an Environment
 
-Before you give yourself Anypoint MQ access permissions, create an environment with which to associate permissions.
+Before you give yourself Anypoint MQ access permissions, create an environment with which to associate permissions:
 
 . From Anypoint Platform, select *Access Management*
 . Click *Environments* in the left menu, and click the *Add environment* button.
