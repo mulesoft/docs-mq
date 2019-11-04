@@ -17,7 +17,7 @@ To register an app:
 . Click *Client Apps* from the left navigation pane:
 . Click the blue plus (+) icon:
 +
-.The arrow shows the blue plus icon at the top of the *Client Apps* page.
+.The arrow shows the blue plus icon at the top of the *Client Apps* page:
 image::mq-client-app-add.png[Blue plus icon used for registering a client app]
 +
 . Specify the name of the client app.
