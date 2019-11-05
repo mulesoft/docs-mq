@@ -169,9 +169,15 @@ You have successfully registered a client Mule app in Anypoint MQ. Next, you cre
 
 After you register the client app, you use Design Center to configure an app that connects to Anypoint MQ, submit REST API commands to the Anypoint MQ Broker API, and use Anypoint MQ to view the results.
 
-// IMPORTANT: Disable password programs such as LastPass or Okta in your browser before using Design Center. Otherwise, the password program inserts passwords in the HTTP Listener's TLS tab. The passwords in the TLS tab cause the app to fail. 
 
-Before configuring an app in Design Center, leave a browser window open to *Anypoint Platform* > *MQ* so that you can access the queue and the client app ID and client secret values for the client app you registered previously.
+=== Prerequisites
+
+* Disable password programs such as LastPass or Okta in your browser before using Design Center.
++
+If enabled, the password program inserts passwords in fields in Design Center, which can cause the app to fail. 
+* Leave a browser window open to *Anypoint Platform* > *MQ* so that you can access the queue and the client app ID and client secret values for the client app you registered previously.
+
+=== Configure an App with Anypoint MQ in Design Center
 
 To configure an app in Design Center:
 
