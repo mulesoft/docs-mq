@@ -34,10 +34,10 @@ image::mq-access-mgmt-subscription.png[MQ option on the Access Management page]
 image::mq-usage-chart.png[MQ Usage page, including message units and API requests]
 +
 * (*1*) The duration value
-* (*1*) The number of message units and API requests per month
-* (*2*) The percentage and amount of your license that you have used
+* (*2*) The number of message units and API requests per month
+* (*3*) The percentage and amount of your license that you have used
 +
-The circle graphs changes to red as your usage approaches your license limits:
+The circle graph changes to red as your usage approaches your license limits:
 +
 image::mq-msg-unit-color.png[]
 
