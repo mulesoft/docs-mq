@@ -3,7 +3,7 @@
 * xref:mq-understanding.adoc[Anypoint MQ Terminology]
 * xref:mq-faq.adoc[FAQ: Anypoint MQ]
 * xref:mq-connectors.adoc[Anypoint MQ Connectors]
-* xref:mq-tutorial.adoc[Tutorial: Create a Queue and a Message Exchange]
+* xref:mq-tutorial.adoc[Tutorial: Create a Queue and Send Messages to It]
 * xref:mq-access-management.adoc[Configure Environment, User, and Role Access]
 * xref:mq-queues.adoc[Configure Queues]
 * xref:mq-exchanges.adoc[Configure Message Exchanges]

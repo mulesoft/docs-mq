@@ -4,34 +4,42 @@ include::_attributes.adoc[]
 endif::[]
 :imagesdir: ../assets/images/
 
-You can view a chart indicating how much data and API requests have been consumed, and shows how many message units
-were received.
+You can view a chart indicating how much data and how many API requests have been consumed, and how many message units were received.
 
-[NOTE]
-====
-* Each message unit contains 100 KB of data in a message. Message units are counted by the number of encoded characters in a message. Anypoint MQ charges you an extra message unit for each 100 KB of extra data in a message over 100 KB.
-* Every API call to Anypoint MQ counts as one API request.  This includes sending, receiving, and acknowledging messages as well as all operations on queues and exchanges.
-* Up to 10 messages can be retrieved from a single API call, which only bills as one request.  Even if the request to retrieve messages does not return a message, for example, if the queue is empty, it bills as a single API request.
+* Each message unit contains 100 KB of data.
++
+Message units are counted by the number of encoded characters in a message. Anypoint MQ charges you an extra message unit for each 100 KB of extra data in a message over 100 KB.
+* Every API call to Anypoint MQ counts as one API request.
++
+This includes sending, receiving, and acknowledging messages, as well as all operations on queues and exchanges.
+* Up to 10 messages can be retrieved from a single API call, which only bills as one request.
++
+Even if the request to retrieve messages does not return a message (for example, if the queue is empty), it bills as a single API request.
 * Monthly billing usage information is delayed by 24 hours.
-====
+
 
 == Access Anypoint MQ Usage
 
 To view Anypoint MQ usage:
 
 . Log in to Anypoint Platform.
-. Click *Access Management* in the left navigation bar or the main Anypoint Platform screen.
+. Click *Access Management* in the left navigation bar or the main Anypoint Platform page.
 . Click *MQ* in the *SUBSCRIPTION* section:
 +
-image::mq-subscription.png[]
+.The arrow shows the *MQ* option on the *Access Management* page.
+image::mq-access-mgmt-subscription.png[MQ option on the Access Management page]
 +
 . Click a chart duration value of *6m* (six months, default), *1y* (one year), or *2y* (two years):
 +
-image::mq-usage-chart.png[]
+image::mq-usage-chart.png[MQ Usage page, including message units and API requests]
 +
-The chart indicates the number of message units and API requests per month. The circle graphs indicate the percentage and amount of your license that you have used. The circle graphs changes to red as the license limits get closer:
+* (*1*) The duration value
+* (*2*) The number of message units and API requests per month
+* (*3*) The percentage and amount of your license that you have used
 +
-image::mq-message-unit-color.png[]
+The circle graph changes to red as your usage approaches your license limits:
++
+image::mq-msg-unit-color.png[]
 
 == See Also
 
