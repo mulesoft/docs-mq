@@ -65,7 +65,7 @@ For information, see xref:mq-queues.adoc#create-a-queue[Create a Queue].
 + 
 The queue is created and appears in the *Destinations* page:
 +
-.The *Destinations* page shows (*1*) the ID, (*2*) type, and (*3*) details label for the queue.
+.The *Destinations* page shows (*1*) the type, (*2*) ID, and (*3*) details label for the queue.
 image::mq-queue-details.png[Destinations page with new queue]
 +
 From this page, you can: 
@@ -306,7 +306,6 @@ curl -X POST \
 +
 The `100` value in the URL is the message ID value as specified by the `/mq{messageId}` value in the HTTP Listener, which is the identifier for your message.
 +
-+
 Next, you verify that the message arrived in the queue.
 . In *Anypoint Platform* > *MQ* > *Destinations*, click the name of the `myDemoQueue` queue that you created earlier and specified in the *Destination* setting for your app in Design Center.
 . Click *Message Browser* in the left menu:
@@ -513,7 +512,7 @@ http://www.mulesoft.org/schema/mule/anypoint-mq http://www.mulesoft.org/schema/m
 If you use Mule 3, you can use Anypoint Studio 6 to create a Mule 3 app similar to the app you created in Design Center. In Studio 6, you can deploy the app to CloudHub and submit a `curl` command to test the connection. 
 
 
-This section applies only to Anypoint Studio 6. For Studio 7, see <<Create and Connect a Mule App to Anypoint MQ in Anypoint Studio 7>>.
+This section applies only to Anypoint Studio 6. For Studio 7, see <<Create and Connect a Mule 4 App to Anypoint MQ in Anypoint Studio 7>>.
 
 === Prerequisites
 
