@@ -129,8 +129,9 @@ image::mq-tutorial-get-messages.png[Message Browser option and Get Messages butt
 . Click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-.The screen  shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) the *Return Messages* icon, and (*4*) the trash can icon.
-image::mq-tutorial-msg-browser-payload-details.png[Selected message row, payload in the details pane, and *Return Messages* and trash can icons]
+.The screen  shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) the *Return Messages* icon, (*4*) the trash can icon, and (*5*) the *Full Screen* icon.
+image::mq-tutorial-msg-browser-payload-details.png[Selected message row, payload in the details pane, and *Return Messages*, trash can, and *Full Screen* icons]
+* Click the *Full Screen* icon to display the message payload in a separate window.
 * Click the *Return Messages* icon to return the message to the queue (for example, to enable other applications to read the message). 
 +
 If you return to the *Message Sender* page or *Destinations* page, messages automatically return to the queue.
@@ -315,9 +316,9 @@ image::mq-tutorial-get-messages.png[Message Browser option and Get Messages butt
 . Click *Get Messages*.
 . Click the message row to view the message payload that you sent in the `curl` command in the details pane:
 +
-.The screen shows (*1*) the message row and (*2*) the message payload in the details pane.
-image::mq-tutorial-msg-browser-payload-details-curl.png[Selected message row and payload in the details pane]
-+
+.The screen shows (*1*) the message row and (*2*) the message payload and (*3*) *Full Screen* icon in the details pane.
+image::mq-tutorial-msg-browser-payload-details-curl.png[Selected message row, payload, and Full Screen icon in the details pane]
+. Click the *Full Screen* icon to display the message payload in a separate window.
 . Try changing the body text in the `curl` command and repeat the steps to view the message.
 
 You have successfully tested your app using a `curl` command to submit a REST API command to the Anypoint MQ Broker API and using Anypoint MQ to view the results. Next, you create a Mule app in Anypoint Studio 7 and connect it to Anypoint MQ.
@@ -457,15 +458,14 @@ image::mq-tutorial-get-messages.png[Message Browser option and Get Messages butt
 . Click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-.The screen shows (*1*) the message row and (*2*) the message payload in the details pane.
-image::mq-tutorial-msg-browser-payload-details-curl-rtm.png[Selected message row and payload in the details pane]
-+
+.The screen shows (*1*) the message row and (*2*) the message payload and (*3*) *Full Screen* icon in the details pane.
+image::mq-tutorial-msg-browser-payload-details-curl-rtm.png[Selected message row and payload and Full Screen icon in the details pane]
+. Click the *Full Screen* icon to display the message payload in a separate window.
 . Try changing the body text in the `curl` command and repeat the steps to view the message.
 
 
 You can now configure Anypoint MQ in Studio 7, submit REST API commands to the Anypoint MQ Broker API, 
 and use Anypoint MQ to view the results.
-
 
 
 === Studio 7 XML
