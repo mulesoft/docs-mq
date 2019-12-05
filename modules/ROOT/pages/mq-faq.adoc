@@ -282,6 +282,6 @@ To delete a message exchange, see xref:mq-exchanges.adoc#delete-a-message-exchan
 
 == See Also
 
-* https://support.mulesoft.com/s/knowledge[Knowledge Base Articles]
+* https://help.mulesoft.com/s/knowledge[Knowledge Base Articles]
 * https://activemq.apache.org/[Apache Active MQ]
 * https://www.rabbitmq.com/[Rabbit MQ]
