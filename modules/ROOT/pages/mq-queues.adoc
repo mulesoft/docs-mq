@@ -161,8 +161,10 @@ image::mq-fifo-msg-browser.png[Accept checkbox for FIFO queues]
 . Click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, and (*3*) the *Return Messages* icon.
-image::mq-msg-browser-payload-details.png[Selected message row, payload in the details pane, and *Return Messages* icon]
+.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) the *Return Messages* icon, and (*4*) the *Full Screen* icon.
+image::mq-msg-browser-payload-details.png[Selected message row, payload in the details pane, and *Return Messages* and *Full Screen* icons]
++
+Click the *Full Screen* icon to display the message payload in a separate window.
 +
 If user properties are configured in the Publish operation in Anypoint MQ Connector, they appear in the details pane for the message:
 +
@@ -210,8 +212,10 @@ For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue on
 . Click *Message Browser*, and then click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, and (*3*) the *Return Messages* icon.
-image::mq-msg-browser-payload-details-json.png[Selected message row, JSON payload in the details pane, and *Return Messages* icon]
+.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) the *Return Messages* icon, and (*4*) the *Full Screen* icon.
+image::mq-msg-browser-payload-details-json.png[Selected message row, JSON payload in the details pane, and *Return Messages* and *Full Screen* icons]
+. Click the *Full Screen* icon to display the message payload in a separate window.
+
 
 == Send a CSV Message to a Queue
 
@@ -237,8 +241,9 @@ For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue on
 . Click *Message Browser*, and then click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, and (*3*) the *Return Messages* icon.
-image::mq-msg-browser-payload-details-csv.png[Selected message row, CSV payload in the details pane, and *Return Messages* icon]
+.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) the *Return Messages* icon, and (*4*) the *Full Screen* icon.
+image::mq-msg-browser-payload-details-csv.png[Selected message row, CSV payload in the details pane, and *Return Messages* and *Full Screen* icons]
+. Click the *Full Screen* icon to display the message payload in a separate window.
 
 
 == Purge Messages from a Queue
