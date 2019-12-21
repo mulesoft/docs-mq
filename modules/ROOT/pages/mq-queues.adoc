@@ -161,28 +161,26 @@ image::mq-fifo-msg-browser.png[Accept checkbox for FIFO queues]
 . Click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) the *Return Messages* icon, and (*4*) the *Full Screen* icon.
-image::mq-msg-browser-payload-details.png[Selected message row, payload in the details pane, and *Return Messages* and *Full Screen* icons]
+.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) *Return Messages* icon, (*4*) *Delete* icon, (*5*) *Full Screen* icon, and (*6*) *Close* details pane icon.
+image::mq-msg-browser-payload-details.png[Selected message row, payload, Return Messages icon, Delete icon, Full Screen icon, and Close details pane icon]
 +
-Click the *Full Screen* icon to display the message payload in a separate window.
+* Click *Full Screen* to display the message payload in a separate window.
+* Click *Close* to close the details pane.
+* Click *Delete* to delete the selected message.
 +
+Deleting a message is an acknowledgment operation (ACK). For information about how Anypoint MQ processes ACK messages, see xref:mq-ack-mode.adoc[Acknowledge Messages].
+* Click *Return Messages* to return all messages to the queue (for example, to enable other applications to read the messages). 
++
+Returning messages to the queue is a not-acknowledgment operation (NACK). The messages aren't altered. However, the time to live (TTL) value you set when you created the queue determines how long the message is available before Anypoint MQ deletes it.
++
+If you switch from the *Message Browser* page, messages automatically return to the queue.
+
+
 If user properties are configured in the Publish operation in Anypoint MQ Connector, they appear in the details pane for the message:
-+
-.The arrow shows (*1*) the *Message Browser* option and (*2*) the *User Properties* in the details pane.
+
+.The arrow shows the *User Properties* in the details pane.
 image::mq-msg-browser-user-props.png[User Properties in Message Browser details pane]
 
-You can return the message to the queue (for example, to enable other applications to read the message) by clicking the *Return Messages* icon. 
-
-If you switch to the *Message Sender* page or *Destinations* page, messages automatically return to the queue.
-
-Returning the messages to the queue is a not-acknowledgment operation (NACK). The message is not altered. However, the time to live (TTL) value you set when you created the queue determines how long the message is available before Anypoint MQ deletes it.
-
-Alternatively, you can delete the message by clicking the *Delete* icon in the details pane:
-
-.The arrow shows the *Delete* icon in the details pane for deleting a message in the queue.
-image::mq-msg-browser-delete-icon.png[Delete icon for deleting a message in the queue]
-
-Deleting a message is an acknowledgment operation (ACK). For information about how Anypoint MQ processes ACK messages, see xref:mq-ack-mode.adoc[Acknowledge Messages].
 
 == Send a JSON Message to a Queue
 
@@ -212,12 +210,10 @@ For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue on
 . Click *Message Browser*, and then click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) *Return Messages* icon, (*4*) *Delete* icon, (*5*) *Full Screen* icon, and (*6*) *Close* details pane icon.
-image::mq-msg-browser-payload-details-json.png[Selected message row, payload, Return Messages icon, Delete icon, Full Screen icon, and Close details pane icon]
+.The screenshot shows the JSON message payload, (*1*) the *Full Screen* icon, and (*2*) the *Close* details pane icon.
+image::mq-msg-browser-payload-details-json.png[JSON payload, Full Screen icon, and Close details pane icon]
 +
-* Click *Full Screen* to display the message payload in a separate window or *Close* to close the details pane.
-* Click *Delete* to delete the selected message.
-* Click *Return Messages* to return the message to the queue (for example, to enable other applications to read the message). 
+Click *Full Screen* to display the message payload in a separate window or *Close* to close the details pane.
 
 
 == Send a CSV Message to a Queue
@@ -244,9 +240,10 @@ For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue on
 . Click *Message Browser*, and then click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) the *Return Messages* icon, and (*4*) the *Full Screen* icon.
-image::mq-msg-browser-payload-details-csv.png[Selected message row, CSV payload in the details pane, and *Return Messages* and *Full Screen* icons]
-. Click the *Full Screen* icon to display the message payload in a separate window.
+.The screenshot shows the CSV message payload, (*1*) the *Full Screen* icon, and (*2*) the *Close* details pane icon.
+image::mq-msg-browser-payload-details-csv.png[CSV payload, Full Screen icon, and Close icon details pane icon]
++
+Click *Full Screen* to display the message payload in a separate window or *Close* to close the details pane.
 
 
 == Purge Messages from a Queue
@@ -272,7 +269,7 @@ To delete a queue:
 
 . In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
 . Click the queue type for the queue to display its details in the right pane.
-. Click the *Delete* can icon in the details pane:
+. Click the *Delete* icon in the details pane:
 +
 .The arrow shows the *Delete* icon in the details pane for deleting a queue.
 image::mq-delete-queue-icon.png[Delete icon in the details pane for deleting a queue]

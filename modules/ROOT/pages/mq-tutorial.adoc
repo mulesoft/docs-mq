@@ -129,18 +129,20 @@ image::mq-tutorial-get-messages.png[Message Browser option and Get Messages butt
 . Click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) the *Return Messages* icon, (*4*) the *Delete* icon, (*5*) the *Full Screen* icon, and (*6*) the *Close* details pane icon (X).
+.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) the *Return Messages* icon, (*4*) the *Delete* icon, (*5*) the *Full Screen* icon, and (*6*) the *Close* details pane icon.
 image::mq-tutorial-msg-browser-payload-details.png[Selected message row, payload in the details pane, and Return Messages, Delete, Full Screen, and Close details pane icons]
 * Click *Full Screen* to display the message payload in a separate window or *Close* to close the details pane.
 * Click *Delete* to delete the selected message.
-* Click *Return Messages* to return the message to the queue (for example, to enable other applications to read the message). 
 +
-If you return to the *Message Sender* page or *Destinations* page, messages automatically return to the queue.
+Deleting a message is an acknowledgment operation (ACK). For information about how Anypoint MQ processes ACK messages, see xref:mq-ack-mode.adoc[Acknowledge Messages].
+* Click *Return Messages* to return all messages to the queue (for example, to enable other applications to read the messages). 
 +
-Returning the messages to the queue is a not-acknowledgment operation (NACK). The message is not altered. However, the time to live (TTL) value you set when you created the queue determines how long the message is available before Anypoint MQ deletes it.
-* Click *Delete* to delete the message.
+Returning messages to the queue is a not-acknowledgment operation (NACK). The messages aren't altered. However, the time to live (TTL) value you set when you created the queue determines how long the message is available before Anypoint MQ deletes it.
++
+If you switch from the *Message Browser* page, messages automatically return to the queue.
 
 You have successfully created a queue in Anypoint MQ, sent messages to the queue, verified that the messages arrived, and viewed the message payload. Next, you register a client Mule app with Anypoint MQ.
+
 
 
 == Register a Client Mule App
@@ -317,7 +319,7 @@ image::mq-tutorial-get-messages.png[Message Browser option and Get Messages butt
 . Click *Get Messages*.
 . Click the message row to view the message payload that you sent in the `curl` command in the details pane:
 +
-.The screenshot shows (*1*) the message row, (*2*) the message payload, (*3*) *Return Messages* icon, (*4*) *Delete* icon, (*5*) *Full Screen* icon, and (*6*) *Close* details pane icon.
+.The screenshot shows (*1*) the message row, (*2*) the message payload, (*3*) the *Return Messages* icon, (*4*) the *Delete* icon, (*5*) the *Full Screen* icon, and (*6*) the *Close* details pane icon.
 image::mq-tutorial-msg-browser-payload-details-curl.png[Selected message row, payload, Return Messages icon, Delete icon, Full Screen icon, and Close details pane icon]
 +
 * Click *Full Screen* to display the message payload in a separate window or *Close* to close the details pane.
