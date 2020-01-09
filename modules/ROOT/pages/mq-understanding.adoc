@@ -72,7 +72,7 @@ You can override the default queue delay for a particular message in a standard 
 [[delay_messages]]
 * *Delayed delivery for messages*
 +
-For messages in a standard queue, you can the postpone delivery of a particular message to the queue for a specified period. Consumers can't see messages sent with delivery delay for the duration of the delay period. The minimum delivery delay for a message is 0 seconds. The maximum is 15 minutes.
+For messages in a standard queue, you can postpone the delivery of a particular message to the queue for a specified period. Consumers can't see messages sent with delivery delay for the duration of the delay period. The minimum delivery delay for a message is 0 seconds. The maximum is 15 minutes.
 + 
 Delayed delivery is not supported for individual messages in a FIFO queue.
 
@@ -144,7 +144,7 @@ In Anypoint MQ, each consumer must be registered as a client app with a name, ID
 
 == Message Exchanges
 
-With message exchanges you can to distribute a single message to multiple consumers.
+With message exchanges you can distribute a single message to multiple consumers.
 
 image::mq-pub-ex-sub.png[]
 
