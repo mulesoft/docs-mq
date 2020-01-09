@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :imagesdir: ../assets/images/
 
-You can register a Mule app with the Anypoint Connector for MQ (Anypoint MQ Connector). 
+You can register a Mule app with Anypoint Connector for MQ (Anypoint MQ Connector). 
 When registered, Anypoint MQ lists the client ID and client secret for the app. 
 Use the client ID and client secret values when configuring the connection types for Anypoint MQ Connector 
 in a Mule app in Anypoint Studio.
