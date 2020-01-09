@@ -60,7 +60,7 @@ image::mq-create-queues.png[Create Queue popup]
 +
 Queue names can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9), periods (.), and hyphens (-). They cannot contain spaces or other characters. 
 +
-** *Message TTL* (Time to live) specifies how long unprocessed messages persist before being deleted. 
+** *Message TTL* (Time-to-live) specifies how long unprocessed messages persist before being deleted. 
 +
 The maximum TTL for a message is two weeks.
 ** *Default Acknowledgment Timeout* specifies how long a message waits before being put back into the queue in the event of server failure when the message is not acknowledged.
@@ -152,7 +152,7 @@ To get a message from a queue:
 . In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
 . Click the queue ID to display the *Queue Settings* page.
 . In the settings page, click *Message Browser* in the left pane.
-. If you are retrieving messages from a FIFO queue, click the checkbox to acknowledge 
+. If you are retrieving messages from a FIFO queue, select the checkbox to acknowledge 
 that viewing messages through the browser might cause other consumers of the queue to be blocked from accessing messages in the queue:
 +
 .The arrow shows the accept checkbox for getting messages from a FIFO queue.
@@ -161,17 +161,17 @@ image::mq-fifo-msg-browser.png[Accept checkbox for FIFO queues]
 . Click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) *Return Messages* icon, (*4*) *Delete* icon, (*5*) *Full Screen* icon, and (*6*) *Close* details pane icon.
-image::mq-msg-browser-payload-details.png[Selected message row, payload, Return Messages icon, Delete icon, Full Screen icon, and Close details pane icon]
+.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) *Return Messages* icon, (*4*) *Delete* icon, (*5*) *Full Screen* icon, and (*6*) close details pane icon (*X*).
+image::mq-msg-browser-payload-details.png[Selected message row, payload, Return Messages icon, Delete icon, Full Screen icon, and close details pane icon (X)]
 +
 * Click *Full Screen* to display the message payload in a separate window.
-* Click *Close* to close the details pane.
+* Click *X* to close the details pane.
 * Click *Delete* to delete the selected message.
 +
 Deleting a message is an acknowledgment operation (ACK). For information about how Anypoint MQ processes ACK messages, see xref:mq-ack-mode.adoc[Acknowledge Messages].
 * Click *Return Messages* to return all messages to the queue (for example, to enable other applications to read the messages). 
 +
-Returning messages to the queue is a not-acknowledgment operation (NACK). The messages aren't altered. However, the time to live (TTL) value you set when you created the queue determines how long the message is available before Anypoint MQ deletes it.
+Returning messages to the queue is a not-acknowledgment operation (NACK). The messages aren't altered. However, the time-to-live (TTL) value you set when you created the queue determines how long the message is available before Anypoint MQ deletes it.
 +
 If you switch from the *Message Browser* page, messages automatically return to the queue.
 
@@ -210,10 +210,10 @@ For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue on
 . Click *Message Browser*, and then click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-.The screenshot shows the JSON message payload, (*1*) the *Full Screen* icon, and (*2*) the *Close* details pane icon.
-image::mq-msg-browser-payload-details-json.png[JSON payload, Full Screen icon, and Close details pane icon]
+.The screenshot shows the JSON message payload, (*1*) the *Full Screen* icon, and (*2*) the close details pane icon (*X*).
+image::mq-msg-browser-payload-details-json.png[JSON payload, Full Screen icon, and close details pane icon (X)]
 +
-Click *Full Screen* to display the message payload in a separate window or *Close* to close the details pane.
+Click *Full Screen* to display the message payload in a separate window or *X* to close the details pane.
 
 
 == Send a CSV Message to a Queue
@@ -240,10 +240,10 @@ For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue on
 . Click *Message Browser*, and then click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-.The screenshot shows the CSV message payload, (*1*) the *Full Screen* icon, and (*2*) the *Close* details pane icon.
-image::mq-msg-browser-payload-details-csv.png[CSV payload, Full Screen icon, and Close icon details pane icon]
+.The screenshot shows the CSV message payload, (*1*) the *Full Screen* icon, and (*2*) the close detail pane icon (*X*).
+image::mq-msg-browser-payload-details-csv.png[CSV payload, Full Screen icon, and close details pane icon (*X*)]
 +
-Click *Full Screen* to display the message payload in a separate window or *Close* to close the details pane.
+Click *Full Screen* to display the message payload in a separate window or *X* to close the details pane.
 
 
 == Purge Messages from a Queue
@@ -359,7 +359,7 @@ When building applications in Anypoint Studio that require exactly-once delivery
 
 Anypoint MQ enables you to ensure that messages that aren't delivered are sent to a queue known as the dead-letter queue (DLQ). You can then analyze the messages sent to the DLQ to determine why those messages were not delivered. 
 
-A DLQ is essentially the same as any other queue except that it receives only undelivered messages. You can specify the time to live (TTL) value, encryption, and delivery delay when you create the queue. 
+A DLQ is essentially the same as any other queue except that it receives only undelivered messages. You can specify the time-to-live (TTL) value, encryption, and delivery delay when you create the queue. 
 
 You must have at least two queues for one of them to be assigned as a DLQ. Both queues must be:
 

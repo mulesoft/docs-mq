@@ -92,7 +92,7 @@ To delete a message exchange:
 +
 .The arrow shows the *Delete* icon in the details pane for deleting an exchange.
 image::mq-exchange-delete.png[Delete icon in the details pane for deleting an exchange]
-. In the *Delete Exchange* window, click the checkbox, and then click *Delete Exchange*:
+. In the *Delete Exchange* window, select the checkbox and click *Delete Exchange*:
 +
 .The arrow shows the accept checkbox for deleting an exchange.
 image::mq-delete-exchange.png[Accept checkbox for deleting an exchange]
