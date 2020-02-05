@@ -60,5 +60,5 @@ image::mq-client-apps-regenerate.png[Regenerate Secret icon in the details pane]
 
 == See Also
 
-* xref:connectors/anypoint-mq/3.x/anypoint-mq-connector-reference.adoc#config_connection[Connection]
+* xref:connectors::anypoint-mq/3.x/anypoint-mq-connector-reference.adoc#config_connection[Connection]
 * xref:mq-faq.adoc[Anypoint MQ FAQ]
