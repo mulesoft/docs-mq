@@ -247,6 +247,12 @@ You can use a `curl` command with the xref:mq-apis.adoc#mqadminapi[REST Administ
 
 Yes. It applies to all environments.
 
+== What happens when our usage exceeds our license limit?
+
+//Shared Usage Overage 
+include::partial$mq-faq.adoc[tag=faqUsageOverage]
+
+
 == Why am I seeing 400 bad request errors when using prefetch to receive messages?
 
 When using Anypoint MQ as a message processor with prefetch, use only a global prefetch configuration.
