@@ -127,6 +127,15 @@ To preserve message order for an app, you might want to create a message group f
 image::mq-fifo-msg-groups.png[Message Group ID field for FIFO queues in the Message Sender page]
 +
 See <<FIFO Queues and Message Groups>>.
++
+To add user properties to the message, toggle *Add User Properties* and enter the property-value pairs:
++
+.The arrow shows the *Add User Properties* toggle in the *Message Sender* page.
+image::mq-tutorial-message-sender-user-props.png[Add User Properties toggle in the Message Sender page]
++
+User property names can contain up to 42 alphanumeric characters (a-z, A-Z, 0-9), periods (.), and hyphens (-).
+They cannot contain spaces or other characters. 
+
 . Click *Send*.
 
 == View the Number of Messages in a Queue
@@ -161,8 +170,8 @@ image::mq-fifo-msg-browser.png[Accept checkbox for FIFO queues]
 . Click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) *Return Messages* icon, (*4*) *Delete* icon, (*5*) *Full Screen* icon, and (*6*) close details pane icon (*X*).
-image::mq-msg-browser-payload-details.png[Selected message row, payload, Return Messages icon, Delete icon, Full Screen icon, and close details pane icon (X)]
+.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) the *Return Messages* icon, (*4*) the *Delete* icon, (*5*) the *Full Screen* icon, (*6*) the close details pane icon (*X*), and (*7*) the user properties.
+image::mq-tutorial-msg-browser-payload-details.png[Selected message row, payload in the details pane, and Return Messages, Delete, Full Screen, and close details pane (X) icons]
 +
 * Click *Full Screen* to display the message payload in a separate window.
 * Click *X* to close the details pane.

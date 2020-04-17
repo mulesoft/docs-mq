@@ -90,6 +90,13 @@ image::mq-tutorial-message-sender-page.png[Message Sender option]
 +
 Leave the *Type* field set to *Text*.
 +
+To add user properties to the message, toggle *Add User Properties* and enter the property-value pairs:
++
+.The arrow shows the *Add User Properties* toggle in the *Message Sender* page.
+image::mq-tutorial-message-sender-user-props.png[Add User Properties toggle in the Message Sender page]
++
+User property names can contain up to 42 alphanumeric characters (a-z, A-Z, 0-9), periods (.), and hyphens (-).
+They cannot contain spaces or other characters. 
 . Click *Send*.
 . Set the *Type* to *JSON*.
 . Set the *Payload* to:
@@ -129,9 +136,11 @@ image::mq-tutorial-get-messages.png[Message Browser option and Get Messages butt
 . Click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) the *Return Messages* icon, (*4*) the *Delete* icon, (*5*) the *Full Screen* icon, and (*6*) the close details pane icon (*X*).
+.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) the *Return Messages* icon, (*4*) the *Delete* icon, (*5*) the *Full Screen* icon, (*6*) the close details pane icon (*X*), and (*7*) the user properties.
 image::mq-tutorial-msg-browser-payload-details.png[Selected message row, payload in the details pane, and Return Messages, Delete, Full Screen, and close details pane (X) icons]
-* Click *Full Screen* to display the message payload in a separate window or *X* to close the details pane.
++
+* Click *Full Screen* to display the message payload in a separate window.
+* Click *X* to close the details pane.
 * Click *Delete* to delete the selected message.
 +
 Deleting a message is an acknowledgment operation (ACK). For information about how Anypoint MQ processes ACK messages, see xref:mq-ack-mode.adoc[Acknowledge Messages].
@@ -565,7 +574,7 @@ image::mq-tutorial-studio6-palette.png[HTTP Connector in Mule Palette]
 .. Search for `logger`, and then drag *Logger*  to the canvas to the right of *Anypoint MQ*.
 +
 .The arrow shows the flow in the canvas.
-image::mq-tutorial-studio6-flow-complete.png[Flow in Studio 7 Canvas]
+image::mq-tutorial-studio6-flow-complete.png[Flow in Studio 6 Canvas]
 . In the canvas, click *HTTP*.
 . In the HTTP properties window, set *General* > *Path* to `/mq/{messageId}`:
 +
@@ -574,7 +583,7 @@ image::mq-tutorial-studio6-http-props.png[HTTP properties]
 . Click the HTTP connector and click the green plus icon (+) to the right of *Connector Configuration*.
 . In the HTTP Connector *Global Element Properties* window, verify that *Host* is set to `0.0.0.0` and *Port* is set to `8081`, and then click *OK*.
 +
-The HTTP properties window now indicates that there are no errors:
+The HTTP properties window now indicates that there are no errors.
 +
 . In the canvas, click *Set Payload*.
 . In the Set Payload properties window, set *General* > *Value* to:
