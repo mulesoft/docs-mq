@@ -89,14 +89,12 @@ image::mq-tutorial-message-sender-page.png[Message Sender option]
 . Enter `Hello Mules!` in the *Payload* field.
 +
 Leave the *Type* field set to *Text*.
-+
-To add user properties to the message, toggle *Add User Properties* and enter the property-value pairs:
+. If you want, toggle *Add User Properties* and specify the property name-value pairs to send.
 +
 .The arrow shows the *Add User Properties* toggle in the *Message Sender* page.
 image::mq-tutorial-message-sender-user-props.png[Add User Properties toggle in the Message Sender page]
 +
-User property names can contain up to 42 alphanumeric characters (a-z, A-Z, 0-9), periods (.), and hyphens (-).
-They cannot contain spaces or other characters. 
+include::partial$mq-user-props.adoc[tag=mquserprops]
 . Click *Send*.
 . Set the *Type* to *JSON*.
 . Set the *Payload* to:
