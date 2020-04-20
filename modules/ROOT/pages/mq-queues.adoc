@@ -184,7 +184,7 @@ Returning messages to the queue is a not-acknowledgment operation (NACK). The me
 +
 If you switch from the *Message Browser* page, messages automatically return to the queue.
 +
-If user properties are configured in the *Message Sender* page or Publish operation in Anypoint MQ Connector, they appear in the details pane for the message:
+If user properties are configured in the *Message Sender* page or as part of the Publish operation in Anypoint MQ Connector, they appear in the details pane for the message:
 
 .The arrow shows the *User Properties* in the details pane.
 image::mq-msg-browser-user-props.png[User Properties in Message Browser details pane]
