@@ -320,10 +320,7 @@ When a consumer is accessing a message group, other message groups in the FIFO q
 The FIFO queue processes messages in the message group one by one, in the order they were added.
 If the queue includes multiple message group IDs, it returns as many messages with the same message group ID as possible.
 
-[NOTE]
-FIFO queues do not support retrieving messages by message group ID.
-
-The subscriber can't specify to receive receive messages with a specific message group ID.
+You can't request to receive messages with a specific message group ID.
 
 Message order is preserved within the message group, but is not enforced across message groups.
 If multiple applications send messages associated with the same message group ID to a FIFO queue,
