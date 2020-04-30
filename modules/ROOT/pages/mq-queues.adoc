@@ -313,13 +313,24 @@ For information about creating FIFO queues with the Admin API, see xref:mq-apis.
 
 === FIFO Queues and Message Groups
 
-Message groups enable multiple consumers to access messages in a FIFO queue. Only one consumer at a time can access messages in a message group. Message order is preserved within the message group. When a consumer is accessing a message group, other message groups in the FIFO queue are available to other consumers, reducing the chance that the FIFO queue is blocked.
+Message groups enable multiple consumers to access messages in a FIFO queue.
+Only one consumer at a time can access messages in a message group.
+When a consumer is accessing a message group, other message groups in the FIFO queue are available to other consumers, reducing the chance that the FIFO queue is blocked.
 
-The FIFO queue processes messages in the message group one by one, in the order they were added.  Message order is not enforced across message groups.
+The FIFO queue processes messages in the message group one by one, in the order they were added.
+If the queue includes multiple message group IDs, it returns as many messages with the same message group ID as possible.
 
-If multiple applications send messages associated with the same message group ID to a FIFO queue, the messages are stored in the order they arrive. To preserve message order for an app, make sure that each app uses a specific message group ID to send messages.
+[NOTE]
+FIFO queues do not support retrieving messages by message group ID.
+
+Message order is preserved within the message group, but is not enforced across message groups.
+If multiple applications send messages associated with the same message group ID to a FIFO queue,
+the messages are stored in the order they arrive.
+To preserve message order for an app, make sure that each app uses a specific message group ID to send messages.
 
 If a message doesn't have an associated message group ID, the message is assigned to a default message group. If you require a single group of ordered messages, provide the same message group ID for messages sent to the FIFO queue.
+
+
 
 ==== Assign a Message Group ID to a Message
 
