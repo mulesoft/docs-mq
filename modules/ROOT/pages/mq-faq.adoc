@@ -134,6 +134,10 @@ Up to 10 messages can be retrieved from a single API call, which only bills as o
 
 There is no maximum number of transactions per second (TPS) for standard queues or exchanges. FIFO queues have a limit of 300 TPS. If you batch 10 messages per read and write operation (maximum) using the API, FIFO queues can support up to 3,000 TPS.
 
+== What's the maximum number of queues and exchanges in Anypoint MQ?
+
+There is no maximum number of queues or exchanges.
+
 [[inflights]]
 == How many in-flight messages can I have per queue?
 
