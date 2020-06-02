@@ -384,7 +384,8 @@ Undeliverable messages that are sent to the DLQ use the encryption set for the s
 
 === Billing and Maximum Deliveries
 
-If a message sent to the DLQ is a dead letter from another queue, the message is not charged against the billable message units. However, if a client sends a message directly to a DLQ, that message is charged.
+If a message sent to the DLQ is a dead letter from another queue, the message is not charged against the billable API requests.
+However, if a client sends a message directly to a DLQ, that message is charged.
 
 If a queue has a dead-letter queue assigned:
 
