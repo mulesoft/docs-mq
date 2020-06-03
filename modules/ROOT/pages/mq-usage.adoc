@@ -8,19 +8,23 @@ You can view a chart indicating how much data and how many API requests have bee
 
 * Each message unit contains 100 KB of data.
 +
-Message units are counted by the number of encoded characters in a message. Anypoint MQ charges you an extra message unit for each 100 KB of extra data in a message over 100 KB.
+Message units are counted by the number of encoded characters in a message. 
+* Every API call (via the connector or API) to Anypoint MQ counts as one API request.
 +
-//Shared Usage Overage 
-include::partial$mq-faq.adoc[tag=faqUsageOverage]
-* Every API call to Anypoint MQ counts as one API request.
-+
-This includes sending, receiving, and acknowledging messages, as well as all operations on queues and exchanges.
+All requests to the broker API, such as sending, receiving, and acknowledging messages,
+and all operations on queues and exchanges, are counted against the quota.
+
 * Up to 10 messages can be retrieved from a single API call, which only bills as one request.
 +
-Even if the request to retrieve messages does not return a message (for example, if the queue is empty), it bills as a single API request.
+Even if the request to retrieve messages does not return a message (for example, if the queue is empty),
+it bills as a single API request.
+* If a message sent to the DLQ is a dead letter from another queue, the message is not charged against the billable API requests.
++
+However, if a client sends a message directly to a DLQ, that message is charged.
 * Monthly billing usage information is delayed by 24 hours.
 
-
+//Shared Usage Overage 
+include::partial$mq-faq.adoc[tag=faqUsageOverage]
 
 == Access Anypoint MQ Usage
 
