@@ -166,7 +166,7 @@ that viewing messages through the browser might cause other consumers of the que
 +
 .The arrow shows the accept checkbox for getting messages from a FIFO queue.
 image::mq-fifo-msg-browser.png[Accept checkbox for FIFO queues]
-+
+. Specify the number of messages (1-500) and the time to poll (1-3600 seconds).
 . Click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +

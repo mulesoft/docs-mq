@@ -131,6 +131,7 @@ image::mq-tutorial-msgs-in-queue.png[Three messages in the myDemoQueue queue in 
 +
 .The screenshot shows (*1*) the *Message Browser* option and (*2*) the *Get Messages* button.
 image::mq-tutorial-get-messages.png[Message Browser option and Get Messages button]
+. Specify the number of messages (1-500) and the time to poll (1-3600 seconds).
 . Click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
@@ -323,6 +324,7 @@ Next, you verify that the message arrived in the queue.
 +
 .The screenshot shows (*1*) the *Message Browser* option and (*2*) the *Get Messages* button for getting messages from the `myDemoQueue` queue.
 image::mq-tutorial-get-messages.png[Message Browser option and Get Messages button]
+. Specify the number of messages (1-500) and the time to poll (1-3600 seconds).
 . Click *Get Messages*.
 . Click the message row to view the message payload that you sent in the `curl` command in the details pane:
 +
@@ -466,6 +468,7 @@ After making changes, redeploy your Mule app to CloudHub by right-clicking the p
 +
 .The screenshot shows (*1*) the *Message Browser* option and (*2*) the *Get Messages* button for getting messages from the `myDemoQueue` queue.
 image::mq-tutorial-get-messages.png[Message Browser option and Get Messages button]
+. Specify the number of messages (1-500) and the time to poll (1-3600 seconds).
 . Click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
