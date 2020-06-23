@@ -127,7 +127,7 @@ The details pane shows the number of messages in the queue:
 .The arrow shows the three messages that you sent to the `myDemoQueue` queue in the details pane.
 image::mq-tutorial-msgs-in-queue.png[Three messages in the myDemoQueue queue in the details pane]
 . In the *Destinations* page, click `myDemoQueue`.
-. In the *Queue Settings* page, click *Message Browser* in the left pane:
+. In the settings page, click *Message Browser* in the left pane:
 +
 .The screenshot shows (*1*) the *Message Browser* option and (*2*) the *Get Messages* button.
 image::mq-tutorial-get-messages.png[Message Browser option and Get Messages button]

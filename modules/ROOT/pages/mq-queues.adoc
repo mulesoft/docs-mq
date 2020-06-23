@@ -160,13 +160,18 @@ To get a message from a queue:
 
 . In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
 . Click the queue ID to display the *Queue Settings* page.
-. In the settings page, click *Message Browser* in the left pane.
+. In the settings page, click *Message Browser* in the left pane:
++
+.The screenshot shows (*1*) the *Message Browser* option and (*2*) the *Get Messages* button.
+image::mq-tutorial-get-messages.png[Message Browser option and Get Messages button]
+. Specify the number of messages (1-500) and the time to poll (1-3600 seconds).
++
+For a FIFO queue, you can retrieve up to 10 messages.
 . If you are retrieving messages from a FIFO queue, select the checkbox to acknowledge 
 that viewing messages through the browser might cause other consumers of the queue to be blocked from accessing messages in the queue:
 +
 .The arrow shows the accept checkbox for getting messages from a FIFO queue.
 image::mq-fifo-msg-browser.png[Accept checkbox for FIFO queues]
-. Specify the number of messages (1-500) and the time to poll (1-3600 seconds).
 . Click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
