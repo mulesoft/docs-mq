@@ -89,7 +89,12 @@ image::mq-tutorial-message-sender-page.png[Message Sender option]
 . Enter `Hello Mules!` in the *Payload* field.
 +
 Leave the *Type* field set to *Text*.
+. If you want, toggle *Add User Properties* and specify the property name-value pairs to send:
 +
+.The arrow shows the *Add User Properties* toggle in the *Message Sender* page.
+image::mq-tutorial-message-sender-user-props.png[Add User Properties toggle in the Message Sender page]
++
+include::partial$mq-user-props.adoc[tag=mquserprops]
 . Click *Send*.
 . Set the *Type* to *JSON*.
 . Set the *Payload* to:
@@ -122,16 +127,19 @@ The details pane shows the number of messages in the queue:
 .The arrow shows the three messages that you sent to the `myDemoQueue` queue in the details pane.
 image::mq-tutorial-msgs-in-queue.png[Three messages in the myDemoQueue queue in the details pane]
 . In the *Destinations* page, click `myDemoQueue`.
-. In the *Queue Settings* page, click *Message Browser* in the left pane:
+. In the settings page, click *Message Browser* in the left pane:
 +
 .The screenshot shows (*1*) the *Message Browser* option and (*2*) the *Get Messages* button.
 image::mq-tutorial-get-messages.png[Message Browser option and Get Messages button]
+. Specify the number of messages (1-500) and the time to poll (1-3600 seconds).
 . Click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) the *Return Messages* icon, (*4*) the *Delete* icon, (*5*) the *Full Screen* icon, and (*6*) the close details pane icon (*X*).
+.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) the *Return Messages* icon, (*4*) the *Delete* icon, (*5*) the *Full Screen* icon, (*6*) the close details pane icon (*X*), and (*7*) the user properties.
 image::mq-tutorial-msg-browser-payload-details.png[Selected message row, payload in the details pane, and Return Messages, Delete, Full Screen, and close details pane (X) icons]
-* Click *Full Screen* to display the message payload in a separate window or *X* to close the details pane.
++
+* Click *Full Screen* to display the message payload in a separate window.
+* Click *X* to close the details pane.
 * Click *Delete* to delete the selected message.
 +
 Deleting a message is an acknowledgment operation (ACK). For information about how Anypoint MQ processes ACK messages, see xref:mq-ack-mode.adoc[Acknowledge Messages].
@@ -316,6 +324,7 @@ Next, you verify that the message arrived in the queue.
 +
 .The screenshot shows (*1*) the *Message Browser* option and (*2*) the *Get Messages* button for getting messages from the `myDemoQueue` queue.
 image::mq-tutorial-get-messages.png[Message Browser option and Get Messages button]
+. Specify the number of messages (1-500) and the time to poll (1-3600 seconds).
 . Click *Get Messages*.
 . Click the message row to view the message payload that you sent in the `curl` command in the details pane:
 +
@@ -459,6 +468,7 @@ After making changes, redeploy your Mule app to CloudHub by right-clicking the p
 +
 .The screenshot shows (*1*) the *Message Browser* option and (*2*) the *Get Messages* button for getting messages from the `myDemoQueue` queue.
 image::mq-tutorial-get-messages.png[Message Browser option and Get Messages button]
+. Specify the number of messages (1-500) and the time to poll (1-3600 seconds).
 . Click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
@@ -565,7 +575,7 @@ image::mq-tutorial-studio6-palette.png[HTTP Connector in Mule Palette]
 .. Search for `logger`, and then drag *Logger*  to the canvas to the right of *Anypoint MQ*.
 +
 .The arrow shows the flow in the canvas.
-image::mq-tutorial-studio6-flow-complete.png[Flow in Studio 7 Canvas]
+image::mq-tutorial-studio6-flow-complete.png[Flow in Studio 6 Canvas]
 . In the canvas, click *HTTP*.
 . In the HTTP properties window, set *General* > *Path* to `/mq/{messageId}`:
 +
@@ -574,7 +584,7 @@ image::mq-tutorial-studio6-http-props.png[HTTP properties]
 . Click the HTTP connector and click the green plus icon (+) to the right of *Connector Configuration*.
 . In the HTTP Connector *Global Element Properties* window, verify that *Host* is set to `0.0.0.0` and *Port* is set to `8081`, and then click *OK*.
 +
-The HTTP properties window now indicates that there are no errors:
+The HTTP properties window now indicates that there are no errors.
 +
 . In the canvas, click *Set Payload*.
 . In the Set Payload properties window, set *General* > *Value* to:

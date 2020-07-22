@@ -127,6 +127,15 @@ To preserve message order for an app, you might want to create a message group f
 image::mq-fifo-msg-groups.png[Message Group ID field for FIFO queues in the Message Sender page]
 +
 See <<FIFO Queues and Message Groups>>.
+** *Add User Properties* configures user properties to send with the message.
++
+Toggle *Add User Properties* and specify the property name-value pairs to send:
++
+.The arrow shows the *Add User Properties* toggle in the *Message Sender* page.
+image::mq-tutorial-message-sender-user-props.png[Add User Properties toggle in the Message Sender page]
++
+include::partial$mq-user-props.adoc[tag=mquserprops]
+
 . Click *Send*.
 
 == View the Number of Messages in a Queue
@@ -151,18 +160,23 @@ To get a message from a queue:
 
 . In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
 . Click the queue ID to display the *Queue Settings* page.
-. In the settings page, click *Message Browser* in the left pane.
+. In the settings page, click *Message Browser* in the left pane:
++
+.The screenshot shows (*1*) the *Message Browser* option and (*2*) the *Get Messages* button.
+image::mq-tutorial-get-messages.png[Message Browser option and Get Messages button]
+. Specify the number of messages (1-500) and the time to poll (1-3600 seconds).
++
+For a FIFO queue, you can retrieve up to 10 messages.
 . If you are retrieving messages from a FIFO queue, select the checkbox to acknowledge 
 that viewing messages through the browser might cause other consumers of the queue to be blocked from accessing messages in the queue:
 +
 .The arrow shows the accept checkbox for getting messages from a FIFO queue.
 image::mq-fifo-msg-browser.png[Accept checkbox for FIFO queues]
-+
 . Click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) *Return Messages* icon, (*4*) *Delete* icon, (*5*) *Full Screen* icon, and (*6*) close details pane icon (*X*).
-image::mq-msg-browser-payload-details.png[Selected message row, payload, Return Messages icon, Delete icon, Full Screen icon, and close details pane icon (X)]
+.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) the *Return Messages* icon, (*4*) the *Delete* icon, (*5*) the *Full Screen* icon, (*6*) the close details pane icon (*X*), and (*7*) the user properties.
+image::mq-tutorial-msg-browser-payload-details.png[Selected message row, payload in the details pane, and Return Messages, Delete, Full Screen, and close details pane (X) icons]
 +
 * Click *Full Screen* to display the message payload in a separate window.
 * Click *X* to close the details pane.
@@ -174,9 +188,8 @@ Deleting a message is an acknowledgment operation (ACK). For information about h
 Returning messages to the queue is a not-acknowledgment operation (NACK). The messages aren't altered. However, the time-to-live (TTL) value you set when you created the queue determines how long the message is available before Anypoint MQ deletes it.
 +
 If you switch from the *Message Browser* page, messages automatically return to the queue.
-
-
-If user properties are configured in the Publish operation in Anypoint MQ Connector, they appear in the details pane for the message:
++
+If user properties are configured in the *Message Sender* page or as part of the Publish operation in Anypoint MQ Connector, they appear in the details pane for the message:
 
 .The arrow shows the *User Properties* in the details pane.
 image::mq-msg-browser-user-props.png[User Properties in Message Browser details pane]
