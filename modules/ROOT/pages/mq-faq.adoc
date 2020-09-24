@@ -38,7 +38,7 @@ After you obtain an Enterprise subscription and contacted your MuleSoft represen
 == How does Anypoint MQ encrypt messages?
 
 Anypoint MQ messages are always transported using in-flight HTTPS encryption with the latest Transport Layer Security (TLS) protocols.
-Additionally, if your Anypoint MQ queues are configured for encryption at rest, then the payloads are encrypted server-side using the native encryption algorithm provided by the CloudHub infrastructure security settings.
+If you configure Anypoint MQ queues for encryption at rest, the payloads are encrypted with the AES-256 GCM algorithm on the server side.
 
 If your app requires an additional layer of encryption security, then you can encrypt the payloads yourself before publishing messages to Anypoint MQ. You must manage your encryption keys for both the message publishers and the consumers.
 
