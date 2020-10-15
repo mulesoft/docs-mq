@@ -349,7 +349,7 @@ This behavior might not be desirable if a message in the group depends on a prev
 
 To ensure that the FIFO queue processes the messages in order:
 
-. Set the value of `maxConcurrency` on the flow to `1`, which forces the flow to process requests one at a time.
+. Set the value of `maxConcurrency` on the flow to `1`, which forces the flow to process requests individually.
 . Set `subscriber-type` to `polling`, which controls message consumption.
 . Set the value of `fetchSize` to `1`, which ensures that only one message is buffered.
 
