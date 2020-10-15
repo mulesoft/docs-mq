@@ -336,6 +336,8 @@ If the queue includes multiple message group IDs, it returns as many messages wi
 [NOTE]
 FIFO queues do not support retrieving messages by message group ID.
 
+If a message doesn't have an associated message group ID, the message is assigned to a default message group. If you require a single group of ordered messages, provide the same message group ID for messages sent to the FIFO queue.
+
 Message order is preserved within the message group, but is not enforced across message groups.
 If multiple applications send messages associated with the same message group ID to a FIFO queue,
 the messages are stored in the order they arrive.
@@ -344,9 +346,23 @@ To preserve message order for an app, make sure that each app uses a specific me
 If a message in a message group is not acknowledged, it returns to the queue 
 and Anypoint MQ continues processing the next message in the group.
 This behavior might not be desirable if a message in the group depends on a previous message.
-To ensure that the messages are processed in order, set the value of `maxConcurrency` on the flow to `1`, which forces the flow to process requests one at a time.
 
-If a message doesn't have an associated message group ID, the message is assigned to a default message group. If you require a single group of ordered messages, provide the same message group ID for messages sent to the FIFO queue.
+To ensure that the FIFO queue processes the messages in order:
+
+. Set the value of `maxConcurrency` on the flow to `1`, which forces the flow to process requests individually.
+. Set `subscriber-type` to `polling`, which controls message consumption.
+. Set the value of `fetchSize` to `1`, which ensures that only one message is buffered.
+
+[source,xml,linenums]
+----
+...
+<flow name="myFlow" doc:id="doc_ID" maxConcurrency="1">
+  <anypoint-mq:subscriber doc:name="Subscriber" doc:id="doc_ID" config-ref="Anypoint_MQ_Config" destination="myQueue">
+    <anypoint-mq:subscriber-type >
+      <anypoint-mq:polling fetchSize="1" >
+...
+----
+
 
 
 
