@@ -363,7 +363,9 @@ To ensure that the FIFO queue processes the messages in order:
 ...
 ----
 
-
+To process messages in message groups in parallel,
+configure multiple subscriber flows in the app, 
+each with the value of `maxConcurrency` set to `1`.
 
 
 ==== Assign a Message Group ID to a Message
