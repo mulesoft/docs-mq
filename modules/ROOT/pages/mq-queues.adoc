@@ -371,7 +371,7 @@ Anypoint MQ automatically processes messages from different message groups in pa
 maintaining the relative order of messages in the message groups.
 
 To process messages in message groups in parallel,
-preserving the order of messages within the groups,
+and preserve the order of messages within the groups,
 configure multiple Subscriber flows in the app,
 each with the value of `maxConcurrency` set to `1`.
 
