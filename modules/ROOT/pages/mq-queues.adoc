@@ -343,6 +343,8 @@ If multiple applications send messages associated with the same message group ID
 the messages are stored in the order they arrive.
 To preserve message order for an app, make sure that each app uses a specific message group ID to send messages.
 
+==== Process Messages in Message Groups in Order 
+
 If a message in a message group is not acknowledged, it returns to the queue 
 and Anypoint MQ continues processing the next message in the group.
 This behavior might not be desirable if a message in the group depends on a previous message.
@@ -363,10 +365,15 @@ To ensure that the FIFO queue processes the messages in order:
 ...
 ----
 
-To process messages in message groups in parallel,
-configure multiple subscriber flows in the app, 
-each with the value of `maxConcurrency` set to `1`.
+==== Use Message Groups to Process Messages in Parallel
 
+Anypoint MQ automatically processes messages from different message groups in parallel, 
+maintaining the relative order of messages in the message groups.
+
+To process messages in message groups in parallel,
+preserving the order of messages within the groups,
+configure multiple Subscriber flows in the app,
+each with the value of `maxConcurrency` set to `1`.
 
 ==== Assign a Message Group ID to a Message
 
