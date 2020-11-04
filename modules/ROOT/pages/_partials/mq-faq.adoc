@@ -3,3 +3,8 @@
 If your usage exceeds your license limit, Anypoint MQ continues to work.
 MuleSoft notifies your account administrator and team with any billing-related information.
 // end::faqUsageOverage[]
+
+
+// tag::faqEncryption[]
+If you configure Anypoint MQ queues for encryption at rest, the payloads are encrypted with the AES-256 GCM algorithm on the server side.
+// end::faqEncryption[]
