@@ -85,8 +85,8 @@ In FIFO queues, you can assign messages to a message group to enable multiple co
 * *Encrypted queues*
 +
 Messages in queues data can optionally be encrypted, enabling companies to be compliant with their data at rest policies. 
-If enabled, Anypoint MQ encrypts messages using PBE with MD5 and Triple DES, and with a 168-bit key.
-Anypoint MQ messages are encrypted server-side.
+//Shared Encryption
+include::partial$mq-faq.adoc[tag=faqEncryption]
 
 == Queues
 
