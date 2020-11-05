@@ -43,6 +43,6 @@ The Anypoint MQ app sends the string as a message to the queue or message exchan
 * xref:mq-understanding.adoc[Anypoint MQ Terminology]
 * xref:mq-connectors.adoc[Anypoint MQ Connectors]
 * xref:mq-faq.adoc[Anypoint MQ FAQ]
-* xref:release-notes::mq/anypoint-mq-release-notes.adoc[Anypoint MQ Release Notes]
+* xref:release-notes::mq/mq-release-notes.adoc[Anypoint MQ Release Notes]
 * xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[Anypoint MQ Audit Logging]
 * xref:mq-queues.adoc#fifoqueues[FIFO Queues]
