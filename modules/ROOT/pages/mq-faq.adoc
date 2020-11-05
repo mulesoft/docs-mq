@@ -8,7 +8,8 @@ This document lists frequently asked questions about Anypoint MQ.
 
 *See Also:* xref:mq-connectors.adoc[Anypoint MQ Connectors],
 xref:mq-apis.adoc[REST APIs],
-xref:release-notes::mq/anypoint-mq-release-notes.adoc[Release Notes].
+xref:release-notes::mq/mq-release-notes.adoc[Release Notes].
+
 
 == Why is Anypoint MQ not shown in Anypoint Platform?
 
