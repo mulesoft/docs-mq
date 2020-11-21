@@ -25,6 +25,7 @@ Anypoint MQ standard and FIFO queues are available in these regions:
 ** Oregon (`us-west-2`)
 ** Central Canada (`ca-central-1`)
 * Europe:
+** Frankfurt (`eu-central-1`)
 ** Ireland (`eu-west-1`)
 ** London (`eu-west-2`)
 * APAC:
