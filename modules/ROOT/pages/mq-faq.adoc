@@ -20,16 +20,20 @@ Anypoint MQ requires a separate Enterprise subscription and is not included in t
 
 Anypoint MQ standard and FIFO queues are available in these regions:
 
-* North America:
-** Northern Virginia (`us-east-1`)
-** Oregon (`us-west-2`)
-** Central Canada (`ca-central-1`)
-* Europe:
-** Ireland (`eu-west-1`)
-** London (`eu-west-2`)
-* APAC:
-** Singapore (`ap-southeast-1`)
-** Sydney (`ap-southeast-2`)
+[%header,cols="15,15,30"]
+|===
+| Control Plane | Location | Region 
+.7+| US .3+| North America | Northern Virginia (`us-east-1`)
+                  | Oregon (`us-west-2`)
+                  | Central Canada (`ca-central-1`)
+    .2+| Europe     | Ireland (`eu-west-1`)
+                    | London (`eu-west-2`)
+   .2+| APAC        | Singapore (`ap-southeast-1`)
+                    | Sydney (`ap-southeast-2`)
+.2+| EU .2+| Europe | Frankfurt (`eu-central-1`)
+                    | Ireland (`eu-west-1`)
+|===
+
 
 
 == How do I create and send messages into Anypoint MQ from Mule runtime?
