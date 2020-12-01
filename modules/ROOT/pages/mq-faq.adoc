@@ -31,7 +31,7 @@ Anypoint MQ standard and FIFO queues are available in these regions:
                     | London (`eu-west-2`)
    .2+| APAC        | Singapore (`ap-southeast-1`)
                     | Sydney (`ap-southeast-2`)
-.2+| EU .2+|           | Frankfurt (`eu-central-1`)
+.2+| EU .2+| Europe | Frankfurt (`eu-central-1`)
                     | Ireland (`eu-west-1`)
 |===
 
