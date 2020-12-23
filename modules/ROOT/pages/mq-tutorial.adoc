@@ -96,6 +96,15 @@ image::mq-tutorial-message-sender-user-props.png[Add User Properties toggle in t
 +
 include::partial$mq-user-props.adoc[tag=mquserprops]
 . Click *Send*.
+. Set the *Type* to *CSV*.
+. Set the *Payload* to:
++
+----
+"dog",
+"fish",
+"parrot"
+----
+. Click *Send*.
 . Set the *Type* to *JSON*.
 . Set the *Payload* to:
 +
@@ -106,15 +115,6 @@ include::partial$mq-user-props.adoc[tag=mquserprops]
 "animal that swims":"fish",
 "animal that flies":"parrot"
 }
-----
-. Click *Send*.
-. Set the *Type* to *CSV*.
-. Set the *Payload* to:
-+
-----
-"dog",
-"fish",
-"parrot"
 ----
 . Click *Send*.
 +
@@ -452,7 +452,7 @@ curl -X POST \
   http://APP-URL/mq/100 \
   -H 'content-type: application/json' \
   -d '[  {   
-    "body": "Message via Runtime Manager"
+    "body": "Welcome to MuleSoft!"
   }
 ]'
 ----
@@ -492,7 +492,7 @@ You can use this XML to create the `mq-demo` app in Studio 7.
 Click *Configuration XML* tab in Studio and compare your XML to the following. Make corrections if needed.
 
 
-[source,console,linenums]
+[source,xml,linenums]
 ----
 
 <?xml version="1.0" encoding="UTF-8"?>
@@ -650,7 +650,7 @@ After you configure your app using the Anypoint MQ Connector, you can check your
 
 Click Configuration XML in Studio and compare your XML to the following. If needed, you can make corrections.
 
-[source,console,linenums]
+[source,xml,linenums]
 ----
 <?xml version="1.0" encoding="UTF-8"?>
 

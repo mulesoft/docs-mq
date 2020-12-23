@@ -91,7 +91,7 @@ From this page, you can:
 
 == Send a Message to a Queue
 
-Message content can be text, JSON, or CSV (comma-separated values). The maximum size of a message is 10 MB. 
+Message content can be text, CSV (comma-separated values), or JSON. The maximum size of a message is 10 MB. 
 
 To send a text message to a queue:
 
@@ -105,8 +105,8 @@ image::mq-message-sender-page.png[Message Sender option]
 ** *Type* is *Text*, *CSV*, or *JSON*.
 +
 See also 
-xref:mq-queues.adoc#send-a-json-message-to-a-queue[Send a JSON Message to a Queue] and 
-xref:mq-queues.adoc#send-a-csv-message-to-a-queue[Send a CSV Message to a Queue].
+xref:mq-queues.adoc#send-a-csv-message-to-a-queue[Send a CSV Message to a Queue] and
+xref:mq-queues.adoc#send-a-json-message-to-a-queue[Send a JSON Message to a Queue]. 
 +
 ** *Payload* contains the message payload text, such as `Hello Mules!`.
 ** *Delivery Delay* (standard queue only) indicates the time to delay the message delivery (optional). 
@@ -194,6 +194,34 @@ If user properties are configured in the *Message Sender* page or as part of the
 .The arrow shows the *User Properties* in the details pane.
 image::mq-msg-browser-user-props.png[User Properties in Message Browser details pane]
 
+== Send a CSV Message to a Queue
+
+To send a CSV message to a queue:
+
+. In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
+. Click the queue ID to display the *Queue Settings* page:
++
+.The arrow shows the *Queue Settings* option in the *Destinations* page.
+image::mq-queue-settings.png[Queue Settings option]
+. In the settings page, click *Message Sender* in the left pane.
+. Set the *Type* to *CSV*.
+. In the *Payload* field, enter this text:
++
+----
+"dog",
+"fish",
+"parrot"
+----
++
+For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue only), see <<Send a Message to a Queue>>.
+. Click *Send*.
+. Click *Message Browser*, and then click *Get Messages*.
+. Click the message row to view the message payload in the details pane:
++
+.The screenshot shows the CSV message payload, (*1*) the *Full Screen* icon, and (*2*) the close detail pane icon (*X*).
+image::mq-msg-browser-payload-details-csv.png[CSV payload, Full Screen icon, and close details pane icon (*X*)]
++
+Click *Full Screen* to display the message payload in a separate window or *X* to close the details pane.
 
 == Send a JSON Message to a Queue
 
@@ -229,34 +257,6 @@ image::mq-msg-browser-payload-details-json.png[JSON payload, Full Screen icon, a
 Click *Full Screen* to display the message payload in a separate window or *X* to close the details pane.
 
 
-== Send a CSV Message to a Queue
-
-To send a CSV message to a queue:
-
-. In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
-. Click the queue ID to display the *Queue Settings* page:
-+
-.The arrow shows the *Queue Settings* option in the *Destinations* page.
-image::mq-queue-settings.png[Queue Settings option]
-. In the settings page, click *Message Sender* in the left pane.
-. Set the *Type* to *CSV*.
-. In the *Payload* field, enter this text:
-+
-----
-"dog",
-"fish",
-"parrot"
-----
-+
-For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue only), see <<Send a Message to a Queue>>.
-. Click *Send*.
-. Click *Message Browser*, and then click *Get Messages*.
-. Click the message row to view the message payload in the details pane:
-+
-.The screenshot shows the CSV message payload, (*1*) the *Full Screen* icon, and (*2*) the close detail pane icon (*X*).
-image::mq-msg-browser-payload-details-csv.png[CSV payload, Full Screen icon, and close details pane icon (*X*)]
-+
-Click *Full Screen* to display the message payload in a separate window or *X* to close the details pane.
 
 
 == Purge Messages from a Queue
