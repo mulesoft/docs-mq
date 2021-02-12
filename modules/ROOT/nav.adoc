@@ -11,3 +11,4 @@
 * xref:mq-ack-mode.adoc[Acknowledge Messages]
 * xref:mq-apis.adoc[Anypoint MQ REST APIs]
 * xref:mq-usage.adoc[View Usage Graphs]
+* xref:mq-audit-logs.adoc[Anypoint MQ Audit Logs]
