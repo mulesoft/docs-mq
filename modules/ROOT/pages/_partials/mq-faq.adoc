@@ -8,3 +8,8 @@ MuleSoft notifies your account administrator and team with any billing-related i
 // tag::faqEncryption[]
 If you configure Anypoint MQ queues for encryption at rest, the payloads are encrypted with the AES-256 GCM algorithm on the server side.
 // end::faqEncryption[]
+
+// tag::messageGroupLimit[]
+Anypoint MQ doesn't limit the number of message groups in a FIFO queue.
+// end::messageGroupLimit[]
+

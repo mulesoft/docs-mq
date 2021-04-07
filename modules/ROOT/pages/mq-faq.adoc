@@ -151,7 +151,8 @@ There is no maximum number of queues or exchanges.
 Anypoint MQ supports up to 120,000 in-flight messages per standard (non-FIFO) queue.
 
 FIFO queues allow up to 10 in-flight messages per message group due to the extra processing required.
-Anypoint MQ doesn't limit the number of message groups in FIFO queues.
+//Shared Message Group Limits
+include::partial$mq-faq.adoc[tag=messageGroupLimit]
 
 A single queue can contain an unlimited number of messages. The maximum duration for any message, either in-flight or not, is two weeks, after which Anypoint MQ deletes the message.
 
