@@ -1,5 +1,5 @@
 
 // tag::msgGroupId[]
 Message group IDs can contain up to 128 alphanumeric characters (a-z, A-Z, 0-9)
-and punctuation (!"#$%&'()*+,-./:;<=>?@[]^\_`{|}~).
+and punctuation (! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ ] \ ^ _ ` { } \| ~).
 // end::msgGroupId[]
