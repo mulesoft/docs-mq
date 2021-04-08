@@ -176,15 +176,15 @@ curl -X GET -H "Authorization: bearer 42544254-4254-4254-4254-425442544254" \
 "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/42544254-4254-4254-4254-425442544254/environments/42544254-4254-4254-4254-425442544254/destinations/postmanQueue/messages?pollingTime=10000&batchSize=1&lockTtl=10000"
 ----
 
-You can control whether to show the message payload in the response using the `showPayload` query parameter.
+You can control whether to show the message payload in the response using the `payloadVisibility` query parameter.
 This parameter is useful when retrieving large payloads.
 
-The `showPayload` parameter takes the following options: 
+The `payloadVisibility` parameter takes the following options: 
 
-* `true`: Shows the message payload in the response+
+* `full`: Shows the message payload in the response+
 This option is the default.
-* `false`: Hides the message payload in the response
-* `partial`: Hides the message payload if the payload size is larger than 1 MB. 
+* `none`: Hides the message payload in the response
+* `conditional`: Hides the message payload if the payload size is larger than 1 MB. 
 
 [[mqstatapi]]
 == Anypoint MQ Stats API
