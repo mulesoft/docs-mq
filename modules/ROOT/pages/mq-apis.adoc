@@ -75,10 +75,6 @@ The command returns output similar to:
 }
 ----
 
-In the Admin API portal, click *Download* to download the API as a RAML, Mule 3 zipped connector file, or as a Mule 4 connector JAR file.
-
-image::mq-rest-admin-portal.png[]
-
 === Create a FIFO Queue in the Admin API Portal
 
 You can create a FIFO queue from the Admin API portal by including the `"fifo": true` field.
@@ -105,7 +101,8 @@ Use this body:
 [[mqbrokerapi]]
 == Anypoint MQ Broker API
 
-The Anypoint MQ Broker API enables clients to send and receive messages from queues and exchanges.
+The  
+https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint MQ Broker API] enables clients to publish, retrieve, and acknowledge messages from queues and message exchanges.
 
 You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ. See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[MQ Audit Logging].
 
@@ -136,11 +133,58 @@ The command returns output similar to:
 {"access_token":"<token>","simple_client":{"envId":"ENVIRONMENT_ID","orgId":"ORGANIZATION_ID"},"token_type":"bearer"}
 ----
 
-https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Broker API Portal] - Publish, consume, ack, and nack messages between queues and message exchanges.
 
-In the Broker API portal, click *Download* to download the API as a RAML, Mule 3 zipped connector file, or as a Mule 4 connector JAR file.
+[[excoliuscu]]
+=== Use the Anypoint MQ Broker API
 
-image::mq-rest-broker-portal.png[]
+These examples use the Anypoint MQ Broker API to publish and consume messages and test Anypoint MQ from the command line using curl.
+
+You must substitute the placeholder string, `42544254-4254-4254-4254-425442544254` for the proper values for authorization and token strings. These examples use Postman to access the queue.
+
+See the xref:mq-faq.adoc#regions[MQ FAQ] for the regions where Anypoint MQ and FIFO are available.
+
+==== Example: Publish a Message
+
+The following *curl* command publishes a message:
+
+[source,console,linenums]
+----
+curl -X PUT -H "Content-Type: application/json" \
+-H "Authorization: bearer 42544254-4254-4254-4254-425442544254" \
+-H "Cache-Control: no-cache" \
+-H "Postman-Token: 42544254-4254-4254-42544254-425442544254" \
+-d '{ \
+  "properties": {
+    "userDefinedHeader": "User defined stuff",
+    "anotherUserDefinedHeader": "Random stuff"
+  },
+
+  "body": "This is a message payload"
+}
+' "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/42544254-4254-4254-4254-425442544254/environments/42544254-4254-4254-4254-425442544254/destinations/postmanExchange/messages/552"
+----
+
+==== Example: Retrieve a Message
+
+The following curl command gets a message:
+
+[source,console,linenums]
+----
+curl -X GET -H "Authorization: bearer 42544254-4254-4254-4254-425442544254" \
+-H "Cache-Control: no-cache" \
+-H "Postman-Token: 42544254-4254-4254-4254-425442544254" \
+"https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/42544254-4254-4254-4254-425442544254/environments/42544254-4254-4254-4254-425442544254/destinations/postmanQueue/messages?pollingTime=10000&batchSize=1&lockTtl=10000"
+----
+
+You can control whether to show the message payload in the response using the `showPayload` query parameter.
+This parameter is useful when retrieving large payloads.
+
+The `showPayload` parameter takes the following options: 
+
+* `true`: Shows the message payload in the response+
+This option is the default.
+* `false`: Hides the message payload in the response
+* `partial`: Hides the message payload if the payload size is larger than 1 MB. 
 
 [[mqstatapi]]
 == Anypoint MQ Stats API
@@ -191,11 +235,6 @@ This returns output similar to:
   "redirectUrl": "/home/"
 }
 ----
-
-
-In the Stats API portal, click *Download* to download the API as a RAML, Mule 3 zipped connector file, or as a Mule 4 connector JAR file.
-
-image::mq-rest-stats-portal.png[]
 
 === Real-Time Statistics for Queues
 
@@ -509,7 +548,7 @@ exchanges=[
 ]
 ----
 
-See the xref:mq-faq#regions[Anypoint MQ FAQ]for the regions where Anypoint MQ and FIFO queues are available.
+See the xref:mq-faq#regions[Anypoint MQ FAQ] for the regions where Anypoint MQ and FIFO queues are available.
 
 === Create a Script File
 
@@ -690,43 +729,7 @@ class AnypointMQAdminClient {
 }
 ----
 
-[[excoliuscu]]
-== Example: Broker API Publish a Message
 
-This example uses the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[MQ Broker API] to publish and consume messages and test Anypoint MQ from the command line using curl.
-
-You must substitute the placeholder string, `42544254-4254-4254-4254-425442544254` for the proper values for authorization and token strings. These examples use Postman to access the queue.
-
-The following *curl* command publishes a message:
-
-[source,console,linenums]
-----
-curl -X PUT -H "Content-Type: application/json" \
--H "Authorization: bearer 42544254-4254-4254-4254-425442544254" \
--H "Cache-Control: no-cache" \
--H "Postman-Token: 42544254-4254-4254-42544254-425442544254" \
--d '{ \
-  "properties": {
-    "userDefinedHeader": "User defined stuff",
-    "anotherUserDefinedHeader": "Random stuff"
-  },
-
-  "body": "This is a message payload"
-}
-' "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/42544254-4254-4254-4254-425442544254/environments/42544254-4254-4254-4254-425442544254/destinations/postmanExchange/messages/552"
-----
-
-The following curl command gets a message:
-
-[source,console,linenums]
-----
-curl -X GET -H "Authorization: bearer 42544254-4254-4254-4254-425442544254" \
--H "Cache-Control: no-cache" \
--H "Postman-Token: 42544254-4254-4254-4254-425442544254" \
-"https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/42544254-4254-4254-4254-425442544254/environments/42544254-4254-4254-4254-425442544254/destinations/postmanQueue/messages?pollingTime=10000&batchSize=1&lockTtl=10000"
-----
-
-See the xref:mq-faq.adoc[MQ FAQ] for the regions that Anypoint MQ and FIFO are available in.
 
 [[expostbro]]
 == Example: Postman, Studio, and Browser
@@ -798,6 +801,16 @@ Ensure that the Console messages end with the `DEPLOYED` value.
 
 After you set up an HTTP Listener in Studio, browse to the address `0.0.0.0:8081`. The browser displays the message sent by Postman, which the Anypoint MQ connector received, and the HTTP connector sent to the browser.
 
+== Download Anypoint MQ APIs from Exchange
+
+To download the Anypoint MQ APIs from Exchange, click *Download* and select the format to download: RAML, OAS, or as a connector file for Mule 3 or Mule 4.
+
+.The arrow shows the *Download* button in Exchange.
+image::mq-exchange-download.png[Download Anypoint MQ APIs in Exchange]
+
 == See Also
 
 * xref:mq-faq.adoc[Anypoint MQ FAQ]
+* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Anypoint Admin API in Anypoint Exchange]
+* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint Broker API in Anypoint Exchange]
+* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API in Anypoint Exchange]

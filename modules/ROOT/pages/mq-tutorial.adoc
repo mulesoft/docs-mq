@@ -148,6 +148,10 @@ Deleting a message is an acknowledgment operation (ACK). For information about h
 Returning messages to the queue is a not-acknowledgment operation (NACK). The messages aren't altered. However, the time-to-live (TTL) value you set when you created the queue determines how long the message is available before Anypoint MQ deletes it.
 +
 If you switch from the *Message Browser* page, messages automatically return to the queue.
++
+[NOTE]
+//Shared Big Payload
+include::partial$mq-big-payload.adoc[tag=mqBigPayload]
 
 You have successfully created a queue in Anypoint MQ, sent messages to the queue, verified that the messages arrived, and viewed the message payload. Next, you register a client Mule app with Anypoint MQ.
 
@@ -334,7 +338,10 @@ image::mq-tutorial-msg-browser-payload-details-curl.png[Selected message row, pa
 * Click *Full Screen* to display the message payload in a separate window or *X* to close the details pane.
 * Click *Delete* to delete the selected message.
 * Click *Return Messages* to return the message to the queue (for example, to enable other applications to read the message). 
-
++
+[NOTE]
+//Shared Big Payload
+include::partial$mq-big-payload.adoc[tag=mqBigPayload]
 . Try changing the body text in the `curl` command and repeat the steps to view the message.
 
 You have successfully tested your app using a `curl` command to submit a REST API command to the Anypoint MQ Broker API and using Anypoint MQ to view the results. Next, you create a Mule app in Anypoint Studio 7 and connect it to Anypoint MQ.
@@ -478,6 +485,10 @@ image::mq-tutorial-msg-browser-payload-details-curl-rtm.png[Selected message row
 * Click *Full Screen* to display the message payload in a separate window or *Close* to close the details pane.
 * Click *Delete* to delete the selected message.
 * Click *Return Messages* to return the message to the queue (for example, to enable other applications to read the message). 
++
+[NOTE]
+//Shared Big Payload
+include::partial$mq-big-payload.adoc[tag=mqBigPayload]
 . Try changing the body text in the `curl` command and repeat the steps to view the message.
 
 
