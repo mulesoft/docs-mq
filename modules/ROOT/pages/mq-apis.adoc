@@ -145,7 +145,7 @@ See the xref:mq-faq.adoc#regions[MQ FAQ] for the regions where Anypoint MQ and F
 
 ==== Example: Publish a Message
 
-The following *curl* command publishes a message:
+The following `curl` command publishes a message:
 
 [source,console,linenums]
 ----
