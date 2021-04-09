@@ -166,7 +166,7 @@ curl -X PUT -H "Content-Type: application/json" \
 
 ==== Example: Retrieve a Message
 
-The following curl command gets a message:
+The following `curl` command gets a message:
 
 [source,console,linenums]
 ----
