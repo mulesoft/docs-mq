@@ -184,7 +184,7 @@ The `payloadVisibility` parameter takes the following options:
 
 * `full`: Shows the message payload in the response. +
 This option is the default.
-* `none`: Hides the message payload in the response
+* `none`: Hides the message payload in the response.
 * `conditional`: Hides the message payload if the payload size is larger than 1 MB. 
 
 If the payload is hidden because `payloadVisibility` is set to `none` or `conditional`, the response includes `payloadHidden=true` in the message header.
