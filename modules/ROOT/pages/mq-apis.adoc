@@ -139,7 +139,7 @@ The command returns output similar to:
 
 These examples use the Anypoint MQ Broker API to publish and consume messages and to test Anypoint MQ from the command line using curl.
 
-You must substitute the placeholder string, `42544254-4254-4254-4254-425442544254` for the proper values for authorization and token strings. These examples use Postman to access the queue.
+You must substitute the placeholder string, `42544254-4254-4254-4254-425442544254` with the proper values for authorization and token strings. These examples use Postman to access the queue.
 
 See the xref:mq-faq.adoc#regions[MQ FAQ] for the regions where Anypoint MQ and FIFO are available.
 
