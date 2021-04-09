@@ -182,7 +182,7 @@ This parameter is useful when retrieving large payloads.
 
 The `payloadVisibility` parameter takes the following options: 
 
-* `full`: Shows the message payload in the response+
+* `full`: Shows the message payload in the response. +
 This option is the default.
 * `none`: Hides the message payload in the response
 * `conditional`: Hides the message payload if the payload size is larger than 1 MB. 
