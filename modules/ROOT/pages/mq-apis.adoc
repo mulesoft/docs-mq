@@ -189,7 +189,7 @@ This option is the default.
 
 If the value of `payloadVisibility` is `none`, the response includes `payloadHidden=true` in the header.
 
-The following curl command gets a message and only displays the payload if the payload size is smaller than 1 MB:
+The following curl command gets a message and displays the payload only if the size is smaller than 1 MB:
 
 [source,console,linenums]
 ----
