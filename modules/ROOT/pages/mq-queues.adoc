@@ -20,6 +20,8 @@ Anypoint MQ supports up to 120,000 in-flight messages per standard queue.
 These queues ensure that your messages arrive in order. FIFO queues are the best fit for applications requiring strict message ordering and exactly-once delivery, but in which message delivery speed is of less importance. See <<FIFO Queues>>.
 +
 Anypoint MQ supports 10 in-flight messages per message group in a FIFO queue.
+//Shared Message Group Limits
+include::partial$mq-faq.adoc[tag=messageGroupLimit]
 
 You can assign either standard or FIFO queue type as a dead-letter queue (DLQ). See <<Dead Letter Queues>>.
 
@@ -119,12 +121,12 @@ See xref:mq-understanding.adoc#delay_messages[Delayed delivery for messages].
 +
 ** *Message Group ID* (FIFO queue only) specifies the group to which the message belongs.
 +
-Message group IDs can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9), periods (.), and hyphens (-). They cannot contain spaces or other characters.
-+
 To preserve message order for an app, you might want to create a message group for each application to send messages:
 +
 .The arrow shows the *Message Group ID* field in the *Message Sender* page.
 image::mq-fifo-msg-groups.png[Message Group ID field for FIFO queues in the Message Sender page]
++
+include::partial$mq-msg-group-id.adoc[]
 +
 See <<FIFO Queues and Message Groups>>.
 ** *Add User Properties* configures user properties to send with the message.
@@ -329,6 +331,9 @@ For information about creating FIFO queues with the Admin API, see xref:mq-apis.
 Message groups enable multiple consumers to access messages in a FIFO queue.
 Only one consumer at a time can access messages in a message group.
 When a consumer is accessing a message group, other message groups in the FIFO queue are available to other consumers, reducing the chance that the FIFO queue is blocked.
+
+//Shared Message Group Limits
+include::partial$mq-faq.adoc[tag=messageGroupLimit]
 
 The FIFO queue processes messages in the message group one by one, in the order they were added.
 If the queue includes multiple message group IDs, it returns as many messages with the same message group ID as possible.
