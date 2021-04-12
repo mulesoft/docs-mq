@@ -82,6 +82,10 @@ Anypoint MQ limits messages to 10 MB.
 
 If a larger size is required, you can split the payload into multiple messages, or implement a claim check style service in which you store the payload in a file system or blob storage, and then put a pointer to the payload in the message so it can be downloaded later. However, you must manage access control to the blob storage for both the sender and receiver. You also need to consider that messages can be received unordered unless you use a FIFO queue.
 
+If the payload size is 1 MB or larger, the *Message Browser* page displays an error.
+In this case, you can use the Anypoint MQ Broker API to display the message payload. 
+See xref:mq:mq-apis.adoc#example-retrieve-a-message[Example: Retrieve a Message].
+
 == Are message exchanges and queues unique and accessible only in their created environment?
 
 That is, how do we ensure message exchanges or queues created in one environment are not confused or connected to message exchanges or queues created in a different environment if they have the same name?
