@@ -85,7 +85,7 @@ If a larger size is required, you can split the payload into multiple messages, 
 The *Message Browser* page displays the payload only if the payload size is smaller than 1 MB.
 If the payload size is 1 MB or larger, the *Message Browser* page displays an error.
 In this case, you can use the Anypoint MQ Broker API to display the message payload. 
-See xref:mq:mq-apis.adoc#example-retrieve-a-message[Example: Retrieve a Message].
+See xref:mq-apis.adoc#example-retrieve-a-message[Example: Retrieve a Message].
 
 == Are message exchanges and queues unique and accessible only in their created environment?
 
