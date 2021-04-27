@@ -191,10 +191,16 @@ Returning messages to the queue is a not-acknowledgment operation (NACK). The me
 +
 If you switch from the *Message Browser* page, messages automatically return to the queue.
 +
+[NOTE]
+//Shared Big Payload
+include::partial$mq-big-payload.adoc[tag=mqBigPayload]
++
 If user properties are configured in the *Message Sender* page or as part of the Publish operation in Anypoint MQ Connector, they appear in the details pane for the message:
-
++
 .The arrow shows the *User Properties* in the details pane.
 image::mq-msg-browser-user-props.png[User Properties in Message Browser details pane]
+
+
 
 == Send a CSV Message to a Queue
 
@@ -224,6 +230,10 @@ For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue on
 image::mq-msg-browser-payload-details-csv.png[CSV payload, Full Screen icon, and close details pane icon (*X*)]
 +
 Click *Full Screen* to display the message payload in a separate window or *X* to close the details pane.
++
+[NOTE]
+//Shared Big Payload
+include::partial$mq-big-payload.adoc[tag=mqBigPayload]
 
 == Send a JSON Message to a Queue
 
@@ -257,8 +267,10 @@ For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue on
 image::mq-msg-browser-payload-details-json.png[JSON payload, Full Screen icon, and close details pane icon (X)]
 +
 Click *Full Screen* to display the message payload in a separate window or *X* to close the details pane.
-
-
++
+[NOTE]
+//Shared Big Payload
+include::partial$mq-big-payload.adoc[tag=mqBigPayload]
 
 
 == Purge Messages from a Queue
