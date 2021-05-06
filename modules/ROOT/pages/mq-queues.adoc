@@ -96,7 +96,7 @@ From this page, you can:
 Message content can be text, CSV (comma-separated values), or JSON.
 The maximum size of a message is 10 MB.
 
-//XML Payload
+// MQ Payload Conversion
 include::partial$mq-big-payload.adoc[tag=mqPayloadConvert]
 
 To send a text message to a queue:
