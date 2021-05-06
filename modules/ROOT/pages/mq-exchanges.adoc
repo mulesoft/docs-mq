@@ -60,7 +60,7 @@ image::mq-exchange-bind-selected-queues.png[Bind Selected Queues button]
 Sending a message to a message exchange is similar to sending a message to a queue. The only difference is that you can get the message from any queue bound to a message exchange. The maximum size for a message sent to a message exchange is 10 MB.
 
 // XML Payload
-include::partial$mq-big-payload.adoc[tag=mqXMLPayload]
+include::partial$mq-big-payload.adoc[tag=mqPayloadConvert]
 
 To send a message to a message exchange:
 

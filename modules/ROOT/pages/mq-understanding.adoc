@@ -52,7 +52,7 @@ Create client applications tokens.
 Anypoint MQ supports payloads up to 10 MB.
 +
 //XML Payload
-include::partial$mq-big-payload.adoc[tag=mqXMLPayload]
+include::partial$mq-big-payload.adoc[tag=mqPayloadConvert]
 
 [[disaster_recovery]]
 * *Disaster recovery*
