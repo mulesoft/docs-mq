@@ -146,7 +146,10 @@ Up to 10 messages can be retrieved from a single API call, which only bills as o
 
 There is no maximum number of transactions per second (TPS) for standard queues or exchanges.
 
-FIFO queues have a limit of 300 TPS. If you batch 10 messages per read and write operation (maximum) using the API, FIFO queues can support up to 3,000 TPS.
+FIFO queues have a limit of 300 TPS.
+If you batch 10 messages per read and write operation (maximum) using the API, FIFO queues can support up to 3,000 TPS.
+For more information about batch-uploads, see
+<<batch-upload,Can I consume Anypoint MQ messages in batches?>>.
 
 == What's the maximum number of queues and exchanges in Anypoint MQ?
 
@@ -175,6 +178,7 @@ Retries for sending messages to Anypoint MQ broker are always synchronous. By co
 
 Retries are arbitrary. The `maxRedelivery` parameter indicates how many times the messages were delivered but not processed (either NACK or TimeOut).
 
+[[batch-upload]]
 == Can I consume Anypoint MQ messages in batches?
 
 Using the Anypoint MQ Broker API, you can batch-upload messages to a standard or FIFO queue.
