@@ -5,3 +5,9 @@ You can retrieve them with the Anypoint Broker API.
 See 
 xref:mq-apis.adoc#example-retrieve-a-message[Example: Retrieve a Message].
 // end::mqBigPayload[]
+
+// MQ Payload Conversion
+// tag::mqPayloadConvert[]
+If the payload contains any format except text (such as CSV, HTML, JSON, and XML), Anypoint MQ converts it to a string before sending, which increases the payload size.
+This conversion might result in the payload exceeding the maximum payload size of 10 MB and causing a `Payload too large` error.
+// end::mqPayloadConvert[]
