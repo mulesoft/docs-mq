@@ -147,9 +147,11 @@ Up to 10 messages can be retrieved from a single API call, which only bills as o
 There is no maximum number of transactions per second (TPS) for standard queues or exchanges.
 
 FIFO queues have a limit of 300 TPS.
-If you batch 10 messages per read and write operation (maximum) using the API, FIFO queues can support up to 3,000 TPS.
-For more information about batch-uploads, see
-<<batch-upload,Can I consume Anypoint MQ messages in batches?>>.
+If you batch 10 messages per read and write operation (maximum) using the API,
+FIFO queues can support up to 3,000 TPS.
+
+For more information about batch operations, see
+<<batch-upload-retrieve,Can I upload and retrieve Anypoint MQ messages in batches?>>.
 
 == What's the maximum number of queues and exchanges in Anypoint MQ?
 
@@ -178,13 +180,14 @@ Retries for sending messages to Anypoint MQ broker are always synchronous. By co
 
 Retries are arbitrary. The `maxRedelivery` parameter indicates how many times the messages were delivered but not processed (either NACK or TimeOut).
 
-[[batch-upload]]
-== Can I consume Anypoint MQ messages in batches?
+[[batch-upload-retrieve]]
+== Can I upload and retrieve Anypoint MQ messages in batches?
 
-Using the Anypoint MQ Broker API, you can batch-upload messages to a standard or FIFO queue.
+Using the Anypoint MQ Broker API, you can batch-upload and batch-retrieve messages from standard or FIFO queue.
 
-Use the `batchSize` query parameter to specify the number of messages to retrieve.
-You can retrieve a maximum of 10 messages in a single call.
+You can upload or retrieve a maximum of 10 messages (default) in a single call.
+
+For batch-retrieve operations, use the `batchSize` query parameter to specify the number of messages to retrieve.
 
 You can configure a lower value using the `Prefetch Config` parameter in Anypoint MQ Connector.
 The number of messages retrieved by the connector is sometimes fewer than the number configured. 
@@ -192,8 +195,8 @@ A number higher than 10 is overridden.
 
 For more information, see 
 https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/minor/1.0/console/summary/[Anypoint MQ Broker API] 
-and xref:connectors::anypoint-mq/3.x/anypoint-mq-listener.adoc[Anypoint MQ Subscriber Source - Mule 4].
-
+and
+xref:connectors::anypoint-mq/3.x/anypoint-mq-connector.adoc[Anypoint MQ Connector 3.x for Mule 4].
 
 == Can non-Mule applications interface with Anypoint MQ?
 
