@@ -183,7 +183,7 @@ Retries are arbitrary. The `maxRedelivery` parameter indicates how many times th
 [[batch-upload-retrieve]]
 == Can I upload and retrieve Anypoint MQ messages in batches?
 
-Using the Anypoint MQ Broker API, you can batch-upload and batch-retrieve messages from standard or FIFO queue.
+Using the Anypoint MQ Broker API, you can batch-upload and batch-retrieve messages from a standard or FIFO queue.
 
 You can upload or retrieve a maximum of 10 messages (default) in a single call.
 
