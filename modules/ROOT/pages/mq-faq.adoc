@@ -145,7 +145,6 @@ Up to 10 messages can be retrieved from a single API call, which only bills as o
 == What's the maximum TPS for Anypoint MQ?
 
 There is no maximum number of transactions per second (TPS) for standard queues or exchanges.
-However, with the API, you cannot send more than 10 messages per batch upload.
 
 FIFO queues have a limit of 300 TPS. If you batch 10 messages per read and write operation (maximum) using the API, FIFO queues can support up to 3,000 TPS.
 
@@ -178,9 +177,19 @@ Retries are arbitrary. The `maxRedelivery` parameter indicates how many times th
 
 == Can I consume Anypoint MQ messages in batches?
 
-Yes. The REST API supports the `batchSize` query parameter, which lets you retrieve up to 10 messages in a single call (default value). The maximum number of messages that can be retrieved in a single call is 10. You can configure a lower value using the `Prefetch Config` parameter in the Anypoint MQ connector.
+Using the Anypoint MQ Broker API, you can batch-upload messages to a standard or FIFO queue.
 
-The number of messages retrieved by the connector is sometimes fewer than the number configured. A number higher than 10 is overridden.
+Use the `batchSize` query parameter to specify the number of messages to retrieve.
+You can retrieve a maximum of 10 messages in a single call.
+
+You can configure a lower value using the `Prefetch Config` parameter in Anypoint MQ Connector.
+The number of messages retrieved by the connector is sometimes fewer than the number configured. 
+A number higher than 10 is overridden.
+
+For more information, see 
+https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/minor/1.0/console/summary/[Anypoint MQ Broker API] 
+and xref:connectors::anypoint-mq/3.x/anypoint-mq-listener.adoc[Anypoint MQ Subscriber Source - Mule 4].
+
 
 == Can non-Mule applications interface with Anypoint MQ?
 
