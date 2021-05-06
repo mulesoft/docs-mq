@@ -93,7 +93,11 @@ From this page, you can:
 
 == Send a Message to a Queue
 
-Message content can be text, CSV (comma-separated values), or JSON. The maximum size of a message is 10 MB. 
+Message content can be text, CSV (comma-separated values), or JSON.
+The maximum size of a message is 10 MB.
+
+//XML Payload
+include::partial$mq-big-payload.adoc[tag=mqXMLPayload]
 
 To send a text message to a queue:
 
