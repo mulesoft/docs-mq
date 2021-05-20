@@ -66,8 +66,8 @@ Queue names can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9), perio
 +
 The maximum TTL for a message is two weeks.
 +
-Changing the TTL for a queue affects only new messages.
-The new TTL value doesn't apply to messages that are already in the queue.
+// TTL
+include::partial$mq-faq.adoc[tag=queueTTL]
 ** *Default Acknowledgment Timeout* specifies how long a message waits before being put back into the queue in the event of server failure when the message is not acknowledged.
 +
 The lock makes the message unavailable to other apps while locked, but does not block other messages from being read.
