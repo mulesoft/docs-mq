@@ -13,3 +13,7 @@ If you configure Anypoint MQ queues for encryption at rest, the payloads are enc
 Anypoint MQ doesn't limit the number of message groups in a FIFO queue.
 // end::messageGroupLimit[]
 
+// tag::queueTTL[]
+Changing the TTL for a queue affects only new messages.
+The new TTL value doesn't apply to messages that are already in the queue.
+// end::queueTTL[]
