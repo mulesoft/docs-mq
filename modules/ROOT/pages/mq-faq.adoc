@@ -74,7 +74,7 @@ Anypoint MQ is a highly distributed messaging system, so the results of an API c
 
 == In what order are messages in a standard (non-FIFO) queue?
 
-Standard queues attempt to preserve the order of messages, but strict order is not guaranteed. Because standard queues are designed to be scalable and distributed, they can't guarantee that messages are received in the same order that they are sent. If message order is important, use a xref:mq-faq.adoc#fifoqueues[FIFO queue] or set the Anypoint MQ connector to the <<process-one-by-one,Consume operation>>.
+Standard queues attempt to preserve the order of messages, but strict order is not guaranteed. Because standard queues are designed to be scalable and distributed, they can't guarantee that messages are received in the same order that they are sent. If message order is important, use a xref:mq-queues.adoc#fifoqueues[FIFO queue] or set the Anypoint MQ connector to the <<process-one-by-one,Consume operation>>.
 
 == Can messages be larger than 10 MB?
 
