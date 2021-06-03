@@ -27,7 +27,6 @@ You can assign either standard or FIFO queue type as a dead-letter queue (DLQ). 
 
 Standard queues can be bound to a xref:mq-exchanges.adoc[_message exchange_], enabling you to send messages to multiple queues.
 
-
 You can filter queues by type in the *Destinations* page:
 
 .The arrow shows the filters at the top of the *Destinations* page.
