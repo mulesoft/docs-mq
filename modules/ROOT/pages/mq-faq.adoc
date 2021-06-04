@@ -15,6 +15,8 @@ xref:release-notes::mq/mq-release-notes.adoc[Release Notes].
 
 Anypoint MQ requires a separate Enterprise subscription and is not included in the Anypoint Platform trial version. Contact MuleSoft Support for more information. If you don't have an Enterprise subscription, you can use Apache Active MQ or Rabbit MQ.
 
+After adding an Enterprise subscription, wait one hour for Anypoint MQ to become available.
+
 [[regions]]
 == In which regions is Anypoint MQ available?
 
