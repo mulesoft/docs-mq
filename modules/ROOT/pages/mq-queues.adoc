@@ -58,6 +58,7 @@ For *Exchange*, see xref:mq-exchanges.adoc[Configure Message Exchanges].
 .The screenshot shows the *Create Queue* popup.
 image::mq-create-queues.png[Create Queue popup]
 +
+--
 ** *ID* specifies the queue name.
 +
 Queue names can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9), periods (.), and hyphens (-). They cannot contain spaces or other characters. 
@@ -65,9 +66,6 @@ Queue names can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9), perio
 ** *Message TTL* (Time-to-live) specifies how long unprocessed messages persist before being deleted. 
 +
 The maximum TTL for a message is two weeks.
-+
-// TTL
-include::partial$mq-faq.adoc[tag=queueTTL]
 ** *Default Acknowledgment Timeout* specifies how long a message waits before being put back into the queue in the event of server failure when the message is not acknowledged.
 +
 The lock makes the message unavailable to other apps while locked, but does not block other messages from being read.
@@ -82,6 +80,8 @@ See xref:mq-understanding.adoc#encrypt-queue[Encrypted queues].
 ** *Assign a Dead Letter Queue* assigns the DLQ.
 +
 The DLQ is a previously created queue to which to send undeliverable messages. See <<Dead Letter Queues>>.
+--
+
 . Click *Create Queue*.
 + 
 The queue is created and appears in the *Destinations* page:
@@ -294,6 +294,18 @@ image::mq-purge-msgs-icon.png[Purge Messages icon in the details pane]
 +
 .The arrow shows the accept checkbox for purging messages from the queue.
 image::mq-purge-msgs-confirm.png[Accept checkbox for purging messages from a queue]
+
+== Change Settings for a Queue
+
+Changing any setting for an existing queue affects only new messages.
+The new value doesn't apply to messages that are already in the queue.
+
+. In *Anypoint Platform > MQ*, click *Destinations* in the left pane.
+. Click the queue ID to display the *Queue Settings* page:
++
+.The arrow shows the *Queue Settings* option in the *Destinations* page.
+image::mq-queue-settings.png[Queue Settings option]
+. Change the queue settings and click *Save Changes*.
 
 == Delete a Queue
 
