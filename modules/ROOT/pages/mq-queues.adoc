@@ -173,7 +173,9 @@ To get a message from a queue:
 +
 .The screenshot shows (*1*) the *Message Browser* option and (*2*) the *Get Messages* button.
 image::mq-tutorial-get-messages.png[Message Browser option and Get Messages button]
-. Specify the number of messages (1-500) and the time to poll (1-3600 seconds).
+. Specify the number of messages (1-500) to retrieve and the time to poll (1-3600 seconds).
++
+The specified number is the minimum number of messages to retrieve.
 +
 For a FIFO queue, you can retrieve up to 10 messages.
 . If you are retrieving messages from a FIFO queue, select the checkbox to acknowledge 
