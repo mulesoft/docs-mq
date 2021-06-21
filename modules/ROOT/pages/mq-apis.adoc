@@ -53,7 +53,7 @@ You can use the
 https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Admin API] to create and manage apps, queues, and message exchanges.
 
 Client apps can send up to 50 transactions per minute (TPM) to Anypoint MQ Admin API endpoints.
-If you call the Anypoint MQ Admin API for an environment multiple times within a short amount of time, the API throttles your requests to 50 TPM.
+If you call the Anypoint MQ Admin API for multiple environments within one minute, the API throttles your requests to 50 TPM.
 
 You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ. See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[MQ Audit Logging].
 
