@@ -16,6 +16,7 @@ Anypoint MQ supports up to 120,000 in-flight messages per standard queue.
 +
 Standard queues provide "at least once" message-delivery reliability.
 Anypoint MQ can deliver each message to more than one consumer.
+Because the architecture is highly distributed, Anypoint MQ occasionally delivers messages more than once.
 * FIFO (first in, first out) queue
 +
 These queues ensure that your messages arrive in order. FIFO queues are the best fit for applications requiring strict message ordering and exactly-once delivery, but in which message delivery speed is of less importance. See <<FIFO Queues>>.
