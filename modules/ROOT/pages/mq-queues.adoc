@@ -4,7 +4,6 @@ include::_attributes.adoc[]
 endif::[]
 :imagesdir: ../assets/images/
 
-
 A _queue_ is a temporary storage area for a message. You can create queues, FIFO queues, and dead-letter queues in Anypoint Platform. You can also send and receive messages from a queue in Anypoint Studio.
 
 Using Anypoint MQ, you can create two types of queues: 
@@ -14,7 +13,9 @@ Using Anypoint MQ, you can create two types of queues:
 These queues don't guarantee a specific message order. Standard queues are the best fit for applications in which messages must be delivered quickly.
 +
 Anypoint MQ supports up to 120,000 in-flight messages per standard queue.
-
++
+Standard queues provide "at least once" message-delivery reliability.
+Due to the highly distributed architecture, Anypoint MQ occasionally delivers messages more than once.
 * FIFO (first in, first out) queue
 +
 These queues ensure that your messages arrive in order. FIFO queues are the best fit for applications requiring strict message ordering and exactly-once delivery, but in which message delivery speed is of less importance. See <<FIFO Queues>>.
@@ -22,6 +23,9 @@ These queues ensure that your messages arrive in order. FIFO queues are the best
 Anypoint MQ supports 10 in-flight messages per message group in a FIFO queue.
 //Shared Message Group Limits
 include::partial$mq-faq.adoc[tag=messageGroupLimit]
++
+FIFO queues provide "exactly once" message-delivery reliability.
+Anypoint MQ delivers each message to only one consumer.
 
 You can assign either standard or FIFO queue type as a dead-letter queue (DLQ). See <<Dead Letter Queues>>.
 
