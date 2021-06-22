@@ -4,11 +4,6 @@ include::_attributes.adoc[]
 endif::[]
 :imagesdir: ../assets/images/
 
-
-In the Configure Queue section, there are 2 bullets: one explaining what standard queues are, and another one for FIFO queues. I believe this is the right place to explain that standard queues delivery reliability level is "at-least-once". In the FIFO queue description, it is explicitly stated that the delivery reliability level is "exactly-once", which is fine
-
-
-
 A _queue_ is a temporary storage area for a message. You can create queues, FIFO queues, and dead-letter queues in Anypoint Platform. You can also send and receive messages from a queue in Anypoint Studio.
 
 Using Anypoint MQ, you can create two types of queues: 
