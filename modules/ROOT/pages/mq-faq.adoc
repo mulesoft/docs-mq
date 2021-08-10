@@ -163,6 +163,10 @@ FIFO queues can support up to 3,000 TPS.
 For more information about batch operations, see
 <<batch-upload-retrieve,Can I upload and retrieve Anypoint MQ messages in batches?>>.
 
+[IMPORTANT]
+//Shared TPS failed
+include::partial$mq-faq.adoc[tag=failedTPS]
+
 == What's the maximum number of queues and exchanges in Anypoint MQ?
 
 There is no maximum number of queues or exchanges.

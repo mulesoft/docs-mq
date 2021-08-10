@@ -13,3 +13,6 @@ If you configure Anypoint MQ queues for encryption at rest, the payloads are enc
 Anypoint MQ doesn't limit the number of message groups in a FIFO queue.
 // end::messageGroupLimit[]
 
+// tag::failedTPS[]
+Failed requests count against TPS.
+// end::failedTPS[]
