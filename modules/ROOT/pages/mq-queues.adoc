@@ -344,6 +344,9 @@ FIFO queues have the following benefits and restrictions:
 * Are limited to 300 TPS (transactions per second) 
 +
 However, if you batch 10 messages per each read and write operation (maximum) using the API, FIFO queues can support up to 3,000 TPS.
++
+//Shared TPS failed
+include::partial$mq-faq.adoc[tag=failedTPS]
 * Support delivery delay on all messages in the FIFO queue
 +
 If you change the delivery delay for a FIFO queue, the setting change is retroactive to all messages in the queue. Delayed delivery is not supported for individual messages in a FIFO queue. 
