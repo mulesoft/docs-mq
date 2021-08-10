@@ -13,9 +13,6 @@ Message units are counted by the number of encoded characters in a message.
 +
 All requests to the broker API, such as sending, receiving, and acknowledging messages,
 and all operations on queues and exchanges, are counted against the quota.
-+
-[NOTE]
-Failed requests count against the quota.
 
 * Up to 10 messages can be retrieved from a single API call, which only bills as one request.
 +
