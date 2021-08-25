@@ -65,6 +65,10 @@ No, queues and message exchanges are unique to the region in which they were cre
 
 The queues in each region are separate from those in other regions. You can name queues the same in each region, but queues can’t share messages across regions.
 
+== How do I pass a message identifier between different systems?
+
+Because the correlation ID associated with a message differs between types of flows, you must create a custom property that assigns consistent correlation IDs using message information (such as headers or payloads) that is the same between systems. When you create a single request ID for identifying messages, write your flows to ensure the request ID is readable to other components. For more information, see https://blogs.mulesoft.com/dev-guides/how-to-tutorials/total-traceability/[Total Tracability with Correlation IDs].
+
 == How many messages can I fetch using the Anypoint MQ user interface?
 
 In *Anypoint Platform* > *MQ* > *Message Browser*, you can fetch up to 50 messages from a standard (non-FIFO) queue. For a FIFO queue, you can fetch up to 10 messages.
