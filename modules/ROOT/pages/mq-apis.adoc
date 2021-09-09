@@ -260,7 +260,7 @@ See xref::mq-understanding.adoc#glossary[Anypoint MQ Terminology] for a definiti
 The data updates in almost real-time.
 
 Stats API responses and message status changes include up to 60 seconds of inconsistency due to internal post-processing activities.
-Message status changes include from the queue to in-flight, from in-flight to the queue, and to deleted.
+Message status changes include from in-queue to in-flight, from in-flight to in-queue, and from in-flight to deleted.
 For this reason, don't use the Stats API for syncing processing actions,
 such as checking if the queue is empty.
 
