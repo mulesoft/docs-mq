@@ -259,8 +259,7 @@ You can get a snapshot of the number of messages in the queue and how many are i
 See xref::mq-understanding.adoc#glossary[Anypoint MQ Terminology] for a definition of in-flight messages.
 The data updates in almost real-time.
 
-The response from the Stats API includes 60 seconds of inconsistency due to internal post-processing activities.
-Message status changes also result in up to 60 seconds of inconsistency.
+Stats API responses and message status changes include up to 60 seconds of inconsistency due to internal post-processing activities.
 For this reason, don't use the Stats API for syncing processing actions,
 such as checking if the queue is empty.
 
