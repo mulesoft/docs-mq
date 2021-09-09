@@ -213,7 +213,7 @@ You can use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform
 Use the Stats API to retrieve:
 
 * Anypoint MQ metrics:
-** Almost real-time statistics for queues
+** Near real-time statistics for queues
 ** Historical statistics for queues
 ** Historical statistics for message exchanges
 * Usage metrics
