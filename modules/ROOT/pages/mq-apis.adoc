@@ -213,7 +213,7 @@ You can use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform
 Use the Stats API to retrieve:
 
 * Anypoint MQ metrics:
-** Real-time statistics for queues
+** Near real-time statistics for queues
 ** Historical statistics for queues
 ** Historical statistics for message exchanges
 * Usage metrics
@@ -253,9 +253,18 @@ This returns output similar to:
 }
 ----
 
-=== Real-Time Statistics for Queues
+=== Current Statistics for Queues
 
-You can get an immediate snapshot of how many messages are in the queue and how many are in-flight (see xref::mq-understanding.adoc[Anypoint MQ Terminology] for what in-flight messages are). This data is updated in almost real-time. The Statistics API can fetch real-time statistics for multiple queues and returns a comma-separated list. 
+You can get a snapshot of the number of messages in the queue and how many are in-flight. 
+See xref::mq-understanding.adoc#glossary[Anypoint MQ Terminology] for a definition of in-flight messages.
+The data updates in almost real-time.
+
+Stats API responses and message status changes include up to 60 seconds of inconsistency due to internal post-processing activities.
+Message status changes include from in-queue to in-flight, from in-flight to in-queue, and from in-flight to deleted.
+For this reason, don't use the Stats API for syncing processing actions,
+such as checking if the queue is empty.
+
+The Stats API can fetch statistics for multiple queues and returns a comma-separated list.
 
 `/queues?destinationIds={queue1},{queue2}`
 
@@ -274,6 +283,7 @@ https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORGANIZATION_ID/envi
   }
 ]
 ----
+
 
 === Historical Statistics for a Queue
 
