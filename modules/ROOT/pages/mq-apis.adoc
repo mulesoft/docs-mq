@@ -526,7 +526,7 @@ Example response:
 
 To create queues and exchanges programatically, you can use a language such as groovy.
 
-The following example consists of the `cloudhub.properties` file in whi
+The following example consists of the `cloudhub.properties` file in which
 you list the queues and exchanges to create, and a script file that
 references the properties file.
 
