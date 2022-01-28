@@ -201,7 +201,9 @@ Using the Anypoint MQ Broker API, you can batch-upload and batch-retrieve messag
 
 You can upload or retrieve a maximum of 10 messages (default) in a single call.
 
-For batch-retrieve operations, use the `batchSize` query parameter to specify the number of messages to retrieve. Anypoint Broker API can't guarantee it will retrieve 10 messages in a single call as it depends on underlying system's polling mechanism and availability.
+For batch-retrieve operations, use the `batchSize` query parameter to specify the number of messages to retrieve.
+Anypoint Broker API doesn't guarantee the number of messages retrieved in a single call.
+For more information, see <<batchsize,Why do I receive fewer messages than my batch size when retrieving messages with the Anypoint MQ REST API?>>.
 
 For more information, see 
 https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/minor/1.0/console/summary/[Anypoint MQ Broker API].
