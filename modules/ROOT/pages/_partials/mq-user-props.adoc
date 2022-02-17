@@ -5,6 +5,6 @@ User property names can contain up to 42 alphanumeric characters (a-z, A-Z, 0-9)
 
 // MQ max size for headers and user property names
 // tag::mqMaxHeaderProps[]
-The maximum allowed size for a header attribute name or a user property name in messages
+The maximum allowed size for header names or user property names in messages
 published to Anypoint MQ is 180 bytes.
 // end::mqMaxHeaderProps[]
