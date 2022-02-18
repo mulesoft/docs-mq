@@ -2,3 +2,9 @@
 // tag::mquserprops[]
 User property names can contain up to 42 alphanumeric characters (a-z, A-Z, 0-9), periods (.), hyphens (-), and colons (:). They cannot contain spaces or other characters. 
 // end::mquserprops[]
+
+// MQ max size for headers and user property names
+// tag::mqMaxHeaderProps[]
+The maximum allowed size for header names or user property names in messages
+published to Anypoint MQ is 180 bytes.
+// end::mqMaxHeaderProps[]

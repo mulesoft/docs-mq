@@ -146,6 +146,10 @@ You must substitute the placeholder string, `42544254-4254-4254-4254-42544254425
 
 See the xref:mq-faq.adoc#regions[MQ FAQ] for the regions where Anypoint MQ and FIFO are available.
 
+[NOTE]
+// MQ max size for headers and user property names
+include::partial$mq-user-props.adoc[tag=mqMaxHeaderProps]
+
 ==== Example: Publish a Message
 
 The following `curl` command publishes a message:

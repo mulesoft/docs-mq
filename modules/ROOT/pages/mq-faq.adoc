@@ -284,6 +284,11 @@ More than one in-flight message can occur if the processing time between `anypoi
 
 Anypoint MQ provides direct access to the message ID and payload. You can see the message headers using the Chrome browser and its Network Inspector feature.
 
+== What is the maximum size for header names and user property names in messages?
+
+// MQ max size for headers and user property names
+include::partial$mq-user-props.adoc[tag=mqMaxHeaderProps]
+
 == Add Anypoint MQ connector support to Mule shared resources?
 
 The only officially supported connectors and transports for shared resources are HTTP/HTTPS, VM, JMS, JMS Caching Connection Factory, Database, WMQ, JBoss Transaction Manager, and Bitronix Transaction Manager.
