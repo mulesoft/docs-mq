@@ -67,7 +67,7 @@ image::mq-create-queues.png[Create Queue popup]
 +
 Queue names can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9), periods (.), and hyphens (-). They cannot contain spaces or other characters. 
 +
-** *Message TTL* (Time-to-live) specifies how long unprocessed messages persist before being deleted. 
+** *Message TTL* (time-to-live) specifies how long unprocessed messages persist before being deleted. 
 +
 The maximum TTL for a message is two weeks.
 ** *Default Acknowledgment Timeout* specifies how long a message waits before being put back into the queue in the event of server failure when the message is not acknowledged.
@@ -198,6 +198,9 @@ image::mq-tutorial-msg-browser-payload-details.png[Selected message row, payload
 * Click *Delete* to delete the selected message.
 +
 Deleting a message is an acknowledgment operation (ACK). For information about how Anypoint MQ processes ACK messages, see xref:mq-ack-mode.adoc[Acknowledge Messages].
++
+//Shared Delete Message
+include::partial$mq-delete-msg.adoc[tag=deleteMsg]
 * Click *Return Messages* to return all messages to the queue (for example, to enable other applications to read the messages). 
 +
 Returning messages to the queue is a not-acknowledgment operation (NACK). The messages aren't altered. However, the time-to-live (TTL) value you set when you created the queue determines how long the message is available before Anypoint MQ deletes it.
