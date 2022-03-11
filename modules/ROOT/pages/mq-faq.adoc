@@ -65,6 +65,17 @@ No, queues and message exchanges are unique to the region in which they were cre
 
 The queues in each region are separate from those in other regions. You can name queues the same in each region, but queues can’t share messages across regions.
 
+== How does Anypoint MQ pass a correlation ID between publisher and subscriber?
+
+Anypoint MQ doesn't support propagating `correlationId` from a publisher to a subscriber in the same way that APIs propagate it from one layer to another.
+
+To pass an ID between publisher and subscriber, add a user property to send with the message.
+For information, see 
+xref:mq-queues.adoc#send-a-message-to-a-queue[Send a Message to a Queue].
+
+For more information about correlation IDs, see
+https://blogs.mulesoft.com/dev-guides/how-to-tutorials/total-traceability/[Total traceability with correlation IDs^].
+
 == How many messages can I fetch using the Anypoint MQ user interface?
 
 In *Anypoint Platform* > *MQ* > *Message Browser*, you can fetch up to 50 messages from a standard (non-FIFO) queue. For a FIFO queue, you can fetch up to 10 messages.
@@ -337,6 +348,6 @@ To delete a message exchange, see xref:mq-exchanges.adoc#delete-a-message-exchan
 
 == See Also
 
-* https://help.mulesoft.com/s/knowledge[Knowledge Base Articles]
-* https://activemq.apache.org/[Apache Active MQ]
-* https://www.rabbitmq.com/[Rabbit MQ]
+* https://help.mulesoft.com/s/knowledge[Knowledge Base Articles^]
+* https://activemq.apache.org/[Apache Active MQ^]
+* https://www.rabbitmq.com/[Rabbit MQ^]
