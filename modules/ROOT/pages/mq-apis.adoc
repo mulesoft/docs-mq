@@ -375,8 +375,8 @@ https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORGANIZATION_ID/envi
 ----
 
 The `apiRequestCount` returns the number of API requests made to the Anypoint MQ service during the specified period.
-All API requests, such as sending, receiving, and acknowledging messages,
-and all operations on queues and exchanges, are counted against the quota.
+
+include::partial$mq-faq.adoc[tag=apiRequests]
 
 For more information about Anypoint MQ billing, see xref:mq-usage.adoc[].
 
@@ -411,8 +411,8 @@ startDate=Thursday, 8 Nov 2021 04:49:37 GMT
 ----
 
 The `apiRequestCount` returns the number of API requests made to the Anypoint MQ service during the specified period.
-All API requests, such as sending, receiving, and acknowledging messages,
-and all operations on queues and exchanges, are counted against the quota.
+
+include::partial$mq-faq.adoc[tag=apiRequests]
 
 For more information about Anypoint MQ billing, see xref:mq-usage.adoc[].
 

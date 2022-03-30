@@ -16,3 +16,9 @@ Anypoint MQ doesn't limit the number of message groups in a FIFO queue.
 // tag::failedTPS[]
 Failed requests count against TPS.
 // end::failedTPS[]
+
+// tag::apiRequests[]
+All requests to the broker API count against your monthly quota.
+Requests include sending, receiving, and acknowledging messages
+and operations on queues and exchanges.
+// end::apiRequests[]
