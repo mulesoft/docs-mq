@@ -219,6 +219,7 @@ Use the Stats API to retrieve:
 * Usage metrics
 +
 View your entire organization's usage of Anypoint MQ for billing purposes:
++
 ** Usage per environment
 ** Usage per organization
 * Statistics for queues and message exchanges  
@@ -348,7 +349,8 @@ Note that period is an integer here. It's the granularity of data points in seco
 
 === Usage Metrics by Environment 
 
-The Stats API can be used to sum up the usage for Anypoint MQ across all environments for a particular organization. This is not real-time and has a latency.
+You can use the Stats API to retrieve Anypoint MQ usage information by environment for a particular organization.
+This information is not real-time and has a latency.
 
 `/environments/ENVIRONMENT_ID?startDate=...&endDate=...&period=...`
 
@@ -357,24 +359,34 @@ The Stats API can be used to sum up the usage for Anypoint MQ across all environ
 [source,example,linenums]
 ----
 https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID
-?startDate=Thursday, 8 Nov 2018 04:49:37 GMT
-&endDate=Sun, 11 Nov 2018 04:60:44 GMT
+?startDate=Thursday, 8 Nov 2021 04:49:37 GMT
+&endDate=Sun, 11 Nov 2021 04:60:44 GMT
 &period=1day
 
 [
     {
-        "timestamp": "2018-11-08T00:00Z",
-        "apiRequestCount": 0,
-        "messageReceiptCount": 0,
-        "billableUnitCount": 0,
-        "messageByteCount": 0
+        "timestamp": "2021-11-08T00:00Z",
+        "apiRequestCount": 127,
+        "messageReceiptCount": 11,
+        "billableUnitCount": 11,
+        "messageByteCount": 6148
     }
 ]
 ----
 
+The `apiRequestCount` returns the number of API requests made to the Anypoint MQ service during the specified period.
+All API requests, such as sending, receiving, and acknowledging messages,
+and all operations on queues and exchanges, are counted against the quota.
+
+For more information about Anypoint MQ billing, see xref:mq-usage.adoc[].
+
+[NOTE]
+The `messageReceiptCount` and `billableUnitCount` values are not used for billing.
+
+
 === Usage Metrics by Organization
 
-The Stats API can be used to sum up the usage for Anypoint MQ across the master business organization:
+The Stats API can be used to retrieve Anypoint MQ usage for the root business organization:
 
 `/organizations/ORGANIZATION_ID?startDate=...&endDate=...&period=...`
 
@@ -383,20 +395,29 @@ The Stats API can be used to sum up the usage for Anypoint MQ across the master 
 [source,example,linenums]
 ----
 https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORGANIZATION_ID?
-startDate=Thursday, 8 Nov 2018 04:49:37 GMT
-&endDate=Sun, 11 Nov 2018 04:60:44 GMT
+startDate=Thursday, 8 Nov 2021 04:49:37 GMT
+&endDate=Sun, 11 Nov 2021 04:60:44 GMT
 &period=1day
 
 [
     {
-        "timestamp": "2018-11-08T00:00Z",
-        "apiRequestCount": 0,
-        "messageReceiptCount": 0,
-        "billableUnitCount": 0,
-        "messageByteCount": 0
+        "timestamp": "2021-11-08T00:00Z",
+        "apiRequestCount": 1066,
+        "messageReceiptCount": 194,
+        "billableUnitCount": 194,
+        "messageByteCount": 107048
     }
 ]
 ----
+
+The `apiRequestCount` returns the number of API requests made to the Anypoint MQ service during the specified period.
+All API requests, such as sending, receiving, and acknowledging messages,
+and all operations on queues and exchanges, are counted against the quota.
+
+For more information about Anypoint MQ billing, see xref:mq-usage.adoc[].
+
+[NOTE]
+The `messageReceiptCount` and `billableUnitCount` values are not used for billing.
 
 [[exstatapi]]
 === Example: Anypoint MQ Stats API
