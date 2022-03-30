@@ -382,7 +382,7 @@ For more information about Anypoint MQ billing, see xref:mq-usage.adoc[].
 
 [NOTE]
 The `messageReceiptCount` and `billableUnitCount` values are not used for billing.
-
+Anypoint MQ uses these values internally and you can safely ignore them.
 
 === Usage Metrics by Organization
 
@@ -418,6 +418,7 @@ For more information about Anypoint MQ billing, see xref:mq-usage.adoc[].
 
 [NOTE]
 The `messageReceiptCount` and `billableUnitCount` values are not used for billing.
+Anypoint MQ uses these values internally and you can safely ignore them.
 
 [[exstatapi]]
 === Example: Anypoint MQ Stats API
