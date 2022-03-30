@@ -342,26 +342,39 @@ The time it takes to delete or purge a queue is approximately one minute. During
 
 For applications where the order of messages must be strictly preserved and enforced, Anypoint MQ provides first in, first out (FIFO) processing to enable message ordering. With FIFO queues, Anypoint MQ ensures that the order in which messages are placed in a queue is the same order messages are retrieved.
 
-FIFO queues have the following benefits and restrictions:
-
-* Are limited to 300 TPS (transactions per second) 
+Benefits of FIFO queues::
 +
-However, if you batch 10 messages per each read and write operation (maximum) using the API, FIFO queues can support up to 3,000 TPS.
+* Support delivery delay on all messages in the FIFO queue.
++
+If you change the delivery delay for a FIFO queue, the setting change is retroactive to all messages in the queue.
+Anypoint MQ doesn't support delayed delivery for individual messages in a FIFO queue. 
+* Support multiple <<FIFO Queues and Message Groups,message groups>>. 
+* Provide encryption.
++
+Encrypting a FIFO queue does not affect the order or the contents of messages consumed.
+* Can be used as a DLQ; however, it is not recommended. See the limitations.
++
+If you assign a DLQ to a FIFO queue, the DLQ must also be a FIFO queue.
+
+Limitations of FIFO queues::
++
+* Are limited to 300 TPS (transactions per second).
++
+However, if you batch ten messages per read and write operation (maximum) using the API, FIFO queues can support up to 3,000 TPS.
 +
 //Shared TPS failed
 include::partial$mq-faq.adoc[tag=failedTPS]
-* Support delivery delay on all messages in the FIFO queue
+
+* Can't guarantee that messages in a message group are processed in order when used with a DLQ.
 +
-If you change the delivery delay for a FIFO queue, the setting change is retroactive to all messages in the queue. Delayed delivery is not supported for individual messages in a FIFO queue. 
-* Support multiple <<FIFO Queues and Message Groups,message groups>> 
-* Provide  encryption
+When a message is sent to a DLQ, it is no longer in the FIFO queue.
+Anypoint MQ processes subsequent messages and doesn't preserve the message order.
 +
-Encrypting a FIFO queue does not affect the order or the contents of messages consumed.
-* Can be used as a DLQ
-+
-When assigning a DLQ to a FIFO queue, the DLQ must also be a FIFO queue.
-* Cannot be bound to a message exchange
-* Should not be used with `prefetch` mode.
+Therefore, to ensure that messages in the message group are processed in order,
+don't use a FIFO queue with a DLQ.
+
+* Can't be bound to a message exchange.
+* Shouldn't be used with `prefetch` mode.
 
 To create a FIFO queue, see <<Create a Queue>>. To determine if a queue is FIFO or standard (non-FIFO), view its details. 
 
