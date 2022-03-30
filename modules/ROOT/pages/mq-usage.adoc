@@ -23,10 +23,10 @@ However, if a client sends a message directly to a DLQ, that request is charged.
 
 Message units::
 Message units are not used for billing.
-Anypoint MQ uses these values internally and you can safely ignore them.
++
+Message units are used by Anypoint MQ to determine the size of message data in the response.
 +
 ** Each message unit contains 100 KB of data.
-+
 ** Message units are counted by the number of encoded characters in a message. 
 
 
