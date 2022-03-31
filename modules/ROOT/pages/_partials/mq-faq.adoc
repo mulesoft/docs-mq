@@ -16,3 +16,14 @@ Anypoint MQ doesn't limit the number of message groups in a FIFO queue.
 // tag::failedTPS[]
 Failed requests count against TPS.
 // end::failedTPS[]
+
+// tag::apiRequests[]
+All requests to the broker API count against your monthly quota.
+Requests include sending, receiving, and acknowledging messages
+and operations on queues and exchanges.
+// end::apiRequests[]
+
+// tag::returnVals[]
+Anypoint MQ doesn't use `messageReceiptCount` and `billableUnitCount` for billing, and you can safely ignore them.
+Anypoint MQ uses `messageReceiptCount` to determine the message units displayed on the *MQ Usage* page; `billableUnitCount` is an internally used value set to the same value as `messageReceiptCount`.
+// end::returnVals[]

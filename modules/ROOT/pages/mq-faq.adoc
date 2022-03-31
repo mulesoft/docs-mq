@@ -303,9 +303,9 @@ The only officially supported connectors and transports for shared resources are
 
 You can use a `curl` command with the xref:mq-apis.adoc#mqadminapi[REST Administration API] in a `for` loop to create the number of queues and message exchanges you need. See an xref:mq-apis.adoc#excoliuscu[example `curl` command] that you can alter to create a queue or message exchange.
 
-== Do the messages-per-month usage charges pertain to all environments?
+== Do the API requests-per-month usage charges pertain to all environments?
 
-Yes. It applies to all environments.
+Yes, the usage charges apply to all environments.
 
 == What happens when our usage exceeds our license limit?
 
