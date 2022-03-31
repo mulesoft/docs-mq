@@ -342,21 +342,27 @@ The time it takes to delete or purge a queue is approximately one minute. During
 
 For applications where the order of messages must be strictly preserved and enforced, Anypoint MQ provides first in, first out (FIFO) processing to enable message ordering. With FIFO queues, Anypoint MQ ensures that the order in which messages are placed in a queue is the same order messages are retrieved.
 
-Benefits of FIFO queues::
+Benefits::
++
+FIFO queues:
 +
 * Support delivery delay on all messages in the FIFO queue.
 +
-If you change the delivery delay for a FIFO queue, the setting change is retroactive to all messages in the queue.
+If you change the delivery delay setting for a FIFO queue, Anypoint MQ applies the change retroactively to all messages in the queue.
++
 Anypoint MQ doesn't support delayed delivery for individual messages in a FIFO queue. 
 * Support multiple <<FIFO Queues and Message Groups,message groups>>. 
 * Provide encryption.
 +
 Encrypting a FIFO queue does not affect the order or the contents of messages consumed.
-* Can be used as a DLQ; however, it is not recommended. See the limitations.
+* Can be assigned a dead-letter queue (DLQ).
+However, Anypoint MQ cannot guarantee strict message ordering in this case.
 +
-If you assign a DLQ to a FIFO queue, the DLQ must also be a FIFO queue.
+For information about using a DLQ with a FIFO queue, see <<fifo-and-dlq>>. 
 
-Limitations of FIFO queues::
+Limitations::
+
+FIFO queues:
 +
 * Are limited to 300 TPS (transactions per second).
 +
@@ -364,15 +370,6 @@ However, if you batch ten messages per read and write operation (maximum) using 
 +
 //Shared TPS failed
 include::partial$mq-faq.adoc[tag=failedTPS]
-
-* Can't guarantee that messages in a message group are processed in order when used with a DLQ.
-+
-When a message is sent to a DLQ, it is no longer in the FIFO queue.
-Anypoint MQ processes subsequent messages and doesn't preserve the message order.
-+
-Therefore, to ensure that messages in the message group are processed in order,
-don't use a FIFO queue with a DLQ.
-
 * Can't be bound to a message exchange.
 * Shouldn't be used with `prefetch` mode.
 
@@ -481,6 +478,17 @@ You must have at least two queues for one of them to be assigned as a DLQ. Both 
 * The same type (standard or FIFO)
 * In the same geographical xref:mq-faq.adoc#regions[region]
 * In the same environment and owned by the same Anypoint Platform account.
+
+[[fifo-and-dlq]]
+=== Dead-Letter Queues and FIFO Queues 
+
+You can assign a DLQ to a FIFO queue as long as the DLQ is also a FIFO queue.
+
+However, if you use a DLQ with a FIFO queue, Anypoint MQ cannot guarantee that messages in a message group are processed in order.
+When a message is sent to a DLQ, it is no longer in the FIFO queue.
+Anypoint MQ processes subsequent messages and doesn't preserve the message order.
+
+Therefore, if an application requires the order of messages to be strictly preserved and enforced, don't assign a DLQ to a FIFO queue.
 
 === Encryption
 
