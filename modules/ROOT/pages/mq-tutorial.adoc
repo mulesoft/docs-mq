@@ -40,21 +40,17 @@ To create a queue:
 +
 For example, click the environment button and select *Production*:
 +
-.The arrow shows the environment button in the left pane.
-image::mq-tutorial-switch-env.png[Environment button]
+image::mq-tutorial-switch-env.png[Environment button in the left pane]
 . Click *Destinations*:
 +
-.The screenshot  shows (*1*) the *Destinations* option and (*2*) the blue plus icon (+).
-image::mq-tutorial-destinations-option.png[Destinations option and blue plus icon]
+image::mq-tutorial-destinations-option.png[Destinations option and the blue plus icon]
 +
 . Click the blue plus icon (+) to display the menu:
 +
-.The screenshot shows the blue plus icon menu.
-image::mq-tutorial-create-choices.png[Blue plus icon choices]
+image::mq-tutorial-create-choices.png[Blue plus icon menu options]
 . Select *Queue*.
 . In the *Create Queue* window, enter `myDemoQueue` in the *ID* field:
 +
-.The screenshot shows the *Create Queue* window.
 image::mq-create-queues.png[Create Queue window]
 +
 Queue names can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9), periods (.), and hyphens (-). They cannot contain spaces or other characters. 
@@ -65,8 +61,7 @@ For information, see xref:mq-queues.adoc#create-a-queue[Create a Queue].
 + 
 The queue is created and appears in the *Destinations* page:
 +
-.The *Destinations* page shows (*1*) the type, (*2*) ID, and (*3*) details label for the queue.
-image::mq-queue-details.png[Destinations page with new queue]
+image::mq-queue-details.png[Destinations page with the type, ID, and details label for the new queue]
 +
 From this page, you can: 
 +
