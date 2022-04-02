@@ -79,14 +79,12 @@ To send and receive messages from a queue:
 . In the *Destinations* page, click `myDemoQueue` to display the *Queue Settings* page.
 . Click *Message Sender* in the left pane:
 +
-.The arrow shows the *Message Sender* option in the left pane.
 image::mq-tutorial-message-sender-page.png[Message Sender option]
 . Enter `Hello Mules!` in the *Payload* field.
 +
 Leave the *Type* field set to *Text*.
 . If you want, toggle *Add User Properties* and specify the property name-value pairs to send:
 +
-.The arrow shows the *Add User Properties* toggle in the *Message Sender* page.
 image::mq-tutorial-message-sender-user-props.png[Add User Properties toggle in the Message Sender page]
 +
 include::partial$mq-user-props.adoc[tag=mquserprops]
@@ -119,29 +117,26 @@ Next, you verify that the messages arrived in the queue.
 +
 The details pane shows the number of messages in the queue:
 +
-.The arrow shows the three messages that you sent to the `myDemoQueue` queue in the details pane.
 image::mq-tutorial-msgs-in-queue.png[Three messages in the myDemoQueue queue in the details pane]
 . In the *Destinations* page, click `myDemoQueue`.
 . In the settings page, click *Message Browser* in the left pane:
 +
-.The screenshot shows (*1*) the *Message Browser* option and (*2*) the *Get Messages* button.
-image::mq-tutorial-get-messages.png[Message Browser option and Get Messages button]
+image::mq-tutorial-get-messages.png[Message Browser option (1) and Get Messages button (2)]
 . Specify the number of messages (1-500) and the time to poll (1-3600 seconds).
 . Click *Get Messages*.
-. Click the message row to view the message payload in the details pane:
+. Click the message row (*1*) to view the message payload (*2*) in the details pane:
 +
-.The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) the *Return Messages* icon, (*4*) the *Delete* icon, (*5*) the *Full Screen* icon, (*6*) the close details pane icon (*X*), and (*7*) the user properties.
 image::mq-tutorial-msg-browser-payload-details.png[Selected message row, payload in the details pane, and Return Messages, Delete, Full Screen, and close details pane (X) icons]
 +
-* Click *Full Screen* to display the message payload in a separate window.
-* Click *X* to close the details pane.
-* Click *Delete* to delete the selected message.
+* Click *Full Screen* (*5*) to display the message payload in a separate window.
+* Click *X* (*6*) to close the details pane.
+* Click *Delete* (*4*) to delete the selected message.
 +
 Deleting a message is an acknowledgment operation (ACK). For information about how Anypoint MQ processes ACK messages, see xref:mq-ack-mode.adoc[Acknowledge Messages].
 +
 //Shared Delete Message
 include::partial$mq-delete-msg.adoc[tag=deleteMsg]
-* Click *Return Messages* to return all messages to the queue (for example, to enable other applications to read the messages). 
+* Click *Return Messages* (*3*) to return all messages to the queue (for example, to enable other applications to read the messages). 
 +
 Returning messages to the queue is a not-acknowledgment operation (NACK). The messages aren't altered. However, the TTL value you set when you created the queue determines how long the message is available before Anypoint MQ deletes it.
 +
@@ -162,19 +157,17 @@ After you test the queue, you register a client app in Anypoint MQ. Registering 
 To register a client app: 
 
 . Log in to Anypoint Platform and click *MQ*.
-. Click *Client Apps*:
+. Click *Client Apps* (*1*):
 +
-.The screenshot  shows (*1*) the *Client Apps* option and (*2*) blue plus icon (+) icon.
 image::mq-tutorial-create-client-apps.png[Client Apps option and blue plus icon]
-. Click the blue plus icon (+).
+. Click the blue plus (+) icon (*2*).
 . In the *Create Client App* window, enter `DemoClientApp` and click *Save Changes*.
-. Click the client app entry to view the client ID and client secret value in the details pane:
+. Click the client app entry to view the client ID (*1*) and client secret value (*2*) in the details pane:
 +
-.The screenshot shows (*1*) the *Client App ID* field, and (*2*) the *Show* and (*3*) *Copy* buttons.  
 image::mq-tutorial-client-apps-detail.png[Client App ID field, Show and Copy buttons]
 +
 The client secret value is obfuscated unless you click *Show*.
-. Keep the *Client Apps* window open so you can copy the client app ID and client secret in a later step.
+. Keep the *Client Apps* window open so you can copy (*3*) the client app ID and client secret in a later step.
 
 You have successfully registered a client Mule app in Anypoint MQ. Next, you create a Mule app in Design Center and connect it to Anypoint MQ.
 
@@ -196,43 +189,27 @@ If enabled, the password program inserts passwords in fields in Design Center, w
 To configure an app in Design Center:
 
 . In *Anypoint Platform*, click *Design Center* in the left navigation bar or the main Anypoint Platform screen.
-. Click the *Create* button to create a new project.
-+
-In the create window, select *Create new application*:
-+
-.The arrow shows the *Create new application* option.
-image::mq-tutorial-dc-create-app.png[Create new application option]
-+
-. In the *New Mule Application* window, enter `mqdemo` for the project name and click *Create*.
+. Click *Create new* > *New Mule App* to create a new integration flow.
+. In the *New Mule App* window, enter `mqdemo` for the project name and click *Create App*.
 . In the help wizard, click *Go straight to canvas*:
 +
-.The arrow shows the *Go straight to canvas* option.
-image::mq-tutorial-dc-goto-canvas.png[Go straight to canvas]
-+
+image::mq-tutorial-dc-goto-canvas.png[Go straight to canvas link]
 . Click the *Trigger* box and enter `H` to search for the HTTP Listener:
 +
-.The arrow shows the HTTP Listener.  
 image::mq-tutorial-dc-http-search.png[Search for the HTTP Listener]
-+
 . Click *HTTP Listener*.
-. In the HTTP Listener window, set the value of *Path* to `/mq/{messageId}` and then click the *Close* button (X):
+. In the *HTTP Listener* window, set the value of *Path* (*1*) to `/mq/{messageId}` and then click the *Close* (*2*) button (X):
 +
-.The screenshot shows (*1*) the *Path* value and (*2*) the *Close* button (X).
 image::mq-tutorial-dc-http-path.png[Path value and Close button]
+. Click the plus (+) icon to the right of the HTTP Listener trigger:
 +
-. Click the plus icon (+) to the right of the HTTP Listener trigger:
-+
-.The arrow shows the plus icon (+).
 image::mq-tutorial-dc-plus-icon.png[Plus icon]
 +
-. In the *Select a component* window, enter `Mu` to search for the Mule Anypoint MQ Connector:
+. In the *Select a component* window, enter `mule an` to search for the Mule Anypoint MQ Connector:
 +
-.The arrow shows the Mule Anypoint MQ Connector.
 image::mq-tutorial-dc-mq-search.png[Search for the Mule Anypoint MQ Connector]
+. Click the connector name, and then click the *Publish* operation:
 +
-. Click the *Publish* operation:
-+
-.The arrow shows the *Publish* operation.
 image::mq-tutorial-dc-publish-select.png[Publish operation]
 +
 For the other operations:
@@ -241,54 +218,43 @@ For the other operations:
 * If your app has tests to determine if message processing succeeded, use the *Ack* operation  
 to acknowledge that a message was received and can be deleted.
 * If message processing failed, use the *Nack* operation to negatively acknowledge the message and return the message to the queue to be accessed again. 
-. In the *Configuration* tab, specify `myDemoQueue` in the *Destination* field.
-+
-This is the name of the queue you created earlier in this tutorial:
-+
-.The screenshot shows (*1*) the *Destination* field and (*2*) the *Click here to set it up* link.
-image::mq-tutorial-dc-mq-destination.png[Destination field and setup link]
-. Click  *Click here to set it up*.
+. In the *Configuration* window, click *Add Connection*.
+. In the *Configure Connection* window, specify `myDemoQueue` in the *Connection Name* field and select *Connection* as the connection type.
 
-. Copy the client app ID and client secret from your *Anypoint Platform* > *MQ* browser window:
+. Return to your *Anypoint Platform* > *MQ* browser window to copy the client app ID and client secret:
 +
-.The screenshot shows (*1*) the *Client App ID* field, (*2*) *Show* button, and (*3*) *Copy* button in the *Client Apps* details pane.  
-image::mq-tutorial-client-apps-detail.png[Client App ID field, Show and Copy buttons]
+.. Click *Destinations* and click *copy* to copy the URL and paste the value in the *URL* field in the *Design Center* page.
 +
-.. In the *MQ* page, click *Client Apps* and click `DemoClientApp` to display the details pane.
-.. In the *MQ* details pane, click the *Copy* button for the *Client App ID* field and paste the value in the *Client App ID* field in the *Design Center* page.
-.. In the *MQ* details pane, click the *Copy* button for the *Client Secret* field and paste the value in the *Client Secret* field in the *Design Center* page:
+image::mq-tutorial-url.png[Copy button in the Destinations page]
+.. Click *Client Apps* and click `DemoClientApp` to display the details pane.
 +
-.The screenshot shows (*1*) the *Client App ID* field and (*2*) *Client Secret* field in the *Design Center* page.  
-image::mq-tutorial-dc-client-id-secret.png[Client App ID field and Client Secret field]
+image::mq-tutorial-client-apps-detail.png[Client App ID field, Client Secret field, and Copy buttons] 
+.. In the *MQ* details pane, click the *Copy* button for the *Client App ID* field (*1*) and paste the value in the *Client App ID* field in the *Design Center* page.
+.. In the *MQ* details pane, click the *Copy* button for the *Client Secret* field (*2*) and paste the value in the *Client Secret* field in the *Design Center* page:
 +
+image::mq-tutorial-dc-client-id-secret.png[Client App ID field and Client Secret field in the Design Center page]
 . Click *Test* to ensure that you have access to your client app:
 +
-.The arrow shows the *Success* box.
 image::mq-tutorial-dc-test-connection.png[Success box]
 +
-
 * If successful, the green *Success* box appears.
 * If unsuccessful, ensure that the client app ID, client secret, and URL values are correct.
 +
-If the URL does not match the URL in *Anypoint Platform* > *MQ*, copy the URL from Anypoint MQ to the Design Center window and click *Test* again:
+If the URL does not match the URL in *Anypoint Platform* > *MQ*, copy the URL from Anypoint MQ to the Design Center window and click *Test* again.
+
+. Click *Save* twice.
+. In the Publish Configuration window, enter `myDemoQueue`.
 +
-.The arrow shows the *Copy* button in the Anypoint MQ *Destinations* page.
-image::mq-tutorial-url.png[Copy button in the Destinations page]
-. Click *Save*.
+This is the name of the queue you created earlier in this tutorial.
 . Click the *Close* button (X) to close the Publish Configuration window:
 +
-.The arrow shows the *Close* button (X).
 image::mq-tutorial-dc-mq-close.png[Close button]
 . Select *Deploy Application* from the menu to the right of the *Test* button: 
 +
-.The arrow shows the *Deploy Application* menu option in Design Center.
-image::mq-tutorial-dc-deploy-option.png[Deploy Application menu option]
+image::mq-tutorial-dc-deploy-option.png[Deploy Application menu option in Design Center]
 . In the *Deploy Mule application* window, select the target environment and application name, and then click *Deploy*.
 +
-The app starts running in a temporary environment.
-+
-.The arrow shows a message indicating the `mqdemo` app is running in a temporary environment.
-image::mq-tutorial-dc-running.png[The mqdemo app running in a temporary environment]
+After the app deploys successfully, you can click in the *Deployment success* popup to view the app in Runtime Manager.
 
 You have successfully used Design Center to configure an app that connects to Anypoint MQ. Next, you test the connection by submitting REST API commands to the Anypoint MQ Broker API and using Anypoint MQ to view the results.
 
@@ -322,23 +288,22 @@ The `100` value in the URL is the message ID value as specified by the `/mq{mess
 +
 Next, you verify that the message arrived in the queue.
 . In *Anypoint Platform* > *MQ* > *Destinations*, click the name of the `myDemoQueue` queue that you created earlier and specified in the *Destination* setting for your app in Design Center.
-. Click *Message Browser* in the left menu:
+. Click *Message Browser* (*1*) in the left menu:
 +
-.The screenshot shows (*1*) the *Message Browser* option and (*2*) the *Get Messages* button for getting messages from the `myDemoQueue` queue.
 image::mq-tutorial-get-messages.png[Message Browser option and Get Messages button]
 . Specify the number of messages (1-500) and the time to poll (1-3600 seconds).
-. Click *Get Messages*.
-. Click the message row to view the message payload that you sent in the `curl` command in the details pane:
+. Click *Get Messages* (*2*).
 +
-.The screenshot shows (*1*) the message row, (*2*) the message payload, (*3*) the *Return Messages* icon, (*4*) the *Delete* icon, (*5*) the *Full Screen* icon, and (*6*) the close details pane icon (*X*).
+You see the messages in the queue:
++
 image::mq-tutorial-msg-browser-payload-details-curl.png[Selected message row, payload, Return Messages icon, Delete icon, Full Screen icon, and close details pane (X) icons]
-+
-* Click *Full Screen* to display the message payload in a separate window or *X* to close the details pane.
-* Click *Delete* to delete the selected message.
+. Click the message row (*1*) to view the message payload (*2*) that you sent in the `curl` command in the details pane.
+* Click *Full Screen* (*5*) to display the message payload in a separate window or *X* (*6*) to close the details pane.
+* Click *Delete* (*4*) to delete the selected message.
 +
 //Shared Delete Message
 include::partial$mq-delete-msg.adoc[tag=deleteMsg]
-* Click *Return Messages* to return the message to the queue (for example, to enable other applications to read the message). 
+* Click *Return Messages* (*3*) to return the message to the queue (for example, to enable other applications to read the message). 
 +
 [NOTE]
 //Shared Big Payload
@@ -370,70 +335,57 @@ To configure an app in Studio:
 . Start Studio, click *File* > *New* > *Mule Project*, and then name the project `mq-demo`.
 . Click the *Exchange* icon in the toolbar:
 +
-.The arrow shows the *Exchange* icon in the Studio 7 toolbar.
 image::mq-tutorial-studio7-exchange.png[Exchange icon in the Studio 7 toolbar]
 . Enter your Anypoint Platform username and password.
 . In Exchange, select *Provided by MuleSoft*, and then search for the Anypoint MQ Connector:
 +
-.The screenshot shows (*1*) the *Provided by MuleSoft* option and (*2*) the search field.
 image::mq-tutorial-exchange.png[Provided by MuleSoft option and search field in Exchange]
 . Select *Anypoint MQ Connector - Mule 4*.
 +
 Studio 7 supports Mule 4.
 . Click *Add to project*:
 +
-.The arrow shows the *Add to project* icon in Exchange.
 image::mq-tutorial-exchange-add-to-project.png[Add to project icon in Exchange]
 . At the confirmation prompt, click *Proceed* and then click *OK*.
 . In the *Mule Palette* view, click *HTTP*, and then drag the *Listener* to the Studio canvas:
 +
-.The screenshot shows (*1*) the HTTP Connector and (*2*) the Listener operation.
 image::mq-tutorial-studio7-palette.png[HTTP Connector and Listener operations in Mule Palette]
 . Click *Anypoint MQ*, and then drag *Publish* to the *Process* area to the right of the Listener on the canvas:
 +
-.The arrow shows the *Publish* operation in the Studio 7 canvas.
 image::mq-tutorial-studio7-flow.png[Publish operation in the Studio 7 canvas]
-+
 . In the canvas, click *Listener*.
-. In the Listener properties window, set *General* > *Path* to `/mq/{messageId}`:
+. In the Listener properties window, set *General* > *Path* (*1) to `/mq/{messageId}`:
 +
-.The screenshot shows (*1*) the *Path* property and (*2*) the *Connector configuration* icon for the Listener.
-image::mq-tutorial-studio7-listener-props.png[Listener properties]
-. Click the green plus icon (+) to the right of the *Connector configuration* field.
+image::mq-tutorial-studio7-listener-props.png[Path property and Connector configuration icon for the Listener]
+. Click the green plus (+) icon (*2*) to the right of the *Connector configuration* field.
 . In the HTTP Listener *Global Element Properties* window, verify that *Host* is set to `0.0.0.0` and *Port* is set to `8081`, and then click *OK*.
 +
 The Listener properties window now indicates that there are no errors.
 . In the canvas, click *Publish*.
-. In the Publish properties window, set *Destination* to the `myDemoQueue` queue that you created earlier in *Anypoint Platform* > *MQ*:
+. In the Publish properties window, set *Destination* (*1*) to the `myDemoQueue` queue that you created earlier in *Anypoint Platform* > *MQ*:
 +
-.The screenshot shows (*1*) the *Destination* property of the Publish operation and (*2*) the green plus icon (+) for connector configuration.
 image::mq-tutorial-studio7-mq-props.png[Destination property and green plus icon for the Publish operation]
 +
 The queue must be in an environment other than Design.
-. Click the green plus icon (+) to the right of the *Connector configuration* field.
+. Click the green plus icon (+) (*2*) to the right of the *Connector configuration* field.
 . Click *Copy* in the *Destinations* page in Anypoint MQ to copy the URL and paste it in the *Destination* field in Studio:
 +
-.The arrow shows the *Copy* button in the Anypoint MQ *Destinations* page.
 image::mq-tutorial-url.png[Copy button in the Destinations page]
 . Copy the client app ID and client secret from the *Client Apps* page in Anypoint MQ to Studio:
 +
-.The screenshot shows (*1*) the *Client App ID* field, (*2*) *Show* button, and (*3*) *Copy* button.  
 image::mq-tutorial-client-apps-detail.png[Client App ID field, Show and Copy buttons]
 +
 .. In the *MQ* page, click *Client Apps* and click `DemoClientApp` to display the details pane.
-.. In the *MQ* details pane, click the *Copy* button for the *Client App ID* field and paste the value in the *Client App ID* field in the *Anypoint MQ Config* window.
-.. In the *MQ* details pane, click the *Copy* button for the *Client Secret* field and paste the value in the *Client Secret* field in *Anypoint MQ Config* window:
+.. Click the *Copy* button for the *Client App ID* field (*1*) and paste the value in the *Client App ID* field in the *Anypoint MQ Config* window.
+.. Click the *Copy* button for the *Client Secret* field (*2*) and paste the value in the *Client Secret* field in *Anypoint MQ Config* window:
 +
-.The screenshot shows (*1*) the *URL* field, (*2*) the *Client App ID* field, (*3*) the *Client Secret* field, and (*4*) the *Test Connection* button.  
 image::mq-tutorial-studio7-mq-config.png[URL, Client App ID, and Client Secret fields and Test Connection button in Anypoint MQ Config window]
-+
-. Click *Test Connection* to ensure that the values are correct, and then click *OK* twice.
+. Click *Test Connection* (*4*) to ensure that the values are correct, and then click *OK* twice.
 . Save your project. 
 . In *Package Explorer* in Studio, right-click `mq-demo` and select *Anypoint Platform* > *Deploy to CloudHub*.
 . At the prompt, select the environment to which to deploy the app.
 . In the Anypoint Platform *Deploying Application* window, click *Deploy Application*:
 +
-.The arrow shows the *Deploy Application* button in the *Deploying Applications* page.
 image::mq-tutorial-deploy-app.png[Deploy Application button in the Deploying Applications page]
 
 You have successfully used Studio 7 to configure an app that connects to Anypoint MQ. Next, you test the connection by submitting REST API commands to the Anypoint MQ Broker API and using Anypoint MQ to view the results.
