@@ -28,3 +28,21 @@ Deleting a message is an acknowledgment operation (ACK). For information about h
 | (*3*) | *Show* button | Display the client secret value.
 |===
 // end::mqClientAppsDetail[]
+
+
+// tag::mqQueueDetails[]
+[cols="5a,18a,50a"]
+|===
+| (*1*) | Queue type| Click to display the queue details pane.
+| (*2*) | Queue ID| Click to display the *Queue Settings* page.
+| (*3*) | Queue details label| Click to display the *Queue Settings* page.
+|===
+// end::mqQueueDetails[]
+
+// tag::mqPayloadDetails[]
+[cols="5a,15a,50a"]
+|===
+| (*1*) | *Full Screen* icon | Display the message payload in a separate window.
+| (*2*) | *Close* icon  | Close the details pane.
+|===
+// end::mqPayloadDetails[]

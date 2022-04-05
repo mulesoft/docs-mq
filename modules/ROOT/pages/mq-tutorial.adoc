@@ -64,16 +64,11 @@ Queue names can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9), perio
 For information, see xref:mq-queues.adoc#create-a-queue[Create a Queue].
 . Click *Create Queue*.
 + 
-The queue is created and appears in the *Destinations* page:
+Anypoint MQ creates the queue in the *Destinations* page:
 +
 image::mq-queue-details.png[Destinations page with the type, ID, and details label for the new queue]
 +
-[cols="5a,15a,50a"]
-|===
-| (*1*) | Queue type| Click to display the queue details pane.
-| (*2*) | Queue ID| Click to display the *Queue Settings* page.
-| (*3*) | Queue details label| Click to display the *Queue Settings* page.
-|===
+include::partial$mq-msg-browser-details.adoc[tag=mqQueueDetails]
 
 You have successfully created a queue. Next, you send messages to the queue, verify that the messages arrived, and view the message payload.
 
@@ -84,12 +79,10 @@ After you create the queue, you test the queue you created by sending messages t
 To send and receive messages from a queue:
 
 . In the *Destinations* page, click `myDemoQueue`.
-. Click *Message Sender* in the left pane:
+. Click the *Message Sender* navigation menu:
 +
-image::mq-tutorial-message-sender-page.png[Message Sender option]
-. Enter `Hello Mules!` in the *Payload* field.
-+
-Leave the *Type* field set to *Text*.
+image::mq-tutorial-message-sender-page.png[Message Sender navigation menu]
+. Leave the *Type* field set to *Text* and enter `Hello Mules!` in the *Payload* field.
 . If you want, toggle *Add User Properties* and specify the property name-value pairs to send:
 +
 image::mq-tutorial-message-sender-user-props.png[Add User Properties toggle in the Message Sender page]
@@ -120,12 +113,12 @@ include::partial$mq-user-props.adoc[tag=mquserprops]
 +
 Next, verify that the messages arrived in the queue.
 . Click *Destinations*.
-. Click the queue type for `myDemoQueue` to display its details in the right pane.
+. Click the queue type for `myDemoQueue` to display its details.
 +
 The details pane shows the number of messages in the queue:
 +
 image::mq-tutorial-msgs-in-queue.png[Three messages in the myDemoQueue queue in the details pane]
-. In the details pane, click the queue label, `myDemoQueue`.
+. In the details pane, click the queue details label, `myDemoQueue`.
 . Click the *Message Browser* navigation menu:
 +
 image::mq-tutorial-get-messages.png[Message Browser navigation menu]
@@ -162,7 +155,7 @@ To register a client app:
 +
 image::mq-tutorial-create-client-apps.png[Client Apps option and blue plus icon]
 +
-[cols="5a,15a,50a"]
+[cols="5a,30a,50a"]
 |===
 | (*1*) | *Client Apps* navigation menu | Display and create client apps.
 | (*2*) | Blue plus (+) icon| Click to add a client app.
@@ -211,7 +204,7 @@ image::mq-tutorial-dc-http-path.png[Path value and Close button]
 +
 [cols="5a,15a,50a"]
 |===
-| (*1*) | *Path* field |
+| (*1*) | *Path* field | Enter `/mq/{messageId}`.
 | (*2*) | *Close* (*X*) icon| Close the *HTTP Listener* window.
 |===
 
@@ -232,8 +225,8 @@ For the other operations:
 * If your app has tests to determine if message processing succeeded, use the *Ack* operation  
 to acknowledge that a message was received and can be deleted.
 * If message processing failed, use the *Nack* operation to negatively acknowledge the message and return the message to the queue to be accessed again. 
-. In the *Configuration* window, click *Add Connection*.
-. In the *Configure Connection* window, specify `myDemoQueue` in the *Connection Name* field and select *Connection* as the connection type.
+. In the *Configuration* page, click *Add Connection*.
+. In the *Configure Connection* page, specify `myDemoQueue` in the *Connection Name* field and select *Connection* as the connection type.
 
 . Return to your *Anypoint Platform* > *MQ* browser window to copy the URL, client app ID, and client secret values:
 +
@@ -259,10 +252,10 @@ image::mq-tutorial-dc-test-connection.png[Success box]
 If the URL does not match the URL in *Anypoint Platform* > *MQ*, copy the URL from Anypoint MQ to the Design Center window and click *Test* again.
 
 . Click *Save* twice.
-. In the *Publish Configuration* window, enter `myDemoQueue`.
+. In the *Publish Configuration* page, enter `myDemoQueue`.
 +
 This is the name of the queue you created earlier in this tutorial.
-. Click the *Close* (*X*) icon to close the Publish Configuration window:
+. Click the *Close* (*X*) icon to close the *Publish Configuration* page:
 +
 image::mq-tutorial-dc-mq-close.png[Close icon]
 . Select *Deploy Application* from the menu to the right of the *Test* button: 
@@ -302,7 +295,8 @@ curl -X POST \
 The `100` value in the URL is the message ID value as specified by the `/mq{messageId}` value in the HTTP Listener, which is the identifier for your message.
 +
 Next, you verify that the message arrived in the queue.
-. In *Anypoint Platform* > *MQ* > *Destinations*, click the name of the `myDemoQueue` queue that you created earlier and specified in the *Destination* setting for your app in Design Center.
+. Select *Anypoint Platform* > *MQ* > *Destinations*.
+. Click the name of the `myDemoQueue` queue that you created earlier and specified in the *Destination* setting for your app in Design Center.
 . Click the *Message Browser* navigation menu:
 +
 image::mq-tutorial-get-messages.png[Message Browser navigation menu]
@@ -349,7 +343,7 @@ First, use Studio 7 to configure an app that connects to Anypoint MQ:
 +
 image::mq-tutorial-studio7-exchange.png[Exchange icon in the Studio 7 toolbar]
 . Enter your Anypoint Platform username and password.
-. In Exchange, click the *Provided by MuleSoft* navigation menu, *Connectors* from the dropdown, and then search for Anypoint MQ Connector:
+. In Exchange, click the *Provided by MuleSoft* navigation menu, select *Connectors* from the dropdown, and then search for Anypoint MQ Connector:
 +
 image::mq-tutorial-exchange.png[Provided by MuleSoft menu, Connectors dropdown, and search field in Exchange]
 . Select *Anypoint MQ Connector - Mule 4*.
@@ -376,7 +370,7 @@ image::mq-tutorial-studio7-flow.png[Publish operation in the Studio 7 canvas]
 +
 image::mq-tutorial-studio7-listener-props.png[Listener properties window]
 . Click the green plus (+) icon to the right of the *Connector configuration* field.
-. In the HTTP Listener *Global Element Properties* window, verify that *Host* is set to `0.0.0.0` and *Port* is set to `8081`, and then click *OK*:
+. In the HTTP Listener *Global Element Properties* window, verify that *Host* is set to `All Interfaces [0.0.0.0]` and *Port* is set to `8081`, and then click *OK*:
 +
 image::mq-tutorial-studio7-listener-config.png[Host and Port settings in the Global Element Properties for the Listener]
 +
@@ -386,11 +380,11 @@ The Listener properties window now indicates that there are no errors.
 +
 image::mq-tutorial-studio7-mq-props.png[Destination property and green plus icon for the Publish operation]
 +
-The queue must be in an environment other than Design.
+The queue must be located in an environment other than Design.
 . Click the green plus (+) icon to the right of the *Connector configuration* field to display the *Global Element Properties* window.
 . Return to your *Anypoint Platform* > *MQ* browser window to copy the URL, client app ID, and client secret values:
 +
-.. Click *Destinations* and copy the URL to the *URL* field in Studio:
+.. Click *Destinations* and click *copy* to copy the URL to the *URL* field in Studio:
 +
 image::mq-tutorial-url.png[Copy button in the Destinations page]
 .. Click *Client Apps* and click `DemoClientApp` to display the details pane.
