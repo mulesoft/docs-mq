@@ -193,19 +193,10 @@ image::mq-fifo-msg-browser.png[Accept checkbox for FIFO queues]
 .The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) the *Return Messages* icon, (*4*) the *Delete* icon, (*5*) the *Full Screen* icon, (*6*) the close details pane icon (*X*), and (*7*) the user properties.
 image::mq-tutorial-msg-browser-payload-details.png[Selected message row, payload in the details pane, and Return Messages, Delete, Full Screen, and close details pane (X) icons]
 +
-* Click *Full Screen* to display the message payload in a separate window.
-* Click *X* to close the details pane.
-* Click *Delete* to delete the selected message.
-+
-Deleting a message is an acknowledgment operation (ACK). For information about how Anypoint MQ processes ACK messages, see xref:mq-ack-mode.adoc[Acknowledge Messages].
+include::partial$mq-msg-browser-details.adoc[tag=mqMsgBrowserDetails]
 +
 //Shared Delete Message
 include::partial$mq-delete-msg.adoc[tag=deleteMsg]
-* Click *Return Messages* to return all messages to the queue (for example, to enable other applications to read the messages). 
-+
-Returning messages to the queue is a not-acknowledgment operation (NACK). The messages aren't altered. However, the time-to-live (TTL) value you set when you created the queue determines how long the message is available before Anypoint MQ deletes it.
-+
-If you switch from the *Message Browser* page, messages automatically return to the queue.
 +
 [NOTE]
 //Shared Big Payload

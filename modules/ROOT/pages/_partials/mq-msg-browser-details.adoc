@@ -1,0 +1,30 @@
+// MQ Message Browser Details Table
+// tag::mqMsgBrowserDetails[]
+[cols="5a,10a,50a"]
+|===
+| (*1*) || Selected message
+| (*2*) || Message payload in the details pane
+| (*3*) |*Return Messages* icon | Return all messages to the queue (for example, to enable other applications to read the messages).
+
+Returning messages to the queue is a not-acknowledgment operation (NACK). The messages aren't altered. However, the TTL value you set when you created the queue determines how long the message is available before Anypoint MQ deletes it.
+
+If you switch from the *Message Browser* page, messages automatically return to the queue.
+| (*4*) |*Delete* icon | Delete the selected message.
+
+Deleting a message is an acknowledgment operation (ACK). For information about how Anypoint MQ processes ACK messages, see xref:mq-ack-mode.adoc[Acknowledge Messages].
+
+| (*5*) |*Full Screen* icon | Display the message payload in a separate window.
+| (*6*) |*Close* icon  | Close the details pane.
+|===
+// end::mqMsgBrowserDetails[]
+
+
+
+// tag::mqClientAppsDetail[]
+[cols="5a,15a,50a"]
+|===
+| (*1*) | Client app name | Click to display client app details.
+| (*2*) | *Copy* buttons | Copy the client app ID or client secret value.
+| (*3*) | *Show* button | Display the client secret value.
+|===
+// end::mqClientAppsDetail[]
