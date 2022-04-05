@@ -388,7 +388,6 @@ image::mq-tutorial-studio7-mq-props.png[Destination property and green plus icon
 +
 The queue must be in an environment other than Design.
 . Click the green plus (+) icon to the right of the *Connector configuration* field to display the *Global Element Properties* window.
-
 . Return to your *Anypoint Platform* > *MQ* browser window to copy the URL, client app ID, and client secret values:
 +
 .. Click *Destinations* and copy the URL to the *URL* field in Studio:
@@ -403,7 +402,6 @@ include::partial$mq-msg-browser-details.adoc[tag=mqClientAppsDetail]
 .. Copy the client app ID and client secret values from the details pane to the *Anypoint MQ Configuration* window in Studio:
 +
 image::mq-tutorial-studio7-mq-config.png[URL, Client App ID, and Client Secret fields and Test Connection button in Anypoint MQ Config window]
-
 
 . Click *Test Connection* to ensure that the values are correct, and then click *OK* twice.
 . Save your project. 
@@ -532,9 +530,9 @@ To configure a Mule 3 app in Studio 6:
 +
 image::mq-tutorial-studio6-exchange.png[Exchange icon in the Studio 6 toolbar]
 .. Enter your Anypoint Platform username and password.
-.. In Exchange, select *Provided by MuleSoft* (*1*), and then search for Anypoint MQ Connector:
+. In Exchange, click the *Provided by MuleSoft* navigation menu, *Connectors* from the dropdown, and then search for Anypoint MQ Connector:
 +
-image::mq-tutorial-exchange.png[Provided by MuleSoft option and search field in Exchange]
+image::mq-tutorial-exchange.png[Provided by MuleSoft menu, Connectors dropdown, and search field in Exchange]
 .. Select *Anypoint MQ Connector - Mule 3*.
 +
 Studio 6 supports Mule 3.
@@ -554,10 +552,10 @@ image::mq-tutorial-studio6-palette.png[HTTP Connector in Mule Palette]
 +
 image::mq-tutorial-studio6-flow-complete.png[Flow in Studio 6 Canvas]
 . In the canvas, click *HTTP*.
-. In the HTTP properties window, set *General* > *Path* (*1*) to `/mq/{messageId}`:
+. In the HTTP properties window, set *General* > *Path* to `/mq/{messageId}`:
 +
-image::mq-tutorial-studio6-http-props.png[HTTP properties]
-. Click the HTTP connector and click the green plus icon (+) to the right of *Connector Configuration* (*2*).
+image::mq-tutorial-studio6-http-props.png[HTTP properties window]
+. Click the HTTP connector and click the green plus icon (+) to the right of *Connector Configuration*.
 . In the HTTP Connector *Global Element Properties* window, verify that *Host* is set to `0.0.0.0` and *Port* is set to `8081`, and then click *OK*.
 +
 The HTTP properties window now indicates that there are no errors.
@@ -572,26 +570,28 @@ The HTTP properties window now indicates that there are no errors.
 image::mq-tutorial-studio6-set-payload-props.png[Payload in the Value field]
 . In the canvas, click *Anypoint MQ*.
 . In the Anypoint MQ properties window, click the green plus icon (+) to the right of *Connector Configuration*.
-. Copy the following information from Anypoint MQ to the Anypoint MQ Configuration *Global Element Properties* window:
+
+. Return to your *Anypoint Platform* > *MQ* browser window to copy the URL, client app ID, and client secret values:
 +
-.. In Anypoint Platform, select *MQ* > *Destinations*.
-.. Click *Copy* to copy the URL and paste it in the *URL* field in Studio:
+.. Click *Destinations* and copy the URL to the *URL* field in Studio:
 +
-image::mq-tutorial-url.png[Copy button on the Destinations page]
-.. Click *Client Apps* (*1*) and click `DemoClientApp` to display the details pane:
+image::mq-tutorial-url.png[Copy button in the Destinations page]
+.. Click *Client Apps* and click `DemoClientApp` to display the details pane.
 +
-image::mq-tutorial-client-apps-detail.png[Client App ID field, Copy, and Show buttons]
-.. Click the *Copy* button (*2*) for the *Client App ID* field and paste the value in the *Client App ID* field in the *Anypoint MQ Configuration* window.
-.. Click the *Copy* button  (*3*) for the *Client Secret* field and paste the value in the *Client Secret* field in *Anypoint MQ Configuration* window:
+image::mq-tutorial-client-apps-detail.png[Client app name, Copy, and Show buttons]
++
+include::partial$mq-msg-browser-details.adoc[tag=mqClientAppsDetail]
+
+.. Copy the client app ID and client secret values from the details pane to the *Anypoint MQ Configuration* window in Studio:
 +
 image::mq-tutorial-studio6-mq-config.png[URL, Client App ID, and Client Secret fields in the Anypoint MQ Configuration window]
 . Click *OK*.
-. In the Anypoint MQ properties window, click the *Operation* field and select *publish* (*1*) from the menu.
-. Set *Destination* (*2*) to the `myDemoQueue` queue that you created earlier in *Anypoint Platform* > *MQ*. 
-+
-The queue must be in an environment other than Design.
+. In the Anypoint MQ properties window, click the *Operation* field and select *publish* from the menu:
 +
 image::mq-tutorial-studio6-mq-props.png[Operation and Destination fields in the Anypoint MQ properties window]
+. Set *Destination* to the `myDemoQueue` queue that you created earlier in *Anypoint Platform* > *MQ*. 
++
+The queue must be in an environment other than Design.
 . In the canvas, click *Logger*.
 . In the Logger properties window, set *General* > *Message* to `MQ Message: #[payload]`:
 +
