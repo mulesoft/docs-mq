@@ -33,7 +33,7 @@ Standard queues can be bound to a xref:mq-exchanges.adoc[_message exchange_], en
 
 You can filter queues by type in the *Destinations* page:
 
-image::mq-filters.png[Filters at the top of the Destinations page]
+image::mq-filters.png["Filters at the top of the Destinations page"]
 
 
 == Prerequisites
@@ -50,13 +50,13 @@ To create a standard queue or FIFO queue:
 . Click *Destinations*.
 . Click the blue plus icon (+) to display the menu:
 +
-image::mq-blue-create.png[Blue plus icon at the top of the Destinations page]
+image::mq-blue-create.png["Blue plus icon at the top of the Destinations page"]
 . Select *Queue* or *FIFO Queue*.
 +
 For *Exchange*, see xref:mq-exchanges.adoc[Configure Message Exchanges].
 . Complete the fields in *Create Queue* or *Create FIFO Queue*:
 +
-image::mq-create-queues.png[Create Queue popup]
+image::mq-create-queues.png["Create Queue popup"]
 +
 --
 ** *ID* specifies the queue name.
@@ -85,7 +85,7 @@ The DLQ is a previously created queue to which to send undeliverable messages. S
 + 
 Anypoint MQ creates the queue in the *Destinations* page:
 +
-image::mq-queue-details.png[Destinations page with the type, ID, and details label for the new queue]
+image::mq-queue-details.png["Destinations page with the type, ID, and details label for the new queue"]
 +
 include::partial$mq-msg-browser-details.adoc[tag=mqQueueDetails]
 
@@ -104,7 +104,7 @@ To send a text message to a queue:
 . Click the queue ID.
 . Click the *Message Sender* navigation menu:
 +
-image::mq-message-sender-page.png[Message Sender navigation menu]
+image::mq-message-sender-page.png["Message Sender navigation menu"]
 +
 ** *Type* is *Text*, *CSV*, or *JSON*.
 +
@@ -125,7 +125,7 @@ See xref:mq-understanding.adoc#delay_messages[Delayed delivery for messages].
 +
 To preserve message order for an app, you might want to create a message group for each application to send messages:
 +
-image::mq-fifo-msg-groups.png[Message Group ID field for FIFO queues in the Message Sender page]
+image::mq-fifo-msg-groups.png["Message Group ID field for FIFO queues in the Message Sender page"]
 +
 include::partial$mq-msg-group-id.adoc[]
 +
@@ -134,7 +134,7 @@ See <<FIFO Queues and Message Groups>>.
 +
 Toggle *Add User Properties* and specify the property name-value pairs to send:
 +
-image::mq-tutorial-message-sender-user-props.png[Add User Properties toggle in the Message Sender page]
+image::mq-tutorial-message-sender-user-props.png["Add User Properties toggle in the Message Sender page"]
 +
 include::partial$mq-user-props.adoc[tag=mquserprops]
 . Click *Send*.
@@ -148,7 +148,7 @@ To see the number the messages in the queue:
 . Select *Anypoint Platform* > *MQ* > *Destinations*.
 . Click the queue type to display its details, including the number of messages in the queue:
 +
-image::mq-msgs-in-queue.png[The number of messages in the queue in the details pane]
+image::mq-msgs-in-queue.png["The number of messages in the queue in the details pane"]
 
 == Get a Message from a Queue
 
@@ -160,7 +160,7 @@ To get a message from a queue:
 . Click the queue ID.
 . Click the *Message Browser* navigation menu:
 +
-image::mq-tutorial-get-messages.png[Message Browser navigation menu]
+image::mq-tutorial-get-messages.png["Message Browser navigation menu"]
 . Specify the number of messages (1-500) to retrieve and the time to poll (1-3600 seconds).
 +
 The specified number is the minimum number of messages to retrieve.
@@ -169,11 +169,11 @@ For a FIFO queue, you can retrieve up to 10 messages.
 . If you are retrieving messages from a FIFO queue, select the checkbox to acknowledge 
 that viewing messages through the browser might cause other consumers of the queue to be blocked from accessing messages in the queue:
 +
-image::mq-fifo-msg-browser.png[Accept checkbox for retrieving messages from a FIFO queue]
+image::mq-fifo-msg-browser.png["Accept checkbox for retrieving messages from a FIFO queue"]
 . Click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-image::mq-tutorial-msg-browser-payload-details.png[Selected message row, payload in the details pane, and Return Messages, Delete, Full Screen, and close details pane (X) icons]
+image::mq-tutorial-msg-browser-payload-details.png["Selected message row, payload in the details pane, and Return Messages, Delete, Full Screen, and close details pane (X) icons"]
 +
 include::partial$mq-msg-browser-details.adoc[tag=mqMsgBrowserDetails]
 +
@@ -186,7 +186,7 @@ include::partial$mq-big-payload.adoc[tag=mqBigPayload]
 +
 If user properties are configured in the *Message Sender* page or as part of the Publish operation in Anypoint MQ Connector, they appear in the details pane for the message:
 +
-image::mq-msg-browser-user-props.png[User Properties in the Message Browser details pane]
+image::mq-msg-browser-user-props.png["User Properties in the Message Browser details pane"]
 
 
 == Send a CSV Message to a Queue
@@ -197,7 +197,7 @@ To send a CSV message to a queue:
 . Click the queue ID.
 . Click the *Message Sender* navigation menu:
 +
-image::mq-message-sender-csv.png[Message Sender page]
+image::mq-message-sender-csv.png["Message Sender page"]
 . Set the *Type* to *CSV*.
 . In the *Payload* field, enter this text:
 +
@@ -212,7 +212,7 @@ For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue on
 . Click *Message Browser*, and then click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-image::mq-msg-browser-payload-details-csv.png[CSV payload, Full Screen icon, and close details pane icon]
+image::mq-msg-browser-payload-details-csv.png["CSV payload, Full Screen icon, and close details pane icon"]
 +
 include::partial$mq-msg-browser-details.adoc[tag=mqPayloadDetails]
 +
@@ -228,7 +228,7 @@ To send a JSON message to a queue:
 . Click the queue ID.
 . Click the *Message Sender* navigation menu:
 +
-image::mq-message-sender-json.png[Message Sender page]
+image::mq-message-sender-json.png["Message Sender page"]
 . Set the *Type* to *JSON*.
 . In the *Payload* field, enter this text:
 +
@@ -246,7 +246,7 @@ For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue on
 . Click *Message Browser*, and then click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-image::mq-msg-browser-payload-details-json.png[JSON payload, Full Screen icon, and close details pane icon]
+image::mq-msg-browser-payload-details-json.png["JSON payload, Full Screen icon, and close details pane icon"]
 +
 include::partial$mq-msg-browser-details.adoc[tag=mqPayloadDetails]
 +
@@ -263,10 +263,10 @@ To purge all the messages in the queue:
 . Click the queue type to display its details.
 . Click the *Purge Messages* icon in the details pane:
 +
-image::mq-purge-msgs-icon.png[Purge Messages icon in the details pane]
+image::mq-purge-msgs-icon.png["Purge Messages icon in the details pane"]
 . In the *Purge Messages* confirmation box, select the checkbox and click *Delete Messages* to verify that you want to purge all messages in the queue:
 +
-image::mq-purge-msgs-confirm.png[Accept checkbox for purging messages from a queue]
+image::mq-purge-msgs-confirm.png["Accept checkbox for purging messages from a queue"]
 
 == Change Settings for a Queue
 
@@ -276,7 +276,7 @@ The new value doesn't apply to messages that are already in the queue.
 . Select *Anypoint Platform* > *MQ* > *Destinations*.
 . Click the queue ID to display the *Queue Settings* page:
 +
-image::mq-queue-settings.png[Queue Settings page]
+image::mq-queue-settings.png["Queue Settings page"]
 . Change the queue settings and click *Save Changes*.
 
 == Delete a Queue
@@ -289,11 +289,11 @@ To delete a queue:
 . Click the queue type to display its details.
 . Click the *Delete* icon in the details pane:
 +
-image::mq-delete-queue-icon.png[Delete icon in the details pane for deleting a queue]
+image::mq-delete-queue-icon.png["Delete icon in the details pane for deleting a queue"]
 +
 . In the *Delete Queue* confirmation box, select the checkbox and click *Delete Queue* to verify that you want to delete the queue:
 +
-image::mq-delete-queue-confirm.png[Accept checkbox for deleting a queue]
+image::mq-delete-queue-confirm.png["Accept checkbox for deleting a queue"]
 +
 The time it takes to delete or purge a queue is approximately one minute. During this time, the status of the affected queue can't be updated.
 
@@ -401,7 +401,7 @@ To assign a message group ID to a message:
 . <<Send a Message to a Queue,Send a message to a queue>>.
 . In the *Message Sender* page, specify the message group to which the message belongs:
 +
-image::mq-fifo-msg-groups.png[Message Group ID field for FIFO queues in the Message Sender page]
+image::mq-fifo-msg-groups.png["Message Group ID field for FIFO queues in the Message Sender page"]
 
 
 
@@ -412,7 +412,7 @@ To see which message group a message belongs to:
 . <<Get a Message from a Queue,Get a message from the queue>>.
 . In the *Message Browser* page, check the details pane for the message: 
 +
-image::mq-fifo-msg-group-id.png[Message Group ID value in the details pane for a message]
+image::mq-fifo-msg-group-id.png["Message Group ID value in the details pane for a message"]
 
 
 === FIFO Exactly-Once Delivery
@@ -468,7 +468,7 @@ If a queue has a dead-letter queue assigned:
 
 This flowchart shows how messages are sent to a DLQ:
 
-image::mq-dlq-flowchart.png[]
+image::mq-dlq-flowchart.png["Flowchart"]
 
 === Assign a DLQ to a Queue
 
@@ -486,7 +486,7 @@ To assign a DLQ to a queue:
 +
 The following additional fields appear:
 +
-image::mq-create-q-dlq.png[DLQ fields in the Create Queue page]
+image::mq-create-q-dlq.png["DLQ fields in the Create Queue page"]
 
 
 * *Dead Letter Queue Name* 
@@ -504,7 +504,7 @@ You can recover messages from the DLQ using the REST API to get the message from
 
 You can see whether a queue is a DLQ by viewing its details:
 
-image::mq-queue-view-dlq.png[DLQ status in the details pane]
+image::mq-queue-view-dlq.png["DLQ status in the details pane"]
 
 You can also view details of each queue from the REST Administration API, using the Get Queue REST endpoint. 
 
