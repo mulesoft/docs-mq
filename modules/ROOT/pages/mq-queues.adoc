@@ -6,7 +6,7 @@ endif::[]
 
 A _queue_ is a temporary storage area for a message. You can create queues, FIFO queues, and dead-letter queues in Anypoint Platform. You can also send and receive messages from a queue in Anypoint Studio.
 
-Using Anypoint MQ, you can create two types of queues: 
+Using Anypoint MQ, you can create two types of queues:
 
 * Standard queue
 +
@@ -65,9 +65,9 @@ image::mq-create-queues.png[Create Queue popup]
 --
 ** *ID* specifies the queue name.
 +
-Queue names can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9), periods (.), and hyphens (-). They cannot contain spaces or other characters. 
+Queue names can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9), periods (.), and hyphens (-). They cannot contain spaces or other characters.
 +
-** *Message TTL* (time-to-live) specifies how long unprocessed messages persist before being deleted. 
+** *Message TTL* (time-to-live) specifies how long unprocessed messages persist before being deleted.
 +
 The maximum TTL for a message is two weeks.
 ** *Default Acknowledgment Timeout* specifies how long a message waits before being put back into the queue in the event of server failure when the message is not acknowledged.
@@ -87,16 +87,16 @@ The DLQ is a previously created queue to which to send undeliverable messages. S
 --
 
 . Click *Create Queue*.
-+ 
++
 The queue is created and appears in the *Destinations* page:
 +
 .The screenshot shows (*1*) the ID, (*2*) the type, and (*3*) the details label for the queue in the *Destinations* page.
 image::mq-queue-details.png[Destinations page with new queue]
 +
-From this page, you can: 
+From this page, you can:
 
 * Click the queue type for the new queue to display its details in the right pane.
-* Click the queue ID or details label to display the *Queue Settings* page. 
+* Click the queue ID or details label to display the *Queue Settings* page.
 
 == Send a Message to a Queue
 
@@ -117,14 +117,14 @@ image::mq-message-sender-page.png[Message Sender option]
 +
 ** *Type* is *Text*, *CSV*, or *JSON*.
 +
-See also 
+See also
 xref:mq-queues.adoc#send-a-csv-message-to-a-queue[Send a CSV Message to a Queue] and
-xref:mq-queues.adoc#send-a-json-message-to-a-queue[Send a JSON Message to a Queue]. 
+xref:mq-queues.adoc#send-a-json-message-to-a-queue[Send a JSON Message to a Queue].
 +
 ** *Payload* contains the message payload text, such as `Hello Mules!`.
-** *Delivery Delay* (standard queue only) indicates the time to delay the message delivery (optional). 
+** *Delivery Delay* (standard queue only) indicates the time to delay the message delivery (optional).
 +
-If you specified *Assign Default Delivery Delay* on the standard queue, you see the default delivery delay. You can override that value for this message or set a delivery delay for a message in a queue without delivery delay. 
+If you specified *Assign Default Delivery Delay* on the standard queue, you see the default delivery delay. You can override that value for this message or set a delivery delay for a message in a queue without delivery delay.
 +
 Delayed delivery is not supported for individual messages in a FIFO queue.
 +
@@ -182,7 +182,7 @@ image::mq-tutorial-get-messages.png[Message Browser option and Get Messages butt
 The specified number is the minimum number of messages to retrieve.
 +
 For a FIFO queue, you can retrieve up to 10 messages.
-. If you are retrieving messages from a FIFO queue, select the checkbox to acknowledge 
+. If you are retrieving messages from a FIFO queue, select the checkbox to acknowledge
 that viewing messages through the browser might cause other consumers of the queue to be blocked from accessing messages in the queue:
 +
 .The arrow shows the accept checkbox for getting messages from a FIFO queue.
@@ -191,7 +191,7 @@ image::mq-fifo-msg-browser.png[Accept checkbox for FIFO queues]
 . Click the message row to view the message payload in the details pane:
 +
 .The screenshot shows (*1*) the message row, (*2*) the message payload in the details pane, (*3*) the *Return Messages* icon, (*4*) the *Delete* icon, (*5*) the *Full Screen* icon, (*6*) the close details pane icon (*X*), and (*7*) the user properties.
-image::mq-tutorial-msg-browser-payload-details.png[Selected message row, payload in the details pane, and Return Messages, Delete, Full Screen, and close details pane (X) icons]
+image::mq-tutorial-msg-browser-payload-details.png["Selected message row, payload in the details pane, and Return Messages, Delete, Full Screen, and close details pane (X) icons."]
 +
 * Click *Full Screen* to display the message payload in a separate window.
 * Click *X* to close the details pane.
@@ -201,7 +201,7 @@ Deleting a message is an acknowledgment operation (ACK). For information about h
 +
 //Shared Delete Message
 include::partial$mq-delete-msg.adoc[tag=deleteMsg]
-* Click *Return Messages* to return all messages to the queue (for example, to enable other applications to read the messages). 
+* Click *Return Messages* to return all messages to the queue (for example, to enable other applications to read the messages).
 +
 Returning messages to the queue is a not-acknowledgment operation (NACK). The messages aren't altered. However, the time-to-live (TTL) value you set when you created the queue determines how long the message is available before Anypoint MQ deletes it.
 +
@@ -350,15 +350,15 @@ FIFO queues:
 +
 If you change the delivery delay setting for a FIFO queue, Anypoint MQ applies the change retroactively to all messages in the queue.
 +
-Anypoint MQ doesn't support delayed delivery for individual messages in a FIFO queue. 
-* Support multiple <<FIFO Queues and Message Groups,message groups>>. 
+Anypoint MQ doesn't support delayed delivery for individual messages in a FIFO queue.
+* Support multiple <<FIFO Queues and Message Groups,message groups>>.
 * Provide encryption.
 +
 Encrypting a FIFO queue does not affect the order or the contents of messages consumed.
 * Can be assigned a dead-letter queue (DLQ).
 However, Anypoint MQ cannot guarantee strict message ordering in this case.
 +
-For information about using a DLQ with a FIFO queue, see <<fifo-and-dlq>>. 
+For information about using a DLQ with a FIFO queue, see <<fifo-and-dlq>>.
 
 Limitations::
 
@@ -373,7 +373,7 @@ include::partial$mq-faq.adoc[tag=failedTPS]
 * Can't be bound to a message exchange.
 * Shouldn't be used with `prefetch` mode.
 
-To create a FIFO queue, see <<Create a Queue>>. To determine if a queue is FIFO or standard (non-FIFO), view its details. 
+To create a FIFO queue, see <<Create a Queue>>. To determine if a queue is FIFO or standard (non-FIFO), view its details.
 
 See the xref:mq-faq#regions[Anypoint MQ FAQ] for the regions in which Anypoint MQ and FIFO queues are available.
 
@@ -401,9 +401,9 @@ If multiple applications send messages associated with the same message group ID
 the messages are stored in the order they arrive.
 To preserve message order for an app, make sure that each app uses a specific message group ID to send messages.
 
-==== Process Messages in Message Groups in Order 
+==== Process Messages in Message Groups in Order
 
-If a message in a message group is not acknowledged, it returns to the queue 
+If a message in a message group is not acknowledged, it returns to the queue
 and Anypoint MQ continues processing the next message in the group.
 This behavior might not be desirable if a message in the group depends on a previous message.
 
@@ -425,7 +425,7 @@ To ensure that the FIFO queue processes the messages in order:
 
 ==== Use Message Groups to Process Messages in Parallel
 
-Anypoint MQ automatically processes messages from different message groups in parallel, 
+Anypoint MQ automatically processes messages from different message groups in parallel,
 maintaining the relative order of messages in the message groups.
 
 To process messages in message groups in parallel,
@@ -450,7 +450,7 @@ image::mq-fifo-msg-groups.png[Message Group ID field for FIFO queues in the Mess
 To see which message group a message belongs to:
 
 . <<Get a Message from a Queue,Get a message from the queue>>.
-. In the *Message Browser*, check the details pane for the message: 
+. In the *Message Browser*, check the details pane for the message:
 +
 .The arrow shows the *Message Group ID* value in the details pane for a message in the queue.
 image::mq-fifo-msg-group-id.png[Message Group ID value in the details pane for a message]
@@ -469,9 +469,9 @@ When building applications in Anypoint Studio that require exactly-once delivery
 
 == Dead Letter Queues
 
-Anypoint MQ enables you to ensure that messages that aren't delivered are sent to a queue known as the dead-letter queue (DLQ). You can then analyze the messages sent to the DLQ to determine why those messages were not delivered. 
+Anypoint MQ enables you to ensure that messages that aren't delivered are sent to a queue known as the dead-letter queue (DLQ). You can then analyze the messages sent to the DLQ to determine why those messages were not delivered.
 
-A DLQ is essentially the same as any other queue except that it receives only undelivered messages. You can specify the time-to-live (TTL) value, encryption, and delivery delay when you create the queue. 
+A DLQ is essentially the same as any other queue except that it receives only undelivered messages. You can specify the time-to-live (TTL) value, encryption, and delivery delay when you create the queue.
 
 You must have at least two queues for one of them to be assigned as a DLQ. Both queues must be:
 
@@ -480,7 +480,7 @@ You must have at least two queues for one of them to be assigned as a DLQ. Both 
 * In the same environment and owned by the same Anypoint Platform account.
 
 [[fifo-and-dlq]]
-=== Dead-Letter Queues and FIFO Queues 
+=== Dead-Letter Queues and FIFO Queues
 
 You can assign a DLQ to a FIFO queue as long as the DLQ is also a FIFO queue.
 
@@ -513,16 +513,16 @@ image::mq-dlq-flowchart.png[]
 
 === Assign a DLQ to a Queue
 
-You can assign any queue as a DLQ for another queue as long as it's the same type and in the same region and environment. 
+You can assign any queue as a DLQ for another queue as long as it's the same type and in the same region and environment.
 
-* Messages sent to a FIFO DLQ must originate from a FIFO queue. 
+* Messages sent to a FIFO DLQ must originate from a FIFO queue.
 * Messages sent to a standard DLQ must originate from a standard queue.
-+ 
++
 See <<fifoqueues,FIFO Queues>>.
 
 To assign a DLQ to a queue:
 
-. <<Create a Queue,Create a queue>>. 
+. <<Create a Queue,Create a queue>>.
 . Toggle *Assign a Dead Letter Queue* to *On*.
 +
 The following additional fields appear:
@@ -531,7 +531,7 @@ The following additional fields appear:
 image::mq-create-q-dlq.png[DLQ fields in the Create Queue page]
 
 
-* *Dead Letter Queue Name* 
+* *Dead Letter Queue Name*
 +
 Choose a previously created queue name from the drop-down list.
 * *Reroute after 10 attempts* (Optional)
@@ -549,7 +549,7 @@ You can see whether a queue is a DLQ by viewing its details:
 .The screenshot shows the DLQ status in the details pane for the queue.
 image::mq-queue-view-dlq.png[DLQ status in the details pane]
 
-You can also view details of each queue from the REST Administration API, using the Get Queue REST endpoint. 
+You can also view details of each queue from the REST Administration API, using the Get Queue REST endpoint.
 
 [source,json,linenums]
 ----
@@ -566,7 +566,7 @@ You can also view details of each queue from the REST Administration API, using 
 }
 ----
 
-If DLQ is set, the returned entities contain the `deadLetterSources` field. 
+If DLQ is set, the returned entities contain the `deadLetterSources` field.
 
 For more information, see xref:mq-apis.adoc#mqadminapi[Anypoint MQ Admin API].
 
