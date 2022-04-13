@@ -412,7 +412,7 @@ To see which message group a message belongs to:
 . <<Get a Message from a Queue,Get a message from the queue>>.
 . In the *Message Browser* page, check the details pane for the message: 
 +
-image::mq-fifo-msg-group-id.png["Message Group ID value in the details pane for a message"]
+image::mq-fifo-msg-group-id.png["Message Group ID value in the message details pane"]
 
 
 === FIFO Exactly-Once Delivery
