@@ -306,7 +306,7 @@ image::mq-tutorial-get-messages.png["Message Browser navigation menu"]
 Anypoint MQ retrieves the messages from the queue and displays them in the Message Browser.
 . Click the message row to view the message payload in the details pane:
 +
-image::mq-tutorial-msg-browser-payload-details.png["Selected message row, payload in the details pane, and Return Messages, Delete, Full Screen, and close details pane icons"]
+image::mq-tutorial-msg-browser-payload-details.png["Selected message row, payload in the details pane, and Return Messages, Delete, Full Screen, and close details pane (X) icons"]
 +
 include::partial$mq-msg-browser-details.adoc[tag=mqMsgBrowserDetails]
 +
@@ -343,9 +343,9 @@ First, use Studio 7 to configure an app that connects to Anypoint MQ:
 +
 image::mq-tutorial-studio7-exchange.png["Exchange icon in the Studio 7 toolbar"]
 . Enter your Anypoint Platform username and password.
-. In Exchange, click the *Provided by MuleSoft* navigation menu, select *Connectors* from the dropdown, and then search for Anypoint MQ Connector:
+. In Exchange, click the *Provided by MuleSoft* navigation menu, select *Connectors* from the drop-down menu, and then search for Anypoint MQ Connector:
 +
-image::mq-tutorial-exchange.png["Provided by MuleSoft menu, Connectors dropdown, and search field in Exchange"]
+image::mq-tutorial-exchange.png["Provided by MuleSoft menu, Connectors drop-down menu, and search field in Exchange"]
 . Select *Anypoint MQ Connector - Mule 4*.
 +
 Studio 7 supports Mule 4.
@@ -524,9 +524,9 @@ To configure a Mule 3 app in Studio 6:
 +
 image::mq-tutorial-studio6-exchange.png["Exchange icon in the Studio 6 toolbar"]
 .. Enter your Anypoint Platform username and password.
-. In Exchange, click the *Provided by MuleSoft* navigation menu, select *Connectors* from the dropdown, and then search for Anypoint MQ Connector:
+. In Exchange, click the *Provided by MuleSoft* navigation menu, select *Connectors* from the drop-down menu, and then search for Anypoint MQ Connector:
 +
-image::mq-tutorial-exchange.png["Provided by MuleSoft menu, Connectors dropdown, and search field in Exchange"]
+image::mq-tutorial-exchange.png["Provided by MuleSoft menu, Connectors drop-down menu, and search field in Exchange"]
 .. Select *Anypoint MQ Connector - Mule 3*.
 +
 Studio 6 supports Mule 3.
