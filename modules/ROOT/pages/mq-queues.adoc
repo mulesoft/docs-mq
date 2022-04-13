@@ -289,7 +289,7 @@ To delete a queue:
 . Click the queue type to display its details.
 . Click the *Delete* icon in the details pane:
 +
-image::mq-delete-queue-icon.png["Delete icon in the details pane for deleting a queue"]
+image::mq-delete-queue-icon.png["Delete icon in the details pane"]
 +
 . In the *Delete Queue* confirmation box, select the checkbox and click *Delete Queue* to verify that you want to delete the queue:
 +
