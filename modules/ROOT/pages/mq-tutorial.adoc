@@ -362,7 +362,7 @@ image::mq-tutorial-studio7-palette.png["HTTP Connector and Listener operations i
 | (*1*) | HTTP Connector| Click to display the Listener operation.
 | (*2*) | Listener operation| Drag to the Mule Palette.
 |===
-. Click *Anypoint MQ*, and then drag *Publish* to the *Process* area to the right of the Listener on the canvas:
+. Click *Anypoint MQ* and then drag *Publish* to the *Process* area to the right of the Listener on the canvas:
 +
 image::mq-tutorial-studio7-flow.png["Publish operation in the Studio 7 canvas"]
 . In the canvas, click *Listener*.
