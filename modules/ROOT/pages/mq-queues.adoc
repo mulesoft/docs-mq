@@ -492,7 +492,7 @@ image::mq-create-q-dlq.png["DLQ fields in the Create Queue page"]
 * *Dead Letter Queue Name* 
 +
 Choose a previously created queue name from the drop-down list.
-* *Delivery attempts before reroute* (Optional)
+* *Delivery attempts before reroute* 
 +
 Specify how many times Anypoint MQ attempts to deliver messages in the queue before rerouting the message to the dead-letter queue. If not specified, the default value is 10 tries. This value ranges from 1 to 1000 attempts.
 
