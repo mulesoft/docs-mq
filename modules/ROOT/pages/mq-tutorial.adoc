@@ -524,7 +524,7 @@ To configure a Mule 3 app in Studio 6:
 +
 image::mq-tutorial-studio6-exchange.png["Exchange icon in the Studio 6 toolbar"]
 .. Enter your Anypoint Platform username and password.
-. In Exchange, click the *Provided by MuleSoft* navigation menu, *Connectors* from the dropdown, and then search for Anypoint MQ Connector:
+. In Exchange, click the *Provided by MuleSoft* navigation menu, select *Connectors* from the dropdown, and then search for Anypoint MQ Connector:
 +
 image::mq-tutorial-exchange.png["Provided by MuleSoft menu, Connectors dropdown, and search field in Exchange"]
 .. Select *Anypoint MQ Connector - Mule 3*.
