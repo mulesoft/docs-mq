@@ -8,7 +8,7 @@
 
 Returning messages to the queue is a not-acknowledgment operation (NACK). The messages aren't altered. However, the TTL value you set when you created the queue determines how long the message is available before Anypoint MQ deletes it.
 
-If you switch from the *Message Browser* page, messages automatically return to the queue.
+If you leave the *Message Browser* page, messages automatically return to the queue.
 | (*4*) |*Delete* icon | Delete the selected message.
 
 Deleting a message is an acknowledgment operation (ACK). For information about how Anypoint MQ processes ACK messages, see xref:mq-ack-mode.adoc[Acknowledge Messages].
