@@ -235,7 +235,7 @@ to acknowledge that a message was received and can be deleted.
 image::mq-tutorial-url.png["Copy button in the Destinations page"]
 .. Click *Client Apps* and click `DemoClientApp` to display the details pane.
 +
-image::mq-tutorial-client-apps-detail.png["Client app name, Copy, and Show buttons"]
+image::mq-tutorial-client-apps-detail.png["Client app name and Copy and Show buttons"]
 +
 include::partial$mq-msg-browser-details.adoc[tag=mqClientAppsDetail]
 
