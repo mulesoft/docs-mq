@@ -212,7 +212,7 @@ For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue on
 . Click *Message Browser*, and then click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-image::mq-msg-browser-payload-details-csv.png["CSV payload, Full Screen icon, and close details pane (X) icon"]
+image::mq-msg-browser-payload-details-csv.png["CSV payload, Full Screen icon, and close details pane icon (X)"]
 +
 include::partial$mq-msg-browser-details.adoc[tag=mqPayloadDetails]
 +

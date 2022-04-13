@@ -47,8 +47,8 @@ image::mq-tutorial-destinations-option.png["Destinations option and the blue plu
 +
 [cols="5a,15a,50a"]
 |===
-| (*1*) | *Destinations* navigation menu | Display available queues.
-| (*2*) | Blue plus (*+*) icon | Create a new queue or exchange.
+| (*1*) | *Destinations* navigation menu | Displays available queues.
+| (*2*) | Blue plus (*+*) icon | Creates a new queue or exchange.
 |===
 . Click the blue plus icon (+) to display the menu:
 +
@@ -128,7 +128,7 @@ image::mq-tutorial-get-messages.png["Message Browser navigation menu"]
 Anypoint MQ retrieves the messages from the queue and displays them in the Message Browser.
 . Click the message row to view the message payload in the details pane:
 +
-image::mq-tutorial-msg-browser-payload-details.png["Selected message row, payload in the details pane, and Return Messages, Delete, Full Screen, and close details pane icons"]
+image::mq-tutorial-msg-browser-payload-details.png["Selected message row, payload in the details pane, and icons representing Return Messages, Delete, Full Screen, and close details pane (X)"]
 +
 include::partial$mq-msg-browser-details.adoc[tag=mqMsgBrowserDetails]
 +
@@ -157,8 +157,8 @@ image::mq-tutorial-create-client-apps.png["Client Apps option and blue plus icon
 +
 [cols="5a,30a,50a"]
 |===
-| (*1*) | *Client Apps* navigation menu | Display and create client apps.
-| (*2*) | Blue plus (+) icon| Click to add a client app.
+| (*1*) | *Client Apps* navigation menu | Displays and creates client apps.
+| (*2*) | Blue plus (+) icon| Adds a client app.
 |===
 . Click the blue plus (+) icon.
 . In the *Create Client App* window, enter `DemoClientApp` and click *Save Changes*.
@@ -204,8 +204,8 @@ image::mq-tutorial-dc-http-path.png["Path value and Close button"]
 +
 [cols="5a,15a,50a"]
 |===
-| (*1*) | *Path* field | Enter `/mq/{messageId}`.
-| (*2*) | *Close* (*X*) icon| Close the *HTTP Listener* window.
+| (*1*) | *Path* field | Specifies the path to the message ID.
+| (*2*) | *Close* (*X*) icon| Closes the *HTTP Listener* window.
 |===
 
 . Click the plus (+) icon to the right of the HTTP Listener trigger:
@@ -359,8 +359,8 @@ image::mq-tutorial-studio7-palette.png["HTTP Connector and Listener operations i
 +
 [cols="5a,15a,50a"]
 |===
-| (*1*) | HTTP Connector| Click to display the Listener operation.
-| (*2*) | Listener operation| Drag to the Mule Palette.
+| (*1*) | HTTP Connector| Displays the Listener operation.
+| (*2*) | Listener operation| Identifies the operation to drag to the Mule Palette.
 |===
 . Click *Anypoint MQ* and then drag *Publish* to the *Process* area to the right of the Listener on the canvas:
 +
@@ -449,7 +449,7 @@ image::mq-tutorial-get-messages.png["Message Browser navigation menu"]
 Anypoint MQ retrieves the messages from the queue and displays them in the Message Browser.
 . Click the message row to view the message payload in the details pane:
 +
-image::mq-tutorial-msg-browser-payload-details.png["Selected message row, payload in the details pane, and Return Messages, Delete, Full Screen, and close details pane icons"]
+image::mq-tutorial-msg-browser-payload-details.png["Selected message row, payload in the details pane, and icons representing Return Messages, Delete, Full Screen, and close details pane (X)"]
 +
 include::partial$mq-msg-browser-details.adoc[tag=mqMsgBrowserDetails]
 +
