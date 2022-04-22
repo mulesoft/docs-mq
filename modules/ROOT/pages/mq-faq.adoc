@@ -25,7 +25,8 @@ Anypoint MQ standard and FIFO queues are available in these regions:
 [%header,cols="15,15,30"]
 |===
 | Control Plane | Location | Region 
-.8+| US .3+| North America | Northern Virginia (`us-east-1`)
+.9+| US .4+| North America | Northern Virginia (`us-east-1`)
+                  | Ohio (`us-east-2`)
                   | Oregon (`us-west-2`)
                   | Central Canada (`ca-central-1`)
     .2+| Europe     | Ireland (`eu-west-1`)
