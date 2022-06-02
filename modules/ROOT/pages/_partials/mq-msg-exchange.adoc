@@ -1,4 +1,4 @@
 
 // tag::msgExchangeMax[]
-You can bind a maximum of 480 queues to a message exchange.
+You can bind a maximum of 450 queues to a message exchange.
 // end::msgExchangeMax[]
