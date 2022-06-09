@@ -296,7 +296,7 @@ More than one in-flight message can occur if the processing time between `anypoi
 
 Anypoint MQ provides direct access to the message ID and payload. You can see the message headers using the Chrome browser and its Network Inspector feature.
 
-== Add Anypoint MQ connector support to Mule shared resources?
+== Does Anypoint MQ connector support shared resources?
 
 The only officially supported connectors and transports for shared resources are HTTP/HTTPS, VM, JMS, JMS Caching Connection Factory, Database, WMQ, JBoss Transaction Manager, and Bitronix Transaction Manager.
 
