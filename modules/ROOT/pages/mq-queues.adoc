@@ -494,7 +494,18 @@ image::mq-create-q-dlq.png["DLQ fields in the Create Queue page"]
 Choose a previously created queue name from the drop-down list.
 * *Delivery attempts before reroute* 
 +
-Optionally specify how many times Anypoint MQ attempts to deliver messages in the queue before rerouting the message to the dead-letter queue. If not specified, the default value is 10 tries. This value ranges from 1 to 1000 attempts.
+Optionally specify how many times Anypoint MQ attempts to deliver messages in the queue before rerouting the message to the configured DLQ.
+If not specified, the default value is 10 tries.
+This value ranges from 1 to 1000 attempts.
++
+[NOTE]
+--
+This property is not related to *Max Redelivery Count* in the *Redelivery* tab in Anypoint MQ Connector.
+`maxRedeliveryCount` specifies the maximum number of unsuccessful attempts to redeliver a message to the flow before raising a `MULE:REDELIVERY_EXHAUSTED` exception and preventing the flow from processing the received data.
+You can configure your app to handle the exception by moving the message to a DLQ.
+
+For information about `maxRedeliveryCount`, see xref:mule-runtime::redelivery-policy.adoc[].
+--
 
 === Recover Messages from a DLQ
 
