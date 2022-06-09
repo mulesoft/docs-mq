@@ -4,11 +4,15 @@ include::_attributes.adoc[]
 endif::[]
 :imagesdir: ../assets/images/
 
-Using a _message exchange_, you can send a message to one or more standard xref:mq-queues.adoc[queues] that are bound to the message exchange. The maximum size of a message sent to a message exchange is 10 MB.
+Using a _message exchange_, you can send a message to one or more standard xref:mq-queues.adoc[queues] that are bound to the message exchange.
+The maximum size of a message sent to a message exchange is 10 MB.
+// Max Msg Exchange 
+include::partial$mq-msg-exchange.adoc[tag=msgExchangeMax]
 
 FIFO does not support the use of a message exchange. Similarly, FIFO queues cannot be bound to a message exchange.
 
-Before creating a message exchange, create one or more queues. For information, see xref:mq-queues.adoc#create-a-queue[Create Queues].
+Before creating a message exchange, create one or more queues.
+For information, see xref:mq-queues.adoc#create-a-queue[Create Queues].
 
 To create a message exchange:
 
@@ -39,6 +43,10 @@ image::mq-exchange-details-pane.png[Click the exchange type to display its detai
 
 
 == Bind a Queue to a Message Exchange
+
+[NOTE]
+// Max Msg Exchange 
+include::partial$mq-msg-exchange.adoc[tag=msgExchangeMax]
 
 To bind a queue to a message exchange:
 

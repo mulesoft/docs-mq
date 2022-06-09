@@ -152,7 +152,11 @@ With message exchanges you can distribute a single message to multiple consumers
 
 image::mq-pub-ex-sub.png[]
 
-For example, if a publisher publishes changes in the weather, and you have multiple apps that want to receive that data, you can use a message exchange to publish a single message to multiple queues for each app. A _binding_ is a relationship between the queue and message exchange, which tells the message exchange where to send messages. A queue can be bound to multiple message exchanges.
+For example, if a publisher publishes changes in the weather, and you have multiple apps that want to receive that data, you can use a message exchange to publish a single message to multiple queues for each app.
+
+A _binding_ is a relationship between the queue and message exchange, which tells the message exchange where to send messages. A queue can be bound to multiple message exchanges.
+// Max Msg Exchange 
+include::partial$mq-msg-exchange.adoc[tag=msgExchangeMax]
 
 == Example
 
@@ -174,6 +178,9 @@ An app does not receive a message and Anypoint MQ does not delete the message.
 * *Binding*
 +
 Enables pub/sub apps to bridge the simple pub/sub structure and use point-to-point features, such as sending a message to specific applications. Bindings identify which queues comprise a message exchange. In Anypoint Platform, by specifying which message queues are bound to a message exchange, Anypoint MQ creates and manages the bindings for you.
++
+// Max Msg Exchange 
+include::partial$mq-msg-exchange.adoc[tag=msgExchangeMax]
 * *Dead letter queue (DLQ)*
 +
 A queue that stores undeliverable messages from other queues.
