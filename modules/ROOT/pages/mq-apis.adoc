@@ -355,7 +355,7 @@ This information is not real-time and has a latency.
 `/environments/ENVIRONMENT_ID?startDate=...&endDate=...&period=...`
 
 [NOTE]
-Anypoint MQ limits retrieving stats by environment to 10 transactions per minute,  per organization.
+Anypoint MQ limits retrieving stats by environment to 10 transactions per minute, per organization.
 
 *Sample Request and Response:*
 
