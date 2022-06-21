@@ -355,7 +355,7 @@ This information is not real-time and has a latency.
 `/environments/ENVIRONMENT_ID?startDate=...&endDate=...&period=...`
 
 [NOTE]
-Anypoint MQ limits retrieving stats by environment to 10 requests per organization, per minute.
+Anypoint MQ limits retrieving stats by environment to 10 transactions per minute,  per organization.
 
 *Sample Request and Response:*
 
@@ -394,7 +394,7 @@ The Stats API can be used to retrieve Anypoint MQ usage for the root business or
 `/organizations/ORGANIZATION_ID?startDate=...&endDate=...&period=...`
 
 [NOTE]
-Anypoint MQ limits retrieving stats by organization to 10 requests per organization, per minute.
+Anypoint MQ limits retrieving stats by organization to 10 transactions per minute, per organization.
 
 *Sample Request and Response:*
 
