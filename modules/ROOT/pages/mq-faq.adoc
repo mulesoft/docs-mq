@@ -46,7 +46,9 @@ After you obtain an Enterprise subscription and contacted your MuleSoft represen
 
 == How does Anypoint MQ encrypt messages?
 
-Anypoint MQ messages are always transported using in-flight HTTPS encryption with the latest Transport Layer Security (TLS) protocols. Anypoint MQ uses Transport Layer Security (TLS) 1.2 for secure transport and doesn't support the deprecated TLS versions 1.0 and 1.1.
+Anypoint MQ uses in-flight HTTPS encryption with Transport Layer Security (TLS) 1.2 protocols to transport messages and doesn't support the deprecated TLS versions 1.0 and 1.1.
+
+
 //Shared Encryption
 include::partial$mq-faq.adoc[tag=faqEncryption]
 
