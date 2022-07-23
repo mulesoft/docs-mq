@@ -338,7 +338,7 @@ To create a FIFO queue, see <<Create a Queue>>. To determine if a queue is FIFO 
 
 See the xref:mq-faq#regions[Anypoint MQ FAQ] for the regions in which Anypoint MQ and FIFO queues are available.
 
-For information about creating FIFO queues with the Admin API, see xref:mq-apis.adoc#create-a-fifo-queue-in-the-admin-api-portal[Create a FIFO Queue in the Admin API Portal].
+For information about creating FIFO queues with the Admin API, see xref:mq-apis.adoc#fifo-queue-api[Create a FIFO Queue Using the Admin API].
 
 === FIFO Queues and Message Groups
 

@@ -1,0 +1,19 @@
+= Route Messages to Queues Bound to an Exchange
+
+To route messages published to an exchange to specific queues,
+define routing rules on the binding between the exchange and the queue.
+You can use the Admin API to create these routing rules.
+
+For information, see
+xref:mq-apis.adoc#routing-rules-api[Create Routing Rules Using the Admin API].
+
+
+To publish messages to an exchange and route them to specific queues, 
+specify the filtering criteria by defining properties in the message.
+
+For information, see 
+xref:mq-apis.adoc#publish-message-routing[Publish a Message with Routing Properties].
+
+
+== Restrictions
+

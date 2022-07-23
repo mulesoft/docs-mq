@@ -55,19 +55,26 @@ https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4
 If you call the Anypoint MQ Admin API for distinct environments within one minute,
 the API throttles your requests to 50 transactions per minute (TPM).
 
-You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ. See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[MQ Audit Logging].
+=== Use the Anypoint MQ Admin API
 
-You can get the access token from the Anypoint Platform user. The access token is also known as the Bearer.
-The access token has a default time to live (TTL) of 60 minutes. 
 
-You can use this curl command to get the access token:
+NOTE: To access the Anypoint MQ Admin API, you must first authenticate using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Anypoint Access Management API].
+
+To use the Admin API, you can get the access token from the Anypoint Platform user.
+The access token is also known as the Bearer.
+The default time to live (TTL) for the access token is 60 minutes.
+
+You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ.
+See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[MQ Audit Logging].
+
+You can use this `curl` command to get the access token:
 
 [source,bash]
 ----
 curl -X POST -H "Content-Type: application/json" -d '{"username":"USERNAME", "password":"PASSWORD"}' https://anypoint.mulesoft.com/accounts/login
 ----
 
-The command returns output similar to:
+This returns output similar to:
 
 [source,json,linenums]
 ----
@@ -78,11 +85,14 @@ The command returns output similar to:
 }
 ----
 
-=== Create a FIFO Queue in the Admin API Portal
 
-You can create a FIFO queue from the Admin API portal by including the `"fifo": true` field.
+[[fifo-queue-api]]
+==== Create a FIFO Queue
 
-*Note:* The organization from which you use the Administration portal must have an Anypoint MQ FIFO entitlement. See xref:mq-faq.adoc[Anypoint MQ FAQ] for the regions where Anypoint MQ is available.
+You can create a FIFO queue using the Anypoint MQ Admin API by including the `"fifo": true` field.
+
+[NOTE]
+The organization from which you use the Administration portal must have an Anypoint MQ FIFO entitlement. See xref:mq-faq.adoc[Anypoint MQ FAQ] for the regions where Anypoint MQ is available.
 
 For the following path using the `PUT` operation:
 
@@ -100,6 +110,35 @@ Use this body:
   "fifo" : true
 }
 ----
+
+[[routing-rules-api]]
+==== Create Routing Rules
+
+To route messages published to an exchange to specific queues,
+define routing rules on the binding between the exchange and the queue.
+You can use the Admin API to create these routing rules.
+
+For the following path using the `PUT` operation:
+
+[source]
+/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/bindings/exchanges/EXCHANGE_ID/queues/QUEUE_ID/routingRules
+
+Use this body:
+
+[source,json,linenums]
+----
+{
+  "routingRules" : [
+    {
+      "propertyName" : "property1",
+      "propertyType" : "STRING",
+      "matcherType" : "EQ/PREFIX",
+      "value" : "abc"
+    }
+  ]
+}
+----
+
 
 [[mqbrokerapi]]
 == Anypoint MQ Broker API
@@ -144,9 +183,10 @@ These examples use the Anypoint MQ Broker API to publish and consume messages an
 
 You must substitute the placeholder string, `42544254-4254-4254-4254-425442544254` with the proper values for authorization and token strings. These examples use Postman to access the queue.
 
-See the xref:mq-faq.adoc#regions[MQ FAQ] for the regions where Anypoint MQ and FIFO are available.
+See the xref:mq-faq.adoc#regions[Anypoint MQ FAQ] for the regions where Anypoint MQ and FIFO are available.
 
-==== Example: Publish a Message
+[[publish-messages-api]]
+==== Publish a Message
 
 The following `curl` command publishes a message:
 
@@ -167,7 +207,34 @@ curl -X PUT -H "Content-Type: application/json" \
 ' "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/42544254-4254-4254-4254-425442544254/environments/42544254-4254-4254-4254-425442544254/destinations/postmanExchange/messages/552"
 ----
 
-==== Example: Retrieve a Message
+[[publish-message-routing]]
+==== Publish a Message with Routing Properties
+
+The following `curl` command publishes a message:
+
+[source,console,linenums]
+----
+curl -X PUT -H "Content-Type: application/json" \
+-H "Authorization: bearer 42544254-4254-4254-4254-425442544254" \
+-H "Cache-Control: no-cache" \
+-H "Postman-Token: 42544254-4254-4254-42544254-425442544254" \
+-d '{ \
+  "properties": {
+    "shoeType": "sandals",
+    "shoeColor": "purple"
+  },
+
+  "body": "This is a message payload"
+}
+' "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/42544254-4254-4254-4254-425442544254/environments/42544254-4254-4254-4254-425442544254/destinations/postmanExchange/messages/552"
+----
+
+
+
+
+
+[[retrieve-message-api]]
+==== Retrieve a Message
 
 The following `curl` command gets a message:
 
@@ -254,7 +321,7 @@ This returns output similar to:
 }
 ----
 
-=== Current Statistics for Queues
+=== Get Current Statistics for Queues
 
 You can get a snapshot of the number of messages in the queue and how many are in-flight. 
 See xref::mq-understanding.adoc#glossary[Anypoint MQ Terminology] for a definition of in-flight messages.
@@ -285,8 +352,8 @@ https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORGANIZATION_ID/envi
 ]
 ----
 
-
-=== Historical Statistics for a Queue
+[[historical-stats-queue]]
+=== Get Historical Statistics for a Queue
 
 This API can be used to fetch historical statistics for a queue, however, it does not get updated in real-time, and there is an approximate latency of 5 to 10 minutes before data is published. The retention period of historical data is 15 months. Also, to keep the volume of data under control, historical data is stored at reduced levels of granularity. Data points with a period of fewer than 60 seconds are available for 3 hours, one-minute data points are available for 15 days, five-minute data points for 63 days, and one-hour data points for 15 months.
 
@@ -318,9 +385,10 @@ https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORGANIZATION_ID/envi
 
 The duration is an integer and is the granularity of data points in seconds.
 
-=== Historical Statistics for Exchanges
+[[historical-stats-exchange]]
+=== Get Historical Statistics for Exchanges
 
-Retention policies are the same as in the previous <<Historical Statistics for a Queue>> section.
+Retention policies are the same as in the previous <<historical-stats-queue>> section.
 
 `/exchanges/{exchangeId}?startDate=...&endDate=...&period=...`
 
@@ -347,7 +415,8 @@ startDate=Wed%2C%2014%20Nov%202018%2021%3A53%3A08%20GMT
 
 Note that period is an integer here. It's the granularity of data points in seconds.
 
-=== Usage Metrics by Environment 
+[[usage-by-env]]
+=== Get Usage Metrics by Environment 
 
 You can use the Stats API to retrieve Anypoint MQ usage information by environment for a particular organization.
 This information is not real-time and has a latency.
@@ -383,8 +452,8 @@ For more information about Anypoint MQ billing, see xref:mq-usage.adoc[].
 [NOTE]
 include::partial$mq-faq.adoc[tag=returnVals]
 
-
-=== Usage Metrics by Organization
+[[usage-by-org]]
+=== Get Usage Metrics by Organization
 
 The Stats API can be used to retrieve Anypoint MQ usage for the root business organization:
 
@@ -544,7 +613,7 @@ Example response:
 }
 ----
 
-== Example: Create Queues and Exchanges with Groovy
+== Create Queues and Exchanges with Groovy
 
 To create queues and exchanges programatically, you can use a language such as groovy.
 
@@ -781,7 +850,7 @@ class AnypointMQAdminClient {
 
 
 [[expostbro]]
-== Example: Postman, Studio, and Browser
+== Test Anypoint MQ from Postman, Studio, and a Browser
 
 This example enables you to test Anypoint MQ from Postman, Anypoint Studio, and a browser:
 
@@ -838,15 +907,15 @@ You can set up a Studio project with:
   ** Port `8081`
   ** Path in the properties menu set to `/mq/{messageId}`.
 * Anypoint MQ connector with the client ID and client secret from *Anypoint Platform* > *MQ*, and the *Destination* set to the queue you created in Postman.
-* Logger with *Message* set to the `#[payload]` value.
+* Logger with *Message* set to the `\#[payload]` value.
 
-. Right-click the project name in the *Package Explorer* window and click *Run As* > *Mule Application*.
+. Right-click the project name in the *Package Explorer* window and click *Run As > Mule Application*.
 +
 Ensure that the Console messages end with the `DEPLOYED` value.
-.In Postman, publish a new message.
+. In Postman, publish a new message.
 
 [[browsersetup]]
-==== Browser Access
+==== Use a Browser to Access
 
 After you set up an HTTP Listener in Studio, browse to the address `0.0.0.0:8081`. The browser displays the message sent by Postman, which the Anypoint MQ connector received, and the HTTP connector sent to the browser.
 

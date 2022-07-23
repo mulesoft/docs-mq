@@ -7,6 +7,7 @@
 * xref:mq-access-management.adoc[Configure Environment, User, and Role Access]
 * xref:mq-queues.adoc[Configure Queues]
 * xref:mq-exchanges.adoc[Configure Message Exchanges]
+** xref:mq-routing-rules.adoc[]
 * xref:mq-client-apps.adoc[Configure Client Apps]
 * xref:mq-ack-mode.adoc[Acknowledge Messages]
 * xref:mq-apis.adoc[Anypoint MQ REST APIs]
