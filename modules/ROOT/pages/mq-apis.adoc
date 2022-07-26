@@ -92,7 +92,8 @@ This returns output similar to:
 You can create a FIFO queue using the Anypoint MQ Admin API by including the `"fifo": true` field.
 
 [NOTE]
-The organization from which you use the Administration portal must have an Anypoint MQ FIFO entitlement. See xref:mq-faq.adoc[Anypoint MQ FAQ] for the regions where Anypoint MQ is available.
+The organization from which you use the Administration portal must have an Anypoint MQ FIFO entitlement.
+See xref:mq-faq.adoc[Anypoint MQ FAQ] for the regions where Anypoint MQ is available.
 
 For the following path using the `PUT` operation:
 
@@ -118,11 +119,18 @@ To route messages published to an exchange to specific queues,
 define routing rules on the binding between the exchange and the queue.
 You can use the Admin API to create these routing rules.
 
-For the following path using the `PUT` operation:
+For the following `curl` command creates a routing rule:
 
-[source]
-/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/bindings/exchanges/EXCHANGE_ID/queues/QUEUE_ID/routingRules
+[source,console,linenums]
+----
+curl "https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/bindings/exchanges/EXCHANGE_ID/queues/QUEUE_ID/routingRules" \
+  -X PUT \
+  -d "{\n  \"routingRules\": [\n    {\n      \"propertyName\": \"itemCategory\",\n      \"propertyType\": \"STRING\",\n      \"matcherType\": \"EQ/PREFIX\",\n      \"value\": premium\n    }\n  ]\n}"
 
+----
+
+
+////
 Use this body:
 
 [source,json,linenums]
@@ -130,14 +138,16 @@ Use this body:
 {
   "routingRules" : [
     {
-      "propertyName" : "property1",
+      "propertyName" : "itemCategory",
       "propertyType" : "STRING",
       "matcherType" : "EQ/PREFIX",
-      "value" : "abc"
+      "value" : "premium"
     }
   ]
 }
 ----
+
+////
 
 
 [[mqbrokerapi]]

@@ -89,7 +89,7 @@ image::mq-queue-details.png["Destinations page with the type, ID, and details la
 +
 include::partial$mq-msg-browser-details.adoc[tag=mqQueueDetails]
 
-
+[[send-message-to-queue]]
 == Send a Message to a Queue
 
 Message content can be text, CSV (comma-separated values), or JSON.

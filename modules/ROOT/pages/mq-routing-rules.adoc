@@ -1,19 +1,74 @@
-= Route Messages to Queues Bound to an Exchange
+= Routing Messages to Queues Bound to an Exchange
 
-To route messages published to an exchange to specific queues,
-define routing rules on the binding between the exchange and the queue.
-You can use the Admin API to create these routing rules.
+You can publish messages to an exchange and define rules
+to route messages to specific queues only if the message includes
+a property that matches the rule.
+
+For example, you might want to designate a queue to handle all orders for size medium items and another queue for premium items.
+
+To route messages published to an exchange to specific queues:
+
+. Define routing rules on the binding between the exchange and the queue.
++
+image::mq-route-message.png["Routing rules on exchange bindings"]
+. Specify filtering criteria by defining properties in the message.
++
+If the following message is published to the `purchases` exchange,
+the exchange forwards it only to `premiumPurchases` queue and 
+not to the `sizeMedium` queue based on the routing rule configuration.
++
+[source,json,linenums]
+----
+{
+    "headers" : {
+        "ttl" : 5,
+        "itemCategory" : "premium",
+        "itemSize" : "large"
+    },
+    "body" : "User added an item to the cart"
+}
+----
+
+== Create Routing Rules 
+
+To create routing rules, use the Anypoint MQ Admin API.
 
 For information, see
 xref:mq-apis.adoc#routing-rules-api[Create Routing Rules Using the Admin API].
 
+== Route Messages to a Queue that is Bound to an Exchange
 
 To publish messages to an exchange and route them to specific queues, 
-specify the filtering criteria by defining properties in the message.
+use either:
 
+Anypoint MQ *Message Sender* page::
+When sending the message:
++
+--
+.. Toggle *Add User Properties*.
+.. Specify the filter criteria as property name-value pairs to send.
+--
++
+For information, see 
+xref:mq-queues.adoc#send-message-to-queue[Send a Message to a Queue].
+Anypoint MQ Broker API::
++
 For information, see 
 xref:mq-apis.adoc#publish-message-routing[Publish a Message with Routing Properties].
 
 
 == Restrictions
 
+* Anypoint MQ supports routing rules only for exchanges that have 10 or fewer queue bindings.
++
+If an exchange has more than 10 queues, you cannot use message filtering.
+* Anypoint MQ supports message filtering for messages that meet the follow size criteria:
++
+--
+** Maximum size of headers and property names is 180 bytes.
+** Total number of headers and properties is fewer than 500.
+** Total size of headers and properties is less than 215 KB.
+--
++
+If a message doesn't meet these criteria, Anypoint MQ logs that the message is not eligible for filtering and delivers the message to a queue without filtering. 
+If no queue is available, the message is lost.

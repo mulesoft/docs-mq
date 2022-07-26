@@ -9,10 +9,17 @@ The maximum size of a message sent to a message exchange is 10 MB.
 // Max Msg Exchange 
 include::partial$mq-msg-exchange.adoc[tag=msgExchangeMax]
 
+You can also route messages to specific queues that are bound to the message exchange.
+For information, see
+xref:mq-routing-rules.adoc[].
+
+[NOTE]
 FIFO does not support the use of a message exchange. Similarly, FIFO queues cannot be bound to a message exchange.
 
 Before creating a message exchange, create one or more queues.
 For information, see xref:mq-queues.adoc#create-a-queue[Create Queues].
+
+== Create a Message Exchange
 
 To create a message exchange:
 
