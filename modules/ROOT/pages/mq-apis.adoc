@@ -224,8 +224,8 @@ curl -X PUT -H "Content-Type: application/json" \
 
 The following `curl` command publishes a message with the value of the `itemCategory`
 property as `premium`.
-The rule on the `purchases` exchange binding routes the message to the `premiumPurchases` queue set up in
-<<routing-rules-api>>.
+The rule on the `purchases` exchange binding 
+(set up in <<routing-rules-api>>) routes the message to the `premiumPurchases` queue.
 
 [source,console,linenums]
 ----
