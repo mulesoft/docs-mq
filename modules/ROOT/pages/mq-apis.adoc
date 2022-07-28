@@ -74,7 +74,7 @@ You can use this `curl` command to get the access token:
 curl -X POST -H "Content-Type: application/json" -d '{"username":"USERNAME", "password":"PASSWORD"}' https://anypoint.mulesoft.com/accounts/login
 ----
 
-This returns output similar to:
+This command returns output similar to:
 
 [source,json,linenums]
 ----
