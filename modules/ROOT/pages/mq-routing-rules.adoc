@@ -1,14 +1,16 @@
 = Routing Messages to Queues Bound to an Exchange
 
-You can publish messages to an exchange and define rules
-to route messages to specific queues only if the message includes
-a property that matches the rule.
+Anypoint MQ includes the ability to create _intelligent message routing rules_ to control where to route messages published to an exchange.
+
+When you publish messages to an exchange, the message routing rules
+route messages to specific queues only if the message includes
+a property or header that matches the rule.
 
 For example, you might want to designate a queue to handle all orders for size medium items and another queue for premium items.
 
 To route messages published to an exchange to specific queues:
 
-. Define routing rules on the binding between the exchange and the queue.
+. Define message routing rules on the binding between the exchange and the queue.
 +
 image::mq-route-message.png["Routing rules on exchange bindings"]
 . Specify filtering criteria by defining properties in the message.
@@ -29,9 +31,9 @@ not to the `sizeMedium` queue based on the routing rule configuration.
 }
 ----
 
-== Create Routing Rules 
+== Create or Change Routing Rules 
 
-To create routing rules, use the Anypoint MQ Admin API.
+To create or change message routing rules, use the Anypoint MQ Admin API.
 
 For information, see
 xref:mq-apis.adoc#routing-rules-api[Create Routing Rules Using the Admin API].
@@ -57,18 +59,21 @@ For information, see
 xref:mq-apis.adoc#publish-message-routing[Publish a Message with Routing Properties].
 
 
-== Restrictions
+== Limitations
 
-* Anypoint MQ supports routing rules only for exchanges that have 10 or fewer queue bindings.
+* Anypoint MQ supports message routing rules only for exchanges that have 10 or fewer queue bindings.
 +
-If an exchange has more than 10 queues, you cannot use message filtering.
+If an exchange has more than 10 queue bindings, you cannot use intelligent message routing.
 * Anypoint MQ supports message filtering for messages that meet the follow size criteria:
 +
 --
 ** Maximum size of headers and property names is 180 bytes.
 ** Total number of headers and properties is fewer than 500.
++
+This total includes operational headers, such as `messageId` and `createdTimestamp`, that Anypoint MQ creates.
 ** Total size of headers and properties is less than 215 KB.
+
 --
 +
-If a message doesn't meet these criteria, Anypoint MQ logs that the message is not eligible for filtering and delivers the message to a queue without filtering. 
-If no queue is available, the message is lost.
+If a message doesn't meet these criteria, Anypoint MQ publishes the message to
+the exchange but ignores the properties when evaluating the message against the routing rules configured on the bindings.

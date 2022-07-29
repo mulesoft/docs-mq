@@ -115,22 +115,33 @@ Use this body:
 [[routing-rules-api]]
 ==== Create Routing Rules
 
-To route messages published to an exchange to specific queues,
-define routing rules on the binding between the exchange and the queue.
-You can use the Admin API to create these routing rules.
+To route a subset of the messages that are published to an exchange to a specific queue,
+define message routing rules on the binding between the exchange and the queue.
+You can use the Admin API to create these message routing rules.
 
-The following `curl` command creates a routing rule:
+The following `curl` command creates a message routing rule:
 
 [source,console,linenums]
 ----
 curl "https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/bindings/exchanges/purchases/queues/premiumPurchases/routingRules" \
   -X PUT \
-  -d "{\n  \"routingRules\": [\n    {\n      \"propertyName\": \"itemCategory\",\n      \"propertyType\": \"STRING\",\n      \"matcherType\": \"EQ/PREFIX\",\n      \"value\": premium\n    }\n  ]\n}"
+  -d "{\n  \"routingRules\": [\n    {\n      \"propertyName\": \"itemCategory\",\n      \"propertyType\": \"STRING\",\n      \"matcherType\": \"EQ\",\n      \"value\": premium\n    }\n  ]\n}"
 
 ----
 
-If the value of the `itemCategory` property on the message matches `premium`,
-the rule on the `purchases` exchange binding routes the message to the `premiumPurchases` queue.
+This message routing rule routes any message published to the `purchases` exchange that includes a property or header with
+the name `itemCategory` and the value `premium` to the `premiumPurchases` queue.
+
+To change an existing routing rule, submit another `PUT` with the new message routing rule configuration.
+
+[NOTE]
+Any changes or additions to a message routing rule can take up to 15 minutes to take effect.
+
+For information on the supported properties and attributes for `routingRules`,
+see this endpoint in the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Anypoint MQ Admin API]:
+
+[source]
+/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/bindings/exchanges/EXCHANGE_ID/queues/QUEUE_ID/routingRules
 
 ////
 Use this body:
@@ -150,7 +161,6 @@ Use this body:
 ----
 
 ////
-
 
 [[mqbrokerapi]]
 == Anypoint MQ Broker API
@@ -236,9 +246,10 @@ curl -X PUT -H "Content-Type: application/json" \
 -d '{ \
   "properties": {
     "itemCategory": "premium",
+  },
+  "headers": {
     "itemSize": "large"
   },
-
   "body": "This is a message payload"
 }
 ' "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/42544254-4254-4254-4254-425442544254/environments/42544254-4254-4254-4254-425442544254/destinations/postmanExchange/messages/552"

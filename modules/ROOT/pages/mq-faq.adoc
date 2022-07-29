@@ -48,9 +48,11 @@ After you obtain an Enterprise subscription and contacted your MuleSoft represen
 
 Anypoint MQ uses in-flight HTTPS encryption with Transport Layer Security (TLS) 1.2 protocol to transport messages and doesn't support the deprecated TLS versions 1.0 and 1.1.
 
-
 //Shared Encryption
 include::partial$mq-faq.adoc[tag=faqEncryption]
+
+[NOTE]
+include::partial$mq-faq.adoc[tag=faqEncryptionQandEx]
 
 If your app requires an additional layer of encryption security, then you can encrypt the payloads yourself before publishing messages to Anypoint MQ. You must manage your encryption keys for both the message publishers and the consumers.
 
