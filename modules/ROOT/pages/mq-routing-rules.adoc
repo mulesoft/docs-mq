@@ -61,18 +61,21 @@ xref:mq-apis.adoc#publish-message-routing[Publish a Message with Routing Propert
 
 == Limitations
 
-* Anypoint MQ supports message routing rules only for exchanges that have 10 or fewer queue bindings.
+Anypoint MQ supports message routing rules with the following limitations:
+
+* Exchanges must have 10 or fewer queue bindings.
 +
 If an exchange has more than 10 queue bindings, you cannot use intelligent message routing.
-* Anypoint MQ supports message filtering for messages that meet the follow size criteria:
-+
---
-** Maximum size of headers and property names is 180 bytes.
-** Total number of headers and properties is fewer than 500.
+* Each message routing rule can include one property-value pair.
+* Maximum size of the property name is 180 bytes.
+* Maximum size of the property value is 45 KB.
+
+Anypoint MQ supports message filtering for messages that meet the following size criteria:
+
+* Maximum size of headers and property names is 180 bytes.
+* Total number of headers and properties is fewer than 500.
 +
 This total includes operational headers, such as `messageId` and `createdTimestamp`, that Anypoint MQ creates.
-** Maximum size of each property value in the routing rule is 45 KB.
---
-+
+
 If a message doesn't meet these criteria, Anypoint MQ publishes the message to
 the exchange but ignores the properties when evaluating the message against the routing rules configured on the bindings.
