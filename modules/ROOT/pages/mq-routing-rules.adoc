@@ -58,7 +58,7 @@ Anypoint MQ Broker API::
 For information, see 
 xref:mq-apis.adoc#publish-message-routing[Publish a Message with Routing Properties].
 
-
+[[intelligent-routing-limitations]]
 == Limitations
 
 Anypoint MQ supports message routing rules with the following limitations:

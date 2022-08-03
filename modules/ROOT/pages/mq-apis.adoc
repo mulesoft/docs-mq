@@ -143,6 +143,9 @@ see this endpoint in the https://anypoint.mulesoft.com/exchange/portals/anypoint
 [source]
 /organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/bindings/exchanges/EXCHANGE_ID/queues/QUEUE_ID/routingRules
 
+For information about the message routing rule limitations, see
+xref:mq-routing-rules.adoc#intelligent-routing-limitations[Limitations].
+
 ////
 Use this body:
 
@@ -256,7 +259,8 @@ curl -X PUT -H "Content-Type: application/json" \
 ----
 
 
-
+For information about the message filtering limitations, see
+xref:mq-routing-rules.adoc#intelligent-routing-limitations[Limitations].
 
 
 [[retrieve-message-api]]
