@@ -70,7 +70,7 @@ If an exchange has more than 10 queue bindings, you cannot use intelligent messa
 * Maximum size of the property name is 180 bytes.
 * Maximum size of the property value is 45 KB.
 
-Anypoint MQ supports message filtering for messages that meet the following size criteria:
+Anypoint MQ supports message filtering for messages that meet the following criteria:
 
 * Maximum size of headers and property names is 180 bytes.
 * Total number of headers and properties is fewer than 500.
