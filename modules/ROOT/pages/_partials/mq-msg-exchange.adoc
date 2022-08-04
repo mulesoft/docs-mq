@@ -6,3 +6,11 @@ You can bind a maximum of 450 queues to a message exchange.
 // tag::msgExchangeMaxRouting[]
 If an exchange has more than 10 queue bindings, you cannot use intelligent message routing.
 // end::msgExchangeMaxRouting[]
+
+// tag::exchBindingNoRules[]
+Any bindings without configured message routing rules continue to receive all messages from the exchange.
+// end::exchBindingNoRules[]
+
+// tag::msgRulesEval[]
+Anypoint MQ evaluates the configured message routing rules against all `headers` and `properties` attributes in the published messages.
+// end::msgRulesEval[]

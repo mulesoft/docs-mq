@@ -1,21 +1,29 @@
-= Routing Messages to Queues Bound to an Exchange
+= Configure Rules on Message Exchanges to Route Messages
 
-Anypoint MQ includes the ability to create _intelligent message routing rules_ to control where to route messages published to an exchange.
+Anypoint MQ includes the ability to create _intelligent message routing rules_ to route a subset of the messages published to an exchange to a specific queue.
 
-When you publish messages to an exchange, the message routing rules
-route messages to specific queues only if the message includes
-a property or header that matches the rule.
+You configure the message routing rule on the binding on an exchange.
+When you publish a message to the exchange, the message routing rule
+routes the message to a queue only if the message includes
+a property or header that matches a rule.
+
+[NOTE]
+include::partial$mq-msg-exchange.adoc[tag=exchBindingNoRules]
+
+image::mq-route-message.png["Routing rules on exchange bindings"]
 
 For example, you might want to designate a queue to handle all orders for size medium items and another queue for premium items.
+
 
 To route messages published to an exchange to specific queues:
 
 . Define message routing rules on the binding between the exchange and the queue.
 +
-image::mq-route-message.png["Routing rules on exchange bindings"]
-. Specify filtering criteria by defining properties in the message.
+You configure one message routing rule per binding on the exchange.
+include::partial$mq-msg-exchange.adoc[tag=msgRulesEval]
+. Specify filtering criteria by defining `properties` and `headers` in the message.
 +
-If the following message is published to the `purchases` exchange,
+If you publish the following message to the `purchases` exchange,
 the exchange forwards it only to `premiumPurchases` queue and 
 not to the `sizeMedium` queue based on the routing rule configuration.
 +
@@ -23,22 +31,20 @@ not to the `sizeMedium` queue based on the routing rule configuration.
 ----
 {
     "headers" : {
-        "ttl" : 5,
-        "itemCategory" : "premium",
         "itemSize" : "large"
     },
     "body" : "User added an item to the cart"
 }
 ----
 
-== Create or Change Routing Rules 
+== Create or Change a Message Routing Rule 
 
 To create or change message routing rules, use the Anypoint MQ Admin API.
 
 For information, see
-xref:mq-apis.adoc#routing-rules-api[Create Routing Rules Using the Admin API].
+xref:mq-apis.adoc#routing-rules-api[Create Message Routing Rules].
 
-== Route Messages to a Queue that is Bound to an Exchange
+== Publish a Message with Routing Properties
 
 To publish messages to an exchange and route them to specific queues, 
 use either:
@@ -58,17 +64,19 @@ Anypoint MQ Broker API::
 For information, see 
 xref:mq-apis.adoc#publish-message-routing[Publish a Message with Routing Properties].
 
-[[intelligent-routing-limitations]]
-== Limitations
+[[intelligent-routing-restrictions]]
+== Requirements and Restrictions
 
-Anypoint MQ supports message routing rules with the following limitations:
+Anypoint MQ supports message routing rules with the following restrictions:
 
 * Exchanges must have 10 or fewer queue bindings.
 +
-If an exchange has more than 10 queue bindings, you cannot use intelligent message routing.
-* Each message routing rule can include one property-value pair.
-* Maximum size of the property name is 180 bytes.
-* Maximum size of the property value is 45 KB.
+If an exchange has more than 10 queue bindings, you cannot configure message routing rules.
+* You can configure a message routing rule on only one property with the following restrictions:
++
+** Maximum size of the property name is 180 bytes.
+** Maximum size of the property value is 45 KB.
+** Maximum total size of headers and properties is 215 KB.
 
 Anypoint MQ supports message filtering for messages that meet the following criteria:
 
@@ -77,5 +85,11 @@ Anypoint MQ supports message filtering for messages that meet the following crit
 +
 This total includes operational headers, such as `messageId` and `createdTimestamp`, that Anypoint MQ creates.
 
-If a message doesn't meet these criteria, Anypoint MQ publishes the message to
-the exchange but ignores the properties when evaluating the message against the routing rules configured on the bindings.
+If a message doesn't meet these criteria, Anypoint MQ ignores the properties
+when evaluating the message against the message routing rules.
+Anypoint MQ publishes the message, including the headers and properties, to the exchange without filtering.
+
+== See Also
+
+* xref:mq-apis.adoc#routing-rules-api[Create Message Routing Rules]
+* xref:mq-apis.adoc#publish-message-routing[Publish a Message with Routing Properties]

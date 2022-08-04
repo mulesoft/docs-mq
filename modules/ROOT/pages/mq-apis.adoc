@@ -57,8 +57,15 @@ the API throttles your requests to 50 transactions per minute (TPM).
 
 === Use the Anypoint MQ Admin API
 
+* <<get-access-token>>
+* <<fifo-queue-api>>
+* <<routing-rules-api>>
 
-NOTE: To access the Anypoint MQ Admin API, you must first authenticate using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Anypoint Access Management API].
+
+[[get-access-token]]
+==== Get the Access Token 
+
+To access the Anypoint MQ Admin API, you must first authenticate using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Anypoint Access Management API].
 
 To use the Admin API, you can get the access token from the Anypoint Platform user.
 The access token is also known as the Bearer.
@@ -67,7 +74,7 @@ The default time to live (TTL) for the access token is 60 minutes.
 You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ.
 See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[MQ Audit Logging].
 
-You can use this `curl` command to get the access token:
+Use a `curl` command like the following to get the access token:
 
 [source,bash]
 ----
@@ -113,38 +120,44 @@ Use this body:
 ----
 
 [[routing-rules-api]]
-==== Create Routing Rules
+==== Create Message Routing Rules
 
 To route a subset of the messages that are published to an exchange to a specific queue,
-define message routing rules on the binding between the exchange and the queue.
-You can use the Admin API to create these message routing rules.
+use the Admin API to create message routing rules on the binding between the exchange and the queue.
 
-The following `curl` command creates a message routing rule:
+[NOTE]
+The new message routing rule can take up to 15 minutes to take effect.
+
+include::partial$mq-msg-exchange.adoc[tag=exchBindingNoRules]
+
+To create a message routing rule, use a `curl` command like the following:
 
 [source,console,linenums]
 ----
 curl "https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/bindings/exchanges/purchases/queues/premiumPurchases/routingRules" \
   -X PUT \
-  -d "{\n  \"routingRules\": [\n    {\n      \"propertyName\": \"itemCategory\",\n      \"propertyType\": \"STRING\",\n      \"matcherType\": \"EQ\",\n      \"value\": premium\n    }\n  ]\n}"
+  -d "{\n  \"routingRules\": [\n    {\n      \"propertyName\": \"itemCategory\",\n      \"propertyType\": \"STRING\",\n      \"matcherType\": \"EQ\",\n      \"value\": "premium"\n    }\n  ]\n}"
 
 ----
 
 This message routing rule routes any message published to the `purchases` exchange that includes a property or header with
 the name `itemCategory` and the value `premium` to the `premiumPurchases` queue.
 
-To change an existing routing rule, submit another `PUT` with the new message routing rule configuration.
-
-[NOTE]
+To change an existing routing rule, submit another `PUT` request with the new message routing rule configuration.
+A `PUT` request replaces the existing message routing rule on the binding with the new rule.
 Any changes or additions to a message routing rule can take up to 15 minutes to take effect.
 
-For information on the supported properties and attributes for `routingRules`,
-see this endpoint in the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Anypoint MQ Admin API]:
+For information about:
 
+* Supported payload for `routingRules`,
+see this endpoint in the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Anypoint MQ Admin API]:
++
 [source]
 /organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/bindings/exchanges/EXCHANGE_ID/queues/QUEUE_ID/routingRules
 
-For information about the message routing rule limitations, see
-xref:mq-routing-rules.adoc#intelligent-routing-limitations[Limitations].
+* Publishing a message with routing properties, see <<publish-message-routing>>.
+* Message routing rule requirements, see
+xref:mq-routing-rules.adoc#intelligent-routing-restrictions[Requirements and Restrictions].
 
 ////
 Use this body:
@@ -156,7 +169,7 @@ Use this body:
     {
       "propertyName" : "itemCategory",
       "propertyType" : "STRING",
-      "matcherType" : "EQ/PREFIX",
+      "matcherType" : "EQ",
       "value" : "premium"
     }
   ]
@@ -169,9 +182,28 @@ Use this body:
 == Anypoint MQ Broker API
 
 The  
-https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint MQ Broker API] enables clients to publish, retrieve, and acknowledge messages from queues and message exchanges.
+https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint MQ Broker API] enables clients to publish, retrieve, route, and acknowledge messages from queues and message exchanges.
 
 You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ. See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[MQ Audit Logging].
+
+
+
+[[excoliuscu]]
+=== Use the Anypoint MQ Broker API
+
+These examples use the Anypoint MQ Broker API to publish and consume messages and to test Anypoint MQ from the command line using `curl`.
+
+* <<get-broker-access-token>>
+* <<publish-messages-api>>
+* <<publish-message-routing>>
+* <<retrieve-message-api>>
+
+You must substitute the placeholder string, `42544254-4254-4254-4254-425442544254` with the proper values for authorization and token strings. These examples use Postman to access the queue.
+
+See the xref:mq-faq.adoc#regions[Anypoint MQ FAQ] for the regions where Anypoint MQ and FIFO are available.
+
+[[get-broker-access-token]]
+==== Get the Broker API Access Token
 
 Getting the access (bearer) token requires using either a command like curl or an app like Postman. The example that follows uses curl.
 If you are a Windows user, you need to https://curl.haxx.se/download.html[download a curl command] before accessing the information.
@@ -200,16 +232,6 @@ The command returns output similar to:
 {"access_token":"<token>","simple_client":{"envId":"ENVIRONMENT_ID","orgId":"ORGANIZATION_ID"},"token_type":"bearer"}
 ----
 
-
-[[excoliuscu]]
-=== Use the Anypoint MQ Broker API
-
-These examples use the Anypoint MQ Broker API to publish and consume messages and to test Anypoint MQ from the command line using curl.
-
-You must substitute the placeholder string, `42544254-4254-4254-4254-425442544254` with the proper values for authorization and token strings. These examples use Postman to access the queue.
-
-See the xref:mq-faq.adoc#regions[Anypoint MQ FAQ] for the regions where Anypoint MQ and FIFO are available.
-
 [[publish-messages-api]]
 ==== Publish a Message
 
@@ -235,9 +257,11 @@ curl -X PUT -H "Content-Type: application/json" \
 [[publish-message-routing]]
 ==== Publish a Message with Routing Properties
 
+include::partial$mq-msg-exchange.adoc[tag=msgRulesEval]
+
 The following `curl` command publishes a message with the value of the `itemCategory`
 property as `premium`.
-The rule on the `purchases` exchange binding 
+The message routing rule on the `purchases` exchange binding 
 (set up in <<routing-rules-api>>) routes the message to the `premiumPurchases` queue.
 
 [source,console,linenums]
@@ -258,10 +282,8 @@ curl -X PUT -H "Content-Type: application/json" \
 ' "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/42544254-4254-4254-4254-425442544254/environments/42544254-4254-4254-4254-425442544254/destinations/postmanExchange/messages/552"
 ----
 
-
-For information about the message filtering limitations, see
-xref:mq-routing-rules.adoc#intelligent-routing-limitations[Limitations].
-
+For information about the message routing rule requirements, see
+xref:mq-routing-rules.adoc#intelligent-routing-restrictions[Requirements and Restrictions].
 
 [[retrieve-message-api]]
 ==== Retrieve a Message
