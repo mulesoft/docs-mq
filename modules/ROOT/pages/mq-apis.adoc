@@ -55,7 +55,7 @@ https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4
 If you call the Anypoint MQ Admin API for distinct environments within one minute,
 the API throttles your requests to 50 transactions per minute (TPM).
 
-=== Use the Anypoint MQ Admin API
+These examples use the Anypoint MQ Admin API to create queues and message routing rules from the command line using `curl`:
 
 * <<get-access-token>>
 * <<fifo-queue-api>>
@@ -63,7 +63,7 @@ the API throttles your requests to 50 transactions per minute (TPM).
 
 
 [[get-access-token]]
-==== Get the Access Token 
+=== Get the Access Token 
 
 To access the Anypoint MQ Admin API, you must first authenticate using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Anypoint Access Management API].
 
@@ -94,7 +94,7 @@ This command returns output similar to:
 
 
 [[fifo-queue-api]]
-==== Create a FIFO Queue
+=== Create a FIFO Queue
 
 You can create a FIFO queue using the Anypoint MQ Admin API by including the `"fifo": true` field.
 
@@ -120,7 +120,7 @@ Use this body:
 ----
 
 [[routing-rules-api]]
-==== Create Message Routing Rules
+=== Create Message Routing Rules
 
 To route a subset of the messages that are published to an exchange to a specific queue,
 use the Admin API to create message routing rules on the binding between the exchange and the queue.
@@ -186,11 +186,6 @@ https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4
 
 You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ. See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[MQ Audit Logging].
 
-
-
-[[excoliuscu]]
-=== Use the Anypoint MQ Broker API
-
 These examples use the Anypoint MQ Broker API to publish and consume messages and to test Anypoint MQ from the command line using `curl`.
 
 * <<get-broker-access-token>>
@@ -203,7 +198,7 @@ You must substitute the placeholder string, `42544254-4254-4254-4254-42544254425
 See the xref:mq-faq.adoc#regions[Anypoint MQ FAQ] for the regions where Anypoint MQ and FIFO are available.
 
 [[get-broker-access-token]]
-==== Get the Broker API Access Token
+=== Get the Broker API Access Token
 
 Getting the access (bearer) token requires using either a command like curl or an app like Postman. The example that follows uses curl.
 If you are a Windows user, you need to https://curl.haxx.se/download.html[download a curl command] before accessing the information.
@@ -233,7 +228,7 @@ The command returns output similar to:
 ----
 
 [[publish-messages-api]]
-==== Publish a Message
+=== Publish a Message
 
 The following `curl` command publishes a message:
 
@@ -255,7 +250,7 @@ curl -X PUT -H "Content-Type: application/json" \
 ----
 
 [[publish-message-routing]]
-==== Publish a Message with Routing Properties
+=== Publish a Message with Routing Properties
 
 include::partial$mq-msg-exchange.adoc[tag=msgRulesEval]
 
@@ -286,7 +281,7 @@ For information about the message routing rule requirements, see
 xref:mq-routing-rules.adoc#intelligent-routing-restrictions[Requirements and Restrictions].
 
 [[retrieve-message-api]]
-==== Retrieve a Message
+=== Retrieve a Message
 
 The following `curl` command gets a message:
 
@@ -346,7 +341,8 @@ View your entire organization's usage of Anypoint MQ for billing purposes:
 
 For more information, see the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API] in the MuleSoft developer portal.
 
-=== Use the Anypoint MQ Stats API
+[[get-stats-access-token]]
+=== Get the Stats API Access Token
 
 NOTE: To access the Anypoint MQ Stats API, you must first authenticate using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Anypoint Access Management API].
 
@@ -673,7 +669,7 @@ The following example consists of the `cloudhub.properties` file in which
 you list the queues and exchanges to create, and a script file that
 references the properties file.
 
-=== Dates
+=== Date Format
 
 Anypoint MQ lets you specify start and end dates for the Stats API in standard ISO 8601 format.
 
@@ -984,3 +980,4 @@ image::mq-exchange-download.png[Download Anypoint MQ APIs in Exchange]
 * https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Anypoint Admin API in Anypoint Exchange]
 * https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint Broker API in Anypoint Exchange]
 * https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API in Anypoint Exchange]
+* xref:mq-routing-rules.adoc[]

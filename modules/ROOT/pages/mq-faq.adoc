@@ -306,7 +306,7 @@ The only officially supported connectors and transports for shared resources are
 
 == How do I create many queues and message exchanges?
 
-You can use a `curl` command with the xref:mq-apis.adoc#mqadminapi[Anypoint MQ Admin API] in a `for` loop to create the number of queues and message exchanges you need. See an xref:mq-apis.adoc#excoliuscu[example `curl` command] that you can alter to create a queue or message exchange.
+You can use a `curl` command with the xref:mq-apis.adoc#mqadminapi[Anypoint MQ Admin API] in a `for` loop to create the number of queues and message exchanges you need. See xref:mq-apis.adoc[].
 
 == Do the API requests-per-month usage charges pertain to all environments?
 
