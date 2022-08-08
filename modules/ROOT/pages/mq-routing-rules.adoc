@@ -5,7 +5,7 @@ Anypoint MQ includes the ability to create _intelligent message routing rules_ t
 You configure the message routing rule on the binding on an exchange.
 When you publish a message to the exchange, the message routing rule
 routes the message to a queue only if the message includes
-a property or header that matches a rule.
+a property or header that matches the rule.
 
 [NOTE]
 include::partial$mq-msg-exchange.adoc[tag=exchBindingNoRules]
@@ -76,14 +76,13 @@ If an exchange has more than 10 queue bindings, you cannot configure message rou
 +
 ** Maximum size of the property name is 180 bytes.
 ** Maximum size of the property value is 45 KB.
-** Maximum total size of headers and properties is 215 KB.
 
-Anypoint MQ supports message filtering for messages that meet the following criteria:
+Anypoint MQ evaluates messages against the routing rule only if they meet the following criteria:
 
-* Maximum size of headers and property names is 180 bytes.
 * Total number of headers and properties is fewer than 500.
 +
 This total includes operational headers, such as `messageId` and `createdTimestamp`, that Anypoint MQ creates.
+* Maximum total size of headers and properties is 215 KB.
 
 If a message doesn't meet these criteria, Anypoint MQ ignores the properties
 when evaluating the message against the message routing rules.
