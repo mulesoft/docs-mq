@@ -237,7 +237,6 @@ The following `curl` command publishes a message:
 curl -X PUT -H "Content-Type: application/json" \
 -H "Authorization: bearer 42544254-4254-4254-4254-425442544254" \
 -H "Cache-Control: no-cache" \
--H "Postman-Token: 42544254-4254-4254-42544254-425442544254" \
 -d '{ \
   "properties": {
     "userDefinedHeader": "User defined stuff",
@@ -264,7 +263,6 @@ The message routing rule on the `purchases` exchange binding
 curl -X PUT -H "Content-Type: application/json" \
 -H "Authorization: bearer 42544254-4254-4254-4254-425442544254" \
 -H "Cache-Control: no-cache" \
--H "Postman-Token: 42544254-4254-4254-42544254-425442544254" \
 -d '{ \
   "properties": {
     "itemCategory": "premium",
@@ -289,7 +287,6 @@ The following `curl` command gets a message:
 ----
 curl -X GET -H "Authorization: bearer 42544254-4254-4254-4254-425442544254" \
 -H "Cache-Control: no-cache" \
--H "Postman-Token: 42544254-4254-4254-4254-425442544254" \
 "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/42544254-4254-4254-4254-425442544254/environments/42544254-4254-4254-4254-425442544254/destinations/postmanQueue/messages?pollingTime=10000&batchSize=1&lockTtl=10000"
 ----
 
@@ -312,7 +309,6 @@ The following `curl` command gets a message and payload, displaying the payload 
 ----
 curl -X GET -H "Authorization: bearer 42544254-4254-4254-4254-425442544254" \
 -H "Cache-Control: no-cache" \
--H "Postman-Token: 42544254-4254-4254-4254-425442544254" \
 "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/42544254-4254-4254-4254-425442544254/environments/42544254-4254-4254-4254-425442544254/destinations/postmanQueue/messages?pollingTime=10000&batchSize=1&lockTtl=10000&payloadVisibility=conditional"
 ----
 
