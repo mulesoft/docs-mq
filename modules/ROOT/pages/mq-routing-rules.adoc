@@ -84,9 +84,10 @@ Anypoint MQ evaluates messages against the routing rule only if they meet the fo
 This total includes operational headers, such as `messageId` and `createdTimestamp`, that Anypoint MQ creates.
 * Maximum total size of headers and properties is 215 KB.
 
-If a message doesn't meet these criteria, Anypoint MQ ignores the properties
+If a message doesn't meet these criteria, Anypoint MQ ignores the headers and properties
 when evaluating the message against the message routing rules.
-Anypoint MQ publishes the message, including the headers and properties, to the exchange without filtering.
+
+Anypoint MQ retains the headers and properties in the payload and, when it publishes the message to the exchange, the headers and properties are available for consumption.
 
 == See Also
 
