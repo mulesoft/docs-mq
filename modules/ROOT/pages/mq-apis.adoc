@@ -115,6 +115,11 @@ If you are a Windows user, you need to https://curl.haxx.se/download.html[downlo
 The access token in this section can only be used with the Broker API. Do not use this access token 
 with the Stats and Admin APIs. 
 
+All calls to get a token for a particular `CLIENT_ID` return the same token.
+The token is valid for 60 minutes.
+Each time an app accesses the token before its expiry extends the token validity by 60 minutes.
+If multiple apps use the same `CLIENT_ID`, each access extends the token validity.
+
 To get the Broker API access token:
 
 . Log in to Anypoint Platform.
