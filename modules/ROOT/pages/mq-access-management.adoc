@@ -1,4 +1,4 @@
-= Configure Environment, User, and Role Access
+= Configure Environment and Access Permissions
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -11,97 +11,57 @@ Anypoint Platform enables you to manage the roles of users who administer the An
 Before you give yourself Anypoint MQ access permissions, create an environment with which to associate permissions:
 
 . From Anypoint Platform, select *Access Management*
-. Click *Environments* in the left menu, and click the *Add environment* button.
-. In the *Add environment* box, provide a name for your environment and click either *Production*, *Sandbox*, or *Design*. 
-You might want to create separate environments for each. In this case, choose *Production*.
-
+. Follow the steps in xref:access-management::environments.adoc#to-create-a-new-environment[To Create a New Environment].
 
 == Give Users Anypoint MQ Access Permissions
 
 First, give yourself Anypoint MQ access permissions and then give others in your organization access.
 
-Assign user permissions to yourself for use with Anypoint MQ. These permissions enable you to create client applications and destinations by creating queues and exchanges. You can use the same information to assign user permissions for others in your organization.
+Assign user permissions to yourself for use with Anypoint MQ.
+These permissions enable you to create client applications and destinations by creating queues and exchanges.
+You can use the same information to assign user permissions for others in your organization.
 
 To assign user permissions:
 
 . From Anypoint Platform, click *Access Management*.
-. Click *Users* in the left menu.
-. Click a user name.
-. Click *MQ* and set an environment and permissions:
-+
-.The screenshot shows the *MQ* tab, the blue plus icon, and the delete icon used for adding permissions to and deleting permissions from an environment.
-image::mq-acc-mgmt-user-detail.png[*MQ* tab]
-. Click and select an item from the *Permissions* menu:
-+
-You can click *Select all* to set all permissions, or *Select none* to erase previously clicked settings.
-. Click the blue plus icon (+) to add the selection.
-+
-The selected environment and permissions appear below the drop-down list.
-+
-You can delete items from this list by clicking the delete icon.
+. Follow the steps in xref:access-management::users.adoc#grant-user-permissions[Grant Permissions to Users].
+// image::mq-acc-mgmt-user-detail.png[MQ permissions in Access Management]
+// . Click and select an item from the *Permissions* menu:
 
-== Create an Admin Role
+== Use Teams to Assign Permissions
 
-You can create a role that you can apply to other users in your organization.
-While you don't need roles to complete the tutorial, when you use Anypoint MQ as an administrator or developer, you should create roles for users in your organization who use Anypoint MQ.
+Use the Teams feature to create groups of users and then assign the members of those groups certain permissions.
 
+For example, you can create an admin team with manage permissions or a user team with just view permissions.
 Creating a role enables you to assign access rights to users in your organization, such as administrators, developers, or users (who only view information but don't change it).
 
 . From Anypoint Platform, click *Access Management*.
-. Click *Roles* in the left menu, and then click the *Add Role* button.
-. Name the role `Admin Role` and click the *Add role* button.
-. Click *Admin Role* and click the *MQ* tab.
-. From the *Environment* menu, select *Production*.
-. From the *Permissions* menu, select *Select all*.
-. Click the blue plus icon (+) to add the selections.
-+
-Anypoint Platform displays your settings.
+. Follow the steps in xref:access-management::teams.adoc[].
 
-The settings are:
+== Anypoint MQ Permissions
 
-* *Clear destinations*
-+
+The Anypoint MQ permissions are:
+
+View clients::
+View all client apps, as well as the client app IDs and client secrets for each client app
+View destinations::
+View all destinations and each destination's settings (*ID*, *Type*, *Message TTL*, and *Message Lock Default TTL*). View *In Queue* messages and *In Flight* message stats.
+Clear destinations::
 Same privileges as *View destinations*, plus permission to purge messages
-* *Manage clients*
-+
+Manage clients::
 Same privileges as *View clients*, plus permission to create client apps
-* *Manage destinations*
-+
+Manage destinations::
 Same privileges as *View destinations* and *Clear destinations*, plus permission to:
++
 ** Create new queues and message exchanges
 ** Edit existing queues and message exchange settings
 ** Access *Message Sender* and *Browser* pages
 ** Delete messages
-* *View clients*
-+
-View all client apps, as well as the client app IDs and client secrets for each client app
-* *View destinations*
-+
-View all destinations and each destination's settings (*ID*, *Type*, *Message TTL*, and *Message Lock Default TTL*). View *In Queue* messages and *In Flight* message stats.
+Destination subscriber for given environment::
+Subscribe to any destination under the organization and environment
+Destination publisher for given environment::
+Publish to any destination under the organization and environment
 
-
-== Add Other Roles for Anypoint MQ Access
-
-After you create an admin role, you can optionally create other roles for users in your organization who need Anypoint MQ access in Anypoint Platform.
-
-. From Anypoint Platform, click *Access Management*.
-. Click *Roles* in the left menu, and then click the *Add Role* button.
-. Enter the role name and description, and click *Add role*.
-. In the list of roles, click the name of the role you just created.
-. Click the *MQ* tab and set an environment and permissions:
-+
-.The screenshot shows the *MQ* tab, the blue plus icon, and the delete icon used for adding permissions to and deleting permissions from an environment.
-image::mq-acc-mgmt-user-detail.png[*MQ* tab]
-. Click and select an item from the *Permissions* menu.
-+
-You can click *Select all* to set all permissions, or *Select none* to erase previously clicked settings.
-. Click the blue plus icon (+) to add the selection.
-+
-The selected environment and permissions appear below the drop-down list.
-+
-You can delete items from this list by clicking the delete icon.
-
-You can delete a role from the *Roles* page by selecting the checkbox for an entry, clicking the *Delete role* button, and then confirming the deletion by clicking *Yes, delete*.
 
 == Switch Environments
 
@@ -117,4 +77,4 @@ image::mq-switch-env.png[Environment button]
 
 == See Also
 
-* xref:access-management::managing-permissions.adoc[Managing Permissions]
+* xref:access-management::index.adoc[]
