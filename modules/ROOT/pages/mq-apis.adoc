@@ -118,7 +118,7 @@ with the Stats and Admin APIs.
 All calls to get a token for a particular `CLIENT_ID` return the same token.
 Multiple apps using the same `CLIENT_ID` use the same token.
 The token is valid for 60 minutes.
-Accessing the token before its expiry extends the token validity by 60 minutes.
+Accessing the token before its expiry extends the token validity by another 60 minutes.
 
 To get the Broker API access token:
 
