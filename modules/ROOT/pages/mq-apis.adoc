@@ -134,7 +134,7 @@ To create a message routing rule, use a `curl` command like the following:
 
 [source,console,linenums]
 ----
-curl "https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/bindings/exchanges/purchases/queues/premiumPurchases/routingRules" \
+curl "https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/bindings/exchanges/purchases/queues/premiumPurchases/rules/routing" \
   -X PUT \
   -d "{\n  \"routingRules\": [\n    {\n      \"propertyName\": \"itemCategory\",\n      \"propertyType\": \"STRING\",\n      \"matcherType\": \"EQ\",\n      \"value\": "premium"\n    }\n  ]\n}"
 
@@ -149,11 +149,11 @@ Any changes or additions to a message routing rule can take up to 15 minutes to 
 
 For information about:
 
-* Supported payload for `routingRules`,
+* Supported payload for `/rules/routing`,
 see this endpoint in the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Anypoint MQ Admin API]:
 +
 [source]
-/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/bindings/exchanges/EXCHANGE_ID/queues/QUEUE_ID/routingRules
+/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/bindings/exchanges/EXCHANGE_ID/queues/QUEUE_ID/rules/routing
 
 * Publishing a message with routing properties, see <<publish-message-routing>>.
 * Message routing rule requirements, see
