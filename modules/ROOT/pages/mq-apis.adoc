@@ -120,7 +120,7 @@ Use this body:
 ----
 
 [[routing-rules-api]]
-=== Create Message Routing Rules
+=== Create or Change Message Routing Rules
 
 To route a subset of the messages that are published to an exchange to a specific queue,
 use the Admin API to create message routing rules on the binding between the exchange and the queue.

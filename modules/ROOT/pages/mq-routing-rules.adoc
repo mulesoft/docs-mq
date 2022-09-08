@@ -37,12 +37,77 @@ not to the `sizeMedium` queue based on the routing rule configuration.
 }
 ----
 
-== Create or Change a Message Routing Rule 
+== Create a Message Routing Rule 
 
-To create or change message routing rules, use the Anypoint MQ Admin API.
+To create a message routing rule:
+
+. Log in to Anypoint Platform.
+. Click *MQ* in navigation area or the main Anypoint Platform screen.
+. Click *Destinations* and then click the name of the exchange to configure rules.
+. On the *Exchange Settings* page, click *Add Rule* to add a rule to a bound queue.
++
+image::mq-exchange-add-rule-bound-queues.png[Add Rule button on the Exchange Settings page]
+. Complete the fields on the *Create Routing Rule* page.
++
+image::mq-exchange-create-routing-rule.png[Create Routing Rule page]
++
+* Specify the property name and value to match.
+* For each property type, specify a <<matcher-type,matcher type>>.
+. Click *Create Routing Rule*.
+
+== Change a Message Routing Rule 
+
+To change a message routing rule:
+
+. Log in to Anypoint Platform.
+. Click *MQ* in navigation area or the main Anypoint Platform screen.
+. Click *Destinations* and then click the name of the exchange to configure rules.
+. On the *Exchange Settings* page, click *Edit Rule* to change a rule on a bound queue.
++
+image::mq-exchange-edit-rule-bound-queues.png[Edit Rule button on the Exchange Settings page]
+. On the *Edit Routing Rule* page, change the rule settings.
++
+For information about property types and matcher types, see <<matcher-type,matcher type>>.
+. Click *Edit Routing Rule*.
+
+== Delete a Message Routing Rule 
+
+To delete a message routing rule:
+
+. Log in to Anypoint Platform.
+. Click *MQ* in navigation area or the main Anypoint Platform screen.
+. Click *Destinations* and then click the name of the exchange to configure rules.
+. On the *Exchange Settings* page, click *Delete Rule* .
++
+image::mq-exchange-delete-rule-bound-queues.png[Delete Rule button on the Exchange Settings page]
+. In the *Delete Routing Rule* confirmation box, select the checkbox and click *Delete Routing Rule* to verify that you want to delete the rule.
+
+== Create or Change a Message Routing Rule with Anypoint Admin API
 
 For information, see
-xref:mq-apis.adoc#routing-rules-api[Create Message Routing Rules].
+xref:mq-apis.adoc#routing-rules-api[Create or Change Message Routing Rules].
+
+
+[[matcher-type]]
+=== Matcher Type
+
+[%header,cols="30a,30a,30a"]
+|===
+|Property Type | Matcher Type |Description
+.5+|String | Equals | Message property value is an exact match for the value in this rule.
+| Prefix | Message property value starts with the value in this rule.
+| Any of | Message property value matches any of the values in this rule.
+| None of | Message property value does not match any of the values in this rule.
+| Exists | Message includes a property with a name that matches the property name in this rule.
+.8+|Number | Equals | Message property value is equal to the value in this rule.
+| Less than | Message property value is less than the value in this rule.
+| Less than or equal | Message property value is less than or equal to the value in this rule.
+| Greater than | Message property value is greater than the value in this rule.
+| Greater than or equal | Message property value is greater than or equal to the value in this rule.
+| Range | Message property value is within the inclusive range of values specified in this rule.
+| None of | Message property value does not match any of the values in this rule.
+| Exists | Message includes a property with a name that matches the property name in this rule.
+|===
 
 == Publish a Message with Routing Properties
 
