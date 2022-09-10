@@ -67,7 +67,7 @@ To change a message routing rule:
 image::mq-exchange-edit-rule-bound-queues.png[Edit Rule button on the Exchange Settings page]
 . On the *Edit Routing Rule* page, change the rule settings.
 +
-For information about property types and matcher types, see <<matcher-type,matcher type>>.
+For information about property types and matcher types, see <<matcher-type>>.
 . Click *Edit Routing Rule*.
 
 == Delete a Message Routing Rule 
@@ -84,14 +84,14 @@ image::mq-exchange-delete-rule-bound-queues.png[Delete Rule button on the Exchan
 
 == Create or Change a Message Routing Rule with Anypoint Admin API
 
-For information, see
+For information on using the Anypoint Admin API to manage message routing rules, see
 xref:mq-apis.adoc#routing-rules-api[Create or Change Message Routing Rules].
 
 
 [[matcher-type]]
 === Matcher Type
 
-[%header,cols="30a,30a,30a"]
+[%header,cols="10a,20a,60a"]
 |===
 |Property Type | Matcher Type |Description
 .5+|String | Equals | Message property value is an exact match for the value in this rule.
