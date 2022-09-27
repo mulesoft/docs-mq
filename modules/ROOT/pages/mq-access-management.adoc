@@ -50,12 +50,21 @@ Clear destinations::
 Same privileges as *View destinations*, plus permission to purge messages
 Manage clients::
 Same privileges as *View clients*, plus permission to create client apps
-Manage destinations::
+Administer destinations::
+Same privileges as *View destinations* and *Clear destinations*, plus permission to:
++
+** Create new queues, message exchanges, and bindings
+** Edit existing queues, message exchanges, and bindings
+** Delete messages
+Manage destinations (deprecated)::
 Same privileges as *View destinations* and *Clear destinations*, plus permission to:
 +
 ** Create new queues and message exchanges
 ** Edit existing queues and message exchange settings
 ** Delete messages
++
+[NOTE]
+This permission is deprecated; use *Administer destinations* instead.
 Destination subscriber for given environment::
 Subscribe to any destination under the organization and environment
 Destination publisher for given environment::
