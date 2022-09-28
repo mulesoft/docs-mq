@@ -55,7 +55,6 @@ Same privileges as *View destinations* and *Clear destinations*, plus permission
 +
 ** Create new queues, message exchanges, and bindings
 ** Edit existing queues, message exchanges, and bindings
-** Delete messages
 Manage destinations (deprecated)::
 Same privileges as *View destinations* and *Clear destinations*, plus permission to:
 +
@@ -65,9 +64,18 @@ Same privileges as *View destinations* and *Clear destinations*, plus permission
 ** Delete messages
 +
 [NOTE]
-This permission is deprecated; use *Administer destinations* instead.
+====
+This permission is deprecated. 
+To achieve the same abilities as *Manage permissions*, assign these permissions to the user:
+
+** *Administer destinations* 
+** *Destination subscriber for given environment*
+** *Destination publisher for given environment*
+====
 Destination subscriber for given environment::
-Subscribe to any destination under the organization and environment
++
+** Subscribe to any destination under the organization and environment
+** Delete messages
 Destination publisher for given environment::
 Publish to any destination under the organization and environment
 
