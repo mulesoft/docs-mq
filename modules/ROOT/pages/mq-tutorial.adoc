@@ -292,7 +292,7 @@ curl -X POST \
 ]'
 ----
 +
-The `100` value in the URL is the message ID value as specified by the `/mq{messageId}` value in the HTTP Listener, which is the identifier for your message.
+The `100` value in the URL is the message ID value as specified by the `/mq/{messageId}` value in the HTTP Listener, which is the identifier for your message.
 +
 Next, you verify that the message arrived in the queue.
 . Select *Anypoint Platform* > *MQ* > *Destinations*.
@@ -433,7 +433,7 @@ curl -X POST \
 ]'
 ----
 +
-The `100` value in the URL is the message ID value as specified by the `/mq{messageId}` value in the HTTP Listener, which is the identifier for your message.
+The `100` value in the URL is the message ID value as specified by the `/mq/{messageId}` value in the HTTP Listener, which is the identifier for your message.
 +
 If you see a 404 message for `destination not found`, verify that the name of the queue 
 in the Studio 7 *MQ Publish* > *Destination* field matches the name of the queue in *Anypoint Platform* > *MQ*.
