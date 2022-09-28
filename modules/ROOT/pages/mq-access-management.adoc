@@ -61,6 +61,7 @@ Same privileges as *View destinations* and *Clear destinations*, plus permission
 +
 ** Create new queues and message exchanges
 ** Edit existing queues and message exchange settings
+** Access *Message Sender* and *Browser* pages
 ** Delete messages
 +
 [NOTE]
