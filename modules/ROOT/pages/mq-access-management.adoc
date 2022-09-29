@@ -45,7 +45,7 @@ The Anypoint MQ permissions are:
 View clients::
 View all client apps, as well as the client app IDs and client secrets for each client app
 View destinations::
-View all destinations and each destination's settings (*ID*, *Type*, *Message TTL*, and *Message Lock Default TTL*). View *In Queue* messages and *In Flight* message stats.
+View all destinations and each destination's settings (*ID*, *Type*, *Message TTL*, and *Message Lock Default TTL*), and view *In Queue* messages and *In Flight* message stats.
 Clear destinations::
 Same privileges as *View destinations*, plus permission to purge messages
 Manage clients::
