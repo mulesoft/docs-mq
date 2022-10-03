@@ -5,7 +5,6 @@
 * xref:mq-connectors.adoc[Anypoint MQ Connectors]
 * xref:mq-tutorial.adoc[Tutorial: Create a Queue and Send Messages to It]
 * xref:mq-access-management.adoc[]
-* xref:mq-connected-apps.adoc[]
 * xref:mq-queues.adoc[Configure Queues]
 * xref:mq-exchanges.adoc[Configure Message Exchanges]
 * xref:mq-client-apps.adoc[Configure Client Apps]
@@ -13,3 +12,4 @@
 * xref:mq-apis.adoc[Anypoint MQ REST APIs]
 * xref:mq-usage.adoc[View Usage Graphs]
 * xref:mq-audit-logs.adoc[Anypoint MQ Audit Logs]
+* xref:mq-connected-apps.adoc[]

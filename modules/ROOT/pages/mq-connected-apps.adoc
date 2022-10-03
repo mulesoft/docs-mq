@@ -16,7 +16,7 @@ To create a Connected App with Anypoint MQ scopes:
 . Click *Create App*.
 .. Specify a name for the app.
 .. Select *App acts on its own behalf (client credentials)*.
-.. Click *Add Scopes* and filter by "mq".
+.. Click *Add Scopes*.
 .. Select the Anypoint MQ scopes to apply:
 +
 image::mq-conn-apps-scopes.png[Scopes for Anypoint MQ connected apps]
