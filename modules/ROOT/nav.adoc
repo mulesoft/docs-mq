@@ -12,6 +12,6 @@
 ** xref:mq-connected-apps.adoc[]
 ** xref:mq-ack-mode.adoc[Acknowledging Messages]
 * xref:mq-apis.adoc[]
-* xref:mq-monitoring[]
+* xref:mq-monitoring.adoc[]
 ** xref:mq-usage.adoc[]
 ** xref:mq-audit-logs.adoc[]
