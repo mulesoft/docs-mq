@@ -42,43 +42,7 @@ Creating a role enables you to assign access rights to users in your organizatio
 
 The Anypoint MQ permissions are:
 
-View clients::
-View all client apps, as well as the client app IDs and client secrets for each client app
-View destinations::
-View all destinations and each destination's settings (*ID*, *Type*, *Message TTL*, and *Message Lock Default TTL*), and view *In Queue* messages and *In Flight* message stats.
-Clear destinations::
-Same privileges as *View destinations*, plus permission to purge messages
-Manage clients::
-Same privileges as *View clients*, plus permission to create client apps
-Administer destinations::
-Same privileges as *View destinations* and *Clear destinations*, plus permission to:
-+
-** Create new queues, message exchanges, and bindings
-** Edit existing queues, message exchanges, and bindings
-Manage destinations (deprecated)::
-Same privileges as *View destinations* and *Clear destinations*, plus permission to:
-+
-** Create new queues and message exchanges
-** Edit existing queues and message exchange settings
-** Access *Message Sender* and *Browser* pages
-** Delete messages
-+
-[NOTE]
-====
-This permission is deprecated. 
-To achieve the same abilities as *Manage permissions*, assign these permissions to the user:
-
-** *Administer destinations* 
-** *Destination subscriber for given environment*
-** *Destination publisher for given environment*
-====
-Destination subscriber for given environment::
-+
-** Subscribe to any destination under the organization and environment
-** Delete messages
-Destination publisher for given environment::
-Publish to any destination under the organization and environment
-
+include::partial$mq-perms-scopes.adoc[tag=mqPermsScopes]
 
 == Switch Environments
 
