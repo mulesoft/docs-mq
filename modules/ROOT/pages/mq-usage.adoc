@@ -1,8 +1,4 @@
 = Viewing Usage Graphs
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
-:imagesdir: ../assets/images/
 
 You can view a chart indicating how much data and how many API requests have been consumed, and how many message units were received.
 
