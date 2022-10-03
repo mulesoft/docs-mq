@@ -36,4 +36,6 @@ Destination subscriber for given environment::
 ** Delete messages
 Destination publisher for given environment::
 Publish to any destination under the organization and environment
+Read MQ stats::
+View organization and environment statistics
 // end::mqPermsScopes[]

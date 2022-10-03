@@ -1,4 +1,4 @@
-= View Usage Graphs
+= Viewing Usage Graphs
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

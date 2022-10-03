@@ -1,4 +1,4 @@
-= Configure Connected Apps
+= Configuring Connected Apps
 
 The Connected Apps feature enables you to integrate external applications with Anypoint Platform by providing access to those applications without sharing your user credentials.
 

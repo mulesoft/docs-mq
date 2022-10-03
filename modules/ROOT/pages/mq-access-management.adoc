@@ -1,4 +1,4 @@
-= Configure Environment and Access Permissions
+= Configuring Environment and Access Permissions
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

@@ -1,8 +1,4 @@
-= Configure Message Exchanges
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
-:imagesdir: ../assets/images/
+= Configuring Message Exchanges
 
 Using a _message exchange_, you can send a message to one or more standard xref:mq-queues.adoc[queues] that are bound to the message exchange.
 The maximum size of a message sent to a message exchange is 10 MB.
