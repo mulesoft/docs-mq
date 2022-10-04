@@ -32,7 +32,7 @@ For information on getting the access token for Connected Apps, see
 xref:access-management::connected-apps-developers.adoc#oidc-endpoints-and-tokens[OIDC Endpoints and Tokens].
 +
 [NOTE]
-include::partial$mq-connect-app.adoc[tag=mqConnAppEndpointSupport]
+include::partial$mq-connect-apps.adoc[tag=mqConnAppEndpointSupport]
 
 [[configure-mq-conn-app-api]]
 == Configure a Connected App Using the API
