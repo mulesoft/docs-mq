@@ -7,7 +7,7 @@ xref:access-management::connected-apps-overview.adoc[] and
 xref:access-management::connected-apps-developers.adoc[].
 
 [[configure-mq-conn-app]]
-== Configure a Connected App
+== Configure a Connected App in Access Management
 
 To create a Connected App with Anypoint MQ scopes:
 
@@ -32,13 +32,20 @@ For information on getting the access token for Connected Apps, see
 xref:access-management::connected-apps-developers.adoc#oidc-endpoints-and-tokens[OIDC Endpoints and Tokens].
 +
 [NOTE]
-The Anypoint MQ Admin and Anypoint MQ Broker API `/Authorize` endpoints do not support Connected Apps.
-You can't use tokens obtained from those endpoints to access a Connected App.
+include::partial$mq-connect-app.adoc[tag=mqConnAppEndpointSupport]
 
-=== Anypoint MQ Scopes
+[[configure-mq-conn-app-api]]
+== Configure a Connected App Using the API
+
+For information on configuring a Connected App with the API, see
+https://help.mulesoft.com/s/article/How-to-create-connected-apps-creation-using-API[How to create connected apps using the API].
+
+== Anypoint MQ Scopes
 
 Anypoint MQ scopes apply to all stores in the given organization and environment.
 
 The Anypoint MQ scopes are:
 
-include::partial$mq-perms-scopes.adoc[tag=mqPermsScopes]
+include::partial$mq-connect-apps.adoc[tag=mqPermsScopes]
+Read MQ stats::
+View organization and environment statistics.

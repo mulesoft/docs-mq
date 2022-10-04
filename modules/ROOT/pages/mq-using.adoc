@@ -1,7 +1,20 @@
 = Using Anypoint MQ
 
 * xref:mq-access-management.adoc[]
++
+Create an environment and set up access permissions.
 * xref:mq-queues.adoc[]
++
+** Configure queues, including FIFO queues and dead-letter queues (DLQs)
+** Send, retrieve, and purge messages from queues.
 * xref:mq-exchanges.adoc[]
++
+** Create message exchanges.
+** Bind queues to an exchange.
+** Send messages to an exchange.
 * xref:mq-client-apps.adoc[]
++
+Register a client app and regenerate a client secret.
 * xref:mq-connected-apps.adoc[]
++
+Configure Connected Apps and add scopes.
