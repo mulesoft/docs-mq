@@ -42,7 +42,7 @@ https://help.mulesoft.com/s/article/How-to-create-connected-apps-creation-using-
 
 == Anypoint MQ Scopes
 
-Anypoint MQ scopes apply to all stores in the given organization and environment.
+Anypoint MQ scopes apply to all destinations in the given organization and environment.
 
 The Anypoint MQ scopes are:
 
