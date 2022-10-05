@@ -42,7 +42,7 @@ Creating a role enables you to assign access rights to users in your organizatio
 
 The Anypoint MQ permissions are:
 
-include::partial$mq-connect-apps.adoc[tag=mqPermsScopes]
+include::partial$mq-perms-scopes.adoc[tag=!excludeFromPerm]
 
 == Switch Environments
 

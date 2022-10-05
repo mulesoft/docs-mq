@@ -1,0 +1,50 @@
+[%header,cols="20,20,60a"]
+|===
+// tag::excludeFromScope[]
+|Permission in UI|Permission in API |Description
+// end::excludeFromScope[]
+// tag::excludeFromPerm[]
+|Scope in UI|Scope in API |Description
+// end::excludeFromPerm[]
+
+|*View clients*|`view:clients`| View all client apps, as well as the client app IDs and client secrets for each client app.
+|*View destinations*|`view:destinations`| View all destinations and each destination's settings (*ID*, *Type*, *Message TTL*, and *Message Lock Default TTL*), and view *In Queue* messages and *In Flight* message stats.
+|*Clear destinations*|`clear:destinations`|Same privileges as *View destinations*, plus permission to purge messages.
+|*Manage clients*| `manage:clients`|Same privileges as *View clients*, plus permission to create client apps.
+|*Administer destinations* | `administer:destinations` |Same privileges as *View destinations* and *Clear destinations*, plus permission to:
+
+** Create new queues, message exchanges, and bindings.
+** Edit existing queues, message exchanges, and bindings.
+// tag::excludeFromScope[]
+|*Manage destinations (deprecated)*|`manage:destinations`|
+Same privileges as *View destinations* and *Clear destinations*, plus permission to:
+
+** Create new queues and message exchanges.
+** Edit existing queues and message exchange settings.
+** Access *Message Sender* and *Browser* pages.
+** Delete messages.
+
+[NOTE]
+====
+This permission is deprecated. 
+To achieve the same abilities as *Manage permissions*, assign these permissions to the user:
+
+** *Administer destinations* 
+** *Destination subscriber for given environment*
+** *Destination publisher for given environment*
+====
+// end::excludeFromScope[]
+
+|*Destination subscriber for given environment* |`subscribe:destinations` |
+
+** Consume messages from a destination.
+** Delete messages from a destination.
+
+|*Destination publisher for given environment* | `publish:destinations` |
+
+** Send messages to a destination.
+** Update message TTL on a destination.
+|*Read MQ stats*|`read:stats`| View organization and environment statistics.
+
+|===
+
