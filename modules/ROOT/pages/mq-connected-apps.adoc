@@ -47,5 +47,4 @@ Anypoint MQ scopes apply to all destinations in the given organization and envir
 The Anypoint MQ scopes are:
 
 include::partial$mq-connect-apps.adoc[tag=mqPermsScopes]
-Read MQ stats::
-View organization and environment statistics.
+

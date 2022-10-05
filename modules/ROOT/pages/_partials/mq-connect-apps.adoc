@@ -39,6 +39,8 @@ Destination publisher for given environment::
 +
 ** Send messages to a destination.
 ** Update message TTL on a destination.
+Read MQ stats::
+View organization and environment statistics.
 // end::mqPermsScopes[]
 
 
