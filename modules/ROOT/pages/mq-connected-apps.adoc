@@ -26,7 +26,7 @@ image::mq-conn-apps-scopes.png[Scopes for Anypoint MQ connected apps]
 . Click *Save* or *Cancel* to cancel your changes.
 . From the *Connected Apps* page, click *Copy Id* and *Copy Secret* for the app you just created.
 +
-Use this client ID and client secret to get the access token required to authenticate with the Anypoint MQ v2 API.
+Use this client ID and client secret to get the access token required to authenticate with the Anypoint MQ API.
 +
 For information on getting the access token for Connected Apps, see
 xref:access-management::connected-apps-developers.adoc#oidc-endpoints-and-tokens[OIDC Endpoints and Tokens].
@@ -46,5 +46,45 @@ Anypoint MQ scopes apply to all destinations in the given organization and envir
 
 The Anypoint MQ scopes are:
 
-include::partial$mq-perms-scopes.adoc[tags=!excludeFromScope]
+// These descriptions are the same as permissions in access management.
+[%header,cols="20,20,60a"]
+|===
+|Scope in UI|Scope in API |Description
+|*View clients*
+|`view:clients`
+|View all client apps, including client app IDs and client secrets for each client app.
+|*View destinations*
+|`view:destinations`
+|
 
+* View all destinations and each destination's settings (*ID*, *Type*, *Message TTL*, and *Message Lock Default TTL*).
+* View *In Queue* messages.
+* View *In Flight* message stats.
+|*Clear destinations*
+|`clear:destinations`
+|Same privileges as *View destinations*, plus permission to purge messages.
+|*Manage clients*
+|`manage:clients`
+|Same privileges as *View clients*, plus permission to create client apps.
+|*Administer destinations*
+|`administer:destinations`
+|Same privileges as *View destinations* and *Clear destinations*, plus permission to:
+
+** Create new queues, message exchanges, and bindings.
+** Edit existing queues, message exchanges, and bindings.
+
+|*Destination subscriber for given environment*
+|`subscribe:destinations`
+|
+** Consume messages from a destination.
+** Delete messages from a destination.
+|*Destination publisher for given environment*
+|`publish:destinations`
+|
+** Send messages to a destination.
+** Update message TTL on a destination.
+|*Read MQ stats*
+|`read:stats`
+| View organization and environment statistics.
+
+|===
