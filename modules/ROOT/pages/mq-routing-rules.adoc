@@ -46,10 +46,10 @@ To create a message routing rule:
 . Click *Destinations* and then click the name of the exchange to configure rules.
 . On the *Exchange Settings* page, click *Add Rule* to add a rule to a bound queue.
 +
-image::mq-exchange-add-rule-bound-queues.png[Add Rule button on the Exchange Settings page]
+image::mq-exchange-add-rule-bound-queues.png["Add Rule button on the Exchange Settings page"]
 . Complete the fields on the *Create Routing Rule* page.
 +
-image::mq-exchange-create-routing-rule.png[Create Routing Rule page]
+image::mq-exchange-create-routing-rule.png["Create Routing Rule page"]
 +
 * Specify the property name and value to match.
 * For each property type, specify a <<matcher-type,matcher type>>.
@@ -64,7 +64,7 @@ To change a message routing rule:
 . Click *Destinations* and then click the name of the exchange to configure rules.
 . On the *Exchange Settings* page, click *Edit Rule* to change a rule on a bound queue.
 +
-image::mq-exchange-edit-rule-bound-queues.png[Edit Rule button on the Exchange Settings page]
+image::mq-exchange-edit-rule-bound-queues.png["Edit Rule button on the Exchange Settings page"]
 . On the *Edit Routing Rule* page, change the rule settings.
 +
 For information about property types and matcher types, see <<matcher-type>>.
@@ -79,7 +79,7 @@ To delete a message routing rule:
 . Click *Destinations* and then click the name of the exchange to configure rules.
 . On the *Exchange Settings* page, click *Delete Rule* .
 +
-image::mq-exchange-delete-rule-bound-queues.png[Delete Rule button on the Exchange Settings page]
+image::mq-exchange-delete-rule-bound-queues.png["Delete Rule button on the Exchange Settings page"]
 . In the *Delete Routing Rule* confirmation box, select the checkbox and click *Delete Routing Rule* to verify that you want to delete the rule.
 
 == Create or Change a Message Routing Rule with Anypoint Admin API
