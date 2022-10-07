@@ -20,6 +20,8 @@ To create a Connected App with Anypoint MQ scopes:
 .. Select the Anypoint MQ scopes to apply:
 +
 image::mq-conn-apps-scopes.png[Scopes for Anypoint MQ connected apps]
++
+See <<mq-scopes>>.
 .. Click *Next* and select the business groups and environments to apply the scopes to.
 .. Click *Review*.
 .. Click *Add scopes* or *Cancel* to cancel your changes.
@@ -40,6 +42,7 @@ include::partial$mq-connect-apps.adoc[tag=mqConnAppEndpointSupport]
 For information on configuring a Connected App with the API, see
 https://help.mulesoft.com/s/article/How-to-create-connected-apps-creation-using-API[How to create connected apps using the API].
 
+[[mq-scopes]]
 == Anypoint MQ Scopes
 
 Anypoint MQ scopes apply to all destinations in the given organization and environment.
