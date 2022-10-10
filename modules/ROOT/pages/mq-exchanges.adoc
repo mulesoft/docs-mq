@@ -6,14 +6,13 @@ You can also create _intelligent message routing rules_ to route messages to spe
 For information, see
 xref:mq-routing-rules.adoc[].
 
+[NOTE]
+To maintain message order, FIFO queues don't support message routing rules.
 
 The maximum size of a message sent to a message exchange is 10 MB.
 // Max Msg Exchange 
 include::partial$mq-msg-exchange.adoc[tag=msgExchangeMax]
 include::partial$mq-msg-exchange.adoc[tag=msgExchangeMaxRouting]
-
-[NOTE]
-FIFO does not support the use of a message exchange. Similarly, FIFO queues cannot be bound to a message exchange.
 
 Before creating a message exchange, create one or more queues.
 For information, see xref:mq-queues.adoc#create-a-queue[Create a Queue].

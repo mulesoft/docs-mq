@@ -565,8 +565,7 @@ Example request to list statistics for July 26 to July 28, 2018:
 curl -X GET \
 'https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_URL/queues/randomQueue/?startDate=Thu%2C%2026%20Jul%202018%2000%3A00%3A00%20GMT&endDate=Sat%2C%2028%20Jul%202018%2020%3A00%3A00%20GMT&period=600' \
   -H 'authorization: Bearer BEARER_TOKEN' \
-  -H 'cache-control: no-cache' \
-  -H 'postman-token: ACCESS_TOKEN'
+  -H 'cache-control: no-cache' 
 ----
 
 Example response:

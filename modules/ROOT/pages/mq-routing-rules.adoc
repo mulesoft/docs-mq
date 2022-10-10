@@ -123,11 +123,25 @@ When sending the message:
 --
 +
 For information, see 
-xref:mq-queues.adoc#send-message-to-queue[Send a Message to a Queue].
+xref:mq-exchanges.adoc#send-a-message-to-a-message-exchange[Send a Message to a Message Exchange].
 Anypoint MQ Broker API::
 +
 For information, see 
 xref:mq-apis.adoc#publish-message-routing[Publish a Message with Routing Properties].
+
+To view the routing properties on a published message:
+
+. In the *Message Sender* page for the exchange, click *View Messages* for a queue that is bound to the exchange.
++
+Anypoint MQ displays the *Message Browser* page for the selected queue.
+. Click *Get Messages*.
+. Click the message row to view the message payload, including the user properties, in the details pane:
++
+image::mq-exchange-user-props.png["View user properties in the Message Browser page"]
++
+See 
+xref:mq-queues.adoc#get-a-message-from-a-queue[Get a Message from a Queue].
+
 
 [[intelligent-routing-restrictions]]
 == Requirements and Restrictions
