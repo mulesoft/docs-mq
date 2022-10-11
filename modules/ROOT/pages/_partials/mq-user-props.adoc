@@ -4,5 +4,5 @@ User property names can contain up to 42 alphanumeric characters (a-z, A-Z, 0-9)
 // end::mquserprops[]
 
 // tag::mquserpropsTypeColor[]
-The *Message Sender* page shows string properties in blue and number properties in gray.
+The *Message Sender* page shows added string properties in blue and number properties in gray.
 // end::mquserpropsTypeColor[]
