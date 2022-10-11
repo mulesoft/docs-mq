@@ -58,7 +58,7 @@ image::mq-tutorial-create-choices.png["Blue plus icon menu options"]
 +
 image::mq-create-queues.png["Create Queue window"]
 +
-Queue names can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9) and punctuation (. -). They cannot contain spaces or other characters. 
+Queue names can contain up to 127 alphanumeric (a-z, A-Z, 0-9) and punctuation (. -) characters. They cannot contain spaces or other characters. 
 . If you want, specify any other queue settings. 
 +
 For information, see xref:mq-queues.adoc#create-a-queue[Create a Queue].
@@ -86,8 +86,6 @@ image::mq-tutorial-message-sender-page.png["Message Sender navigation menu"]
 . If you want, toggle *Add User Properties*, specify the property name-value pairs to send, and click *Add Property*:
 +
 image::mq-tutorial-message-sender-user-props.png["Add User Properties toggle in the Message Sender page"]
-+
-include::partial$mq-user-props.adoc[tag=mquserprops]
 +
 include::partial$mq-user-props.adoc[tag=mquserpropsTypeColor]
 . Click *Send*.

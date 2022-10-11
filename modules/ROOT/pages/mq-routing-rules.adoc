@@ -167,7 +167,7 @@ Anypoint MQ evaluates messages against the routing rule only if they meet the fo
 This total includes operational headers, such as `messageId` and `createdTimestamp`, that Anypoint MQ creates.
 * Maximum total size of headers and properties is 215 KB.
 
-* Property values for routing rules can contain alphanumeric characters (a-z, A-Z, 0-9), whitespace, and punctuation (@ ! & \| # $ % - _ : ; , . ').
+* Property values for routing rules can contain whitespace, alphanumeric (a-z, A-Z, 0-9), and punctuation (@ ! & \| # $ % - _ : ; , . ') characters.
 
 If a message doesn't meet these criteria, Anypoint MQ ignores the headers and properties
 when evaluating the message against the message routing rules.

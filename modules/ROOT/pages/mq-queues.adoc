@@ -61,7 +61,7 @@ image::mq-create-queues.png["Create Queue popup dialog box"]
 --
 ** *ID* specifies the queue name.
 +
-Queue names can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9) and punctuation (. -). They cannot contain spaces or other characters. 
+Queue names can contain up to 127 alphanumeric (a-z, A-Z, 0-9) and punctuation (. -) characters. They cannot contain spaces or other characters. 
 +
 ** *Message TTL* (time-to-live) specifies how long unprocessed messages persist before being deleted. 
 +
@@ -135,8 +135,6 @@ See <<FIFO Queues and Message Groups>>.
 Toggle *Add User Properties*, specify the property name-value pairs to send, and click *Add Property*:
 +
 image::mq-tutorial-message-sender-user-props.png["Add User Properties toggle in the Message Sender page"]
-+
-include::partial$mq-user-props.adoc[tag=mquserprops]
 +
 include::partial$mq-user-props.adoc[tag=mquserpropsTypeColor]
 . Click *Send*.

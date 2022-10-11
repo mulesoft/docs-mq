@@ -1,7 +1,3 @@
-// MQ user property names
-// tag::mquserprops[]
-User property names can contain up to 42 alphanumeric characters (a-z, A-Z, 0-9) and punctuation (. - :). They cannot contain spaces or other characters. 
-// end::mquserprops[]
 
 // tag::mquserpropsTypeColor[]
 The *Message Sender* page shows added string properties in blue and number properties in gray.

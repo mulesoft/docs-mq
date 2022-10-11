@@ -30,7 +30,7 @@ image::mq-blue-create.png["Blue plus icon used for adding a message exchange"]
 For *Queue* or *FIFO Queue*, see xref:mq-queues.adoc[].
 . In the *Create Exchange* page, name the message exchange. 
 +
-Message exchange names can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9) and punctuation (. -).
+Message exchange names can contain up to 127 alphanumeric (a-z, A-Z, 0-9) and punctuation (. -) characters.
 They cannot contain spaces or other characters. 
 . Click the checkboxes to bind queues to this message exchange:
 +
@@ -82,15 +82,10 @@ image::mq-exchange-payload.png["Message Sender option for the exchange"]
 +
 image::mq-tutorial-message-sender-user-props.png["Add User Properties toggle in the Message Sender page"]
 +
-//Shared User Property names
-include::partial$mq-user-props.adoc[tag=mquserprops]
-+
 [NOTE]
 If the message exchange has routing rules defined, additional restrictions apply.
 See 
 xref:mq-exchanges.adoc#intelligent-routing-restrictions[Requirements and Restrictions].
-+
-include::partial$mq-user-props.adoc[tag=mquserpropsTypeColor]
 . Click *Send*.
 . Click *View Messages* for a queue that is bound to the exchange to view the queue with the Message Browser.
 +
