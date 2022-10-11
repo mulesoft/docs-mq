@@ -58,7 +58,7 @@ image::mq-tutorial-create-choices.png["Blue plus icon menu options"]
 +
 image::mq-create-queues.png["Create Queue window"]
 +
-Queue names can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9), periods (.), and hyphens (-). They cannot contain spaces or other characters. 
+Queue names can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9) and punctuation (. -). They cannot contain spaces or other characters. 
 . If you want, specify any other queue settings. 
 +
 For information, see xref:mq-queues.adoc#create-a-queue[Create a Queue].

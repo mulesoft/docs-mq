@@ -33,7 +33,7 @@ image::mq-blue-create.png["Blue plus icon used for adding a message exchange"]
 For *Queue* or *FIFO Queue*, see xref:mq-queues.adoc[].
 . In the *Create Exchange* page, name the message exchange. 
 +
-Message exchange names can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9), periods (.), and hyphens (-). They cannot contain spaces or other characters. 
+Message exchange names can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9), punctuation (. -). They cannot contain spaces or other characters. 
 . Click the checkboxes to bind queues to this message exchange:
 +
 image::mq-exchange-bind-queues.png["Checkboxes to bind queues to an exchange"]
