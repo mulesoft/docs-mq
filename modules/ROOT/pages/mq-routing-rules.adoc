@@ -109,6 +109,9 @@ xref:mq-apis.adoc#routing-rules-api[Create or Change Message Routing Rules].
 | Exists | Message includes a property with a name that matches the property name in this rule.
 |===
 
+[IMPORTANT]
+Property values support the period (.) character (not the comma (,) character) for decimal notation in numeric property values.
+
 == Publish a Message with Routing Properties
 
 To publish messages to an exchange and route them to specific queues, 
@@ -162,6 +165,8 @@ Anypoint MQ evaluates messages against the routing rule only if they meet the fo
 +
 This total includes operational headers, such as `messageId` and `createdTimestamp`, that Anypoint MQ creates.
 * Maximum total size of headers and properties is 215 KB.
+
+* Property values for routing rules can contain alphanumeric characters (a-z, A-Z, 0-9), parentheses (()), at sign (@), exclamation point (!), ampersand (&), pipe (|), hash (#), dollar sign ($), percent (%), whitespace, hyphen(-), underscore(_), colon(;), semicolon(:), comma(,), period(.), and single-quote(') characters.
 
 If a message doesn't meet these criteria, Anypoint MQ ignores the headers and properties
 when evaluating the message against the message routing rules.
