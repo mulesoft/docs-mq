@@ -53,7 +53,7 @@ image::mq-exchange-create-routing-rule.png["Create Routing Rule page"]
 +
 * Specify the property name and value to match.
 * For each property type, specify a <<matcher-type,matcher type>>.
-. Click *Create Routing Rule*.
+. Click *Add Rule*.
 
 == Change a Message Routing Rule 
 
@@ -68,7 +68,7 @@ image::mq-exchange-edit-rule-bound-queues.png["Edit Rule button on the Exchange 
 . On the *Edit Routing Rule* page, change the rule settings.
 +
 For information about property types and matcher types, see <<matcher-type>>.
-. Click *Edit Routing Rule*.
+. Click *Save Rule*.
 
 == Delete a Message Routing Rule 
 
@@ -84,7 +84,7 @@ image::mq-exchange-delete-rule-bound-queues.png["Delete Rule button on the Excha
 
 == Create or Change a Message Routing Rule with Anypoint Admin API
 
-For information on using the Anypoint Admin API to manage message routing rules, see
+For information on using the Anypoint MQ Admin API to manage message routing rules, see
 xref:mq-apis.adoc#routing-rules-api[Create or Change Message Routing Rules].
 
 
