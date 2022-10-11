@@ -112,9 +112,10 @@ xref:mq-apis.adoc#routing-rules-api[Create or Change Message Routing Rules].
 [IMPORTANT]
 Property values support the period (.) character (not the comma (,) character) for decimal notation in numeric property values.
 
-== Publish a Message with Routing Properties
+[[send-message-with-routing-props]]
+== Send a Message with Routing Properties
 
-To publish messages to an exchange and route them to specific queues, 
+To send messages to an exchange and route them to specific queues, 
 use either:
 
 Anypoint MQ *Message Sender* page::
@@ -130,7 +131,7 @@ xref:mq-exchanges.adoc#send-a-message-to-a-message-exchange[Send a Message to a 
 Anypoint MQ Broker API::
 +
 For information, see 
-xref:mq-apis.adoc#publish-message-routing[Publish a Message with Routing Properties].
+xref:mq-apis.adoc#send-message-routing[Send a Message with Routing Properties].
 
 To view the routing properties on a published message:
 

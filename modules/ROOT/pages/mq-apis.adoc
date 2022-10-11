@@ -189,8 +189,8 @@ You can get the organization ID and environment ID in the `payload.txt` file tha
 These examples use the Anypoint MQ Broker API to publish and consume messages and to test Anypoint MQ from the command line using `curl`.
 
 * <<get-broker-access-token>>
-* <<publish-messages-api>>
-* <<publish-message-routing>>
+* <<send-messages-api>>
+* <<send-message-routing>>
 * <<retrieve-message-api>>
 
 You must substitute the placeholder string, `42544254-4254-4254-4254-425442544254` with the proper values for authorization and token strings. These examples use Postman to access the queue.
@@ -232,8 +232,8 @@ The command returns output similar to:
 {"access_token":"<token>","simple_client":{"envId":"ENVIRONMENT_ID","orgId":"ORGANIZATION_ID"},"token_type":"bearer"}
 ----
 
-[[publish-messages-api]]
-=== Publish a Message
+[[send-messages-api]]
+=== Send a Message
 
 The following `curl` command publishes a message:
 
@@ -253,8 +253,8 @@ curl -X PUT -H "Content-Type: application/json" \
 ' "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/42544254-4254-4254-4254-425442544254/environments/42544254-4254-4254-4254-425442544254/destinations/postmanExchange/messages/552"
 ----
 
-[[publish-message-routing]]
-=== Publish a Message with Routing Properties
+[[send-message-routing]]
+=== Send a Message with Routing Properties
 
 include::partial$mq-msg-exchange.adoc[tag=msgRulesEval]
 
