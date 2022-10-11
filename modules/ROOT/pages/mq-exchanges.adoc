@@ -6,9 +6,6 @@ You can also create _intelligent message routing rules_ to route messages to spe
 For information, see
 xref:mq-routing-rules.adoc[].
 
-[NOTE]
-To maintain message order, FIFO queues don't support message routing rules.
-
 The maximum size of a message sent to a message exchange is 10 MB.
 // Max Msg Exchange 
 include::partial$mq-msg-exchange.adoc[tag=msgExchangeMax]
@@ -33,7 +30,8 @@ image::mq-blue-create.png["Blue plus icon used for adding a message exchange"]
 For *Queue* or *FIFO Queue*, see xref:mq-queues.adoc[].
 . In the *Create Exchange* page, name the message exchange. 
 +
-Message exchange names can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9), punctuation (. -). They cannot contain spaces or other characters. 
+Message exchange names can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9) and punctuation (. -).
+They cannot contain spaces or other characters. 
 . Click the checkboxes to bind queues to this message exchange:
 +
 image::mq-exchange-bind-queues.png["Checkboxes to bind queues to an exchange"]
