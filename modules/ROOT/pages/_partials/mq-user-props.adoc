@@ -2,3 +2,10 @@
 // tag::mquserpropsTypeColor[]
 The *Message Sender* page shows added string properties in blue and number properties in gray.
 // end::mquserpropsTypeColor[]
+
+// tag::mqNumberPropsConnector[]
+To create routing rules on numeric property values,
+you must upgrade to the latest version of Anypoint MQ Connector.
+Previous versions of the connector send all property values as strings,
+which results in messages not matching routing rules on numeric properties.
+// end::mqNumberPropsConnector[]

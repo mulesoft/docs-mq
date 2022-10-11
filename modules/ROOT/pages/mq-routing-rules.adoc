@@ -110,7 +110,11 @@ xref:mq-apis.adoc#routing-rules-api[Create or Change Message Routing Rules].
 |===
 
 [IMPORTANT]
+--
 Property values support the period (.) character (not the comma (,) character) for decimal notation in numeric property values.
+
+include::partial$mq-user-props.adoc[tag=mqNumberPropsConnector]
+--
 
 [[send-message-with-routing-props]]
 == Send a Message with Routing Properties
@@ -150,6 +154,9 @@ xref:mq-queues.adoc#get-a-message-from-a-queue[Get a Message from a Queue].
 [[intelligent-routing-restrictions]]
 == Requirements and Restrictions
 
+[IMPORTANT]
+include::partial$mq-user-props.adoc[tag=mqNumberPropsConnector]
+
 Anypoint MQ supports message routing rules with the following restrictions:
 
 * Exchanges must have 10 or fewer queue bindings.
@@ -159,6 +166,8 @@ If an exchange has more than 10 queue bindings, you cannot configure message rou
 +
 ** Maximum size of the property name is 180 bytes.
 ** Maximum size of the property value is 45 KB.
+* Property values for routing rules can contain whitespace, alphanumeric (a-z, A-Z, 0-9), and punctuation (@ ! & \| # $ % - _ : ; , . ') characters.
+
 
 Anypoint MQ evaluates messages against the routing rule only if they meet the following criteria:
 
@@ -167,7 +176,6 @@ Anypoint MQ evaluates messages against the routing rule only if they meet the fo
 This total includes operational headers, such as `messageId` and `createdTimestamp`, that Anypoint MQ creates.
 * Maximum total size of headers and properties is 215 KB.
 
-* Property values for routing rules can contain whitespace, alphanumeric (a-z, A-Z, 0-9), and punctuation (@ ! & \| # $ % - _ : ; , . ') characters.
 
 If a message doesn't meet these criteria, Anypoint MQ ignores the headers and properties
 when evaluating the message against the message routing rules.
