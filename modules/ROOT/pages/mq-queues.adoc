@@ -132,11 +132,13 @@ include::partial$mq-msg-group-id.adoc[]
 See <<FIFO Queues and Message Groups>>.
 ** *Add User Properties* configures user properties to send with the message.
 +
-Toggle *Add User Properties* and specify the property name-value pairs to send:
+Toggle *Add User Properties*, specify the property name-value pairs to send, and click *Add Property*:
 +
 image::mq-tutorial-message-sender-user-props.png["Add User Properties toggle in the Message Sender page"]
 +
 include::partial$mq-user-props.adoc[tag=mquserprops]
++
+include::partial$mq-user-props.adoc[tag=mquserpropsTypeColor]
 . Click *Send*.
 
 == View the Number of Messages in a Queue
