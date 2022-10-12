@@ -6,7 +6,7 @@ The *Message Sender* page shows added string properties in blue and number prope
 // tag::mqNumberPropsConnector[]
 If you create routing rules on numeric property values and you use
 Anypoint MQ Connector to publish messages, 
-you must upgrade to  Anypoint MQ Connector version 3.2.0 or later.
+you must upgrade to Anypoint MQ Connector version 3.2.0 or later.
 Previous versions of the connector send all property values as strings,
 which results in messages not matching routing rules on numeric properties.
 // end::mqNumberPropsConnector[]
