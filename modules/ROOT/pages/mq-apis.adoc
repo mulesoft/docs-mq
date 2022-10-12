@@ -230,11 +230,19 @@ View your entire organization's usage of Anypoint MQ for billing purposes:
 * Statistics for queues and message exchanges  
 * Number of messages currently in a queue
 
+[NOTE]
+====
+The Anypoint MQ Stats API limits retrieving stats to 10 transactions per minute per environment in an organization.
+
+For other calls to the Anypoint MQ Status API, the limit is 200 transactions per minute.
+====
+
 For more information, see the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API] in the MuleSoft developer portal.
 
 === Use the Anypoint MQ Stats API
 
-NOTE: To access the Anypoint MQ Stats API, you must first authenticate using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Anypoint Access Management API].
+[NOTE]
+To access the Anypoint MQ Stats API, you must first authenticate using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Anypoint Access Management API].
 
 To use the Stats API, you can get the access token from the Anypoint Platform user.
 The access token is also known as the Bearer.
@@ -359,8 +367,7 @@ This information is not real-time and has a latency.
 
 `/environments/ENVIRONMENT_ID?startDate=...&endDate=...&period=...`
 
-[NOTE]
-Anypoint MQ limits retrieving stats by environment to 10 transactions per minute, per organization.
+
 
 *Sample Request and Response:*
 
