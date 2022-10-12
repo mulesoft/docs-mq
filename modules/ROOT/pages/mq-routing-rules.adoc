@@ -122,7 +122,8 @@ include::partial$mq-user-props.adoc[tag=mqNumberPropsConnector]
 To send messages to an exchange and route them to specific queues, 
 use either:
 
-Anypoint MQ *Message Sender* page::
+* Anypoint MQ *Message Sender* page:
++
 When sending the message:
 +
 --
@@ -132,7 +133,7 @@ When sending the message:
 +
 For information, see 
 xref:mq-exchanges.adoc#send-a-message-to-a-message-exchange[Send a Message to a Message Exchange].
-Anypoint MQ Broker API::
+* Anypoint MQ Broker API:
 +
 For information, see 
 xref:mq-apis.adoc#send-message-routing[Send a Message with Routing Properties].
