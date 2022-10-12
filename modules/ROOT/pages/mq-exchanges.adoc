@@ -81,11 +81,6 @@ image::mq-exchange-payload.png["Message Sender option for the exchange"]
 . If you want, toggle *Add User Properties*, specify the property name-value pairs to send, and click *Add Property*:
 +
 image::mq-tutorial-message-sender-user-props.png["Add User Properties toggle in the Message Sender page"]
-+
-[NOTE]
-If the message exchange has routing rules defined, additional restrictions apply.
-See 
-xref:mq-exchanges.adoc#intelligent-routing-restrictions[Requirements and Restrictions].
 . Click *Send*.
 . Click *View Messages* for a queue that is bound to the exchange to view the queue with the Message Browser.
 +
