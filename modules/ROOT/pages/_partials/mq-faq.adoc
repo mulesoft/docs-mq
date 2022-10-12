@@ -11,7 +11,7 @@ If you configure Anypoint MQ queues for encryption at rest, the payloads are enc
 
 // tag::faqEncryptionQandEx[]
 Anypoint MQ encrypts only the message body.
-The `headers`and `properties` of messages sent to exchanges and queues are not encrypted.
+Anypoint MQ does not encrypt the `headers`and `properties` of messages sent to exchanges and queues.
 // end::faqEncryptionQandEx[]
 
 // tag::messageGroupLimit[]
