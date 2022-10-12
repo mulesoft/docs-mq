@@ -231,11 +231,8 @@ View your entire organization's usage of Anypoint MQ for billing purposes:
 * Number of messages currently in a queue
 
 [NOTE]
-====
-The Anypoint MQ Stats API limits retrieving stats to 10 transactions per minute per environment in an organization.
+include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
 
-For other calls to the Anypoint MQ Status API, the limit is 200 transactions per minute.
-====
 
 For more information, see the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API] in the MuleSoft developer portal.
 
@@ -362,12 +359,14 @@ Note that period is an integer here. It's the granularity of data points in seco
 
 === Usage Metrics by Environment 
 
-You can use the Stats API to retrieve Anypoint MQ usage information by environment for a particular organization.
-This information is not real-time and has a latency.
+You can use the Stats API to retrieve Anypoint MQ usage information by environment for a particular organization:
 
 `/environments/ENVIRONMENT_ID?startDate=...&endDate=...&period=...`
 
+This information is not real-time and has a latency.
 
+[NOTE]
+include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
 
 *Sample Request and Response:*
 
@@ -401,12 +400,13 @@ include::partial$mq-faq.adoc[tag=returnVals]
 
 === Usage Metrics by Organization
 
-The Stats API can be used to retrieve Anypoint MQ usage for the root business organization:
+You can use the Stats API to retrieve Anypoint MQ usage for the root business organization:
 
 `/organizations/ORGANIZATION_ID?startDate=...&endDate=...&period=...`
 
 [NOTE]
-Anypoint MQ limits retrieving stats by organization to 10 transactions per minute, per organization.
+include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
+
 
 *Sample Request and Response:*
 
