@@ -166,7 +166,7 @@ include::partial$mq-user-props.adoc[tag=msgExchangeMaxRouting]
 +
 ** Maximum size of the property name is 180 bytes.
 ** Maximum size of the property value is 45 KB.
-* Property values for routing rules can contain whitespace, alphanumeric (a-z, A-Z, 0-9), and punctuation (@ ! & \| # $ % - _ : ; , . ') characters.
+* Property values for routing rules can contain whitespace, alphanumeric (a-z, A-Z, 0-9), and punctuation (@ ! & | # $ % - _ : ; , . ') characters.
 
 
 Anypoint MQ evaluates messages against the routing rule only if they meet the following criteria:
