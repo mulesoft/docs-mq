@@ -1,0 +1,189 @@
+= Configure Rules on Message Exchanges to Route Messages
+
+Anypoint MQ includes the ability to create _intelligent message routing rules_ to route a subset of the messages published to an exchange to a specific queue.
+
+You configure the message routing rule on the binding on an exchange.
+When you publish a message to the exchange, the message routing rule
+routes the message to a queue only if the message includes
+a property or header that matches the rule.
+
+[NOTE]
+include::partial$mq-msg-exchange.adoc[tag=exchBindingNoRules]
+
+image::mq-route-message.png["Routing rules on exchange bindings"]
+
+For example, you might want to designate a queue to handle all orders for size medium items and another queue for premium items.
+
+
+To route messages published to an exchange to specific queues:
+
+. Define message routing rules on the binding between the exchange and the queue.
++
+You configure one message routing rule per binding on the exchange.
+include::partial$mq-msg-exchange.adoc[tag=msgRulesEval]
+. Specify filtering criteria by defining `properties` and `headers` in the message.
++
+If you publish the following message to the `purchases` exchange,
+the exchange forwards it only to `premiumPurchases` queue and 
+not to the `sizeMedium` queue based on the routing rule configuration.
++
+[source,json,linenums]
+----
+{
+    "headers" : {
+        "itemSize" : "large"
+    },
+    "body" : "User added an item to the cart"
+}
+----
+
+== Create a Message Routing Rule 
+
+To create a message routing rule:
+
+. Log in to Anypoint Platform.
+. Click *MQ* in navigation area or the main Anypoint Platform screen.
+. Click *Destinations* and then click the name of the exchange to configure rules.
+. On the *Exchange Settings* page, click *Add Rule* to add a rule to a bound queue.
++
+image::mq-exchange-add-rule-bound-queues.png["Add Rule button on the Exchange Settings page"]
+. Complete the fields on the *Create Routing Rule* page.
++
+image::mq-exchange-create-routing-rule.png["Create Routing Rule page"]
++
+* Specify the property name and value to match.
+* For each property type, specify a <<matcher-type,matcher type>>.
+. Click *Add Rule*.
+
+== Change a Message Routing Rule 
+
+To change a message routing rule:
+
+. Log in to Anypoint Platform.
+. Click *MQ* in navigation area or the main Anypoint Platform screen.
+. Click *Destinations* and then click the name of the exchange to configure rules.
+. On the *Exchange Settings* page, click *Edit Rule* to change a rule on a bound queue.
++
+image::mq-exchange-edit-rule-bound-queues.png["Edit Rule button on the Exchange Settings page"]
+. On the *Edit Routing Rule* page, change the rule settings.
++
+For information about property types and matcher types, see <<matcher-type>>.
+. Click *Save Rule*.
+
+== Delete a Message Routing Rule 
+
+To delete a message routing rule:
+
+. Log in to Anypoint Platform.
+. Click *MQ* in navigation area or the main Anypoint Platform screen.
+. Click *Destinations* and then click the name of the exchange to configure rules.
+. On the *Exchange Settings* page, click *Delete Rule* .
++
+image::mq-exchange-delete-rule-bound-queues.png["Delete Rule button on the Exchange Settings page"]
+. In the *Delete Routing Rule* confirmation box, select the checkbox and click *Delete Routing Rule* to verify that you want to delete the rule.
+
+== Create or Change a Message Routing Rule with Anypoint Admin API
+
+For information on using the Anypoint MQ Admin API to manage message routing rules, see
+xref:mq-apis.adoc#routing-rules-api[Create or Change Message Routing Rules].
+
+
+[[matcher-type]]
+=== Matcher Type
+
+[%header,cols="10a,20a,60a"]
+|===
+|Property Type | Matcher Type |Description
+.5+|String | Equals | Message property value is an exact match for the value in this rule.
+| Prefix | Message property value starts with the value in this rule.
+| Any of | Message property value matches any of the values in this rule.
+| None of | Message property value does not match any of the values in this rule.
+| Exists | Message includes a property with a name that matches the property name in this rule.
+.8+|Number | Equals | Message property value is equal to the value in this rule.
+| Less than | Message property value is less than the value in this rule.
+| Less than or equal | Message property value is less than or equal to the value in this rule.
+| Greater than | Message property value is greater than the value in this rule.
+| Greater than or equal | Message property value is greater than or equal to the value in this rule.
+| Range | Message property value is within the inclusive range of values specified in this rule.
+| None of | Message property value does not match any of the values in this rule.
+| Exists | Message includes a property with a name that matches the property name in this rule.
+|===
+
+[IMPORTANT]
+--
+Property values support the period (.) character (not the comma (,) character) for decimal notation in numeric property values.
+
+include::partial$mq-user-props.adoc[tag=mqNumberPropsConnector]
+--
+
+[[send-message-with-routing-props]]
+== Send a Message with Routing Properties
+
+To send messages to an exchange and route them to specific queues, 
+use either:
+
+* Anypoint MQ *Message Sender* page:
++
+When sending the message:
++
+--
+.. Toggle *Add User Properties*.
+.. Specify the filter criteria as property name-value pairs to send.
+--
++
+For information, see 
+xref:mq-exchanges.adoc#send-a-message-to-a-message-exchange[Send a Message to a Message Exchange].
+* Anypoint MQ Broker API:
++
+For information, see 
+xref:mq-apis.adoc#send-message-routing[Send a Message with Routing Properties].
+
+To view the routing properties on a published message:
+
+. In the *Message Sender* page for the exchange, click *View Messages* for a queue that is bound to the exchange.
++
+Anypoint MQ displays the *Message Browser* page for the selected queue.
+. Click *Get Messages*.
+. Click the message row to view the message payload, including the user properties, in the details pane:
++
+image::mq-exchange-user-props.png["View user properties in the Message Browser page"]
++
+See 
+xref:mq-queues.adoc#get-a-message-from-a-queue[Get a Message from a Queue].
+
+
+[[intelligent-routing-restrictions]]
+== Requirements and Restrictions
+
+[IMPORTANT]
+include::partial$mq-user-props.adoc[tag=mqNumberPropsConnector]
+
+Anypoint MQ supports message routing rules with the following restrictions:
+
+* Exchanges must have 10 or fewer queue bindings.
++
+include::partial$mq-user-props.adoc[tag=msgExchangeMaxRouting]
+* You can configure a message routing rule on only one property with the following restrictions:
++
+** Maximum size of the property name is 180 bytes.
+** Maximum size of the property value is 45 KB.
+* Property values for routing rules can contain whitespace, alphanumeric (a-z, A-Z, 0-9), and punctuation (@ ! & | # $ % - _ : ; , . ') characters.
+
+
+Anypoint MQ evaluates messages against the routing rule only if they meet the following criteria:
+
+* Total number of headers and properties is fewer than 500.
++
+This total includes operational headers, such as `messageId` and `createdTimestamp`, that Anypoint MQ creates.
+* Maximum total size of headers and properties is 215 KB.
+
+
+If a message doesn't meet these criteria, Anypoint MQ ignores the headers and properties
+when evaluating the message against the message routing rules.
+
+Anypoint MQ retains the headers and properties in the payload and, when it publishes the message to the exchange, the headers and properties are available for consumption.
+
+== See Also
+
+* xref:mq-apis.adoc#routing-rules-api[Create Message Routing Rules]
+* xref:mq-apis.adoc#publish-message-routing[Publish a Message with Routing Properties]

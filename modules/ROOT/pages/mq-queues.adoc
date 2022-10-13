@@ -61,7 +61,7 @@ image::mq-create-queues.png["Create Queue popup dialog box"]
 --
 ** *ID* specifies the queue name.
 +
-Queue names can contain up to 127 alphanumeric characters (a-z, A-Z, 0-9), periods (.), and hyphens (-). They cannot contain spaces or other characters. 
+Queue names can contain up to 127 alphanumeric (a-z, A-Z, 0-9) and punctuation (. -) characters. They cannot contain spaces or other characters. 
 +
 ** *Message TTL* (time-to-live) specifies how long unprocessed messages persist before being deleted. 
 +
@@ -76,7 +76,7 @@ The maximum acknowledgement timeout is 12 hours.
 The minimum delivery delay for a message is 0 seconds. The maximum is 15 minutes. When you send a message, you can override the default delivery delay. See xref:mq-understanding.adoc#delay_queues[Delay queues].
 ** *Encryption* encrypts all messages in the queue.
 +
-See xref:mq-understanding.adoc#encrypt-queue[Encrypted queues].
+See xref:mq-understanding.adoc#encrypt_queue[Encrypted queues].
 ** *Assign a Dead Letter Queue* assigns the DLQ.
 +
 The DLQ is a previously created queue to which to send undeliverable messages. See <<Dead Letter Queues>>.
@@ -89,7 +89,7 @@ image::mq-queue-details.png["Destinations page with the type, ID, and details la
 +
 include::partial$mq-msg-browser-details.adoc[tag=mqQueueDetails]
 
-
+[[send-message-to-queue]]
 == Send a Message to a Queue
 
 Message content can be text, CSV (comma-separated values), or JSON.
@@ -132,11 +132,11 @@ include::partial$mq-msg-group-id.adoc[]
 See <<FIFO Queues and Message Groups>>.
 ** *Add User Properties* configures user properties to send with the message.
 +
-Toggle *Add User Properties* and specify the property name-value pairs to send:
+Toggle *Add User Properties*, specify the property name-value pairs to send, and click *Add Property*:
 +
 image::mq-tutorial-message-sender-user-props.png["Add User Properties toggle in the Message Sender page"]
 +
-include::partial$mq-user-props.adoc[tag=mquserprops]
+include::partial$mq-user-props.adoc[tag=mquserpropsTypeColor]
 . Click *Send*.
 
 == View the Number of Messages in a Queue
@@ -338,7 +338,7 @@ To create a FIFO queue, see <<Create a Queue>>. To determine if a queue is FIFO 
 
 See the xref:mq-faq#regions[Anypoint MQ FAQ] for the regions in which Anypoint MQ and FIFO queues are available.
 
-For information about creating FIFO queues with the Admin API, see xref:mq-apis.adoc#create-a-fifo-queue-in-the-admin-api-portal[Create a FIFO Queue in the Admin API Portal].
+For information about creating FIFO queues with the Admin API, see xref:mq-apis.adoc#fifo-queue-api[Create a FIFO Queue Using the Admin API].
 
 === FIFO Queues and Message Groups
 
