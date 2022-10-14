@@ -90,6 +90,8 @@ In FIFO queues, you can assign messages to a message group to enable multiple co
 Messages in queues data can optionally be encrypted, enabling companies to be compliant with their data at rest policies. 
 //Shared Encryption
 include::partial$mq-faq.adoc[tag=faqEncryption]
++
+include::partial$mq-faq.adoc[tag=faqEncryptionQandEx]
 
 == Queues
 
@@ -157,6 +159,7 @@ For example, if a publisher publishes changes in the weather, and you have multi
 A _binding_ is a relationship between the queue and message exchange, which tells the message exchange where to send messages. A queue can be bound to multiple message exchanges.
 // Max Msg Exchange 
 include::partial$mq-msg-exchange.adoc[tag=msgExchangeMax]
+include::partial$mq-msg-exchange.adoc[tag=msgExchangeMaxRouting]
 
 == Example
 
@@ -181,6 +184,7 @@ Enables pub/sub apps to bridge the simple pub/sub structure and use point-to-poi
 +
 // Max Msg Exchange 
 include::partial$mq-msg-exchange.adoc[tag=msgExchangeMax]
+include::partial$mq-msg-exchange.adoc[tag=msgExchangeMaxRouting]
 * *Dead letter queue (DLQ)*
 +
 A queue that stores undeliverable messages from other queues.

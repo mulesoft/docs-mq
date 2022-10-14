@@ -48,9 +48,11 @@ After you obtain an Enterprise subscription and contacted your MuleSoft represen
 
 Anypoint MQ uses in-flight HTTPS encryption with Transport Layer Security (TLS) 1.2 protocol to transport messages and doesn't support the deprecated TLS versions 1.0 and 1.1.
 
-
 //Shared Encryption
 include::partial$mq-faq.adoc[tag=faqEncryption]
+
+[NOTE]
+include::partial$mq-faq.adoc[tag=faqEncryptionQandEx]
 
 If your app requires an additional layer of encryption security, then you can encrypt the payloads yourself before publishing messages to Anypoint MQ. You must manage your encryption keys for both the message publishers and the consumers.
 
@@ -107,7 +109,7 @@ If a larger size is required, you can split the payload into multiple messages, 
 The *Message Browser* page displays the payload only if the payload size is smaller than 1 MB.
 If the payload size is 1 MB or larger, the *Message Browser* page displays an error.
 In this case, you can use the Anypoint MQ Broker API to display the message payload. 
-See xref:mq-apis.adoc#example-retrieve-a-message[Example: Retrieve a Message].
+See xref:mq-apis.adoc#retrieve-message-api[Retrieve a Message].
 
 == Are message exchanges and queues unique and accessible only in their created environment?
 
@@ -304,7 +306,7 @@ The only officially supported connectors and transports for shared resources are
 
 == How do I create many queues and message exchanges?
 
-You can use a `curl` command with the xref:mq-apis.adoc#mqadminapi[REST Administration API] in a `for` loop to create the number of queues and message exchanges you need. See an xref:mq-apis.adoc#excoliuscu[example `curl` command] that you can alter to create a queue or message exchange.
+You can use a `curl` command with the xref:mq-apis.adoc#mqadminapi[Anypoint MQ Admin API] in a `for` loop to create the number of queues and message exchanges you need. See xref:mq-apis.adoc[].
 
 == Do the API requests-per-month usage charges pertain to all environments?
 

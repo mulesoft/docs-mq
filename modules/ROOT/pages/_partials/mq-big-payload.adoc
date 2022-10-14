@@ -3,7 +3,7 @@
 Payloads larger than 1 MB don't appear in the Message Browser.
 You can retrieve them with the Anypoint Broker API.
 See 
-xref:mq-apis.adoc#example-retrieve-a-message[Example: Retrieve a Message].
+xref:mq-apis.adoc#retrieve-message-api[Retrieve a Message].
 // end::mqBigPayload[]
 
 // MQ Payload Conversion
