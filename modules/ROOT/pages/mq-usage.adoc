@@ -57,7 +57,7 @@ image::mq-msg-unit-color.png[]
 == Retrieve Usage Metrics with Anypoint MQ Stats API
 
 To use the Anypoint MQ Stats API to retrieve usage metrics, see
-xref:mq-apis.adoc#usage-metrics-by-environment[Usage Metrics by Environment].
+xref:mq-apis.adoc#usage-by-env[Usage Metrics by Environment].
 
 == See Also
 
