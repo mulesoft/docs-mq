@@ -1,7 +1,4 @@
 = Anypoint MQ Connectors
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
 
 Anypoint MQ Connectors are available for Mule 3 and Mule 4.
 

@@ -1,8 +1,4 @@
 = Tutorial: Create a Queue and Send Messages to It
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
-:imagesdir: ../assets/images/
 
 Use this tutorial to get started with using Anypoint MQ to send messages to and retrieve messages from a _queue_, which is a temporary storage area for a message. 
 

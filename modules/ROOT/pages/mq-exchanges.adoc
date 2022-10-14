@@ -1,5 +1,4 @@
-= Configure Message Exchanges
-
+= Configuring Message Exchanges
 
 Using a _message exchange_, you can send a message to one or more standard xref:mq-queues.adoc[queues] that are bound to the message exchange.
 You can also create _intelligent message routing rules_ to route messages to specific queues that are bound to the message exchange.
