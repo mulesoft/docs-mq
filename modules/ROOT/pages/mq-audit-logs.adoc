@@ -1,8 +1,4 @@
 = Anypoint MQ Audit Logs
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
-:imagesdir: ../assets/images/
 
 The Anypoint Platform audit logging service logs Anypoint MQ actions on queues,
 exchanges, and client applications.
@@ -107,6 +103,9 @@ This value specifies the duration that a message is unavailable to other applica
 
 //Shared Encryption
 include::partial$mq-faq.adoc[tag=faqEncryption]
+
+
+include::partial$mq-faq.adoc[tag=faqEncryptionQandEx]
 |`deadLetterQueueId` |Name of the dead letter queue to which the current object is associated
 |`maxDeliveries` |How many times Anypoint MQ tries to deliver messages in the queue before rerouting the message to the dead letter queue
 |`fifo` |Whether the queue is a FIFO queue (`true`) or not (`false`)

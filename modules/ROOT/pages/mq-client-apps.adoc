@@ -1,8 +1,4 @@
-= Configure Client Apps
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
-:imagesdir: ../assets/images/
+= Configuring Client Apps
 
 You can register a Mule app with Anypoint Connector for MQ (Anypoint MQ Connector). 
 When the app is registered, Anypoint MQ lists the client ID and client secret for the app. 

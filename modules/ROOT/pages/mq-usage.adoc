@@ -1,8 +1,4 @@
-= View Usage Graphs
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
-:imagesdir: ../assets/images/
+= Viewing Usage Graphs
 
 You can view a chart indicating how much data and how many API requests have been consumed, and how many message units were received.
 
@@ -61,7 +57,7 @@ image::mq-msg-unit-color.png[]
 == Retrieve Usage Metrics with Anypoint MQ Stats API
 
 To use the Anypoint MQ Stats API to retrieve usage metrics, see
-xref:mq-apis.adoc#usage-metrics-by-environment[Usage Metrics by Environment].
+xref:mq-apis.adoc#usage-by-env[Usage Metrics by Environment].
 
 == See Also
 
