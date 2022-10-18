@@ -1,4 +1,4 @@
 // tag::mqStatsAPIlimits[]
 The Anypoint MQ Stats API limits retrieving stats for the `/organizations/ORGANIZATION_ID` and `/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID` endpoints to 10 transactions per minute (TPM).
-For other calls to the Anypoint MQ Status API, the limit is 200 TPM.
+For other calls to the Anypoint MQ Stats API, the limit is 200 TPM.
 // end::mqStatsAPIlimits[]
