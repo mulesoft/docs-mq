@@ -1,4 +1,4 @@
 // tag::mqStatsAPIlimits[]
-The Anypoint MQ Stats API limits retrieving stats to 10 transactions per minute per environment in an organization.
+The Anypoint MQ Stats API limits retrieving stats to 10 transactions per minute (TPM) per environment in an organization and 10 TPM per organization.
 For other calls to the Anypoint MQ Status API, the limit is 200 transactions per minute.
 // end::mqStatsAPIlimits[]
