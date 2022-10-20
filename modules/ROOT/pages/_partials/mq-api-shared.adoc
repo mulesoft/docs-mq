@@ -1,4 +1,11 @@
 // tag::mqStatsAPIlimits[]
-The Anypoint MQ Stats API limits retrieving stats for the `/organizations/ORGANIZATION_ID` and `/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID` endpoints to 10 transactions per minute (TPM).
-For other calls to the Anypoint MQ Stats API, the limit is 200 TPM.
+====
+The Anypoint MQ Stats API now limits retrieving stats for the 
+https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/minor/1.0/console/method/%23318/[`/organizations/ORGANIZATION_ID`] and 
+https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/minor/1.0/console/method/%23378/[`/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID`] endpoints to 10 transactions per minute (TPM).
+
+If the requests exceed this limit, the Anypoint MQ Stats API returns an HTTP 429 status code.
+
+For all other https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/minor/1.0/console/summary/[Anypoint MQ Stats API] endpoints, the limit is 200 transactions per minute.
+====
 // end::mqStatsAPIlimits[]
