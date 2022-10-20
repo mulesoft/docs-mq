@@ -14,6 +14,9 @@ Anypoint MQ:
 
 * Provides fully hosted and managed queues and message exchanges in the cloud. A queue is a temporary storage area. A message exchange binds one or more queues so that a message sent to a message exchange appears in all its bound queues simultaneously.
 * Is built on Anypoint Platform, which means that queues and message exchanges offer the same management capabilities as the platform itself, from environments and business groups for multi-tenant role-based access control to client access management.
+* Supports using the Connected Apps feature to authenticate with Anypoint Platform using APIs.
++
+See xref:mq-connected-apps.adoc[].
 * Supports large payloads, encryption, queuing, and publish/subscribe (pub/sub) paradigms.
 * Enables you to easily connect to non-Mule applications using the REST API.
 * Provides Anypoint Studio access, which makes the process of leveraging your queues and message exchanges as simple as drag, drop, and configure.
