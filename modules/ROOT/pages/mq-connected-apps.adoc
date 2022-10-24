@@ -65,7 +65,7 @@ The Anypoint MQ scopes are:
 * View *In Flight* message stats.
 |*Clear destinations*
 |`clear:destinations`
-|Same privileges as *View destinations*, plus permission to purge messages.
+|Same privileges as *View destinations*.
 |*Manage clients*
 |`manage:clients`
 |Same privileges as *View clients*, plus permission to create client apps.
@@ -75,6 +75,7 @@ The Anypoint MQ scopes are:
 
 ** Create new queues, message exchanges, and bindings.
 ** Edit existing queues, message exchanges, and bindings.
+** Purge messages from queues.
 
 |*Destination subscriber for given environment*
 |`subscribe:destinations`
