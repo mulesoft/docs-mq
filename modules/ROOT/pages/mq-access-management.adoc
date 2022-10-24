@@ -55,7 +55,7 @@ The Anypoint MQ permissions are:
 * View *In Queue* messages.
 * View *In Flight* message stats.
 |*Clear destinations*
-|Same privileges as *View destinations*, plus permission to purge messages.
+|Same privileges as *View destinations*.
 |*Manage clients*
 |Same privileges as *View clients*, plus permission to create client apps.
 |*Administer destinations*
@@ -63,6 +63,7 @@ The Anypoint MQ permissions are:
 
 ** Create new queues, message exchanges, and bindings.
 ** Edit existing queues, message exchanges, and bindings.
+** Purge messages from queues.
 |*Manage destinations (deprecated)*
 |Same privileges as *View destinations* and *Clear destinations*, plus permission to:
 
@@ -70,6 +71,7 @@ The Anypoint MQ permissions are:
 ** Edit existing queues and message exchange settings.
 ** Access *Message Sender* and *Browser* pages.
 ** Delete messages.
+** Purge messages from queues.
 
 [NOTE]
 ====
