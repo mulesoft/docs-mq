@@ -162,7 +162,7 @@ Anypoint MQ supports message routing rules with the following restrictions:
 
 * Exchanges must have 10 or fewer queue bindings.
 +
-include::partial$mq-user-props.adoc[tag=msgExchangeMaxRouting]
+include::partial$mq-msg-exchange.adoc[tag=msgExchangeMaxRouting]
 * You can configure a message routing rule on only one property with the following restrictions:
 +
 ** Maximum size of the property name is 180 bytes.
