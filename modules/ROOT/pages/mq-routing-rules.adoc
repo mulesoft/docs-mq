@@ -186,4 +186,4 @@ Anypoint MQ retains the headers and properties in the payload and, when it publi
 == See Also
 
 * xref:mq-apis.adoc#routing-rules-api[Create Message Routing Rules]
-* xref:mq-apis.adoc#publish-message-routing[Publish a Message with Routing Properties]
+* xref:mq-apis.adoc#send-message-routing[Send a Message with Routing Properties]
