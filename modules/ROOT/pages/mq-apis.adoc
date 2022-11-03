@@ -255,7 +255,7 @@ curl -X PUT "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/425
 -H "Content-Type: application/json" \
 -H "Authorization: bearer BEARER_TOKEN" \
 -H "Cache-Control: no-cache" \
--d '{ \
+-d '{ 
   "properties": {
     "userDefinedHeader": "User defined stuff",
     "anotherUserDefinedHeader": "Random stuff"
