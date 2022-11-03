@@ -368,7 +368,11 @@ You can use this `curl` command to get the access token:
 
 [source,bash]
 ----
-curl -X POST -H "Content-Type: application/json" -d '{"username":"USERNAME", "password":"PASSWORD"}' https://anypoint.mulesoft.com/accounts/login
+curl -X POST -H "Content-Type: application/json" \
+-H "Authorization: bearer 42544254-4254-4254-4254-425442544254" \
+-H "Cache-Control: no-cache" \
+-d '{"username":"USERNAME", "password":"PASSWORD"}'
+https://anypoint.mulesoft.com/accounts/login
 ----
 
 This returns output similar to:
