@@ -115,21 +115,19 @@ You can create a FIFO queue using the Anypoint MQ Admin API by including the `"f
 The organization from which you use the Administration portal must have an Anypoint MQ FIFO entitlement.
 See xref:mq-faq.adoc[Anypoint MQ FAQ] for the regions where Anypoint MQ is available.
 
-For the following path using the `PUT` operation:
+Use a `curl` command like the following to create a FIFO queue:
 
-[source]
-/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/destinations/queues/QUEUE_ID
-
-Use this body:
-
-[source,json,linenums]
+[source,bash]
 ----
-{
+curl --location --request PUT "https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/destinations/queues/QUEUE_ID" \
+--header 'Content-Type: application/json' \
+--header 'Authorization: bearer BEARER_TOKEN' \
+--data-raw '{
   "defaultTtl" : 120000,
   "defaultLockTtl" : 10000,
   "encrypted" : false,
   "fifo" : true
-}
+}'
 ----
 
 [[routing-rules-api]]
@@ -148,7 +146,16 @@ To create a message routing rule, use a `curl` command like the following:
 [source,bash]
 ----
 curl -X PUT "https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/bindings/exchanges/purchases/queues/premiumPurchases/rules/routing" \
--d "{\n  \"routingRules\": [\n    {\n      \"propertyName\": \"itemCategory\",\n      \"propertyType\": \"STRING\",\n      \"matcherType\": \"EQ\",\n      \"value\": "premium"\n    }\n  ]\n}"
+--header 'Authorization: bearer BEARER_TOKEN' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "routingRules" : [{
+        "propertyName" : "itemCategory",
+        "propertyType" : "STRING",
+        "matcherType" : "EQ",
+        "value" : "premium"
+    }]
+}'
 ----
 
 This message routing rule routes any message published to the `purchases` exchange that includes a property or header with
@@ -165,25 +172,6 @@ see this endpoint in the https://anypoint.mulesoft.com/exchange/portals/anypoint
 * Publishing a message with routing properties, see <<send-message-routing>>.
 * Message routing rule requirements, see
 xref:mq-routing-rules.adoc#intelligent-routing-restrictions[Requirements and Restrictions].
-
-////
-Use this body:
-
-[source,json,linenums]
-----
-{
-  "routingRules" : [
-    {
-      "propertyName" : "itemCategory",
-      "propertyType" : "STRING",
-      "matcherType" : "EQ",
-      "value" : "premium"
-    }
-  ]
-}
-----
-
-////
 
 [[mqbrokerapi]]
 == Anypoint MQ Broker API
