@@ -223,7 +223,7 @@ curl -X POST "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/authorize" \
 +
 See the xref:mq-faq.adoc[Anypoint MQ FAQ] for the regions where Anypoint MQ and FIFO are available.
 +
-. Submit the `curl`` command.
+. Submit the `curl` command.
 +
 The command returns output similar to:
 +
