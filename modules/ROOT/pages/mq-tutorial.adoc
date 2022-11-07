@@ -226,10 +226,12 @@ to acknowledge that a message was received and can be deleted.
 
 . Return to your *Anypoint Platform* > *MQ* browser window to copy the URL, client app ID, and client secret values:
 +
-.. Click *Destinations* and copy the URL to the *Configure Connection* page in Design Center:
+.. Click *Destinations*.
+.. Click *Copy* and select the connector version from the menu:
 +
 image::mq-tutorial-url.png["Copy button in the Destinations page"]
-.. Click *Client Apps* and click `DemoClientApp` to display the details pane.
+.. Paste the URL in the *URL* field in the *Configure Connection* page in Design Center.
+.. Click *Client Apps* and click `DemoClientApp` to display the details pane:
 +
 image::mq-tutorial-client-apps-detail.png["Client app name and Copy and Show buttons"]
 +
@@ -380,16 +382,18 @@ The queue must be located in an environment other than Design.
 . Click the green plus (+) icon to the right of the *Connector configuration* field to display the *Global Element Properties* window.
 . Return to your *Anypoint Platform* > *MQ* browser window to copy the URL, client app ID, and client secret values:
 +
-.. Click *Destinations* and click *copy* to copy the URL to the *URL* field in Studio:
+.. Click *Destinations*.
+.. Click *Copy* and select the connector version from the menu:
 +
 image::mq-tutorial-url.png["Copy button in the Destinations page"]
+.. Paste the URL in the *URL* field in the *Anypoint MQ Config* window in Studio.
 .. Click *Client Apps* and click `DemoClientApp` to display the details pane.
 +
 image::mq-tutorial-client-apps-detail.png["Client app name and Copy and Show buttons"]
 +
 include::partial$mq-msg-browser-details.adoc[tag=mqClientAppsDetail]
 
-.. Copy the client app ID and client secret values from the details pane to the *Anypoint MQ Configuration* window in Studio:
+.. Copy the client app ID and client secret values from the details pane to the *Anypoint MQ Config* window in Studio:
 +
 image::mq-tutorial-studio7-mq-config.png["URL, Client App ID, and Client Secret fields and Test Connection button in Anypoint MQ Config window"]
 
@@ -563,9 +567,11 @@ image::mq-tutorial-studio6-set-payload-props.png["Payload in the Value field"]
 
 . Return to your *Anypoint Platform* > *MQ* browser window to copy the URL, client app ID, and client secret values:
 +
-.. Click *Destinations* and copy the URL to the *URL* field in Studio:
+.. Click *Destinations*.
+.. Click *Copy* and select the connector version from the menu:
 +
 image::mq-tutorial-url.png["Copy button in the Destinations page"]
+.. Paste the URL in the *URL* field in the *Anypoint MQ Config* window in Studio.
 .. Click *Client Apps* and click `DemoClientApp` to display the details pane.
 +
 image::mq-tutorial-client-apps-detail.png["Client app name and Copy and Show buttons"]
