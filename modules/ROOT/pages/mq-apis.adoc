@@ -119,7 +119,7 @@ Use a `curl` command like the following to create a FIFO queue:
 
 [source,bash]
 ----
-curl --location --request PUT "https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/destinations/queues/QUEUE_ID" \
+curl -X PUT "https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/destinations/queues/QUEUE_ID" \
 --header 'Content-Type: application/json' \
 --header 'Authorization: bearer BEARER_TOKEN' \
 --data-raw '{
