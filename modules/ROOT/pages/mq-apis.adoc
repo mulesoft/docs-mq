@@ -188,7 +188,7 @@ These examples use the Anypoint MQ Broker API to publish and consume messages an
 * <<send-message-routing>>
 * <<retrieve-message-api>>
 
-You must substitute the placeholder string, `42544254-4254-4254-4254-425442544254` with the proper values for authorization and token strings. These examples use Postman to access the queue.
+You must substitute the placeholder string, `ORGANIZATION_ID` with the proper values for authorization and token strings. These examples use Postman to access the queue.
 
 See the xref:mq-faq.adoc#regions[Anypoint MQ FAQ] for the regions where Anypoint MQ and FIFO are available.
 
@@ -239,7 +239,7 @@ The following `curl` command publishes a message:
 
 [source,bash]
 ----
-curl -X PUT "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/42544254-4254-4254-4254-425442544254/environments/42544254-4254-4254-4254-425442544254/destinations/postmanExchange/messages/552" \
+curl -X PUT "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/destinations/postmanExchange/messages/552" \
 -H "Content-Type: application/json" \
 -H "Authorization: bearer BEARER_TOKEN" \
 -H "Cache-Control: no-cache" \
@@ -265,7 +265,7 @@ The message routing rule on the `purchases` exchange binding
 
 [source,bash]
 ----
-curl -X PUT "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/42544254-4254-4254-4254-425442544254/environments/42544254-4254-4254-4254-425442544254/destinations/postmanExchange/messages/552" \
+curl -X PUT "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/destinations/postmanExchange/messages/552" \
 -H "Content-Type: application/json" \
 -H "Authorization: bearer BEARER_TOKEN" \
 -H "Cache-Control: no-cache" \
@@ -290,7 +290,7 @@ The following `curl` command gets a message:
 
 [source, bash]
 ----
-curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/42544254-4254-4254-4254-425442544254/environments/42544254-4254-4254-4254-425442544254/destinations/postmanQueue/messages?pollingTime=10000&batchSize=1&lockTtl=10000" \
+curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/destinations/postmanQueue/messages?pollingTime=10000&batchSize=1&lockTtl=10000" \
 -H "Authorization: bearer BEARER_TOKEN" \
 -H "Cache-Control: no-cache"
 ----
@@ -312,7 +312,7 @@ The following `curl` command gets a message and payload, displaying the payload 
 
 [source,bash]
 ----
-curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/42544254-4254-4254-4254-425442544254/environments/42544254-4254-4254-4254-425442544254/destinations/postmanQueue/messages?pollingTime=10000&batchSize=1&lockTtl=10000&payloadVisibility=conditional" \
+curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/destinations/postmanQueue/messages?pollingTime=10000&batchSize=1&lockTtl=10000&payloadVisibility=conditional" \
 -H "Authorization: bearer BEARER_TOKEN" \
 -H "Cache-Control: no-cache" 
 ----
@@ -507,8 +507,7 @@ Use this `curl` command to get usage metrics by environment:
 
 [source,bash]
 ----
-curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID
-?startDate=Thursday, 8 Nov 2021 04:49:37 GMT&endDate=Sun, 11 Nov 2021 04:60:44 GMT&period=1day" \
+curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID?startDate=Thursday, 8 Nov 2021 04:49:37 GMT&endDate=Sun, 11 Nov 2021 04:60:44 GMT&period=1day" \
 -H "Authorization: bearer BEARER_TOKEN" \
 -H "Cache-Control: no-cache"
 ----
