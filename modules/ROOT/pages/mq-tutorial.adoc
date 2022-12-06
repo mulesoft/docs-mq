@@ -571,7 +571,7 @@ image::mq-tutorial-studio6-set-payload-props.png["Payload in the Value field"]
 .. Click *Copy* and select the connector version from the menu:
 +
 image::mq-tutorial-url.png["Copy button in the Destinations page"]
-.. Paste the URL in the *URL* field in the *Anypoint MQ Config* window in Studio.
+.. In the *Anypoint MQ Config* window in Studio, paste the URL in the *URL* field.
 .. Click *Client Apps* and click `DemoClientApp` to display the details pane.
 +
 image::mq-tutorial-client-apps-detail.png["Client app name and Copy and Show buttons"]
