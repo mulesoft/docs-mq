@@ -230,7 +230,7 @@ to acknowledge that a message was received and can be deleted.
 .. Click *Copy* and select the connector version from the menu:
 +
 image::mq-tutorial-url.png["Copy button in the Destinations page"]
-.. Paste the URL in the *URL* field in the *Configure Connection* page in Design Center.
+.. In the *Configure Connection* page in Design Center, paste the URL in the *URL* field.
 .. Click *Client Apps* and click `DemoClientApp` to display the details pane:
 +
 image::mq-tutorial-client-apps-detail.png["Client app name and Copy and Show buttons"]
@@ -386,7 +386,7 @@ The queue must be located in an environment other than Design.
 .. Click *Copy* and select the connector version from the menu:
 +
 image::mq-tutorial-url.png["Copy button in the Destinations page"]
-.. Paste the URL in the *URL* field in the *Anypoint MQ Config* window in Studio.
+.. In the *Anypoint MQ Config* window in Studio, paste the URL in the *URL* field.
 .. Click *Client Apps* and click `DemoClientApp` to display the details pane.
 +
 image::mq-tutorial-client-apps-detail.png["Client app name and Copy and Show buttons"]
