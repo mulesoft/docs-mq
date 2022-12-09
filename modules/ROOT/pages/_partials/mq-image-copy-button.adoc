@@ -1,0 +1,1 @@
+image::mq::mq-tutorial-url.png["Copy button in the Destinations page"]
