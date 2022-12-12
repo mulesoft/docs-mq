@@ -581,11 +581,9 @@ image::mq-tutorial-studio6-set-payload-props.png["Payload in the Value field"]
 . Return to your *Anypoint Platform* > *MQ* browser window to copy the URL, client app ID, and client secret values:
 +
 .. Click *Destinations*.
-.. Click *Copy* and select the connector version from the menu:
+.. Click *Copy* and select *Connector version 3.x and earlier* from the menu:
 +
 image::mq-tutorial-url.png["Copy button in the Destinations page"]
-+
-include::partial$mq-connector-share.adoc[tag=mqConnectorVersion]
 
 .. In the *Anypoint MQ Config* window in Studio, paste the URL in the *URL* field.
 .. Click *Client Apps* and click `DemoClientApp` to display the details pane.
