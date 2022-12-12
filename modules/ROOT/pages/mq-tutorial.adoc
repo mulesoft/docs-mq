@@ -168,6 +168,7 @@ include::partial$mq-msg-browser-details.adoc[tag=mqClientAppsDetail]
 You have successfully registered a client Mule app in Anypoint MQ. Next, you create a Mule app in Design Center and connect it to Anypoint MQ.
 
 
+[[configure-design-center]]
 == Create and Connect a Mule App to Anypoint MQ in Design Center
 
 After you register the client app, you use Design Center to configure an app that connects to Anypoint MQ, submit REST API commands to the Anypoint MQ Broker API, and use Anypoint MQ to view the results.
@@ -325,7 +326,7 @@ include::partial$mq-big-payload.adoc[tag=mqBigPayload]
 
 You have successfully tested your app using a `curl` command to submit a REST API command to the Anypoint MQ Broker API and using Anypoint MQ to view the results. Next, you create a Mule app in Anypoint Studio 7 and connect it to Anypoint MQ.
 
-
+[[configure-mule-4-studio]]
 == Create and Connect a Mule 4 App to Anypoint MQ in Anypoint Studio 7
 
 You can now use Anypoint Studio 7 to create a Mule 4 app similar to the app you created in Design Center. In Studio 7, you can deploy the app to CloudHub and submit a `curl` command to test the connection. 
@@ -510,7 +511,7 @@ http://www.mulesoft.org/schema/mule/anypoint-mq http://www.mulesoft.org/schema/m
 ----
 
 
-
+[[configure-mule-3-studio]]
 == Create and Connect a Mule 3 App to Anypoint MQ in Anypoint Studio 6
 
 If you use Mule 3, you can use Anypoint Studio 6 to create a Mule 3 app similar to the app you created in Design Center. In Studio 6, you can deploy the app to CloudHub and submit a `curl` command to test the connection. 

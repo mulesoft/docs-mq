@@ -1,7 +1,30 @@
 = Anypoint MQ Connectors
 
-Anypoint MQ Connectors are available for Mule 3 and Mule 4.
+Anypoint MQ Connectors are available for Mule 4 and Mule 3.
 
+* Mule 4:
+** <<four-for-mule-4, Anypoint MQ Connector 4.x>>
+** <<three-for-mule-4, Anypoint MQ Connector 3.x>>
+** <<two-for-mule-4, Anypoint MQ Connector 2.x>>
+* Mule 3:
+** <<three-for-mule-3, Anypoint MQ Connector>> (Mule 3.9)
+
+
+[[four-for-mule-4]]
+== Anypoint MQ Connector 4.x - Mule 4
+
+* xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.x for Mule 4]
+** xref:anypoint-mq-connector::anypoint-mq-connector-upgrade-migrate.adoc[]
+** xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations]
+** xref:anypoint-mq-connector::anypoint-mq-listener.adoc[Subscribe Operation]
+** xref:anypoint-mq-connector::anypoint-mq-consume.adoc[Consume Operation]
+** xref:anypoint-mq-connector::anypoint-mq-publish.adoc[Publish Operation]
+** xref:anypoint-mq-connector::anypoint-mq-connector-reference.adoc[Anypoint MQ Connector 4.x Reference]
+** xref:release-notes::connector/anypoint-mq-connector-release-notes-mule-4.adoc[Anypoint MQ Connector Release Notes - Mule 4]
+* https://www.mulesoft.com/exchange/com.mulesoft.connectors/anypoint-mq-connector/[Anypoint MQ Connector 4.x - Mule 4 on Anypoint Exchange]
+
+
+[[three-for-mule-4]]
 == Anypoint MQ Connector 3.x - Mule 4
 
 * xref:connectors::anypoint-mq/3.x/anypoint-mq-connector.adoc[Anypoint MQ Connector 3.x for Mule 4]
@@ -11,8 +34,9 @@ Anypoint MQ Connectors are available for Mule 3 and Mule 4.
 ** xref:connectors::anypoint-mq/3.x/anypoint-mq-publish.adoc[Publish Operation]
 ** xref:connectors::anypoint-mq/3.x/anypoint-mq-connector-reference.adoc[Anypoint MQ Connector 3.x Reference]
 ** xref:release-notes::connector/anypoint-mq-connector-release-notes-mule-4.adoc[Anypoint MQ Connector Release Notes - Mule 4]
-* https://www.mulesoft.com/exchange/com.mulesoft.connectors/anypoint-mq-connector/[Anypoint MQ Connector - Mule 4 on Anypoint Exchange]
+* https://www.mulesoft.com/exchange/com.mulesoft.connectors/anypoint-mq-connector/[Anypoint MQ Connector 3.x - Mule 4 on Anypoint Exchange]
 
+[[two-for-mule-4]]
 == Anypoint MQ Connector 2.x - Mule 4
 
 * xref:connectors::anypoint-mq/2.x/anypoint-mq-connector.adoc[Anypoint MQ Connector 2.x for Mule 4]
@@ -25,6 +49,7 @@ Anypoint MQ Connectors are available for Mule 3 and Mule 4.
 * https://www.mulesoft.com/exchange/com.mulesoft.connectors/anypoint-mq-connector/[Anypoint MQ Connector - Mule 4 on Anypoint Exchange]
 
 
+[[three-for-mule-3]]
 == Anypoint MQ Connector - Mule 3
 
 * xref:3.9@mule-runtime::anypoint-mq-connector.adoc[Anypoint MQ Connector for Mule 3]
