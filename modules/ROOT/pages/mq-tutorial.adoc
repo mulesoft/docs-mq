@@ -240,6 +240,9 @@ include::partial$mq-msg-browser-details.adoc[tag=mqClientAppsDetail]
 .. Copy the client app ID and client secret values from the details pane to the *Configure Connection* page in Design Center:
 +
 image::mq-tutorial-dc-client-id-secret.png["Client App ID field and Client Secret field in the Configure Connection page"]
++
+[NOTE]
+include::mq::partial$mq-connector-share.adoc[mqUrlVersion]
 . Click *Test* to ensure that you have access to your client app:
 +
 image::mq-tutorial-dc-test-connection.png["Success box"]
@@ -386,6 +389,8 @@ The queue must be located in an environment other than Design.
 .. Click *Copy* and select the connector version from the menu:
 +
 image::mq-tutorial-url.png["Copy button in the Destinations page"]
++
+To determine the connector version, check the `mq-connector` dependency version in the `pom.xml` file in Studio.
 .. In the *Anypoint MQ Config* window in Studio, paste the URL in the *URL* field.
 .. Click *Client Apps* and click `DemoClientApp` to display the details pane.
 +
@@ -395,8 +400,10 @@ include::partial$mq-msg-browser-details.adoc[tag=mqClientAppsDetail]
 
 .. Copy the client app ID and client secret values from the details pane to the *Anypoint MQ Config* window in Studio:
 +
-image::mq-tutorial-studio7-mq-config.png["URL, Client App ID, and Client Secret fields and Test Connection button in Anypoint MQ Config window"]
-
+image::mq-tutorial-studio7-mq-config.png["URL, Client App ID, and Client Secret fields in the Anypoint MQ Config window"]
++
+[NOTE]
+include::partial$mq-connector-share.adoc[mqUrlVersion]
 . Click *Test Connection* to ensure that the values are correct, and then click *OK* twice.
 . Save your project. 
 . In *Package Explorer* in Studio, right-click `mq-demo` and select *Anypoint Platform* > *Deploy to CloudHub*.
@@ -580,7 +587,7 @@ include::partial$mq-msg-browser-details.adoc[tag=mqClientAppsDetail]
 
 .. Copy the client app ID and client secret values from the details pane to the *Anypoint MQ Configuration* window in Studio:
 +
-image::mq-tutorial-studio6-mq-config.png["URL, Client App ID, and Client Secret fields in the Anypoint MQ Configuration window"]
+image::mq-tutorial-studio6-mq-config.png["URL, Client App ID, and Client Secret fields in the Anypoint MQ Config window"]
 . Click *OK*.
 . In the Anypoint MQ properties window, click the *Operation* field and select *publish* from the menu:
 +
