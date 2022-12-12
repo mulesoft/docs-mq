@@ -584,7 +584,8 @@ image::mq-tutorial-studio6-set-payload-props.png["Payload in the Value field"]
 .. Click *Copy* and select *Connector version 3.x and earlier* from the menu:
 +
 image::mq-tutorial-url.png["Copy button in the Destinations page"]
-
++
+Use Anypoint MQ Connector version 3.9 with Mule 3 and Studio 6. 
 .. In the *Anypoint MQ Config* window in Studio, paste the URL in the *URL* field.
 .. Click *Client Apps* and click `DemoClientApp` to display the details pane.
 +
