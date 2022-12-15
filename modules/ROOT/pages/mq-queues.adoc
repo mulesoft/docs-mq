@@ -328,7 +328,9 @@ However, if you batch ten messages per read and write operation (maximum) using 
 //Shared TPS failed
 include::partial$mq-faq.adoc[tag=failedTPS]
 * Can't be bound to a message exchange.
-* Shouldn't be used with `prefetch` mode.
+* Shouldn't be used with `prefetch` mode for applications with long processing times that use the `maxConcurrency` attribute to limit concurrent processing.
++
+These options can cause messages to remain in the buffer longer, which causes the messages to expire and be sent back to the queue.
 
 To create a FIFO queue, see <<Create a Queue>>. To determine if a queue is FIFO or standard (non-FIFO), view its details. 
 
