@@ -222,9 +222,6 @@ curl --location --request POST 'https://anypoint.mulesoft.com/accounts/oauth2/to
     "grant_type": "client_credentials"
 }'
 ----
-+
-See the xref:mq-faq.adoc[Anypoint MQ FAQ] for the regions where Anypoint MQ and FIFO are available.
-+
 . Submit the `curl` command.
 +
 The command returns output similar to:
