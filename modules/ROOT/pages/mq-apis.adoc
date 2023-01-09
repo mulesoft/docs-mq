@@ -214,15 +214,14 @@ To get the Broker API access token:
 +
 [source,bash]
 ----
-curl -X POST "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/authorize" \
--H "Content-Type: application/x-www-form-urlencoded" \
--H "Authorization: bearer BEARER_TOKEN" \
--H "Cache-Control: no-cache" \
--d "client_id=CLIENT_ID&client_secret=CLIENT_SECRET&grant_type=client_credentials" 
+curl -X POST "https://anypoint.mulesoft.com/accounts/oauth2/token" \
+-H "Content-Type: application/json" \
+-d '{
+    "client_id": "<CLIENT_ID>",
+    "client_secret": "<CLIENT_SECRET>",
+    "grant_type": "client_credentials"
+}'
 ----
-+
-See the xref:mq-faq.adoc[Anypoint MQ FAQ] for the regions where Anypoint MQ and FIFO are available.
-+
 . Submit the `curl` command.
 +
 The command returns output similar to:
