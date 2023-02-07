@@ -1,0 +1,10 @@
+// tag::mqUrlVersion[]
+The example shows the URL format for MQ Connector version 4.x.
+For MQ Connector version 3.x, the URL format is
+`+https://mq-{region}.anypoint.mulesoft.com/api/v1+`.
+// end::mqUrlVersion[]
+
+
+// tag::mqConnectorVersion[]
+To determine the connector version, check the `mq-connector` dependency version in the `pom.xml` file in Studio.
+// end::mqConnectorVersion[]
