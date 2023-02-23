@@ -30,6 +30,9 @@ See <<mq-scopes>>.
 +
 Use this client ID and client secret to get the access token required to authenticate with the Anypoint MQ API.
 +
+[IMPORTANT]
+include::partial$mq-client-id-secret.adoc[tag=mqClientIdSecret]
++
 For information on getting the access token for Connected Apps, see
 xref:access-management::connected-apps-developers.adoc#oidc-endpoints-and-tokens[OIDC Endpoints and Tokens].
 +
