@@ -7,6 +7,9 @@ in a Mule app in Anypoint Studio.
 
 You can also regenerate the client secret, if necessary.
 
+[IMPORTANT]
+include::partial$mq-client-id-secret.adoc[tag=mqClientIdSecret]
+
 == Register a Client App 
 
 An app does not have to exist for you to register it with Anypoint MQ Connector.
