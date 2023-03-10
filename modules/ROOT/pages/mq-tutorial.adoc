@@ -523,7 +523,7 @@ This section applies only to Anypoint Studio 6. For Studio 7, see <<Create and C
 
 * Install Studio 6. 
 +
-See xref:6@studio::download-and-launch-anypoint-studio[Download and Install Anypoint Studio].
+See xref:6.5@studio::to-download-and-install-studio.adoc[Download and Install Anypoint Studio].
 * In Anypoint Platform, change to any environment except Design.
 +
 Ensure that the queue you created in *Anypoint Platform* > *MQ* is also in this environment.
