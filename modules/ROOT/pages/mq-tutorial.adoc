@@ -6,11 +6,16 @@ In this tutorial, you:
 
 . Create a queue in Anypoint MQ.
 . Send messages to the queue, verify that they arrived, and view the message payload.
-. In Anypoint MQ, register a client app that you then use to configure Anypoint MQ Connector. 
+. Depending on the authentication method, either:
+** In Access Management, configure a Connected App and use the ID and secret to configure Anypoint MQ Connector. (Recommended)
+** In Anypoint MQ, register a client app and use the client ID and client secret use to configure Anypoint MQ Connector. 
 . Create an app in Design Center, configure Anypoint MQ Connector, and test the connection.
 . Create an app in Anypoint Studio, configure Anypoint MQ Connector, and test the connection.
 +
 Depending on your Mule version, you create your app in Studio 7 (Mule 4) or Studio 6 (Mule 3).
+
+[NOTE]
+Because Mule 3.9 and Studio 6.x are in Extended Support, we recommend that you use the latest versions of Mule and Studio.
 
 == Prerequisites
 

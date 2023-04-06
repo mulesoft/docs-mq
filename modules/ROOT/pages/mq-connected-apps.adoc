@@ -28,7 +28,7 @@ See <<mq-scopes>>.
 . Click *Save* or *Cancel* to cancel your changes.
 . From the *Connected Apps* page, click *Copy Id* and *Copy Secret* for the app you just created.
 +
-Use this client ID and client secret to get the access token required to authenticate with the Anypoint MQ API.
+Use this ID and secret to get the access token required to authenticate with the Anypoint MQ API.
 +
 [IMPORTANT]
 include::partial$mq-client-id-secret.adoc[tag=mqClientIdSecret]

@@ -10,6 +10,9 @@ You can also regenerate the client secret, if necessary.
 [IMPORTANT]
 include::partial$mq-client-id-secret.adoc[tag=mqClientIdSecret]
 
+Alternatively, you can configure Connected Apps to integrate external applications by providing access to those applications without sharing your user credentials.
+For information, see xref:mq-connected-apps.adoc[].
+
 == Register a Client App 
 
 An app does not have to exist for you to register it with Anypoint MQ Connector.
@@ -61,3 +64,4 @@ image::mq-client-apps-regenerate.png[Regenerate Secret icon in the details pane]
 
 * xref:connectors::anypoint-mq/3.x/anypoint-mq-connector-reference.adoc#config_connection[Connection]
 * xref:mq-faq.adoc[Anypoint MQ FAQ]
+* xref:mq-connected-apps[]
