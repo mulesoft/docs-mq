@@ -1010,8 +1010,7 @@ After you set up an HTTP Listener in Studio, browse to the address `0.0.0.0:8081
 
 To download the Anypoint MQ APIs from Exchange, click *Download* and select the format to download: RAML, OAS, or as a connector file for Mule 3 or Mule 4.
 
-.The arrow shows the *Download* button in Exchange.
-image::mq-exchange-download.png[Download Anypoint MQ APIs in Exchange]
+image::mq-exchange-download.png["Download Anypoint MQ APIs in Exchange"]
 
 == See Also
 

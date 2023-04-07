@@ -155,7 +155,7 @@ In Anypoint MQ, each consumer must be registered as a client app with a name, ID
 
 With message exchanges you can distribute a single message to multiple consumers.
 
-image::mq-pub-ex-sub.png[]
+image::mq-pub-ex-sub.png["Message exchanges distributing a message to multiple consumers"]
 
 For example, if a publisher publishes changes in the weather, and you have multiple apps that want to receive that data, you can use a message exchange to publish a single message to multiple queues for each app.
 
@@ -168,7 +168,7 @@ include::partial$mq-msg-exchange.adoc[tag=msgExchangeMaxRouting]
 
 In this example, an app running Salesforce customer relationship manager (CRM) wants to communicate with two applications that handle different databases.
 
-image::mq-crm-to-dbs.png[CRM sends msg to Anypoint MQ that apps receive]
+image::mq-crm-to-dbs.png["CRM sends msg to Anypoint MQ that apps receive"]
 
 Using Anypoint MQ, the Salesforce app sends a pub/sub message to a message exchange, and the two applications receive the message from the message exchange and convey the message to their respective databases.
 

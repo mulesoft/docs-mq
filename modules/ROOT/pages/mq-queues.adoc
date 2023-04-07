@@ -29,7 +29,7 @@ Standard queues can be bound to a xref:mq-exchanges.adoc[_message exchange_], en
 
 You can filter queues by type in the *Destinations* page:
 
-image::mq-filters.png["Filters at the top of the Destinations page"]
+image::mq-filters.png["Filters on the Destinations page"]
 
 
 == Prerequisites
@@ -46,7 +46,7 @@ To create a standard queue or FIFO queue:
 . Click *Destinations*.
 . Click the blue plus icon (+) to display the menu:
 +
-image::mq-blue-create.png["Blue plus icon at the top of the Destinations page"]
+image::mq-blue-create.png["Blue plus icon on the Destinations page"]
 . Select *Queue* or *FIFO Queue*.
 +
 For *Exchange*, see xref:mq-exchanges.adoc[Configure Message Exchanges].

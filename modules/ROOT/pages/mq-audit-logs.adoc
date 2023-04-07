@@ -43,8 +43,7 @@ You can also search by environment, object name, or user.
 
 The *Audit logs* page displays the logs:
 
-.The screenshot shows (*1*) the filters, (*2*) the *Apply filters* button, (*3*) the filters currently applied, and (*4*) the *Download payload* icon on the *Audit logs* page.
-image::mq-access-mgmt-audit-logs.png[Filters, the Apply filters button, the filters currently applied, and the Download payload icon on the Audit logs page]
+image::mq-access-mgmt-audit-logs.png["Filters, the Apply filters button, the filters currently applied, and the Download payload icon on the Audit logs page"]
 --
 
 === Payloads
