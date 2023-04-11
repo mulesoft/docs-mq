@@ -10,7 +10,7 @@ Returning messages to the queue is a not-acknowledgment operation (NACK). The me
 If you leave the *Message Browser* page, messages automatically return to the queue.
 .. *Delete* icon.
 +
-Deleting a message is an acknowledgment operation (ACK). For information about how Anypoint MQ processes ACK messages, see xref:mq-ack-mode.adoc[Acknowledge Messages].
+Deleting a message is an acknowledgment operation (ACK). For information about how Anypoint MQ processes ACK messages, xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations].
 .. *Full Screen* icon displays the message payload in a separate window.
 .. *Close* icon closes the details pane.
 // end::mqMsgBrowserDetails[]
@@ -26,7 +26,7 @@ Deleting a message is an acknowledgment operation (ACK). For information about h
 
 // tag::mqQueueDetails[]
 [calloutlist]
-.. Queue type dDisplays the queue details pane.
+.. Queue type displays the queue details pane.
 .. Queue ID displays the *Queue Settings* page.
 .. Queue details label displays the *Queue Settings* page.
 // end::mqQueueDetails[]

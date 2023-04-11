@@ -6,7 +6,7 @@ In this tutorial, you:
 
 . Create a queue in Anypoint MQ.
 . Send messages to the queue, verify that they arrived, and view the message payload.
-. Depending on the authentication method, either:
+. Depending on your authentication method, either:
 ** In Access Management, configure a Connected App and use the ID and secret to configure Anypoint MQ Connector. (Recommended)
 ** In Anypoint MQ, register a client app and use the client ID and client secret use to configure Anypoint MQ Connector. 
 . Create an app in Design Center, configure Anypoint MQ Connector, and test the connection.
@@ -51,7 +51,7 @@ image::mq-tutorial-destinations-option.png["Destinations option and the blue plu
 .. Blue plus (*+*) icon creates a new queue or exchange.
 . Click the blue plus (*+*) icon to display the menu:
 +
-image::mq-shared-create-choices.png["Blue plus icon menu options"]
+image::mq-tutorial-create-choices.png["Blue plus icon menu options"]
 . Select *Queue*.
 . In the *Create Queue* window, enter `myDemoQueue` in the *ID* field:
 +
@@ -73,12 +73,12 @@ You have successfully created a queue. Next, you send messages to the queue, ver
 
 == Send Messages to a Queue and Verify That They Arrived
 
-After you create the queue, you test the queue you created by sending messages to it, validating that the messages arrived in the queue, and retrieving them from the queue.
+After you create the queue, you test the queue sending messages to it, validating that the messages arrived in the queue, and retrieving them from the queue.
 
 To send and receive messages from a queue:
 
 . In the *Destinations* page, click `myDemoQueue`.
-. Click the *Message Sender* navigation menu:
+. Click *Message Sender* in the navigation menu:
 +
 image::mq-tutorial-message-sender-page.png["Message Sender navigation menu"]
 . Leave the *Type* field set to *Text* and enter `Hello Mules!` in the *Payload* field.
@@ -88,8 +88,7 @@ image::mq-tutorial-message-sender-user-props.png["Add User Properties toggle in 
 +
 include::partial$mq-user-props.adoc[tag=mquserpropsTypeColor]
 . Click *Send*.
-. Set the *Type* to *CSV*.
-. Set the *Payload* to:
+. Set the *Type* to *CSV* and enter the following in the *Payload* field:
 +
 ----
 "dog",
@@ -97,8 +96,7 @@ include::partial$mq-user-props.adoc[tag=mquserpropsTypeColor]
 "parrot"
 ----
 . Click *Send*.
-. Set the *Type* to *JSON*.
-. Set the *Payload* to:
+. Set the *Type* to *JSON* and enter the following in the *Payload* field:
 +
 [source,json,linenums]
 ----
@@ -118,10 +116,10 @@ The details pane shows the number of messages in the queue:
 +
 image::mq-tutorial-msgs-in-queue.png["Three messages in the myDemoQueue queue in the details pane"]
 . In the details pane, click the queue details label `myDemoQueue`.
-. Click the *Message Browser* navigation menu:
+. Click *Message Browser* in the navigation menu:
 +
 image::mq-tutorial-get-messages.png["Message Browser navigation menu"]
-. Specify the number of messages (1-500) and the time to poll (1-3600 seconds).
+. Enter `3` for the the number of messages to retrieve and `10` for the number of seconds to poll.
 . Click *Get Messages*.
 +
 Anypoint MQ retrieves the messages from the queue and displays them in the Message Browser.
@@ -141,9 +139,10 @@ After you test the queue, you configure an app, which generates the ID and secre
 
 Depending on the authentication method, either:
 
-* Create a Connected App and use the ID and secret to configure Anypoint MQ Connector. (Recommended)
-* Create a client app and use the client ID and client secret use to configure Anypoint MQ Connector. 
+* <<create-connected-app,Create a Connected App>> and use the ID and secret to configure Anypoint MQ Connector. (Recommended)
+* <<create-client-app,Create a client app>> and use the client ID and client secret use to configure Anypoint MQ Connector. 
 
+[[create-connected-app]]
 === Create a Connected App
 
 include::partial$mq-shared-connect-apps.adoc[tags=!ScopesConnApp]
@@ -152,6 +151,7 @@ include::partial$mq-shared-connect-apps.adoc[tags=!ScopesConnApp]
 
 You have successfully configured a Connected app. Next, you create a Mule app in Design Center and connect it to Anypoint MQ.
 
+[[create-client-app]]
 === Create a Client App
 
 include::partial$mq-shared-client-apps.adoc[tags=mqRegisterClientApp;!excludeClientAppTutorial]
