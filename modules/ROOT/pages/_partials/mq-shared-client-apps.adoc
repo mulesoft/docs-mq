@@ -3,14 +3,14 @@
 To create a client app:
 
 . Log in to Anypoint Platform and click *MQ* in the navigation menu.
-. Click *Client Apps* in the navigation pane.
-. Click the blue plus (+) icon:
+. Click *Client Apps* in the navigation pane:
 +
 image::mq-tutorial-create-client-apps.png["Client Apps option and blue plus icon"]
 +
 [calloutlist]
 .. *Client Apps* displays and creates client apps.
 .. Blue plus (+) icon adds a client app.
+. Click the blue plus (+) icon.
 // tag::excludeClientApp[]
 . In the *Create Client App* window, enter `DemoClientApp` and click *Save Changes*.
 // end::excludeClientApp[]
