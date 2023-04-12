@@ -41,7 +41,7 @@ include::partial$mq-connect-apps.adoc[tag=mqConnAppEndpointSupport]
 == Configure a Connected App Using the API
 
 For information on configuring a Connected App with the API, see
-https://help.mulesoft.com/s/article/How-to-create-connected-apps-creation-using-API[How to create connected apps using the API].
+https://help.mulesoft.com/s/article/How-to-create-connected-apps-creation-using-API[How to create connected apps using the API^].
 
 [[mq-scopes]]
 == Anypoint MQ Scopes

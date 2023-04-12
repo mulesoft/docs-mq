@@ -23,12 +23,12 @@ include::partial$mq-versions.adoc[tag=mqMuleVersion]
 == Prerequisites
 
 * Familiarity with xref:mq-understanding.adoc[Anypoint MQ terminology]
-* An https://anypoint.mulesoft.com[Anypoint Platform account]
+* An https://anypoint.mulesoft.com[Anypoint Platform account^]
 * An Enterprise license
 +
 Contact the MuleSoft Sales team to get a free trial.
 * Anypoint Studio installed on your system
-* A https://curl.haxx.se[`curl` command] for testing 
+* A https://curl.haxx.se[`curl` command^] for testing 
 +
 This tutorial uses the HTTP Listener trigger to initiate Anypoint MQ Connector access and a `curl` command to submit REST API commands to the Anypoint MQ Broker API.
 
@@ -615,4 +615,4 @@ http://www.mulesoft.org/schema/mule/anypoint-mq http://www.mulesoft.org/schema/m
 * xref:mq-queues.adoc#delete-a-queue[Delete a Queue]
 * xref:mq-faq.adoc[Anypoint MQ FAQ]
 * xref:mq-connectors.adoc[Anypoint MQ Connectors]
-* xref:https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint MQ Broker]
+* xref:https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint MQ Broker^]

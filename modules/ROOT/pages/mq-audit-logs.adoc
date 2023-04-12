@@ -120,4 +120,4 @@ Subsequent changes to a FIFO queue set the `fifo` field to `null`.
 * xref:access-management::audit-logging.adoc[Audit Logging]
 * xref:mq-queues.adoc#fifoqueues[FIFO Queues]
 * xref:mq-apis.adoc[Anypoint MQ REST APIs]
-* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/audit-log-query-api/[Audit Log Query API] 
+* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/audit-log-query-api/[Audit Log Query API^] 
