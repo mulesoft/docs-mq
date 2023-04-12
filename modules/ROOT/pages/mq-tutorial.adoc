@@ -151,7 +151,8 @@ include::partial$mq-versions.adoc[tag=mqConnectorVersion]
 === Create a Connected App
 
 include::partial$mq-shared-connect-apps.adoc[tags=!ScopesConnApp]
-. Keep the *Connected Apps* page open so you can copy the ID and secret in a later step.
+
+copy the ID and secret in a later step.
 
 
 You have successfully configured a Connected app. Next, you create a Mule app in Design Center and connect it to Anypoint MQ.

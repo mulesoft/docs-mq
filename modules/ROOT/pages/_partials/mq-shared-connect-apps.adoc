@@ -19,7 +19,7 @@ Scopes are roles with associated permissions, which determine which actions the 
 See xref:mq-connected-apps.adoc#mq-scopes[Anypoint MQ Scopes].
 +
 image::mq-conn-apps-scopes.png["Scopes for Anypoint MQ connected apps"]
-. In *Add Scopes* page:
+. In *Add Scopes* window:
 //tag::ScopesConnAppTutorial[]
 .. Enter "MQ" in the *Filter scopes* field.
 .. Click *Select all* to select all scopes and click *Next*.
@@ -27,13 +27,9 @@ image::mq-conn-apps-scopes.png["Scopes for Anypoint MQ connected apps"]
 .. Select the *Production* environment and click *Next*.
 .. Click *Add Scopes*.
 . Click *Save*.
-. [[connected-apps-window]] From the *Connected Apps* page, click *Copy Id* and *Copy Secret* for the `DemoApp1` app you just created:
+. [[connected-apps-window]] When you configure the connector in a later step, click *Copy Id* and *Copy Secret* to copy the ID and secret for `DemoApp1`:
 +
 image::mq-conn-apps-window.png["Connected Apps window"]
-+
-[calloutlist]
-.. *Copy Id* button copies the ID.
-.. *Copy Secret* button copes the secret value.
 
 //end::ScopesConnAppTutorial[]
 //tag::ScopesConnApp[]
@@ -43,12 +39,8 @@ image::mq-conn-apps-window.png["Connected Apps window"]
 .. Select the environments to apply the scopes to and click *Next*.
 .. Click *Add Scopes* or *Cancel* to cancel your changes.
 . Click *Save* or *Cancel* to cancel your changes.
-. From the *Connected Apps* page, click *Copy Id* and *Copy Secret* for the app you just created:
+. When you configure the connector, click *Copy Id* and *Copy Secret* to copy the ID and secret for the app you just created:
 +
 image::mq-conn-apps-window.png["Connected Apps window"]
-+
-[calloutlist]
-.. *Copy Id* button copies the ID.
-.. *Copy Secret* button copes the secret value.
 //end::ScopesConnApp[]
 //end::mqCreateConnApp[]
