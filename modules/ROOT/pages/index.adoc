@@ -22,14 +22,14 @@ Install and configure Anypoint MQ:
 . Click *Access Management*, then *Users* or *Roles* to create an Anypoint MQ user or role.
 . From *MQ*, create a xref:mq-queues.adoc[queue], xref:mq-exchanges.adoc[message exchange], or a xref:mq-queues.adoc#fifoqueues[FIFO queue].
 . Click a queue or message exchange name in the detail to access the Message Sender to send messages to a queue or message exchange, and to use the Message Browser to get messages from a queue.
-. From *MQ*, click *Client Apps* to register an app. You can view the client app ID and client secret for the app.
+. Depending on your authentication method, configure a Connected App or client app to get an ID and secret to configure Anypoint Connector for MQ (Anypoint MQ Connector).
 
 In Anypoint Studio:
 
-. Install the Anypoint MQ connector using Anypoint Exchange.
+. Install Anypoint MQ Connector using Anypoint Exchange.
 . Create a new Mule project with needed building blocks, such as an HTTP connector, Anypoint MQ connector, Set Payload, and a Logger.
-. Configure the Anypoint MQ connector and provide the client app ID and client secret of the app.
-. Set the Anypoint MQ connector operation to publish or consume messages, or to accept (ACK) or not accept (NACK) a message. See xref:connectors::anypoint-mq/3.x/anypoint-mq-connector.adoc[Anypoint MQ Connector 3.x for Mule 4].
+. Configure Anypoint MQ Connector and provide the ID and secret of the app.
+. Set the Anypoint MQ Connector operation to publish or consume messages, or to accept (ACK) or not accept (NACK) a message. See xref:connectors::anypoint-mq/4.x/anypoint-mq-connector.adoc[Anypoint MQ Connector 4.x for Mule 4].
 //
 // Alternatively, Anypoint MQ can provide xref:mq-ack-mode.adoc[automatic Acknowledgment Mode]. If you set the Operation to publish, set the Destination to the name of a queue or message exchange that you created in Anypoint Platform. If you sent the Operation to consume, specify the name of a queue from which you want to receive messages.
 . Run the Mule app.

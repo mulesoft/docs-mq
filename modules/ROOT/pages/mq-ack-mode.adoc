@@ -1,6 +1,6 @@
 = Acknowledging Messages - Mule 3
 
-IMPORTANT: This guide applies only to Mule 3 and Studio 6. For Mule 4 acknowledge information, see xref:connectors::anypoint-mq/3.x/anypoint-mq-ack.adoc[ACK and NACK Operations].
+IMPORTANT: This guide applies only to Mule 3 and Studio 6. For Mule 4 acknowledge information, see xref:connectors::anypoint-mq/4.x/anypoint-mq-ack.adoc[ACK and NACK Operations].
 
 Anypoint MQ lets you determine how to process messages in Anypoint Studio using the Anypoint MQ connector.
 
