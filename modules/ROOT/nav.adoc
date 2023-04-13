@@ -3,6 +3,7 @@
 ** xref:mq-understanding.adoc[Anypoint MQ Terminology]
 ** xref:mq-faq.adoc[]
 ** xref:mq-connectors.adoc[]
+* xref:mq-release-notes.adoc[Release Notes]
 * xref:mq-using.adoc[]
 ** xref:mq-tutorial.adoc[Tutorial: Create a Queue and Send Messages to It]
 ** xref:mq-access-management.adoc[]
