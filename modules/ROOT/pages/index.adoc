@@ -29,7 +29,7 @@ In Anypoint Studio:
 . Install Anypoint MQ Connector using Anypoint Exchange.
 . Create a new Mule project with needed building blocks, such as an HTTP connector, Anypoint MQ connector, Set Payload, and a Logger.
 . Configure Anypoint MQ Connector and provide the ID and secret of the app.
-. Set the Anypoint MQ Connector operation to publish or consume messages, or to accept (ACK) or not accept (NACK) a message. See xref:connectors::anypoint-mq/4.x/anypoint-mq-connector.adoc[Anypoint MQ Connector 4.x for Mule 4].
+. Set the Anypoint MQ Connector operation to publish or consume messages, or to accept (ACK) or not accept (NACK) a message. See xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.x for Mule 4].
 //
 // Alternatively, Anypoint MQ can provide xref:mq-ack-mode.adoc[automatic Acknowledgment Mode]. If you set the Operation to publish, set the Destination to the name of a queue or message exchange that you created in Anypoint Platform. If you sent the Operation to consume, specify the name of a queue from which you want to receive messages.
 . Run the Mule app.
