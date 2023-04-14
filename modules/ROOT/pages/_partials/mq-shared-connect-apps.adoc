@@ -1,6 +1,6 @@
 //Client App shared
 //tag::mqCreateConnApp[]
-To create a Connected App with Anypoint MQ scopes:
+To create a connected app with Anypoint MQ scopes:
 
 . Log in to Anypoint Platform and click *Access Management* in the navigation menu.
 . Click *Connected Apps* in the navigation pane.
@@ -9,8 +9,8 @@ To create a Connected App with Anypoint MQ scopes:
 image::mq-tutorial-create-connected-apps.png["Connected Apps option and Create app button"]
 +
 [calloutlist]
-.. *Connected Apps* displays and creates Connected Apps.
-.. *Create app* button creates a Connected App.
+.. *Connected Apps* displays and creates connected apps.
+.. *Create app* button creates a connected app.
 . Specify a name, such as `DemoApp1` for the app.
 . Select *App acts on its own behalf (client credentials)*.
 . Click *Add Scopes*.
@@ -27,8 +27,9 @@ image::mq-conn-apps-scopes.png["Scopes for Anypoint MQ connected apps"]
 .. Select the *Production* environment and click *Next*.
 .. Click *Add Scopes*.
 . Click *Save*.
-. [[connected-apps-window]] When you configure the connector in a later step, click *Copy Id* and *Copy Secret* to copy the ID and secret for `DemoApp1`:
-+
+
+[[connected-apps-window]] When you configure the connector in a later step, click *Copy Id* and *Copy Secret* to copy the ID and secret for `DemoApp1`:
+
 image::mq-conn-apps-window.png["Connected Apps window"]
 
 //end::ScopesConnAppTutorial[]

@@ -22,7 +22,7 @@ Install and configure Anypoint MQ:
 . Click *Access Management*, then *Users* or *Roles* to create an Anypoint MQ user or role.
 . From *MQ*, create a xref:mq-queues.adoc[queue], xref:mq-exchanges.adoc[message exchange], or a xref:mq-queues.adoc#fifoqueues[FIFO queue].
 . Click a queue or message exchange name in the detail to access the Message Sender to send messages to a queue or message exchange, and to use the Message Browser to get messages from a queue.
-. Depending on your authentication method, configure a Connected App or client app to get an ID and secret to configure Anypoint Connector for MQ (Anypoint MQ Connector).
+. Depending on your authentication method, configure a connected app to get an ID and secret to configure Anypoint Connector for MQ (Anypoint MQ Connector).
 
 In Anypoint Studio:
 

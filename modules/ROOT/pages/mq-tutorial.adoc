@@ -6,21 +6,15 @@ In this tutorial, you:
 
 . Create a queue in Anypoint MQ.
 . Send messages to the queue, verify that they arrived, and view the message payload.
-. Depending on your authentication method, either:
-** In Access Management, configure a Connected App and use the ID and secret to configure Anypoint MQ Connector. (Recommended)
-+
-include::partial$mq-versions.adoc[tag=mqConnectorVersion]
-** In Anypoint MQ, register a client app and use the client ID and client secret use to configure Anypoint MQ Connector. 
+. Configure a connected app and use the ID and secret to configure Anypoint Connector for MQ (Anypoint MQ Connector).
 . Create an app in Design Center, configure Anypoint MQ Connector, and test the connection.
-. Create an app in Anypoint Studio, configure Anypoint MQ Connector, and test the connection.
+. Create a Mule 4.x app in Anypoint Studio 7.x, configure Anypoint MQ Connector, and test the connection.
 +
-Depending on your Mule version, you create your app in Studio 7 (Mule 4.x) or Studio 6 (.9).
-
 [NOTE]
 include::partial$mq-versions.adoc[tag=mqMuleVersion]
 
 
-== Prerequisites
+== Before You Begin
 
 * Familiarity with xref:mq-understanding.adoc[Anypoint MQ terminology]
 * An https://anypoint.mulesoft.com[Anypoint Platform account^]
@@ -133,51 +127,34 @@ image::mq-tutorial-msg-browser-payload-details.png["Selected message row, payloa
 include::partial$mq-msg-browser-details.adoc[tag=mqMsgBrowserDetails]
 
 
-You have successfully created a queue in Anypoint MQ, sent messages to the queue, verified that the messages arrived, and viewed the message payload. Next, you create a Connected App or client app to connect a Mule app to Anypoint MQ.
+You have successfully created a queue in Anypoint MQ, sent messages to the queue, verified that the messages arrived, and viewed the message payload. Next, you create a connected app to connect a Mule app to Anypoint MQ.
 
-
-== Create a Connected App or Client App
-
-After you test the queue, you configure an app, which generates the ID and secret you use to configure Anypoint MQ Connector.
-
-Depending on your authentication method, either:
-
-* <<create-connected-app,Create a Connected App>> and use the ID and secret to configure Anypoint MQ Connector. (Recommended)
-+
-include::partial$mq-versions.adoc[tag=mqConnectorVersion]
-* <<create-client-app,Create a client app>> and use the client ID and client secret use to configure Anypoint MQ Connector. 
 
 [[create-connected-app]]
-=== Create a Connected App
+== Create a Connected App
+
+After you test the queue, you configure a connected app, which generates the ID and secret you use to configure Anypoint MQ Connector.
+
+[NOTE]
+include::partial$mq-versions.adoc[tags=mqConnectorVersion]
 
 include::partial$mq-shared-connect-apps.adoc[tags=!ScopesConnApp]
 
-copy the ID and secret in a later step.
-
-
 You have successfully configured a Connected app. Next, you create a Mule app in Design Center and connect it to Anypoint MQ.
-
-[[create-client-app]]
-=== Create a Client App
-
-include::partial$mq-shared-client-apps.adoc[tags=mqRegisterClientApp;!excludeClientAppTutorial]
-. [[client-app-window]] Keep the *Client Apps* window open so you can copy the client app ID and client secret in a later step.
-
-You have successfully registered a client app in Anypoint MQ. Next, you create a Mule app in Design Center and connect it to Anypoint MQ.
 
 
 [[configure-design-center]]
 == Create and Connect a Mule App to Anypoint MQ in Design Center
 
-After you configure the Connected App or client app, you use Design Center to configure an app that connects to Anypoint MQ, submit REST API commands to the Anypoint MQ Broker API, and use Anypoint MQ to view the results.
+After you configure the connected app, you use Design Center to configure an app that connects to Anypoint MQ, submit REST API commands to the Anypoint MQ Broker API, and use Anypoint MQ to view the results.
 
 
-=== Prerequisites
+=== Before You Begin
 
 * Disable password programs such as LastPass or Okta in your browser before using Design Center.
 +
 If enabled, the password program inserts passwords in fields in Design Center, which can cause the app to fail. 
-* Leave the *Connected Apps* or *Client Apps* window open so that you can access the queue and the ID and secret values for the Connected App or client app.
+* Leave the *Connected Apps* window open so that you can access the queue and the ID and secret values for the connected app.
 
 === Configure an App with Anypoint MQ in Design Center
 
@@ -227,7 +204,7 @@ to acknowledge that a message was received and can be deleted.
 +
 image::mq-tutorial-url.png["Copy button in the Destinations page"]
 .. In the *Configure Connection* page in Design Center, paste the copied URL in the *URL* field.
-.. Return to the <<connected-apps-window,Connected Apps>> or <<client-app-window,Client Apps>> window and copy the ID and secret for the app.
+.. Return to the <<connected-apps-window,Connected Apps>> window and copy the ID and secret for the app.
 .. Paste the ID and secret values to the *Configure Connection* page in Design Center:
 +
 --
@@ -307,7 +284,7 @@ You have successfully tested your app using a `curl` command to submit a REST AP
 
 You can now use Anypoint Studio 7 to create a Mule 4 app similar to the app you created in Design Center. In Studio 7, you can deploy the app to CloudHub and submit a `curl` command to test the connection. 
 
-=== Prerequisites
+=== Before You Begin
 
 * Install Studio 7. 
 +
@@ -369,7 +346,7 @@ The queue must be located in an environment other than Design.
 +
 image::mq-tutorial-url.png["Copy button in the Destinations page"]
 .. In the *Anypoint MQ Config* window in Studio, paste the URL in the *URL* field.
-.. Return to the <<connected-apps-window,Connected Apps>> or <<client-app-window,Client Apps>> window and copy the ID and secret for the app.
+.. Return to the <<connected-apps-window,Connected Apps>> window and copy the ID and secret for the app.
 .. Paste the ID and secret values to the *Anypoint MQ Config* window in Studio:
 +
 --
@@ -477,7 +454,7 @@ This section applies only to Anypoint Studio 6 and Mule 3.9. For Studio 7, see <
 [NOTE]
 include::partial$mq-versions.adoc[tag=mqMuleVersion]
 
-=== Prerequisites
+=== Before You Begin
 
 * Install Studio 6. 
 +
@@ -485,6 +462,14 @@ See xref:6.5@studio::to-download-and-install-studio.adoc[Download and Install An
 * In Anypoint Platform, change to any environment except Design.
 +
 Ensure that the queue you created in *Anypoint Platform* > *MQ* is also in this environment.
+
+[[create-client-app]]
+=== Create a Client App
+
+include::partial$mq-shared-client-apps.adoc[tags=mqRegisterClientApp;!excludeClientAppTutorial]
+. [[client-app-window]] Keep the *Client Apps* window open so you can copy the client app ID and client secret in a later step.
+
+You have successfully registered a client app in Anypoint MQ. Next, you create a Mule app in Design Center and connect it to Anypoint MQ.
 
 === Configure a Mule 3.9 App with Anypoint MQ in Anypoint Studio 6
 

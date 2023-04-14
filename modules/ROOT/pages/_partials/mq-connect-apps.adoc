@@ -1,5 +1,5 @@
 
 // tag::mqConnAppEndpointSupport[]
-The `/authorize` endpoints in the Anypoint MQ Admin API and Anypoint MQ Broker API do not support Connected Apps.
-You can't use tokens obtained from those endpoints to access a Connected App.
+The `/authorize` endpoints in the Anypoint MQ Admin API and Anypoint MQ Broker API do not support connected apps.
+You can't use tokens obtained from those endpoints to access a connected app.
 // end::mqConnAppEndpointSupport[]

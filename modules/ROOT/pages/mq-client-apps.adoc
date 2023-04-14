@@ -1,17 +1,20 @@
 = Configuring Client Apps
 
-Client apps enable you to generate a credentials to use to publish and consume from a queue.
+Client apps enable you to generate credentials to use to publish and consume from a queue.
+
+[IMPORTANT]
+MuleSoft recommends that you use connected apps rather than client apps to generate credentials.
+For information, see xref:mq-connected-apps.adoc[].
 
 When you register a client app, Anypoint MQ lists the client ID and client secret for the app.
 You use the client ID and client secret values when configuring Anypoint Connector for MQ (Anypoint MQ Connector) in a Mule app in Anypoint Studio.
 
-An app does not have to exist for you to register it with Anypoint MQ Connector.
-
-Alternatively, you can configure Connected Apps to integrate external applications by providing access to those applications without sharing your user credentials.
-For information, see xref:mq-connected-apps.adoc[].
 
 [IMPORTANT]
 include::partial$mq-client-id-secret.adoc[tag=mqClientIdSecret]
+
+An app does not have to exist for you to register it with Anypoint MQ Connector.
+
 
 == Register a Client App 
 
@@ -22,7 +25,7 @@ include::partial$mq-shared-client-apps.adoc[tags=mqRegisterClientApp,tags=!exclu
 +
 image::mq-tutorial-studio7-mq-config.png["URL, Client App ID, and Client Secret fields in the Anypoint MQ Config window"]
 +
-For more information, see xref:mq-tutorial.adoc#configure-mule-4-studio[Create and Connect a Mule 4 App to Anypoint MQ in Anypoint Studio 7] in the Anypoint MQ tutorial.
+For more information, see xref:mq-tutorial.adoc[].
 
 == Regenerate a Client Secret 
 
@@ -54,6 +57,6 @@ image::mq-client-apps-delete.png["Delete icon in the details pane"]
 
 == See Also
 
-* xref:connectors::anypoint-mq/4.x/anypoint-mq-connector-reference.adoc#config_connection[Connection]
+* xref:anypoint-mq-connector::anypoint-mq-connector-reference.adoc[]
 * xref:mq-faq.adoc[Anypoint MQ FAQ]
 * xref:mq-connected-apps.adoc[]

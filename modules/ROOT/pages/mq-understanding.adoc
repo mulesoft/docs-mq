@@ -149,7 +149,7 @@ Billing is based on the number of messages delivered to subscribers from queues,
 
 == Clients
 
-In Anypoint MQ, each consumer must be registered as a client app with a name, ID, and a secret. The client app uses the ID and secret to authenticate and get access to queues and message exchanges within a single environment. Client apps cannot be used across multiple environments or business groups.
+In Anypoint MQ, each consumer must be registered as a connected app with a name, ID, and a secret. The connected app uses the ID and secret to authenticate and get access to queues and message exchanges within a single environment. Connected apps cannot be used across multiple environments or business groups.
 
 == Message Exchanges
 

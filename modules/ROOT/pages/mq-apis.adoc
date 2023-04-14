@@ -39,16 +39,16 @@ Get a token from Anypoint MQ by supplying the client ID and client secret for an
 +
 Get an access token for an Anypoint Platform user.
 
-To use a Connected App with the Anypoint MQ REST APIs, see <<authorize-api-connected-apps>>.
+To use a connected app with the Anypoint MQ REST APIs, see <<authorize-api-connected-apps>>.
 
 The `curl` command for each is explained in the API sections.
 
 [[authorize-api-connected-apps]]
 === Authorize API Access for Connected Apps
 
-To use a Connected App with the Anypoint MQ REST APIs, see:
+To use a connected app with the Anypoint MQ REST APIs, see:
 
-** xref:mq-connected-apps.adoc[] to create the Connected App.
+** xref:mq-connected-apps.adoc[] to create the connected app.
 ** xref:access-management::connected-apps-developers.adoc#oidc-endpoints-and-tokens[OIDC Endpoints and Tokens] to get the access token.
 
 [NOTE]
