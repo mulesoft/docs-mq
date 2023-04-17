@@ -177,10 +177,12 @@ Using Anypoint MQ, the Salesforce app sends a pub/sub message to a message excha
 * *ACK/NACK* 
 ** ACK
 +
-An app receives a message and Anypoint MQ deletes the message. For more information, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations].
+An app receives a message and Anypoint MQ deletes the message. 
 ** NACK
 +
 An app does not receive a message and Anypoint MQ does not delete the message.
++
+For more information, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations].
 * *Binding*
 +
 Enables pub/sub apps to bridge the simple pub/sub structure and use point-to-point features, such as sending a message to specific applications. Bindings identify which queues comprise a message exchange. In Anypoint Platform, by specifying which message queues are bound to a message exchange, Anypoint MQ creates and manages the bindings for you.
