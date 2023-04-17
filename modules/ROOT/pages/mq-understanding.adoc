@@ -111,7 +111,7 @@ By putting a message on a queue, the work to process that message can be distrib
 +
 Queues ensure that messages are always processed, even in the case of failure.
 +
-In Anypoint MQ, reliability is provided with queues using a lock and xref:mq-ack-mode.adoc[acknowledge mechanism]. This ensures that a message is always processed, even in the case of failure.
+In Anypoint MQ, reliability is provided with queues using a lock and acknowledge mechanism. This ensures that a message is always processed, even in the case of failure.
 +
 * *Decoupling*
 +
@@ -123,7 +123,7 @@ Multiple message producers can publish to a single queue, which enables easy con
 .. A consumer retrieves messages from a queue. This locks the messages and makes the messages invisible to all other consumers.
 .. When retrieving, the consumer specifies a lock timeout. If the message is not processed within that time window, the message is made visible to other consumers to be processed. This ensures that if there was a failure of some sort, such as the consumer node crashed, a message can be processed by another node. A locked message does not block other messages to be read. The lock makes a message unavailable to other applications while locked.
 +
-If a consumer processes a message successfully, the client acknowledges the message, and Anypoint MQ removes the message from the queue. For more information on how Anypoint MQ processes acknowledged messages, see xref:mq-ack-mode.adoc[Acknowledge a Message].
+If a consumer processes a message successfully, the client acknowledges the message, and Anypoint MQ removes the message from the queue. For more information on how Anypoint MQ processes acknowledged messages, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations].
 +
 If a consumer is not able to process a message, the message proceeds with a negative acknowledgment and becomes visible in the queue again.
 
@@ -177,7 +177,7 @@ Using Anypoint MQ, the Salesforce app sends a pub/sub message to a message excha
 * *ACK/NACK* 
 ** ACK
 +
-An app receives a message and Anypoint MQ deletes the message. For more information, see xref:mq-ack-mode.adoc[Acknowledge a Message].
+An app receives a message and Anypoint MQ deletes the message. For more information, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations].
 ** NACK
 +
 An app does not receive a message and Anypoint MQ does not delete the message.
