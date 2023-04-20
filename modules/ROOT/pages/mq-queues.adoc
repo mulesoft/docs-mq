@@ -163,7 +163,7 @@ image::mq-tutorial-get-messages.png["Message Browser navigation menu"]
 +
 The specified number is the minimum number of messages to retrieve.
 +
-For a FIFO queue, you can retrieve up to 10 messages.
+include::partial$mq-msg-fifo.adoc[tag=msgFIFOmax]
 . If you are retrieving messages from a FIFO queue, select the checkbox to acknowledge 
 that viewing messages through the browser might cause other consumers of the queue to be blocked from accessing messages in the queue:
 +
