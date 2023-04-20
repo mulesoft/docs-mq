@@ -1,0 +1,5 @@
+
+// tag::msgFIFOmax[]
+For a FIFO queue, the Message Browser UI limits the number of messages you can retrieve to 10.
+// end::msgFIFOmax[]
+
