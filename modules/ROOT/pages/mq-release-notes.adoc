@@ -1,0 +1,1 @@
+include::release-notes::partial$mq/mq-rn-landing-page.adoc[]
