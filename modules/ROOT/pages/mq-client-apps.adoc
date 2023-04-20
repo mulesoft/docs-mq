@@ -3,8 +3,7 @@
 Client apps enable you to generate credentials to use to publish and consume from a queue.
 
 [IMPORTANT]
-MuleSoft recommends that you use connected apps rather than client apps to generate credentials.
-For information, see xref:mq-connected-apps.adoc[].
+include::partial$mq-connect-apps.adoc[tag=mqConnAppRec]
 
 When you register a client app, Anypoint MQ lists the client ID and client secret for the app.
 You use the client ID and client secret values when configuring Anypoint Connector for MQ (Anypoint MQ Connector) in a Mule app in Anypoint Studio.

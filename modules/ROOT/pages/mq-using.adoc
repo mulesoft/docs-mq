@@ -18,3 +18,5 @@ Configure connected apps and add scopes.
 * xref:mq-client-apps.adoc[]
 +
 Register a client app and regenerate a client secret.
++
+include::partial$mq-connect-apps.adoc[tag=mqConnAppRec]

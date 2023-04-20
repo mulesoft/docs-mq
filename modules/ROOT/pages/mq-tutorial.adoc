@@ -87,6 +87,7 @@ include::partial$mq-user-props.adoc[tag=mquserpropsTypeColor]
 . Click *Send*.
 . Set the *Type* to *CSV*, enter the following in the *Payload* field, and click *Send*:
 +
+[source,csv,linenums]
 ----
 "dog",
 "fish",
