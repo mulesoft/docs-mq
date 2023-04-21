@@ -1,0 +1,3 @@
+// tag::msgTTLchange[]
+If you change the message TTL for a queue, the new TTL value applies to any messages in the queue and all new messages added to the queue.
+// end::msgTTLchange[]
