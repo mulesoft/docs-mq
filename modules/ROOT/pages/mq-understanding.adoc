@@ -132,6 +132,8 @@ If a consumer is not able to process a message, the message proceeds with a nega
 * *Message TTL*
 +
 Each queue has a message time-to-live (TTL). TTL specifies how long the message is in the queue before Anypoint MQ expires the message and removes it from the queue.
++
+include::partial$mq-ttl.adoc[tag=msgTTLchange]
 
 [message_lock_ttl]
 * *Default Acknowledgement Timeout* 

@@ -62,6 +62,8 @@ Queue names can contain up to 127 alphanumeric (a-z, A-Z, 0-9) and punctuation (
 ** *Message TTL* (time-to-live) specifies how long unprocessed messages persist before being deleted. 
 +
 The maximum TTL for a message is two weeks.
++
+include::partial$mq-ttl.adoc[tag=msgTTLchange]
 ** *Default Acknowledgment Timeout* specifies how long a message waits before being put back into the queue in the event of server failure when the message is not acknowledged.
 +
 The lock makes the message unavailable to other apps while locked, but does not block other messages from being read.
