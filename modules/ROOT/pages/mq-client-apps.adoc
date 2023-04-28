@@ -17,8 +17,26 @@ An app does not have to exist for you to register it with Anypoint MQ Connector.
 
 == Register a Client App 
 
-include::partial$mq-shared-client-apps.adoc[tags=mqRegisterClientApp,tags=!excludeClientApp]
+To register a client app:
 
+. Log in to Anypoint Platform and click *MQ* in the navigation menu.
+. Click *Client Apps* in the navigation pane:
++
+image::mq-tutorial-create-client-apps.png["Client Apps option and blue plus icon"]
++
+[calloutlist]
+.. *Client Apps* displays and creates client apps.
+.. Blue plus (+) icon adds a client app.
+. Click the blue plus (+) icon.
+. In the *Create Client App* window, enter the name of the client app, such as `DemoClientApp` and click *Save Changes*.
+. Click the client app name to view the client app ID and client secret values in the details pane:
++
+image::mq-tutorial-client-apps-detail.png["Client app name, Copy, and Show buttons"]
++
+[calloutlist]
+.. Client app name displays client app details.
+.. *Copy* buttons copy the client app ID or client secret value.
+.. *Show* displays the client secret value, which is obfuscated by default.
 . Click *Copy* to copy the client app ID or client secret value to your clipboard.
 . When you configure Anypoint MQ Connector in your Mule app, paste the client app ID and client secret values to the *Anypoint MQ Config* window in Studio:
 +

@@ -6,7 +6,10 @@ In this tutorial, you:
 
 . Create a queue in Anypoint MQ.
 . Send messages to the queue, verify that they arrived, and view the message payload.
-. Configure a connected app and use the ID and secret to configure Anypoint Connector for MQ (Anypoint MQ Connector).
+. Configure a connected app and use the ID and secret to configure Anypoint Connector for MQ (Anypoint MQ Connector) version 4.x.
++
+include::partial$mq-versions.adoc[tags=mqConnectorVersion]
+include::partial$mq-versions.adoc[tags=mqConnectorVersion3x]
 . Create an app in Design Center, configure Anypoint MQ Connector, and test the connection.
 . Create a Mule 4.x app in Anypoint Studio 7.x, configure Anypoint MQ Connector, and test the connection.
 +
@@ -131,13 +134,14 @@ include::partial$mq-msg-browser-details.adoc[tag=mqMsgBrowserDetails]
 You have successfully created a queue in Anypoint MQ, sent messages to the queue, verified that the messages arrived, and viewed the message payload. Next, you create a connected app to connect a Mule app to Anypoint MQ.
 
 
-[[create-connected-app]]
-== Create a Connected App
+[[configure-connected-app]]
+== Configure a Connected App
 
 After you test the queue, you configure a connected app, which generates the ID and secret you use to configure Anypoint MQ Connector.
 
 [NOTE]
 include::partial$mq-versions.adoc[tags=mqConnectorVersion]
+include::partial$mq-versions.adoc[tags=mqConnectorVersion3x]
 
 include::partial$mq-shared-connect-apps.adoc[tags=!ScopesConnApp]
 
@@ -204,6 +208,8 @@ to acknowledge that a message was received and can be deleted.
 .. [[copy-url]] Click *Copy* and select *Connector version 4.x and later* from the menu to copy the URL:
 +
 image::mq-tutorial-url.png["Copy button in the Destinations page"]
++
+include::partial$mq-versions.adoc[tags=mqConnectorVersion3x]
 .. In the *Configure Connection* page in Design Center, paste the copied URL in the *URL* field.
 .. Return to the <<connected-apps-window,Connected Apps>> window and copy the ID and secret for the connected app.
 .. Paste the ID and secret values to the *Configure Connection* page in Design Center:
@@ -346,6 +352,8 @@ The queue must be located in an environment other than Design.
 .. [[copy-url-studio]] Click *Copy* and select *Connector version 4.x and later* from the menu to copy the URL:
 +
 image::mq-tutorial-url.png["Copy button in the Destinations page"]
++
+include::partial$mq-versions.adoc[tags=mqConnectorVersion3x]
 .. In the *Anypoint MQ Config* window in Studio, paste the URL in the *URL* field.
 .. Return to the <<connected-apps-window,Connected Apps>> window and copy the ID and secret for the app.
 .. Paste the ID and secret values to the *Anypoint MQ Config* window in Studio:
@@ -463,18 +471,15 @@ See xref:6.5@studio::to-download-and-install-studio.adoc[Download and Install An
 * In Anypoint Platform, change to any environment except Design.
 +
 Ensure that the queue you created in *Anypoint Platform* > *MQ* is also in this environment.
-
-[[create-client-app]]
-=== Create a Client App
-
-[NOTE]
+*
+In Anypoint Platform, create a client app for authentication. 
++
 Because Anypoint MQ Connector for Mule 3 doesn't support connected apps, 
 you must create a client app for authentication.
-
-include::partial$mq-shared-client-apps.adoc[tags=mqRegisterClientApp;!excludeClientAppTutorial]
-. [[client-app-window]] Keep the *Client Apps* window open so you can copy the client app ID and client secret in a later step.
-
-You have successfully registered a client app in Anypoint MQ. Next, you create a Mule app in Design Center and connect it to Anypoint MQ.
++
+See xref:mq-client-apps.adoc[].
++
+Keep the *Client Apps* window open so you can copy the client app ID and client secret in a later step.
 
 === Configure a Mule 3.9 App with Anypoint MQ in Anypoint Studio 6
 
@@ -536,7 +541,7 @@ image::mq-tutorial-url.png["Copy button in the Destinations page"]
 +
 Use Anypoint MQ Connector version 3.x with Mule 3.9 and Studio 6. 
 .. In the *Anypoint MQ Config* window in Studio, paste the URL in the *URL* field.
-.. Return to the <<client-app-window,Client Apps>> window and copy the client app ID and client secret for the app.
+.. Return to the *Client Apps* window in Anypoint Platform and copy the client app ID and client secret for the app.
 .. Paste the client app ID and client secret values to the *Anypoint MQ Configuration* window in Studio:
 +
 image::mq-tutorial-studio6-mq-config.png["URL, Client App ID, and Client Secret fields in the Anypoint MQ Config window"]
