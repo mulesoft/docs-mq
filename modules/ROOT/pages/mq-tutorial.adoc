@@ -145,7 +145,7 @@ include::partial$mq-versions.adoc[tags=mqConnectorVersion3x]
 
 include::partial$mq-shared-connect-apps.adoc[tags=!ScopesConnApp]
 
-You have successfully configured a Connected app. Next, you create a Mule app in Design Center and connect it to Anypoint MQ.
+You have successfully configured a connected app. Next, you create a Mule app in Design Center and connect it to Anypoint MQ.
 
 
 [[configure-design-center]]
