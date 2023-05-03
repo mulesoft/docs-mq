@@ -27,7 +27,7 @@ For more information, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK a
 [[authorize-api]]
 == Authorize API Access
 
-Before accessing an API, you need to acquire an access token:
+Before accessing an API, you need to get an access token:
 
 * <<mqadminapi,Anypoint MQ Admin API>>
 +
@@ -210,7 +210,7 @@ To get the Broker API access token:
 
 . Log in to Anypoint Platform.
 . Click *MQ* > *Client Apps*, and then click the blue plus-circle icon to create an app.
-. Get the client ID and client secret and use these values in the curl command below replacing `CLIENT_ID` and `CLIENT_SECRET`:
+. Get the client ID and client secret and use these values in the following curl command replacing `CLIENT_ID` and `CLIENT_SECRET`:
 +
 [source,bash]
 ----
@@ -486,7 +486,7 @@ This command returns output similar to:
 }
 ----
 
-Note that period is an integer here. It's the granularity of data points in seconds.
+The period is an integer and is the granularity of data points in seconds.
 
 [[usage-by-env]]
 === Get Usage Metrics by Environment 

@@ -41,8 +41,7 @@ You must create an environment, user access, and roles for accessing Anypoint MQ
 
 To create a standard queue or FIFO queue:
 
-. Log in to Anypoint Platform.
-. Click *MQ* in the left navigation bar or the main Anypoint Platform screen.
+. Log in to Anypoint Platform and click *MQ* in the navigation menu.
 . Click *Destinations*.
 . Click the blue plus icon (+) to display the menu:
 +

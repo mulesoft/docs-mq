@@ -34,7 +34,7 @@ For more information, see xref:mq-tutorial.adoc#configure-mule-4-studio[Create a
 [IMPORTANT]
 include::partial$mq-client-id-secret.adoc[tag=mqClientIdSecret]
 
-For information on getting the access token for connected apps, see
+For information about getting the access token for connected apps, see
 xref:access-management::connected-apps-developers.adoc#oidc-endpoints-and-tokens[OIDC Endpoints and Tokens].
 
 [NOTE]
@@ -43,7 +43,7 @@ include::partial$mq-connect-apps.adoc[tag=mqConnAppEndpointSupport]
 [[configure-mq-conn-app-api]]
 == Configure a Connected App Using the API
 
-For information on configuring a connected app with the API, see
+For information about configuring a connected app with the API, see
 https://help.mulesoft.com/s/article/How-to-create-connected-apps-creation-using-API[How to create connected apps using the API^].
 
 [[mq-scopes]]

@@ -84,7 +84,7 @@ image::mq-exchange-delete-rule-bound-queues.png["Delete Rule button on the Excha
 
 == Create or Change a Message Routing Rule with Anypoint Admin API
 
-For information on using the Anypoint MQ Admin API to manage message routing rules, see
+For information about using the Anypoint MQ Admin API to manage message routing rules, see
 xref:mq-apis.adoc#routing-rules-api[Create or Change Message Routing Rules].
 
 

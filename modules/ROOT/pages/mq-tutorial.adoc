@@ -35,8 +35,7 @@ First, you create a queue, send messages to the queue, verify that the messages 
 
 To create a queue:
 
-. Log in to Anypoint Platform.
-. Click *MQ* in the navigation menu.
+. Log in to Anypoint Platform and click *MQ* in the navigation menu.
 . If you want to test the queue in Anypoint Studio 7, switch to any environment except Design. 
 +
 For example, click the environment button and select *Production*:
@@ -118,7 +117,7 @@ image::mq-tutorial-msgs-in-queue.png["Three messages in the myDemoQueue queue in
 . Click *Message Browser* in the navigation menu:
 +
 image::mq-tutorial-get-messages.png["Message Browser in the navigation menu"]
-. Enter `5` for the the number of messages to retrieve and `10` for the number of seconds to poll.
+. Enter `5` for the number of messages to retrieve and `10` for the number of seconds to poll.
 +
 You can retrieve between 1-500 messages and poll for between 1-3600 seconds.
 . Click *Get Messages*.
@@ -275,7 +274,7 @@ Next, you verify that the message arrived in the queue.
 . Click *Message Browser* in the navigation menu:
 +
 image::mq-tutorial-get-messages.png["Message Browser in the navigation menu"]
-. Enter `5` for the the number of messages to retrieve and `10` for the number of seconds to poll.
+. Enter `5` for the number of messages to retrieve and `10` for the number of seconds to poll.
 . Click *Get Messages*.
 +
 Anypoint MQ retrieves the messages from the queue and displays them in the Message Browser.
@@ -407,7 +406,7 @@ After making changes, redeploy your Mule app to CloudHub by right-clicking the p
 . Click *Message Browser* in the navigation menu:
 +
 image::mq-tutorial-get-messages.png["Message Browser in the navigation menu"]
-. Enter `5` for the the number of messages to retrieve and `10` for the number of seconds to poll.
+. Enter `5` for the number of messages to retrieve and `10` for the number of seconds to poll.
 . Click *Get Messages*.
 +
 Anypoint MQ retrieves the messages from the queue and displays them in the Message Browser.

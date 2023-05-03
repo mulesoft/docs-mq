@@ -82,12 +82,12 @@ https://blogs.mulesoft.com/dev-guides/how-to-tutorials/total-traceability/[Total
 In *Anypoint Platform* > *MQ* > *Message Browser*, you can fetch up to 50 messages from a standard (non-FIFO) queue.
 
 include::partial$mq-msg-fifo.adoc[tag=msgFIFOmax]
-The FIFO restriction exists because the FIFO queues are limited to 10 in-flight messages per message group. For more information on in-flight messages, see <<inflights,How many in-flight messages can I have per queue?>>
+The FIFO restriction exists because the FIFO queues are limited to 10 in-flight messages per message group. For more information about in-flight messages, see <<inflights,How many in-flight messages can I have per queue?>>
 
 [[batchsize]]
 == Why do I receive fewer messages than my batch size when retrieving messages with the Anypoint MQ REST API?
 
-Anypoint MQ is a highly distributed messaging system, so the results of an API call to receive messages are not guaranteed to be entirely representative of what is fully in the queue. Anypoint MQ operates in a best-effort case. For example, if there are 5 messages in a queue, the system returns anywhere from 0-5 messages in a single API call depending on what distributed subsystems are accessed by that request. Subsequent API calls retrieve more messages and if you keep making API requests to receive messages, then you get all of them.  Normally in high throughput cases, repeated API calls happen extremely fast.  The Anypoint MQ connector, for example, continuously polls the Anypoint MQ backend for new messages and from the user perspective, the messages are processed nearly instantly even though many API calls were used.
+Anypoint MQ is a highly distributed messaging system, so the results of an API call to receive messages are not guaranteed to be entirely representative of what is fully in the queue. Anypoint MQ operates in a best-effort case. For example, if there are 5 messages in a queue, the system returns anywhere from 0-5 messages in a single API call depending on what distributed subsystems are accessed by that request. Subsequent API calls retrieve more messages and if you keep making API requests to receive messages, then you get all of them. Normally in high throughput cases, repeated API calls happen extremely fast. The Anypoint MQ connector, for example, continuously polls the Anypoint MQ backend for new messages and from the user perspective, the messages are processed nearly instantly even though many API calls were used.
 
 == In what order are messages in a standard (non-FIFO) queue?
 
