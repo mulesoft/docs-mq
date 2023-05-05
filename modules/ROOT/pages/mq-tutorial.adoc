@@ -64,9 +64,7 @@ For information, see xref:mq-queues.adoc#create-a-queue[Create a Queue].
 + 
 Anypoint MQ creates the queue in the *Destinations* page:
 +
-image::mq-queue-details.png["Destinations page with the type, ID, and details label for the new queue"]
-+
-include::partial$mq-msg-browser-details.adoc[tag=mqQueueDetails]
+image::mq-tutorial-queue-details.png["Destinations page with the new queue"]
 
 You have successfully created a queue. Next, you send messages to the queue, verify that the messages arrived, and view the message payload.
 
@@ -125,7 +123,7 @@ You can retrieve between 1-500 messages and poll for between 1-3600 seconds.
 Anypoint MQ retrieves the messages from the queue and displays them in the Message Browser.
 . Click the message row to view the message payload in the details pane:
 +
-image::mq-tutorial-msg-browser-payload-details.png["Selected message row, payload in the details pane, and icons representing Return Messages, Delete, Full Screen, and close details pane (X)"]
+image::mq-tutorial-msg-browser-payload-details.png["Selected message row and the payload in the details pane"]
 +
 include::partial$mq-msg-browser-details.adoc[tag=mqMsgBrowserDetails]
 
@@ -280,7 +278,7 @@ image::mq-tutorial-get-messages.png["Message Browser in the navigation menu"]
 Anypoint MQ retrieves the messages from the queue and displays them in the Message Browser.
 . Click the message row to view the message payload in the details pane:
 +
-image::mq-tutorial-msg-browser-payload-details-nocallouts.png["Message payload in the details pane"]
+image::mq-tutorial-msg-browser-payload-details.png["Selected message row and the payload in the details pane"]
 . Try changing the body text in the `curl` command and repeat the steps to view the message.
 
 You have successfully tested your app using a `curl` command to submit a REST API command to the Anypoint MQ Broker API and using Anypoint MQ to view the results. Next, you create a Mule app in Anypoint Studio 7 and connect it to Anypoint MQ.
@@ -412,7 +410,7 @@ image::mq-tutorial-get-messages.png["Message Browser in the navigation menu"]
 Anypoint MQ retrieves the messages from the queue and displays them in the Message Browser.
 . Click the message row to view the message payload in the details pane:
 +
-image::mq-tutorial-msg-browser-payload-details-nocallouts.png["Message payload in the details pane"]
+image::mq-tutorial-msg-browser-payload-details.png["Selected message row and the payload in the details pane"]
 . Try changing the body text in the `curl` command and repeat the steps to view the message.
 
 You can now configure Anypoint MQ in Studio 7, submit REST API commands to the Anypoint MQ Broker API, 
