@@ -470,12 +470,10 @@ See xref:6.5@studio::to-download-and-install-studio.adoc[Download and Install An
 * In Anypoint Platform, change to any environment except Design.
 +
 Ensure that the queue you created in *Anypoint Platform* > *MQ* is also in this environment.
-*
-In Anypoint Platform, create a client app for authentication. 
+* In Anypoint Platform, create a client app for authentication. 
 +
 Because Anypoint MQ Connector for Mule 3 doesn't support connected apps, 
 you must create a client app for authentication.
-+
 See xref:mq-client-apps.adoc[].
 +
 Keep the *Client Apps* window open so you can copy the client app ID and client secret in a later step.
