@@ -24,8 +24,6 @@ Deleting a message is an acknowledgment operation (ACK). For information about h
 // end::mqClientAppsDetail[]
 
 
-
-
 // tag::mqQueueDetails[]
 [calloutlist]
 .. Queue type displays the queue details pane.
@@ -35,7 +33,6 @@ Deleting a message is an acknowledgment operation (ACK). For information about h
 
 // tag::mqPayloadDetails[]
 [calloutlist]
-*Full Screen* icon displays the message payload in a separate window.
-*Close* icon closes the details pane.
-
+.. *Full Screen* icon displays the message payload in a separate window.
+.. *Close* icon closes the details pane.
 // end::mqPayloadDetails[]
