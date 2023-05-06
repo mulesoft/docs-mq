@@ -125,7 +125,9 @@ Anypoint MQ retrieves the messages from the queue and displays them in the Messa
 +
 image::mq-tutorial-msg-browser-payload-details.png["Selected message row and the payload in the details pane"]
 +
-include::partial$mq-msg-browser-details.adoc[tag=mqMsgBrowserDetails]
+[calloutlist]
+.. Selected message.
+.. Message payload in the details pane.
 
 
 You have successfully created a queue in Anypoint MQ, sent messages to the queue, verified that the messages arrived, and viewed the message payload. Next, you create a connected app to connect a Mule app to Anypoint MQ.
@@ -279,6 +281,10 @@ Anypoint MQ retrieves the messages from the queue and displays them in the Messa
 . Click the message row to view the message payload in the details pane:
 +
 image::mq-tutorial-msg-browser-payload-details.png["Selected message row and the payload in the details pane"]
++
+[calloutlist]
+.. Selected message.
+.. Message payload in the details pane.
 . Try changing the body text in the `curl` command and repeat the steps to view the message.
 
 You have successfully tested your app using a `curl` command to submit a REST API command to the Anypoint MQ Broker API and using Anypoint MQ to view the results. Next, you create a Mule app in Anypoint Studio 7 and connect it to Anypoint MQ.
@@ -411,6 +417,10 @@ Anypoint MQ retrieves the messages from the queue and displays them in the Messa
 . Click the message row to view the message payload in the details pane:
 +
 image::mq-tutorial-msg-browser-payload-details.png["Selected message row and the payload in the details pane"]
++
+[calloutlist]
+.. Selected message.
+.. Message payload in the details pane.
 . Try changing the body text in the `curl` command and repeat the steps to view the message.
 
 You can now configure Anypoint MQ in Studio 7, submit REST API commands to the Anypoint MQ Broker API, 
@@ -606,4 +616,4 @@ http://www.mulesoft.org/schema/mule/anypoint-mq http://www.mulesoft.org/schema/m
 * xref:mq-queues.adoc#delete-a-queue[Delete a Queue]
 * xref:mq-faq.adoc[Anypoint MQ FAQ]
 * xref:mq-connectors.adoc[Anypoint MQ Connectors]
-* xref:https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint MQ Broker^]
+* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint MQ Broker API in Anypoint Exchange^]

@@ -1015,7 +1015,7 @@ image::mq-exchange-download.png["Download Anypoint MQ APIs in Exchange"]
 == See Also
 
 * xref:mq-faq.adoc[Anypoint MQ FAQ]
-* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Anypoint Admin API in Anypoint Exchange^]
-* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint Broker API in Anypoint Exchange^]
+* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Anypoint MQ Admin API in Anypoint Exchange^]
+* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint MQ Broker API in Anypoint Exchange^]
 * https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API in Anypoint Exchange^]
 * xref:mq-routing-rules.adoc[]
