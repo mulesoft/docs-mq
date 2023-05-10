@@ -537,7 +537,7 @@ image::mq-tutorial-studio6-set-payload-props.png["Payload in the Value field"]
 . In the canvas, click *Anypoint MQ*.
 . In the Anypoint MQ properties window, click the green plus icon (+) for *Connector Configuration*.
 
-. Return to your *Anypoint Platform* > *MQ* browser window to copy the URL, client app ID, and client secret values:
+. Return to *Anypoint Platform* > *MQ* to copy the URL, client app ID, and client secret values to Studio:
 +
 .. Click *Destinations*.
 .. Click *Copy* and select *Connector version 3.x and earlier* from the menu:
@@ -545,9 +545,9 @@ image::mq-tutorial-studio6-set-payload-props.png["Payload in the Value field"]
 image::mq-tutorial-url.png["Copy button in the Destinations page"]
 +
 Use Anypoint MQ Connector version 3.x with Mule 3.9 and Studio 6. 
-.. In the *Anypoint MQ Config* window in Studio, paste the URL in the *URL* field.
-.. Return to the *Client Apps* window in Anypoint Platform and copy the client app ID and client secret for the app.
-.. Paste the client app ID and client secret values to the *Anypoint MQ Configuration* window in Studio:
+.. In Studio, in the *Anypoint MQ Configuration* window, paste the URL in the *URL* field.
+.. In *Anypoint Platform > MQ*, click *Client Apps* and copy the client app ID and client secret for the app.
+.. In Studio, paste the client app ID and client secret values to the *Anypoint MQ Configuration* window:
 +
 image::mq-tutorial-studio6-mq-config.png["URL, Client App ID, and Client Secret fields in the Anypoint MQ Config window"]
 . Click *OK*.
