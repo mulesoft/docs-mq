@@ -1,1 +1,1 @@
-include::release-notes::partial$mq/mq-rn-landing-page.adoc[]
+include::release-notes::partial$mq/mq-rn-landing-page.adoc[tags=!excludeIntroMQ]
