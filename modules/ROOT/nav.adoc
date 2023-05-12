@@ -1,6 +1,7 @@
 .xref:index.adoc[Anypoint MQ]
 * xref:index.adoc[]
 ** xref:mq-understanding.adoc[Anypoint MQ Terminology]
+** xref:mq-get-started.adoc[]
 ** xref:mq-faq.adoc[]
 ** xref:mq-connectors.adoc[]
 * xref:mq-release-notes.adoc[Release Notes]
