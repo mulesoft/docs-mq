@@ -3,14 +3,12 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Anypoint MQ is a multi-tenant, cloud-based message queuing service for exchanging data asynchronously between your applications.
+Anypoint MQ is a multi-tenant, cloud-based message queuing service for exchanging data asynchronously between your applications. 
+The Anypoint MQ messaging broker enables applications to communicate by publishing a Mule message to a queue so that another app can consume the message.
 
-With the Anypoint MQ messaging broker, applications communicate by publishing a Mule message to a queue so that another app can consume the message.
-
-Anypoint MQ is fully integrated with Anypoint Platform and provides the same management capabilities, including environments and business groups for role-based access control, access management, and support for connected apps.
-
-Anypoint MQ is fully integrated with Access Management, allowing you to specify different environments for your queues, who can access each environment, and what they can do within each environment.
-
+Anypoint MQ is fully integrated with Anypoint Platform and provides the same management capabilities.
+Integration with Access Management enables you to specify environments and business groups for 
+role-based access control and support for connected apps.
 
 The following spotlight video gives an overview of Anypoint MQ:
 
@@ -81,7 +79,15 @@ Within each region, Anypoint MQ services deploy to multiple availability zones (
 [[usage-statistics]]
 * *Usage Statistics*
 +
-A chart that illustrates how much data and API requests you have used.
+View a chart indicating how much data and how many API requests have been consumed, and how many message units were received.
+The chart provides current and past usage, including consumed data, API requests, and the total number of messages received.
+See xref:mq-usage.adoc[] to access usage information.
++
+You can also use the xref:mq-apis.adoc#mqstatapi[Anypoint MQ Stats API] to perform statistical analysis of queue performance.
++
+[NOTE]
+Anypoint MQ does not support use with CloudHub Insight or Anypoint Monitoring.
+
 
 == Queue Features
 
@@ -124,12 +130,6 @@ include::partial$mq-faq.adoc[tag=faqEncryptionQandEx]
 
 
 
-
-
-
-Anypoint MQ does not support use with CloudHub Insight or Anypoint Monitoring. Instead, use the xref:mq-usage.adoc[Anypoint MQ usage graphs] to access usage information.
-You can view the current and past usage, including consumed data, API requests, and the total number of messages received.
-You can also use the xref:mq-apis.adoc#mqstatapi[Anypoint MQ Stats API] to perform statistical analysis of queue performance.
 
 
 == Glossary
