@@ -73,7 +73,7 @@ Anypoint MQ supports payloads up to 10 MB.
 // MQ Payload Conversion
 include::partial$mq-big-payload.adoc[tag=mqPayloadConvert]
 
-[[disaster_recovery]]
+[[disaster-recovery]]
 * *Disaster Recovery*
 +
 Within each region, Anypoint MQ services deploy to multiple availability zones (AZs) to provide high availability (HA). If service in one availability zone goes down, the Anypoint MQ service operates normally in that region. If all availability zones go down in a region, the Anypoint MQ service is unavailable in that region until at least one of the availability zones comes back up. Because the storage solution for Anypoint MQ is durable, messages that were already in the Anypoint MQ system before service was interrupted are retained.
@@ -86,7 +86,7 @@ A chart that illustrates how much data and API requests you have used.
 == Queue Features
 
 
-[[delay_queues]]
+[[delay-queues]]
 * *Delay Queues*
 +
 With delay queues, you can postpone the delivery of new messages to a queue for a specified period. Consumers can't see messages sent to a delay queue for the duration of the delay period. The minimum delay for a queue is 0 seconds. The maximum is 15 minutes.
@@ -99,19 +99,19 @@ If you change the queue delay for:
 +
 You can override the default queue delay for a particular message in a standard queue only.
 
-[[delay_messages]]
+[[delay-messages]]
 * *Delayed Message Delivery*
 +
 For messages in a standard queue, you can postpone the delivery of a particular message to the queue for a specified period. Consumers can't see messages sent with delivery delay for the duration of the delay period. The minimum delivery delay for a message is 0 seconds. The maximum is 15 minutes.
 + 
 Delayed delivery is not supported for individual messages in a FIFO queue.
 
-[[message_groups]]
+[[message-groups]]
 * *Message Groups*
 +
 In FIFO queues, you can assign messages to a message group to enable multiple consumers to process messages from a single FIFO queue.
 
-[[encrypt_queue]]
+[[encrypt-queue]]
 * *Encrypted Queues*
 +
 Messages in queues data can optionally be encrypted, enabling companies to be compliant with their data at rest policies. 

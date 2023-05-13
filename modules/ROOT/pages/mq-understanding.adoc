@@ -24,76 +24,6 @@ See xref:mq-connected-apps.adoc[].
 * Enables you to delay message delivery at the queue and message level.
 * Provides the ability to group messages in FIFO queues.
 
-== Features
-
-Anypoint MQ includes these features:
-
-* *Queues and Message Exchanges*
-+
-Send messages to queues, pull messages from queues, create a message exchange to perform pub/sub scenarios to send a message to multiple queues.
-* *Management console*
-+
-Monitor queue statistics, purge queues, and see how many messages are in flight using the management console.
-* *Anypoint MQ Connector*
-+
-Send and receive messages from any Mule app, whether it's deployed in CloudHub or used in a hybrid scenario and deployed on-premises.
-* *Usage information*
-+
-Organization administrators or owners can view the current and past months' usage, including the total number of messages and API requests. You access this information from the Access Management page. For more information, see xref:mq-usage.adoc[Anypoint MQ Usage Information].
-* *REST API*
-+
-Use the REST API to easily communicate with non-Mule applications.
-* *Environments and role-based access control*
-+
-Anypoint MQ is fully integrated with Access Management, allowing you to specify different environments for your queues, who can access each environment, and what they can do within each environment.
-* *Client management*
-+
-Create client applications tokens.
-* *Large payloads*
-+
-Anypoint MQ supports payloads up to 10 MB.
-+
-// MQ Payload Conversion
-include::partial$mq-big-payload.adoc[tag=mqPayloadConvert]
-
-[[disaster_recovery]]
-* *Disaster recovery*
-+
-Within each region, Anypoint MQ services deploy to multiple availability zones (AZs) to provide high availability (HA). If service in one availability zone goes down, the Anypoint MQ service operates normally in that region. If all availability zones go down in a region, the Anypoint MQ service is unavailable in that region until at least one of the availability zones comes back up. Because the storage solution for Anypoint MQ is durable, messages that were already in the Anypoint MQ system before service was interrupted are retained.
-
-[[delay_queues]]
-* *Delay queues*
-+
-With delay queues, you can postpone the delivery of new messages to a queue for a specified period. Consumers can't see messages sent to a delay queue for the duration of the delay period. The minimum delay for a queue is 0 seconds. The maximum is 15 minutes.
-+ 
-If you change the queue delay for:
-
-** Standard queues, the setting change doesn't affect messages in the queue.
-** FIFO queues, the setting change is retroactive to all messages in the queue.
-
-+
-You can override the default queue delay for a particular message in a standard queue only.
-
-[[delay_messages]]
-* *Delayed delivery for messages*
-+
-For messages in a standard queue, you can postpone the delivery of a particular message to the queue for a specified period. Consumers can't see messages sent with delivery delay for the duration of the delay period. The minimum delivery delay for a message is 0 seconds. The maximum is 15 minutes.
-+ 
-Delayed delivery is not supported for individual messages in a FIFO queue.
-
-[Message_groups]
-* *Message groups*
-+
-In FIFO queues, you can assign messages to a message group to enable multiple consumers to process messages from a single FIFO queue.
-
-[[encrypt_queue]]
-* *Encrypted queues*
-+
-Messages in queues data can optionally be encrypted, enabling companies to be compliant with their data at rest policies. 
-//Shared Encryption
-include::partial$mq-faq.adoc[tag=faqEncryption]
-+
-include::partial$mq-faq.adoc[tag=faqEncryptionQandEx]
 
 == Queues
 
@@ -134,7 +64,7 @@ Each queue has a message time-to-live (TTL). TTL specifies how long the message 
 +
 include::partial$mq-ttl.adoc[tag=msgTTLchange]
 
-[message_lock_ttl]
+[message-lock-ttl]
 * *Default Acknowledgement Timeout* 
 +
 How long a message remains unacknowledged before being returned to the queue: for example, in the event of server failure or when flow processing takes too long and times out.
