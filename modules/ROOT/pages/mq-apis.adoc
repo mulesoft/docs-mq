@@ -76,7 +76,7 @@ These examples use the Anypoint MQ Admin API to create queues and message routin
 [[get-access-token]]
 === Get the Access Token 
 
-To access the Anypoint MQ Admin API, you must first authenticate using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Anypoint Access Management API^].
+To access the Anypoint MQ Admin API, you must first authenticate using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Access Management API^].
 
 To use the Admin API, you can get the access token from the Anypoint Platform user.
 The access token is also known as the Bearer.
@@ -349,12 +349,12 @@ For more information, see the https://anypoint.mulesoft.com/exchange/portals/any
 === Get the Stats API Access Token
 
 [NOTE]
-To access the Anypoint MQ Stats API, you must first authenticate using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Anypoint Access Management API^].
+To access the Anypoint MQ Stats API, you must first authenticate using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Access Management API^].
 
 To use the Stats API, you can get the access token from the Anypoint Platform user.
 The access token is also known as the Bearer.
 The default time to live (TTL) for the access token is 60 minutes.
-You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ. See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[MQ Audit Logging]. 
+You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ. See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[Anypoint MQ Audit Logging]. 
 
 Use this `curl` command to get the access token:
 
@@ -581,7 +581,7 @@ include::partial$mq-faq.adoc[tag=returnVals]
 [[exstatapi]]
 === Example: Anypoint MQ Stats API
 
-NOTE: To access the Anypoint MQ Stats API, you must first authenticate using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Anypoint Access Management API^].
+NOTE: To access the Anypoint MQ Stats API, you must first authenticate using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Access Management API^].
 
 These statistics are provided:
 

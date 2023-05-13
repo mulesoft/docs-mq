@@ -45,7 +45,7 @@ Organization administrators or owners can view the current and past months' usag
 Use the REST API to easily communicate with non-Mule applications.
 * *Environments and role-based access control*
 +
-Anypoint MQ is fully integrated with Anypoint Access Management, allowing you to specify different environments for your queues, who can access each environment, and what they can do within each environment.
+Anypoint MQ is fully integrated with Access Management, allowing you to specify different environments for your queues, who can access each environment, and what they can do within each environment.
 * *Client management*
 +
 Create client applications tokens.
@@ -150,9 +150,10 @@ Messages are read through long polling. The server holds a request open until ne
 +
 Billing is based on the number of messages delivered to subscribers from queues, not the number of queues or message exchanges you create.
 
-== Clients
+== Connected Apps
 
-In Anypoint MQ, each consumer must be registered as a connected app with a name, ID, and a secret. The connected app uses the ID and secret to authenticate and get access to queues and message exchanges within a single environment.
+In Anypoint MQ, each consumer must be registered as a connected app with a name, ID, and a secret.
+The connected app uses the ID and secret to authenticate and get access to queues and message exchanges within a single environment.
 You cannot use connected apps across multiple environments or business groups.
 
 == Message Exchanges
@@ -176,90 +177,6 @@ image::mq-crm-to-dbs.png["CRM sends msg to Anypoint MQ that apps receive"]
 
 Using Anypoint MQ, the Salesforce app sends a pub/sub message to a message exchange, and the two applications receive the message from the message exchange and convey the message to their respective databases.
 
-== Glossary
-
-* *ACK/NACK* 
-** ACK
-+
-An app receives a message and Anypoint MQ deletes the message. 
-** NACK
-+
-An app does not receive a message and Anypoint MQ does not delete the message.
-+
-For more information, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations].
-* *Binding*
-+
-Enables pub/sub apps to bridge the simple pub/sub structure and use point-to-point features, such as sending a message to specific applications. Bindings identify which queues comprise a message exchange. In Anypoint Platform, by specifying which message queues are bound to a message exchange, Anypoint MQ creates and manages the bindings for you.
-+
-// Max Msg Exchange 
-include::partial$mq-msg-exchange.adoc[tag=msgExchangeMax]
-include::partial$mq-msg-exchange.adoc[tag=msgExchangeMaxRouting]
-* *Dead letter queue (DLQ)*
-+
-A queue that stores undeliverable messages from other queues.
-+
-See xref:mq-queues.adoc#dead-letter-queues[Dead Letter Queues]
-* *Destination*
-+
-A message exchange or queue. Applications register to a destination and publish messages to the destination. Applications subscribe to a destination to receive a message. Anypoint MQ lets you configure Destinations by creating or maintaining queues or message exchanges. Anypoint Studio lets you configure destinations using the Anypoint MQ connector.
-* *Durable message*
-+
-A message that persists until its indicated client receives it.
-
-* *Duration*
-+
-Messages can persist in flight for up to 2 weeks after which messages older than 2 weeks are deleted. 
-* *In Flight*
-+ 
-Messages that are: 
-
-** Received by a queue, but not deleted
-** Awaiting acknowledgment (ACK) or not acknowledgment (NACK)
-** Not returned to the queue due to an expired *Default Acknowledgement Timeout* (time-to-live) setting
-+
-In-flight messages are not visible to other consumers. 
-+
-Anypoint MQ supports up to 120,000 in-flight messages per queue for standard (non-FIFO) queues. FIFO queues can have up to 10 in-flight messages in each message group.
-
-* *In Queue*
-+
-Messages that have been sent.
-+
-Anypoint MQ supports unlimited messages in queue for both standard and FIFO queues.
-
-* *Lock ID*
-+
-A lock that lets an app read a queue exclusively. Anypoint MQ provides the lock when an app acknowledges a message from a queue. A locked message does not block other messages to be read. The lock makes a message unavailable to other applications while locked.
-* *Message*
-+
-Serializable xref:3.9@mule-runtime::mule-message-structure.adoc[Mule Message] content that applications send and receive so that the applications can communicate with each other.
-* *Message Exchange*
-+
-A pub/sub message source with multiple outputs. Applications register to subscribe to messages that the message exchange publishes.
-* *On-premises*
-+
-Mule runtime that runs on a computer in your organization.
-* *Payload*
-+
-The message content, which can be text, JSON, or CSV (comma-separated values).
-* *Point-to-point*
-+
-A pattern that allows an app to send a message that only a single app can receive.
-* *Pub/sub (publish/subscribe)*
-+
-A pattern that enables messages to be distributed to multiple consumers.
-* *Publisher*
-+
-An app that sends messages to Anypoint MQ.
-* *Queue*
-+
-A point-to-point message storage area that holds a message that a client receives.
-* *Subscriber*
-+
-An app that receives messages from Anypoint MQ.
-* *Usage*
-+
-A chart that illustrates how much data and API requests have been consumed.
 
 == See Also
 
