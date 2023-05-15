@@ -21,7 +21,7 @@ include::partial$mq-shared-connect-apps.adoc[tags=!ScopesConnAppTutorial]
 +
 Use this ID and secret to get the access token required to authenticate with the Anypoint MQ API.
 
-. When you configure Anypoint MQ Connector in your Mule app, paste the ID and  secret values in the *Anypoint MQ Config* window in Studio:
+. When you configure Anypoint MQ Connector in your Mule app, paste the ID and secret values in the *Anypoint MQ Config* window in Studio:
 +
 image::mq-tutorial-studio7-mq-config.png["URL, Client App ID, and Client Secret fields in the Anypoint MQ Config window"]
 +
