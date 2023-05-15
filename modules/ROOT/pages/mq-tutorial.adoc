@@ -43,14 +43,14 @@ For example, click the environment button and select *Production*:
 image::mq-tutorial-switch-env.png["Environment button"]
 . Click *Destinations*:
 +
-image::mq-tutorial-destinations-option.png["Destinations option and the blue plus icon"]
+image::mq-tutorial-destinations-option.png["Destinations option and the Add icon"]
 +
 [calloutlist]
 .. *Destinations* navigation menu displays available queues.
-.. Blue plus (*+*) icon creates a new queue or exchange.
-. Click the blue plus (*+*) icon to display the menu:
+.. *Add* icon creates a new queue or exchange.
+. Click the *Add* icon (image:icon-blue-plus.png["Add icon in Destinations",2%,2%]) to display the menu:
 +
-image::mq-tutorial-create-choices.png["Blue plus icon menu options"]
+image::mq-tutorial-create-choices.png["Add icon menu options"]
 . Select *Queue*.
 . [[create-demo-queue]] In the *Create Queue* window, enter `myDemoQueue` in the *ID* field:
 +
@@ -174,21 +174,20 @@ image::mq-tutorial-dc-goto-canvas.png["Go straight to canvas link"]
 +
 image::mq-tutorial-dc-http-search.png["Search for the HTTP Listener"]
 . Click *HTTP Listener*.
-. In the *HTTP Listener* window, set the value of *Path* to `/mq/{messageId}` and then click the *Close* (*X*) icon:
+. In the *HTTP Listener* window, set the value of *Path* to `/mq/{messageId}` and then click the *Close* icon (image:icon-ds-close.png["Close icon",2%,2%]):
 +
 image::mq-tutorial-dc-http-path.png["Path value and Close button"]
 +
 [calloutlist]
 .. *Path* field specifies the path to the message ID.
-.. *Close* (*X*) icon closes the *HTTP Listener* window.
+.. *Close* icon closes the *HTTP Listener* window.
 
-. Click the plus (+) icon for the HTTP Listener trigger:
+. Click the *Add* icon (image:icon-ds-plus.png["Add icon",2%,2%]) for the HTTP Listener trigger:
 +
-image::mq-tutorial-dc-plus-icon.png["Plus icon"]
+image::mq-tutorial-dc-plus-icon.png["Add icon"]
+. In the *Select a component* window, enter `anypoint mq` to search for the Anypoint MQ Connector:
 +
-. In the *Select a component* window, enter `mule an` to search for the Mule Anypoint MQ Connector:
-+
-image::mq-tutorial-dc-mq-search.png["Search for the Mule Anypoint MQ Connector"]
+image::mq-tutorial-dc-mq-search.png["Search for the Anypoint MQ Connector"]
 . Click the connector name, and then click the *Publish* operation:
 +
 image::mq-tutorial-dc-publish-select.png["Publish operation"]
@@ -229,10 +228,10 @@ If the URL does not match the URL in *Anypoint Platform* > *MQ*, copy the <<copy
 . In the *Publish Configuration* page, enter `myDemoQueue`.
 +
 This name is the <<create-demo-queue,queue name>> that you created earlier in this tutorial.
-. Click the *Close* (*X*) icon to close the *Publish Configuration* page:
+. Click the *Close* icon (image:icon-ds-close.png["Close icon",2%,2%]) to close the *Publish Configuration* page:
 +
 image::mq-tutorial-dc-mq-close.png["Close icon"]
-. Select *Deploy Application* from the *V* menu: 
+. Select *Deploy Application* from the image:icon-ds-v.png["V icon",2%,2%] menu: 
 +
 image::mq-tutorial-dc-deploy-option.png["Deploy Application menu option in Design Center"]
 . In the *Deploy Mule application* window, select the target environment and application name, and then click *Deploy*.
@@ -336,7 +335,7 @@ image::mq-tutorial-studio7-flow.png["Publish operation in the Studio 7 canvas"]
 . In the Listener properties window, set *General* > *Path* to `/mq/{messageId}`:
 +
 image::mq-tutorial-studio7-listener-props.png["Listener properties window"]
-. Click the green plus (+) icon for the *Connector configuration* field.
+. Click the *Add* icon (image:icon-green-plus.png["Add icon in Studio",2%,2%]) for the *Connector configuration* field.
 . In the HTTP Listener *Global Element Properties* window, verify that *Host* is set to `All Interfaces [0.0.0.0]` and *Port* is set to `8081`, and then click *OK*:
 +
 image::mq-tutorial-studio7-listener-config.png["Host and Port settings in the Global Element Properties for the Listener"]
@@ -345,10 +344,10 @@ The Listener properties window now indicates that there are no errors.
 . In the canvas, click the *Publish* operation.
 . In the Publish properties window, set *Destination* to the <<create-demo-queue,`myDemoQueue`>> queue that you created earlier in *Anypoint Platform* > *MQ*:
 +
-image::mq-tutorial-studio7-mq-props.png["Destination property and green plus icon for the Publish operation"]
+image::mq-tutorial-studio7-mq-props.png["Destination property and Add icon for the Publish operation"]
 +
 The queue must be located in an environment other than Design.
-. Click the green plus (+) icon for the *Connector configuration* field to display the *Global Element Properties* window.
+. Click the *Add* icon (image:icon-green-plus.png["Add icon in Studio",2%,2%]) for the *Connector configuration* field to display the *Global Element Properties* window.
 . Return to your *Anypoint Platform* > *MQ* browser window to copy the URL, ID, and secret values:
 +
 .. Click *Destinations*.
@@ -521,7 +520,7 @@ image::mq-tutorial-studio6-flow-complete.png["Flow in Studio 6 Canvas"]
 . In the HTTP properties window, set *General* > *Path* to `/mq/{messageId}`:
 +
 image::mq-tutorial-studio6-http-props.png["HTTP properties window"]
-. Click the HTTP connector and click the green plus icon (+) for *Connector Configuration*.
+. Click the HTTP connector and click the *Add* icon (image:icon-green-plus.png["Add icon in Studio",2%,2%]) for *Connector Configuration*.
 . In the HTTP Connector *Global Element Properties* window, verify that *Host* is set to `0.0.0.0` and *Port* is set to `8081`, and then click *OK*.
 +
 The HTTP properties window now indicates that there are no errors.
@@ -535,7 +534,7 @@ The HTTP properties window now indicates that there are no errors.
 +
 image::mq-tutorial-studio6-set-payload-props.png["Payload in the Value field"]
 . In the canvas, click *Anypoint MQ*.
-. In the Anypoint MQ properties window, click the green plus icon (+) for *Connector Configuration*.
+. In the Anypoint MQ properties window, click the *Add* icon (image:icon-green-plus.png["Add icon in Studio",2%,2%]) for *Connector Configuration*.
 
 . Return to *Anypoint Platform* > *MQ* to copy the URL, client app ID, and client secret values to Studio:
 +

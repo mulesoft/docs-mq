@@ -51,7 +51,7 @@ image::mq-access-mgmt-audit-logs.png["Filters, the Apply filters button, the fil
 A _payload_ is a JSON-formatted text file that lists the Anypoint MQ settings in place
 when the action occurs. 
 
-For each action on the *Audit Log* page, click the blue *Download payload* button
+For each action on the *Audit Log* page, click the *Download payload* icon (image:icon-download-payload.png["Download payload icon",2%,2%])
 to download a payload file (`payload.txt`).
 
 The following example shows a formatted version of the

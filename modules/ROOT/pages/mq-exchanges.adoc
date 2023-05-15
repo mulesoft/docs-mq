@@ -20,10 +20,9 @@ To create a message exchange:
 . Log in to Anypoint Platform.
 . Click *MQ* from the navigation menu or the main Anypoint Platform screen.
 . Click *Destinations*.
-. Click the blue plus icon (+) to display the menu:
+. Click the *Add* icon to display the menu:
 +
-image::mq-blue-create.png["Blue plus icon used for adding a message exchange"]
-+
+image::mq-blue-create.png["Add icon"]
 . Select *Exchange*.
 +
 For *Queue* or *FIFO Queue*, see xref:mq-queues.adoc[].
