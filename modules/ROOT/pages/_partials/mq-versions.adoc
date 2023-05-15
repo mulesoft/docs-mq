@@ -11,7 +11,7 @@ To use connected apps with Anypoint MQ, you must use Anypoint MQ Connector 4.x f
 //Connector 3.x Version shared
 //tag::mqConnectorVersion3x[]
 If you are using Anypoint MQ Connector version 3.x or earlier,
-you must configure a client app instead.
+configure a client app instead.
 For information, see
 xref:mq-client-apps.adoc[].
 //end::mqConnectorVersion3x[]
