@@ -25,7 +25,7 @@ include::partial$mq-versions.adoc[tag=mqMuleVersion]
 +
 Contact the MuleSoft Sales team to get a free trial.
 * Anypoint Studio installed on your system
-* A https://curl.haxx.se[`curl` command^] for testing 
+* A https://curl.haxx.se[`curl` command line tool^] for testing 
 +
 This tutorial uses the HTTP Listener trigger to initiate Anypoint MQ Connector access and a `curl` command to submit REST API commands to the Anypoint MQ Broker API.
 
