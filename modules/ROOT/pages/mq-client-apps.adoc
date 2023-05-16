@@ -24,7 +24,7 @@ image::mq-tutorial-create-client-apps.png["Client Apps option and Add icon"]
 [calloutlist]
 .. *Client Apps* displays and creates client apps.
 .. *Add* icon adds a client app.
-. Click the *Add* icon (image:icon-blue-plus.png["Add icon in Client Apps",2%,2%]).
+. Click the *Add* icon (image:icon-blue-plus.png["Add icon in Client Apps",2.5%,2.5%]).
 . In the *Create Client App* window, enter the name of the client app, such as `DemoClientApp` and click *Save Changes*.
 . Click the client app name to view the client app ID and client secret values in the details pane:
 +
