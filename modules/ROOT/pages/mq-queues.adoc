@@ -29,7 +29,7 @@ Standard queues can be bound to a xref:mq-exchanges.adoc[_message exchange_], en
 
 You can filter queues by type in the *Destinations* page:
 
-image::mq-filters.png["Filters at the top of the Destinations page"]
+image::mq-filters.png["Filters on the Destinations page"]
 
 
 == Prerequisites
@@ -41,12 +41,11 @@ You must create an environment, user access, and roles for accessing Anypoint MQ
 
 To create a standard queue or FIFO queue:
 
-. Log in to Anypoint Platform.
-. Click *MQ* in the left navigation bar or the main Anypoint Platform screen.
+. Log in to Anypoint Platform and click *MQ* in the navigation menu.
 . Click *Destinations*.
-. Click the blue plus icon (+) to display the menu:
+. Click the *Add* icon to display the menu:
 +
-image::mq-blue-create.png["Blue plus icon at the top of the Destinations page"]
+image::mq-blue-create.png["Add icon"]
 . Select *Queue* or *FIFO Queue*.
 +
 For *Exchange*, see xref:mq-exchanges.adoc[Configure Message Exchanges].
@@ -171,7 +170,7 @@ image::mq-fifo-msg-browser.png["Accept checkbox for retrieving messages from a F
 . Click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-image::mq-tutorial-msg-browser-payload-details.png["Selected message row, payload in the details pane, and icons representing Return Messages, Delete, Full Screen, and close details pane (X)"]
+image::mq-msg-browser-payload-details.png["Selected message row, payload in the details pane, and icons representing Return Messages, Delete, Full Screen, and close details pane"]
 +
 include::partial$mq-msg-browser-details.adoc[tag=mqMsgBrowserDetails]
 +
@@ -210,7 +209,7 @@ For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue on
 . Click *Message Browser*, and then click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-image::mq-msg-browser-payload-details-csv.png["CSV payload, Full Screen icon, and close details pane icon (X)"]
+image::mq-msg-browser-payload-details-csv.png["CSV payload, Full Screen icon, and close details pane icon"]
 +
 include::partial$mq-msg-browser-details.adoc[tag=mqPayloadDetails]
 +
@@ -244,7 +243,7 @@ For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue on
 . Click *Message Browser*, and then click *Get Messages*.
 . Click the message row to view the message payload in the details pane:
 +
-image::mq-msg-browser-payload-details-json.png["JSON payload, Full Screen icon, and close details pane icon (X)"]
+image::mq-msg-browser-payload-details-json.png["JSON payload, Full Screen icon, and close details pane icon"]
 +
 include::partial$mq-msg-browser-details.adoc[tag=mqPayloadDetails]
 +
@@ -261,7 +260,7 @@ To purge all the messages in the queue:
 . Click the queue type to display its details.
 . Click the *Purge Messages* icon in the details pane:
 +
-image::mq-purge-msgs-icon.png["Purge Messages icon in the details pane"]
+image::mq-purge-msgs-icon.png["Purge Messages icon"]
 . In the *Purge Messages* confirmation box, select the checkbox and click *Delete Messages* to verify that you want to purge all messages in the queue:
 +
 image::mq-purge-msgs-confirm.png["Accept checkbox for purging messages from a queue"]
@@ -287,7 +286,7 @@ To delete a queue:
 . Click the queue type to display its details.
 . Click the *Delete* icon in the details pane:
 +
-image::mq-delete-queue-icon.png["Delete icon in the details pane"]
+image::mq-delete-queue-icon.png["Delete icon"]
 +
 . In the *Delete Queue* confirmation box, select the checkbox and click *Delete Queue* to verify that you want to delete the queue:
 +

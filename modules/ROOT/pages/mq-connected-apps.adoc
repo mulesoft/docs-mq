@@ -2,48 +2,43 @@
 
 The Connected Apps feature enables you to integrate external applications with Anypoint Platform by providing access to those applications without sharing your user credentials.
 
-For information about Connected Apps, see 
+When you create a connected app, Access Management lists the ID and secret for the app.
+You use the ID and secret values when configuring Anypoint Connector for MQ (Anypoint MQ Connector) in a Mule app in Anypoint Studio.
+
+include::partial$mq-versions.adoc[tags=mqConnectorVersion]
+For information about upgrading, see xref:anypoint-mq-connector::anypoint-mq-connector-upgrade-migrate.adoc[].
+include::partial$mq-versions.adoc[tags=mqConnectorVersion3x]
+
+
+For more information about connected apps, see 
 xref:access-management::connected-apps-overview.adoc[] and
 xref:access-management::connected-apps-developers.adoc[].
 
 [[configure-mq-conn-app]]
 == Configure a Connected App in Access Management
 
-To create a Connected App with Anypoint MQ scopes:
+include::partial$mq-shared-connect-apps.adoc[tags=!ScopesConnAppTutorial]
++
+Use this ID and secret to get the access token required to authenticate with the Anypoint MQ API.
 
-. Log in to Anypoint Platform and select *Access Management*.
-. In the Access Management navigation menu, click *Connected Apps*.
-. Click *Create App*.
-.. Specify a name for the app.
-.. Select *App acts on its own behalf (client credentials)*.
-.. Click *Add Scopes*.
-.. Select the Anypoint MQ scopes to apply:
+. When you configure Anypoint MQ Connector in your Mule app, paste the ID and secret values in the *Anypoint MQ Config* window in Studio:
 +
-image::mq-conn-apps-scopes.png[Scopes for Anypoint MQ connected apps]
+image::mq-tutorial-studio7-mq-config.png["URL, Client App ID, and Client Secret fields in the Anypoint MQ Config window"]
 +
-See <<mq-scopes>>.
-.. Click *Next* and select the business groups and environments to apply the scopes to.
-.. Click *Review*.
-.. Click *Add scopes* or *Cancel* to cancel your changes.
-. Click *Save* or *Cancel* to cancel your changes.
-. From the *Connected Apps* page, click *Copy Id* and *Copy Secret* for the app you just created.
-+
-Use this client ID and client secret to get the access token required to authenticate with the Anypoint MQ API.
-+
-[IMPORTANT]
 include::partial$mq-client-id-secret.adoc[tag=mqClientIdSecret]
 +
-For information on getting the access token for Connected Apps, see
+For more information, see xref:mq-tutorial.adoc#configure-mule-4-studio[Create and Connect a Mule 4 App to Anypoint MQ in Anypoint Studio 7] in the Anypoint MQ tutorial.
+
+For information about getting the access token for connected apps, see
 xref:access-management::connected-apps-developers.adoc#oidc-endpoints-and-tokens[OIDC Endpoints and Tokens].
-+
-[NOTE]
+
 include::partial$mq-connect-apps.adoc[tag=mqConnAppEndpointSupport]
 
 [[configure-mq-conn-app-api]]
 == Configure a Connected App Using the API
 
-For information on configuring a Connected App with the API, see
-https://help.mulesoft.com/s/article/How-to-create-connected-apps-creation-using-API[How to create connected apps using the API].
+For information about configuring a connected app with the API, see
+https://help.mulesoft.com/s/article/How-to-create-connected-apps-creation-using-API[How to create connected apps using the API^].
 
 [[mq-scopes]]
 == Anypoint MQ Scopes
@@ -56,22 +51,6 @@ The Anypoint MQ scopes are:
 [%header,cols="20,20,60a"]
 |===
 |Scope in UI|Scope in API |Description
-|*View clients*
-|`view:clients`
-|View all client apps, including client app IDs and client secrets for each client app.
-|*View destinations*
-|`view:destinations`
-|
-
-* View all destinations and each destination's settings (*ID*, *Type*, *Message TTL*, and *Message Lock Default TTL*).
-* View *In Queue* messages.
-* View *In Flight* message stats.
-|*Clear destinations*
-|`clear:destinations`
-|Same privileges as *View destinations*.
-|*Manage clients*
-|`manage:clients`
-|Same privileges as *View clients*, plus permission to create client apps.
 |*Administer destinations*
 |`administer:destinations`
 |Same privileges as *View destinations* and *Clear destinations*, plus permission to:
@@ -79,7 +58,9 @@ The Anypoint MQ scopes are:
 ** Create new queues, message exchanges, and bindings.
 ** Edit existing queues, message exchanges, and bindings.
 ** Purge messages from queues.
-
+|*Clear destinations*
+|`clear:destinations`
+|Same privileges as *View destinations*.
 |*Destination subscriber for given environment*
 |`subscribe:destinations`
 |
@@ -90,8 +71,20 @@ The Anypoint MQ scopes are:
 |
 ** Send messages to a destination.
 ** Update message TTL on a destination.
+|*Manage clients*
+|`manage:clients`
+|Same privileges as *View clients*, plus permission to create client apps.
 |*Read MQ stats*
 |`read:stats`
 | View organization and environment statistics.
+|*View clients*
+|`view:clients`
+|View all client apps, including client app IDs and client secrets for each client app.
+|*View destinations*
+|`view:destinations`
+|
 
+* View all destinations and each destination's settings (*ID*, *Type*, *Message TTL*, and *Message Lock Default TTL*).
+* View *In Queue* messages.
+* View *In Flight* message stats.
 |===

@@ -8,7 +8,7 @@ Anypoint MQ provides these APIs:
 * <<mqbrokerapi,Anypoint MQ Broker API>>
 * <<mqstatapi,Anypoint MQ Stats API>>
 
-Anypoint MQ portals are available in the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/[Developer portal].
+Anypoint MQ portals are available in the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/[Developer portal^].
 
 == Workflow for an API
 
@@ -21,13 +21,13 @@ Steps:
 . An app sends a request to Anypoint MQ and sets how long to hold the lock on the message.
 . Anypoint MQ sends the message and the lock ID.
 . The app acknowledges the message and requests Anypoint MQ to delete the message, or the app negatively acknowledges the message and requests Anypoint MQ to make the message available to other apps. The app sends the message ID and lock ID to Anypoint MQ. 
-// For additional information on setting automatic ACK or NACK, see xref:mq-ack-mode.adoc[Acknowledge a Message].
+For more information, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations].
 . If no action is taken and the duration of a lock's time to live expires, the message is negatively acknowledged and returns to the queue to be available for other apps.
 
 [[authorize-api]]
 == Authorize API Access
 
-Before accessing an API, you need to acquire an access token:
+Before accessing an API, you need to get an access token:
 
 * <<mqadminapi,Anypoint MQ Admin API>>
 +
@@ -39,16 +39,16 @@ Get a token from Anypoint MQ by supplying the client ID and client secret for an
 +
 Get an access token for an Anypoint Platform user.
 
-To use a Connected App with the Anypoint MQ REST APIs, see <<authorize-api-connected-apps>>.
+To use a connected app with the Anypoint MQ REST APIs, see <<authorize-api-connected-apps>>.
 
 The `curl` command for each is explained in the API sections.
 
 [[authorize-api-connected-apps]]
 === Authorize API Access for Connected Apps
 
-To use a Connected App with the Anypoint MQ REST APIs, see:
+To use a connected app with the Anypoint MQ REST APIs, see:
 
-** xref:mq-connected-apps.adoc[] to create the Connected App.
+** xref:mq-connected-apps.adoc[] to create the connected app.
 ** xref:access-management::connected-apps-developers.adoc#oidc-endpoints-and-tokens[OIDC Endpoints and Tokens] to get the access token.
 
 [NOTE]
@@ -61,7 +61,7 @@ include::partial$mq-connect-apps.adoc[tag=mqConnAppEndpointSupport]
 The Anypoint MQ Admin API provides access to Anypoint MQ administrative functionality.
 
 You can use the 
-https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Admin API] to create and manage apps, queues, and message exchanges.
+https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Admin API^] to create and manage apps, queues, and message exchanges.
 
 If you call the Anypoint MQ Admin API for distinct environments within one minute,
 the API throttles your requests to 50 transactions per minute (TPM).
@@ -76,7 +76,7 @@ These examples use the Anypoint MQ Admin API to create queues and message routin
 [[get-access-token]]
 === Get the Access Token 
 
-To access the Anypoint MQ Admin API, you must first authenticate using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Anypoint Access Management API].
+To access the Anypoint MQ Admin API, you must first authenticate using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Anypoint Access Management API^].
 
 To use the Admin API, you can get the access token from the Anypoint Platform user.
 The access token is also known as the Bearer.
@@ -168,7 +168,7 @@ Any changes or additions to a message routing rule can take up to 15 minutes to 
 For information about:
 
 * Supported payload for `/rules/routing`,
-see this endpoint in the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/minor/1.0/console/method/%23741/[Anypoint MQ Admin API].
+see this endpoint in the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/minor/1.0/console/method/%23741/[Anypoint MQ Admin API^].
 * Publishing a message with routing properties, see <<send-message-routing>>.
 * Message routing rule requirements, see
 xref:mq-routing-rules.adoc#intelligent-routing-restrictions[Requirements and Restrictions].
@@ -177,7 +177,7 @@ xref:mq-routing-rules.adoc#intelligent-routing-restrictions[Requirements and Res
 == Anypoint MQ Broker API
 
 The  
-https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint MQ Broker API] enables clients to publish, retrieve, route, and acknowledge messages from queues and message exchanges.
+https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint MQ Broker API^] enables clients to publish, retrieve, route, and acknowledge messages from queues and message exchanges.
 
 You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ. See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[MQ Audit Logging].
 
@@ -196,7 +196,7 @@ See the xref:mq-faq.adoc#regions[Anypoint MQ FAQ] for the regions where Anypoint
 === Get the Broker API Access Token
 
 Getting the access (bearer) token requires using either a command like curl or an app like Postman. The example that follows uses curl.
-If you are a Windows user, you need to https://curl.haxx.se/download.html[download a curl command] before accessing the information.
+If you are a Windows user, you need to https://curl.haxx.se/download.html[download a curl command^] before accessing the information.
 
 The access token in this section can only be used with the Broker API. Do not use this access token 
 with the Stats and Admin APIs. 
@@ -209,8 +209,8 @@ Accessing the token before its expiry extends the token validity by another 60 m
 To get the Broker API access token:
 
 . Log in to Anypoint Platform.
-. Click *MQ* > *Client Apps*, and then click the blue plus-circle icon to create an app.
-. Get the client ID and client secret and use these values in the curl command below replacing `CLIENT_ID` and `CLIENT_SECRET`:
+. Click *MQ* > *Client Apps*, and then click the *Add* icon (image:icon-blue-plus.png["Add icon in Client Apps",3%,3%]) to create an app.
+. Get the client ID and client secret and use these values in the following curl command replacing `CLIENT_ID` and `CLIENT_SECRET`:
 +
 [source,bash]
 ----
@@ -322,7 +322,7 @@ curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORG
 
 The Anypoint MQ Stats API enables you to get statistics and metrics for queues and message exchanges.
 
-You can use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API] to perform statistical analysis of queue performance.
+You can use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API^] to perform statistical analysis of queue performance.
 
 Use the Stats API to retrieve:
 
@@ -343,13 +343,13 @@ View your entire organization's usage of Anypoint MQ for billing purposes:
 include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
 
 
-For more information, see the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API] in the MuleSoft developer portal.
+For more information, see the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API^] in the MuleSoft developer portal.
 
 [[get-stats-access-token]]
 === Get the Stats API Access Token
 
 [NOTE]
-To access the Anypoint MQ Stats API, you must first authenticate using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Anypoint Access Management API].
+To access the Anypoint MQ Stats API, you must first authenticate using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Anypoint Access Management API^].
 
 To use the Stats API, you can get the access token from the Anypoint Platform user.
 The access token is also known as the Bearer.
@@ -486,7 +486,7 @@ This command returns output similar to:
 }
 ----
 
-Note that period is an integer here. It's the granularity of data points in seconds.
+The period is an integer and is the granularity of data points in seconds.
 
 [[usage-by-env]]
 === Get Usage Metrics by Environment 
@@ -581,7 +581,7 @@ include::partial$mq-faq.adoc[tag=returnVals]
 [[exstatapi]]
 === Example: Anypoint MQ Stats API
 
-NOTE: To access the Anypoint MQ Stats API, you must first authenticate using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Anypoint Access Management API].
+NOTE: To access the Anypoint MQ Stats API, you must first authenticate using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Anypoint Access Management API^].
 
 These statistics are provided:
 
@@ -948,7 +948,7 @@ This example enables you to test Anypoint MQ from Postman, Anypoint Studio, and 
 [[postsetup]]
 === Set Up Postman
 
-The https://www.getpostman.com/[Postman] app provides a platform for accessing the Anypoint MQ APIs.
+The https://www.getpostman.com/[Postman^] app provides a platform for accessing the Anypoint MQ APIs.
 After downloading and installing Postman, supply this information to create an environment:
 
 * ORGANIZATION_ID
@@ -1010,13 +1010,12 @@ After you set up an HTTP Listener in Studio, browse to the address `0.0.0.0:8081
 
 To download the Anypoint MQ APIs from Exchange, click *Download* and select the format to download: RAML, OAS, or as a connector file for Mule 3 or Mule 4.
 
-.The arrow shows the *Download* button in Exchange.
-image::mq-exchange-download.png[Download Anypoint MQ APIs in Exchange]
+image::mq-exchange-download.png["Download Anypoint MQ APIs in Exchange"]
 
 == See Also
 
 * xref:mq-faq.adoc[Anypoint MQ FAQ]
-* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Anypoint Admin API in Anypoint Exchange]
-* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint Broker API in Anypoint Exchange]
-* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API in Anypoint Exchange]
+* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Anypoint MQ Admin API in Anypoint Exchange^]
+* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint MQ Broker API in Anypoint Exchange^]
+* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API in Anypoint Exchange^]
 * xref:mq-routing-rules.adoc[]

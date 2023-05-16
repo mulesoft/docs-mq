@@ -23,7 +23,7 @@ The audit logging service doesn't record the following as auditable actions:
 To access Anypoint MQ audit logs:
 
 . Log in to Anypoint Platform.
-. Click *Access Management* in the left navigation bar or the main Anypoint Platform screen.
+. Click *Access Management* in the navigation bar or the main Anypoint Platform screen.
 . From the *Access Management* navigation menu, select *Audit Logs*.
 . Select filters and click *Apply filters*:
 +
@@ -43,8 +43,7 @@ You can also search by environment, object name, or user.
 
 The *Audit logs* page displays the logs:
 
-.The screenshot shows (*1*) the filters, (*2*) the *Apply filters* button, (*3*) the filters currently applied, and (*4*) the *Download payload* icon on the *Audit logs* page.
-image::mq-access-mgmt-audit-logs.png[Filters, the Apply filters button, the filters currently applied, and the Download payload icon on the Audit logs page]
+image::mq-access-mgmt-audit-logs.png["Filters, the Apply filters button, the filters currently applied, and the Download payload icon on the Audit logs page"]
 --
 
 === Payloads
@@ -52,7 +51,7 @@ image::mq-access-mgmt-audit-logs.png[Filters, the Apply filters button, the filt
 A _payload_ is a JSON-formatted text file that lists the Anypoint MQ settings in place
 when the action occurs. 
 
-For each action on the *Audit Log* page, click the blue *Download payload* button
+For each action on the *Audit Log* page, click the *Download payload* icon (image:icon-download-payload.png["Download payload icon",2.5%,2.5%])
 to download a payload file (`payload.txt`).
 
 The following example shows a formatted version of the
@@ -121,4 +120,4 @@ Subsequent changes to a FIFO queue set the `fifo` field to `null`.
 * xref:access-management::audit-logging.adoc[Audit Logging]
 * xref:mq-queues.adoc#fifoqueues[FIFO Queues]
 * xref:mq-apis.adoc[Anypoint MQ REST APIs]
-* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/audit-log-query-api/[Audit Log Query API] 
+* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/audit-log-query-api/[Audit Log Query API^] 

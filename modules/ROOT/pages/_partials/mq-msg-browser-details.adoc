@@ -1,48 +1,38 @@
 // MQ Message Browser Details Table
 // tag::mqMsgBrowserDetails[]
-[cols="5a,10a,50a"]
-|===
-| (*1*) || Selected message.
-| (*2*) || Message payload in the details pane.
-| (*3*) |*Return Messages* icon | Returns all messages to the queue (for example, to enable other applications to read the messages).
-
+[calloutlist]
+.. Selected message.
+.. Message payload in the details pane.
+.. *Return Messages* icon returns all messages to the queue (for example, to enable other applications to read the messages).
++
 Returning messages to the queue is a not-acknowledgment operation (NACK). The messages aren't altered. However, the TTL value you set when you created the queue determines how long the message is available before Anypoint MQ deletes it.
-
++
 If you leave the *Message Browser* page, messages automatically return to the queue.
-| (*4*) |*Delete* icon | Deletes the selected message.
-
-Deleting a message is an acknowledgment operation (ACK). For information about how Anypoint MQ processes ACK messages, see xref:mq-ack-mode.adoc[Acknowledge Messages].
-
-| (*5*) |*Full Screen* icon | Displays the message payload in a separate window.
-| (*6*) |*Close* icon  | Closes the details pane.
-|===
+.. *Delete* icon.
++
+Deleting a message is an acknowledgment operation (ACK). For information about how Anypoint MQ processes ACK messages, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations].
+.. *Full Screen* icon displays the message payload in a separate window.
+.. *Close* icon closes the details pane.
 // end::mqMsgBrowserDetails[]
 
 
-
 // tag::mqClientAppsDetail[]
-[cols="5a,15a,50a"]
-|===
-| (*1*) | Client app name | Displays client app details.
-| (*2*) | *Copy* buttons | Copies the client app ID or client secret value.
-| (*3*) | *Show* button | Displays the client secret value.
-|===
+[calloutlist]
+... Client app name displays client app details.
+... *Copy* buttons copies the client app ID or client secret value.
+... *Show* button displays the client secret value.
 // end::mqClientAppsDetail[]
 
 
 // tag::mqQueueDetails[]
-[cols="5a,18a,50a"]
-|===
-| (*1*) | Queue type| Displays the queue details pane.
-| (*2*) | Queue ID| Displays the *Queue Settings* page.
-| (*3*) | Queue details label| Displays the *Queue Settings* page.
-|===
+[calloutlist]
+.. Queue type displays the queue details pane.
+.. Queue ID displays the *Queue Settings* page.
+.. Queue details label displays the *Queue Settings* page.
 // end::mqQueueDetails[]
 
 // tag::mqPayloadDetails[]
-[cols="5a,15a,50a"]
-|===
-| (*1*) | *Full Screen* icon | Displays the message payload in a separate window.
-| (*2*) | *Close* icon  | Closes the details pane.
-|===
+[calloutlist]
+.. *Full Screen* icon displays the message payload in a separate window.
+.. *Close* icon closes the details pane.
 // end::mqPayloadDetails[]

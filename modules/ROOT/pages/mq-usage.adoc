@@ -36,15 +36,14 @@ include::partial$mq-faq.adoc[tag=faqUsageOverage]
 To view Anypoint MQ usage:
 
 . Log in to Anypoint Platform.
-. Click *Access Management* in the left navigation bar or the main Anypoint Platform page.
+. Click *Access Management* in the navigation bar or the main Anypoint Platform page.
 . Click *MQ* in the *SUBSCRIPTION* section:
 +
-.The arrow shows the *MQ* option on the *Access Management* page.
-image::mq-access-mgmt-subscription.png[MQ option on the Access Management page]
+image::mq-access-mgmt-subscription.png["MQ option on the Access Management page"]
 +
 . Click a chart duration value of *6m* (six months, default), *1y* (one year), or *2y* (two years):
 +
-image::mq-usage-chart.png[MQ Usage page, including message units and API requests]
+image::mq-usage-chart.png["MQ Usage page, including message units and API requests"]
 +
 * (*1*) The duration value
 * (*2*) The number of message units and API requests per month
@@ -52,7 +51,7 @@ image::mq-usage-chart.png[MQ Usage page, including message units and API request
 +
 The circle graph changes to red as your usage approaches your license limits:
 +
-image::mq-msg-unit-color.png[]
+image::mq-msg-unit-color.png["Circle graph indicating license limit"]
 
 == Retrieve Usage Metrics with Anypoint MQ Stats API
 

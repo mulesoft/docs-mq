@@ -1,0 +1,47 @@
+//Client App shared
+//tag::mqCreateConnApp[]
+To create a connected app with Anypoint MQ scopes:
+
+. Log in to Anypoint Platform and click *Access Management* in the navigation menu.
+. Click *Connected Apps* in the navigation pane.
+. Click *Create app*.
++
+image::mq-tutorial-create-connected-apps.png["Connected Apps option and Create app button"]
++
+[calloutlist]
+.. *Connected Apps* displays and creates connected apps.
+.. *Create app* button creates a connected app.
+. Specify a name, such as `DemoApp1` for the app.
+. Select *App acts on its own behalf (client credentials)*.
+. Click *Add Scopes*.
++
+Scopes are roles with associated permissions, which determine which actions the app can perform within an organization and environment.
+See xref:mq-connected-apps.adoc#mq-scopes[Anypoint MQ Scopes].
++
+image::mq-conn-apps-scopes.png["Scopes for Anypoint MQ connected apps"]
+. In *Add Scopes* window:
+//tag::ScopesConnAppTutorial[]
+.. Enter "MQ" in the *Filter scopes* field.
+.. Click *Select all* to select all scopes and click *Next*.
+.. Select a business group to apply the scopes to and click *Next*.
+.. Select the *Production* environment and click *Next*.
+.. Click *Add Scopes*.
+. Click *Save*.
+
+[[connected-apps-window]] When you configure the connector in a later step, click *Copy Id* and *Copy Secret* to copy the ID and secret for `DemoApp1`:
+
+image::mq-conn-apps-window.png["Connected Apps window"]
+
+//end::ScopesConnAppTutorial[]
+//tag::ScopesConnApp[]
+.. Enter "MQ" in the *Filter scopes* field.
+.. Select the Anypoint MQ scopes to apply and click *Next*.
+.. Select business groups to apply the scopes to and click *Next*.
+.. Select the environments to apply the scopes to and click *Next*.
+.. Click *Add Scopes* or *Cancel* to cancel your changes.
+. Click *Save* or *Cancel* to cancel your changes.
+. When you configure the connector, click *Copy Id* and *Copy Secret* to copy the ID and secret for the app you just created:
++
+image::mq-conn-apps-window.png["Connected Apps window"]
+//end::ScopesConnApp[]
+//end::mqCreateConnApp[]

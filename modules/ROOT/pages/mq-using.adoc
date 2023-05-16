@@ -12,9 +12,11 @@ Create an environment and set up access permissions.
 ** Create message exchanges.
 ** Bind queues to an exchange.
 ** Send messages to an exchange.
+* xref:mq-connected-apps.adoc[]
++
+Configure connected apps and add scopes.
 * xref:mq-client-apps.adoc[]
 +
 Register a client app and regenerate a client secret.
-* xref:mq-connected-apps.adoc[]
 +
-Configure Connected Apps and add scopes.
+include::partial$mq-connect-apps.adoc[tag=mqConnAppRec]
