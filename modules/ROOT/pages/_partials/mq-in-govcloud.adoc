@@ -1,0 +1,4 @@
+// tag::mqSupportInGovCloud[]
+You cannot access or configure some Anypoint MQ features, such as client apps and unencrypted queues.
+For information, see xref:mq::index.adoc#mq-in-govcloud[Anypoint MQ in MuleSoft Government Cloud].
+// end::mqSupportInGovCloud[]
