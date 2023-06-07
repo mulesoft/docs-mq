@@ -52,7 +52,7 @@ All features of Anypoint MQ are supported in MuleSoft Government Cloud with the 
 +
 All queues are encrypted. 
 When xref:mq-queues.adoc#create-a-queue[creating a queue], the *Encryption* option is disabled and defaults to selected.
-* xref:mq::mq-client-apps.adoc[Client apps] are not supported.
+* xref:mq-client-apps.adoc[Client apps] are not supported.
 +
 Use 
 xref:mq::mq-connected-apps.adoc[Connected Apps] instead.
