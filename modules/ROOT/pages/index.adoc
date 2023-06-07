@@ -63,7 +63,7 @@ xref:mq-connected-apps.adoc[Connected Apps] instead.
 +
 You can use Anypoint MQ Stats API to retrieve metrics for queues and exchanges.
 See 
-xref:mq::mq-apis.adoc#mqstatapi[Anypoint MQ Stats API].
+xref:mq-apis.adoc#mqstatapi[Anypoint MQ Stats API].
 
 == See Also
 
