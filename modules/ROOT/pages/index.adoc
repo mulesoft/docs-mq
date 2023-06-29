@@ -198,6 +198,34 @@ Subscriber::
 An app that receives messages from Anypoint MQ.
 
 
+[[mq-in-govcloud]]
+== Anypoint MQ in MuleSoft Government Cloud
+
+All features of Anypoint MQ are supported in MuleSoft Government Cloud with the following exceptions:
+
+* Unencrypted queues are not supported.
++
+All queues are encrypted. 
+When xref:mq-queues.adoc#create-a-queue[creating a queue], the *Encryption* option is disabled and defaults to selected.
+* xref:mq-client-apps.adoc[Client apps] are not supported.
++
+Use 
+xref:mq-connected-apps.adoc[connected apps] instead.
+* Anypoint Connector for Anypoint MQ versions earlier than 4.x are not supported.
++
+Using connected apps with Anypoint MQ requires xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.x for Mule 4].
+* The following REST APIs in the Anypoint MQ Stats API are not supported:
++
+--
+** https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/minor/1.0/console/method/%23322/[Get usage metrics for an org]
+** https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/minor/1.0/console/method/%23383/[Get usage metrics for an environment within an org]
+--
++
+You can use Anypoint MQ Stats API to retrieve metrics for queues and exchanges.
+See 
+xref:mq-apis.adoc#mqstatapi[Anypoint MQ Stats API].
+
+
 == See Also
 
 * xref:mq-connectors.adoc[Anypoint MQ Connectors]
