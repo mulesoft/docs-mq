@@ -331,7 +331,7 @@ include::partial$mq-faq.adoc[tag=failedTPS]
 * Can't be bound to a message exchange.
 
 [NOTE]
-Because ordering is not guaranteed with `prefetch` mode, don't use it with FIFO queues.
+Because Anypoint MQ can't guarantee ordering when using `prefetch` mode, don't use it with FIFO queues.
 
 To create a FIFO queue, see <<Create a Queue>>. To determine if a queue is FIFO or standard (non-FIFO), view its details. 
 
