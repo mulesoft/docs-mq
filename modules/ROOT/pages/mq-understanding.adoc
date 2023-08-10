@@ -47,7 +47,7 @@ Use the REST APIs to easily communicate with non-Mule applications:
 +
 --
 ** xref:mq-apis.adoc#mqadminapi[Anypoint MQ Admin API] enables you to create and manage apps, queues, and message exchanges.
-** xref:mq-apis.adoc#mqbrokerapi[Anypoint MQ Broker API] enables clients to publish, retrieve, route, and acknowledge messages from queues and message exchanges.
+** xref:mq-apis.adoc#mqbrokerapi[Anypoint MQ Broker API] enables clients to publish, consume, route, and acknowledge messages from queues and message exchanges.
 ** xref:mq-apis.adoc#mqstatapi[Anypoint MQ Stats API] enables you to get statistics and metrics for queues and message exchanges.
 --
 * *Environments and role-based access control*
