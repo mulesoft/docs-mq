@@ -330,7 +330,7 @@ include::partial$mq-faq.adoc[tag=failedTPS]
 * In some configurations when using the IMMEDIATE acknowledgment mode in the Subscriber operation, FIFO queues don't process messages in order.
 * Using `prefetch` mode with FIFO queues is not recommended.
 +
-For information, see xref:anypoint-mq-connector::anypoint-mq-listener.adoc#fifo-and-prefetch[FIFO Queues and Prefetch Mode]
+For information, see xref:anypoint-mq-connector::anypoint-mq-listener.adoc#fifo-and-prefetch[FIFO Queues and Prefetch Mode].
 
 
 To create a FIFO queue, see <<Create a Queue>>. To determine if a queue is FIFO or standard (non-FIFO), view its details. 
