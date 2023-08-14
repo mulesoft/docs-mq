@@ -43,7 +43,13 @@ Send and receive messages from any Mule app, whether it's deployed in CloudHub o
 Organization administrators or owners can view the current and past months' usage, including the total number of messages and API requests. You access this information from the Access Management page. For more information, see xref:mq-usage.adoc[Anypoint MQ Usage Information].
 * *REST API*
 +
-Use the REST API to easily communicate with non-Mule applications.
+Use the REST APIs to easily communicate with non-Mule applications:
++
+--
+** xref:mq-apis.adoc#mqadminapi[Anypoint MQ Admin API] enables you to create and manage queues and message exchanges.
+** xref:mq-apis.adoc#mqbrokerapi[Anypoint MQ Broker API] enables clients to publish, consume, route, and acknowledge messages from queues and message exchanges.
+** xref:mq-apis.adoc#mqstatapi[Anypoint MQ Stats API] enables you to get statistics and metrics for queues and message exchanges.
+--
 * *Environments and role-based access control*
 +
 Anypoint MQ is fully integrated with Anypoint Access Management, allowing you to specify different environments for your queues, who can access each environment, and what they can do within each environment.
