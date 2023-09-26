@@ -465,7 +465,7 @@ http://www.mulesoft.org/schema/mule/anypoint-mq http://www.mulesoft.org/schema/m
 If you use Mule 3.9, you can use Anypoint Studio 6 to create a Mule 3.9 app similar to the app you created in Design Center.
 In Studio 6, you can deploy the app to CloudHub and submit a `curl` command to test the connection. 
 
-This section applies only to Anypoint Studio 6 and Mule 3.9. For Studio 7, see <<Create and Connect a Mule 4 App to Anypoint MQ in Anypoint Studio 7>>.
+This section applies only to Anypoint Studio 6 and Mule 3.9. For Studio 7, see <<configure-mule-4-studio, Create and Connect a Mule 4 App to Anypoint MQ in Anypoint Studio 7>>.
 
 [NOTE]
 include::partial$mq-versions.adoc[tag=mqMuleVersion]
