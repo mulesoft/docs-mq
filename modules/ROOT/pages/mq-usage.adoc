@@ -62,7 +62,7 @@ If this happens, use the Anypoint MQ Stats API xref:mq-apis.adoc#usage-by-org[Us
 To use the Anypoint MQ Stats API to retrieve usage metrics, see:
 
 * xref:mq-apis.adoc#usage-by-env[Get Usage Metrics by Environment]
-* xref::mq-apis.adoc#usage-by-org[Get Usage Metrics by Organization]
+* xref:mq-apis.adoc#usage-by-org[Get Usage Metrics by Organization]
 
 == See Also
 
