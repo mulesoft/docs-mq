@@ -551,7 +551,7 @@ Use this `curl` command to get daily usage metrics by organization for a month:
 
 [source,bash]
 ----
-curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORGANIZATION_ID?startDate=Tuesday%2C%201%20Aug%202023%2000%3A00%3A00%20GMT&endDate=Thursday%2C%203%20Aug%202023%2023%3A59%3A59%20GMT&period=1day" \
+curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORGANIZATION_ID?startDate=Sun, 1 Oct 2023 04:49:37 GMT&endDate=Tue, 31 Oct 2023 04:50:44 GMT&period=1day" \
 -H "Authorization: bearer BEARER_TOKEN" \
 -H "Cache-Control: no-cache"
 ----
@@ -561,7 +561,7 @@ This command returns output similar to:
 [source,json,linenums]
 ----
   {
-    "timestamp": "2023-08-31T00:00Z",
+    "timestamp": "2023-10-31T00:00Z",
     "apiRequestCount": 1066,
     "messageReceiptCount": 194,
     "billableUnitCount": 194,
