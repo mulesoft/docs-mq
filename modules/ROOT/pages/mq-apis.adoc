@@ -61,7 +61,7 @@ include::partial$mq-connect-apps.adoc[tag=mqConnAppEndpointSupport]
 The Anypoint MQ Admin API provides access to Anypoint MQ administrative functionality.
 
 You can use the 
-https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Admin API^] to create and manage apps, queues, and message exchanges.
+https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Admin API^] to create and manage queues, message exchanges, and client apps.
 
 If you call the Anypoint MQ Admin API for distinct environments within one minute,
 the API throttles your requests to 50 transactions per minute (TPM).
@@ -177,7 +177,7 @@ xref:mq-routing-rules.adoc#intelligent-routing-restrictions[Requirements and Res
 == Anypoint MQ Broker API
 
 The  
-https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint MQ Broker API^] enables clients to publish, retrieve, route, and acknowledge messages from queues and message exchanges.
+https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint MQ Broker API^] enables clients to publish, consume, route, and acknowledge messages from queues and message exchanges.
 
 You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ. See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[MQ Audit Logging].
 
@@ -453,6 +453,7 @@ This command returns output similar to:
 
 The duration is an integer and is the granularity of data points in seconds.
 
+
 [[historical-stats-exchange]]
 === Get Historical Statistics for Exchanges
 
@@ -546,11 +547,11 @@ include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
 
 *Sample Request and Response:*
 
-Use this `curl` command to get usage metrics by organization:
+Use this `curl` command to get daily usage metrics by organization for a month:
 
 [source,bash]
 ----
-curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORGANIZATION_ID?startDate=Thursday, 8 Nov 2021 04:49:37 GMT&endDate=Sun, 11 Nov 2021 04:60:44 GMT&period=1day" \
+curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORGANIZATION_ID?startDate=Sun, 1 Oct 2023 04:49:37 GMT&endDate=Tue, 31 Oct 2023 04:50:44 GMT&period=1day" \
 -H "Authorization: bearer BEARER_TOKEN" \
 -H "Cache-Control: no-cache"
 ----
@@ -560,7 +561,7 @@ This command returns output similar to:
 [source,json,linenums]
 ----
   {
-    "timestamp": "2021-11-08T00:00Z",
+    "timestamp": "2023-10-31T00:00Z",
     "apiRequestCount": 1066,
     "messageReceiptCount": 194,
     "billableUnitCount": 194,

@@ -24,7 +24,6 @@ See xref:mq-connected-apps.adoc[].
 * Enables you to delay message delivery at the queue and message level.
 * Provides the ability to group messages in FIFO queues.
 
-
 == Queues
 
 Message queues provide temporary storage that enables applications to communicate in a scalable and reliable way. Publishers can publish messages into queues, and subscribers can receive messages from queues. You can create a dead-letter queue to store undeliverable messages.
