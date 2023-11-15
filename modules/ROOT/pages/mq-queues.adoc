@@ -337,6 +337,7 @@ For the regions in which Anypoint MQ and FIFO queues are available, see the xref
 
 For information about creating FIFO queues with the Admin API, see xref:mq-apis.adoc#fifo-queue-api[Create a FIFO Queue Using the Admin API].
 
+[[fifo-queues-msg-groups]]
 === FIFO Queues and Message Groups
 
 Message groups enable multiple consumers to access messages in a FIFO queue.
