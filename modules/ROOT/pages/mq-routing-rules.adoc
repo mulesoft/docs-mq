@@ -1,4 +1,4 @@
-= Configure Rules on Message Exchanges to Route Messages
+= Configuring Rules on Message Exchanges to Route Messages
 
 Anypoint MQ includes the ability to create _intelligent message routing rules_ to route a subset of the messages published to an exchange to a specific queue.
 

@@ -32,9 +32,10 @@ You can filter queues by type in the *Destinations* page:
 image::mq-filters.png["Filters on the Destinations page"]
 
 
-== Prerequisites
+== Before You Begin
 
-You must create an environment, user access, and roles for accessing Anypoint MQ before configuring queues. See xref:mq-access-management.adoc[Configure Environment, User, and Role Access].
+Before using Anypoint MQ, you must create an environment, user access, and roles for accessing Anypoint MQ.
+See xref:mq-access-management.adoc[Configure Environment, User, and Role Access].
 
 
 == Create a Queue
@@ -70,10 +71,10 @@ The lock makes the message unavailable to other apps while locked, but does not 
 The maximum acknowledgement timeout is 12 hours.
 ** *Assign Default Delivery Delay* specifies how long to delay delivery for messages sent to the queue.
 +
-The minimum delivery delay for a message is 0 seconds. The maximum is 15 minutes. When you send a message, you can override the default delivery delay. See xref:mq-understanding.adoc#delay_queues[Delay queues].
+The minimum delivery delay for a message is 0 seconds. The maximum is 15 minutes. When you send a message, you can override the default delivery delay. See xref:index.adoc#delay_queues[Delay queues].
 ** *Encryption* encrypts all messages in the queue.
 +
-See xref:mq-understanding.adoc#encrypt_queue[Encrypted queues].
+See xref:index.adoc#encrypt_queue[Encrypted queues].
 ** *Assign a Dead Letter Queue* assigns the DLQ.
 +
 The DLQ is a previously created queue to which to send undeliverable messages. See <<Dead Letter Queues>>.
@@ -116,7 +117,7 @@ If you specified *Assign Default Delivery Delay* on the standard queue, you see 
 +
 Delayed delivery is not supported for individual messages in a FIFO queue.
 +
-See xref:mq-understanding.adoc#delay_messages[Delayed delivery for messages].
+See xref:index.adoc#delay_messages[Delayed delivery for messages].
 +
 ** *Message Group ID* (FIFO queue only) specifies the group to which the message belongs.
 +

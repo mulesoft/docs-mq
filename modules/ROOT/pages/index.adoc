@@ -1,13 +1,11 @@
 = Anypoint MQ Overview
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
+:page-aliases: mq-understanding.adoc
 
 Anypoint MQ is a multi-tenant, cloud-based message queuing service for exchanging data asynchronously between your applications. 
 The Anypoint MQ messaging broker enables applications to communicate by publishing a Mule message to a queue so that another app can consume the message.
 
 Anypoint MQ is fully integrated with Anypoint Platform and provides the same management capabilities.
-Integration with Access Management enables you to specify environments and business groups for 
+Integration with access management enables you to specify environments and business groups for 
 role-based access control and support for connected apps.
 
 The following spotlight video gives an overview of Anypoint MQ:
@@ -16,20 +14,14 @@ The following spotlight video gives an overview of Anypoint MQ:
 include::_partials/mq-overview-video.html[]
 ++++
 
-
-
-Anypoint MQ supports hybrid use cases, IoT in which you collect data from different devices, and a REST API you can use with device applications.
+Anypoint MQ supports hybrid use cases, IoT (Internet of Things) in which you collect data from different devices, and a REST API you can use with device applications.
 You can also use Anypoint MQ with other app frameworks such as node.js to communicate to queues.
 
 Anypoint MQ:
 
 * Provides fully hosted and managed xref:mq-queues.adoc[queues] and 
 xref:mq-exchanges[message exchanges] in the cloud.
-
-
-* Supports using connected apps to authenticate with Anypoint Platform using APIs.
-+
-See xref:mq-connected-apps.adoc[].
+* Supports using xref:mq-connected-apps.adoc[connected apps] to authenticate with Anypoint Platform using APIs.
 * Supports large payloads, encryption, queuing, and publish/subscribe (pub/sub) paradigms.
 * Enables you to easily connect to non-Mule applications using the REST API.
 * Provides Anypoint Studio access, which makes the process of leveraging your queues and message exchanges as simple as drag, drop, and configure.
@@ -39,46 +31,47 @@ See xref:mq-connected-apps.adoc[].
 * Provides the ability to group messages in FIFO queues.
 
 
+== Example
+
+In this example, an app running Salesforce customer relationship manager (CRM) uses Anypoint MQ to 
+communicate with two applications that handle different databases:
+
+image::mq-crm-to-dbs.png["CRM sends a message to Anypoint MQ that apps receive"]
+
+The Salesforce app sends a pub/sub message to an Anypoint MQ message exchange (`customer-updates`),
+and the two applications (`customer-consumer-1` and `customer-consumer-2` receive the message from 
+the message exchange and send it to their respective databases.
+
+
 == Anypoint MQ Features
 
 Anypoint MQ includes these features:
 
-* *Queues and Message Exchanges*
-+
+Queues and Message Exchanges::
 Send messages to queues, pull messages from queues, create a message exchange to perform pub/sub scenarios to send a message to multiple queues.
-* *Management Console*
-+
+Management Console::
 Monitor queue statistics, purge queues, and see how many messages are in flight using the management console.
-* *Anypoint MQ Connector*
-+
+Anypoint MQ Connector::
 Send and receive messages from any Mule app, whether it's deployed in CloudHub or used in a hybrid scenario and deployed on-premises.
-* *Usage Information*
-+
-Organization administrators or owners can view the current and past months' usage, including the total number of messages and API requests. You access this information from the *Access Management* page. For more information, see xref:mq-usage.adoc[Anypoint MQ Usage Information].
-* *REST API*
-+
+Usage Information::
+Organization administrators or owners can view the current and past months' usage, including the total number of messages and API requests. You access this information from the *Access Management* page. For more information, see xref:mq-usage.adoc[].
+REST API::
 Use the REST API to easily communicate with non-Mule applications.
-* *Environments and role-based access control*
-+
+Environments and Role-Based Access Control::
 Anypoint MQ is fully integrated with Access Management, allowing you to specify different environments for your queues, who can access each environment, and what they can do within each environment.
-* *Client Management*
-+
-Create connected application tokens.
-* *Large Payloads*
-+
+Client Management::
+Create connected app tokens.
+Large Payloads::
 Anypoint MQ supports payloads up to 10 MB.
-+
 // MQ Payload Conversion
 include::partial$mq-big-payload.adoc[tag=mqPayloadConvert]
 
 [[disaster-recovery]]
-* *Disaster Recovery*
-+
+Disaster Recovery::
 Within each region, Anypoint MQ services deploy to multiple availability zones (AZs) to provide high availability (HA). If service in one availability zone goes down, the Anypoint MQ service operates normally in that region. If all availability zones go down in a region, the Anypoint MQ service is unavailable in that region until at least one of the availability zones comes back up. Because the storage solution for Anypoint MQ is durable, messages that were already in the Anypoint MQ system before service was interrupted are retained.
 
 [[usage-statistics]]
-* *Usage Statistics*
-+
+Usage Statistics::
 View a chart indicating how much data and how many API requests have been consumed, and how many message units were received.
 The chart provides current and past usage, including consumed data, API requests, and the total number of messages received.
 See xref:mq-usage.adoc[] to access usage information.
@@ -89,8 +82,64 @@ You can also use the xref:mq-apis.adoc#mqstatapi[Anypoint MQ Stats API] to perfo
 Anypoint MQ does not support use with CloudHub Insight or Anypoint Monitoring.
 
 
-== Queue Features
+[[queues]]
+== Queues
 
+Message _queues_ provide temporary storage that enables applications to communicate in a scalable and reliable way. Publishers can publish messages into queues, and subscribers can receive messages from queues. 
+
+image::mq-pub-q-sub.png[Anypoint MQ Publisher-Queue-Subscriber]
+
+You can create a dead-letter queue to store undeliverable messages.
+
+Use a _message exchange_ to bind one or more queues so that a message sent to a message exchange appears in all its bound queues simultaneously.
+
+
+[[queue-benefits]]
+=== Benefits of Queues
+
+Queues provide these benefits:
+
+* *Horizontal scalability*
++
+By putting a message on a queue, the work to process that message can be distributed over multiple subscribers.
+* *Reliability*
++
+Queues ensure that messages are always processed, even in the case of failure.
++
+Anypoint MQ provides reliability with queues using a lock and acknowledge mechanism.
+These features ensure that a message is always processed, even in the case of failure.
++
+* *Decoupling*
++
+You can use a queue as a communication mechanism between different applications and devices,
+enabling them to have different development life cycles or maintenance windows, without affecting other applications.
+* *Aggregation*
++
+Multiple message producers can publish to a single queue, which enables easy consumption by consumers.
++
+.. A consumer retrieves messages from a queue. This locks the messages and makes the messages invisible to all other consumers.
+.. When retrieving, the consumer specifies a lock timeout. If the message is not processed within that time window, the message is made visible to other consumers to be processed. This ensures that if there was a failure of some sort, such as the consumer node crashed, a message can be processed by another node. A locked message does not block other messages to be read. The lock makes a message unavailable to other applications while locked.
++
+If a consumer processes a message successfully, the client acknowledges the message, and Anypoint MQ removes the message from the queue.
+For more information about how Anypoint MQ processes acknowledged messages, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations].
++
+If a consumer is not able to process a message, the message proceeds with a negative acknowledgment and becomes visible in the queue again.
+
+* *Unlimited messages in a queue*
++
+Anypoint MQ doesn't limit the number of messages in a queue.
+Each message in a queue is limited to 10 MB. 
+* *Long polling*
++
+Messages are read through long polling. The server holds a request open until new data is available, and then Anypoint MQ delivers a batch of messages with a single read.
+
+* *Billing and charging*
++
+Billing is based on the number of messages delivered to subscribers from queues, not the number of queues or message exchanges you create.
+
+
+[[queue-features]]
+=== Queue Features
 
 [[delay-queues]]
 * *Delay Queues*
@@ -126,24 +175,52 @@ include::partial$mq-faq.adoc[tag=faqEncryption]
 +
 include::partial$mq-faq.adoc[tag=faqEncryptionQandEx]
 
+* *Message TTL*
++
+Each queue has a message time-to-live (TTL).
+TTL specifies how long the message is in the queue before Anypoint MQ expires the message and removes it from the queue.
++
+include::partial$mq-ttl.adoc[tag=msgTTLchange]
+
+[message-lock-ttl]
+* *Default Acknowledgement Timeout* 
++
+How long a message remains unacknowledged before being returned to the queue: for example, in the event of server failure or when flow processing takes too long and times out.
+
+== Connected Apps
+
+In Anypoint MQ, each consumer must be registered as a connected app with a name, ID, and a secret.
+The connected app uses the ID and secret to authenticate and get access to queues and message exchanges within a single environment.
+You cannot use connected apps across multiple environments or business groups.
+
+== Message Exchanges
+
+With message exchanges you can distribute a single message to multiple consumers.
+
+image::mq-pub-ex-sub.png["Message exchanges distributing a message to multiple consumers"]
+
+For example, if a publisher publishes changes in the weather, and you have multiple apps that want to receive that data, you can use a message exchange to publish a single message to multiple queues for each app.
+
+A _binding_ is a relationship between the queue and message exchange, which tells the message exchange where to send messages. A queue can be bound to multiple message exchanges.
+// Max Msg Exchange 
+include::partial$mq-msg-exchange.adoc[tag=msgExchangeMax]
+include::partial$mq-msg-exchange.adoc[tag=msgExchangeMaxRouting]
 
 
 
 
-
-
-== Glossary
+[[mq-glossary]]
+== Anypoint MQ Glossary
 
 ACK/NACK::
 * ACK - An app receives a message and Anypoint MQ deletes the message. 
 * NACK - An app does not receive a message and Anypoint MQ does not delete the message.
-
 +
 For more information, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations].
 Binding::
 +
 Enables pub/sub apps to bridge the simple pub/sub structure and use point-to-point features, such as sending a message to specific applications.
-Bindings identify which queues comprise a message exchange.
+Bindings identify which queues form a message exchange.
 In Anypoint Platform, by specifying which message queues are bound to a message exchange, Anypoint MQ creates and manages the bindings for you.
 +
 // Max Msg Exchange 
@@ -152,7 +229,7 @@ include::partial$mq-msg-exchange.adoc[tag=msgExchangeMaxRouting]
 Dead Letter Queue (DLQ)::
 A queue that stores undeliverable messages from other queues.
 +
-See xref:mq-queues.adoc#dead-letter-queues[Dead Letter Queues]
+See xref:mq-queues.adoc#dead-letter-queues[Dead Letter Queues].
 Destination::
 A message exchange or queue. Applications register to a destination and publish messages to the destination. Applications subscribe to a destination to receive a message. Anypoint MQ lets you configure Destinations by creating or maintaining queues or message exchanges.
 You configure destinations in Anypoint Studio using Anypoint MQ Connector.
@@ -228,7 +305,7 @@ xref:mq-apis.adoc#mqstatapi[Anypoint MQ Stats API].
 
 == See Also
 
-* xref:mq-connectors.adoc[Anypoint MQ Connectors]
-* xref:mq-faq.adoc[Anypoint MQ FAQ]
-* xref:mq-release-notes.adoc[Anypoint MQ Release Notes]
+* xref:mq-connectors.adoc[]
+* xref:mq-faq.adoc[]
+* xref:mq-release-notes.adoc[]
 * xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[Anypoint MQ Audit Logging]

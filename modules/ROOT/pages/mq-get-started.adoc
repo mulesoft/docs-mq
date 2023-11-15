@@ -1,7 +1,6 @@
 = Getting Started with Anypoint MQ 
 
-The high-level steps to use Anypoint MQ are:
-For detailed steps, see xref:mq-tutorial.adoc[Anypoint MQ Tutorial].
+The high-level steps to configure and use Anypoint MQ are:
 
 . xref:mq-access-management.adoc[Set up your environment and access permissions].
 . Configure a xref:mq-queues.adoc[queue], xref:mq-exchanges.adoc[message exchange], or a xref:mq-queues.adoc#fifoqueues[FIFO queue].
@@ -28,6 +27,7 @@ Anypoint MQ sends the string as a message to the queue or message exchange you s
 
 == See Also
 
+* xref:mq-tutorial.adoc[Anypoint MQ Tutorial]
 * xref:mq-connectors.adoc[Anypoint MQ Connectors]
 * xref:mq-faq.adoc[Anypoint MQ FAQ]
 * xref:mq-release-notes.adoc[Anypoint MQ Release Notes]

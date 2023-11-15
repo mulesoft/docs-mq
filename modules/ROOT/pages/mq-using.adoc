@@ -1,4 +1,4 @@
-= Using Anypoint MQ
+= Configuring Anypoint MQ
 
 * xref:mq-access-management.adoc[]
 +

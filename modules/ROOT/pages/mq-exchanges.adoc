@@ -107,5 +107,5 @@ image::mq-exchange-delete.png["Delete icon in the details pane for deleting an e
 == See Also
 
 * xref:mq-queues.adoc[]
-* xref:mq-understanding.adoc[]
+* xref:index.adoc[]
 * xref:mq-faq.adoc[]
