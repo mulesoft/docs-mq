@@ -163,75 +163,6 @@ Messages are read through long polling. The server holds a request open until ne
 Billing is based on the number of messages delivered to subscribers from queues, not the number of queues or message exchanges you create.
 
 
-[[queue-features]]
-=== Queue Features
-
-[[delay-queues]]
-* *Delay Queues*
-+
-With delay queues, you can postpone the delivery of new messages to a queue for a specified period.
-Consumers can't see messages sent to a delay queue for the duration of the delay period.
-The minimum delay for a queue is 0 seconds. The maximum is 15 minutes.
-+ 
-If you change the queue delay for:
-
-** Standard queues, the setting change doesn't affect messages in the queue.
-** FIFO queues, the setting change is retroactive to all messages in the queue.
-+
-You can override the default queue delay for a particular message in a standard queue only.
-
-[[dead-letter-queues]]
-* *Dead-Letter Queues*
-+
-Dead-letter queues store undeliverable messages.
-+
-For information, see xref:mq-queues.adoc#dead-letter-queues[Dead Letter Queues].
-
-[[delay-messages]]
-* *Delayed Message Delivery*
-+
-For messages in a standard queue, you can postpone the delivery of a particular message to the queue for a specified period. Consumers can't see messages sent with delivery delay for the duration of the delay period.
-The minimum delivery delay for a message is 0 seconds.
-The maximum is 15 minutes.
-+ 
-Delayed delivery is not supported for individual messages in a FIFO queue.
-
-[[fifo-queues]]
-* *FIFO Queues*
-+
-For applications where the order of messages must be strictly preserved and enforced, Anypoint MQ provides first in, first out (FIFO) processing to ensure message ordering.
-+
-For information, see xref:mq-queues.adoc#fifo-queues[FIFO Queues].
-
-[[message-groups]]
-* *Message Groups*
-+
-With FIFO queues, you can assign messages to a message group to enable multiple consumers to process messages from a single FIFO queue.
-+
-For information, see xref:mq-queues.adoc#fifo-queues-msg-groups[FIFO Queues and Message Groups].
-
-[[encrypt-queue]]
-* *Encrypted Queues*
-+
-Messages in queues data can optionally be encrypted, enabling companies to be compliant with their data at rest policies. 
-//Shared Encryption
-include::partial$mq-faq.adoc[tag=faqEncryption]
-+
-include::partial$mq-faq.adoc[tag=faqEncryptionQandEx]
-
-[[message-ttl]]
-* *Message TTL*
-+
-Each queue has a message time-to-live (TTL).
-TTL specifies how long the message is in the queue before Anypoint MQ expires the message and removes it from the queue.
-+
-include::partial$mq-ttl.adoc[tag=msgTTLchange]
-
-[message-lock-ttl]
-* *Default Acknowledgement Timeout* 
-+
-How long a message remains unacknowledged before being returned to the queue: for example, in the event of server failure or when flow processing takes too long and times out.
-
 [[mq-glossary]]
 == Anypoint MQ Glossary
 
@@ -250,17 +181,65 @@ Bindings identify which queues form a message exchange.
 In Anypoint Platform, by specifying which message queues are bound to a message exchange, Anypoint MQ creates and manages the bindings for you.
 +
 For information, see xref:mq-exchanges.adoc[].
+
+[[dead-letter-queues]]
 Dead Letter Queue (DLQ)::
 A queue that stores undeliverable messages from other queues.
 +
 For information, see xref:mq-queues.adoc#dead-letter-queues[Dead Letter Queues].
+
+[message-lock-ttl]
+Default Acknowledgement Timeout::
+How long a message remains unacknowledged before being returned to the queue: for example, in the event of server failure or when flow processing takes too long and times out.
+
+[[delay-queues]]
+Delay Queues::
++
+With delay queues, you can postpone the delivery of new messages to a queue for a specified period.
+Consumers can't see messages sent to a delay queue for the duration of the delay period.
+The minimum delay for a queue is 0 seconds. The maximum is 15 minutes.
++ 
+If you change the queue delay for a:
++
+--
+** Standard queue, the setting change doesn't affect messages in the queue.
+** FIFO queue, the setting change is retroactive to all messages in the queue.
+--
++
+You can override the default queue delay for a particular message in a standard queue only.
+
+[[delay-messages]]
+Delayed Message Delivery::
++
+For messages in a standard queue, you can postpone the delivery of a particular message to the queue for a specified period. Consumers can't see messages sent with delivery delay for the duration of the delay period.
+The minimum delivery delay for a message is 0 seconds.
+The maximum is 15 minutes.
++ 
+Delayed delivery is not supported for individual messages in a FIFO queue.
 Destination::
 A message exchange or queue. Applications register to a destination and publish messages to the destination. Applications subscribe to a destination to receive a message. Anypoint MQ lets you configure Destinations by creating or maintaining queues or message exchanges.
 You configure destinations in Anypoint Studio using Anypoint MQ Connector.
 Durable message::
 A message that persists until its indicated client receives it.
 Duration::
-Messages can persist in flight for up to 2 weeks after which messages older than 2 weeks are deleted. 
+Messages can persist in flight for up to 2 weeks after which messages older than 2 weeks are deleted.
+[[encrypt-queue]]
+Encrypted Queues::
++
+Messages in queues data can optionally be encrypted, enabling companies to be compliant with their data at rest policies. 
+//Shared Encryption
+include::partial$mq-faq.adoc[tag=faqEncryption]
++
+include::partial$mq-faq.adoc[tag=faqEncryptionQandEx]
+
+
+[[fifo-queues]]
+FIFO Queues::
++
+For applications where the order of messages must be strictly preserved and enforced, Anypoint MQ provides first in, first out (FIFO) processing to ensure message ordering.
++
+For information, see xref:mq-queues.adoc#fifo-queues[FIFO Queues].
+
 In Flight::
 Messages that are: 
 +
@@ -290,6 +269,12 @@ Message Exchange::
 A pub/sub message source with multiple outputs. Applications register to subscribe to messages that the message exchange publishes.
 +
 For information, see xref:mq-exchanges.adoc[].
+[[message-groups]]
+Message Groups::
++
+With FIFO queues, you can assign messages to a message group to enable multiple consumers to process messages from a single FIFO queue.
++
+For information, see xref:mq-queues.adoc#fifo-queues-msg-groups[FIFO Queues and Message Groups].
 On-premises::
 Mule runtime that runs on a computer in your organization.
 Payload::
@@ -306,6 +291,13 @@ A point-to-point message storage area that holds a message that a client receive
 For information, see xref:mq-queues.adoc[].
 Subscriber::
 An app that receives messages from Anypoint MQ.
+[[message-ttl]]
+TTL (time-to-live)::
++
+Each queue has a message time-to-live (TTL).
+TTL specifies how long the message is in the queue before Anypoint MQ expires the message and removes it from the queue.
++
+include::partial$mq-ttl.adoc[tag=msgTTLchange]
 
 
 [[mq-in-govcloud]]
