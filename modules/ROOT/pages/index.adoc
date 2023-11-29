@@ -4,7 +4,7 @@
 Anypoint MQ is a multi-tenant, cloud-based message queuing service for exchanging data asynchronously between your applications. 
 The Anypoint MQ messaging broker enables applications to communicate by publishing a Mule message to a queue so that another app can consume the message.
 
-Anypoint MQ is fully integrated with Anypoint Platform and provides the same management capabilities.
+Anypoint MQ is fully integrated with Anypoint Platform, offering access control, client management, and connectors.
 Integration with access management enables you to specify environments and business groups for 
 role-based access control and support for connected apps.
 
@@ -30,10 +30,11 @@ Anypoint MQ:
 == Before You Begin Using Anypoint MQ
 
 * Obtain an Enterprise subscription.
+
 * Contact your Account Team to activate Anypoint MQ.
 * Set up your environment and permissions.
 +
-See xref:mq-access-management.adoc[].
+For information, see xref:mq-access-management.adoc[].
 * Review this overview for information about Anypoint MQ.
 
 
@@ -42,25 +43,37 @@ See xref:mq-access-management.adoc[].
 Anypoint MQ includes these features:
 
 Queues and Message Exchanges::
-Send messages to queues, pull messages from queues, create a message exchange to perform pub/sub scenarios to send a message to multiple queues.
+Send messages to queues, pull messages from queues.
+Use a message exchange to perform pub/sub scenarios to send a message to multiple queues.
++
+For information, see xref:mq-queues.adoc[] and xref:mq-exchanges.adoc[].
 Management Console::
 Monitor queue statistics, purge queues, and see how many messages are in flight using the management console.
 Anypoint MQ Connector::
 Send and receive messages from any Mule app, whether it's deployed in CloudHub or used in a hybrid scenario and deployed on-premises.
++
+For information, see xref:mq-connectors.adoc[].
 Usage Information::
 Organization administrators or owners can view the current and past months' usage, including the total number of messages and API requests.
 Access this information from the *Access Management* page.
++
 For information, see xref:mq-usage.adoc[].
 REST API::
 Use the REST API to easily communicate with non-Mule applications.
++
+For information, see xref:mq-apis.adoc[].
 Environments and Role-Based Access Control::
-Anypoint MQ is fully integrated with Access Management, allowing you to specify different environments for your queues, who can access each environment, and what they can do within each environment.
+Anypoint MQ is fully integrated with Anypoint Platform access management, allowing you to specify different environments for your queues, who can access each environment, and what they can do within each environment.
++
+For information, see xref:mq-access-management.adoc[].
 Client Management::
-Use xref:mq-connected-apps.adoc[connected apps] to authenticate with Anypoint Platform using APIs.
+Use connected apps to authenticate with Anypoint Platform using APIs.
 +
 Register each consumer registered as a connected app with a name, ID, and a secret.
 The connected app uses the ID and secret to authenticate and get access to queues and message exchanges within a single environment.
 You cannot use connected apps across multiple environments or business groups.
++
+For information, see xref:mq-connected-apps.adoc[].
 Large Payloads::
 Anypoint MQ supports payloads up to 10 MB.
 // MQ Payload Conversion
@@ -74,9 +87,12 @@ Within each region, Anypoint MQ services deploy to multiple availability zones (
 Usage Statistics::
 View usage statistics so that you can manage peak usage and subscription parameters.
 The chart provides current and past usage, including consumed data, API requests, and the total number of messages received.
-See xref:mq-usage.adoc[] to access usage information.
 +
-You can also use the xref:mq-apis.adoc#mqstatapi[Anypoint MQ Stats API] to perform statistical analysis of queue performance.
+For information, see xref:mq-usage.adoc[].
++
+You can also use the Anypoint MQ Stats API to perform statistical analysis of queue performance.
++
+For information, see xref:mq-apis.adoc#mqstatapi[Anypoint MQ Stats API].
 +
 [NOTE]
 Anypoint MQ does not support use with CloudHub Insight or Anypoint Monitoring.
@@ -146,7 +162,8 @@ Multiple message producers can publish to a single queue, which enables easy con
 .. When retrieving, the consumer specifies a lock timeout. If the message is not processed within that time window, the message is made visible to other consumers to be processed. This ensures that if there was a failure of some sort, such as the consumer node crashed, a message can be processed by another node. A locked message does not block other messages to be read. The lock makes a message unavailable to other applications while locked.
 +
 If a consumer processes a message successfully, the client acknowledges the message, and Anypoint MQ removes the message from the queue.
-For more information about how Anypoint MQ processes acknowledged messages, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations].
++
+For information, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations].
 +
 If a consumer is not able to process a message, the message proceeds with a negative acknowledgment and becomes visible in the queue again.
 
@@ -319,13 +336,12 @@ Using connected apps with Anypoint MQ requires xref:anypoint-mq-connector::index
 * The following REST APIs in the Anypoint MQ Stats API are not supported:
 +
 --
-** https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/minor/1.0/console/method/%23322/[Get usage metrics for an org]
-** https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/minor/1.0/console/method/%23383/[Get usage metrics for an environment within an org]
+** https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/minor/1.0/console/method/%23322/[Get usage metrics for an org].
+** https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/minor/1.0/console/method/%23383/[Get usage metrics for an environment within an org].
 --
 +
 You can use Anypoint MQ Stats API to retrieve metrics for queues and exchanges.
-See 
-xref:mq-apis.adoc#mqstatapi[Anypoint MQ Stats API].
+For information, see xref:mq-apis.adoc#mqstatapi[Anypoint MQ Stats API].
 
 
 == See Also

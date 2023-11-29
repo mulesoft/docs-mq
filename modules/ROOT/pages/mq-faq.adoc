@@ -7,6 +7,7 @@ xref:mq-apis.adoc[REST APIs],
 xref:release-notes::mq/mq-release-notes.adoc[Release Notes].
 
 
+[[ent-subscription]]
 == Why is Anypoint MQ not shown in Anypoint Platform?
 
 Anypoint MQ requires a separate Enterprise subscription and is not included in the Anypoint Platform trial version. Contact your Account Team for more information. If you don't have an Enterprise subscription, you can use Apache Active MQ or Rabbit MQ.

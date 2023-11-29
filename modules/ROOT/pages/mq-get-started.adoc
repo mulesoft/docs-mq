@@ -2,12 +2,12 @@
 
 The high-level steps to configure and use Anypoint MQ are:
 
+. xref:mq-faq.adoc#ent-subscription[Contact your Account Team] to obtain an Enterprise subscription and activate Anypoint MQ.
 . xref:mq-access-management.adoc[Set up your environment and access permissions].
+. xref:mq-connected-apps.adoc[Configure a connected app] to get an ID and secret to configure Anypoint Connector for MQ (Anypoint MQ Connector).
 . Configure a xref:mq-queues.adoc[queue], xref:mq-exchanges.adoc[message exchange], or a xref:mq-queues.adoc#fifoqueues[FIFO queue].
 . xref:mq-queues.adoc#send-message-to-queue[Send messages] to a queue or message exchange.
 . xref:mq-queues.adoc#get-a-message-from-a-queue[Get messages] from a queue.
-. xref:mq-connected-apps.adoc[Configure a connected app] to get an ID and secret to configure Anypoint Connector for MQ (Anypoint MQ Connector).
-
 . In Anypoint Studio, configure Anypoint MQ Connector in your Mule app:
 .. Install Anypoint MQ Connector using Anypoint Exchange.
 .. Create a new Mule project with required building blocks, such as an Anypoint Connector for HTTP (HTTP Connector), Anypoint MQ Connector, Set Payload, and a Logger.
@@ -16,7 +16,7 @@ The high-level steps to configure and use Anypoint MQ are:
 +
 For information about Anypoint MQ Connector, see xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.x for Mule 4].
 
-.. Run the Mule app.
+.. Deploy the the Mule app.
 
 . Test the queue:
 .. Use a REST client such as `curl` or Postman to send or receive a message.
