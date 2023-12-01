@@ -31,6 +31,8 @@ Monthly billing usage information is delayed by 24 hours.
 //Shared Usage Overage 
 include::partial$mq-faq.adoc[tag=faqUsageOverage]
 
+NOTE: If the usage for either API requests or message units is 0, the chart displays `<1%`.
+
 == Access Anypoint MQ Usage
 
 To view Anypoint MQ usage:
