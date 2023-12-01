@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :imagesdir: ../assets/images/
 
-Anypoint Platform enables you to manage the roles of users who administer the Anypoint MQ features in Anypoint Platform for your organization.
+Use access management to create an enviroment and manage the roles of users who administer the Anypoint MQ features in Anypoint Platform for your organization.
 
 == Create an Environment
 

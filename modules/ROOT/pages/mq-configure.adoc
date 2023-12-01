@@ -1,25 +1,29 @@
 = Configuring Anypoint MQ
 :page-aliases: mq-using.adoc
 
+Configure Anypoint MQ queues, exchanges, and connected apps to send and retrieve messages.
 
 * xref:mq-access-management.adoc[]
 +
-Create an environment and set up access permissions.
+Use access management to create an environment and manage the roles of users who administer the Anypoint MQ features in Anypoint Platform for your organization.
 * xref:mq-queues.adoc[]
 +
-** Configure queues, including FIFO queues and dead-letter queues (DLQs).
-** Send, retrieve, and purge messages from queues.
+Create queues, FIFO queues, and dead-letter queues in Anypoint Platform.
+Send, receive, and purge messages from queues.
 * xref:mq-exchanges.adoc[]
 +
-** Create message exchanges.
-** Bind queues to an exchange.
-** Route messages to specific queues using routing rules on an exchange.
-** Send messages to an exchange.
+Send messages to multiple standard xref:mq-queues.adoc[queues] simultaneously by binding those queues to
+a message exchange. 
++
+Route messages to specific queues that are bound to the message exchange
+by creating _intelligent message-routing rules_ on the bindings.
+
 * xref:mq-connected-apps.adoc[]
 +
-Configure connected apps and add scopes.
+Integrate external applications with Anypoint Platform using Connected Apps to provide access to those applications without sharing your user credentials.
 * xref:mq-client-apps.adoc[]
 +
-Register a client app and regenerate a client secret.
+Generate credentials to use to publish and consume from a queue when using Anypoint Connector for MQ (Anypoint MQ Connector) 
+version 3.x or earlier.
 +
 include::partial$mq-connect-apps.adoc[tag=mqConnAppRec]

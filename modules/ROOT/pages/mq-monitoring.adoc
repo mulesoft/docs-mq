@@ -1,8 +1,10 @@
 = Monitoring Anypoint MQ
 
+Use the Anypoint MQ monitoring features to view usage and audit logging data.
+
 * xref:mq-usage.adoc[]
 +
-View a chart indicating how much data and how many API requests have been consumed, and how many message units were received.
+You can view a chart indicating how much data and how many API requests have been consumed, and how many message units were received.
 * xref:mq-audit-logs.adoc[]
 +
-Access Anypoint MQ audit logs, including Anypoint MQ actions on queues, exchanges, and client applications.
+The Anypoint Platform audit logging service logs Anypoint MQ actions on queues, exchanges, and client applications.

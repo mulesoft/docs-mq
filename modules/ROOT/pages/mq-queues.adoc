@@ -1,4 +1,4 @@
-= Configuring Queues
+= Configuring and Using Queues
 
 A _queue_ is a temporary storage area for a message. You can create queues, FIFO queues, and dead-letter queues in Anypoint Platform. You can also send and receive messages from a queue in Anypoint Studio.
 

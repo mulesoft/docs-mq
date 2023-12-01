@@ -29,9 +29,9 @@ Anypoint MQ:
 
 == Before You Begin Using Anypoint MQ
 
-* Obtain an Enterprise subscription.
-
-* Contact your Account Team to activate Anypoint MQ.
+* Contact your Account Team to obtain an Enterprise subscription and activate Anypoint MQ.
++ 
+After adding an Enterprise subscription, wait one hour for Anypoint MQ to become available. 
 * Set up your environment and permissions.
 +
 For information, see xref:mq-access-management.adoc[].
@@ -43,10 +43,15 @@ For information, see xref:mq-access-management.adoc[].
 Anypoint MQ includes these features:
 
 Queues and Message Exchanges::
-Send messages to queues, pull messages from queues.
-Use a message exchange to perform pub/sub scenarios to send a message to multiple queues.
+Send messages to queues and pull messages from queues.
+Use a message exchange to send messages to multiple standard queues simultaneously or 
+route messages to specific queues using intelligent message routing rules.
 +
-For information, see xref:mq-queues.adoc[] and xref:mq-exchanges.adoc[].
+For information, see:
+
+* xref:mq-queues.adoc[]
+* xref:mq-exchanges.adoc[]
+* xref:mq-routing-rules.adoc[]
 Management Console::
 Monitor queue statistics, purge queues, and see how many messages are in flight using the management console.
 Anypoint MQ Connector::
@@ -63,7 +68,7 @@ Use the REST API to easily communicate with non-Mule applications.
 +
 For information, see xref:mq-apis.adoc[].
 Environments and Role-Based Access Control::
-Anypoint MQ is fully integrated with Anypoint Platform access management, allowing you to specify different environments for your queues, who can access each environment, and what they can do within each environment.
+Anypoint MQ is fully integrated with Anypoint Platform access management, enabling you to specify different environments for your queues, who can access each environment, and what they can do within each environment.
 +
 For information, see xref:mq-access-management.adoc[].
 Client Management::
@@ -106,16 +111,16 @@ Publishers can publish messages into queues, and subscribers can receive message
 
 image::mq-pub-q-sub.png[Anypoint MQ publisher, queue, and subscriber]
 
-
-_Message exchanges_ bind one or more queues so you can distribute a single message to multiple consumers.
+To distribute messages to multiple queues and consumers, bind multiple queues to a _message exchange_.
 Messages sent to an exchange appear in all its bound queues simultaneously:
 
 image::mq-pub-ex-sub.png["Message exchange distributing a message to multiple consumers"]
 
-For example, if a publisher publishes changes in the weather, and multiple apps need to receive that data,
+For example, if a publisher publishes changes in the weather, and multiple apps must receive that data,
 use a message exchange to publish a single message to multiple queues for each app.
 
 A _binding_ is a relationship between the queue and message exchange, which tells the message exchange where to send messages.
+By configuring _intelligent message-routing rules_ on a binding, you can route messages to specific queues that are bound to the message exchange.
 
 * You can bind a queue to multiple message exchanges.
 * {empty}
@@ -140,26 +145,29 @@ the message exchange and send it to their respective databases.
 
 Queues provide these benefits:
 
-* *Horizontal scalability*
+* Horizontal scalability
 +
 By putting a message on a queue, the work to process that message can be distributed over multiple subscribers.
-* *Reliability*
+* Reliability
 +
 Queues ensure that messages are always processed, even in the case of failure.
 +
 Anypoint MQ provides reliability with queues using a lock and acknowledge mechanism.
 These features ensure that a message is always processed, even in the case of failure.
 +
-* *Decoupling*
+* Decoupling
 +
 You can use a queue as a communication mechanism between different applications and devices,
 enabling them to have different development life cycles or maintenance windows, without affecting other applications.
-* *Aggregation*
+* Aggregation
 +
 Multiple message producers can publish to a single queue, which enables easy consumption by consumers.
 +
-.. A consumer retrieves messages from a queue. This locks the messages and makes the messages invisible to all other consumers.
-.. When retrieving, the consumer specifies a lock timeout. If the message is not processed within that time window, the message is made visible to other consumers to be processed. This ensures that if there was a failure of some sort, such as the consumer node crashed, a message can be processed by another node. A locked message does not block other messages to be read. The lock makes a message unavailable to other applications while locked.
+.. A consumer retrieves messages from a queue, which locks the messages and makes the messages invisible to all other consumers.
+.. When retrieving, the consumer specifies a lock timeout. If the message is not processed within the specified window,
+Anypoint MQ makes the message visible to other consumers.
+If a failure occurs, such as a consumer node crash, another node can process the message.
+A locked message does not block other messages from being read.
 +
 If a consumer processes a message successfully, the client acknowledges the message, and Anypoint MQ removes the message from the queue.
 +
@@ -167,15 +175,15 @@ For information, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NA
 +
 If a consumer is not able to process a message, the message proceeds with a negative acknowledgment and becomes visible in the queue again.
 
-* *Unlimited messages in a queue*
+* Unlimited messages in a queue
 +
 Anypoint MQ doesn't limit the number of messages in a queue.
 Each message in a queue is limited to 10 MB. 
-* *Long polling*
+* Long polling
 +
 Messages are read through long polling. The server holds a request open until new data is available, and then Anypoint MQ delivers a batch of messages with a single read.
 
-* *Billing and charging*
+* Billing and charging
 +
 Billing is based on the number of messages delivered to subscribers from queues, not the number of queues or message exchanges you create.
 
@@ -253,7 +261,7 @@ include::partial$mq-faq.adoc[tag=faqEncryptionQandEx]
 [[fifo-queues]]
 FIFO Queues::
 +
-For applications where the order of messages must be strictly preserved and enforced, Anypoint MQ provides first in, first out (FIFO) processing to ensure message ordering.
+For applications where the order of messages must be strictly preserved and enforced, Anypoint MQ provides first-in, first-out (FIFO) processing to ensure message ordering.
 +
 For information, see xref:mq-queues.adoc#fifo-queues[FIFO Queues].
 
@@ -276,10 +284,8 @@ Messages that have been sent.
 +
 Anypoint MQ supports unlimited messages in queue for both standard and FIFO queues.
 Lock ID::
-A lock that lets an app read a queue exclusively.
+A lock that allows only a single app to read a queue.
 Anypoint MQ provides the lock when an app acknowledges a message from a queue.
-A locked message does not block other messages to be read.
-The lock makes a message unavailable to other applications while locked.
 Message::
 Serializable xref:mule-runtime::about-mule-message.adoc[Mule Message] content that applications send and receive so that the applications can communicate with each other.
 Message Exchange::
@@ -289,9 +295,11 @@ For information, see xref:mq-exchanges.adoc[].
 [[message-groups]]
 Message Groups::
 +
-With FIFO queues, you can assign messages to a message group to enable multiple consumers to process messages from a single FIFO queue.
+With FIFO queues, you can enable multiple consumers to process messages from a single FIFO queue by assigning messages to a message group.
 +
 For information, see xref:mq-queues.adoc#fifo-queues-msg-groups[FIFO Queues and Message Groups].
+Message-Routing Rules::
+Rules that you configure on a message exchange binding to route a subset of the messages published to an exchange to a specific queue.
 On-premises::
 Mule runtime that runs on a computer in your organization.
 Payload::
