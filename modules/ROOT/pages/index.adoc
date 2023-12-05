@@ -72,7 +72,7 @@ Anypoint MQ is fully integrated with Anypoint Platform access management, enabli
 +
 For information, see xref:mq-access-management.adoc[].
 Client Management::
-Use connected apps to authenticate with Anypoint Platform using APIs.
+Use connected apps to authenticate with Anypoint Platform by using APIs.
 +
 Register each consumer registered as a connected app with a name, ID, and secret.
 The connected app uses the ID and secret to authenticate and get access to queues and message exchanges within a single environment.
