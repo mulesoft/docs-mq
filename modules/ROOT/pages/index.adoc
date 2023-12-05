@@ -251,7 +251,7 @@ Messages can persist in flight for up to two weeks, after which they are deleted
 [[encrypt-queue]]
 Encrypted Queues::
 +
-Messages in queues data can optionally be encrypted, enabling companies to be compliant with their data at rest policies. 
+Messages in queues data can optionally be encrypted, enabling companies to comply with their data at rest policies. 
 //Shared Encryption
 include::partial$mq-faq.adoc[tag=faqEncryption]
 +
