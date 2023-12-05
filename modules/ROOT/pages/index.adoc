@@ -112,7 +112,7 @@ Publishers can publish messages into queues, and subscribers can receive message
 image::mq-pub-q-sub.png[Anypoint MQ publisher, queue, and subscriber]
 
 To distribute messages to multiple queues and consumers, bind multiple queues to a _message exchange_.
-Messages sent to an exchange appear in all its bound queues simultaneously:
+Messages sent to an exchange appear in all of its bound queues simultaneously:
 
 image::mq-pub-ex-sub.png["Message exchange distributing a message to multiple consumers"]
 
