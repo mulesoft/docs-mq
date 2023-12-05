@@ -195,7 +195,7 @@ ACK/NACK operations::
 +
 --
 * ACK operation - An app receives a message and Anypoint MQ deletes the message. 
-* NACK - An app does not receive a message and Anypoint MQ does not delete the message.
+* NACK operation - An app does not receive a message and Anypoint MQ does not delete the message.
 --
 +
 For information, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations].
