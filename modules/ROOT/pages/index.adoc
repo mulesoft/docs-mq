@@ -119,7 +119,7 @@ image::mq-pub-ex-sub.png["Message exchange distributing a message to multiple co
 For example, if a publisher publishes changes in the weather, and multiple apps must receive that data,
 use a message exchange to publish a single message to multiple queues for each app.
 
-A _binding_ is a relationship between the queue and message exchange, which tells the message exchange where to send messages.
+A _binding_ is a relationship between the queue and message exchange that tells the message exchange where to send messages.
 By configuring _intelligent message-routing rules_ on a binding, you can route messages to specific queues that are bound to the message exchange.
 
 * You can bind a queue to multiple message exchanges.
