@@ -158,7 +158,7 @@ These features ensure that a message is always processed, even in the case of fa
 * Decoupling
 +
 You can use a queue as a communication mechanism between different applications and devices,
-enabling them to have different development life cycles or maintenance windows, without affecting other applications.
+enabling them to have different development life cycles or maintenance windows without affecting other applications.
 * Aggregation
 +
 Multiple message producers can publish to a single queue, which enables easy consumption by consumers.
