@@ -247,7 +247,7 @@ You configure destinations in Anypoint Studio using Anypoint MQ Connector.
 Durable message::
 A message that persists until its indicated client receives it.
 Duration::
-Messages can persist in flight for up to 2 weeks after which messages older than 2 weeks are deleted.
+Messages can persist in flight for up to two weeks, after which they are deleted.
 [[encrypt-queue]]
 Encrypted Queues::
 +
