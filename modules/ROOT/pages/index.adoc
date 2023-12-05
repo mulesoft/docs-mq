@@ -53,7 +53,7 @@ For information, see:
 * xref:mq-exchanges.adoc[]
 * xref:mq-routing-rules.adoc[]
 Management Console::
-Monitor queue statistics, purge queues, and see how many messages are in flight using the management console.
+Monitor queue statistics, purge queues, and see how many messages are in flight by using the management console.
 Anypoint MQ Connector::
 Send and receive messages from any Mule app, whether it's deployed in CloudHub or used in a hybrid scenario and deployed on-premises.
 +
