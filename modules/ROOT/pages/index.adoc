@@ -136,7 +136,7 @@ communicate with two applications that handle different databases:
 image::mq-crm-to-dbs.png["CRM sends a message to Anypoint MQ that apps receive"]
 
 The Salesforce app sends a pub/sub message to an Anypoint MQ message exchange (`customer-updates`),
-and the two applications (`customer-consumer-1` and `customer-consumer-2` receive the message from 
+and the two applications (`customer-consumer-1` and `customer-consumer-2`) receive the message from 
 the message exchange and send it to their respective databases.
 
 
