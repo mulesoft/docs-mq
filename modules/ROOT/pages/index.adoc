@@ -191,7 +191,7 @@ Billing is based on the number of messages delivered to subscribers from queues,
 [[mq-glossary]]
 == Anypoint MQ Glossary
 
-ACK/NACK::
+ACK/NACK operations::
 +
 --
 * ACK operation - An app receives a message and Anypoint MQ deletes the message. 
