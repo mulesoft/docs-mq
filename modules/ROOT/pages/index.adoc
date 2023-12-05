@@ -287,7 +287,7 @@ Lock ID::
 A lock that allows only a single app to read a queue.
 Anypoint MQ provides the lock when an app acknowledges a message from a queue.
 Message::
-Serializable xref:mule-runtime::about-mule-message.adoc[Mule Message] content that applications send and receive so that the applications can communicate with each other.
+Serializable xref:mule-runtime::about-mule-message.adoc[Mule Message] content that applications send and receive so that they can communicate with each other.
 Message Exchange::
 A pub/sub message source with multiple outputs. Applications register to subscribe to messages that the message exchange publishes.
 +
