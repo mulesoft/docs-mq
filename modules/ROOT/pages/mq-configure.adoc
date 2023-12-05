@@ -23,7 +23,7 @@ by creating _intelligent message-routing rules_ on the bindings.
 Integrate external applications with Anypoint Platform by using Connected Apps to provide access to those applications without sharing your user credentials.
 * xref:mq-client-apps.adoc[]
 +
-Generate credentials to use to publish and consume from a queue when using Anypoint Connector for MQ (Anypoint MQ Connector) 
+Generate credentials to use for publishing and consuming from a queue when using Anypoint Connector for MQ (Anypoint MQ Connector) 
 version 3.x or earlier.
 +
 include::partial$mq-connect-apps.adoc[tag=mqConnAppRec]
