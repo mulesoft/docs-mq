@@ -152,7 +152,7 @@ By putting a message on a queue, the work to process that message can be distrib
 +
 Queues ensure that messages are always processed, even in the case of failure.
 +
-Anypoint MQ provides reliability with queues using a lock and acknowledge mechanism.
+Anypoint MQ provides reliability with queues by using a lock and acknowledge mechanism.
 These features ensure that a message is always processed, even in the case of failure.
 +
 * Decoupling
