@@ -23,7 +23,7 @@ Anypoint MQ:
 
 * Provides fully hosted and managed xref:mq-queues.adoc[queues] and xref:mq-exchanges[message exchanges] in the cloud.
 * Supports large payloads, encryption, queuing, and publish/subscribe (pub/sub) paradigms.
-* Enables you to easily connect to non-Mule applications using the REST API.
+* Enables you to easily connect to non-Mule applications by using the REST API.
 * Provides Anypoint Studio access, which makes the process of leveraging your queues and message exchanges as simple as drag, drop, and configure.
 
 
