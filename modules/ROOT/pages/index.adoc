@@ -59,7 +59,7 @@ Send and receive messages from any Mule app, whether it's deployed in CloudHub o
 +
 For information, see xref:mq-connectors.adoc[].
 Usage Information::
-Organization administrators or owners can view the current and past months' usage, including the total number of messages and API requests.
+Organization administrators and owners can view the current and past months' usage, including the total number of messages and API requests.
 Access this information from the *Access Management* page.
 +
 For information, see xref:mq-usage.adoc[].
