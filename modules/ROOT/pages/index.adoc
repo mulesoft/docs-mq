@@ -242,7 +242,7 @@ The maximum is 15 minutes.
 + 
 Delayed delivery is not supported for individual messages in a FIFO queue.
 Destination::
-A message exchange or queue. Applications register to a destination and publish messages to the destination. Applications subscribe to a destination to receive a message. Anypoint MQ lets you configure Destinations by creating or maintaining queues or message exchanges.
+A message exchange or queue. Applications register to a destination and publish messages to that destination. Applications subscribe to a destination to receive a message. Anypoint MQ lets you configure destinations by creating or maintaining queues or message exchanges.
 You configure destinations in Anypoint Studio using Anypoint MQ Connector.
 Durable message::
 A message that persists until its indicated client receives it.
