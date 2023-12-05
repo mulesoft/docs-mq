@@ -116,7 +116,7 @@ Messages sent to an exchange appear in all of its bound queues simultaneously:
 
 image::mq-pub-ex-sub.png["Message exchange distributing a message to multiple consumers"]
 
-For example, if a publisher publishes changes in the weather, and multiple apps must receive that data,
+For example, if a publisher publishes changes in the weather and multiple apps must receive that data,
 use a message exchange to publish a single message to multiple queues for each app.
 
 A _binding_ is a relationship between the queue and message exchange that tells the message exchange where to send messages.
