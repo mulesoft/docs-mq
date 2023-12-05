@@ -74,7 +74,7 @@ For information, see xref:mq-access-management.adoc[].
 Client Management::
 Use connected apps to authenticate with Anypoint Platform using APIs.
 +
-Register each consumer registered as a connected app with a name, ID, and a secret.
+Register each consumer registered as a connected app with a name, ID, and secret.
 The connected app uses the ID and secret to authenticate and get access to queues and message exchanges within a single environment.
 You cannot use connected apps across multiple environments or business groups.
 +
