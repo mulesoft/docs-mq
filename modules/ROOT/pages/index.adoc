@@ -215,7 +215,7 @@ For information, see xref:mq-queues.adoc#dead-letter-queues[Dead Letter Queues].
 
 [message-lock-ttl]
 Default Acknowledgement Timeout::
-How long a message remains unacknowledged before being returned to the queue: for example, in the event of server failure or when flow processing takes too long and times out.
+How long a message remains unacknowledged before being returned to the queue, for example, if a server fails or if flow processing takes too long and times out.
 
 [[delay-queues]]
 Delay Queues::
