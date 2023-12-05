@@ -45,7 +45,7 @@ Anypoint MQ includes these features:
 Queues and Message Exchanges::
 Send messages to queues and pull messages from queues.
 Use a message exchange to send messages to multiple standard queues simultaneously or 
-route messages to specific queues using intelligent message routing rules.
+route messages to specific queues by using intelligent message routing rules.
 +
 For information, see:
 
