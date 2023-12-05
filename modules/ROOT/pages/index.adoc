@@ -261,7 +261,7 @@ include::partial$mq-faq.adoc[tag=faqEncryptionQandEx]
 [[fifo-queues]]
 FIFO Queues::
 +
-For applications where the order of messages must be strictly preserved and enforced, Anypoint MQ provides first-in, first-out (FIFO) processing to ensure message ordering.
+For applications in which the order of messages must be strictly preserved and enforced, Anypoint MQ provides first-in, first-out (FIFO) processing to ensure message ordering.
 +
 For information, see xref:mq-queues.adoc#fifo-queues[FIFO Queues].
 
