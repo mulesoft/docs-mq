@@ -194,7 +194,7 @@ Billing is based on the number of messages delivered to subscribers from queues,
 ACK/NACK::
 +
 --
-* ACK - An app receives a message and Anypoint MQ deletes the message. 
+* ACK operation - An app receives a message and Anypoint MQ deletes the message. 
 * NACK - An app does not receive a message and Anypoint MQ does not delete the message.
 --
 +
