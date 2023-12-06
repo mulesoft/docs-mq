@@ -4,7 +4,7 @@
 ** xref:mq-faq.adoc[]
 * xref:mq-release-notes.adoc[Release Notes]
 * xref:mq-get-started.adoc[Getting Started]
-** xref:mq-tutorial.adoc[Tutorial: Create a Queue and Send Messages to It]
+* xref:mq-tutorial.adoc[Tutorial: Create a Queue and Send Messages to It]
 * xref:mq-configure.adoc[]
 ** xref:mq-access-management.adoc[]
 ** xref:mq-queues.adoc[]

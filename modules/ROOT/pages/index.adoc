@@ -87,7 +87,7 @@ include::partial$mq-big-payload.adoc[tag=mqPayloadConvert]
 
 [[disaster-recovery]]
 Disaster Recovery::
-Use Anypoint MQ to ensure your messages are delivered even if services go down temporarily. 
+Ensure your messages are delivered even if services go down temporarily. 
 +
 Within each region, Anypoint MQ services deploy to multiple availability zones (AZs) to provide high availability (HA). If service in one availability zone goes down, the Anypoint MQ service operates normally in that region. If all availability zones go down in a region, the Anypoint MQ service is unavailable in that region until at least one of the availability zones comes back up.
 Messages that were already in the Anypoint MQ system before service was interrupted are retained.
@@ -177,14 +177,14 @@ A locked message does not block other messages from being read.
 +
 --
 *** If a consumer processes a message successfully, the client acknowledges the message, and Anypoint MQ removes the message from the queue.
-+
-For information, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations].
 *** If a consumer cannot process a message, the message proceeds with a negative acknowledgment and becomes visible in the queue again.
 --
++
+For information, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations].
 * Unlimited messages in a queue
 +
 Anypoint MQ doesn't limit the number of messages in a queue.
-Each message in a queue is limited to 10 MB. 
+The size of each message in a queue is limited to 10 MB. 
 * Long polling
 +
 Messages are read through long polling. The server holds a request open until new data is available, and then Anypoint MQ delivers a batch of messages with a single read.

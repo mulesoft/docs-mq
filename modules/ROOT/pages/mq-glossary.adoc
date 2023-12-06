@@ -1,7 +1,8 @@
 = Anypoint MQ Glossary
 :page-aliases: mq-understanding.adoc
 
-ACK/NACK operations::
+ACK/NACK::
+Operations that specify the following:
 +
 --
 * ACK operation - An app receives a message and Anypoint MQ deletes the message. 
@@ -11,9 +12,9 @@ ACK/NACK operations::
 For information, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations].
 Binding::
 +
-Enables pub/sub apps to bridge the simple pub/sub structure and use point-to-point features, such as sending a message to specific applications.
-Bindings identify which queues form a message exchange.
-In Anypoint Platform, by specifying which message queues are bound to a message exchange, Anypoint MQ creates and manages the bindings for you.
+A method for specifying as set of standard queues that form a message exchange, enabling apps send messages to multiple queues.
++
+When you specify which message queues are bound to a message exchange, Anypoint MQ creates and manages the bindings for you.
 +
 For information, see xref:mq-exchanges.adoc[].
 
@@ -25,12 +26,12 @@ For information, see xref:mq-queues.adoc#dead-letter-queues[Dead Letter Queues].
 
 [message-lock-ttl]
 Default Acknowledgement Timeout::
-How long a message remains unacknowledged before being returned to the queue, for example, if a server fails or if flow processing takes too long and times out.
+The period a message remains unacknowledged before being returned to the queue, for example, if a server fails or if flow processing takes too long and times out.
 
 [[delay-queues]]
-Delay Queues::
+Delay Queue::
+A queue that postpones delivery of new messages for a specified period.
 +
-With delay queues, you can postpone the delivery of new messages to a queue for a specified period.
 Consumers can't see messages sent to a delay queue for the duration of the delay period.
 The minimum delay for a queue is 0 seconds. The maximum is 15 minutes.
 + 
@@ -45,23 +46,26 @@ You can override the default queue delay for a particular message in a standard 
 
 [[delay-messages]]
 Delayed Message Delivery::
+A setting for standard queues that specifies how long to postpone delivery of a particular message to the queue.
 +
-For messages in a standard queue, you can postpone the delivery of a particular message to the queue for a specified period. Consumers can't see messages sent with delivery delay for the duration of the delay period.
+Consumers can't see messages sent with delivery delay for the duration of the delay period.
 The minimum delivery delay for a message is 0 seconds.
 The maximum is 15 minutes.
 + 
 Delayed delivery is not supported for individual messages in a FIFO queue.
 Destination::
-A message exchange or queue. Applications register to a destination and publish messages to that destination. Applications subscribe to a destination to receive a message. Anypoint MQ lets you configure destinations by creating or maintaining queues or message exchanges.
+A message exchange or queue.
++
+Applications register to a destination and publish messages to that destination. Applications subscribe to a destination to receive a message. Anypoint MQ lets you configure destinations by creating or maintaining queues or message exchanges.
 You configure destinations in Anypoint Studio using Anypoint MQ Connector.
-Durable message::
+Durable Message::
 A message that persists until its target client receives it.
 Duration::
-Messages can persist in flight for up to two weeks, after which they are deleted.
+The period that messages can persist in flight (for up to two weeks), after which they are deleted.
 [[encrypt-queue]]
-Encrypted Queues::
+Encrypted Queue::
+A queue that is encrypted, enabling companies to comply with their data at rest policies.
 +
-Messages in queues data can optionally be encrypted, enabling companies to comply with their data at rest policies. 
 //Shared Encryption
 include::partial$mq-faq.adoc[tag=faqEncryption]
 +
@@ -69,14 +73,13 @@ include::partial$mq-faq.adoc[tag=faqEncryptionQandEx]
 
 
 [[fifo-queues]]
-FIFO Queues::
-+
-For applications in which the order of messages must be strictly preserved and enforced, Anypoint MQ provides first-in, first-out (FIFO) processing to ensure message ordering.
+FIFO Queue::
+A queue that processes messages first-in, first-out (FIFO), ensuring message ordering for applications in which the order of messages must be strictly preserved and enforced.
 +
 For information, see xref:mq-queues.adoc#fifo-queues[FIFO Queues].
 
-In Flight::
-Messages that are any of the following: 
+In-Flight::
+Messages that are any of the following states: 
 +
 --
 * Received by a queue, but not deleted
@@ -94,7 +97,7 @@ Messages that have been sent.
 +
 Anypoint MQ supports unlimited messages in queue for both standard and FIFO queues.
 Lock ID::
-A lock that allows only a single app to read a queue.
+An identifier that allows only a single app to read a queue.
 Anypoint MQ provides the lock when an app acknowledges a message from a queue.
 Message::
 Serializable xref:mule-runtime::about-mule-message.adoc[Mule Message] content that applications send and receive so that they can communicate with each other.
@@ -104,8 +107,7 @@ A pub/sub message source with multiple outputs. Applications register to subscri
 For information, see xref:mq-exchanges.adoc[].
 [[message-groups]]
 Message Groups::
-+
-You can enable multiple consumers to process messages from a single FIFO queue by assigning messages to a message group.
+An assignment of specific messages to a group, enabling multiple consumers to process messages from a single FIFO queue.
 +
 For information, see xref:mq-queues.adoc#fifo-queues-msg-groups[FIFO Queues and Message Groups].
 Message-Routing Rules::
@@ -128,9 +130,9 @@ Subscriber::
 An app that receives messages from Anypoint MQ.
 [[message-ttl]]
 TTL (time-to-live)::
+How long the message is in the queue before Anypoint MQ expires the message and removes it from the queue.
 +
 Each queue has a message time-to-live (TTL).
-TTL specifies how long the message is in the queue before Anypoint MQ expires the message and removes it from the queue.
 +
 include::partial$mq-ttl.adoc[tag=msgTTLchange]
 
