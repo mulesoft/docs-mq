@@ -12,7 +12,7 @@ Operations that specify the following:
 For information, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations].
 Binding::
 +
-A method for specifying a set of standard queues that form a message exchange, enabling apps send messages to multiple queues.
+A method for specifying a set of standard queues that form a message exchange, enabling apps to send messages to multiple queues.
 +
 When you specify which message queues are bound to a message exchange, Anypoint MQ creates and manages the bindings for you.
 +
