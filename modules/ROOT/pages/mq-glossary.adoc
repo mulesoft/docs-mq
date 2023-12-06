@@ -5,14 +5,14 @@ ACK/NACK::
 Operations that specify the following:
 +
 --
-* ACK operation - An app receives a message and Anypoint MQ deletes the message. 
-* NACK operation - An app does not receive a message and Anypoint MQ does not delete the message.
+* ACK operation - An app receives a message, and Anypoint MQ deletes the message. 
+* NACK operation - An app does not receive a message, and Anypoint MQ doesn't delete the message.
 --
 +
 For information, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations].
 Binding::
 +
-A method for specifying as set of standard queues that form a message exchange, enabling apps send messages to multiple queues.
+A method for specifying a set of standard queues that form a message exchange, enabling apps send messages to multiple queues.
 +
 When you specify which message queues are bound to a message exchange, Anypoint MQ creates and manages the bindings for you.
 +
@@ -32,7 +32,7 @@ The period a message remains unacknowledged before being returned to the queue, 
 Delay Queue::
 A queue that postpones delivery of new messages for a specified period.
 +
-Consumers can't see messages sent to a delay queue for the duration of the delay period.
+Consumers can't see messages sent to a delay queue for the delay duration.
 The minimum delay for a queue is 0 seconds. The maximum is 15 minutes.
 + 
 If you change the queue delay for a:
@@ -46,13 +46,13 @@ You can override the default queue delay for a particular message in a standard 
 
 [[delay-messages]]
 Delayed Message Delivery::
-A setting for standard queues that specifies how long to postpone delivery of a particular message to the queue.
+A setting that specifies how long to postpone delivery of a particular message to a standard queue.
 +
-Consumers can't see messages sent with delivery delay for the duration of the delay period.
+Consumers can't see messages sent with delivery delay for the delay duration.
 The minimum delivery delay for a message is 0 seconds.
 The maximum is 15 minutes.
 + 
-Delayed delivery is not supported for individual messages in a FIFO queue.
+FIFO queues don't support delayed delivery for individual messages.
 Destination::
 A message exchange or queue.
 +
@@ -61,7 +61,7 @@ You configure destinations in Anypoint Studio using Anypoint MQ Connector.
 Durable Message::
 A message that persists until its target client receives it.
 Duration::
-The period that messages can persist in flight (for up to two weeks), after which they are deleted.
+The period that messages can persist in flight (for up to two weeks), after Anypoint MQ deletes them.
 [[encrypt-queue]]
 Encrypted Queue::
 A queue that is encrypted, enabling companies to comply with their data at rest policies.
@@ -130,7 +130,7 @@ Subscriber::
 An app that receives messages from Anypoint MQ.
 [[message-ttl]]
 TTL (time-to-live)::
-How long the message is in the queue before Anypoint MQ expires the message and removes it from the queue.
+How long the message stays in a queue before Anypoint MQ expires and removes it from the queue.
 +
 Each queue has a message time-to-live (TTL).
 +
@@ -138,5 +138,5 @@ include::partial$mq-ttl.adoc[tag=msgTTLchange]
 
 == See Also
 
-* xref:mq-index.adoc[]
+* xref:index.adoc[]
 * xref:mq-faq.adoc[]
