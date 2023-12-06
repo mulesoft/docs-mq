@@ -9,7 +9,7 @@
 ** xref:mq-access-management.adoc[]
 ** xref:mq-queues.adoc[]
 ** xref:mq-exchanges.adoc[]
-*** xref:mq-routing-rules.adoc[]
+** xref:mq-routing-rules.adoc[]
 ** xref:mq-connected-apps.adoc[]
 ** xref:mq-client-apps.adoc[]
 * xref:mq-monitoring.adoc[]
