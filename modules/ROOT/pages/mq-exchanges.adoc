@@ -1,9 +1,12 @@
-= Configuring Message Exchanges
+= Sending Messages to Multiple Queues Using Message Exchanges
 
-Using a _message exchange_, you can send a message to one or more standard xref:mq-queues.adoc[queues] that are bound to the message exchange.
-You can also create _intelligent message routing rules_ to route messages to specific queues that are bound to the message exchange.
-For information, see
-xref:mq-routing-rules.adoc[].
+You can send messages to multiple standard
+xref:mq-queues.adoc[queues] simultaneously by binding those queues to
+a _message exchange_. 
+
+You can also route messages to specific queues that are bound to the message exchange
+by creating _intelligent message-routing rules_ on the bindings.
+For information, see xref:mq-routing-rules.adoc[].
 
 The maximum size of a message sent to a message exchange is 10 MB.
 // Max Msg Exchange 
@@ -105,5 +108,5 @@ image::mq-exchange-delete.png["Delete icon in the details pane for deleting an e
 == See Also
 
 * xref:mq-queues.adoc[]
-* xref:mq-understanding.adoc[]
+* xref:index.adoc[]
 * xref:mq-faq.adoc[]

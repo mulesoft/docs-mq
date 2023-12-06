@@ -20,7 +20,7 @@ include::partial$mq-versions.adoc[tag=mqMuleVersion]
 
 == Before You Begin
 
-* Familiarity with xref:mq-understanding.adoc[Anypoint MQ terminology]
+* Familiarity with xref:mq-glossary.adoc[]
 * An https://anypoint.mulesoft.com[Anypoint Platform account^]
 * An Enterprise license
 +
