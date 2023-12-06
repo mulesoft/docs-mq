@@ -34,8 +34,8 @@ image::mq-filters.png["Filters on the Destinations page"]
 
 == Before You Begin
 
-Before using Anypoint MQ, you must create an environment, user access, and roles for accessing Anypoint MQ.
-See xref:mq-access-management.adoc[Configure Environment, User, and Role Access].
+Before using Anypoint MQ, you must create an environment and give users Anypoint MQ access permissions.
+See xref:mq-access-management.adoc[].
 
 
 == Create a Queue

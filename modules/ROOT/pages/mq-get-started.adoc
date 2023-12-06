@@ -1,6 +1,6 @@
 = Getting Started with Anypoint MQ 
 
-The high-level steps to configure and use Anypoint MQ are:
+Follow these high-level steps to configure and use Anypoint MQ:
 
 . Contact your Account Team to obtain an Enterprise subscription and activate Anypoint MQ.
 . xref:mq-access-management.adoc[Set up your environment and access permissions].
