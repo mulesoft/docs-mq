@@ -151,7 +151,7 @@ Queues provide these benefits:
 
 * Horizontal scalability
 +
-By putting a message on a queue, the work to process that message can be distributed over multiple subscribers.
+By putting a message in a queue, the work to process that message can be distributed over multiple subscribers.
 * Reliability
 +
 Queues ensure that messages are always processed, even in the case of failure.

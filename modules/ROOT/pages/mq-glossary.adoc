@@ -26,7 +26,7 @@ For information, see xref:mq-queues.adoc#dead-letter-queues[Dead Letter Queues].
 
 [message-lock-ttl]
 Default Acknowledgement Timeout::
-The period a message remains unacknowledged before being returned to the queue, for example, if a server fails or if flow processing takes too long and times out.
+The period that a message remains unacknowledged before being returned to the queue, for example, if a server fails or if flow processing takes too long and times out.
 
 [[delay-queues]]
 Delay Queue::
@@ -61,7 +61,7 @@ You configure destinations in Anypoint Studio using Anypoint MQ Connector.
 Durable Message::
 A message that persists until its target client receives it.
 Duration::
-The period that messages can persist in flight (for up to two weeks), after Anypoint MQ deletes them.
+The period during which messages can persist in flight (for up to two weeks), after Anypoint MQ deletes them.
 [[encrypt-queue]]
 Encrypted Queue::
 A queue that is encrypted, enabling companies to comply with their data at rest policies.
