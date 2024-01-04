@@ -7,10 +7,10 @@ When enabled for a queue, if a Mule app can't reach an Anypoint MQ server in a r
 == Failover Limitations
 
 * Failover is supported for standard queues only.
-* MuleSoft Government Cloud includes only one region so does not support failover.
+* Because MuleSoft Government Cloud includes only one region, it does not support failover.
 
 == See Also
 
-* xref:anypoint-mq-connector::anypoint-mq-connector-reference.adoc[]
+* xref:anypoint-mq-connector::anypoint-mq-connector-reference.adoc[Anypoint MQ Connector 4.x Reference]
+* xref:connectors::anypoint-mq/3.x/anypoint-mq-connector-reference.adoc[Anypoint MQ Connector 3.x Reference]
 * xref:mq-queues.adoc[]
-* xref:index.adoc[]
