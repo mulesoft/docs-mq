@@ -10,6 +10,7 @@
 ** xref:mq-queues.adoc[]
 ** xref:mq-exchanges.adoc[]
 ** xref:mq-routing-rules.adoc[]
+** xref:mq-failover.adoc[]
 ** xref:mq-connected-apps.adoc[]
 ** xref:mq-client-apps.adoc[]
 * xref:mq-monitoring.adoc[]

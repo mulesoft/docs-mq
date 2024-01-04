@@ -12,6 +12,9 @@ Anypoint MQ supports up to 120,000 in-flight messages per standard queue.
 +
 Standard queues provide "at least once" message-delivery reliability.
 Due to the highly distributed architecture, Anypoint MQ occasionally delivers messages more than once.
++
+You can enable failover for standard queues.
+For information, see xref:mq-failover.adoc[].
 * FIFO (first in, first out) queue
 +
 These queues ensure that your messages arrive in order. FIFO queues are the best fit for applications requiring strict message ordering and exactly-once delivery, but in which message delivery speed is of less importance. See <<FIFO Queues>>.
@@ -447,6 +450,12 @@ Anypoint MQ processes subsequent messages and doesn't preserve the message order
 
 Therefore, if an application requires the order of messages to be strictly preserved and enforced, don't assign a DLQ to a FIFO queue.
 
+[dlq-and-fallback]
+=== Dead-Letter Queues and Fallback Queues
+
+Before you can enable fallback on a standard queue that has a DLQ assigned,
+the DLQ must have had fallback enabled.
+
 === Encryption
 
 Undeliverable messages that are sent to the DLQ use the encryption set for the source queue, regardless of the DLQ encryption setting. Messages that are sent directly to the DLQ by a client use the encryption setting for the DLQ. If your organization's policy is that all messages are encrypted, then you must set encryption for all queues.
@@ -535,6 +544,16 @@ You can also view details of each queue from the REST Administration API, using 
 If DLQ is set, the returned entities contain the `deadLetterSources` field. 
 
 For more information, see xref:mq-apis.adoc#mqadminapi[Anypoint MQ Admin API].
+
+== Fallback Queues
+
+When you enable cross-region failover for a standard queue, Anypoint MQ automatically creates a fallback queue and assigns a non-configurable failover region to the queue.
+The name of the fallback queue is the primary queue name with the `_fb` suffix.
+For example, if the primary queue name is `my-primary-queue`, the fallback queue name is `my-primary-queue_fb`.
+
+For information about cross-region failover and fallback queues, see
+xref:mq-failover.adoc[].
+
 
 == See Also
 

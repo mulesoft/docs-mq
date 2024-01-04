@@ -1,0 +1,16 @@
+= Configuring Cross-Region Failover for Standard Queues
+
+Anypoint MQ Connector provides failover capability for standard queues.
+
+When enabled for a queue, if a Mule app can't reach an Anypoint MQ server in a region, it switches to the fallback queue configured in a different region.
+
+== Failover Limitations
+
+* Failover is supported for standard queues only.
+* MuleSoft Government Cloud includes only one region so does not support failover.
+
+== See Also
+
+* xref:anypoint-mq-connector::anypoint-mq-connector-reference.adoc[]
+* xref:mq-queues.adoc[]
+* xref:index.adoc[]

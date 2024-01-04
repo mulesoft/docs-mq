@@ -91,6 +91,11 @@ Ensure your messages are delivered even if services go down temporarily.
 +
 Within each region, Anypoint MQ services deploy to multiple availability zones (AZs) to provide high availability (HA). If service in one availability zone goes down, the Anypoint MQ service operates normally in that region. If all availability zones go down in a region, the Anypoint MQ service is unavailable in that region until at least one of the availability zones comes back up.
 Messages that were already in the Anypoint MQ system before service was interrupted are retained.
++
+In addition, you can enable failover on standard queues, which creates a fallback queue in a different region.
+With failover enabled, if an app can't contact the Anypoint MQ server in a region,
+it switches to the fallback queue to continue publishing and consuming messages.
+For information, see xref:mq-failover.adoc[].
 
 [[usage-statistics]]
 Usage Statistics::
