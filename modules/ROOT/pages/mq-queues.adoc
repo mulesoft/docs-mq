@@ -26,7 +26,8 @@ include::partial$mq-faq.adoc[tag=messageGroupLimit]
 FIFO queues provide "exactly once" message-delivery reliability.
 Anypoint MQ delivers each message to only one consumer.
 
-You can assign either standard or FIFO queue type as a dead-letter queue (DLQ). See <<Dead Letter Queues>>.
+You can assign either standard or FIFO queue type as a dead-letter queue (DLQ).
+See <<dead-letter-queues>>.
 
 Standard queues can be bound to a xref:mq-exchanges.adoc[_message exchange_], enabling you to send messages to multiple queues.
 
@@ -56,6 +57,7 @@ For *Exchange*, see xref:mq-exchanges.adoc[Configure Message Exchanges].
 . Complete the fields in *Create Queue* or *Create FIFO Queue*:
 +
 image::mq-create-queues.png["Create Queue popup dialog box"]
+// replace screenshot
 +
 --
 ** *ID* specifies the queue name.
@@ -80,13 +82,17 @@ The minimum delivery delay for a message is 0 seconds. The maximum is 15 minutes
 See xref:index.adoc#encrypt_queue[Encrypted queues].
 ** *Assign a Dead Letter Queue* assigns the DLQ.
 +
-The DLQ is a previously created queue to which to send undeliverable messages. See <<Dead Letter Queues>>.
+The DLQ is a previously created queue to which to send undeliverable messages.
+See <<dead-letter-queues>>.
+** *Enable Cross-Region Failover* creates a fallback queue in the fallback region.
+See <<fallback-queues>>.
 --
 . Click *Create Queue*.
 + 
 Anypoint MQ creates the queue in the *Destinations* page:
 +
 image::mq-queue-details.png["Destinations page with the type, ID, and details label for the new queue"]
+// I think this screenshot is OK
 +
 include::partial$mq-msg-browser-details.adoc[tag=mqQueueDetails]
 
@@ -150,6 +156,7 @@ To see the number the messages in the queue:
 . Click the queue type to display its details, including the number of messages in the queue:
 +
 image::mq-msgs-in-queue.png["The number of messages in the queue in the details pane"]
+// I think this screenshot is OK.
 
 == Get a Message from a Queue
 
@@ -265,6 +272,7 @@ To purge all the messages in the queue:
 . Click the *Purge Messages* icon in the details pane:
 +
 image::mq-purge-msgs-icon.png["Purge Messages icon"]
+// screenshot OK
 . In the *Purge Messages* confirmation box, select the checkbox and click *Delete Messages* to verify that you want to purge all messages in the queue:
 +
 image::mq-purge-msgs-confirm.png["Accept checkbox for purging messages from a queue"]
@@ -278,6 +286,7 @@ The new value doesn't apply to messages that are already in the queue.
 . Click the queue ID to display the *Queue Settings* page:
 +
 image::mq-queue-settings.png["Queue Settings page"]
+// update screenshot
 . Change the queue settings and click *Save Changes*.
 
 == Delete a Queue
@@ -291,6 +300,7 @@ To delete a queue:
 . Click the *Delete* icon in the details pane:
 +
 image::mq-delete-queue-icon.png["Delete icon"]
+// screenshot OK
 +
 . In the *Delete Queue* confirmation box, select the checkbox and click *Delete Queue* to verify that you want to delete the queue:
 +
@@ -427,6 +437,7 @@ When building applications in Anypoint Studio that require exactly-once delivery
 * Set the message ID in the publisher settings in the Anypoint MQ connector.
 * Let Anypoint MQ autogenerate a unique message ID for each message sent to a queue (default).
 
+[[dead-letter-queues]]
 == Dead Letter Queues
 
 Anypoint MQ enables you to ensure that messages that aren't delivered are sent to a queue known as the dead-letter queue (DLQ). You can then analyze the messages sent to the DLQ to determine why those messages were not delivered. 
@@ -455,6 +466,8 @@ Therefore, if an application requires the order of messages to be strictly prese
 
 Before you can enable fallback on a standard queue that has a DLQ assigned,
 the DLQ must have had fallback enabled.
+// (more info here)
+
 
 === Encryption
 
@@ -523,6 +536,7 @@ You can recover messages from the DLQ using the REST API to get the message from
 You can see whether a queue is a DLQ by viewing its details:
 
 image::mq-queue-view-dlq.png["DLQ status in the details pane"]
+// update screenshot (maybe)?
 
 You can also view details of each queue from the REST Administration API, using the Get Queue REST endpoint. 
 
@@ -545,6 +559,7 @@ If DLQ is set, the returned entities contain the `deadLetterSources` field.
 
 For more information, see xref:mq-apis.adoc#mqadminapi[Anypoint MQ Admin API].
 
+[[fallback-queues]]
 == Fallback Queues
 
 When you enable cross-region failover for a standard queue, Anypoint MQ automatically creates a fallback queue and assigns a non-configurable failover region to the queue.

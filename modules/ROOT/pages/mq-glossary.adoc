@@ -71,6 +71,25 @@ include::partial$mq-faq.adoc[tag=faqEncryption]
 +
 include::partial$mq-faq.adoc[tag=faqEncryptionQandEx]
 
+[[failover]]
+Failover::
+A feature that can be enabled for standard queues that assigns a fallback queue in a different region and automatically diverts message processing if an application can't reach the Anypoint MQ server in the primary region.
++
+For information, see xref:mq-failover.adoc[].
+
+[[fallback-queue]]
+Fallback Queue::
+A queue that Anypoint MQ automatically creates in a fallback region when failover is enabled for a standard queue.
+Fallback queues are not configurable.
++
+For information, see xref:mq-failover.adoc[].
+
+[[fallback-region]]
+Fallback Region::
+A region that Anypoint MQ automatically assigns to a fallback queue when failover is enabled for a standard queue.
+The fallback region is not configurable.
++
+For information, see xref:mq-failover.adoc[].
 
 [[fifo-queues]]
 FIFO Queue::
