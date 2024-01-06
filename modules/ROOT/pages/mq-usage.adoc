@@ -41,7 +41,7 @@ include::partial$mq-faq.adoc[tag=faqUsageOverage]
 
 To view Anypoint MQ usage:
 
-. Log in to Anypoint Platform.
+. Sign in to Anypoint Platform.
 . Click *Access Management* in the navigation bar or the main Anypoint Platform page.
 . Click *MQ* in the *SUBSCRIPTION* section:
 +

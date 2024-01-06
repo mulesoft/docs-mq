@@ -36,7 +36,7 @@ First, you create a queue, send messages to the queue, verify that the messages 
 
 To create a queue:
 
-. Log in to Anypoint Platform and click *MQ* in the navigation menu.
+. Sign in to Anypoint Platform and click *MQ* in the navigation menu.
 . If you want to test the queue in Anypoint Studio 7, switch to any environment except Design. 
 +
 For example, click the environment button and select *Production*:

@@ -46,7 +46,7 @@ See xref:mq-access-management.adoc[].
 
 To create a standard queue or FIFO queue:
 
-. Log in to Anypoint Platform and click *MQ* in the navigation menu.
+. Sign in to Anypoint Platform and click *MQ* in the navigation menu.
 . Click *Destinations*.
 . Click the *Add* icon to display the menu:
 +
@@ -89,7 +89,7 @@ See <<fallback-queues>>.
 --
 . Click *Create Queue*.
 + 
-Anypoint MQ creates the queue in the *Destinations* page:
+Anypoint MQ creates the queue in the *Destinations* page and displays the queue information in the details pane:
 +
 image::mq-queue-details.png["Destinations page with the type, ID, and details label for the new queue"]
 // I think this screenshot is OK

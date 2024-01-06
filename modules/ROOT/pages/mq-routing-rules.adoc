@@ -41,7 +41,7 @@ not to the `sizeMedium` queue based on the routing rule configuration.
 
 To create a message routing rule:
 
-. Log in to Anypoint Platform.
+. Sign in to Anypoint Platform.
 . Click *MQ* in navigation area or the main Anypoint Platform screen.
 . Click *Destinations* and then click the name of the exchange to configure rules.
 . On the *Exchange Settings* page, click *Add Rule* to add a rule to a bound queue.
@@ -59,7 +59,7 @@ image::mq-exchange-create-routing-rule.png["Create Routing Rule page"]
 
 To change a message routing rule:
 
-. Log in to Anypoint Platform.
+. Sign in to Anypoint Platform.
 . Click *MQ* in navigation area or the main Anypoint Platform screen.
 . Click *Destinations* and then click the name of the exchange to configure rules.
 . On the *Exchange Settings* page, click *Edit Rule* to change a rule on a bound queue.
@@ -74,7 +74,7 @@ For information about property types and matcher types, see <<matcher-type>>.
 
 To delete a message routing rule:
 
-. Log in to Anypoint Platform.
+. Sign in to Anypoint Platform.
 . Click *MQ* in navigation area or the main Anypoint Platform screen.
 . Click *Destinations* and then click the name of the exchange to configure rules.
 . On the *Exchange Settings* page, click *Delete Rule* .

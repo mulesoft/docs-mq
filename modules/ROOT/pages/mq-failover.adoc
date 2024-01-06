@@ -7,6 +7,7 @@ When enabled for a queue, if a Mule app can't reach an Anypoint MQ server in a r
 == Failover Limitations
 
 * Failover is supported for standard queues only.
+* Failover isn't supported for message exchanges.
 * Because MuleSoft Government Cloud includes only one region, it does not support failover.
 // Canada and Australia (single region) fail over to US and Singapore(?)
 
@@ -29,6 +30,60 @@ When enabled for a queue, if a Mule app can't reach an Anypoint MQ server in a r
 .2+| Europe        | Europe (Frankfurt)    |`eu-central-1`| Europe (Ireland)|`eu-west-1`
                    | Europe (Ireland)      |`eu-west-1`| Europe (Frankfurt)|`eu-central-1` 
 |===
+
+
+== Enable Failover for a Queue
+
+To enable failover for a new or existing queue:
+
+. Sign in to Anypoint Platform and click *MQ* in the navigation menu.
+. Click *Destinations*.
+. Create or modify an existing queue:
++
+.Create a queue.
+[%collapsible]
+====
+.. Click the *Add* icon to display the menu:
++
+image::mq-blue-create.png["Add icon"]
+.. Select *Queue*.
++
+Anypoint MQ supports failover for standard queues only.
+.. Complete the fields in *Create Queue*.
++
+For information about queue settings, see xref:mq-queues.adoc#create-a-queue[Create a Queue].
++
+.. Select *Enable Cross-Region Failover*:
++
+image::mq-create-queues-failover.png["Create Queue popup dialog box with option failover selected"]
+// replace screenshot
+.. Click *Create Queue*.
++ 
+Anypoint MQ creates the queue in the *Destinations* page and displays the queue information in the details pane.
+Anypoint MQ also creates a fallback queue in the fallback region:
+====
++
+.Modify an existing queue.
+[%collapsible]
+====
+.. Click the queue name.
++
+Anypoint MQ supports failover for standard queues only.
++
+.. In the *Queue Settings* page, select *Enable Cross-Region Failover*:
++
+image::mq-create-queues-failover.png["Create Queue popup dialog box with option failover selected"]
+// replace screenshot
+.. Click *Save Changes*.
++
+Anypoint MQ updates the queue settings and creates a fallback queue in the fallback region.
+.. Click *Destinations*.
+.. Click the queue type to display its details, including the fallback queue.
+====
++
+The queue details pane includes the fallback queue:
++
+image::mq-queue-details-fallback.png["Details pane for the new queue with the fallback queue and region"]
 
 
 == See Also

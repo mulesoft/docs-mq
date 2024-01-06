@@ -208,7 +208,7 @@ Accessing the token before its expiry extends the token validity by another 60 m
 
 To get the Broker API access token:
 
-. Log in to Anypoint Platform.
+. Sign in to Anypoint Platform.
 . Click *MQ* > *Client Apps*, and then click the *Add* icon (image:icon-blue-plus.png["Add icon in Client Apps",3%,3%]) to create an app.
 . Get the client ID and client secret and use these values in the following curl command replacing `CLIENT_ID` and `CLIENT_SECRET`:
 +
