@@ -1,38 +1,46 @@
 = Configuring Cross-Region Failover for Standard Queues
 
-Anypoint MQ Connector provides failover capability for standard queues.
+Anypoint Connector for Anypoint MQ (Anypoint MQ Connector) for Mule 4 provides failover capability for standard queues.
 
-When enabled for a queue, if a Mule app can't reach an Anypoint MQ server in a region, it switches to the fallback queue configured in a fallback region.
+When you enable failover for a queue, Anpoint MQ automatically creates a fallback queue in a <<primary-fallback-regions,fallback region>>.
+If a Mule app can't reach an Anypoint MQ server in a region,
+it switches to the fallback queue to publish and consume messages.
+See <<region-unavailability>> for information on what can cause the region to be considered unavailable.
 
-== Failover Limitations
+The fallback queue inherits the settings of the primary queue, such as message TTL and default acknowledgment timeout, and is not configurable.
+The fallback regions are also not configurable.
+You can disable failover, but you cannot delete the fallback queue in the Anypoint MQ UI.
 
-* Failover is supported for standard queues only.
-* Failover isn't supported for message exchanges.
-* Because MuleSoft Government Cloud includes only one region, it does not support failover.
-// Canada and Australia (single region) fail over to US and Singapore(?)
+While the primary region is down, the consumer checks the fallback queue for new messages.
 
-== Primary-Fallback Regions
+== Failover Limitations and Considerations
 
-[%header,cols="8,12,12,12,12"]
-|===
-| Location | Primary Region Name | Primary Region |Fallback Region Name|Fallback Region
-5+h| US Control Plane
-.4+| North America | US East (N. Virginia)|`us-east-1` | US East (Ohio)|`us-east-2`
-                   | US East (Ohio)       |`us-east-2` | US West (Oregon)|`us-west-2`
-                   | US West (Oregon)     |`us-west-2`| Canada  (Central)|`ca-central-1`
-                   | Canada  (Central)    |`ca-central-1`| US East (N. Virginia)|`us-east-1`
-.2+| Europe        | Europe (Ireland)     |`eu-west-1`| Europe (London)|`eu-west-2`
-                   | Europe (London)      |`eu-west-2`| Europe (Ireland)|`eu-west-1` 
-.3+| APAC          | Asia Pacific (Singapore) |`ap-southeast-1`| Asia Pacific (Tokyo)|`ap-northeast-1`
-                   | Asia Pacific (Sydney) |`ap-southeast-2`| Asia Pacific (Singapore)|`ap-southeast-1`
-                   | Asia Pacific (Tokyo)  |`ap-northeast-1`| Asia Pacific (Sydney)|`ap-southeast-2`
-5+h| EU Control Plane
-.2+| Europe        | Europe (Frankfurt)    |`eu-central-1`| Europe (Ireland)|`eu-west-1`
-                   | Europe (Ireland)      |`eu-west-1`| Europe (Frankfurt)|`eu-central-1` 
-|===
+* Support
++
+** Failover is supported for standard queues only.
+** Failover isn't supported for message exchanges.
+* Regions
++
+** Because MuleSoft Government Cloud includes only one region, it does not support failover.
+** The fallback queue for Canada is located in the US East (N. Virginia) region because Canada includes only one region.
+** The fallback queue for Australia is located in the Asia Pacific (Singapore) region because Australia includes only one region.
+* Billing
++
+** The consumer checks the fallback queue once per minute by default, which results in an additional 1440 API requests per day per consumer.
++
+You can configure the frequency. See <<perf-and-billing>>.
 
 
-== Enable Failover for a Queue
+== Before You Begin
+
+To use failover, you must upgrade Anypoint MQ Connector to one of the following versions:
+
+* xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.0.4] or later
+* xref:connectors::anypoint-mq/3.x/anypoint-mq-connector.adoc[Anypoint MQ Connector 3.2.5] or later
+
+
+[[enable-failover]]
+== Enable Failover for a New or Existing Queue
 
 To enable failover for a new or existing queue:
 
@@ -59,8 +67,7 @@ image::mq-create-queues-failover.png["Create Queue popup dialog box with option 
 // replace screenshot
 .. Click *Create Queue*.
 + 
-Anypoint MQ creates the queue in the *Destinations* page and displays the queue information in the details pane.
-Anypoint MQ also creates a fallback queue in the fallback region:
+Anypoint MQ creates the queue and also creates a fallback queue in the fallback region.
 ====
 +
 .Modify an existing queue.
@@ -77,17 +84,100 @@ image::mq-create-queues-failover.png["Create Queue popup dialog box with option 
 .. Click *Save Changes*.
 +
 Anypoint MQ updates the queue settings and creates a fallback queue in the fallback region.
++
+If you previously enabled failover for the queue, the fallback queue already exists.
 .. Click *Destinations*.
 .. Click the queue type to display its details, including the fallback queue.
+.. Restart all applications consuming from or publishing to the queue.
 ====
++
+// Fallback queue naming
+include::partial$mq-failover.adoc[tag=fallbackQname]
 +
 The queue details pane includes the fallback queue:
 +
 image::mq-queue-details-fallback.png["Details pane for the new queue with the fallback queue and region"]
 
 
+[[disable-failover]]
+== Disable Failover for a Queue
+
+When you disable failover for a queue, you must restart all applications consuming from or publishing to the queue.
+
+NOTE: Disabling failover for a queue doesn't delete the fallback queue.
+When you re-enable failover, Anypoint MQ reinstates the same fallback queue.
+
+To disable failover for a queue:
+
+. Sign in to Anypoint Platform and click *MQ* in the navigation menu.
+. Click *Destinations*.
+. Click the queue name.
+. In the *Queue Settings* page, deselect *Enable Cross-Region Failover*.
++
+Anypoint MQ disables failover and removes the fallback queue from the queue details pane.
+. Restart all applications consuming from or publishing to the queue.
+
+
+[[primary-fallback-regions]]
+== Primary-Fallback Regions
+
+[%header,cols="8,12,12,12,12"]
+|===
+| Location | Primary Region Name | Primary Region |Fallback Region Name|Fallback Region
+5+h| US Control Plane
+.4+| North America | US East (N. Virginia)|`us-east-1` | US East (Ohio)|`us-east-2`
+                   | US East (Ohio)       |`us-east-2` | US West (Oregon)|`us-west-2`
+                   | US West (Oregon)     |`us-west-2`| Canada  (Central)|`ca-central-1`
+                   | Canada  (Central)    |`ca-central-1`| US East (N. Virginia)|`us-east-1`
+.2+| Europe        | Europe (Ireland)     |`eu-west-1`| Europe (London)|`eu-west-2`
+                   | Europe (London)      |`eu-west-2`| Europe (Ireland)|`eu-west-1` 
+.3+| APAC          | Asia Pacific (Singapore) |`ap-southeast-1`| Asia Pacific (Tokyo)|`ap-northeast-1`
+                   | Asia Pacific (Sydney) |`ap-southeast-2`| Asia Pacific (Singapore)|`ap-southeast-1`
+                   | Asia Pacific (Tokyo)  |`ap-northeast-1`| Asia Pacific (Sydney)|`ap-southeast-2`
+5+h| EU Control Plane
+.2+| Europe        | Europe (Frankfurt)    |`eu-central-1`| Europe (Ireland)|`eu-west-1`
+                   | Europe (Ireland)      |`eu-west-1`| Europe (Frankfurt)|`eu-central-1` 
+|===
+
+[[perf-and-billing]]
+== Performance and Billing Considerations 
+
+The consumer polls the fallback queue for messages once per minute,
+which:
+
+* Results in an additional 1440 API requests per day per consumer
+* Can cause latency
+
+To change the frequency, configure the `??` field in the connector settings.
+For information, see:
+
+* xref:anypoint-mq-connector::anypoint-mq-connector-reference.adoc[Anypoint MQ Connector 4.x Reference]
+* xref:connectors::anypoint-mq/3.x/anypoint-mq-connector-reference.adoc[Anypoint MQ Connector 3.x Reference]
+
+[[region-unavailability]]
+== Region Unavailability
+
+The connector considers a region as unavailable in cases where the Anypoint MQ backend server is:
+
+* Down, resulting in HTTP 5xx (Server Error) status codes to the connector.
+* Up, but is slow or unresponsive.
++
+For example, the connector receives Timeout errors while making REST API calls to the backend server.
+* Available in some situations, but not others. For example:
++
+** Unresponsive for queues, but available for other usage, such as message exchanges
+** Unavailable for publishing large payloads but available for publishing smaller messages
+
+When the connector receives an HTTP 5xx or Timeout error,
+it temporarily marks the region as down for the specific queue and switches to the fallback queue.
+
+The connector periodically (once per minute by default) tries to publish or consume from the primary region to determine if it is available.
+
+== Fallback Queues and DLQs
+
 == See Also
 
 * xref:anypoint-mq-connector::anypoint-mq-connector-reference.adoc[Anypoint MQ Connector 4.x Reference]
 * xref:connectors::anypoint-mq/3.x/anypoint-mq-connector-reference.adoc[Anypoint MQ Connector 3.x Reference]
 * xref:mq-queues.adoc[]
+* xref:mq-queues.adoc#create-a-queue[Create a Queue]

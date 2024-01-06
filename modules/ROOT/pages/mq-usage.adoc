@@ -18,8 +18,7 @@ it bills as a single API request.
 However, if a client sends a message directly to a DLQ, that request is charged.
 
 NOTE: Enabling failover for a queue can result in increased API requests because Anypoint MQ checks the fallback queue for messages to consume. 
-For more information, see xref:mq-failover.adoc[].
-// need an anchor target here.
+For more information, see xref:mq-failover.adoc#perf-and-billing[Performance and Billing Considerations].
 
 Message units::
 Message units are not used for billing.

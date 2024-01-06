@@ -563,8 +563,9 @@ For more information, see xref:mq-apis.adoc#mqadminapi[Anypoint MQ Admin API].
 == Fallback Queues
 
 When you enable cross-region failover for a standard queue, Anypoint MQ automatically creates a fallback queue and assigns a non-configurable failover region to the queue.
-The name of the fallback queue is the primary queue name with the `_fb` suffix.
-For example, if the primary queue name is `my-primary-queue`, the fallback queue name is `my-primary-queue_fb`.
+// Fallback queue naming
+include::partial$mq-failover.adoc[tag=fallbackQname]
+
 
 For information about cross-region failover and fallback queues, see
 xref:mq-failover.adoc[].
