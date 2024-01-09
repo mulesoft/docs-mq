@@ -5,13 +5,16 @@ Anypoint Connector for Anypoint MQ (Anypoint MQ Connector) for Mule 4 provides f
 When you enable failover for a queue, Anpoint MQ automatically creates a fallback queue in a <<primary-fallback-regions,fallback region>>.
 If a Mule app can't reach an Anypoint MQ server in a region,
 it switches to the fallback queue to publish and consume messages.
-See <<region-unavailability>> for information on what can cause the region to be considered unavailable.
+For information about situations that can cause a region to be considered unavailable, see <<region-unavailability>>.
 
 The fallback queue inherits the settings of the primary queue, such as message TTL and default acknowledgment timeout, and is not configurable.
 The fallback regions are also not configurable.
 You can disable failover, but you cannot delete the fallback queue in the Anypoint MQ UI.
 
-While the primary region is down, the consumer checks the fallback queue for new messages.
+When the connector detects that the primary region is down,
+the consumer checks the fallback queue for new messages.
+When the connector determines that the primary region is available, it switches back to the primary region.
+If both the primary and fallback regions are down
 
 == Failover Limitations and Considerations
 
@@ -68,6 +71,9 @@ image::mq-create-queues-failover.png["Create Queue popup dialog box with option 
 .. Click *Create Queue*.
 + 
 Anypoint MQ creates the queue and also creates a fallback queue in the fallback region.
++
+// Fallback queue/region not configurable
+include::partial$mq-failover.adoc[tag=fallbackQnotConfig]
 ====
 +
 .Modify an existing queue.
@@ -85,7 +91,10 @@ image::mq-create-queues-failover.png["Create Queue popup dialog box with option 
 +
 Anypoint MQ updates the queue settings and creates a fallback queue in the fallback region.
 +
-If you previously enabled failover for the queue, the fallback queue already exists.
+// Fallback queue/region not configurable
+include::partial$mq-failover.adoc[tag=fallbackQnotConfig]
++
+If you previously enabled failover for the queue, the fallback queue already exists and is reinstated.
 .. Click *Destinations*.
 .. Click the queue type to display its details, including the fallback queue.
 .. Restart all applications consuming from or publishing to the queue.
@@ -104,7 +113,8 @@ image::mq-queue-details-fallback.png["Details pane for the new queue with the fa
 
 When you disable failover for a queue, you must restart all applications consuming from or publishing to the queue.
 
-NOTE: Disabling failover for a queue doesn't delete the fallback queue.
+Disabling failover for a queue doesn't delete the fallback queue. Instead, disabling prevents new messages from being published to the queue.
+Apps can still consume any messages that remain in the queue after disabling failover.
 When you re-enable failover, Anypoint MQ reinstates the same fallback queue.
 
 To disable failover for a queue:

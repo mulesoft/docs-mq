@@ -2,3 +2,7 @@
 The name of the fallback queue is the primary queue name with the `_fb` suffix.
 For example, if the primary queue name is `my-primary-queue`, the fallback queue name is `my-primary-queue_fb`.
 // end::fallbackQname[]
+
+// tag::fallbackQnotConfig[]
+The fallback queue and region are not configurable.
+// end::fallbackQnotConfig[]
