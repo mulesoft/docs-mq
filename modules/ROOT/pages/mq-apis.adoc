@@ -71,6 +71,9 @@ These examples use the Anypoint MQ Admin API to create queues and message routin
 * <<get-access-token>>
 * <<fifo-queue-api>>
 * <<routing-rules-api>>
+* <<enable-failover-api>>
+* <<get-failover-queues-api>>
+* <<get-failover-pairs-api>>
 
 
 [[get-access-token]]
@@ -173,6 +176,62 @@ see this endpoint in the https://anypoint.mulesoft.com/exchange/portals/anypoint
 * Message routing rule requirements, see
 xref:mq-routing-rules.adoc#intelligent-routing-restrictions[Requirements and Restrictions].
 
+
+
+WE NEED CURL COMMANDS/EXAMPLES HERE!
+
+[[enable-failover-api]]
+=== Enable or Disable Failover on an Existing Standard Queue
+
+Use this `curl` command to enable failover for an existing standard queue:
+
+[source,bash]
+----
+curl -X PUT "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_URL/queues/QUEUE_ID/fallback" \
+
+----
+
+Use this `curl` command to disable failover for an existing standard queue:
+
+[source,bash]
+----
+curl -X PUT "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_URL/queues/QUEUE_ID/fallback" \
+
+----
+
+[[get-failover-queues-api]]
+=== Get List of Standard Queues With Failover Enabled
+
+Use this `curl` command to return a list of all standard queues with failover configured:
+
+[source,bash]
+----
+curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_URL/destinations?inclusion=MINIMAL" \
+
+----
+
+Use this `curl` command to return a single queue with failover configured:
+
+[source,bash]
+----
+curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_URL/???????" \
+
+----
+
+[[get-failover-pairs-api]]
+=== Get List of Primary-Fallback Queue Pairs
+
+The following `curl` command returns a list of primary-fallback queue pairs:
+
+[source,bash]
+----
+curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_URL/" \
+
+----
+
+
+
+
 [[mqbrokerapi]]
 == Anypoint MQ Broker API
 
@@ -187,6 +246,8 @@ These examples use the Anypoint MQ Broker API to publish and consume messages an
 * <<send-messages-api>>
 * <<send-message-routing>>
 * <<retrieve-message-api>>
+
+
 
 You must substitute the placeholder string, `ORGANIZATION_ID` with the proper values for authorization and token strings. These examples use Postman to access the queue.
 
@@ -315,6 +376,8 @@ curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORG
 -H "Authorization: bearer BEARER_TOKEN" \
 -H "Cache-Control: no-cache" 
 ----
+
+
 
 
 [[mqstatapi]]
