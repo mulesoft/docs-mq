@@ -111,11 +111,10 @@ image::mq-queue-details-fallback.png["Details pane for the new queue with the fa
 [[disable-failover]]
 == Disable Failover for a Queue
 
-When you disable failover for a queue, you must restart all applications consuming from or publishing to the queue.
-
-Disabling failover for a queue doesn't delete the fallback queue. Instead, disabling prevents new messages from being published to the queue.
-Apps can still consume any messages that remain in the queue after disabling failover.
+When you disable failover for a queue, apps can still consume any messages that remain in the queue but can't publish new messages to the queue.
 When you re-enable failover, Anypoint MQ reinstates the same fallback queue.
+
+IMPORTANT: When you disable failover for a queue, you must restart all applications that consume from or publish to the queue.
 
 To disable failover for a queue:
 
