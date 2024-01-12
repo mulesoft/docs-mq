@@ -7,14 +7,18 @@ If a Mule app can't reach an Anypoint MQ server in a region,
 it switches to the fallback queue to publish and consume messages.
 For information about situations that can cause a region to be considered unavailable, see <<region-unavailability>>.
 
+When the connector detects that the primary region is down, it:
+
+* Switches to the fallback queue to consume new messages.
+* Periodically tries to publish or consume from the primary queue to determine if it is back up.
+
+When the connector determines that the primary region is available again,
+it switches back to the primary region.
+
 The fallback queue inherits the settings of the primary queue, such as message TTL and default acknowledgment timeout, and is not configurable.
 The fallback regions are also not configurable.
-You can disable failover, but you cannot delete the fallback queue in the Anypoint MQ UI.
+You can disable failover, but you cannot delete the fallback queue in the Anypoint MQ.
 
-When the connector detects that the primary region is down,
-the consumer checks the fallback queue for new messages.
-When the connector determines that the primary region is available, it switches back to the primary region.
-If both the primary and fallback regions are down
 
 == Failover Limitations and Considerations
 
@@ -22,11 +26,15 @@ If both the primary and fallback regions are down
 +
 ** Failover is supported for standard queues only.
 ** Failover isn't supported for message exchanges.
-* Regions
+* Fallback Regions
 +
+--
 ** Because MuleSoft Government Cloud includes only one region, it does not support failover.
 ** The fallback queue for Canada is located in the US East (N. Virginia) region because Canada includes only one region.
 ** The fallback queue for Australia is located in the Asia Pacific (Singapore) region because Australia includes only one region.
+--
++
+For the list of fallback regions, see <<primary-fallback-regions>>.
 * Billing
 +
 ** The consumer checks the fallback queue once per minute by default, which results in an additional 1440 API requests per day per consumer.
@@ -44,6 +52,10 @@ To use failover, you must upgrade Anypoint MQ Connector to one of the following 
 
 [[enable-failover]]
 == Enable Failover for a New or Existing Queue
+
+Enabling cross-region failover creates a fallback queue in a <<primary-fallback-regions,fallback region>>.
+
+NOTE: If either primary or fallback region is unavailable, enabling failover might not work.
 
 To enable failover for a new or existing queue:
 
