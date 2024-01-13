@@ -6,3 +6,8 @@ For example, if the primary queue name is `my-primary-queue`, the fallback queue
 // tag::fallbackQnotConfig[]
 The fallback queue and region are not configurable.
 // end::fallbackQnotConfig[]
+
+
+// tag::fallbackDLQ[]
+If the primary queue has an assigned dead-letter queue (DLQ), you must enable failover for the DLQ before enabling failover for the primary queue.
+// end::fallbackDLQ[]

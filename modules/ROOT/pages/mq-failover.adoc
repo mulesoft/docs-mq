@@ -2,30 +2,34 @@
 
 Anypoint Connector for Anypoint MQ (Anypoint MQ Connector) for Mule 4 provides failover capability for standard queues.
 
+// work on this wording
+IMPORTANT: Anypoint MQ failover provides _failover_ using a fallback queue for publishing and consuming;
+it doesn't provide _redundancy_ by replicating messages across regions. 
+
 When you enable failover for a queue, Anpoint MQ automatically creates a fallback queue in a <<primary-fallback-regions,fallback region>>.
 If a Mule app can't reach an Anypoint MQ server in a region,
 it switches to the fallback queue to publish and consume messages.
 For information about situations that can cause a region to be considered unavailable, see <<region-unavailability>>.
 
-When the connector detects that the primary region is down, it:
+When it detects that the primary region is down, the connector:
 
 * Switches to the fallback queue to consume new messages.
 * Periodically tries to publish or consume from the primary queue to determine if it is back up.
-
-When the connector determines that the primary region is available again,
-it switches back to the primary region.
++
+When the connector successfully publishes or consumes from the primary queue,
+the primary region is considered available and the consumer switches processing back to the primary queue.
 
 The fallback queue inherits the settings of the primary queue, such as message TTL and default acknowledgment timeout, and is not configurable.
 The fallback regions are also not configurable.
-You can disable failover, but you cannot delete the fallback queue in the Anypoint MQ.
+You can disable failover, but you cannot delete the fallback queue.
 
-
+[[failover-considerations]]
 == Failover Limitations and Considerations
 
-* Support
+* Failover Support
 +
 ** Failover is supported for standard queues only.
-** Failover isn't supported for message exchanges.
+** Failover isn't supported for message exchanges or FIFO queues.
 * Fallback Regions
 +
 --
@@ -35,20 +39,31 @@ You can disable failover, but you cannot delete the fallback queue in the Anypoi
 --
 +
 For the list of fallback regions, see <<primary-fallback-regions>>.
+* Authentication
++
+If the authentication server is down when the connector switches to the fallback region
+and the access tokens are cached, processing continues in the fallback region.
+If the access tokens aren't cached, Anypoint MQ won't be able to validate access tokens and processing won't continue in the fallback region. 
+* Anypoint MQ UI
++
+The *Message Sender* and *Message Browser* in the Anypoint MQ UI don't support the failover feature. 
 * Billing
 +
 ** The consumer checks the fallback queue once per minute by default, which results in an additional 1440 API requests per day per consumer.
 +
-You can configure the frequency. See <<perf-and-billing>>.
+You can configure how frequently the consumer checks the fallback queue. See <<perf-and-billing>>.
 
 
+[[before-you-begin]]
 == Before You Begin
 
-To use failover, you must upgrade Anypoint MQ Connector to one of the following versions:
-
-* xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.0.4] or later
-* xref:connectors::anypoint-mq/3.x/anypoint-mq-connector.adoc[Anypoint MQ Connector 3.2.5] or later
-
+* To use failover, you must upgrade Anypoint MQ Connector to one of the following versions:
++
+** xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.0.4] or later
+** xref:connectors::anypoint-mq/3.x/anypoint-mq-connector.adoc[Anypoint MQ Connector 3.2.5] or later
+// Configure DLQ before enabling failover
+* {empty}
+include::partial$mq-failover.adoc[tag=fallbackDLQ]
 
 [[enable-failover]]
 == Enable Failover for a New or Existing Queue
@@ -99,6 +114,7 @@ Anypoint MQ supports failover for standard queues only.
 +
 image::mq-create-queues-failover.png["Create Queue popup dialog box with option failover selected"]
 // replace screenshot
+
 .. Click *Save Changes*.
 +
 Anypoint MQ updates the queue settings and creates a fallback queue in the fallback region.
@@ -134,6 +150,8 @@ To disable failover for a queue:
 . Click *Destinations*.
 . Click the queue name.
 . In the *Queue Settings* page, deselect *Enable Cross-Region Failover*.
+. If the queue has an associated dead-letter queue, disable failover for that queue.
+. Click *Save Changes*.
 +
 Anypoint MQ disables failover and removes the fallback queue from the queue details pane.
 . Restart all applications consuming from or publishing to the queue.
@@ -169,7 +187,7 @@ which:
 * Results in an additional 1440 API requests per day per consumer
 * Can cause latency
 
-To change the frequency, configure the `??` field in the connector settings.
+To change the frequency, configure the `??` attributes in the connector settings.
 For information, see:
 
 * xref:anypoint-mq-connector::anypoint-mq-connector-reference.adoc[Anypoint MQ Connector 4.x Reference]
@@ -184,7 +202,9 @@ The connector considers a region as unavailable in cases where the Anypoint MQ b
 * Up, but is slow or unresponsive.
 +
 For example, the connector receives Timeout errors while making REST API calls to the backend server.
-* Available in some situations, but not others. For example:
+* Available in some situations, but not others.
++
+For example:
 +
 ** Unresponsive for queues, but available for other usage, such as message exchanges
 ** Unavailable for publishing large payloads but available for publishing smaller messages
@@ -194,7 +214,6 @@ it temporarily marks the region as down for the specific queue and switches to t
 
 The connector periodically (once per minute by default) tries to publish or consume from the primary region to determine if it is available.
 
-== Fallback Queues and DLQs
 
 == See Also
 

@@ -566,9 +566,11 @@ When you enable cross-region failover for a standard queue, Anypoint MQ automati
 // Fallback queue naming
 include::partial$mq-failover.adoc[tag=fallbackQname]
 
+// Configure DLQ before enabling failover
+include::partial$mq-failover.adoc[tag=fallbackDLQ]
 
-For information about cross-region failover and fallback queues, see
-xref:mq-failover.adoc[].
+For information about cross-region failover and fallback queues,
+see xref:mq-failover.adoc[].
 
 
 == See Also
