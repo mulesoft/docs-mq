@@ -178,8 +178,6 @@ xref:mq-routing-rules.adoc#intelligent-routing-restrictions[Requirements and Res
 
 
 
-WE NEED CURL COMMANDS/EXAMPLES HERE!
-
 [[enable-failover-api]]
 === Enable or Disable Failover on an Existing Standard Queue
 
@@ -187,34 +185,35 @@ Use this `curl` command to enable failover for an existing standard queue:
 
 [source,bash]
 ----
-curl -X PUT "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_URL/queues/QUEUE_ID/fallback" \
 
+curl -X PUT 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/destinations/queues/QUEUE_ID/fallback' \
+-H 'Authorization: bearer BEARER_TOKEN' \
+-H 'Content-Type: application/json' \
+-d '{
+    "fallbackEnabled" : true
+}'
 ----
 
 Use this `curl` command to disable failover for an existing standard queue:
 
 [source,bash]
 ----
-curl -X PUT "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_URL/queues/QUEUE_ID/fallback" \
-
+curl -X PUT 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/destinations/queues/QUEUE_ID/fallback' \
+-H 'Authorization: bearer BEARER_TOKEN' \
+-H 'Content-Type: application/json' \
+-d '{
+    "fallbackEnabled" : false
+}'
 ----
 
 [[get-failover-queues-api]]
 === Get List of Standard Queues With Failover Enabled
 
-Use this `curl` command to return a list of all standard queues with failover configured:
+Use this `curl` command to return a list of queues, including failover configuration:
 
 [source,bash]
 ----
 curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_URL/destinations?inclusion=MINIMAL" \
-
-----
-
-Use this `curl` command to return a single queue with failover configured:
-
-[source,bash]
-----
-curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_URL/???????" \
 
 ----
 
