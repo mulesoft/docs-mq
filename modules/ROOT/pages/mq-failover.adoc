@@ -41,12 +41,13 @@ You can disable failover, but you cannot delete the fallback queue.
 For the list of fallback regions, see <<primary-fallback-regions>>.
 * Authentication
 +
-If the authentication server is down when the connector switches to the fallback region
-and the access tokens are cached, processing continues in the fallback region.
-If the access tokens aren't cached, Anypoint MQ won't be able to validate access tokens and processing won't continue in the fallback region. 
+If the authentication server is down when the connector switches to the fallback region:
++
+** If the access tokens are cached, processing continues in the fallback region.
+** If the access tokens aren't cached, Anypoint MQ can't validate access tokens and processing won't continue in the fallback region. 
 * Anypoint MQ UI
 +
-The *Message Sender* and *Message Browser* in the Anypoint MQ UI don't support the failover feature. 
+The *Message Sender* and *Message Browser* in the Anypoint MQ UI don't support the failover feature.
 * Billing
 +
 ** The consumer checks the fallback queue once per minute by default, which results in an additional 1440 API requests per day per consumer.

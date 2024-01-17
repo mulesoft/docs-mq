@@ -72,9 +72,10 @@ These examples use the Anypoint MQ Admin API to create queues and message routin
 * <<fifo-queue-api>>
 * <<routing-rules-api>>
 * <<enable-failover-api>>
+////
 * <<get-failover-queues-api>>
 * <<get-failover-pairs-api>>
-
+////
 
 [[get-access-token]]
 === Get the Access Token 
@@ -181,6 +182,13 @@ xref:mq-routing-rules.adoc#intelligent-routing-restrictions[Requirements and Res
 [[enable-failover-api]]
 === Enable or Disable Failover on an Existing Standard Queue
 
+When you enable failover for a queue, Anypoint MQ automatically creates a fallback queue in a xref:mq-failover.adoc#primary-fallback-regions[fallback region].
+If a Mule app can't reach an Anypoint MQ server in a region,
+it switches to the fallback queue to publish and consume messages.
+For information about situations that can cause a region to be considered unavailable, see xref:mq-failover.adoc#region-unavailability[Region Unavailability].
+
+IMPORTANT: You must restart all applications consuming from or publishing to the queue after enabling or disabling failover.
+
 Use this `curl` command to enable failover for an existing standard queue:
 
 [source,bash]
@@ -194,6 +202,24 @@ curl -X PUT 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORGANIZ
 }'
 ----
 
+////
+This command returns output similar to:
+
+[source,json,linenums]
+----
+{
+    "queueId" : "<queue_id>",
+    "isFallback" : false,
+    "fallbackConfig" : {
+        "enabled" : <true/false>,
+        "linkedQueueName" : "<name>",
+        "linkedQueueRegion" : "<region>"
+    }
+}
+----
+
+////
+
 Use this `curl` command to disable failover for an existing standard queue:
 
 [source,bash]
@@ -205,6 +231,8 @@ curl -X PUT 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORGANIZ
     "fallbackEnabled" : false
 }'
 ----
+
+////
 
 [[get-failover-queues-api]]
 === Get List of Standard Queues With Failover Enabled
@@ -228,7 +256,7 @@ curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORG
 
 ----
 
-
+////
 
 
 [[mqbrokerapi]]
