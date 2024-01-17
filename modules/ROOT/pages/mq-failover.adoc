@@ -48,6 +48,7 @@ If the authentication server is down when the connector switches to the fallback
 * Anypoint MQ UI
 +
 The *Message Sender* and *Message Browser* in the Anypoint MQ UI don't support the failover feature.
+However, if the failover feature is enabled, you can send and browse messages in the fallback queue using the Anypoint MQ UI.
 * Billing
 +
 ** The consumer checks the fallback queue once per minute by default, which results in an additional 1440 API requests per day per consumer.
