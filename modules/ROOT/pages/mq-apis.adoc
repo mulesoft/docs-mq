@@ -211,7 +211,7 @@ curl -X PUT 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORGANIZ
 }'
 ----
 
-==== Retrieve Failover Configuration
+==== Retrieve Queue Configuration
 
 When you retrieve information about all destinations or a single queue, the response includes the failover configuration.
 
