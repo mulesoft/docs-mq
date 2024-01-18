@@ -288,7 +288,7 @@ Fallback Queue::
 
 Standard Queue Without Failover Configured::
 +
-Response includes `"isFallback" : false` but not `fallbackConfig`.
+Response includes `"isFallback" : false` and doesn't include `fallbackConfig`.
 +
 ====
 [source,json]
