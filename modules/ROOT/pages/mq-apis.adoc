@@ -72,10 +72,7 @@ These examples use the Anypoint MQ Admin API to create queues and message routin
 * <<fifo-queue-api>>
 * <<routing-rules-api>>
 * <<enable-failover-api>>
-////
-* <<get-failover-queues-api>>
-* <<get-failover-pairs-api>>
-////
+
 
 [[get-access-token]]
 === Get the Access Token 
@@ -202,24 +199,6 @@ curl -X PUT 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORGANIZ
 }'
 ----
 
-////
-This command returns output similar to:
-
-[source,json,linenums]
-----
-{
-    "queueId" : "<queue_id>",
-    "isFallback" : false,
-    "fallbackConfig" : {
-        "enabled" : <true/false>,
-        "linkedQueueName" : "<name>",
-        "linkedQueueRegion" : "<region>"
-    }
-}
-----
-
-////
-
 Use this `curl` command to disable failover for an existing standard queue:
 
 [source,bash]
@@ -232,31 +211,141 @@ curl -X PUT 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORGANIZ
 }'
 ----
 
-////
+==== Retrieve Failover Configuration
 
-[[get-failover-queues-api]]
-=== Get List of Standard Queues With Failover Enabled
+When you retrieve information about all destinations or a single queue, the response includes the failover configuration.
 
-Use this `curl` command to return a list of queues, including failover configuration:
-
-[source,bash]
-----
-curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_URL/destinations?inclusion=MINIMAL" \
-
-----
-
-[[get-failover-pairs-api]]
-=== Get List of Primary-Fallback Queue Pairs
-
-The following `curl` command returns a list of primary-fallback queue pairs:
+Use this `curl` command to get the list of destinations:
 
 [source,bash]
 ----
-curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_URL/" \
-
+curl -X GET 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/destinations' \
+-H 'Authorization: bearer BEARER_TOKEN'
 ----
 
-////
+Use this `curl` command to get details about a specific queue:
+
+[source,bash]
+----
+curl -X GET 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/destinations/queues/QUEUE_ID' \
+-H 'Authorization: bearer BEARER_TOKEN'
+----
+
+The response from these commands include output similar to the following:
+
+Primary Queue::
++
+====
+[source,json]
+----
+[ 
+{ 
+    "encrypted" : true,
+    "type" : "queue",
+    "queueId" : "00-test",
+    "fifo" : false,
+    ...
+    "isFallback" : false,                 // <.>
+    "fallbackConfig" : {
+        "enabled" : true,                 // <.>
+        "linkedQueueName" : "00-test_fb", // <.>
+        "linkedQueueRegion" : "us-west-2" // <.>
+    }
+},
+]
+----
+<.> This queue is a primary queue.
+<.> Failover is enabled for this queue.
+<.> The fallback queue for this queue is `00-test_fb`.
+<.> The fallback region for this queue is `us-west-2`.
+====
+Fallback Queue::
++
+====
+[source,json]
+----
+[
+{
+    "encrypted" : true,
+    "type" : "queue",
+    "queueId" : "test_fb",
+    "fifo" : false,
+    ...
+    "isFallback" : true,                     // <.>
+    "fallbackConfig" : {
+        "enabled" : true,                    // <.>
+        "linkedQueueName" : "test",          // <.>
+        "linkedQueueRegion" : "ca-central-1" // <.>
+    }
+},
+]
+----
+<.> This queue is a fallback queue.
+<.> Failover is not enabled for this queue.
+<.> The primary queue that is linked to this fallback queue is `test`.
+<.> The region for the primary queue that is linked to this fallback queue is `ca-central-1`.
+====
+
+Standard Queue Without Failover Configured::
++
+Response includes `"isFallback" : false` but not `fallbackConfig`.
++
+====
+[source,json]
+----
+[
+  {
+  "encrypted" : true,
+  "type" : "queue",
+  "queueId" : "hello1",
+  "fifo" : false,
+  ...
+  "isFallback" : false  // <.>
+},
+]
+----
+<.> This queue is a primary queue.
+====
+
+
+FIFO Queue::
++
+Response doesn't include `fallbackConfig` because FIFO queues don't support failover.
+
++
+====
+[source,json]
+----
+{
+  "encrypted" : true,
+  "type" : "queue",
+  "queueId" : "hello1",
+  "fifo" : true,       // <.>
+  ...
+  "isFallback" : false
+},
+]
+----
+<.> This queue is a FIFO queue. 
+====
+
+Exchange::
++
+Response doesn't include `fallbackConfig` because exchanges don't support failover.
++
+====
+[source,json]
+----
+[
+{
+  "encrypted" : true,
+  "type" : "exchange",  // <.>
+  "exchangeId" : "hello1"
+}
+]
+----
+<.> This queue is a message exchange. 
+====
 
 
 [[mqbrokerapi]]
