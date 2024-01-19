@@ -95,7 +95,7 @@ For information about queue settings, see xref:mq-queues.adoc#create-a-queue[Cre
 +
 .. Select *Enable Cross-Region Failover*:
 +
-image::mq-create-queues-failover.png["Create Queue popup dialog box with option failover selected"]
+image::mq-create-queues-failover.png["Create Queue popup dialog box with failover option selected"]
 // replace screenshot
 .. Click *Create Queue*.
 + 
@@ -114,7 +114,7 @@ Anypoint MQ supports failover for standard queues only.
 +
 .. In the *Queue Settings* page, select *Enable Cross-Region Failover*:
 +
-image::mq-create-queues-failover.png["Create Queue popup dialog box with option failover selected"]
+image::mq-create-queues-failover.png["Create Queue popup dialog box with failover option selected"]
 // replace screenshot
 
 .. Click *Save Changes*.
