@@ -21,7 +21,7 @@ the primary region is considered available and the consumer switches processing 
 
 The fallback queue inherits the settings of the primary queue, such as message TTL and default acknowledgment timeout, and is not configurable.
 The fallback regions are also not configurable.
-You can disable failover, but you cannot delete the fallback queue.
+You can disable failover, but you can't delete the fallback queue.
 
 [[failover-considerations]]
 == Failover Limitations and Considerations
@@ -101,6 +101,8 @@ image::mq-create-queues-failover.png["Create Queue popup dialog box with failove
 .. Click *Create Queue*.
 + 
 Anypoint MQ creates the queue and also creates a fallback queue in the fallback region.
+// Fallback queue naming
+include::partial$mq-failover.adoc[tag=fallbackQname]
 +
 // Fallback queue/region not configurable
 include::partial$mq-failover.adoc[tag=fallbackQnotConfig]
@@ -119,28 +121,40 @@ image::mq-queue-settings-failover.png["Queue Settings page with failover option 
 .. Click *Save Changes*.
 +
 Anypoint MQ updates the queue settings and creates a fallback queue in the fallback region.
+// Fallback queue naming
+include::partial$mq-failover.adoc[tag=fallbackQname]
 +
 // Fallback queue/region not configurable
 include::partial$mq-failover.adoc[tag=fallbackQnotConfig]
 +
 If you previously enabled failover for the queue, the fallback queue already exists and is reinstated.
-.. Click *Destinations*.
-.. Click the queue type to display its details, including the fallback queue.
 .. Restart all applications consuming from or publishing to the queue.
 --
 ====
+
+=== View Fallback Queue Details
+
+To view failover configuration for the primary and fallback queues, display the queue details:
+
+. Sign in to Anypoint Platform and click *MQ* in the navigation menu.
+. Click *Destinations*.
+. Click the queue type to display its details, including the failover configuration.
 +
-// Fallback queue naming
-include::partial$mq-failover.adoc[tag=fallbackQname]
+** The queue details pane for the primary queue includes the fallback queue:
 +
-The queue details pane includes the fallback queue:
-+
-image::mq-queue-details-failover.png["Details pane for the new queue with the fallback queue and region"]
+image::mq-queue-details-failover.png["Details pane for the primary queue with the fallback queue and region"]
 +
 [calloutlist]
-.. Queue type displays the queue details pane for the primary queue.
-.. The name of the fallback queue is the primary queue name with the `_fb` suffix.
+... Queue type displays the queue details pane for the primary queue.
+... The name of the fallback queue is the primary queue name with the `_fb` suffix.
 
+** The queue details pane for the fallback queue includes the primary queue:
++
+image::mq-queue-fallback-details.png["Details pane for the fallback queue with the primary queue and region"]
++
+[calloutlist]
+... Queue type displays the queue details pane for the fallback queue.
+... The name of the primary queue is the fallback queue name without the `_fb` suffix.
 
 
 [[disable-failover]]

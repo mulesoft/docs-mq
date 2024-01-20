@@ -292,6 +292,7 @@ image::mq-queue-settings.png["Queue Settings page"]
 == Delete a Queue
 
 If a queue is no longer needed, you can delete it. Any in-flight messages in the deleted queue are lost. You can't recover a deleted queue.
+You can't delete fallback queues.
 
 To delete a queue:
 
