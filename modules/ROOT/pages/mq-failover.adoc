@@ -6,18 +6,19 @@ Anypoint Connector for Anypoint MQ (Anypoint MQ Connector) for Mule 4 provides f
 IMPORTANT: Anypoint MQ failover provides _failover_ using a fallback queue for publishing and consuming;
 it doesn't provide _redundancy_ by replicating messages across regions. 
 
-When you enable failover for a queue, Anpoint MQ automatically creates a fallback queue in a <<primary-fallback-regions,fallback region>>.
+When you enable failover for a queue, Anypoint MQ automatically creates a fallback queue in a <<primary-fallback-regions,fallback region>>.
 If a Mule app can't reach an Anypoint MQ server in a region,
 it switches to the fallback queue to publish and consume messages.
 For information about situations that can cause a region to be considered unavailable, see <<region-unavailability>>.
 
 When it detects that the primary region is down, the connector:
 
-* Switches to the fallback queue to consume new messages.
-* Periodically tries to publish or consume from the primary queue to determine if it is back up.
+* Switches to the fallback queue to publish and consume new messages.
+* Periodically checks if the primary region is back up.
 +
-When the connector successfully publishes or consumes from the primary queue,
-the primary region is considered available and the consumer switches processing back to the primary queue.
+When the connector successfully detects that it can communicate with the primary region,
+it switches processing back to the primary queue.
+The consumer continues to read from the fallback queue until all messages in that queue are processed.
 
 The fallback queue inherits the settings of the primary queue, such as message TTL and default acknowledgment timeout, and is not configurable.
 The fallback regions are also not configurable.
@@ -34,17 +35,14 @@ You can disable failover, but you can't delete the fallback queue.
 +
 --
 ** Because MuleSoft Government Cloud includes only one region, it does not support failover.
-** The fallback queue for Canada is located in the US East (N. Virginia) region because Canada includes only one region.
-** The fallback queue for Australia is located in the Asia Pacific (Singapore) region because Australia includes only one region.
+** The fallback queue for Canada is located in the US East (N. Virginia) region because Anypoint MQ is available in only one region in Canada.
+** The fallback queue for Australia is located in the Asia Pacific (Singapore) region because Anypoint MQ is available in only one region in Australia.
 --
 +
 For the list of fallback regions, see <<primary-fallback-regions>>.
 * Authentication
 +
-If the authentication server is down when the connector switches to the fallback region:
-+
-** If the access tokens are cached, processing continues in the fallback region.
-** If the access tokens aren't cached, Anypoint MQ can't validate access tokens and processing won't continue in the fallback region. 
+If the authentication server is down when the connector switches to the fallback region, the connector might not be able to successfully switch to the fallback region if the fallback region can't validate the access token.
 * Anypoint MQ UI
 +
 The *Message Sender* and *Message Browser* in the Anypoint MQ UI don't support the failover feature.
@@ -202,7 +200,7 @@ Anypoint MQ disables failover and removes the fallback queue from the queue deta
 [[perf-and-billing]]
 == Performance and Billing Considerations 
 
-The consumer polls the fallback queue for messages once per minute,
+The consumer periodically checks if the fallback queue contains new messages,
 which:
 
 * Results in an additional 1440 API requests per day per consumer
@@ -230,10 +228,10 @@ For example:
 ** Unresponsive for queues, but available for other usage, such as message exchanges
 ** Unavailable for publishing large payloads but available for publishing smaller messages
 
-When the connector receives an HTTP 5xx or Timeout error,
+When the connector receives an HTTP 5xx or any server-side error,
 it temporarily marks the region as down for the specific queue and switches to the fallback queue.
 
-The connector periodically (once per minute by default) tries to publish or consume from the primary region to determine if it is available.
+The connector periodically checks if the primary region is back up.
 
 
 == See Also
