@@ -3,13 +3,15 @@
 Anypoint Connector for Anypoint MQ (Anypoint MQ Connector) for Mule 4 provides failover capability for standard queues.
 
 // work on this wording
-IMPORTANT: Anypoint MQ failover provides _failover_ using a fallback queue for publishing and consuming;
-it doesn't provide _redundancy_ by replicating messages across regions. 
+
 
 When you enable failover for a queue, Anypoint MQ automatically creates a fallback queue in a <<primary-fallback-regions,fallback region>>.
 If a Mule app can't reach an Anypoint MQ server in a region,
 it switches to the fallback queue to publish and consume messages.
 For information about situations that can cause a region to be considered unavailable, see <<region-unavailability>>.
+
+IMPORTANT: This feature provides _resiliency_ by switching to a fallback queue in a fallback region when the primary region is down.
+It doesn't provide _data redundancy_ by replicating messages across the primary and fallback queues. 
 
 When it detects that the primary region is down, the connector:
 
@@ -70,7 +72,7 @@ include::partial$mq-failover.adoc[tag=fallbackDLQ]
 
 Enabling cross-region failover creates a fallback queue in a <<primary-fallback-regions,fallback region>>.
 
-NOTE: If either primary or fallback region is unavailable, enabling failover might not work.
+NOTE: If either primary or fallback region is unavailable, enabling failover via the Anypoint MQ UI or REST API might not work.
 
 To enable failover for a new or existing queue:
 
@@ -169,7 +171,6 @@ To disable failover for a queue:
 . Click *Destinations*.
 . Click the queue name.
 . In the *Queue Settings* page, deselect *Enable Cross-Region Failover*.
-. If the queue has an associated dead-letter queue, disable failover for that queue.
 . Click *Save Changes*.
 +
 Anypoint MQ disables failover and removes the fallback queue from the queue details pane.

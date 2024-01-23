@@ -80,14 +80,14 @@ For information, see xref:mq-failover.adoc[].
 [[fallback-queue]]
 Fallback Queue::
 A queue that Anypoint MQ automatically creates in a <<fallback-region,fallback region>> when <<failover,failover>> is enabled for a standard queue.
-Fallback queues are not configurable.
+Fallback queues are managed by the Anypoint MQ server and are not configurable by end users.
 +
 For information, see xref:mq-failover.adoc[].
 
 [[fallback-region]]
 Fallback Region::
 A region that Anypoint MQ automatically assigns to a fallback queue when failover is enabled for a standard queue.
-The fallback region is not configurable.
+The fallback region is managed by the Anypoint MQ server and is not configurable by end users.
 +
 For information, see xref:mq-failover.adoc[].
 
