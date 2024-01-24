@@ -465,9 +465,12 @@ Therefore, if an application requires the order of messages to be strictly prese
 [dlq-and-fallback]
 === Dead-Letter Queues and Fallback Queues
 
-Before you can enable fallback on a standard queue that has a DLQ assigned,
-the DLQ must have had fallback enabled.
-// (more info here)
+Before you can enable failover on a standard queue that has a DLQ assigned,
+the DLQ must have failover enabled or previously had failover enabled.
+When you enable failover for a queue, Anypoint MQ creates the fallback queue,
+which persists even when failover is disabled. 
+For more information, see
+xref:mq-failover.adoc[].
 
 
 === Encryption

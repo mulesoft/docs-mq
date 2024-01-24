@@ -163,7 +163,6 @@ Queues ensure that messages are always processed, even in the case of failure.
 +
 Anypoint MQ provides reliability with queues by using a lock and acknowledge mechanism.
 These features ensure that a message is always processed, even in the case of failure.
-// Mention cross-region failover for standard queues here?
 * Decoupling
 +
 You can use a queue as a communication mechanism between different applications and devices,

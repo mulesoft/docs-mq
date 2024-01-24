@@ -233,8 +233,8 @@ curl -X GET 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORGANIZ
 
 The response from these commands include output similar to the following:
 
-Primary Queue::
-+
+.Primary Queue
+[%collapsible]
 ====
 [source,json]
 ----
@@ -259,8 +259,9 @@ Primary Queue::
 <.> The fallback queue for this queue is `00-test_fb`. If the primary region goes down, apps publish and consume from this queue.
 <.> The fallback region for this queue is `us-west-2`.
 ====
-Fallback Queue::
-+
+
+.Fallback Queue
+[%collapsible]
 ====
 [source,json]
 ----
@@ -286,11 +287,11 @@ Fallback Queue::
 <.> The region for the primary queue that is linked to this fallback queue is `ca-central-1`.
 ====
 
-Standard Queue Without Failover Configured::
-+
-Response includes `"isFallback" : false` and doesn't include `fallbackConfig`.
-+
+.Standard Queue Without Failover Configured
+[%collapsible]
 ====
+Response includes `"isFallback" : false` and doesn't include `fallbackConfig`.
+
 [source,json]
 ----
 [
@@ -307,11 +308,11 @@ Response includes `"isFallback" : false` and doesn't include `fallbackConfig`.
 <.> This queue is a primary queue.
 ====
 
-FIFO Queue::
-+
-Response doesn't include `fallbackConfig` because FIFO queues don't support failover.
-+
+.FIFO Queue
+[%collapsible]
 ====
+Response doesn't include `fallbackConfig` because FIFO queues don't support failover.
+
 [source,json]
 ----
 {
@@ -327,11 +328,11 @@ Response doesn't include `fallbackConfig` because FIFO queues don't support fail
 <.> This queue is a FIFO queue, which doesn't support failover. 
 ====
 
-Exchange::
-+
-Response doesn't include `fallbackConfig` because exchanges don't support failover.
-+
+.Exchange
+[%collapsible]
 ====
+Response doesn't include `fallbackConfig` because exchanges don't support failover.
+
 [source,json]
 ----
 [
