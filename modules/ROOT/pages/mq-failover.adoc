@@ -4,7 +4,6 @@ Anypoint Connector for Anypoint MQ (Anypoint MQ Connector) for Mule 4 provides f
 
 // work on this wording
 
-
 When you enable failover for a queue, Anypoint MQ automatically creates a fallback queue in a <<primary-fallback-regions,fallback region>>.
 If a Mule app can't reach an Anypoint MQ server in a region,
 it switches to the fallback queue to publish and consume messages.
@@ -49,23 +48,22 @@ If the authentication server is down when the connector switches to the fallback
 +
 The *Message Sender* and *Message Browser* in the Anypoint MQ UI don't support the failover feature.
 However, if the failover feature is enabled, you can send and browse messages in the fallback queue using the Anypoint MQ UI.
-* Billing
+* Performance and Billing
 +
-** The consumer checks the fallback queue once per minute by default, which results in an additional 1440 API requests per day per consumer.
+The Consumer and Subscriber operations in Anypoint MQ Connector periodically check the fallback queue for new messages.
+Each request counts against your monthly 
+xref:mq-usage.adoc#api-requests[API request] quota.
+These checks can also can cause latency.
 +
-You can configure how frequently the consumer checks the fallback queue. See <<perf-and-billing>>.
-
+You can configure how frequently the connector checks the fallback queue. See <<configure-check-frequency>>.
 
 [[before-you-begin]]
 == Before You Begin
 
-* To use failover, you must upgrade Anypoint MQ Connector to one of the following versions:
-+
-** xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.0.4] or later
-** xref:connectors::anypoint-mq/3.x/anypoint-mq-connector.adoc[Anypoint MQ Connector 3.2.5] or later
-// Configure DLQ before enabling failover
-* {empty}
-include::partial$mq-failover.adoc[tag=fallbackDLQ]
+To use failover, you must upgrade Anypoint MQ Connector to one of the following versions:
+
+* xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.0.4] or later
+* xref:connectors::anypoint-mq/3.x/anypoint-mq-connector.adoc[Anypoint MQ Connector 3.2.5] or later
 
 [[enable-failover]]
 == Enable Failover for a New or Existing Queue
@@ -73,6 +71,9 @@ include::partial$mq-failover.adoc[tag=fallbackDLQ]
 Enabling cross-region failover creates a fallback queue in a <<primary-fallback-regions,fallback region>>.
 
 NOTE: If either primary or fallback region is unavailable, enabling failover via the Anypoint MQ UI or REST API might not work.
+
+// Configure DLQ before enabling failover
+include::partial$mq-failover.adoc[tag=fallbackDLQ]
 
 To enable failover for a new or existing queue:
 
@@ -198,20 +199,6 @@ Anypoint MQ disables failover and removes the fallback queue from the queue deta
                    | Europe (Ireland)      |`eu-west-1`| Europe (Frankfurt)|`eu-central-1` 
 |===
 
-[[perf-and-billing]]
-== Performance and Billing Considerations 
-
-The consumer periodically checks if the fallback queue contains new messages,
-which:
-
-* Results in an additional 1440 API requests per day per consumer
-* Can cause latency
-
-To change the frequency, configure the `??` attributes in the connector settings.
-For information, see:
-
-* xref:anypoint-mq-connector::anypoint-mq-connector-reference.adoc[Anypoint MQ Connector 4.x Reference]
-* xref:connectors::anypoint-mq/3.x/anypoint-mq-connector-reference.adoc[Anypoint MQ Connector 3.x Reference]
 
 [[region-unavailability]]
 == Region Unavailability
@@ -234,9 +221,53 @@ it temporarily marks the region as down for the specific queue and switches to t
 
 The connector periodically checks if the primary region is back up.
 
+[[configure-check-frequency]]
+== Configure Frequency of Fallback Queue Checks
+
+
+To change how frequently the connector checks for new messages in the fallback queue, set application properties in Runtime Manager:
+
+. Sign in to Anypoint Platform and click *Runtime Manager* in the navigation menu.
+. Deploy a new app or change the settings for a deployed app.
+. On the *Properties* tab, specify values for the following properties (in seconds):
++
+image::mq-set-properties-failover.png["Properties tab with failover properties specified"]
++
+--
+** `primary.region.status.check.interval.ms`
++
+Specifies how often to check that the primary region is up when processing from the fallback region.
+** `fallback.messages.status.check.interval.ms`
++
+Specifies how often to check the fallback queue for any messages received.
+--
+
+[[check-interval]]
+=== Considerations for Check Intervals
+
+To determine how to configure the application property values: 
+
+* When publishing to the fallback region, you might experience latencies because every publish check if the primary region is up.
++
+To reduce publish latency, set `fallback.messages.check.interval.ms` to be greater than the publisher trigger frequency. (what is this?)
+
+* After switching back to the primary queue, the consumer checks the fallback queue for messages before checking the primary queue.
+Even if the fallback queue has no messages, this check can result in latency.
++
+To reduce consume or subscribe latency, set `fallback.messages.status.check.interval.ms` to be greater than the consume/subscribe trigger frequency. (what is this?)
+
+* After switching back to the primary queue, if the fallback region is down, consuming experiences latencies because the consumer continues to check the fallback queue. 
+This check can add a maximum of 60 seconds to time out.
++
+To reduce consume latency when the primary queue is up but the fallback region is down, set `fallback.messages.status.check.interval.ms` to a larger value to reduce the frequency of checking the fallback queue.
++
+NOTE: A large value might result in out-of-order messages because messages in fallback queue are not processed as frequently.
+
 
 == See Also
 
+* xref:cloudhub::cloudhub-manage-props.adoc[] (CloudHub)
+* xref:cloudhub-2::ch2-manage-props.adoc[] (CloudHub 2.0)
 * xref:anypoint-mq-connector::anypoint-mq-connector-reference.adoc[Anypoint MQ Connector 4.x Reference]
 * xref:connectors::anypoint-mq/3.x/anypoint-mq-connector-reference.adoc[Anypoint MQ Connector 3.x Reference]
 * xref:mq-queues.adoc[]

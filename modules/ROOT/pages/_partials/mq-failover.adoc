@@ -4,7 +4,10 @@ For example, if the primary queue name is `myDemoQueue`, the fallback queue name
 // end::fallbackQname[]
 
 // tag::fallbackQnotConfig[]
-The fallback queue and region are not configurable.
+When you update the configuration of the primary queue, 
+Anypoint MQ server applies the same configuration to the fallback queues,
+syncing the queue configuration.
+The fallback queue and region are not otherwise configurable by the end user.
 // end::fallbackQnotConfig[]
 
 
