@@ -278,9 +278,9 @@ NOTE: A large value might result in out-of-order messages because messages in fa
 
 == See Also
 
+* xref:mq-queues.adoc[]
 * xref:cloudhub::cloudhub-manage-props.adoc[] (CloudHub)
 * xref:cloudhub-2::ch2-manage-props.adoc[] (CloudHub 2.0)
-* xref:anypoint-mq-connector::anypoint-mq-connector-reference.adoc[Anypoint MQ Connector 4.x Reference]
-* xref:connectors::anypoint-mq/3.x/anypoint-mq-connector-reference.adoc[Anypoint MQ Connector 3.x Reference]
-* xref:mq-queues.adoc[]
-* xref:mq-queues.adoc#create-a-queue[Create a Queue]
+* xref:mule-runtime::mule-app-properties-system.adoc[System Properties in Mule Apps] 
+* xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.x Overview]
+* xref:connectors::anypoint-mq/3.x/index.adoc[Anypoint MQ Connector 3.x Overview]
