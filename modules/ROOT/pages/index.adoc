@@ -93,8 +93,8 @@ Within each region, Anypoint MQ services deploy to multiple availability zones (
 Messages that were already in the Anypoint MQ system before service was interrupted are retained.
 +
 You can enable failover on standard queues, which creates a fallback queue in a fallback region.
-With failover enabled, if an app can't contact the Anypoint MQ server in a region,
-it switches to the fallback queue to continue publishing and consuming messages.
+With failover enabled, if an app that uses Anypoint MQ Connector can't contact the Anypoint MQ server in a region,
+the connector switches to the fallback queue to continue publishing and consuming messages.
 For information, see xref:mq-failover.adoc[].
 
 [[usage-statistics]]

@@ -2,8 +2,6 @@
 
 Anypoint Connector for Anypoint MQ (Anypoint MQ Connector) for Mule 4 provides failover capability for standard queues.
 
-// work on this wording
-
 When you enable failover for a queue, Anypoint MQ automatically creates a fallback queue in a <<primary-fallback-regions,fallback region>>.
 If a Mule app can't reach an Anypoint MQ server in a region,
 it switches to the fallback queue to publish and consume messages.
@@ -21,9 +19,13 @@ When the connector successfully detects that it can communicate with the primary
 it switches processing back to the primary queue.
 The consumer continues to read from the fallback queue until all messages in that queue are processed.
 
-The fallback queue inherits the settings of the primary queue, such as message TTL and default acknowledgment timeout, and is not configurable.
+Fallback queues are managed by the Anypoint MQ server and are not configurable by end users.
+The fallback queue inherits the settings of the primary queue, such as message TTL and default acknowledgment timeout.
 The fallback regions are also not configurable.
+
 You can disable failover, but you can't delete the fallback queue.
+When you disable failover for a queue, apps can still consume any messages that remain in the queue but can't publish new messages to the queue.
+
 
 [[failover-considerations]]
 == Failover Limitations and Considerations
@@ -43,11 +45,13 @@ You can disable failover, but you can't delete the fallback queue.
 For the list of fallback regions, see <<primary-fallback-regions>>.
 * Authentication
 +
-If the authentication server is down when the connector switches to the fallback region, the connector might not be able to successfully switch to the fallback region if the fallback region can't validate the access token.
+If access management is unavailable when the connector switches to the fallback region,
+the connector might not be able to successfully switch to the fallback region if it can't validate the access token.
 * Anypoint MQ UI
 +
 The *Message Sender* and *Message Browser* in the Anypoint MQ UI don't support the failover feature.
-However, if the failover feature is enabled, you can send and browse messages in the fallback queue using the Anypoint MQ UI.
+When you xref:mq-queues.adoc#send-message-to-queue[send a message] using the *Message Browser*, the message is published to the specified queue.
+However, if the primary region is down, the message is not forwarded to the fallback queue.
 * Performance and Billing
 +
 The Consumer and Subscriber operations in Anypoint MQ Connector periodically check the fallback queue for new messages.
@@ -187,22 +191,26 @@ Anypoint MQ disables failover and removes the fallback queue from the queue deta
 5+h| US Control Plane
 .4+| North America | US East (N. Virginia)|`us-east-1` | US East (Ohio)|`us-east-2`
                    | US East (Ohio)       |`us-east-2` | US West (Oregon)|`us-west-2`
-                   | US West (Oregon)     |`us-west-2`| Canada  (Central)|`ca-central-1`
-                   | <<region-note,Canada  (Central)>>*    |`ca-central-1`| US East (N. Virginia)|`us-east-1`
-.2+| Europe        | Europe (Ireland)     |`eu-west-1`| Europe (London)|`eu-west-2`
-                   | Europe (London)      |`eu-west-2`| Europe (Ireland)|`eu-west-1` 
-.3+| APAC          | Asia Pacific (Singapore) |`ap-southeast-1`| Asia Pacific (Tokyo)|`ap-northeast-1`
-                   | <<region-note,Asia Pacific (Sydney)>>* |`ap-southeast-2`| Asia Pacific (Singapore)|`ap-southeast-1`
-                   | Asia Pacific (Tokyo)  |`ap-northeast-1`| Asia Pacific (Sydney)|`ap-southeast-2`
+                   | US West (Oregon)<<region-note,**>>     |`us-west-2`| Canada  (Central)|`ca-central-1`
+                   | Canada  (Central)<<region-note-unavailable,*>>    |`ca-central-1`| US East (N. Virginia)|`us-east-1`
+.2+| Europe        | Europe (Ireland)<<region-note,**>>     |`eu-west-1`| Europe (London)|`eu-west-2`
+                   | Europe (London)<<region-note,**>>      |`eu-west-2`| Europe (Ireland)|`eu-west-1` 
+.3+| APAC          | Asia Pacific (Singapore)<<region-note,**>> |`ap-southeast-1`| Asia Pacific (Tokyo)|`ap-northeast-1`
+                   | Asia Pacific (Sydney)<<region-note-unavailable,*>> |`ap-southeast-2`| Asia Pacific (Singapore)|`ap-southeast-1`
+                   | Asia Pacific (Tokyo)<<region-note,**>>  |`ap-northeast-1`| Asia Pacific (Sydney)|`ap-southeast-2`
 5+h| EU Control Plane
-.2+| Europe        | Europe (Frankfurt)    |`eu-central-1`| Europe (Ireland)|`eu-west-1`
-                   | Europe (Ireland)      |`eu-west-1`| Europe (Frankfurt)|`eu-central-1` 
+.2+| Europe        | Europe (Frankfurt)<<region-note,**>>    |`eu-central-1`| Europe (Ireland)|`eu-west-1`
+                   | Europe (Ireland)<<region-note,**>>      |`eu-west-1`| Europe (Frankfurt)|`eu-central-1` 
 |===
 
-[[region-note]]
+[[region-note-unavailable]]
 ^***^ {empty}
 Because Anypoint MQ is available in only one region in this country, 
 the fallback region is not in the same country as the primary region.
+
+[[region-note]]
+^****^ {empty}
+The fallback region for this region is not in the same country as the primary region.
 
 [[region-unavailability]]
 == Region Unavailability

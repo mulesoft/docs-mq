@@ -114,9 +114,6 @@ Next, verify that the messages arrived in the queue.
 The details pane shows the number of messages in the queue:
 +
 image::mq-tutorial-msgs-in-queue.png["Three messages in the myDemoQueue queue in the details pane"]
-// I think this screenshot is OK - could pare it down to avoid mentioning fb queue
-// If no fb queue configured, it won't appear, right?
-
 . In the details pane, click the queue details label `myDemoQueue`.
 . Click *Message Browser* in the navigation menu:
 +
