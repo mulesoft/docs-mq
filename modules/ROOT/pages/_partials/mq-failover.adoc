@@ -1,16 +1,25 @@
+// Fallback queue names
 // tag::fallbackQname[]
 The name of the fallback queue is the primary queue name with the `_fb` suffix.
 For example, if the primary queue name is `myDemoQueue`, the fallback queue name is `myDemoQueue_fb`.
 // end::fallbackQname[]
 
+// Fallback queues aren't configurable by end users
 // tag::fallbackQnotConfig[]
-When you update the configuration of the primary queue, 
-Anypoint MQ server applies the same configuration to the fallback queues,
-syncing the queue configuration.
-The fallback queue and region are not otherwise configurable by the end user.
+The Anypoint MQ server manages fallback queues and regions;
+end users can't configure them.
 // end::fallbackQnotConfig[]
 
+// Fallback queues inherit settings from primary queue
+// tag::fallbackQsync[]
+When you update the configuration of the primary queue, 
+Anypoint MQ server applies the same settings to the fallback queue,
+syncing the queue configuration.
+// end::fallbackQsync[]
 
+
+// Fallback queues and DLQ queues
 // tag::fallbackDLQ[]
-If the primary queue has an assigned dead-letter queue (DLQ), you must enable failover for the DLQ before enabling failover for the primary queue.
+If the primary queue has an assigned dead-letter queue (DLQ),
+you must enable failover for the DLQ before enabling failover for the primary queue.
 // end::fallbackDLQ[]

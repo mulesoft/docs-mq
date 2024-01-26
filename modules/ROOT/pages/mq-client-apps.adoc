@@ -9,7 +9,7 @@ When you create a client app, Anypoint MQ lists the client ID and client secret 
 You use the client ID and client secret values when configuring Anypoint MQ Connector in a Mule app in Anypoint Studio.
 include::partial$mq-client-id-secret.adoc[tag=mqClientIdSecret]
 
-An app does not have to exist for you to register it with Anypoint MQ Connector.
+An app does not need to exist for you to register it with Anypoint MQ Connector.
 
 
 == Create a Client App 

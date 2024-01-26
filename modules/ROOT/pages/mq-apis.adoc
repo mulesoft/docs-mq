@@ -27,7 +27,7 @@ For more information, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK a
 [[authorize-api]]
 == Authorize API Access
 
-Before accessing an API, you need to get an access token:
+Before accessing an API, you must get an access token:
 
 * <<mqadminapi,Anypoint MQ Admin API>>
 +
@@ -372,7 +372,7 @@ See the xref:mq-faq.adoc#regions[Anypoint MQ FAQ] for the regions where Anypoint
 === Get the Broker API Access Token
 
 Getting the access (bearer) token requires using either a command like curl or an app like Postman. The example that follows uses curl.
-If you are a Windows user, you need to https://curl.haxx.se/download.html[download a curl command^] before accessing the information.
+If you are a Windows user, you must https://curl.haxx.se/download.html[download a curl command^] before accessing the information.
 
 The access token in this section can only be used with the Broker API. Do not use this access token 
 with the Stats and Admin APIs. 
@@ -595,7 +595,14 @@ This command returns output similar to:
 [[historical-stats-queue]]
 === Get Historical Statistics for a Queue
 
-This API can be used to fetch historical statistics for a queue, however, it does not get updated in real-time, and there is an approximate latency of 5 to 10 minutes before data is published. The retention period of historical data is 15 months. Also, to keep the volume of data under control, historical data is stored at reduced levels of granularity. Data points with a period of fewer than 60 seconds are available for 3 hours, one-minute data points are available for 15 days, five-minute data points for 63 days, and one-hour data points for 15 months.
+Use this API to fetch historical statistics for a queue.
+However, it does not get updated in real-time, and there is an approximate latency of 5 to 10 minutes before data is published. The retention period of historical data is 15 months.
+To limit the volume of data, historical data is stored at reduced levels of granularity:
+
+* Data points with a period of fewer than 60 seconds are available for three hours.
+* One-minute data points are available for 15 days.
+* Five-minute data points are available for 63 days.
+* One-hour data points are available for 15 months.
 
 `/queues/{queueId}?startDate=...&endDate=...&period=...`
 
