@@ -60,10 +60,7 @@ Each request counts against your monthly
 xref:mq-usage.adoc#api-requests[API request] quota.
 These checks can also can cause latency.
 +
-You can configure how frequently the connector checks the fallback queue. See:
-
-* xref:anypoint-mq-connector::anypoint-mq-failover.adoc#configure-check-frequency[Configure the Frequency of Fallback Queue Checks] (Anypoint MQ Connector 4.x)
-* xref:connectors::anypoint-mq/3.x/anypoint-mq-failover.adoc#configure-check-frequency[Configure the Frequency of Fallback Queue Checks] (Anypoint MQ Connector 3.x)
+You can configure how frequently the connector checks the fallback queue. See xref:anypoint-mq-connector::anypoint-mq-failover.adoc#configure-check-frequency[Configure the Frequency of Fallback Queue Checks].
 
 [[before-you-begin]]
 == Before You Begin
@@ -237,10 +234,7 @@ it temporarily marks the region as down for the specific queue and switches to t
 
 The connector periodically checks for new messages in the primary queue to determine if the primary region is back up.
 You can change the frequency of these checks.
-For information, see:
-
-* xref:anypoint-mq-connector::anypoint-mq-failover.adoc#configure-check-frequency[Configure the Frequency of Fallback Queue Checks] (Anypoint MQ Connector 4.x)
-* xref:connectors::anypoint-mq/3.x/anypoint-mq-failover.adoc#configure-check-frequency[Configure the Frequency of Fallback Queue Checks] (Anypoint MQ Connector 3.x)
+For information, see xref:anypoint-mq-connector::anypoint-mq-failover.adoc#configure-check-frequency[Configure the Frequency of Fallback Queue Checks].
 
 == See Also
 

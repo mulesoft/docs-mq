@@ -20,10 +20,8 @@ However, if a client sends a message directly to a DLQ, that request is charged.
 [NOTE]
 ====
 Enabling failover for a queue can result in increased API requests because Anypoint MQ Connector periodically checks the fallback queue for messages to consume. 
-For more information, see:
-
-* xref:anypoint-mq-connector::anypoint-mq-failover.adoc#configure-check-frequency[Configure the Frequency of Fallback Queue Checks] (Anypoint MQ Connector 4.x)
-* xref:connectors::anypoint-mq/3.x/anypoint-mq-failover.adoc#configure-check-frequency[Configure the Frequency of Fallback Queue Checks] (Anypoint MQ Connector 3.x)
+For more information, see
+xref:anypoint-mq-connector::anypoint-mq-failover.adoc#configure-check-frequency[Configure the Frequency of Fallback Queue Checks].
 ====
 
 Message units::
