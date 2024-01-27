@@ -24,22 +24,27 @@ The fallback queue inherits the settings of the primary queue, such as message T
 include::partial$mq-failover.adoc[tag=fallbackQnotConfig]
 
 You can disable failover, but you can't delete the fallback queue.
-When you disable failover for a queue, apps can still consume any messages that remain in the queue but can't publish new messages to the queue.
-
+When you disable failover for a queue, apps can still consume any messages that remain in the fallback queue but can't publish new messages to it.
 
 [[failover-considerations]]
 == Failover Limitations and Considerations
 
 * Failover Support
 +
+** This feature is not enabled by default.
++
+For information about enabling this feature in your app, see 
+xref:anypoint-mq-connector::anypoint-mq-failover.adoc[].
 ** Failover is supported for standard queues only.
 ** Failover isn't supported for message exchanges or FIFO queues.
 * Fallback Regions
 +
 --
 ** Because MuleSoft Government Cloud includes only one region, it does not support failover.
-** The fallback queue for Canada is located in the US East (N. Virginia) region because Anypoint MQ is available in only one region in Canada.
-** The fallback queue for Australia is located in the Asia Pacific (Singapore) region because Anypoint MQ is available in only one region in Australia.
+** Anypoint MQ is available in only one region in some countries.
++
+If failover is enabled for queues in those regions and the primary region goes down,
+data resides in a region outside the country until the primary region is available.
 --
 +
 For the list of fallback regions, see <<primary-fallback-regions>>.
@@ -65,10 +70,15 @@ You can configure how frequently the connector checks the fallback queue. See xr
 [[before-you-begin]]
 == Before You Begin
 
-To use failover, you must upgrade Anypoint MQ Connector to one of the following versions:
+To use failover, you must first:
 
-* xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.0.4] or later
-* xref:connectors::anypoint-mq/3.x/anypoint-mq-connector.adoc[Anypoint MQ Connector 3.2.5] or later
+* Upgrade Anypoint MQ Connector to one of the following versions:
++
+** xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.0.5] or later
+** xref:connectors::anypoint-mq/3.x/anypoint-mq-connector.adoc[Anypoint MQ Connector 3.2.6] or later
+* Enable the failover feature in your app.
++
+For information, see xref:anypoint-mq-connector::anypoint-mq-failover.adoc#enable-failover-feature[Enable Failover in Your App].
 
 [[enable-failover]]
 == Enable Failover for a New or Existing Queue
@@ -239,6 +249,6 @@ For information, see xref:anypoint-mq-connector::anypoint-mq-failover.adoc#confi
 == See Also
 
 * xref:mq-queues.adoc[]
-* xref:cloudhub::cloudhub-manage-props.adoc[]
-* xref:cloudhub-2::ch2-manage-props.adoc[Changing App Behavior with Properties on CloudHub 2.0]
-* xref:mule-runtime::mule-app-properties-system.adoc[System Properties in Mule Apps] 
+* xref:anypoint-mq-connector::anypoint-mq-failover.adoc[]
+* xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.x for Mule 4]
+* xref:connectors::anypoint-mq/3.x/anypoint-mq-connector.adoc[Anypoint MQ Connector 3.x for Mule 4]
