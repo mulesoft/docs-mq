@@ -311,7 +311,7 @@ Response includes `"isFallback" : false` and doesn't include `fallbackConfig`.
 .FIFO Queue
 [%collapsible]
 ====
-Response doesn't include `fallbackConfig` because FIFO queues don't support failover.
+The response doesn't include `fallbackConfig` because FIFO queues don't support failover.
 
 [source,json]
 ----
