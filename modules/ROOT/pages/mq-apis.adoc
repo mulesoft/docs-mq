@@ -290,7 +290,7 @@ The response from these commands include output similar to the following:
 .Standard Queue Without Failover Configured
 [%collapsible]
 ====
-Response includes `"isFallback" : false` and doesn't include `fallbackConfig`.
+The response includes `"isFallback" : false` and doesn't include `fallbackConfig`.
 
 [source,json]
 ----
