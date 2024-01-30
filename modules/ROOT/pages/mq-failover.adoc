@@ -15,7 +15,7 @@ When the connector detects that the primary region is down, it:
 * Switches to the fallback queue to publish and consume new messages.
 * Periodically checks if the primary region is back up.
 +
-When the connector successfully detects that it can communicate with the primary region,
+When the connector detects that it can communicate with the primary region,
 it switches processing back to the primary queue.
 The consumer continues to read from the fallback queue until all messages in that queue are processed.
 
