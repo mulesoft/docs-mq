@@ -596,7 +596,7 @@ This command returns output similar to:
 === Get Historical Statistics for a Queue
 
 Use this API to fetch historical statistics for a queue.
-However, it does not get updated in real-time, and there is an approximate latency of 5 to 10 minutes before data is published. The retention period of historical data is 15 months.
+Statistics don't get updated in real-time, and there is an approximate latency of five to ten minutes before data is published. The retention period of historical data is 15 months.
 To limit the volume of data, historical data is stored at reduced levels of granularity:
 
 * Data points with a period of fewer than 60 seconds are available for three hours.
