@@ -10,7 +10,7 @@ For information about situations that can cause a region to be considered unavai
 IMPORTANT: This feature provides _resiliency_ by switching to a fallback queue in a fallback region when the primary region is down.
 It doesn't provide _data redundancy_ by replicating messages across the primary and fallback queues. 
 
-When it detects that the primary region is down, the connector:
+When the connector detects that the primary region is down, it:
 
 * Switches to the fallback queue to publish and consume new messages.
 * Periodically checks if the primary region is back up.
