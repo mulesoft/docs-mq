@@ -84,8 +84,8 @@ See xref:index.adoc#encrypt_queue[Encrypted queues].
 +
 The DLQ is a previously created queue to which to send undeliverable messages.
 See <<dead-letter-queues>>.
-** *Enable Cross-Region Failover* creates a fallback queue in the fallback region.
-See <<fallback-queues>>.
+** *Enable Cross-Region Failover* creates a <<fallback-queues,fallback queue>> in the fallback region.
+See xref:mq-failover.adoc[].
 --
 . Click *Create Queue*.
 + 
