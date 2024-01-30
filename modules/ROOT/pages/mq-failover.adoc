@@ -85,7 +85,7 @@ For information, see xref:anypoint-mq-connector::anypoint-mq-failover.adoc#enabl
 
 Enabling cross-region failover creates a fallback queue in a <<primary-fallback-regions,fallback region>>.
 
-NOTE: If either primary or fallback region is unavailable, enabling failover via the Anypoint MQ UI or REST API might not work.
+NOTE: If either the primary or fallback region is unavailable, enabling failover via the Anypoint MQ UI or REST API might not work.
 
 // Configure DLQ before enabling failover
 include::partial$mq-failover.adoc[tag=fallbackDLQ]
