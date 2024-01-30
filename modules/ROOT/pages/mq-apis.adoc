@@ -331,7 +331,7 @@ The response doesn't include `fallbackConfig` because FIFO queues don't support 
 .Exchange
 [%collapsible]
 ====
-Response doesn't include `fallbackConfig` because exchanges don't support failover.
+The response doesn't include `fallbackConfig` because exchanges don't support failover.
 
 [source,json]
 ----
