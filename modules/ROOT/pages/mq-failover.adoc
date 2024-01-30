@@ -234,10 +234,7 @@ The connector considers a region as unavailable in cases where the Anypoint MQ b
 For example, the connector receives Timeout errors while making REST API calls to the backend server.
 * Available in some situations, but not others.
 +
-For example:
-+
-** Unresponsive for queues, but available for other usage, such as message exchanges
-** Unavailable for publishing large payloads but available for publishing smaller messages
+For example, unresponsive for queues, but available for other usage, such as message exchanges.
 
 When the connector receives an HTTP 5xx or any server-side error,
 it temporarily marks the region as down for the specific queue and switches to the fallback queue.
