@@ -66,7 +66,7 @@ However, if the primary region is down, the message is not forwarded to the fall
 The Consumer and Subscriber operations in Anypoint MQ Connector periodically check the fallback queue for new messages.
 Each request counts against your monthly 
 xref:mq-usage.adoc#api-requests[API request] quota.
-These checks can also can cause latency.
+These checks can also cause latency.
 +
 You can configure how frequently the connector checks the fallback queue. See xref:anypoint-mq-connector::anypoint-mq-failover.adoc#configure-check-frequency[Configure the Frequency of Fallback Queue Checks].
 
