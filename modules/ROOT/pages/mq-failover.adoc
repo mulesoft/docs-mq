@@ -176,10 +176,10 @@ image::mq-queue-fallback-details.png["Details pane for the fallback queue with t
 [[disable-failover]]
 == Disable Failover for a Queue
 
-When you disable failover for a queue, apps can still consume any messages that remain in the queue but can't publish new messages to the queue.
+When you disable failover for a queue, apps can still consume any messages that remain in the queue but can't send new messages to the queue.
 When you re-enable failover, Anypoint MQ reinstates the same fallback queue.
 
-IMPORTANT: When you disable failover for a queue, you must restart all applications that consume from or publish to the queue.
+IMPORTANT: When you disable failover for a queue, you must restart all applications that consume from or send to the queue.
 
 To disable failover for a queue:
 
@@ -202,16 +202,16 @@ Anypoint MQ disables failover and removes the fallback queue from the queue deta
 5+h| US Control Plane
 .4+| North America | US East (N. Virginia)|`us-east-1` | US East (Ohio)|`us-east-2`
                    | US East (Ohio)       |`us-east-2` | US West (Oregon)|`us-west-2`
-                   | US West (Oregon)<<region-note,**>>     |`us-west-2`| Canada  (Central)|`ca-central-1`
-                   | Canada  (Central)<<region-note-unavailable,*>>    |`ca-central-1`| US East (N. Virginia)|`us-east-1`
-.2+| Europe        | Europe (Ireland)<<region-note,**>>     |`eu-west-1`| Europe (London)|`eu-west-2`
-                   | Europe (London)<<region-note,**>>      |`eu-west-2`| Europe (Ireland)|`eu-west-1` 
-.3+| APAC          | Asia Pacific (Singapore)<<region-note,**>> |`ap-southeast-1`| Asia Pacific (Tokyo)|`ap-northeast-1`
-                   | Asia Pacific (Sydney)<<region-note-unavailable,*>> |`ap-southeast-2`| Asia Pacific (Singapore)|`ap-southeast-1`
-                   | Asia Pacific (Tokyo)<<region-note,**>>  |`ap-northeast-1`| Asia Pacific (Sydney)|`ap-southeast-2`
+                   | US West (Oregon)**     |`us-west-2`| Canada  (Central)|`ca-central-1`
+                   | Canada  (Central)*    |`ca-central-1`| US East (N. Virginia)|`us-east-1`
+.2+| Europe        | Europe (Ireland)**     |`eu-west-1`| Europe (London)|`eu-west-2`
+                   | Europe (London)**      |`eu-west-2`| Europe (Ireland)|`eu-west-1` 
+.3+| APAC          | Asia Pacific (Singapore)** |`ap-southeast-1`| Asia Pacific (Tokyo)|`ap-northeast-1`
+                   | Asia Pacific (Sydney)* |`ap-southeast-2`| Asia Pacific (Singapore)|`ap-southeast-1`
+                   | Asia Pacific (Tokyo)**  |`ap-northeast-1`| Asia Pacific (Sydney)|`ap-southeast-2`
 5+h| EU Control Plane
-.2+| Europe        | Europe (Frankfurt)<<region-note,**>>    |`eu-central-1`| Europe (Ireland)|`eu-west-1`
-                   | Europe (Ireland)<<region-note,**>>      |`eu-west-1`| Europe (Frankfurt)|`eu-central-1` 
+.2+| Europe        | Europe (Frankfurt)**    |`eu-central-1`| Europe (Ireland)|`eu-west-1`
+                   | Europe (Ireland)**      |`eu-west-1`| Europe (Frankfurt)|`eu-central-1` 
 |===
 
 [[region-note-unavailable]]
