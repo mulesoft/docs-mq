@@ -35,7 +35,7 @@ When you disable failover for a queue, apps can still consume any messages that 
 +
 For information about enabling this feature in your app, see 
 xref:anypoint-mq-connector::anypoint-mq-failover.adoc#enable-failover-feature[Enable Failover in Your App].
-** Failover support requires Anypoint MQ Connector version 4.0.5 or later.
+** Failover support requires Anypoint MQ Connector 4.0.5 or later.
 // +
 // xref to upgrade steps?
 ** Failover is supported for standard queues only.
