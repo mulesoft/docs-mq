@@ -19,7 +19,7 @@ When the connector successfully detects that it can communicate with the primary
 it switches processing back to the primary queue.
 The consumer continues to read from the fallback queue until all messages in that queue are processed.
 
-The fallback queue inherits the settings of the primary queue, such as message TTL and default acknowledgment timeout.
+The fallback queue inherits the settings of the primary queue, such as message TTL (time-to-live) and default acknowledgment timeout.
 // Fallback queues aren't configurable by end users
 include::partial$mq-failover.adoc[tag=fallbackQnotConfig]
 
@@ -148,7 +148,7 @@ If you previously enabled failover for the queue, the fallback queue already exi
 --
 ====
 
-=== View Fallback Queue Details
+== View Fallback Queue Details
 
 To view failover configuration for the primary and fallback queues, display the queue details:
 
