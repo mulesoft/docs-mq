@@ -158,7 +158,7 @@ To view failover configuration for the primary and fallback queues, display the 
 +
 ** The queue details pane for the primary queue includes the fallback queue:
 +
-image::mq-queue-details-failover.png["Details pane for the primary queue with the fallback queue and region"]
+image::mq-queue-details-primary-queue.png["Details pane for the primary queue with the fallback queue and region"]
 +
 [calloutlist]
 ... Queue type displays the queue details pane for the primary queue.
@@ -166,10 +166,12 @@ image::mq-queue-details-failover.png["Details pane for the primary queue with th
 
 ** The queue details pane for the fallback queue includes the primary queue:
 +
-image::mq-queue-fallback-details.png["Details pane for the fallback queue with the primary queue and region"]
+image::mq-queue-details-fallback-queue.png["Details pane for the fallback queue with the primary queue and region"]
 +
 [calloutlist]
 ... Queue type displays the queue details pane for the fallback queue.
++
+The fallback queue can't be deleted.
 ... The name of the primary queue is the fallback queue name without the `_fb` suffix.
 
 
@@ -186,10 +188,16 @@ To disable failover for a queue:
 . Sign in to Anypoint Platform and click *MQ* in the navigation menu.
 . Click *Destinations*.
 . Click the queue name.
-. In the *Queue Settings* page, deselect *Enable Cross-Region Failover*.
+. In the *Queue Settings* page, deselect *Enable Cross-Region Failover*
++
+Anypoint MQ disables failover for the queue:
++
+image::mq-queue-settings-failover-disabled.png["Queue Settings page with failover option deselected"]
 . Click *Save Changes*.
 +
-Anypoint MQ disables failover and removes the fallback queue from the queue details pane.
+The primary queue details shows that failover is disabled:
++
+image::mq-queue-details-primary-queue-fallback-disabled.png["Details pane for the primary queue with the fallback queue and failover status"]
 . Restart all applications consuming from or publishing to the queue.
 
 
