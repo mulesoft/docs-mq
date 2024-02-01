@@ -17,7 +17,9 @@ a message exchange.
 +
 Route messages to specific queues that are bound to the message exchange
 by creating _intelligent message-routing rules_ on the bindings.
-
+* xref:mq-failover.adoc[]
++
+Enable cross-region failover so that if a Mule app can't reach an Anypoint MQ server in a region, it switches to the fallback queue configured in the fallback region.
 * xref:mq-connected-apps.adoc[]
 +
 Integrate external applications with Anypoint Platform by using Connected Apps to provide access to those applications without sharing your user credentials.

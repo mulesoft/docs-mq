@@ -27,7 +27,7 @@ For more information, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK a
 [[authorize-api]]
 == Authorize API Access
 
-Before accessing an API, you need to get an access token:
+Before accessing an API, you must get an access token:
 
 * <<mqadminapi,Anypoint MQ Admin API>>
 +
@@ -71,6 +71,7 @@ These examples use the Anypoint MQ Admin API to create queues and message routin
 * <<get-access-token>>
 * <<fifo-queue-api>>
 * <<routing-rules-api>>
+* <<enable-failover-api>>
 
 
 [[get-access-token]]
@@ -173,6 +174,179 @@ see this endpoint in the https://anypoint.mulesoft.com/exchange/portals/anypoint
 * Message routing rule requirements, see
 xref:mq-routing-rules.adoc#intelligent-routing-restrictions[Requirements and Restrictions].
 
+
+
+[[enable-failover-api]]
+=== Enable or Disable Failover on an Existing Standard Queue
+
+When you enable failover for a queue, Anypoint MQ automatically creates a fallback queue in a xref:mq-failover.adoc#primary-fallback-regions[fallback region].
+If a Mule app can't reach an Anypoint MQ server in a region,
+it switches to the fallback queue to publish and consume messages.
+For information about situations that can cause a region to be considered unavailable, see xref:mq-failover.adoc#region-unavailability[Region Unavailability].
+
+IMPORTANT: You must restart all applications consuming from or publishing to the queue after enabling or disabling failover.
+
+Use this `curl` command to enable failover for an existing standard queue:
+
+[source,bash]
+----
+
+curl -X PUT 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/destinations/queues/QUEUE_ID/fallback' \
+-H 'Authorization: bearer BEARER_TOKEN' \
+-H 'Content-Type: application/json' \
+-d '{
+    "fallbackEnabled" : true
+}'
+----
+
+Use this `curl` command to disable failover for an existing standard queue:
+
+[source,bash]
+----
+curl -X PUT 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/destinations/queues/QUEUE_ID/fallback' \
+-H 'Authorization: bearer BEARER_TOKEN' \
+-H 'Content-Type: application/json' \
+-d '{
+    "fallbackEnabled" : false
+}'
+----
+
+==== Retrieve Queue Configuration
+
+When you retrieve information about all destinations or a single queue, the response includes the failover configuration.
+
+Use this `curl` command to get the list of destinations:
+
+[source,bash]
+----
+curl -X GET 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/destinations' \
+-H 'Authorization: bearer BEARER_TOKEN'
+----
+
+Use this `curl` command to get details about a specific queue:
+
+[source,bash]
+----
+curl -X GET 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORGANIZATION_ID/environments/ENVIRONMENT_ID/regions/REGION_ID/destinations/queues/QUEUE_ID' \
+-H 'Authorization: bearer BEARER_TOKEN'
+----
+
+The response from these commands include output similar to the following:
+
+.Primary Queue
+[%collapsible]
+====
+[source,json]
+----
+[ 
+{ 
+    "encrypted" : true,
+    "type" : "queue",
+    "queueId" : "00-test",
+    "fifo" : false,
+    ...
+    "isFallback" : false,                 // <.>
+    "fallbackConfig" : {
+        "enabled" : true,                 // <.>
+        "linkedQueueName" : "00-test_fb", // <.>
+        "linkedQueueRegion" : "us-west-2" // <.>
+    }
+},
+]
+----
+<.> This queue is a primary queue.
+<.> Failover is enabled for this queue. 
+<.> The fallback queue for this queue is `00-test_fb`. If the primary region goes down, apps publish and consume from this queue.
+<.> The fallback region for this queue is `us-west-2`.
+====
+
+.Fallback Queue
+[%collapsible]
+====
+[source,json]
+----
+[
+{
+    "encrypted" : true,
+    "type" : "queue",
+    "queueId" : "test_fb",
+    "fifo" : false,
+    ...
+    "isFallback" : true,                     // <.>
+    "fallbackConfig" : {
+        "enabled" : true,                    // <.>
+        "linkedQueueName" : "test",          // <.>
+        "linkedQueueRegion" : "ca-central-1" // <.>
+    }
+},
+]
+----
+<.> This queue is a fallback queue.
+<.> Failover is enabled. If the primary region goes down, apps publish and consume from this queue.
+<.> The primary queue that is linked to this fallback queue is `test`.
+<.> The region for the primary queue that is linked to this fallback queue is `ca-central-1`.
+====
+
+.Standard Queue Without Failover Configured
+[%collapsible]
+====
+The response includes `"isFallback" : false` and doesn't include `fallbackConfig`.
+
+[source,json]
+----
+[
+  {
+  "encrypted" : true,
+  "type" : "queue",
+  "queueId" : "hello1",
+  "fifo" : false,
+  ...
+  "isFallback" : false  // <.>
+},
+]
+----
+<.> This queue is a primary queue.
+====
+
+.FIFO Queue
+[%collapsible]
+====
+The response doesn't include `fallbackConfig` because FIFO queues don't support failover.
+
+[source,json]
+----
+{
+  "encrypted" : true,
+  "type" : "queue",
+  "queueId" : "hello1",
+  "fifo" : true,       // <.>
+  ...
+  "isFallback" : false
+},
+]
+----
+<.> This queue is a FIFO queue, which doesn't support failover. 
+====
+
+.Exchange
+[%collapsible]
+====
+The response doesn't include `fallbackConfig` because exchanges don't support failover.
+
+[source,json]
+----
+[
+{
+  "encrypted" : true,
+  "type" : "exchange",  // <.>
+  "exchangeId" : "hello1"
+}
+]
+----
+<.> This queue is a message exchange, which doesn't support failover. 
+====
+
+
 [[mqbrokerapi]]
 == Anypoint MQ Broker API
 
@@ -188,6 +362,8 @@ These examples use the Anypoint MQ Broker API to publish and consume messages an
 * <<send-message-routing>>
 * <<retrieve-message-api>>
 
+
+
 You must substitute the placeholder string, `ORGANIZATION_ID` with the proper values for authorization and token strings. These examples use Postman to access the queue.
 
 See the xref:mq-faq.adoc#regions[Anypoint MQ FAQ] for the regions where Anypoint MQ and FIFO are available.
@@ -196,7 +372,7 @@ See the xref:mq-faq.adoc#regions[Anypoint MQ FAQ] for the regions where Anypoint
 === Get the Broker API Access Token
 
 Getting the access (bearer) token requires using either a command like curl or an app like Postman. The example that follows uses curl.
-If you are a Windows user, you need to https://curl.haxx.se/download.html[download a curl command^] before accessing the information.
+If you are a Windows user, you must https://curl.haxx.se/download.html[download a curl command^] before accessing the information.
 
 The access token in this section can only be used with the Broker API. Do not use this access token 
 with the Stats and Admin APIs. 
@@ -208,7 +384,7 @@ Accessing the token before its expiry extends the token validity by another 60 m
 
 To get the Broker API access token:
 
-. Log in to Anypoint Platform.
+. Sign in to Anypoint Platform.
 . Click *MQ* > *Client Apps*, and then click the *Add* icon (image:icon-blue-plus.png["Add icon in Client Apps",3%,3%]) to create an app.
 . Get the client ID and client secret and use these values in the following curl command replacing `CLIENT_ID` and `CLIENT_SECRET`:
 +
@@ -317,6 +493,8 @@ curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORG
 ----
 
 
+
+
 [[mqstatapi]]
 == Anypoint MQ Stats API
 
@@ -417,7 +595,14 @@ This command returns output similar to:
 [[historical-stats-queue]]
 === Get Historical Statistics for a Queue
 
-This API can be used to fetch historical statistics for a queue, however, it does not get updated in real-time, and there is an approximate latency of 5 to 10 minutes before data is published. The retention period of historical data is 15 months. Also, to keep the volume of data under control, historical data is stored at reduced levels of granularity. Data points with a period of fewer than 60 seconds are available for 3 hours, one-minute data points are available for 15 days, five-minute data points for 63 days, and one-hour data points for 15 months.
+Use this API to fetch historical statistics for a queue.
+Statistics don't get updated in real-time, and there is an approximate latency of five to ten minutes before data is published. The retention period of historical data is 15 months.
+To limit the volume of data, historical data is stored at reduced levels of granularity:
+
+* Data points with a period of fewer than 60 seconds are available for three hours.
+* One-minute data points are available for 15 days.
+* Five-minute data points are available for 63 days.
+* One-hour data points are available for 15 months.
 
 `/queues/{queueId}?startDate=...&endDate=...&period=...`
 

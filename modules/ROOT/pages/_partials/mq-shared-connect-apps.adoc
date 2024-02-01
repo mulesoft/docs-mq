@@ -2,7 +2,7 @@
 //tag::mqCreateConnApp[]
 To create a connected app with Anypoint MQ scopes:
 
-. Log in to Anypoint Platform and click *Access Management* in the navigation menu.
+. Sign in to Anypoint Platform and click *Access Management* in the navigation menu.
 . Click *Connected Apps* in the navigation pane.
 . Click *Create app*.
 +

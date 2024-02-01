@@ -9,14 +9,14 @@ When you create a client app, Anypoint MQ lists the client ID and client secret 
 You use the client ID and client secret values when configuring Anypoint MQ Connector in a Mule app in Anypoint Studio.
 include::partial$mq-client-id-secret.adoc[tag=mqClientIdSecret]
 
-An app does not have to exist for you to register it with Anypoint MQ Connector.
+An app does not need to exist for you to register it with Anypoint MQ Connector.
 
 
 == Create a Client App 
 
 To create a client app:
 
-. Log in to Anypoint Platform and click *MQ* in the navigation menu.
+. Sign in to Anypoint Platform and click *MQ* in the navigation menu.
 . Click *Client Apps* in the navigation pane:
 +
 image::mq-tutorial-create-client-apps.png["Client Apps option and Add icon"]
@@ -50,7 +50,7 @@ In this case, you can regenerate the client secret in Anypoint MQ and reconfigur
 
 To regenerate the client secret:
 
-. Log in to Anypoint Platform and click *MQ* in the navigation menu.
+. Sign in to Anypoint Platform and click *MQ* in the navigation menu.
 . Click *Client Apps* in the navigation pane.
 . Click the client app name to display the details pane.
 . Click *Regenerate Secret*:
@@ -62,7 +62,7 @@ image::mq-client-apps-regenerate.png["Regenerate Secret icon in the details pane
 
 To delete a client app:
 
-. Log in to Anypoint Platform and click *MQ* in the navigation menu.
+. Sign in to Anypoint Platform and click *MQ* in the navigation menu.
 . Click *Client Apps* in the navigation pane.
 . Click the client app name to display the details pane.
 . Click *Delete*:

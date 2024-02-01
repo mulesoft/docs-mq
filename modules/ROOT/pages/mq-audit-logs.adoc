@@ -22,7 +22,7 @@ The audit logging service doesn't record the following as auditable actions:
 
 To access Anypoint MQ audit logs:
 
-. Log in to Anypoint Platform.
+. Sign in to Anypoint Platform.
 . Click *Access Management* in the navigation bar or the main Anypoint Platform screen.
 . From the *Access Management* navigation menu, select *Audit Logs*.
 . Select filters and click *Apply filters*:

@@ -20,7 +20,7 @@ For information, see xref:mq-queues.adoc#create-a-queue[Create a Queue].
 
 To create a message exchange:
 
-. Log in to Anypoint Platform.
+. Sign in to Anypoint Platform.
 . Click *MQ* from the navigation menu or the main Anypoint Platform screen.
 . Click *Destinations*.
 . Click the *Add* icon to display the menu:

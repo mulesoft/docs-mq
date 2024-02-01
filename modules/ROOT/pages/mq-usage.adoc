@@ -2,7 +2,7 @@
 
 You can view a chart indicating how much data and how many API requests have been consumed, and how many message units were received.
 
-
+[[api-requests]]
 API requests::
 API requests are used to calculate your monthly quota for billing.
 +
@@ -16,6 +16,13 @@ it bills as a single API request.
 ** If a queue sends a message to a DLQ, the message is not charged against the billable API requests.
 +
 However, if a client sends a message directly to a DLQ, that request is charged.
+
+[NOTE]
+====
+Enabling failover for a queue can result in increased API requests because Anypoint MQ Connector periodically checks the fallback queue for messages to consume. 
+For more information, see
+xref:anypoint-mq-connector::anypoint-mq-failover.adoc#configure-check-frequency[Configure the Frequency of Fallback Queue Checks].
+====
 
 Message units::
 Message units are not used for billing.
@@ -37,7 +44,7 @@ include::partial$mq-faq.adoc[tag=faqUsageOverage]
 
 To view Anypoint MQ usage:
 
-. Log in to Anypoint Platform.
+. Sign in to Anypoint Platform.
 . Click *Access Management* in the navigation bar or the main Anypoint Platform page.
 . Click *MQ* in the *SUBSCRIPTION* section:
 +
