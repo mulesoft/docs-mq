@@ -180,12 +180,12 @@ The fallback queue can't be deleted.
 
 When you disable failover for a queue, apps can still consume any messages that remain in the queue but can't send new messages to the queue.
 
-To process any messages that remain in the fallback queue after disabling failover, see 
-xref:anypoint-mq-connector::anypoint-mq-failover.adoc#consume-directly-fallback[Process Messages Directly from the Fallback Queue].
+IMPORTANT: When you disable failover for a queue, you must restart all applications that consume from or send to the queue.
 
 When you re-enable failover, Anypoint MQ reinstates the same fallback queue.
 
-IMPORTANT: When you disable failover for a queue, you must restart all applications that consume from or send to the queue.
+To process any messages that remain in the fallback queue after disabling failover, see 
+xref:anypoint-mq-connector::anypoint-mq-failover.adoc#consume-directly-fallback[Process Messages Directly from the Fallback Queue].
 
 To disable failover for a queue:
 
