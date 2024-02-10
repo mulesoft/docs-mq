@@ -68,6 +68,8 @@ Each request counts against your monthly
 xref:mq-usage.adoc#api-requests[API request] quota.
 These checks can also cause latency.
 +
+Publishing to or consuming from the fallback queue might be slower than with the primary queue due to the checks and the expected network latency of processing from a queue in a different region.
++
 You can configure how frequently the connector checks the fallback queue. See xref:anypoint-mq-connector::anypoint-mq-failover.adoc#configure-check-frequency[Configure the Frequency of Fallback Queue Checks].
 
 [[before-you-begin]]
