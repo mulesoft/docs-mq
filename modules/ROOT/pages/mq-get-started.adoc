@@ -25,7 +25,7 @@ Anypoint MQ sends the string as a message to the queue or message exchange you s
 == See Also
 
 * xref:mq-tutorial.adoc[Anypoint MQ Tutorial]
-* xref:mq-connectors.adoc[Anypoint MQ Connectors]
+* xref:mq-connectors.adoc[]
 * xref:mq-faq.adoc[Anypoint MQ FAQ]
 * xref:mq-release-notes.adoc[Anypoint MQ Release Notes]
 * xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[Anypoint MQ Audit Logging]

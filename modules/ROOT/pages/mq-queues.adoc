@@ -53,7 +53,7 @@ To create a standard queue or FIFO queue:
 image::mq-blue-create.png["Add icon"]
 . Select *Queue* or *FIFO Queue*.
 +
-For *Exchange*, see xref:mq-exchanges.adoc[Configure Message Exchanges].
+For *Exchange*, see xref:mq-exchanges.adoc[].
 . Complete the fields in *Create Queue* or *Create FIFO Queue*:
 +
 image::mq-create-queues.png["Create Queue popup dialog box"]
@@ -580,5 +580,5 @@ see xref:mq-failover.adoc[].
 == See Also
 
 * xref:mq-faq.adoc[Anypoint MQ FAQ]
-* xref:mq-exchanges.adoc[Configure Message Exchanges]
-* xref:mq-connectors.adoc[Anypoint MQ Connectors]
+* xref:mq-exchanges.adoc[]
+* xref:mq-connectors.adoc[]
