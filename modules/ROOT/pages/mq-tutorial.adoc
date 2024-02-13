@@ -300,7 +300,7 @@ You can now use Anypoint Studio 7 to create a Mule 4 app similar to the app you 
 
 * Install Studio 7. 
 +
-See xref:studio::to-download-and-install-studio.adoc[Downloading and Installing Anypoint Studio].
+See xref:studio::to-download-and-install-studio.adoc[].
 * In Anypoint Platform, change to any environment except Design.
 +
 Ensure that the queue you created in *Anypoint Platform* > *MQ* is also in this environment.
@@ -476,7 +476,7 @@ include::partial$mq-versions.adoc[tag=mqMuleVersion]
 
 * Install Studio 6. 
 +
-See xref:6.5@studio::to-download-and-install-studio.adoc[Download and Install Anypoint Studio].
+See xref:6.5@studio::to-download-and-install-studio.adoc[].
 * In Anypoint Platform, change to any environment except Design.
 +
 Ensure that the queue you created in *Anypoint Platform* > *MQ* is also in this environment.
@@ -617,5 +617,5 @@ http://www.mulesoft.org/schema/mule/anypoint-mq http://www.mulesoft.org/schema/m
 * xref:mq-queues.adoc#create-a-queue[Create a Queue]
 * xref:mq-queues.adoc#delete-a-queue[Delete a Queue]
 * xref:mq-faq.adoc[Anypoint MQ FAQ]
-* xref:mq-connectors.adoc[Anypoint MQ Connectors]
+* xref:mq-connectors.adoc[]
 * https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint MQ Broker API in Anypoint Exchange^]

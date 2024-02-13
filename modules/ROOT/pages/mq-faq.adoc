@@ -43,7 +43,7 @@ Anypoint MQ standard and FIFO queues are available in these regions:
 
 == How do I create and send messages into Anypoint MQ from Mule runtime?
 
-After you obtain an Enterprise subscription and contacted your Account Team to activate Anypoint MQ, you can use Anypoint Platform to create a queue or message exchange, and send messages to it. For more information, see the xref:mq-queues.adoc[Configure Queues] and xref:mq-exchanges.adoc[Configure Message Exchanges].
+After you obtain an Enterprise subscription and contacted your Account Team to activate Anypoint MQ, you can use Anypoint Platform to create a queue or message exchange, and send messages to it. For more information, see the xref:mq-queues.adoc[] and xref:mq-exchanges.adoc[].
 
 == How does Anypoint MQ encrypt messages?
 
@@ -229,7 +229,7 @@ See <<batchsize,Why do I receive fewer messages than my batch size when retrievi
 
 == Can non-Mule applications interface with Anypoint MQ?
 
-If you have non-Mule applications, you can use the xref:mq-apis.adoc[Anypoint MQ REST APIs] to send and receive messages.
+If you have non-Mule applications, you can use the xref:mq-apis.adoc[] to send and receive messages.
 
 == What is the throughput capacity of Anypoint MQ?
 
