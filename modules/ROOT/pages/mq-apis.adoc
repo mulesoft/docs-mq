@@ -8,7 +8,7 @@ Anypoint MQ provides these APIs:
 * <<mqbrokerapi,Anypoint MQ Broker API>>
 * <<mqstatapi,Anypoint MQ Stats API>>
 
-Anypoint MQ portals are available in the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/[Developer portal^].
+Anypoint MQ APIs are available in the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/[Developer portal^].
 
 == Workflow for an API
 
