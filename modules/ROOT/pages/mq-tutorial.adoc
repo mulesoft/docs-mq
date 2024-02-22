@@ -10,9 +10,8 @@ In this tutorial, you:
 +
 include::partial$mq-versions.adoc[tags=mqConnectorVersion]
 include::partial$mq-versions.adoc[tags=mqConnectorVersion3x]
-. Create an app in Design Center, configure Anypoint MQ Connector, and test the connection.
 . Create a Mule 4.x app in Anypoint Studio 7.x, configure Anypoint MQ Connector, and test the connection.
-. Optionally, create a Mule 3.9 app in Anypoint Studio 6, configure Anypoint MQ Connector for Mule 3, and test the connection.
+. Optionally, create a Mule 3.9 app in Anypoint Studio 6.x, configure Anypoint MQ Connector for Mule 3, and test the connection.
 +
 [NOTE]
 include::partial$mq-versions.adoc[tag=mqMuleVersion]
@@ -37,7 +36,7 @@ First, you create a queue, send messages to the queue, verify that the messages 
 To create a queue:
 
 . Sign in to Anypoint Platform and click *MQ* in the navigation menu.
-. If you want to test the queue in Anypoint Studio 7, switch to any environment except Design. 
+. If you want to test the queue in Anypoint Studio 7.x, switch to any environment except Design. 
 +
 For example, click the environment button and select *Production*:
 +
@@ -147,179 +146,38 @@ include::partial$mq-versions.adoc[tags=mqConnectorVersion3x]
 
 include::partial$mq-shared-connect-apps.adoc[tags=!ScopesConnApp]
 
-You have successfully configured a connected app. Next, you create a Mule app in Design Center and connect it to Anypoint MQ.
+You have successfully configured a connected app. Next, you create a Mule app in Anypoint Studio and connect it to Anypoint MQ.
 
-
-[[configure-design-center]]
-== Step 4. Create and Connect a Mule App to Anypoint MQ in Design Center
-
-After you configure the connected app, you use Design Center to configure an app that connects to Anypoint MQ, submit REST API commands to the Anypoint MQ Broker API, and use Anypoint MQ to view the results.
-
-
-=== Before You Begin
-
-* Disable password programs such as LastPass or Okta in your browser before using Design Center.
-+
-If enabled, the password program inserts passwords in fields in Design Center, which can cause the app to fail. 
-* Leave the Anypoint Platform window open so that you can access the destination URL and the ID and secret values for the connected app.
-
-=== Configure an App with Anypoint MQ in Design Center
-
-To configure an app in Design Center:
-
-. In *Anypoint Platform*, click *Design Center* in the navigation menu.
-. Click *Create new* > *New Mule App* to create a new integration flow.
-. In the *New Mule App* window, enter `mqdemo` for the project name and click *Create App*.
-. In the help wizard, click *Go straight to canvas*:
-+
-image::mq-tutorial-dc-goto-canvas.png["Go straight to canvas link"]
-. Click the *Trigger* box and enter `H` to search for the HTTP Listener:
-+
-image::mq-tutorial-dc-http-search.png["Search for the HTTP Listener"]
-. Click *HTTP Listener*.
-. In the *HTTP Listener* window, set the value of *Path* to `/mq/{messageId}` and then click the *Close* icon (image:icon-ds-close.png["Close icon",2.5%,2.5%]):
-+
-image::mq-tutorial-dc-http-path.png["Path value and Close button"]
-+
-[calloutlist]
-.. *Path* field specifies the path to the message ID.
-.. *Close* icon closes the *HTTP Listener* window.
-
-. Click the *Add* icon (image:icon-ds-plus.png["Add icon",2.5%,2.5%]) for the HTTP Listener trigger:
-+
-image::mq-tutorial-dc-plus-icon.png["Add icon"]
-. In the *Select a component* window, enter `anypoint mq` to search for the Anypoint MQ Connector:
-+
-image::mq-tutorial-dc-mq-search.png["Search for the Anypoint MQ Connector"]
-. Click the connector name, and then click the *Publish* operation:
-+
-image::mq-tutorial-dc-publish-select.png["Publish operation"]
-+
-For the other operations:
-+
-* To construct your Mule app to receive a message sent from a queue, use the *Consume* operation. 
-* If your app has tests to determine if message processing succeeded, use the *Ack* operation  
-to acknowledge that a message was received and can be deleted.
-* If message processing failed, use the *Nack* operation to negatively acknowledge the message and return the message to the queue to be accessed again. 
-. In the *Configuration* page, click *Add Connection*.
-. In the *Configure Connection* page, specify `myDemoQueue` in the *Connection Name* field and select *Connection* as the connection type.
-. Return to your *Anypoint Platform* > *MQ* browser window to copy the URL, app ID, and secret values:
-+
-.. Click *Destinations* in the navigation menu.
-.. [[copy-url]] Click *Copy* and select *Connector version 4.x and later* from the menu to copy the URL:
-+
-image::mq-tutorial-url.png["Copy button in the Destinations page"]
-+
-include::partial$mq-versions.adoc[tags=mqConnectorVersion3x]
-.. In the *Configure Connection* page in Design Center, paste the copied URL in the *URL* field.
-.. Return to the <<connected-apps-window,Connected Apps>> window and copy the ID and secret for the connected app.
-.. Paste the ID and secret values to the *Configure Connection* page in Design Center:
-+
---
-image::mq-tutorial-dc-client-id-secret.png["Client App ID field and Client Secret field in the Configure Connection page"]
---
-. Click *Test* to ensure that you have access to your app:
-+
-image::mq-tutorial-dc-test-connection.png["Success box"]
-+
-* If successful, the green *Success* box appears.
-* If unsuccessful, ensure that the URL, ID, and secret values are correct.
-+
-If the URL does not match the URL in *Anypoint Platform* > *MQ*, copy the <<copy-url,URL>> from Anypoint MQ to the Design Center window and click *Test* again.
-
-. Click *Save* twice.
-. In the *Publish Configuration* page, enter `myDemoQueue`.
-+
-This name is the <<create-demo-queue,queue name>> that you created earlier in this tutorial.
-. Click the *Close* icon (image:icon-ds-close.png["Close icon",2.5%,2.5%]) to close the *Publish Configuration* page:
-+
-image::mq-tutorial-dc-mq-close.png["Close icon"]
-. Select *Deploy Application* from the image:icon-ds-v.png["V icon",2.5%,2.5%] menu: 
-+
-image::mq-tutorial-dc-deploy-option.png["Deploy Application menu option in Design Center"]
-. In the *Deploy Mule application* window, select the target environment and application name, and then click *Deploy*.
-+
-After the app deploys successfully, you can click in the *Deployment success* popup to view the app in Runtime Manager.
-
-You have successfully used Design Center to configure an app that connects to Anypoint MQ. Next, you test the connection by submitting REST API commands to the Anypoint MQ Broker API and using Anypoint MQ to view the results.
-
-=== Test Your Design Center App
-
-After you create your app in Design Center, you test your app using a `curl` command to submit a REST API command to the Anypoint MQ Broker API and use Anypoint MQ to view the results.
-
-To test your app:
-
-. In Design Center, click the project type for your app to display the details pane:
-+
-image::mq-tutorial-dc-deploy-url.png["Deployment URL in details pane"]
-. Copy the value of *Deployment url*.
-. Run the following `curl` command from a command prompt to send the `body` value as an Anypoint MQ message. 
-+
-Replace _DEPLOYMENT-URL_ with the deployment URL from Design Center. 
-+
-[source,json,linenums]
-----
-curl -X POST \
-  http://DEPLOYMENT-URL/mq/100 \
-  -H 'content-type: application/json' \
-  -d '[  {   
-    "body": "Welcome to MuleSoft!"
-  }
-]'
-----
-+
-The `100` value in the URL is the message ID value as specified by the `/mq/{messageId}` value in the HTTP Listener, which is the identifier for your message.
-+
-Next, you verify that the message arrived in the queue.
-. Select *Anypoint Platform* > *MQ* > *Destinations*.
-. Click the name of the <<create-demo-queue,`myDemoQueue`>> queue that you created earlier and specified in the *Destination* setting for your app in Design Center.
-. Click *Message Browser* in the navigation menu:
-+
-image::mq-tutorial-get-messages.png["Message Browser in the navigation menu"]
-. Enter `5` for the number of messages to retrieve and `10` for the number of seconds to poll.
-. Click *Get Messages*.
-+
-Anypoint MQ retrieves the messages from the queue and displays them in the Message Browser.
-. Click the message row to view the message payload in the details pane:
-+
-image::mq-tutorial-msg-browser-payload-details.png["Selected message row and the payload in the details pane"]
-+
-[calloutlist]
-.. Selected message.
-.. Message payload in the details pane.
-. Try changing the body text in the `curl` command and repeat the steps to view the message.
-
-You have successfully tested your app using a `curl` command to submit a REST API command to the Anypoint MQ Broker API and using Anypoint MQ to view the results. Next, you create a Mule app in Anypoint Studio 7 and connect it to Anypoint MQ.
 
 [[configure-mule-4-studio]]
-== Step 5. Create and Connect a Mule 4 App to Anypoint MQ in Anypoint Studio 7
+== Step 4. Create and Connect a Mule 4.x App to Anypoint MQ in Anypoint Studio 7.x
 
-You can now use Anypoint Studio 7 to create a Mule 4 app similar to the app you created in Design Center. In Studio 7, you can deploy the app to CloudHub and submit a `curl` command to test the connection. 
+After you configure the connected app, use Anypoint Studio 7.x to configure an app that connects to Anypoint MQ, deploy the app to CloudHub, submit a `curl` command to test the connection, and use Anypoint MQ to view the results.
 
 === Before You Begin
 
-* Install Studio 7. 
+* Install Studio 7.x. 
 +
 See xref:studio::to-download-and-install-studio.adoc[].
 * In Anypoint Platform, change to any environment except Design.
 +
 Ensure that the queue you created in *Anypoint Platform* > *MQ* is also in this environment.
 
-=== Configure an App with Anypoint MQ in Anypoint Studio 7 
+=== Configure an App with Anypoint MQ in Anypoint Studio 7.x
 
-First, use Studio 7 to configure an app that connects to Anypoint MQ:
+First, use Studio 7.x to configure an app that connects to Anypoint MQ:
 
 . Start Studio, click *File* > *New* > *Mule Project*, and then name the project `mq-demo`.
 . Click the *Exchange* icon in the toolbar:
 +
-image::mq-tutorial-studio7-exchange.png["Exchange icon in the Studio 7 toolbar"]
+image::mq-tutorial-studio7-exchange.png["Exchange icon in the Studio 7.x toolbar"]
 . Enter your Anypoint Platform username and password.
 . In Exchange, click the *Provided by MuleSoft* navigation menu, select *Connectors* from the drop-down menu, and then search for Anypoint MQ Connector:
 +
 image::mq-tutorial-exchange.png["Provided by MuleSoft menu, Connectors drop-down menu, and search field in Exchange"]
 . Select *Anypoint MQ Connector - Mule 4*.
 +
-Studio 7 supports Mule 4.
+Studio 7.x supports Mule 4.x.
 . Click *Add to project*:
 +
 image::mq-tutorial-exchange-add-to-project.png["Add to project icon in Exchange"]
@@ -333,7 +191,7 @@ image::mq-tutorial-studio7-palette.png["HTTP Connector and Listener operations i
 .. Listener operation identifies the operation to drag to the Mule Palette.
 . Click *Anypoint MQ* and then drag *Publish* to the *Process* area for the Listener on the canvas:
 +
-image::mq-tutorial-studio7-flow.png["Publish operation in the Studio 7 canvas"]
+image::mq-tutorial-studio7-flow.png["Publish operation in the Studio 7.x canvas"]
 . In the canvas, click *Listener*.
 . In the Listener properties window, set *General* > *Path* to `/mq/{messageId}`:
 +
@@ -374,11 +232,11 @@ image::mq-tutorial-studio7-mq-config.png["URL, Client App ID, and Client Secret 
 +
 image::mq-tutorial-deploy-app.png["Deploy Application button in the Deploying Applications page"]
 
-You have successfully used Studio 7 to configure an app that connects to Anypoint MQ. Next, you test the connection by submitting REST API commands to the Anypoint MQ Broker API and using Anypoint MQ to view the results.
+You have successfully used Studio 7.x to configure an app that connects to Anypoint MQ. Next, you test the connection by submitting REST API commands to the Anypoint MQ Broker API and using Anypoint MQ to view the results.
 
-=== Test Your App
+=== Test Your Mule 4.x App in Studio 7.x
 
-After you create the app in Studio 7, you test your app using a `curl` command to submit a REST API command to the Anypoint MQ Broker API and use Anypoint MQ to view the results.
+After you create the app in Studio 7.x, you test your app using a `curl` command to submit a REST API command to the Anypoint MQ Broker API and use Anypoint MQ to view the results.
 
 To test your app:
 
@@ -405,10 +263,10 @@ curl -X POST \
 The `100` value in the URL is the message ID value as specified by the `/mq/{messageId}` value in the HTTP Listener, which is the identifier for your message.
 +
 If you see a 404 message for `destination not found`, verify that the name of the queue 
-in the Studio 7 *MQ Publish* > *Destination* field matches the name of the queue in *Anypoint Platform* > *MQ*.
+in the Studio 7.x *MQ Publish* > *Destination* field matches the name of the queue in *Anypoint Platform* > *MQ*.
 +
-After making changes, redeploy your Mule app to CloudHub by right-clicking the project in Studio 7 and selecting *Anypoint Platform* > *Deploy to CloudHub*. 
-. In *Anypoint Platform* > *MQ* > *Destinations*, click the name of the <<create-demo-queue,`myDemoQueue`>> queue that you created earlier and specified in the *Destination* setting for your app in Studio 7.
+After making changes, redeploy your Mule app to CloudHub by right-clicking the project in Studio 7.x and selecting *Anypoint Platform* > *Deploy to CloudHub*. 
+. In *Anypoint Platform* > *MQ* > *Destinations*, click the name of the <<create-demo-queue,`myDemoQueue`>> queue that you created earlier and specified in the *Destination* setting for your app in Studio 7.x.
 . Click *Message Browser* in the navigation menu:
 +
 image::mq-tutorial-get-messages.png["Message Browser in the navigation menu"]
@@ -425,13 +283,9 @@ image::mq-tutorial-msg-browser-payload-details.png["Selected message row and the
 .. Message payload in the details pane.
 . Try changing the body text in the `curl` command and repeat the steps to view the message.
 
-You can now configure Anypoint MQ in Studio 7, submit REST API commands to the Anypoint MQ Broker API, 
-and use Anypoint MQ to view the results.
+=== Example App XML for Studio 7.x
 
-
-=== Studio 7 XML
-
-You can use this XML to create the `mq-demo` app in Studio 7.
+You can use this XML to create the `mq-demo` app in Studio 7.x.
 
 Click *Configuration XML* tab in Studio and compare your XML to the following. Make corrections if needed.
 
@@ -462,21 +316,21 @@ http://www.mulesoft.org/schema/mule/anypoint-mq http://www.mulesoft.org/schema/m
 
 
 [[configure-mule-3-studio]]
-== Step 6. Create and Connect a Mule 3.9 App to Anypoint MQ in Anypoint Studio 6
+== Step 5. Create and Connect a Mule 3.9 App to Anypoint MQ in Anypoint Studio 6.x
 
-If you use Mule 3.9, you can use Anypoint Studio 6 to create a Mule 3.9 app similar to the app you created in Design Center.
-In Studio 6, you can deploy the app to CloudHub and submit a `curl` command to test the connection. 
+If you use Mule 3.9, you can use Anypoint Studio 6.x to create a Mule 3.9 app similar to the app you created in Studio 7.x.
+In Studio 6.x, you can deploy the app to CloudHub and submit a `curl` command to test the connection. 
 
-This section applies only to Anypoint Studio 6 and Mule 3.9. For Studio 7, see <<configure-mule-4-studio, Create and Connect a Mule 4 App to Anypoint MQ in Anypoint Studio 7>>.
+This section applies only to Anypoint Studio 6.x and Mule 3.9. For Studio 7.x, see <<configure-mule-4-studio, Create and Connect a Mule 4.x App to Anypoint MQ in Anypoint Studio 7.x>>.
 
 [NOTE]
 include::partial$mq-versions.adoc[tag=mqMuleVersion]
 
 === Before You Begin
 
-* Install Studio 6. 
+* Install Studio 6.x. 
 +
-See xref:6.5@studio::to-download-and-install-studio.adoc[].
+See xref:6.x@studio::to-download-and-install-studio.adoc[].
 * In Anypoint Platform, change to any environment except Design.
 +
 Ensure that the queue you created in *Anypoint Platform* > *MQ* is also in this environment.
@@ -488,9 +342,9 @@ See xref:mq-client-apps.adoc[].
 +
 Keep the *Client Apps* window open so you can copy the client app ID and client secret in a later step.
 
-=== Configure a Mule 3.9 App with Anypoint MQ in Anypoint Studio 6
+=== Configure a Mule 3.9 App with Anypoint MQ in Anypoint Studio 6.x
 
-To configure a Mule 3.9 app in Studio 6:
+To configure a Mule 3.9 app in Studio 6.x:
 
 . Start Studio, click *File* > *New* > *Mule Project*, name the project `mq-demo-studio-6`, and then click *Finish*.
 . Install the Anypoint MQ Connector:
@@ -503,7 +357,7 @@ image::mq-tutorial-studio6-exchange.png["Exchange icon in the Studio 6 toolbar"]
 image::mq-tutorial-exchange.png["Provided by MuleSoft menu, Connectors drop-down menu, and search field in Exchange"]
 .. Select *Anypoint MQ Connector - Mule 3*.
 +
-Studio 6 supports Mule 3.9.
+Studio 6.x supports Mule 3.9.
 .. Click *Install*:
 +
 image::mq-tutorial-exchange-install.png["Install icon on the Exchange page"]
@@ -518,7 +372,7 @@ image::mq-tutorial-studio6-palette.png["HTTP Connector in Mule Palette"]
 .. Search for `mq`, and then drag *Anypoint MQ* to the canvas for *Set Payload*.
 .. Search for `logger`, and then drag *Logger*  to the canvas for *Anypoint MQ*.
 +
-image::mq-tutorial-studio6-flow-complete.png["Flow in Studio 6 Canvas"]
+image::mq-tutorial-studio6-flow-complete.png["Flow in Studio 6.x Canvas"]
 . In the canvas, click *HTTP*.
 . In the HTTP properties window, set *General* > *Path* to `/mq/{messageId}`:
 +
@@ -546,7 +400,7 @@ image::mq-tutorial-studio6-set-payload-props.png["Payload in the Value field"]
 +
 image::mq-tutorial-url.png["Copy button in the Destinations page"]
 +
-Use Anypoint MQ Connector version 3.x with Mule 3.9 and Studio 6. 
+Use Anypoint MQ Connector version 3.x with Mule 3.9 and Studio 6.x. 
 .. In Studio, in the *Anypoint MQ Configuration* window, paste the URL in the *URL* field.
 .. In *Anypoint Platform > MQ*, click *Client Apps* and copy the client app ID and client secret for the app.
 .. In Studio, paste the client app ID and client secret values to the *Anypoint MQ Configuration* window:
@@ -571,16 +425,16 @@ image::mq-tutorial-studio6-logger-props.png["Message payload in Logger propertie
 +
 image::mq-tutorial-deploy-app.png["Deploy Application button on the Deploying Applications page"]
 
-You have successfully used Studio 6 to configure a Mule 3.9 app that connects to Anypoint MQ. Next, you test the connection by submitting REST API commands to the Anypoint MQ Broker API and using Anypoint MQ to view the results.
+You have successfully used Studio 6.x to configure a Mule 3.9 app that connects to Anypoint MQ. Next, you test the connection by submitting REST API commands to the Anypoint MQ Broker API and using Anypoint MQ to view the results.
 
 
-=== Test Your Mule 3.9 App in Studio 6
+=== Test Your Mule 3.9 App in Studio 6.x
 
 To test your Mule 3.9 app, follow the steps in <<Test Your App>> to use a `curl` command to submit a REST API command to the Anypoint MQ Broker API and use Anypoint MQ to view the results.
 
 
 
-=== Studio 6 XML
+=== Example App XML for Studio 6.x
 
 After you configure your app using the Anypoint MQ Connector, you can check your configuration against this XML.
 
