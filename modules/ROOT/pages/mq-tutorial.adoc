@@ -4,14 +4,14 @@ Use this tutorial to get started with using Anypoint MQ to send messages to and 
 
 In this tutorial, you:
 
-. Create a queue in Anypoint MQ.
-. Send messages to the queue, verify that they arrived, and view the message payload.
-. Configure a connected app and use the ID and secret to configure Anypoint Connector for MQ (Anypoint MQ Connector) version 4.x.
+. <<create-queue,Create a queue>> in Anypoint MQ.
+. <<send-messages,Send messages to the queue>>, verify that they arrived, and view the message payload.
+. <<configure-connected-app,Configure a connected app>> and use the ID and secret to configure Anypoint Connector for MQ (Anypoint MQ Connector) version 4.x.
 +
 include::partial$mq-versions.adoc[tags=mqConnectorVersion]
 include::partial$mq-versions.adoc[tags=mqConnectorVersion3x]
-. Create a Mule 4.x app in Anypoint Studio 7.x, configure Anypoint MQ Connector, and test the connection.
-. Optionally, create a Mule 3.9 app in Anypoint Studio 6.x, configure Anypoint MQ Connector for Mule 3, and test the connection.
+. <<configure-mule-4-studio,Create a Mule 4.x app in Anypoint Studio 7.x>>, configure Anypoint MQ Connector, and test the connection.
+. Optionally <<configure-mule-3-studio,create a Mule 3.9 app in Anypoint Studio 6.x>>, configure Anypoint MQ Connector for Mule 3, and test the connection.
 +
 [NOTE]
 include::partial$mq-versions.adoc[tag=mqMuleVersion]
@@ -29,6 +29,7 @@ Contact the MuleSoft Sales team to get a free trial.
 +
 This tutorial uses the HTTP Listener trigger to initiate Anypoint MQ Connector access and a `curl` command to submit REST API commands to the Anypoint MQ Broker API.
 
+[[create-queue]]
 == Step 1. Create a Queue
 
 First, you create a queue, send messages to the queue, verify that the messages arrived, and view the message payload.
@@ -70,6 +71,7 @@ image::mq-tutorial-queue-details.png["Destinations page with the new queue"]
 
 You have successfully created a queue. Next, you send messages to the queue, verify that the messages arrived, and view the message payload.
 
+[[send-messages]]
 == Step 2. Send Messages to a Queue and Verify That They Arrived
 
 After you create the queue, you test the queue sending messages to it, validating that the messages arrived in the queue, and retrieving them from the queue.
