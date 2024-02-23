@@ -69,7 +69,6 @@ For information, see xref:mq-queues.adoc#create-a-queue[Create a Queue].
 Anypoint MQ creates the queue in the *Destinations* page:
 +
 image::mq-tutorial-queue-details.png["Destinations page with the new queue"]
-// I think this screenshot is OK
 
 You have successfully created a queue. Next, you send messages to the queue, verify that the messages arrived, and view the message payload.
 
@@ -475,7 +474,8 @@ http://www.mulesoft.org/schema/mule/anypoint-mq http://www.mulesoft.org/schema/m
 == See Also
 
 * xref:mq-queues.adoc#create-a-queue[Create a Queue]
-* xref:mq-queues.adoc#delete-a-queue[Delete a Queue]
-* xref:mq-faq.adoc[Anypoint MQ FAQ]
-* xref:mq-connectors.adoc[]
-* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint MQ Broker API in Anypoint Exchange^]
+* xref:studio::index.adoc[]
+* xref:6.x@studio::index.adoc[]
+* xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.x for Mule 4]
+* xref:3.9@mule-runtime::anypoint-mq-connector.adoc[Anypoint MQ Connector for Mule 3]
+* xref:runtime-manager::deploying-to-cloudhub.adoc[]
