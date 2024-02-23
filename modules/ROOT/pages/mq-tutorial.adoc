@@ -474,8 +474,8 @@ http://www.mulesoft.org/schema/mule/anypoint-mq http://www.mulesoft.org/schema/m
 == See Also
 
 * xref:mq-queues.adoc#create-a-queue[Create a Queue]
-* xref:studio::index.adoc[]
-* xref:6.x@studio::index.adoc[]
+* xref:studio::index.adoc[Anypoint Studio 7.x]
+* xref:6.x@studio::index.adoc[Anypoint Studio 6.x]
 * xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.x for Mule 4]
 * xref:3.9@mule-runtime::anypoint-mq-connector.adoc[Anypoint MQ Connector for Mule 3]
 * xref:runtime-manager::deploying-to-cloudhub.adoc[]
