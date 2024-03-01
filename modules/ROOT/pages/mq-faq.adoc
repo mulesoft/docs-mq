@@ -134,7 +134,10 @@ If you need a messaging source on-premises, you can use Apache Active MQ instead
 
 Within each region, Anypoint MQ services deploy to multiple availability zones (AZs) to provide high availability (HA). If service in one availability zone goes down, the Anypoint MQ service operates normally in that region. If all availability zones go down in a region, the Anypoint MQ service is unavailable in that region until at least one of the availability zones comes back up. Because the storage solution for Anypoint MQ is durable, messages that were already in the Anypoint MQ system before service was interrupted are retained.
 
-Anypoint MQ does not have built-in support for duplicating messages or queues across regions.
+Anypoint MQ also provides xref:mq-failover.adoc[cross-region failover] for standard queues.
+When you enable failover for a queue, Anypoint MQ automatically creates a fallback queue in a xref:mq-failover.adoc#primary-fallback-regions[fallback region].
+If a Mule app can't reach an Anypoint MQ server in a region,
+it switches to the fallback queue to publish and consume messages.
 
 == Can I use a retry strategy with the Anypoint MQ connector?
 
