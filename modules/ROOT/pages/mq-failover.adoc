@@ -2,7 +2,7 @@
 
 include::reuse::partial$feature-unsupported-banner.adoc[tag="unsupported-feature"]
 
-Anypoint Connector for Anypoint MQ (Anypoint MQ Connector) for Mule 4 version 4.0.5 provides failover capability for standard queues.
+Anypoint Connector for Anypoint MQ (Anypoint MQ Connector) for Mule 4 version 4.0.7 provides failover capability for standard queues.
 
 When you enable failover for a queue, Anypoint MQ automatically creates a fallback queue in a <<primary-fallback-regions,fallback region>>.
 If a Mule app can't reach an Anypoint MQ server in a region,
@@ -37,7 +37,7 @@ When you disable failover for a queue, apps can still consume any messages that 
 +
 For information about enabling this feature in your app, see 
 xref:anypoint-mq-connector::anypoint-mq-failover.adoc#enable-failover-feature[Enable Failover in Your App].
-** Failover support requires Anypoint MQ Connector 4.0.5 or later.
+** Failover support requires Anypoint MQ Connector 4.0.7 or later.
 // +
 // xref to upgrade steps?
 ** Failover is supported for standard queues only.
@@ -79,7 +79,7 @@ You can configure how frequently the connector checks the fallback queue. See xr
 
 To use failover, you must first:
 
-* Upgrade to xref:anypoint-mq-connector::anypoint-mq-failover.adoc[Anypoint MQ Connector 4.0.5] or later.
+* Upgrade to xref:anypoint-mq-connector::anypoint-mq-failover.adoc[Anypoint MQ Connector 4.0.7] or later.
 * Enable the failover feature in your app.
 +
 For information, see xref:anypoint-mq-connector::anypoint-mq-failover.adoc#enable-failover-feature[Enable Failover in Your App].
