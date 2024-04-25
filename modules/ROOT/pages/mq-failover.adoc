@@ -79,7 +79,9 @@ You can configure how frequently the connector checks the fallback queue. See xr
 
 To use failover, you must first:
 
-* Upgrade to xref:anypoint-mq-connector::anypoint-mq-connector-upgrade-migrate.adoc[Anypoint MQ Connector 4.0.7] or later.
+* Upgrade Anypoint MQ Connector to 4.0.7 or later.
++
+For information, see xref:anypoint-mq-connector::anypoint-mq-connector-upgrade-migrate.adoc[].
 * Enable the failover feature in your app.
 +
 For information, see xref:anypoint-mq-connector::anypoint-mq-failover.adoc#enable-failover-feature[Enable Failover in Your App].
