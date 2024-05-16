@@ -444,9 +444,9 @@ curl -X PUT "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORG
 -H "Content-Type: application/json" \
 -H "Authorization: bearer BEARER_TOKEN" \
 -H "Cache-Control: no-cache" \
--d '{ \
+-d '{
   "properties": {
-    "itemCategory": "premium",
+    "itemCategory": "premium"
   },
   "headers": {
     "itemSize": "large"
