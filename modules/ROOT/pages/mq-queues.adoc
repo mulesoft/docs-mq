@@ -76,7 +76,7 @@ The lock makes the message unavailable to other apps while locked, but does not 
 The maximum acknowledgement timeout is 12 hours.
 ** *Assign Default Delivery Delay* specifies how long to delay delivery for messages sent to the queue.
 +
-The minimum delivery delay for a message is 0 seconds. The maximum is 15 minutes. When you send a message, you can override the default delivery delay. See xref:index.adoc#delay_queues[Delay queues].
+The minimum delivery delay for a message is 0 seconds. The maximum is 15 minutes. When you send a message, you can override the default delivery delay. See xref:mq-glossary.adoc#delay-queues[Delay queues].
 ** *Encryption* encrypts all messages in the queue.
 +
 See xref:index.adoc#encrypt_queue[Encrypted queues].

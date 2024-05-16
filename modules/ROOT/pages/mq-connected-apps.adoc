@@ -29,8 +29,8 @@ include::partial$mq-client-id-secret.adoc[tag=mqClientIdSecret]
 +
 For more information, see xref:mq-tutorial.adoc#configure-mule-4-studio[Create and Connect a Mule 4 App to Anypoint MQ in Anypoint Studio 7] in the Anypoint MQ tutorial.
 
-For information about getting the access token for connected apps, see
-xref:access-management::connected-apps-developers.adoc#oidc-endpoints-and-tokens[OIDC Endpoints and Tokens].
+For information about getting the access token for connected apps, see the
+https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/minor/1.0/pages/Connected%20App%20Examples/[Connected App Examples] in the Access Management API.
 
 include::partial$mq-connect-apps.adoc[tag=mqConnAppEndpointSupport]
 

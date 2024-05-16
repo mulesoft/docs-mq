@@ -49,7 +49,7 @@ The `curl` command for each is explained in the API sections.
 To use a connected app with the Anypoint MQ REST APIs, see:
 
 ** xref:mq-connected-apps.adoc[] to create the connected app.
-** xref:access-management::connected-apps-developers.adoc#oidc-endpoints-and-tokens[OIDC Endpoints and Tokens] to get the access token.
+** https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/minor/1.0/pages/Connected%20App%20Examples/[Connected App Examples] in the Access Management API to get the access token.
 
 [NOTE]
 include::partial$mq-connect-apps.adoc[tag=mqConnAppEndpointSupport]
@@ -353,7 +353,7 @@ The response doesn't include `fallbackConfig` because exchanges don't support fa
 The  
 https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint MQ Broker API^] enables clients to publish, consume, route, and acknowledge messages from queues and message exchanges.
 
-You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ. See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[MQ Audit Logging].
+You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ. See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[Anypoint MQ Audit Logging].
 
 These examples use the Anypoint MQ Broker API to publish and consume messages and to test Anypoint MQ from the command line using `curl`.
 
