@@ -6,8 +6,8 @@ For example, if the primary queue name is `myDemoQueue`, the fallback queue name
 
 // Fallback queues aren't configurable by end users
 // tag::fallbackQnotConfig[]
-The Anypoint MQ server manages fallback queues and regions;
-end users can't configure them.
+The Anypoint MQ server manages fallback queues; end users can't configure them.
+With Anypoint MQ Connector version 4.0.9, you can specify a custom fallback region for a queue.
 // end::fallbackQnotConfig[]
 
 // Fallback queues inherit settings from primary queue
