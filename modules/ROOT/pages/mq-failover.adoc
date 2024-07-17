@@ -1,8 +1,11 @@
 = Configuring Cross-Region Failover for Standard Queues
 
-Anypoint Connector for Anypoint MQ (Anypoint MQ Connector) for Mule 4 version 4.0.7 provides failover capability for standard queues.
+You can configure failover by specifying a fallback region for standard queues using Anypoint Connector for Anypoint MQ (Anypoint MQ Connector) for Mule 4 version 4.0.9 and later.
 
-When you enable failover for a queue, Anypoint MQ automatically creates a fallback queue in a <<primary-fallback-regions,fallback region>>.
+* To use the failover feature with the default region, use connector version 4.0.7 or later.
+* To configure a specific failover region, use connector version 4.0.9 or later.
+
+When you enable failover for a queue, Anypoint MQ automatically creates a fallback queue in a default or custom <<primary-fallback-regions,fallback region>>.
 If a Mule app can't reach an Anypoint MQ server in a region,
 it switches to the fallback queue to publish and consume messages.
 For information about situations that can cause a region to be considered unavailable, see <<region-unavailability>>.
@@ -36,6 +39,7 @@ When you disable failover for a queue, apps can still consume any messages that 
 For information about enabling this feature in your app, see 
 xref:anypoint-mq-connector::anypoint-mq-failover.adoc#enable-failover-feature[Enable Failover in Your App].
 ** Failover support requires Anypoint MQ Connector 4.0.7 or later.
+** Custom fallback region support requires Anypoint MQ Connector 4.0.9 or later.
 // +
 // xref to upgrade steps?
 ** Failover is supported for standard queues only.
@@ -48,9 +52,10 @@ xref:anypoint-mq-connector::anypoint-mq-failover.adoc#enable-failover-feature[En
 +
 If failover is enabled for queues in those regions and the primary region goes down,
 data resides in a region outside the country until the primary region is available.
+To change the fallback region, upgrade to Anypoint MQ Connector 4.0.9 or later.
 --
 +
-For the list of fallback regions, see <<primary-fallback-regions>>.
+For the list of default fallback regions, see <<primary-fallback-regions>>.
 * Authentication
 +
 If access management is unavailable when the connector switches to the fallback region,
@@ -77,7 +82,7 @@ You can configure how frequently the connector checks the fallback queue. See xr
 
 To use failover, you must first:
 
-* Upgrade Anypoint MQ Connector to 4.0.7 or later.
+* Upgrade Anypoint MQ Connector to 4.0.7 or later (default fallback region) or 4.0.9 or later (custom fallback region).
 +
 For information, see xref:anypoint-mq-connector::anypoint-mq-connector-upgrade-migrate.adoc[].
 * Enable the failover feature in your app.
@@ -210,7 +215,14 @@ image::mq-queue-details-primary-queue-fallback-disabled.png["Details pane for th
 
 
 [[primary-fallback-regions]]
-== Primary-Fallback Regions
+== Default Primary-Fallback Regions
+
+By default, Anypoint MQ Connector uses the default primary-fallback region pairings.
+
+With version 4.0.9 and later of the connector, you can specify the fallback region, for example,
+to prevent data from residing in a different country for compliance reasons.
+
+IMPORTANT: To minimize latency, use the default fallback region.
 
 [%header,cols="8,12,12,12,12"]
 |===
