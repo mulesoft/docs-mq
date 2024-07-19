@@ -23,3 +23,9 @@ syncing the queue configuration.
 If the primary queue has an assigned dead-letter queue (DLQ),
 you must enable failover for the DLQ before enabling failover for the primary queue.
 // end::fallbackDLQ[]
+
+// Change fallback region
+// tag::changeFallbackRegion[]
+You can't change a custom fallback region after you create the queue.
+To change the region, delete the queue and select a new region.
+// end::changeFallbackRegion[]

@@ -5,6 +5,7 @@ You can configure failover by specifying a fallback region for standard queues u
 * To use the failover feature with the default region, use connector version 4.0.7 or later.
 * To configure a specific failover region, use connector version 4.0.9 or later.
 
+
 When you enable failover for a queue, Anypoint MQ automatically creates a fallback queue in a default or custom <<primary-fallback-regions,fallback region>>.
 If a Mule app can't reach an Anypoint MQ server in a region,
 it switches to the fallback queue to publish and consume messages.
@@ -40,6 +41,8 @@ For information about enabling this feature in your app, see
 xref:anypoint-mq-connector::anypoint-mq-failover.adoc#enable-failover-feature[Enable Failover in Your App].
 ** Failover support requires Anypoint MQ Connector 4.0.7 or later.
 ** Custom fallback region support requires Anypoint MQ Connector 4.0.9 or later.
++
+include::partial$mq-failover.adoc[tag=changeFallbackRegion]
 // +
 // xref to upgrade steps?
 ** Failover is supported for standard queues only.
@@ -123,6 +126,13 @@ For information about queue settings, see xref:mq-queues.adoc#create-a-queue[Cre
 +
 image::mq-create-queues-failover.png["Create Queue popup dialog box with failover option selected"]
 // added screenshot
+.. Select the fallback region.
++
+If you are using an Anypoint MQ Connector version earlier 4.0.9, 
+leave the fallback region set at the default.
++
+[NOTE]
+include::partial$mq-failover.adoc[tag=changeFallbackRegion]
 .. Click *Create Queue*.
 + 
 Anypoint MQ creates the queue and also creates a fallback queue in the fallback region.
@@ -142,6 +152,9 @@ Anypoint MQ supports failover for standard queues only.
 +
 image::mq-queue-settings-failover.png["Queue Settings page with failover option selected"]
 // added screenshot
++
+[NOTE]
+include::partial$mq-failover.adoc[tag=changeFallbackRegion]
 
 .. Click *Save Changes*.
 +
@@ -245,11 +258,11 @@ IMPORTANT: To minimize latency, use the default fallback region.
 [[region-note-unavailable]]
 ^***^ {empty}
 Because Anypoint MQ is available in only one region in this country, 
-the fallback region is not in the same country as the primary region.
+the default fallback region is not in the same country as the primary region.
 
 [[region-note]]
 ^****^ {empty}
-The fallback region for this region is not in the same country as the primary region.
+The default fallback region for this region is not in the same country as the primary region.
 
 [[region-unavailability]]
 == Region Unavailability
