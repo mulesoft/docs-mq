@@ -126,6 +126,7 @@ For information about queue settings, see xref:mq-queues.adoc#create-a-queue[Cre
 +
 image::mq-create-queues-failover.png["Create Queue popup dialog box with failover option selected"]
 // added screenshot
+////
 .. Select the fallback region.
 +
 If you are using an Anypoint MQ Connector version earlier 4.0.9, 
@@ -133,6 +134,7 @@ leave the fallback region set at the default.
 +
 [NOTE]
 include::partial$mq-failover.adoc[tag=changeFallbackRegion]
+////
 .. Click *Create Queue*.
 + 
 Anypoint MQ creates the queue and also creates a fallback queue in the fallback region.
@@ -163,7 +165,7 @@ Anypoint MQ updates the queue settings and creates a fallback queue in the fallb
 include::partial$mq-failover.adoc[tag=fallbackQname]
 +
 // Fallback queue/region not configurable
-include::partial$mq-failover.adoc[tag=fallbackQnotConfig]
+// include::partial$mq-failover.adoc[tag=fallbackQnotConfig]
 +
 If you previously enabled failover for the queue, the fallback queue already exists and is reinstated.
 .. Restart all applications consuming from or publishing to the queue.
