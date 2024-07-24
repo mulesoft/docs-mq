@@ -84,6 +84,11 @@ A queue that Anypoint MQ automatically creates in a fallback region when failove
 // Fallback queues aren't configurable by end users
 include::partial$mq-failover.adoc[tag=fallbackQnotConfig]
 +
+// Specify custom fallback region
+include::partial$mq-failover.adoc[tag=fallbackRegionCustom]
+// Can't change fallback region
+include::partial$mq-failover.adoc[tag=changeFallbackRegion]
++
 For information, see xref:mq-failover.adoc[].
 
 [[fallback-region]]
@@ -91,6 +96,11 @@ Fallback Region::
 A region that Anypoint MQ automatically assigns to a fallback queue when failover is enabled for a standard queue.
 // Fallback queues aren't configurable by end users
 include::partial$mq-failover.adoc[tag=fallbackQnotConfig]
++
+// Specify custom fallback region
+include::partial$mq-failover.adoc[tag=fallbackRegionCustom]
+// Can't change fallback region
+include::partial$mq-failover.adoc[tag=changeFallbackRegion]
 +
 For information, see xref:mq-failover.adoc[].
 

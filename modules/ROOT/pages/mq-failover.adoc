@@ -42,6 +42,7 @@ xref:anypoint-mq-connector::anypoint-mq-failover.adoc#enable-failover-feature[En
 ** Failover support requires Anypoint MQ Connector 4.0.7 or later.
 ** Custom fallback region support requires Anypoint MQ Connector 4.0.9 or later.
 +
+// Can't change fallback region
 include::partial$mq-failover.adoc[tag=changeFallbackRegion]
 // +
 // xref to upgrade steps?
@@ -126,23 +127,21 @@ For information about queue settings, see xref:mq-queues.adoc#create-a-queue[Cre
 +
 image::mq-create-queues-failover.png["Create Queue popup dialog box with failover option selected"]
 // added screenshot
-////
-.. Select the fallback region.
-+
-If you are using an Anypoint MQ Connector version earlier 4.0.9, 
-leave the fallback region set at the default.
-+
-[NOTE]
-include::partial$mq-failover.adoc[tag=changeFallbackRegion]
-////
+// .. Select the fallback region.
+// +
+// If you are using an Anypoint MQ Connector version earlier 4.0.9, 
+// leave the fallback region set at the default.
+// +
+// [NOTE]
+// include::partial$mq-failover.adoc[tag=changeFallbackRegion]
 .. Click *Create Queue*.
 + 
 Anypoint MQ creates the queue and also creates a fallback queue in the fallback region.
 // Fallback queue naming
 include::partial$mq-failover.adoc[tag=fallbackQname]
-+
-// Fallback queue/region not configurable
-include::partial$mq-failover.adoc[tag=fallbackQnotConfig]
+// +
+// Fallback queues aren't configurable by end users
+// include::partial$mq-failover.adoc[tag=fallbackQnotConfig]
 Modify an existing queue::
 +
 --
@@ -153,7 +152,6 @@ Anypoint MQ supports failover for standard queues only.
 .. In the *Queue Settings* page, select *Enable Cross-Region Failover*:
 +
 image::mq-queue-settings-failover.png["Queue Settings page with failover option selected"]
-// added screenshot
 +
 [NOTE]
 include::partial$mq-failover.adoc[tag=changeFallbackRegion]
@@ -163,9 +161,13 @@ include::partial$mq-failover.adoc[tag=changeFallbackRegion]
 Anypoint MQ updates the queue settings and creates a fallback queue in the fallback region.
 // Fallback queue naming
 include::partial$mq-failover.adoc[tag=fallbackQname]
-+
-// Fallback queue/region not configurable
+// +
+// Fallback queues aren't configurable by end users
 // include::partial$mq-failover.adoc[tag=fallbackQnotConfig]
+// Specify custom fallback region
+// include::partial$mq-failover.adoc[tag=fallbackRegionCustom]
+// Can't change fallback region
+// include::partial$mq-failover.adoc[tag=changeFallbackRegion]
 +
 If you previously enabled failover for the queue, the fallback queue already exists and is reinstated.
 .. Restart all applications consuming from or publishing to the queue.

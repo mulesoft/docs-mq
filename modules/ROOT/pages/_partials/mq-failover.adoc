@@ -7,8 +7,18 @@ For example, if the primary queue name is `myDemoQueue`, the fallback queue name
 // Fallback queues aren't configurable by end users
 // tag::fallbackQnotConfig[]
 The Anypoint MQ server manages fallback queues; end users can't configure them.
-With Anypoint MQ Connector version 4.0.9, you can specify a custom fallback region for a queue.
 // end::fallbackQnotConfig[]
+
+// Specify custom fallback region
+// tag::fallbackRegionCustom[]
+With Anypoint MQ Connector version 4.0.9, you can specify a custom fallback region for a queue.
+// end::fallbackRegionCustom[]
+
+// Change fallback region
+// tag::changeFallbackRegion[]
+You can't change a custom fallback region after you create the queue.
+To change the region, delete the queue and select a new region.
+// end::changeFallbackRegion[]
 
 // Fallback queues inherit settings from primary queue
 // tag::fallbackQsync[]
@@ -24,8 +34,4 @@ If the primary queue has an assigned dead-letter queue (DLQ),
 you must enable failover for the DLQ before enabling failover for the primary queue.
 // end::fallbackDLQ[]
 
-// Change fallback region
-// tag::changeFallbackRegion[]
-You can't change a custom fallback region after you create the queue.
-To change the region, delete the queue and select a new region.
-// end::changeFallbackRegion[]
+
