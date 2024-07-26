@@ -9,6 +9,9 @@ API requests are used to calculate your monthly quota for billing.
 ** Every API call (via the connector or API) to Anypoint MQ counts as one API request.
 +
 include::partial$mq-faq.adoc[tag=apiRequests]
++
+include::partial$mq-faq.adoc[tag=apiStatsRequests]
++
 ** You can retrieve up to 10 messages from a single API call, which only bills as one request.
 +
 Even if the request to retrieve messages does not return a message (for example, if the queue is empty),
@@ -75,6 +78,9 @@ To use the Anypoint MQ Stats API to retrieve usage metrics, see:
 
 * xref:mq-apis.adoc#usage-by-env[Get Usage Metrics by Environment]
 * xref:mq-apis.adoc#usage-by-org[Get Usage Metrics by Organization]
+
+[NOTE]
+include::partial$mq-faq.adoc[tag=apiStatsRequests]
 
 == See Also
 
