@@ -11,7 +11,7 @@ The Anypoint MQ server manages fallback queues; end users can't configure them.
 
 // Specify custom fallback region
 // tag::fallbackRegionCustom[]
-With Anypoint MQ Connector version 4.0.9, you can specify a custom fallback region for a queue.
+With Anypoint MQ Connector version 4.0.10, you can specify a custom fallback region for a queue.
 // end::fallbackRegionCustom[]
 
 // Change fallback region
