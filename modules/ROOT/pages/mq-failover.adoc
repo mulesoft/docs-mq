@@ -56,7 +56,8 @@ include::partial$mq-failover.adoc[tag=changeFallbackRegion]
 +
 If failover is enabled for queues in those regions and the primary region goes down,
 data resides in a region outside the country until the primary region is available.
-To change the fallback region, upgrade to Anypoint MQ Connector 4.0.10 or later.
++
+To specify a custom fallback region when enabling failover, upgrade to Anypoint MQ Connector 4.0.10 or later.
 --
 +
 For the list of default fallback regions, see <<primary-fallback-regions>>.
