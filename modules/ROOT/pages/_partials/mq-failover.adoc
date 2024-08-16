@@ -16,7 +16,7 @@ With Anypoint MQ Connector version 4.0.10, you can specify a custom fallback reg
 
 // Change fallback region
 // tag::changeFallbackRegion[]
-After you assign a fallback queue, you can't change the fallback region for the fallback queue.
+After Anypoint MQ assigns a fallback queue to a primary queue, you can't change the fallback region for the fallback queue.
 To specify a different region for the fallback queue, delete the primary queue.
 Then, create a new primary queue and choose a new fallback region.
 // end::changeFallbackRegion[]
