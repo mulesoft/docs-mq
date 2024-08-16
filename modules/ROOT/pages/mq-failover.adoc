@@ -236,7 +236,7 @@ image::mq-queue-details-primary-queue-fallback-disabled.png["Details pane for th
 With version 4.0.10 and later of the connector, 
 you can specify the fallback region when you enable failover, for example, to prevent data from residing in a different country for compliance reasons.
 
-Use the Anypoint MQ Admin API to specify one of the following custom fallback regions for the `us-west-2` region: `us-east-1`, `us-east-2`, or `ca-central-1` (default).
+Use the `fallbackRegion` property in the Anypoint MQ Admin API to specify one of the following custom fallback regions for the `us-west-2` region: `us-east-1`, `us-east-2`, or `ca-central-1` (default).
 
 To specify the custom fallback region when enabling failover,
 use a `curl` command like the following:
@@ -260,6 +260,8 @@ curl --location --request PUT 'https://anypoint.mulesoft.com/mq/admin/api/v1/org
 ** `us-east-1`
 ** `us-east-2`
 ** `ca-central-1` (default)
+
+For more information, see https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/minor/1.0/console/method/%23599/[Anypoint MQ Admin API].
 
 === Custom Fallback Regions and Fallback Queue Names
 
