@@ -230,14 +230,57 @@ The primary queue details shows that failover is disabled:
 image::mq-queue-details-primary-queue-fallback-disabled.png["Details pane for the primary queue with the fallback queue and failover status"]
 . Restart all applications consuming from or publishing to the queue.
 
+[[assign-custom-fb-region-api]]
+== Assign a Custom Fallback Region Using the API
+
+With version 4.0.10 and later of the connector, 
+you can specify the fallback region when you enable failover, for example, to prevent data from residing in a different country for compliance reasons.
+
+Use the Anypoint MQ Admin API to specify one of the following custom fallback regions for the `us-west-2` region: `us-east-1`, `us-east-2`, or `ca-central-1` (default).
+
+To specify the custom fallback region when enabling failover,
+use a `curl` command like the following:
+
+[source,bash]
+----
+curl --location --request PUT 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/\
+{organization-id}/environments/{environment-id}/regions/{region-id}/destinations/queues/\
+{destination-id}/fallback' \
+--header 'Authorization: Bearer {auth-token}' \
+--header 'Content-Type: application/json' \
+--data '{
+    "fallbackEnabled": true,
+    "fallbackRegion": "us-east-1"
+}'
+----
+
+* The value of `fallbackRegion` can be the default region or a custom region.
+* The custom `fallbackRegion` option is available for the `us-west-2` region only.
+* You can set `fallbackRegion` to any of the following:
+** `us-east-1`
+** `us-east-2`
+** `ca-central-1` (default)
+
+=== Custom Fallback Regions and Fallback Queue Names
+
+When using custom fallback regions, keep in mind the following:
+
+* If the fallback region is not specified or set to the default, the name of the fallback queue is the primary queue name with the `_fb` suffix.
++
+For example, if the primary queue name is `myDemoQueue`, the fallback queue name is `myDemoQueue_fb`.
+* If the fallback region is set to a region other than the default, the fallback queue name includes an additional identifier to indicate the primary region:
++
+** `us-east-1`: ue1
+** `us-east-2`: ue2
+** `ca-central-1`: cc1
++
+For example, if the primary queue name is `myDemoQueue` and the fallback region is set to `us-east-1`, the fallback queue name is `myDemoQueue_ue1_fb`.
+
 
 [[primary-fallback-regions]]
 == Default Primary-Fallback Regions
 
 By default, Anypoint MQ Connector uses the default primary-fallback region pairings.
-
-With version 4.0.10 and later of the connector, you can specify the fallback region, for example,
-to prevent data from residing in a different country for compliance reasons.
 
 IMPORTANT: To minimize latency, use the default fallback region.
 
