@@ -271,7 +271,7 @@ When using custom fallback regions, keep in mind the following:
 * If the fallback region is not specified or set to the default, the name of the fallback queue is the primary queue name with the `_fb` suffix.
 +
 For example, if the primary queue name is `myDemoQueue` in `us-west-2` and the fallback region is set to the default, the fallback queue name is `myDemoQueue_fb`.
-* If the fallback region is set to a region other than the default, the fallback queue name includes an additional identifier to indicate the primary region (`us-west-2): `uw2`.
+* If the fallback region is set to a region other than the default, the fallback queue name includes an additional identifier to indicate the primary region (`us-west-2`): `uw2`.
 +
 For example, if the primary queue name is `myDemoQueue` in `us-west-2` and the fallback region is set to `us-east-1`, the fallback queue name is `myDemoQueue_uw2_fb` to indicate that the primary queue is in `us-west-2`.
 
