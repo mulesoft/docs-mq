@@ -255,8 +255,8 @@ curl --location --request PUT 'https://anypoint.mulesoft.com/mq/admin/api/v1/org
 ----
 
 * The value of `fallbackRegion` can be the default region or a custom region.
-* The custom `fallbackRegion` option is available for the `us-west-2` region only.
-* You can set `fallbackRegion` to any of the following:
+* The `fallbackRegion` property is available for the `us-west-2` region only.
+* You can set `fallbackRegion` to any of the following values:
 ** `us-east-1`
 ** `us-east-2`
 ** `ca-central-1` (default)
