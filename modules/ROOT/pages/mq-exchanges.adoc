@@ -16,6 +16,16 @@ include::partial$mq-msg-exchange.adoc[tag=msgExchangeMaxRouting]
 Before creating a message exchange, create one or more queues.
 For information, see xref:mq-queues.adoc#create-a-queue[Create a Queue].
 
+[NOTE]
+====
+Message exchanges support only the Publish operation; they don't support the Consume operation.
+Anypoint MQ forwards messages published to a message exchange to the bound queues and the app consumes from the queue.
+
+If an app attempts to consume from a message exchange,
+the Anypoint MQ REST API throws the following error:
+`The destination should be a queue.`
+====
+
 == Create a Message Exchange
 
 To create a message exchange:
