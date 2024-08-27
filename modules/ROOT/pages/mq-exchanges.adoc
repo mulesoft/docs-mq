@@ -15,6 +15,9 @@ include::partial$mq-msg-exchange.adoc[tag=msgExchangeMaxRouting]
 
 Before creating a message exchange, create one or more queues.
 For information, see xref:mq-queues.adoc#create-a-queue[Create a Queue].
+ 
+include::partial$mq-msg-exchange.adoc[tag=msgExchangePublishOnly]
+
 
 == Create a Message Exchange
 

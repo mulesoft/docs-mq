@@ -15,3 +15,12 @@ Any bindings without configured message routing rules continue to receive all me
 // tag::msgRulesEval[]
 Anypoint MQ evaluates the configured message routing rules against all `headers` and `properties` attributes in the published messages.
 // end::msgRulesEval[]
+
+
+// tag::msgExchangePublishOnly[]
+Message exchanges support only the Publish operation; they don't support the Consume operation.
+Anypoint MQ forwards messages published to a message exchange to the bound queues and the app consumes from the queue.
+If an app attempts to consume from a message exchange,
+the Anypoint MQ REST API throws the following error:
+`The destination should be a queue.`
+// end::msgExchangePublishOnly[]
