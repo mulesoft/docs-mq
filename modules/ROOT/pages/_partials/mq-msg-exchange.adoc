@@ -15,5 +15,3 @@ Any bindings without configured message routing rules continue to receive all me
 // tag::msgRulesEval[]
 Anypoint MQ evaluates the configured message routing rules against all `headers` and `properties` attributes in the published messages.
 // end::msgRulesEval[]
-
-
