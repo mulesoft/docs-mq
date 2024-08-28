@@ -1,8 +1,12 @@
 = Configuring Cross-Region Failover for Standard Queues
 
-Anypoint Connector for Anypoint MQ (Anypoint MQ Connector) for Mule 4 version 4.0.7 provides failover capability for standard queues.
+You can configure failover by specifying a fallback region for standard queues using Anypoint Connector for Anypoint MQ (Anypoint MQ Connector) for Mule 4 version 4.0.10 and later.
 
-When you enable failover for a queue, Anypoint MQ automatically creates a fallback queue in a <<primary-fallback-regions,fallback region>>.
+* To use the failover feature with the default region, use connector version 4.0.7 or later.
+* To configure a specific failover region, use connector version 4.0.10 or later.
+
+
+When you enable failover for a queue, Anypoint MQ automatically creates a fallback queue in a default or custom <<primary-fallback-regions,fallback region>>.
 If a Mule app can't reach an Anypoint MQ server in a region,
 it switches to the fallback queue to publish and consume messages.
 For information about situations that can cause a region to be considered unavailable, see <<region-unavailability>>.
@@ -36,6 +40,10 @@ When you disable failover for a queue, apps can still consume any messages that 
 For information about enabling this feature in your app, see 
 xref:anypoint-mq-connector::anypoint-mq-failover.adoc#enable-failover-feature[Enable Failover in Your App].
 ** Failover support requires Anypoint MQ Connector 4.0.7 or later.
+** Custom fallback region support requires Anypoint MQ Connector 4.0.10 or later.
++
+// Can't change fallback region
+include::partial$mq-failover.adoc[tag=changeFallbackRegion]
 // +
 // xref to upgrade steps?
 ** Failover is supported for standard queues only.
@@ -48,9 +56,11 @@ xref:anypoint-mq-connector::anypoint-mq-failover.adoc#enable-failover-feature[En
 +
 If failover is enabled for queues in those regions and the primary region goes down,
 data resides in a region outside the country until the primary region is available.
++
+To specify a custom fallback region when enabling failover, upgrade to Anypoint MQ Connector 4.0.10 or later.
 --
 +
-For the list of fallback regions, see <<primary-fallback-regions>>.
+For the list of default fallback regions, see <<primary-fallback-regions>>.
 * Authentication
 +
 If access management is unavailable when the connector switches to the fallback region,
@@ -77,7 +87,7 @@ You can configure how frequently the connector checks the fallback queue. See xr
 
 To use failover, you must first:
 
-* Upgrade Anypoint MQ Connector to 4.0.7 or later.
+* Upgrade Anypoint MQ Connector to 4.0.7 or later (default fallback region) or 4.0.10 or later (custom fallback region).
 +
 For information, see xref:anypoint-mq-connector::anypoint-mq-connector-upgrade-migrate.adoc[].
 * Enable the failover feature in your app.
@@ -118,14 +128,21 @@ For information about queue settings, see xref:mq-queues.adoc#create-a-queue[Cre
 +
 image::mq-create-queues-failover.png["Create Queue popup dialog box with failover option selected"]
 // added screenshot
+// .. Select the fallback region.
+// +
+// If you are using an Anypoint MQ Connector version earlier 4.0.10, 
+// leave the fallback region set at the default.
+// +
+// [NOTE]
+// include::partial$mq-failover.adoc[tag=changeFallbackRegion]
 .. Click *Create Queue*.
 + 
 Anypoint MQ creates the queue and also creates a fallback queue in the fallback region.
 // Fallback queue naming
 include::partial$mq-failover.adoc[tag=fallbackQname]
-+
-// Fallback queue/region not configurable
-include::partial$mq-failover.adoc[tag=fallbackQnotConfig]
+// +
+// Fallback queues aren't configurable by end users
+// include::partial$mq-failover.adoc[tag=fallbackQnotConfig]
 Modify an existing queue::
 +
 --
@@ -136,16 +153,22 @@ Anypoint MQ supports failover for standard queues only.
 .. In the *Queue Settings* page, select *Enable Cross-Region Failover*:
 +
 image::mq-queue-settings-failover.png["Queue Settings page with failover option selected"]
-// added screenshot
++
+[NOTE]
+include::partial$mq-failover.adoc[tag=changeFallbackRegion]
 
 .. Click *Save Changes*.
 +
 Anypoint MQ updates the queue settings and creates a fallback queue in the fallback region.
 // Fallback queue naming
 include::partial$mq-failover.adoc[tag=fallbackQname]
-+
-// Fallback queue/region not configurable
-include::partial$mq-failover.adoc[tag=fallbackQnotConfig]
+// +
+// Fallback queues aren't configurable by end users
+// include::partial$mq-failover.adoc[tag=fallbackQnotConfig]
+// Specify custom fallback region
+// include::partial$mq-failover.adoc[tag=fallbackRegionCustom]
+// Can't change fallback region
+// include::partial$mq-failover.adoc[tag=changeFallbackRegion]
 +
 If you previously enabled failover for the queue, the fallback queue already exists and is reinstated.
 .. Restart all applications consuming from or publishing to the queue.
@@ -208,9 +231,57 @@ The primary queue details shows that failover is disabled:
 image::mq-queue-details-primary-queue-fallback-disabled.png["Details pane for the primary queue with the fallback queue and failover status"]
 . Restart all applications consuming from or publishing to the queue.
 
+[[assign-custom-fb-region-api]]
+== Assign a Custom Fallback Region Using the API
+
+With version 4.0.10 and later of the connector, 
+you can specify the fallback region when you enable failover, for example, to prevent data from residing in a different country for compliance reasons.
+
+Use the `fallbackRegion` property in the Anypoint MQ Admin API to specify one of the following custom fallback regions for the `us-west-2` region: `us-east-1`, `us-east-2`, or `ca-central-1` (default).
+
+To specify the custom fallback region when enabling failover,
+use a `curl` command like the following:
+
+[source,bash]
+----
+curl --location --request PUT 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/\
+{organization-id}/environments/{environment-id}/regions/{region-id}/destinations/queues/\
+{destination-id}/fallback' \
+--header 'Authorization: Bearer {auth-token}' \
+--header 'Content-Type: application/json' \
+--data '{
+    "fallbackEnabled": true,
+    "fallbackRegion": "us-east-1"
+}'
+----
+
+* The value of `fallbackRegion` can be the default region or a custom region.
+* The `fallbackRegion` property is available for the `us-west-2` region only.
+* You can set `fallbackRegion` to any of the following values:
+** `us-east-1`
+** `us-east-2`
+** `ca-central-1` (default)
+
+For more information, see https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/minor/1.0/console/method/%23599/[Anypoint MQ Admin API].
+
+=== Custom Fallback Regions and Fallback Queue Names
+
+When using custom fallback regions, keep in mind the following:
+
+* If the fallback region is not specified or set to the default, the name of the fallback queue is the primary queue name with the `_fb` suffix.
++
+For example, if the primary queue name is `myDemoQueue` in `us-west-2` and the fallback region is set to the default, the fallback queue name is `myDemoQueue_fb`.
+* If the fallback region is set to a region other than the default, the fallback queue name includes an additional identifier to indicate the primary region (`us-west-2`): `uw2`.
++
+For example, if the primary queue name is `myDemoQueue` in `us-west-2` and the fallback region is set to `us-east-1`, the fallback queue name is `myDemoQueue_uw2_fb` to indicate that the primary queue is in `us-west-2`.
+
 
 [[primary-fallback-regions]]
-== Primary-Fallback Regions
+== Default Primary-Fallback Regions
+
+By default, Anypoint MQ Connector uses the default primary-fallback region pairings.
+
+IMPORTANT: To minimize latency, use the default fallback region.
 
 [%header,cols="8,12,12,12,12"]
 |===
@@ -233,11 +304,11 @@ image::mq-queue-details-primary-queue-fallback-disabled.png["Details pane for th
 [[region-note-unavailable]]
 ^***^ {empty}
 Because Anypoint MQ is available in only one region in this country, 
-the fallback region is not in the same country as the primary region.
+the default fallback region is not in the same country as the primary region.
 
 [[region-note]]
 ^****^ {empty}
-The fallback region for this region is not in the same country as the primary region.
+The default fallback region for this region is not in the same country as the primary region.
 
 [[region-unavailability]]
 == Region Unavailability
