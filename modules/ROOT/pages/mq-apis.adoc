@@ -90,7 +90,7 @@ Use a `curl` command like the following to get the access token:
 
 [source,bash]
 ----
-curl -X POST "https://anypoint.mulesoft.com/accounts/login" \
+curl -X POST "https://anypoint.mulesoft.com/accounts/api/v2/oauth2/token" \
 -H "Content-Type: application/json" \
 -d '{"username":"USERNAME", "password":"PASSWORD"}' 
 ----
