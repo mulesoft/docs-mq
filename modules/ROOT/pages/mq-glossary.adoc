@@ -28,7 +28,7 @@ For information, see xref:mq-queues.adoc#dead-letter-queues[Dead Letter Queues].
 Default Acknowledgement Timeout::
 The period that a message remains unacknowledged before being returned to the queue, for example, if a server fails or if flow processing takes too long and times out.
 
-[[delay-queues]]
+[[delay-queue]]
 Delay Queue::
 A queue that postpones delivery of new messages for a specified period.
 +
