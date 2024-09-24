@@ -38,10 +38,10 @@ Anypoint MQ standard and FIFO queues are available in these regions:
 3+h| MuleSoft Government Cloud
 .1+| |            GovCloud (US-West)       | `us-gov-west-1`
 3+h| Hyperforce Canada
-.1+| |            Canada (Central)       | `ca1` <<mq-unsupported,^***^>>
+.1+| |            Canada (Central)       | `ca1` <<mq-hyperforce,^***^>>
 |===
 
-[[mq-support]]
+[[mq-hyperforce]]
 ^***^ {empty}
 // MQ Support on Hyperforce
 include::mq::partial$mq-on-hyperforce.adoc[tag=mqSupportOnHyperforce]
