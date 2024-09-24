@@ -225,6 +225,26 @@ You can use Anypoint MQ Stats API to retrieve metrics for queues and exchanges.
 For information, see xref:mq-apis.adoc#mqstatapi[Anypoint MQ Stats API].
 
 
+[[mq-on-hyperforce]]
+== Anypoint MQ on Hyperforce
+
+All features of Anypoint MQ are supported on Hyperforce with the following exceptions:
+
+* Unencrypted queues are not supported.
++
+All queues are encrypted. 
+When xref:mq-queues.adoc#create-a-queue[creating a queue], the *Encryption* option is disabled and defaults to selected.
+* xref:mq-client-apps.adoc[Client apps] are not supported.
++
+Use xref:mq-connected-apps.adoc[connected apps] instead.
+* Anypoint Connector for Anypoint MQ versions earlier than 4.x are not supported.
++
+Using connected apps with Anypoint MQ requires xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.x for Mule 4].
+* xref:mq-failover.adoc[Cross-region failover] is not supported.
+* xref:mq-usage.adoc[Usage graphs] are not available.
+* The xref:mq-apis.adoc#mqstatapi[Anypoint MQ Stats API] is not supported.
+
+
 == See Also
 
 * xref:mq-glossary.adoc[]

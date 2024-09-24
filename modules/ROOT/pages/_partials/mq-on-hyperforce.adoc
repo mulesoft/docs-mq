@@ -1,0 +1,4 @@
+// tag::mqSupportOnHyperforce[]
+You cannot access or configure some Anypoint MQ features, such as client apps and unencrypted queues.
+For information, see xref:mq::index.adoc#mq-on-hyperforce[Anypoint MQ on Hyperforce].
+// end::mqSupportOnHyperforce[]
