@@ -56,8 +56,8 @@ image::mq-blue-create.png["Add icon"]
 For *Exchange*, see xref:mq-exchanges.adoc[].
 . Complete the fields in *Create Queue* or *Create FIFO Queue*:
 +
+// REPLACE screenshot: Encrypted by default
 image::mq-create-queues.png["Create Queue popup dialog box"]
-// replace screenshot
 +
 --
 ** *ID* specifies the queue name.
@@ -80,6 +80,8 @@ The minimum delivery delay for a message is 0 seconds. The maximum is 15 minutes
 ** *Encryption* encrypts all messages in the queue.
 +
 See xref:mq-glossary.adoc#encrypt-queue[Encrypted Queue].
++
+include::partial$mq-encrypt-queue.adoc[tag=mqEncryptQueue]
 ** *Assign a Dead Letter Queue* assigns the DLQ.
 +
 The DLQ is a previously created queue to which to send undeliverable messages.
