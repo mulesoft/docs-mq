@@ -53,17 +53,16 @@ To view Anypoint MQ usage:
 +
 image::mq-access-mgmt-subscription.png["MQ option on the Access Management page"]
 +
-. Click a chart duration value of *6m* (six months, default), *1y* (one year), or *2y* (two years):
+The chart shows usage stats for the current and previous month:
 +
 image::mq-usage-chart.png["MQ Usage page, including message units and API requests"]
 +
-* (*1*) The duration value
-* (*2*) The number of message units and API requests per month
+[calloutlist]
+.. The number of message units and API requests per month.
 +
-NOTE: If the usage for either API requests or message units is 0, the chart displays `<1%`.
-* (*3*) The percentage and amount of your license that you have used
+If the usage for either API requests or message units is 0, the chart displays `<1%`.
+.. The percentage and amount of your license that you have used.
 +
-
 The circle graph changes to red as your usage approaches your license limits:
 +
 image::mq-msg-unit-color.png["Circle graph indicating license limit"]
