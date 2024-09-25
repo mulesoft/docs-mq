@@ -56,7 +56,6 @@ image::mq-blue-create.png["Add icon"]
 For *Exchange*, see xref:mq-exchanges.adoc[].
 . Complete the fields in *Create Queue* or *Create FIFO Queue*:
 +
-// REPLACE screenshot: Encrypted by default
 image::mq-create-queues.png["Create Queue popup dialog box"]
 +
 --
