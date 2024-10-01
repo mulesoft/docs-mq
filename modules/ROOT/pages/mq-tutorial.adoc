@@ -43,7 +43,7 @@ To create a queue:
 +
 For example, click the environment button and select *Production*:
 +
-image::mq-tutorial-switch-env.png["Environment button"]
+image::mq-switch-env.png["Environment button on the Destinations page"]
 . Click *Destinations*:
 +
 image::mq-tutorial-destinations-option.png["Destinations option and the Add icon"]

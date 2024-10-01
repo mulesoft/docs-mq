@@ -156,7 +156,7 @@ To see the number the messages in the queue:
 . Select *Anypoint Platform* > *MQ* > *Destinations*.
 . Click the queue type to display its details, including the number of messages in the queue:
 +
-image::mq-msgs-in-queue.png["The number of messages in the queue in the details pane"]
+image::mq-tutorial-msgs-in-queue.png["The number of messages in the queue in the details pane"]
 // I think this screenshot is OK.
 
 == Get a Message from a Queue
@@ -274,9 +274,8 @@ To purge all the messages in the queue:
 +
 image::mq-purge-msgs-icon.png["Purge Messages icon"]
 // screenshot OK
-. In the *Purge Messages* confirmation box, select the checkbox and click *Delete Messages* to verify that you want to purge all messages in the queue:
-+
-image::mq-purge-msgs-confirm.png["Accept checkbox for purging messages from a queue"]
+. In the *Purge Messages* confirmation box, select the checkbox and click *Delete Messages* to verify that you want to purge all messages in the queue.
+
 
 == Change Settings for a Queue
 
@@ -304,9 +303,7 @@ To delete a queue:
 image::mq-delete-queue-icon.png["Delete icon"]
 // screenshot OK
 +
-. In the *Delete Queue* confirmation box, select the checkbox and click *Delete Queue* to verify that you want to delete the queue:
-+
-image::mq-delete-queue-confirm.png["Accept checkbox for deleting a queue"]
+. In the *Delete Queue* confirmation box, select the checkbox and click *Delete Queue* to verify that you want to delete the queue.
 +
 The time it takes to delete or purge a queue is approximately one minute. During this time, the status of the affected queue can't be updated.
 
