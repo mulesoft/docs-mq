@@ -115,8 +115,6 @@ The command returns output similar to:
 {"access_token":"<token>","simple_client":{"envId":"ENV_ID","orgId":"ORG_ID"},"token_type":"bearer"}
 ----
 
-
-
 ////
 If MFA is enabled, use a connected app to get the access token:
 
@@ -145,9 +143,7 @@ The output includes the access token:
 }  
 ----
 
-
 Use a `curl` command like the following to get the access token:
-
 
 [source,bash]
 ----
@@ -1260,6 +1256,7 @@ For example, this information is returned from the consume (GET) command:
       "deliveryCount": "2"
     },
     ...
+}
 ----
 
 After you have the lock ID, you can add it to your Postman environment to facilitate future requests.
