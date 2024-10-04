@@ -12,7 +12,7 @@ Anypoint MQ APIs are available in the https://anypoint.mulesoft.com/exchange/por
 
 == Workflow for an API
 
-The following example with the Anypoint MQ Broker API illustrates the workflow for accessing an API:
+This example illustrates the workflow for accessing the Anypoint MQ Broker API:
 
 image::mq-api-workflow.png["Workflow of the Anypoint MQ Broker API"]
 
@@ -67,6 +67,10 @@ If you are a Windows user, you must https://curl.haxx.se/download.html[download 
 
 
 
+
+
+////
+
 [[get-bearer-token]]
 === Get a Bearer Token to Authenticate with the Anypoint MQ Admin API
 
@@ -77,7 +81,6 @@ The default time to live (TTL) for the bearer token is 60 minutes.
 
 You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in Anypoint MQ.
 See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[MQ Audit Logging].
-
 
 [[get-broker-token]]
 === Get the Broker Access Token
@@ -115,7 +118,7 @@ The command returns output similar to:
 {"access_token":"<token>","simple_client":{"envId":"ENV_ID","orgId":"ORG_ID"},"token_type":"bearer"}
 ----
 
-////
+
 If MFA is enabled, use a connected app to get the access token:
 
 . xref:mq-connected-apps.adoc[Configure a connected app].
@@ -166,8 +169,8 @@ This command returns output similar to:
 ////
 
 
-[[get-stats-access-token]]
-=== Get the Bearer Token to Authenticate with the Anypoint MQ Stats API
+[[get-bearer-token]]
+=== Get the Bearer Token to Authenticate with the Anypoint MQ API
 
 To access the Anypoint MQ Stats API, you must first get the bearer token from the Anypoint Platform user using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Access Management API].
 
@@ -206,13 +209,13 @@ The output includes the bearer token:
   "token_type": "bearer"
 }  
 ----
-
-For more information, see https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/minor/1.0/pages/Connected%20App%20Examples/[Connected App Examples] in the Access Management API.
-
+. Use this bearer token to access any Anypoint MQ API that requires a bearer token.
 
 
-If MFA isn't enabled, run the following command:
+If MFA isn't enabled:
 
+. Run the following command:
++
 [source,console,linenums]
 ----
 curl -H \
@@ -220,11 +223,11 @@ curl -H \
   -X POST -d '{"username":"<USERNAME>","password":"<PASSWORD>"}' \
   "https://anypoint.mulesoft.com/accounts/login"
 ----
-
++
 Make sure the user has the Organization Administrator permission to access the organization and environment queries.
-
++
 The output includes the token:
-
++
 [source,console,linenums]
 ----
 {
@@ -233,6 +236,8 @@ The output includes the token:
   "redirectUrl": "/home/"
 }  
 ----
+. Use this bearer token to access any Anypoint MQ API that requires a bearer token.
+
 
 [[get-org-env-id]]
 === Get the Organization ID and Environment ID
