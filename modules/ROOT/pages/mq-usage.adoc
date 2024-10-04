@@ -84,4 +84,4 @@ include::partial$mq-faq.adoc[tag=apiStatsRequests]
 == See Also
 
 * xref:mq-faq.adoc[Anypoint MQ FAQ]
-* xref:mq-apis.adoc#mqstatapi[Anypoint MQ Stats API]
+* xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API]
