@@ -26,197 +26,60 @@ For more information, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK a
 [[before-you-begin]]
 == Before You Begin 
 
-* Create an app that uses Anypoint MQ and deploy it to CloudHub.
+* Create an app that uses Anypoint MQ and xref:runtime-manager::deploying-to-cloudhub.adoc[deploy it to CloudHub].
+* <<get-bearer-token,Get a bearer token>> for an Anypoint Platform user using the Access Management API.
 +
-See xref:runtime-manager::deploying-to-cloudhub.adoc[Deploy to CloudHub].
-
-* Authenticate with the APIs:
-+
-** <<mq-admin-api>>:
-+
-Get a bearer token for an Anypoint Platform user using the Access Management API.
-+
-See <<get-bearer-token>>.
-** <<mq-broker-api>>:
-+
-Get a token from Anypoint MQ by supplying the client ID and client secret for an Anypoint MQ app or connected app.
-** <<mq-stats-api>>:
-+
-Get a bearer token for an Anypoint Platform user using the access management API.
-* Get the organization ID (ORG_ID) and environment ID (ENV_ID).
+You need the bearer token to access all Anypoint MQ APIs.
+* <<get-org-env-id,Get the ORG_ID and ENV_ID>>.
 +
 You need the organization ID and environment ID for operations with all Anypoint MQ APIs.
-+
-See <<get-org-env-id>>.
-* Get the region ID (REGION_ID).
+* <<get-region-id,Get the REGION_ID>>.
 +
 You need the region ID for operations with the Anypoint MQ Admin API.
-+
-See <<get-region-id>>.
-* Get the queue ID (QUEUE_ID).
+* <<get-queue-id,Get the QUEUE_ID>>.
 +
 You need the queue ID for operations with the MQ Admin API.
-+
-See <<get-queue-id>>.
-
-
-//// 
-Getting the access (bearer) token requires using either a command like curl or an app like Postman. The example that follows uses curl.
-If you are a Windows user, you must https://curl.haxx.se/download.html[download a curl command^] before accessing the information.
-//// 
-
-
-
-
-
-////
-
-[[get-bearer-token]]
-=== Get a Bearer Token to Authenticate with the Anypoint MQ Admin API
-
-To access the Anypoint MQ Admin API, you must first authenticate using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Access Management API].
-
-To use the Admin API, you can get the bearer token from the Anypoint Platform user.
-The default time to live (TTL) for the bearer token is 60 minutes.
-
-You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in Anypoint MQ.
-See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[MQ Audit Logging].
-
-[[get-broker-token]]
-=== Get the Broker Access Token
-
-The broker access token in this section can only be used with the Broker API. Do not use this access token 
-with the Stats and Admin APIs. 
-
-All calls to get a token for a particular `CLIENT_ID` return the same token.
-Multiple apps using the same `CLIENT_ID` use the same token.
-The token is valid for 60 minutes.
-Accessing the token before its expiry extends the token validity by another 60 minutes.
-
-To get the Broker API access token:
-
-. Sign in to Anypoint Platform.
-. Click *MQ* > *Client Apps*, and then click the *Add* icon (image:icon-blue-plus.png["",3%,3%]) to create an app.
-. Get the client ID and client secret and use these values in the following curl command replacing CLIENT_ID and CLIENT_SECRET:
-+
-[source,bash]
-----
-curl -X POST "https://anypoint.mulesoft.com/accounts/oauth2/token" \
--H "Content-Type: application/json" \
--d '{
-    "client_id": "<CLIENT_ID>",
-    "client_secret": "<CLIENT_SECRET>",
-    "grant_type": "client_credentials"
-}'
-----
-. Submit the `curl` command.
-+
-The command returns output similar to:
-+
-[source,json,linenums]
-----
-{"access_token":"<token>","simple_client":{"envId":"ENV_ID","orgId":"ORG_ID"},"token_type":"bearer"}
-----
-
-
-If MFA is enabled, use a connected app to get the access token:
-
-. xref:mq-connected-apps.adoc[Configure a connected app].
-+
-Assign the connected app the Organization Administrator scope to access the organization and environment queries.
-+
-. Run the following command to get the access token from the connected app client ID and client secret:
-+
-[source,console,linenums]
-----
-curl --location --request POST https://anypoint.mulesoft.com/accounts/api/v2/oauth2/token \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'client_id=<CLIENT ID>' \
---data-urlencode 'client_secret=<CLIENT SECRET>' \
---data-urlencode 'grant_type=client_credentials'
-----
-
-The output includes the access token:
-+
-[source,console,linenums]
-----
-{
-  "access_token": "<TOKEN>",
-  "token_type": "bearer"
-}  
-----
-
-Use a `curl` command like the following to get the access token:
-
-[source,bash]
-----
-curl -X POST "https://anypoint.mulesoft.com/accounts/api/v2/oauth2/token" \
--H "Content-Type: application/json" \
--d '{"username":"USERNAME", "password":"PASSWORD"}' 
-----
-
-This command returns output similar to:
-
-[source,json,linenums]
-----
-{
-  "access_token": "42424242-4242-4242-4242-424242424242",
-  "token_type": "bearer",
-  "redirectUrl": "/home/"
-}
-----
-
-////
 
 
 [[get-bearer-token]]
-=== Get the Bearer Token to Authenticate with the Anypoint MQ API
+=== Get the Bearer Token to Use With Anypoint MQ APIs
 
-To access the Anypoint MQ Stats API, you must first get the bearer token from the Anypoint Platform user using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Access Management API].
+To access the Anypoint MQ APIs, you must first get the bearer token from the Anypoint Platform user using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Access Management API].
 
-The default time to live (TTL) for the bearer token is 60 minutes.
+NOTE: The default time to live (TTL) for the bearer token is 60 minutes.
 
-
-If MFA is enabled, use a connected app to get the bearer token:
-
-[NOTE]
-include::partial$mq-connect-apps.adoc[tag=mqConnAppEndpointSupport]
-
+If MFA is enabled, use a connected app to get the bearer token::
++
 . xref:mq-connected-apps.adoc[Create a connected app].
-+
-Assign the connected app the Organization Administrator scope to access the organization and environment queries.
+. Assign the connected app the Organization Administrator scope to access the organization and environment queries.
 . From the *Connected Apps* page, click *Copy Id* and *Copy Secret* for the app you just created.
+. Run this command and replace CLIENT_ID and CLIENT_SECRET with the values you copied from the connected app.
 +
-Use this client ID (CLIENT_ID) and client secret (CLIENT_SECRET) to get the bearer token required to authenticate with the Anypoint MQ Stats API.
-
-. Run the following command to get the bearer token from the connected app client ID and client secret:
-+
-[source,console,linenums]
+[source,bash]
 ----
 curl --location --request POST https://anypoint.mulesoft.com/accounts/api/v2/oauth2/token \
 --header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'client_id=<CLIENT ID>' \
---data-urlencode 'client_secret=<CLIENT SECRET>' \
+--data-urlencode 'client_id=<CLIENT_ID>' \
+--data-urlencode 'client_secret=<CLIENT_SECRET>' \
 --data-urlencode 'grant_type=client_credentials'
 ----
 +
 The output includes the bearer token:
 +
-[source,console,linenums]
+[source,bash]
 ----
 {
-  "access_token": "<TOKEN>",
+  "access_token": "<BEARER_TOKEN>",
   "token_type": "bearer"
 }  
 ----
 . Use this bearer token to access any Anypoint MQ API that requires a bearer token.
 
-
-If MFA isn't enabled:
-
+If MFA isn't enabled::
++
 . Run the following command:
 +
-[source,console,linenums]
+[source,bash]
 ----
 curl -H \
   "Content-Type: application/json" \
@@ -231,30 +94,88 @@ The output includes the token:
 [source,console,linenums]
 ----
 {
-  "access_token": "<TOKEN>",
+  "access_token": "<BEARER_TOKEN>",
   "token_type": "bearer",
   "redirectUrl": "/home/"
 }  
 ----
 . Use this bearer token to access any Anypoint MQ API that requires a bearer token.
 
+[[get-broker-token]]
+=== Get the Broker Bearer Token to Use With Anypoint MQ Broker API
+
+For the Anypoint MQ Broker API, you can also get the bearer token from a client app.
+
+include::partial$mq-connect-apps.adoc[tag=mqConnAppRec]
+
+
+IMPORTANT: You can use the broker bearer token only with the Broker API. Don't use this token with the Stats and Admin APIs. 
+
+All calls to get a token for a particular CLIENT_ID return the same token.
+Multiple apps using the same CLIENT_ID use the same token.
+The token is valid for 60 minutes.
+Accessing the token before its expiry extends the token validity by another 60 minutes.
+
+To get the CLIENT_ID and CLIENT_SECRET from a client app::
++
+. xref:mq-client-apps.adoc[Create a client app].
+. From the *Client Apps* page, select the app you just created.
+. Click *Copy* to copy the client app ID and client secret values to your clipboard.
+
+To get the token required to authenticate with the Anypoint Platform API::
++
+. Run this command and replace CLIENT_ID and CLIENT_SECRET with the values you copied from the client app.
++
+[source,bash,linenums]
+----
+curl -X POST "https://anypoint.mulesoft.com/accounts/oauth2/token" \
+-H "Content-Type: application/json" \
+-d '{
+    "client_id": "<CLIENT_ID>",
+    "client_secret": "<CLIENT_SECRET>",
+    "grant_type": "client_credentials"
+}'
+----
++
+The command returns output similar to:
++
+[source,console,linenums]
+----
+{
+  "access_token":"<BEARER_TOKEN>",
+  "simple_client":{"envId":"<ENV_ID>","orgId":"<ORG_ID>"},
+  "token_type":"bearer"
+}
+----
 
 [[get-org-env-id]]
 === Get the Organization ID and Environment ID
 
-You can get the organization ID (ORG_ID) and environment ID (ENV_ID) in the `payload.txt` file that Anypoint Platform creates for any auditable action in Anypoint MQ.
-See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[Anypoint MQ Audit Logging]. 
+[source,bash,linenums]
+----
+curl "https://anypoint.mulesoft.com/accounts/api/organizations/<ORG_ID>"
+curl "https://anypoint.mulesoft.com/accounts/api/environments/<ENV_ID>"
+----
 
 [[get-region-id]]
 === Get the Region ID
 
 To get the region ID (REGION_ID):
 
+[source,bash,linenums]
+----
+curl "https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/regions/<REGION_ID>"
+----
+
 [[get-queue-id]]
 === Get the Queue ID
 
 To get the queue ID (QUEUE_ID):
 
+[source,bash,linenums]
+----
+curl "https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/regions/<REGION_ID>/destinations/queues/<QUEUE_ID>"
+----
 
 [[mq-admin-api]]
 == Anypoint MQ Admin API
@@ -262,7 +183,7 @@ To get the queue ID (QUEUE_ID):
 The Anypoint MQ Admin API provides access to Anypoint MQ administrative functionality.
 
 You can use the 
-https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Admin API^] to create and manage queues, message exchanges, and client apps.
+https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Anypoint MQ Admin API] to create and manage queues, message exchanges, and client apps.
 
 If you call the Anypoint MQ Admin API for distinct environments within one minute,
 the API throttles your requests to 50 transactions per minute (TPM).
@@ -285,11 +206,11 @@ See xref:mq-faq.adoc[Anypoint MQ FAQ] for the regions where Anypoint MQ is avail
 
 Use a `curl` command like the following to create a FIFO queue:
 
-[source,bash]
+[source,bash,linenums]
 ----
-curl -X PUT "https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORG_ID/environments/ENV_ID/regions/REGION_ID/destinations/queues/QUEUE_ID" \
+curl -X PUT "https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/regions/<REGION_ID>/destinations/queues/<QUEUE_ID>" \
 --header 'Content-Type: application/json' \
---header 'Authorization: bearer BEARER_TOKEN' \
+--header 'Authorization: bearer <BEARER_TOKEN>' \
 --data-raw '{
   "defaultTtl" : 120000,
   "defaultLockTtl" : 10000,
@@ -311,10 +232,10 @@ include::partial$mq-msg-exchange.adoc[tag=exchBindingNoRules]
 
 To create a message routing rule, use a `curl` command like the following:
 
-[source,bash]
+[source,bash,linenums]
 ----
-curl -X PUT "https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORG_ID/environments/ENV_ID/regions/REGION_ID/bindings/exchanges/purchases/queues/premiumPurchases/rules/routing" \
---header 'Authorization: bearer BEARER_TOKEN' \
+curl -X PUT "https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/regions/<REGION_ID>/bindings/exchanges/purchases/queues/premiumPurchases/rules/routing" \
+--header 'Authorization: bearer <BEARER_TOKEN>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "routingRules" : [{
@@ -355,11 +276,11 @@ IMPORTANT: You must restart all applications consuming from or publishing to the
 
 Use this `curl` command to enable failover for an existing standard queue:
 
-[source,bash]
+[source,bash,linenums]
 ----
 
-curl -X PUT 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORG_ID/environments/ENV_ID/regions/REGION_ID/destinations/queues/QUEUE_ID/fallback' \
--H 'Authorization: bearer BEARER_TOKEN' \
+curl -X PUT 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/regions/<REGION_ID>/destinations/queues/<QUEUE_ID>/fallback' \
+-H 'Authorization: bearer <BEARER_TOKEN>' \
 -H 'Content-Type: application/json' \
 -d '{
     "fallbackEnabled" : true
@@ -368,10 +289,10 @@ curl -X PUT 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORG_ID/
 
 Use this `curl` command to disable failover for an existing standard queue:
 
-[source,bash]
+[source,bash,linenums]
 ----
-curl -X PUT 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORG_ID/environments/ENV_ID/regions/REGION_ID/destinations/queues/QUEUE_ID/fallback' \
--H 'Authorization: bearer BEARER_TOKEN' \
+curl -X PUT 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/regions/<REGION_ID>/destinations/queues/<QUEUE_ID>/fallback' \
+-H 'Authorization: bearer <BEARER_TOKEN>' \
 -H 'Content-Type: application/json' \
 -d '{
     "fallbackEnabled" : false
@@ -385,18 +306,18 @@ When you retrieve information about all destinations or a single queue, the resp
 
 Use this `curl` command to get the list of destinations:
 
-[source,bash]
+[source,bash,linenums]
 ----
-curl -X GET 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORG_ID/environments/ENV_ID/regions/REGION_ID/destinations' \
--H 'Authorization: bearer BEARER_TOKEN'
+curl -X GET 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/regions/<REGION_ID>/destinations' \
+-H 'Authorization: bearer <BEARER_TOKEN>'
 ----
 
 Use this `curl` command to get details about a specific queue:
 
-[source,bash]
+[source,bash,linenums]
 ----
-curl -X GET 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/ORG_ID/environments/ENV_ID/regions/REGION_ID/destinations/queues/QUEUE_ID' \
--H 'Authorization: bearer BEARER_TOKEN'
+curl -X GET 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/regions/<REGION_ID>/destinations/queues/<QUEUE_ID>' \
+-H 'Authorization: bearer <BEARER_TOKEN>'
 ----
 
 The response from these commands include output similar to the following:
@@ -531,9 +452,6 @@ These examples use the Anypoint MQ Broker API to publish and consume messages an
 * <<retrieve-message-api>>
 
 
-
-You must substitute the placeholder string, `ORG_ID` with the proper values for authorization and token strings. These examples use Postman to access the queue.
-
 See the xref:mq-faq.adoc#regions[Anypoint MQ FAQ] for the regions where Anypoint MQ and FIFO are available.
 
 [[send-messages-api]]
@@ -541,11 +459,11 @@ See the xref:mq-faq.adoc#regions[Anypoint MQ FAQ] for the regions where Anypoint
 
 The following `curl` command publishes a message:
 
-[source,bash]
+[source,bash,linenums]
 ----
-curl -X PUT "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORG_ID/environments/ENV_ID/destinations/postmanExchange/messages/552" \
+curl -X PUT "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/destinations/postmanExchange/messages/552" \
 -H "Content-Type: application/json" \
--H "Authorization: bearer BEARER_TOKEN" \
+-H "Authorization: bearer <BEARER_TOKEN>" \
 -H "Cache-Control: no-cache" \
 -d '{ 
   "properties": {
@@ -567,11 +485,11 @@ property as `premium`.
 The message routing rule on the `purchases` exchange binding 
 (set up in <<routing-rules-api>>) routes the message to the `premiumPurchases` queue.
 
-[source,bash]
+[source,bash,linenums]
 ----
-curl -X PUT "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORG_ID/environments/ENV_ID/destinations/postmanExchange/messages/552" \
+curl -X PUT "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/destinations/postmanExchange/messages/552" \
 -H "Content-Type: application/json" \
--H "Authorization: bearer BEARER_TOKEN" \
+-H "Authorization: bearer <BEARER_TOKEN>" \
 -H "Cache-Control: no-cache" \
 -d '{ \
   "properties": {
@@ -592,10 +510,10 @@ xref:mq-routing-rules.adoc#intelligent-routing-restrictions[Requirements and Res
 
 The following `curl` command gets a message:
 
-[source, bash]
+[source,bash,linenums]
 ----
-curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORG_ID/environments/ENV_ID/destinations/postmanQueue/messages?pollingTime=10000&batchSize=1&lockTtl=10000" \
--H "Authorization: bearer BEARER_TOKEN" \
+curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/destinations/postmanQueue/messages?pollingTime=10000&batchSize=1&lockTtl=10000" \
+-H "Authorization: bearer <BEARER_TOKEN>" \
 -H "Cache-Control: no-cache"
 ----
 
@@ -616,8 +534,8 @@ The following `curl` command gets a message and payload, displaying the payload 
 
 [source,bash]
 ----
-curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/ORG_ID/environments/ENV_ID/destinations/postmanQueue/messages?pollingTime=10000&batchSize=1&lockTtl=10000&payloadVisibility=conditional" \
--H "Authorization: bearer BEARER_TOKEN" \
+curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/destinations/postmanQueue/messages?pollingTime=10000&batchSize=1&lockTtl=10000&payloadVisibility=conditional" \
+-H "Authorization: bearer <BEARER_TOKEN>" \
 -H "Cache-Control: no-cache" 
 ----
 
@@ -672,17 +590,17 @@ The Stats API can fetch statistics for multiple queues and returns a comma-separ
 
 Use this `curl` command to get current statistics for a queue:
 
+[source,bash,linenums]
 ----
-[source,bash]
-curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORG_ID/environments/ENV_ID/regions/REGION_URL/queues?destinationIds=DESTINATION_ID" \
--H "Authorization: bearer BEARER_TOKEN" \
+curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/regions/REGION_URL/queues?destinationIds=DESTINATION_ID" \
+-H "Authorization: bearer <BEARER_TOKEN>" \
 -H "Cache-Control: no-cache"
 ----
 
 This command returns output similar to:
 
-----
 [source,json,linenums]
+----
  {
     "destination": "95bgpyxYsVyFE",
     "messages": 0,
@@ -708,10 +626,10 @@ To limit the volume of data, historical data is stored at reduced levels of gran
 
 Use this `curl` command to get historical statistics for a queue:
 
-[source,bash]
+[source,bash,linenums]
 ----
-curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORG_ID/environments/ENV_ID/regions/REGION_URL/queues/95bgpyxYsVyFE?startDate=Thursday, 8 Nov 2024 04:49:37 GMT&endDate=Sun, 11 Nov 2024 04:60:44 GMT&period=600" \
--H "Authorization: bearer BEARER_TOKEN" \
+curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/regions/REGION_URL/queues/95bgpyxYsVyFE?startDate=Thursday, 8 Nov 2024 04:49:37 GMT&endDate=Sun, 11 Nov 2024 04:60:44 GMT&period=600" \
+-H "Authorization: bearer <BEARER_TOKEN>" \
 -H "Cache-Control: no-cache"
 ----
 
@@ -748,10 +666,10 @@ Retention policies are the same as in the previous <<historical-stats-queue>> se
 
 Use this `curl` command to get historical statistics for an exchange:
 
-[source,bash]
+[source,bash,linenums]
 ----
-curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORG_ID/environments/ENV_ID/regions/REGION_URL/exchanges/exchange-test?startDate=Wed%2C%2014%20Nov%202024%2021%3A53%3A08%20GMT&endDate=Wed%2C%2014%20Nov%202024%2022%3A53%3A08%20GMT&period=360" \
--H "Authorization: bearer BEARER_TOKEN" \
+curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/regions/REGION_URL/exchanges/exchange-test?startDate=Wed%2C%2014%20Nov%202024%2021%3A53%3A08%20GMT&endDate=Wed%2C%2014%20Nov%202024%2022%3A53%3A08%20GMT&period=360" \
+-H "Authorization: bearer <BEARER_TOKEN>" \
 -H "Cache-Control: no-cache"
 ----
 
@@ -777,7 +695,7 @@ The period is an integer and is the granularity of data points in seconds.
 
 You can use the Stats API to retrieve Anypoint MQ usage information by environment for a particular organization:
 
-`/environments/ENV_ID?startDate=...&endDate=...&period=...`
+`/environments/<ENV_ID>?startDate=...&endDate=...&period=...`
 
 This information is not real-time and has a latency.
 
@@ -788,10 +706,10 @@ include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
 
 Use this `curl` command to get usage metrics by environment:
 
-[source,bash]
+[source,bash,linenums]
 ----
-curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORG_ID/environments/ENV_ID?startDate=Thursday, 8 Nov 2024 04:49:37 GMT&endDate=Sun, 11 Nov 2024 04:60:44 GMT&period=1day" \
--H "Authorization: bearer BEARER_TOKEN" \
+curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>?startDate=Thursday, 8 Nov 2024 04:49:37 GMT&endDate=Sun, 11 Nov 2024 04:60:44 GMT&period=1day" \
+-H "Authorization: bearer <BEARER_TOKEN>" \
 -H "Cache-Control: no-cache"
 ----
 
@@ -822,7 +740,7 @@ include::partial$mq-faq.adoc[tag=returnVals]
 
 You can use the Stats API to retrieve Anypoint MQ usage for the root business organization:
 
-`/organizations/ORG_ID?startDate=...&endDate=...&period=...`
+`/organizations/<ORG_ID>?startDate=...&endDate=...&period=...`
 
 [NOTE]
 include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
@@ -832,10 +750,10 @@ include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
 
 Use this `curl` command to get daily usage metrics by organization for a month:
 
-[source,bash]
+[source,bash,linenums]
 ----
-curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORG_ID?startDate=Sun, 1 Oct 2024 04:49:37 GMT&endDate=Tue, 31 Oct 2024 04:50:44 GMT&period=1day" \
--H "Authorization: bearer BEARER_TOKEN" \
+curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<ORG_ID>?startDate=Sun, 1 Oct 2024 04:49:37 GMT&endDate=Tue, 31 Oct 2024 04:50:44 GMT&period=1day" \
+-H "Authorization: bearer <BEARER_TOKEN>" \
 -H "Cache-Control: no-cache"
 ----
 
@@ -884,10 +802,10 @@ The number of acknowledged messages, including any messages deleted using the *A
 
 Example request to list statistics for July 26 to July 28, 2024:
 
-[source,bash]
+[source,bash,linenums]
 ----
-curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/ORG_ID/environments/ENV_ID/regions/REGION_URL/queues/randomQueue/?startDate=Thu%2C%2026%20Jul%202024%2000%3A00%3A00%20GMT&endDate=Sat%2C%2028%20Jul%202024%2020%3A00%3A00%20GMT&period=600" \
--H "authorization: Bearer BEARER_TOKEN" \
+curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/regions/REGION_URL/queues/randomQueue/?startDate=Thu%2C%2026%20Jul%202024%2000%3A00%3A00%20GMT&endDate=Sat%2C%2028%20Jul%202024%2020%3A00%3A00%20GMT&period=600" \
+-H "authorization: Bearer <BEARER_TOKEN>" \
 -H "cache-control: no-cache"
 ----
 
