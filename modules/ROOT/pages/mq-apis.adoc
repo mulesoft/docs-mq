@@ -57,11 +57,13 @@ If MFA is enabled, use a connected app to get the bearer token::
 +
 [source,bash]
 ----
-curl --location --request POST https://anypoint.mulesoft.com/accounts/api/v2/oauth2/token \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'client_id=<CLIENT_ID>' \
---data-urlencode 'client_secret=<CLIENT_SECRET>' \
---data-urlencode 'grant_type=client_credentials'
+curl --location 'https://anypoint.mulesoft.com/accounts/api/v2/oauth2/token' \
+--header 'Content-Type: application/json' \
+--data '{
+    "client_id": "<CLIENT_ID>",
+    "client_secret": "<CLIENT_SECRET>",
+    "grant_type": "client_credentials"
+}'
 ----
 +
 The output includes the bearer token:
@@ -69,9 +71,10 @@ The output includes the bearer token:
 [source,bash]
 ----
 {
-  "access_token": "<BEARER_TOKEN>",
-  "token_type": "bearer"
-}  
+    "access_token": "<BEARER_TOKEN>"
+    "expires_in": 3600,
+    "token_type": "bearer"
+}
 ----
 . Use this bearer token to access any Anypoint MQ API that requires a bearer token.
 
