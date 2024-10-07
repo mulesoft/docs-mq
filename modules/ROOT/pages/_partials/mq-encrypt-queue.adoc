@@ -1,0 +1,4 @@
+// tag::mqEncryptQueue[]
+Use encrypted queues for enhanced security.
+// end::mqEncryptQueue[]
+

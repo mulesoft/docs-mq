@@ -65,6 +65,7 @@ The period during which messages can persist in flight (for up to two weeks), af
 [[encrypt-queue]]
 Encrypted Queue::
 A queue that is encrypted, enabling companies to comply with their data at rest policies.
+include::partial$mq-encrypt-queue.adoc[tag=mqEncryptQueue]
 +
 //Shared Encryption
 include::partial$mq-faq.adoc[tag=faqEncryption]
