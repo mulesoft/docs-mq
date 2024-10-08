@@ -82,7 +82,7 @@ If MFA isn't enabled::
 +
 . Run the following command:
 +
-[source,bash]
+[source,bash,linenums]
 ----
 curl -H \
   "Content-Type: application/json" \
