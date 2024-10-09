@@ -576,7 +576,7 @@ View your entire organization's usage of Anypoint MQ for billing purposes:
 include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
 
 
-For more information, see the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API^] in the MuleSoft developer portal.
+For more information, see the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API] in the MuleSoft developer portal.
 
 
 
@@ -641,7 +641,7 @@ Use this `curl` command to get historical statistics for a queue:
 
 [source,bash,linenums]
 ----
-curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/regions/REGION_URL/queues/95bgpyxYsVyFE?startDate=Thursday, 8 Nov 2024 04:49:37 GMT&endDate=Sun, 11 Nov 2024 04:60:44 GMT&period=600" \
+curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/regions/REGION_URL/queues/95bgpyxYsVyFE?startDate=Thursday%2C%208%20Nov%202024%2004%3A49%3A37%20GMT%26endDate%3DSun%2C%2011%20Nov%202024%2004%3A60%3A44%20GMT%26period%3D600" \
 -H "Authorization: bearer <BEARER_TOKEN>" \
 -H "Cache-Control: no-cache"
 ----
@@ -684,7 +684,7 @@ Use this `curl` command to get historical statistics for an exchange:
 
 [source,bash,linenums]
 ----
-curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/regions/REGION_URL/exchanges/exchange-test?startDate=Wed%2C%2014%20Nov%202024%2021%3A53%3A08%20GMT&endDate=Wed%2C%2014%20Nov%202024%2022%3A53%3A08%20GMT&period=360" \
+curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/regions/REGION_URL/exchanges/exchange-test?startDate=Wed%2C%2014%20Nov%202024%2021%3A53%3A08%20GMT&endDate=Wed%2C%2014%20Nov%202024%2022%3A53%3A08%20GMT&period%3D600" \
 -H "Authorization: bearer <BEARER_TOKEN>" \
 -H "Cache-Control: no-cache"
 ----
@@ -727,7 +727,7 @@ Use this `curl` command to get usage metrics by environment:
 
 [source,bash,linenums]
 ----
-curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>?startDate=Thursday, 8 Nov 2024 04:49:37 GMT&endDate=Sun, 11 Nov 2024 04:60:44 GMT&period=1day" \
+curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>?startDate=Thursday%2C%208%20Nov%202024%2004%3A49%3A37%20GMT%26endDate%3DSun%2C%2011%20Nov%202024%2004%3A60%3A44%20GMT%26period%3D1day%0A" \
 -H "Authorization: bearer <BEARER_TOKEN>" \
 -H "Cache-Control: no-cache"
 ----
@@ -774,7 +774,7 @@ Use this `curl` command to get daily usage metrics by organization for a month:
 
 [source,bash,linenums]
 ----
-curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<ORG_ID>?startDate=Sun, 1 Oct 2024 04:49:37 GMT&endDate=Tue, 31 Oct 2024 04:50:44 GMT&period=1day" \
+curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<ORG_ID>?startDate=Sun%2C%201%20Oct%202024%2004%3A49%3A37%20GMT%26endDate%3DTue%2C%2031%20Oct%202024%2004%3A50%3A44%20GMT%26period%3D1day" \
 -H "Authorization: bearer <BEARER_TOKEN>" \
 -H "Cache-Control: no-cache"
 ----
@@ -826,7 +826,7 @@ Example request to list statistics for July 26 to July 28, 2024:
 
 [source,bash,linenums]
 ----
-curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/regions/REGION_URL/queues/randomQueue/?startDate=Thu%2C%2026%20Jul%202024%2000%3A00%3A00%20GMT&endDate=Sat%2C%2028%20Jul%202024%2020%3A00%3A00%20GMT&period=600" \
+curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/regions/REGION_URL/queues/randomQueue/?startDate=Thu%2C%2026%20Jul%202024%2000%3A00%3A00%20GMT&endDate=Sat%2C%2028%20Jul%202024%2020%3A00%3A00%20GMT&period%3D600" \
 -H "authorization: Bearer <BEARER_TOKEN>" \
 -H "cache-control: no-cache"
 ----
