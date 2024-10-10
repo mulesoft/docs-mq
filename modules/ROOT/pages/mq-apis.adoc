@@ -658,10 +658,10 @@ View your entire organization's usage of Anypoint MQ for billing purposes:
 [NOTE]
 include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
 
-
 For more information, see the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API] in the MuleSoft developer portal.
 
-
+[IMPORTANT]
+include::partial$mq-api-shared.adoc[tag=urlEncoded]
 
 
 === Get Current Statistics for Queues
@@ -715,8 +715,7 @@ To limit the volume of data, historical data is stored at reduced levels of gran
 
 `/queues/{queueId}?startDate=...&endDate=...&period=...`
 
-[NOTE]
-include::partial$mq-api-shared.adoc[tag=urlEncoded]
+
 
 *Sample Request and Response:*
 
@@ -758,8 +757,6 @@ Retention policies are the same as in the previous <<historical-stats-queue>> se
 
 `/exchanges/{exchangeId}?startDate=...&endDate=...&period=...`
 
-[NOTE]
-include::partial$mq-api-shared.adoc[tag=urlEncoded]
 
 *Sample Request and Response:*
 
@@ -795,9 +792,6 @@ The period is an integer and is the granularity of data points in seconds.
 You can use the Stats API to retrieve Anypoint MQ usage information by environment for a particular organization:
 
 `/environments/<ENV_ID>?startDate=...&endDate=...&period=...`
-
-[NOTE]
-include::partial$mq-api-shared.adoc[tag=urlEncoded]
 
 This information is not real-time and has a latency.
 
@@ -843,9 +837,6 @@ include::partial$mq-faq.adoc[tag=returnVals]
 You can use the Stats API to retrieve Anypoint MQ usage for the root business organization:
 
 `/organizations/<ORG_ID>?startDate=...&endDate=...&period=...`
-
-[NOTE]
-include::partial$mq-api-shared.adoc[tag=urlEncoded]
 
 [NOTE]
 include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
@@ -913,9 +904,6 @@ curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<ORG_ID
 -H "authorization: Bearer <BEARER_TOKEN>" \
 -H "cache-control: no-cache"
 ----
-
-[NOTE]
-include::partial$mq-api-shared.adoc[tag=urlEncoded]
 
 This command returns output similar to:
 
