@@ -55,11 +55,11 @@ Use a connected app to get the bearer token:
 . xref:mq-connected-apps.adoc[Create a connected app].
 . Assign the connected app the Organization Administrator scope to access the organization and environment queries.
 . From the *Connected Apps* page, click *Copy Id* and *Copy Secret* for the app you just created.
-. Run this command and replace CLIENT_ID and CLIENT_SECRET with the values you copied from the connected app.
+. Run this command and replace CLIENT_ID and CLIENT_SECRET with the values you copied from the connected app and AUTH_SERVER_HOST with the authorization server:
 +
 [source,bash,linenums]
 ----
-curl --location 'https://anypoint.mulesoft.com/accounts/api/v2/oauth2/token' \
+curl --location 'https://<AUTH_SERVER_HOST>/accounts/api/v2/oauth2/token' \
 --header 'Content-Type: application/json' \
 --data '{
     "client_id": "<CLIENT_ID>",
@@ -84,14 +84,14 @@ If MFA isn't enabled::
 
 Authenticate with a user name and password of a user with the Organization Administrator permission:
 
-. Run the following command:
+. Run the following command, replacing AUTH_SERVER_HOST with the authorization server, for example `\https://anypoint.mulesoft.com/`
 +
 [source,bash,linenums]
 ----
 curl -H \
   "Content-Type: application/json" \
   -X POST -d '{"username":"<USERNAME>","password":"<PASSWORD>"}' \
-  "https://anypoint.mulesoft.com/accounts/login"
+  "https://<AUTH_SERVER_HOST>/accounts/login"
 ----
 +
 Make sure the user has the Organization Administrator permission to access the organization and environment queries.
