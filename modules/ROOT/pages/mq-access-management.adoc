@@ -10,7 +10,7 @@ Use access management to create an enviroment and manage the roles of users who 
 
 Before you give yourself Anypoint MQ access permissions, create an environment with which to associate permissions:
 
-. From Anypoint Platform, select *Access Management*.
+. In Anypoint Platform, go to *Access Management*.
 . Follow the steps in xref:access-management::environments.adoc#to-create-a-new-environment[To Create a New Environment].
 
 == Give Users Anypoint MQ Access Permissions
@@ -23,7 +23,7 @@ You can use the same information to assign user permissions for others in your o
 
 To assign user permissions:
 
-. From Anypoint Platform, click *Access Management*.
+. In Anypoint Platform, go to *Access Management*.
 . Follow the steps in xref:access-management::users.adoc#grant-user-permissions[Grant Permissions to Users].
 // image::mq-acc-mgmt-user-detail.png[MQ permissions in Access Management]
 // . Click and select an item from the *Permissions* menu:
@@ -35,7 +35,7 @@ Use the Teams feature to create groups of users and then assign the members of t
 For example, you can create an admin team with manage permissions or a user team with just view permissions.
 Creating a role enables you to assign access rights to users in your organization, such as administrators, developers, or users (who only view information but don't change it).
 
-. From Anypoint Platform, click *Access Management*.
+. In Anypoint Platform, go to *Access Management*.
 . Follow the steps in xref:access-management::teams.adoc[].
 
 == Anypoint MQ Permissions
