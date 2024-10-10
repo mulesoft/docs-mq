@@ -115,8 +115,9 @@ For the Anypoint MQ Broker API, you can also get the bearer token from a client 
 
 include::partial$mq-connect-apps.adoc[tag=mqConnAppRec]
 
-
-IMPORTANT: You can use the broker bearer token only with the Broker API. Don't use this token with the Stats and Admin APIs. 
+IMPORTANT: You can use the broker bearer token only with the Broker API.
+Don't use this token with the Stats and Admin APIs.
+Instead, follow the steps in <<get-bearer-token>> to get the bearer token.
 
 All calls to get a token for a particular CLIENT_ID return the same token.
 Multiple apps using the same CLIENT_ID use the same token.
