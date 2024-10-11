@@ -54,7 +54,7 @@ The chart shows usage stats for the current and previous month:
 image::mq-usage-chart.png["MQ Usage page, including message units and API requests"]
 +
 [calloutlist]
-.. The percentage and amount of your license limits that you have used.
+.. The percentage and amount used of your license limits.
 +
 If the usage for either API requests or message units is 0, the chart displays `<1%`.
 +
