@@ -62,7 +62,7 @@ The circle graph changes to red as your usage approaches your license limits:
 +
 image::mq-msg-unit-color.png["Circle graph indicating license limit"]
 +
-NOTE: Monthly billing usage information might be delayed by 24 hours.
+NOTE: Monthly billing usage information might be delayed by up to 24 hours.
 .. Subscription type
 +
 `Base 0.0` indicates the Base subscription.
