@@ -48,7 +48,7 @@ To access the Anypoint MQ APIs, you must first get the bearer token from the Any
 
 NOTE: The default time to live (TTL) for the bearer token is 60 minutes.
 
-If MFA is enabled::
+If MFA (multi-factor authentication) is enabled::
 
 Use a connected app to get the bearer token:
 
@@ -82,7 +82,7 @@ The output includes the bearer token:
 
 If MFA isn't enabled::
 
-Authenticate with a user name and password of a user with the Organization Administrator permission:
+Authenticate with the credentials of a user with the Organization Administrator permission:
 
 . Run the following command, replacing AUTH_SERVER_HOST with the authorization server, for example `\https://anypoint.mulesoft.com/`
 +
