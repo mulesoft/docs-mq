@@ -35,9 +35,6 @@ Message units are used by Anypoint MQ to determine the size of message data in t
 ** Each message unit contains 100 KB of data.
 ** Message units are counted by the number of encoded characters in a message. 
 
-
-Monthly billing usage information is delayed by 24 hours.
-
 //Shared Usage Overage 
 include::partial$mq-faq.adoc[tag=faqUsageOverage]
 
@@ -64,11 +61,14 @@ If the usage for either API requests or message units is 0, the chart displays `
 The circle graph changes to red as your usage approaches your license limits:
 +
 image::mq-msg-unit-color.png["Circle graph indicating license limit"]
++
+NOTE: Monthly billing usage information might be delayed by 24 hours.
 .. Subscription type
 +
 `Base 0.0` indicates the Base subscription.
 +
 Base values greater than `0.0` indicate Premium add-on subscriptions.
+
 
 In some cases, the stats for the current month might not load when the backend process updates the records.
 If this happens, use the Anypoint MQ Stats API xref:mq-apis.adoc#usage-by-org[Usage Metrics by Organization] to query the daily usage in the current month and then add the daily usage together. 
