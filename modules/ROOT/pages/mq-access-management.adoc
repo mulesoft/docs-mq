@@ -11,8 +11,6 @@ Follow the steps in xref:access-management::environments.adoc#to-create-a-new-en
 
 == Anypoint MQ Permissions
 
-The Anypoint MQ permissions are:
-
 // These descriptions are the same as scopes in connected apps.
 [%header,cols="50a,20a,30a"]
 |===
