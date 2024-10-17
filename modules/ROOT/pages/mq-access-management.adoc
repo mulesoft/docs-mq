@@ -93,5 +93,3 @@ image::mq-switch-env.png["Environment button in Anypoint MQ"]
 == See Also
 
 * xref:access-management::permissions-by-product.adoc[]
-* xref:access-management::teams.adoc[]
-* xref:access-management::users.adoc[]
