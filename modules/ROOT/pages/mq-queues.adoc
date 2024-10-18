@@ -531,7 +531,7 @@ For information about `maxRedeliveryCount`, see xref:mule-runtime::redelivery-po
 
 === Recover Messages from a DLQ
 
-You can recover messages from the DLQ using the REST API to get the message from the queue and writing the message to a new queue. See xref:mq-apis.adoc#mqadminapi[Anypoint MQ Admin API].
+You can recover messages from the DLQ using the REST API to get the message from the queue and write the message to a new queue. See xref:mq-apis.adoc#mq-admin-api[Anypoint MQ Admin API].
 
 === Determine Whether a Queue is a DLQ
 
@@ -559,7 +559,7 @@ You can also view details of each queue from the REST Administration API, using 
 
 If DLQ is set, the returned entities contain the `deadLetterSources` field. 
 
-For more information, see xref:mq-apis.adoc#mqadminapi[Anypoint MQ Admin API].
+For more information, see xref:mq-apis.adoc#mq-admin-api[Anypoint MQ Admin API].
 
 [[fallback-queues]]
 == Fallback Queues

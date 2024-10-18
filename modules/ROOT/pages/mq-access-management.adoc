@@ -68,7 +68,6 @@ You can use the same information to assign user permissions for others in your o
 
 To assign user permissions, follow the steps in xref:access-management::users.adoc#grant-user-permissions[Grant Permissions to Users].
 
-
 == Use Teams to Assign Permissions
 
 Use the Teams feature to create groups of users and then assign the members of those groups certain permissions.

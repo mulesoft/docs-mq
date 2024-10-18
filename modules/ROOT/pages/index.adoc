@@ -106,7 +106,7 @@ For information, see xref:mq-usage.adoc[].
 +
 You can also use the Anypoint MQ Stats API to perform statistical analysis of queue performance.
 +
-For information, see xref:mq-apis.adoc#mqstatapi[Anypoint MQ Stats API].
+For information, see xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API].
 +
 [NOTE]
 You can't use Anypoint MQ with CloudHub Insight or Anypoint Monitoring.
@@ -221,7 +221,7 @@ Using connected apps with Anypoint MQ requires xref:anypoint-mq-connector::index
 --
 +
 You can use Anypoint MQ Stats API to retrieve metrics for queues and exchanges.
-For information, see xref:mq-apis.adoc#mqstatapi[Anypoint MQ Stats API].
+For information, see xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API].
 
 
 [[mq-on-hyperforce]]
