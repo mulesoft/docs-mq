@@ -28,7 +28,7 @@ For information, see xref:mq-queues.adoc#dead-letter-queues[Dead Letter Queues].
 Default Acknowledgement Timeout::
 The period that a message remains unacknowledged before being returned to the queue, for example, if a server fails or if flow processing takes too long and times out.
 
-[[delay-queues]]
+[[delay-queue]]
 Delay Queue::
 A queue that postpones delivery of new messages for a specified period.
 +
@@ -65,6 +65,7 @@ The period during which messages can persist in flight (for up to two weeks), af
 [[encrypt-queue]]
 Encrypted Queue::
 A queue that is encrypted, enabling companies to comply with their data at rest policies.
+include::partial$mq-encrypt-queue.adoc[tag=mqEncryptQueue]
 +
 //Shared Encryption
 include::partial$mq-faq.adoc[tag=faqEncryption]
