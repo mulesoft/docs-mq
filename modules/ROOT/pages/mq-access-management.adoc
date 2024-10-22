@@ -8,7 +8,11 @@ Create an environment and manage the roles of users who administer the Anypoint 
 * Create an environment with which to associate permissions.
 +
 Follow the steps in xref:access-management::environments.adoc#to-create-a-new-environment[To Create a New Environment].
+* Make sure you have the <<anypoint-mq-permissions,permissions>> required to use Anypoint MQ.
++
+include::reuse::partial$access-management/assign-permissions.adoc[tag=assignPermissionsLink]
 
+[[anypoint-mq-permissions]]
 == Anypoint MQ Permissions
 
 // These descriptions are the same as scopes in connected apps.
@@ -57,6 +61,7 @@ Follow the steps in xref:access-management::environments.adoc#to-create-a-new-en
 |
 |===
 
+////
 
 == Give Users Anypoint MQ Access Permissions
 
@@ -76,7 +81,7 @@ For example, you can create an admin team with manage permissions or a user team
 Creating a role enables you to assign access rights to users in your organization, such as administrators, developers, or users (who only view information but don't change it).
 
 Follow the steps in xref:access-management::teams.adoc[].
-
+////
 
 == Switch Environments
 
