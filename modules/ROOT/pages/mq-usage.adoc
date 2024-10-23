@@ -9,6 +9,9 @@ API requests are used to calculate your monthly quota for billing.
 ** Every API call (via the connector or API) to Anypoint MQ counts as one API request.
 +
 include::partial$mq-faq.adoc[tag=apiRequests]
++
+include::partial$mq-faq.adoc[tag=apiStatsRequests]
++
 ** You can retrieve up to 10 messages from a single API call, which only bills as one request.
 +
 Even if the request to retrieve messages does not return a message (for example, if the queue is empty),
@@ -32,9 +35,6 @@ Message units are used by Anypoint MQ to determine the size of message data in t
 ** Each message unit contains 100 KB of data.
 ** Message units are counted by the number of encoded characters in a message. 
 
-
-Monthly billing usage information is delayed by 24 hours.
-
 //Shared Usage Overage 
 include::partial$mq-faq.adoc[tag=faqUsageOverage]
 
@@ -44,26 +44,31 @@ include::partial$mq-faq.adoc[tag=faqUsageOverage]
 
 To view Anypoint MQ usage:
 
-. Sign in to Anypoint Platform.
-. Click *Access Management* in the navigation bar or the main Anypoint Platform page.
-. Click *MQ* in the *SUBSCRIPTION* section:
+. In Anypoint Platform, go to *Access Management*.
+. Click *MQ* in the *Subscription* section:
 +
 image::mq-access-mgmt-subscription.png["MQ option on the Access Management page"]
 +
-. Click a chart duration value of *6m* (six months, default), *1y* (one year), or *2y* (two years):
+The chart shows usage stats for the current and previous month:
 +
 image::mq-usage-chart.png["MQ Usage page, including message units and API requests"]
 +
-* (*1*) The duration value
-* (*2*) The number of message units and API requests per month
+[calloutlist]
+.. The percentage and amount used of your license limits.
 +
-NOTE: If the usage for either API requests or message units is 0, the chart displays `<1%`.
-* (*3*) The percentage and amount of your license that you have used
+If the usage for either API requests or message units is 0, the chart displays `<1%`.
 +
-
 The circle graph changes to red as your usage approaches your license limits:
 +
 image::mq-msg-unit-color.png["Circle graph indicating license limit"]
++
+NOTE: Monthly billing usage information might be delayed by up to 24 hours.
+.. Subscription type
++
+`Base 0.0` indicates the Base subscription.
++
+Base values greater than `0.0` indicate Premium add-on subscriptions.
+
 
 In some cases, the stats for the current month might not load when the backend process updates the records.
 If this happens, use the Anypoint MQ Stats API xref:mq-apis.adoc#usage-by-org[Usage Metrics by Organization] to query the daily usage in the current month and then add the daily usage together. 
@@ -76,7 +81,10 @@ To use the Anypoint MQ Stats API to retrieve usage metrics, see:
 * xref:mq-apis.adoc#usage-by-env[Get Usage Metrics by Environment]
 * xref:mq-apis.adoc#usage-by-org[Get Usage Metrics by Organization]
 
+[NOTE]
+include::partial$mq-faq.adoc[tag=apiStatsRequests]
+
 == See Also
 
 * xref:mq-faq.adoc[Anypoint MQ FAQ]
-* xref:mq-apis.adoc#mqstatapi[Anypoint MQ Stats API]
+* xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API]

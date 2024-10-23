@@ -23,10 +23,14 @@ Failed requests count against TPS.
 // end::failedTPS[]
 
 // tag::apiRequests[]
-All requests to the broker API count against your monthly quota.
+All requests to the Anypoint MQ Broker API count against your monthly quota.
 Requests include sending, receiving, and acknowledging messages
 and operations on queues and exchanges.
 // end::apiRequests[]
+
+// tag::apiStatsRequests[]
+Requests to the Anypoint MQ Stats API don't count against your monthly usage.
+// end::apiStatsRequests[]
 
 // tag::returnVals[]
 Anypoint MQ doesn't use `messageReceiptCount` and `billableUnitCount` for billing, and you can safely ignore them.

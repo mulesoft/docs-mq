@@ -1,17 +1,67 @@
-= Configuring Environment and Access Permissions
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
+= Setting Up the Environment and Access Permissions
 :imagesdir: ../assets/images/
 
-Use access management to create an enviroment and manage the roles of users who administer the Anypoint MQ features in Anypoint Platform for your organization.
+Create an environment and manage the roles of users who administer the Anypoint MQ features in Anypoint Platform for your organization using access management.
 
-== Create an Environment
+== Before You Begin
 
-Before you give yourself Anypoint MQ access permissions, create an environment with which to associate permissions:
+* Create an environment with which to associate permissions.
++
+Follow the steps in xref:access-management::environments.adoc#to-create-a-new-environment[To Create a New Environment].
+* Make sure you have the <<anypoint-mq-permissions,permissions>> required to use Anypoint MQ.
++
+include::reuse::partial$access-management/assign-permissions.adoc[tag=assignPermissionsLink]
 
-. From Anypoint Platform, select *Access Management*.
-. Follow the steps in xref:access-management::environments.adoc#to-create-a-new-environment[To Create a New Environment].
+[[anypoint-mq-permissions]]
+== Anypoint MQ Permissions
+
+// These descriptions are the same as scopes in connected apps.
+[%header,cols="50a,20a,30a"]
+|===
+|To...|Required Permission|Notes
+|include::access-management::partial$include-permissions-mq.adoc[tag=permsViewClients]
+|View clients
+|
+
+|include::access-management::partial$include-permissions-mq.adoc[tag=permsViewClearDestinations]
+|
+* View destinations
+* Clear destinations
+|
+
+|include::access-management::partial$include-permissions-mq.adoc[tag=permsManageClients]
+|Manage clients
+|
+
+|include::access-management::partial$include-permissions-mq.adoc[tag=permsAdministerDestinations]
+|Administer destinations
+|
+
+
+|include::access-management::partial$include-permissions-mq.adoc[tag=permsManageDestinations]
+|Manage destinations (deprecated)
+
+|Assign these permissions instead:
+
+* Administer destinations 
+* Destination subscriber for given environment
+* Destination publisher for given environment
+
+
+|include::access-management::partial$include-permissions-mq.adoc[tag=permsDestSubEnv]
+|Destination subscriber for given environment
+|
+
+|include::access-management::partial$include-permissions-mq.adoc[tag=permsDestPubEnv]
+|Destination publisher for given environment
+|
+
+|include::access-management::partial$include-permissions-mq.adoc[tag=permsReadStats]
+|Read MQ stats
+|
+|===
+
+////
 
 == Give Users Anypoint MQ Access Permissions
 
@@ -21,12 +71,7 @@ Assign user permissions to yourself for use with Anypoint MQ.
 These permissions enable you to create client applications and destinations by creating queues and exchanges.
 You can use the same information to assign user permissions for others in your organization.
 
-To assign user permissions:
-
-. From Anypoint Platform, click *Access Management*.
-. Follow the steps in xref:access-management::users.adoc#grant-user-permissions[Grant Permissions to Users].
-// image::mq-acc-mgmt-user-detail.png[MQ permissions in Access Management]
-// . Click and select an item from the *Permissions* menu:
+To assign user permissions, follow the steps in xref:access-management::users.adoc#grant-user-permissions[Grant Permissions to Users].
 
 == Use Teams to Assign Permissions
 
@@ -35,71 +80,14 @@ Use the Teams feature to create groups of users and then assign the members of t
 For example, you can create an admin team with manage permissions or a user team with just view permissions.
 Creating a role enables you to assign access rights to users in your organization, such as administrators, developers, or users (who only view information but don't change it).
 
-. From Anypoint Platform, click *Access Management*.
-. Follow the steps in xref:access-management::teams.adoc[].
-
-== Anypoint MQ Permissions
-
-The Anypoint MQ permissions are:
-
-// These descriptions are the same as scopes in connected apps.
-[%header,cols="20,60a"]
-|===
-|Permission|Description
-|*View clients*
-|View all client apps, including client app IDs and client secrets for each client app.
-|*View destinations*
-|
-
-* View all destinations and each destination's settings (*ID*, *Type*, *Message TTL*, and *Message Lock Default TTL*).
-* View *In Queue* messages.
-* View *In Flight* message stats.
-|*Clear destinations*
-|Same privileges as *View destinations*.
-|*Manage clients*
-|Same privileges as *View clients*, plus permission to create client apps.
-|*Administer destinations*
-|Same privileges as *View destinations* and *Clear destinations*, plus permission to:
-
-** Create new queues, message exchanges, and bindings.
-** Edit existing queues, message exchanges, and bindings.
-** Purge messages from queues.
-|*Manage destinations (deprecated)*
-|Same privileges as *View destinations* and *Clear destinations*, plus permission to:
-
-** Create new queues and message exchanges.
-** Edit existing queues and message exchange settings.
-** Access *Message Sender* and *Browser* pages.
-** Delete messages.
-** Purge messages from queues.
-
-[NOTE]
-====
-This permission is deprecated. 
-To achieve the same abilities as *Manage permissions*, assign these permissions to the user:
-
-** *Administer destinations* 
-** *Destination subscriber for given environment*
-** *Destination publisher for given environment*
-====
-|*Destination subscriber for given environment*
-|
-** Consume messages from a destination.
-** Delete messages from a destination.
-|*Destination publisher for given environment*
-|
-** Send messages to a destination.
-** Update message TTL on a destination.
-|*Read MQ stats*
-| View organization and environment statistics.
-|===
-
+Follow the steps in xref:access-management::teams.adoc[].
+////
 
 == Switch Environments
 
 To switch environments:
 
-. From Anypoint Platform, click *MQ* > *Design*.
+. In Anypoint Platform, go to *MQ* > *Design*.
 +
 image::mq-switch-env.png["Environment button with Production environment selected"]
 . In the *Switch Environment* box, switch to a different environment or change your default environment:
@@ -108,4 +96,4 @@ image::mq-switch-env.png["Environment button with Production environment selecte
 
 == See Also
 
-* xref:access-management::index.adoc[]
+* xref:access-management::permissions-by-product.adoc[]

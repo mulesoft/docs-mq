@@ -43,7 +43,7 @@ To create a queue:
 +
 For example, click the environment button and select *Production*:
 +
-image::mq-tutorial-switch-env.png["Environment button"]
+image::mq-switch-env.png["Environment button on the Destinations page"]
 . Click *Destinations*:
 +
 image::mq-tutorial-destinations-option.png["Destinations option and the Add icon"]
@@ -238,6 +238,7 @@ image::mq-tutorial-deploy-app.png["Deploy Application button in the Deploying Ap
 
 You have successfully used Studio 7.x to configure an app that connects to Anypoint MQ. Next, you test the connection by submitting REST API commands to the Anypoint MQ Broker API and using Anypoint MQ to view the results.
 
+[[test-app-in-studio]]
 === Test Your Mule 4.x App in Studio 7.x
 
 After you create the app in Studio 7.x, you test your app using a `curl` command to submit a REST API command to the Anypoint MQ Broker API.
@@ -434,7 +435,7 @@ You have successfully used Studio 6.x to configure a Mule 3.9 app that connects 
 
 === Test Your Mule 3.9 App in Studio 6.x
 
-To test your Mule 3.9 app, follow the steps in <<Test Your App>> to use a `curl` command to submit a REST API command to the Anypoint MQ Broker API.
+To test your Mule 3.9 app, follow the steps in <<test-app-in-studio>> to use a `curl` command to submit a REST API command to the Anypoint MQ Broker API.
 Then, use Anypoint MQ to view the results.
 
 
