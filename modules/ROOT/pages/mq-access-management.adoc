@@ -89,7 +89,7 @@ To switch environments:
 
 . In Anypoint Platform, go to *MQ* > *Design*.
 +
-image::mq-switch-env.png["Environment button in Anypoint MQ"]
+image::mq-switch-env.png["Environment button with Production environment selected"]
 . In the *Switch Environment* box, switch to a different environment or change your default environment:
 ** To switch to a different environment, click the name of that environment (for example, *Sandbox*, if you previously created a sandbox environment) and then click *Switch*.
 ** To change your default environment, click *Open your profile to change the default environment* and choose a different environment from the *Default* environment list.
