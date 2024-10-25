@@ -90,7 +90,7 @@ image::mq-tutorial-message-sender-user-props.png["Add User Properties toggle in 
 +
 include::partial$mq-user-props.adoc[tag=mquserpropsTypeColor]
 . Click *Send*.
-. Set the *Type* to *CSV*, enter the following in the *Payload* field, and click *Send*:
+. Set the *Type* to *CSV*, enter this in the *Payload* field, and click *Send*:
 +
 [source,csv,linenums]
 ----
@@ -98,7 +98,7 @@ include::partial$mq-user-props.adoc[tag=mquserpropsTypeColor]
 "fish",
 "parrot"
 ----
-. Set the *Type* to *JSON*, enter the following in the *Payload* field, and click *Send*:
+. Set the *Type* to *JSON*, enter this in the *Payload* field, and click *Send*:
 +
 [source,json,linenums]
 ----
@@ -251,7 +251,7 @@ To test your app:
 . Copy the *App url* value:
 +
 image::mq-tutorial-rtm-deploy-url.png["App url value in Runtime Manager"]
-. Run the following `curl` command from a command prompt to send the `body` value as an Anypoint MQ message.
+. Run this `curl` command from a command prompt to send the `body` value as an Anypoint MQ message.
 +
 Replace _APP-URL_ with the *App url* value that you copied from Runtime Manager. 
 +
@@ -292,8 +292,8 @@ image::mq-tutorial-msg-browser-payload-details.png["Selected message row and the
 
 You can use this XML to create the `mq-demo` app in Studio 7.x.
 
-Click *Configuration XML* tab in Studio and compare your XML to the following. Make corrections if needed.
-
+Click *Configuration XML* tab in Studio and compare your XML to this example.
+Make corrections if necessary.
 
 [source,xml,linenums]
 ----
@@ -444,7 +444,8 @@ Then, use Anypoint MQ to view the results.
 
 After you configure your app using the Anypoint MQ Connector, you can check your configuration against this XML.
 
-Click *Configuration XML* in Studio and compare your XML to the following. If needed, you can make corrections.
+Click *Configuration XML* in Studio and compare your XML to this example.
+Make corrections if necessary.
 
 [source,xml,linenums]
 ----

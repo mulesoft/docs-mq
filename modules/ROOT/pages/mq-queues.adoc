@@ -505,7 +505,7 @@ To assign a DLQ to a queue:
 . <<Create a Queue,Create a queue>>. 
 . Toggle *Assign a Dead Letter Queue* to *On*.
 +
-The following additional fields appear:
+These additional fields appear:
 +
 image::mq-create-q-dlq.png["DLQ fields in the Create Queue page"]
 

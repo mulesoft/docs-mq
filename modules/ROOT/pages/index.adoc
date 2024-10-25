@@ -11,7 +11,7 @@ Anypoint MQ supports hybrid use cases, IoT (Internet of Things) in which you col
 and provides a REST API to use with device applications.
 You can also use Anypoint MQ with other app frameworks such as node.js to communicate with queues.
 
-The following spotlight video gives an overview of Anypoint MQ:
+This spotlight video gives an overview of Anypoint MQ:
 
 ++++
 include::_partials/mq-overview-video.html[]
@@ -201,11 +201,10 @@ Billing is based on the number of messages delivered to subscribers from queues,
 [[mq-in-govcloud]]
 == Anypoint MQ in MuleSoft Government Cloud
 
-All features of Anypoint MQ are supported in MuleSoft Government Cloud with the following exceptions:
+All features of Anypoint MQ are supported in MuleSoft Government Cloud with these exceptions:
 
 * Unencrypted queues are not supported.
 +
-All queues are encrypted. 
 When xref:mq-queues.adoc#create-a-queue[creating a queue], the *Encryption* option is disabled and defaults to selected.
 * xref:mq-client-apps.adoc[Client apps] are not supported.
 +
@@ -214,16 +213,49 @@ xref:mq-connected-apps.adoc[connected apps] instead.
 * Anypoint Connector for Anypoint MQ versions earlier than 4.x are not supported.
 +
 Using connected apps with Anypoint MQ requires xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.x for Mule 4].
-* The following REST APIs in the Anypoint MQ Stats API are not supported:
+* These REST APIs in the Anypoint MQ Stats API aren't supported:
 +
 --
 ** https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/minor/1.0/console/method/%23322/[Get usage metrics for an org].
 ** https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/minor/1.0/console/method/%23383/[Get usage metrics for an environment within an org].
 --
 +
-You can use Anypoint MQ Stats API to retrieve metrics for queues and exchanges.
+You can use the Anypoint MQ Stats API only to retrieve metrics for
+xref:mq-apis.adoc#historical-stats-queue[queues]
+and
+xref:mq-apis.adoc#historical-stats-exchange[exchanges].
 For information, see xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API].
 
+
+[[mq-on-hyperforce]]
+== Anypoint MQ on Hyperforce
+
+All features of Anypoint MQ are supported on Hyperforce with these exceptions:
+
+* Deployments to CloudHub 1 aren't supported.
+* Unencrypted queues aren't supported.
++
+When xref:mq-queues.adoc#create-a-queue[creating a queue], the *Encryption* option is disabled and defaults to enabled.
+* xref:mq-client-apps.adoc[Client apps] are not supported.
++
+Use xref:mq-connected-apps.adoc[connected apps] instead.
+* Anypoint Connector for Anypoint MQ versions earlier than 4.x are not supported.
++
+Using connected apps with Anypoint MQ requires xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.x for Mule 4].
+* xref:mq-failover.adoc[Cross-region failover] is not supported.
+* xref:mq-usage.adoc[Usage graphs] aren't available.
+* These REST APIs in the Anypoint MQ Stats API aren't supported:
++
+--
+** https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/minor/1.0/console/method/%23322/[Get usage metrics for an org].
+** https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/minor/1.0/console/method/%23383/[Get usage metrics for an environment within an org].
+--
++
+You can use the Anypoint MQ Stats API only to retrieve metrics for
+xref:mq-apis.adoc#historical-stats-queue[queues]
+and
+xref:mq-apis.adoc#historical-stats-exchange[exchanges].
+For information, see xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API].
 
 == See Also
 

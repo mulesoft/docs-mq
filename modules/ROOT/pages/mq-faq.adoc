@@ -36,9 +36,15 @@ Anypoint MQ standard and FIFO queues are available in these regions:
 .2+| Europe        | Europe (Frankfurt)    |`eu-central-1`
                    | Europe (Ireland)      |`eu-west-1`
 3+h| MuleSoft Government Cloud
-.2+| |            GovCloud (US-West)       | `us-gov-west-1`
+.1+| |            GovCloud (US-West)       | `us-gov-west-1`
+3+h| Hyperforce Canada
+.1+| |            Canada (Central)       | `ca1` <<mq-hyperforce,^***^>>
 |===
 
+[[mq-hyperforce]]
+^***^ {empty}
+// MQ Support on Hyperforce
+include::mq::partial$mq-on-hyperforce.adoc[tag=mqSupportOnHyperforce]
 
 
 == How do I create and send messages into Anypoint MQ from Mule runtime?
@@ -328,7 +334,7 @@ include::partial$mq-faq.adoc[tag=faqUsageOverage]
 
 When using Anypoint MQ as a message processor with prefetch, use only a global prefetch configuration.
 
-For example, the following local prefetch does not work:
+For example, this local prefetch doesn't work:
 
 [source,xml,linenums]
 ----
