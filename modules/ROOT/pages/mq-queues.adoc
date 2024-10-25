@@ -33,8 +33,7 @@ Standard queues can be bound to a xref:mq-exchanges.adoc[_message exchange_], en
 
 You can filter queues by type in the *Destinations* page:
 
-image::mq-filters.png["Filters on the Destinations page"]
-
+image::mq-filters.png["Destinations page with filter options for message queue destinations"]
 
 == Before You Begin
 
