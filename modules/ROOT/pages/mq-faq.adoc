@@ -75,7 +75,7 @@ The body of an Anypoint MQ message is sent as a string as part of a JSON message
 
 == Can I share messages or queues between regions?
 
-No, queues and message exchanges are unique to the region in which they were created and cannot share messages or queues between regions. Developers can manually create custom programs that load balance between regions, but Anypoint MQ itself does not provide multi-region support.
+No, queues and message exchanges are unique to the region in which they were created and can't share messages or queues between regions. Developers can manually create custom programs that load balance between regions, but Anypoint MQ itself does not provide multi-region support.
 
 The queues in each region are separate from those in other regions. You can name queues the same in each region, but queues can’t share messages across regions.
 
@@ -135,7 +135,7 @@ You can use *Anypoint Platform* > *Access Management* > *Business Groups or Envi
 == Can I use Anypoint MQ on-premises?
 
 You can publish a message from an on-premises system to Anypoint MQ and have another on-premises
-subscriber pull messages from Anypoint MQ. Currently, Anypoint MQ cannot be deployed on-premises.
+subscriber pull messages from Anypoint MQ. Currently, Anypoint MQ can't be deployed on-premises.
 If you need a messaging source on-premises, you can use Apache Active MQ instead.
 
 == How does Anypoint MQ handle disaster recovery and high availability failover?
@@ -149,7 +149,7 @@ it switches to the fallback queue to publish and consume messages.
 
 == Can I use a retry strategy with the Anypoint MQ connector?
 
-You cannot use reconnection strategies with the Anypoint MQ connector because it does not use a connection-based protocol. Instead, it uses REST behind the scenes.
+You can't use reconnection strategies with the Anypoint MQ connector because it does not use a connection-based protocol. Instead, it uses REST behind the scenes.
 
 On the inbound side, you can easily mimic a retry strategy using a max redelivery attribute set to your maximum number of retries and an exception strategy to move to a dead-letter queue (DLQ) when the limit is reached.
 

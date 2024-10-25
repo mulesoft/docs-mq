@@ -61,7 +61,7 @@ image::mq-create-queues.png["Create Queue popup dialog box"]
 --
 ** *ID* specifies the queue name.
 +
-Queue names can contain up to 127 alphanumeric (a-z, A-Z, 0-9) and punctuation (. -) characters. They cannot contain spaces or other characters. 
+Queue names can contain up to 127 alphanumeric (a-z, A-Z, 0-9) and punctuation (. -) characters. They can't contain spaces or other characters. 
 +
 ** *Message TTL* (time-to-live) specifies how long unprocessed messages persist before being deleted. 
 +
@@ -327,7 +327,7 @@ Anypoint MQ doesn't support delayed delivery for individual messages in a FIFO q
 +
 Encrypting a FIFO queue does not affect the order or the contents of messages consumed.
 * Can be assigned a dead-letter queue (DLQ).
-However, Anypoint MQ cannot guarantee strict message ordering in this case.
+However, Anypoint MQ can't guarantee strict message ordering in this case.
 +
 For information about using a DLQ with a FIFO queue, see <<fifo-and-dlq>>. 
 
@@ -454,7 +454,7 @@ You must have at least two queues for one of them to be assigned as a DLQ. Both 
 
 You can assign a DLQ to a FIFO queue as long as the DLQ is also a FIFO queue.
 
-However, if you use a DLQ with a FIFO queue, Anypoint MQ cannot guarantee that messages in a message group are processed in order.
+However, if you use a DLQ with a FIFO queue, Anypoint MQ can't guarantee that messages in a message group are processed in order.
 When a message is sent to a DLQ, it is no longer in the FIFO queue.
 Anypoint MQ processes subsequent messages and doesn't preserve the message order.
 

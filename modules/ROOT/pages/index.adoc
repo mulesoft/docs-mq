@@ -76,7 +76,7 @@ Use connected apps to authenticate with Anypoint Platform by using APIs.
 +
 Register each consumer registered as a connected app with a name, ID, and secret.
 The connected app uses the ID and secret to authenticate and get access to queues and message exchanges within a single environment.
-You cannot use connected apps across multiple environments or business groups.
+You can't use connected apps across multiple environments or business groups.
 +
 For information, see xref:mq-connected-apps.adoc[].
 Large Payloads::
@@ -181,7 +181,7 @@ A locked message does not block other messages from being read.
 +
 --
 *** If a consumer processes a message successfully, the client acknowledges the message, and Anypoint MQ removes the message from the queue.
-*** If a consumer cannot process a message, the message proceeds with a negative acknowledgment and becomes visible in the queue again.
+*** If a consumer can't process a message, the message proceeds with a negative acknowledgment and becomes visible in the queue again.
 --
 +
 For information, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations].

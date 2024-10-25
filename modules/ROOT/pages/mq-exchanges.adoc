@@ -42,7 +42,7 @@ For *Queue* or *FIFO Queue*, see xref:mq-queues.adoc[].
 . In the *Create Exchange* page, name the message exchange. 
 +
 Message exchange names can contain up to 127 alphanumeric (a-z, A-Z, 0-9) and punctuation (. -) characters.
-They cannot contain spaces or other characters. 
+They can't contain spaces or other characters. 
 . Click the checkboxes to bind queues to this message exchange:
 +
 image::mq-exchange-bind-queues.png["Checkboxes to bind queues to an exchange"]
