@@ -232,7 +232,8 @@ For information, see xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API].
 
 All features of Anypoint MQ are supported on Hyperforce with these exceptions:
 
-* Unencrypted queues are not supported.
+* Deployments to CloudHub 1 aren't supported.
+* Unencrypted queues aren't supported.
 +
 When xref:mq-queues.adoc#create-a-queue[creating a queue], the *Encryption* option is disabled and defaults to enabled.
 * xref:mq-client-apps.adoc[Client apps] are not supported.
