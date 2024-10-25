@@ -22,7 +22,7 @@ Message exchanges support only the Publish operation; they don't support the Con
 Anypoint MQ forwards messages published to a message exchange to the bound queues and the app consumes from the queue.
 
 If an app attempts to consume from a message exchange,
-the Anypoint MQ REST API throws the following error:
+the Anypoint MQ REST API throws this error:
 `The destination should be a queue.`
 ====
 

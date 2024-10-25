@@ -12,7 +12,7 @@ For example, you might use the audit logs to determine:
 
 [NOTE]
 --
-The audit logging service doesn't record the following as auditable actions:
+The audit logging service doesn't record these as auditable actions:
 
 * Sending, receiving, or browsing messages
 * Failed Anypoint MQ operations
@@ -53,7 +53,7 @@ when the action occurs.
 For each action on the *Audit Log* page, click the *Download payload* icon (image:icon-download-payload.png["Download payload icon",2.5%,2.5%])
 to download a payload file (`payload.txt`).
 
-The following example shows a formatted version of the
+This example shows a formatted version of the
 contents of `payload.txt` after creating a queue:
 
 [source,json,linenums]

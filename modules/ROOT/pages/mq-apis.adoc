@@ -84,7 +84,7 @@ If MFA isn't enabled::
 
 Authenticate with the credentials of a user with the Organization Administrator permission:
 
-. Run the following command, replacing AUTH_SERVER_HOST with the authorization server, for example `\https://anypoint.mulesoft.com/`
+. Run this command, replacing AUTH_SERVER_HOST with the authorization server, for example `\https://anypoint.mulesoft.com/`
 +
 [source,bash,linenums]
 ----
@@ -279,7 +279,7 @@ You can create a FIFO queue using the Anypoint MQ Admin API by including the `"f
 The organization from which you use the Administration portal must have an Anypoint MQ FIFO entitlement.
 See xref:mq-faq.adoc[Anypoint MQ FAQ] for the regions where Anypoint MQ is available.
 
-Use a `curl` command like the following to create a FIFO queue:
+Use a `curl` command to create a FIFO queue:
 
 [source,bash,linenums]
 ----
@@ -324,7 +324,7 @@ The new message routing rule can take up to 15 minutes to take effect.
 
 include::partial$mq-msg-exchange.adoc[tag=exchBindingNoRules]
 
-To create a message routing rule, use a `curl` command like the following:
+To create a message routing rule, use a `curl` command like this:
 
 [source,bash,linenums]
 ----
@@ -414,7 +414,7 @@ curl -X GET 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/<ORG_ID
 -H 'Authorization: bearer <BEARER_TOKEN>'
 ----
 
-The response from these commands include output similar to the following:
+The response from these commands includes output similar to this:
 
 .Primary Queue
 [%collapsible]
@@ -551,7 +551,7 @@ See the xref:mq-faq.adoc#regions[Anypoint MQ FAQ] for the regions where Anypoint
 [[send-messages-api]]
 === Send a Message
 
-The following `curl` command publishes a message:
+This `curl` command publishes a message:
 
 [source,bash,linenums]
 ----
@@ -574,7 +574,7 @@ curl -X PUT "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/<OR
 
 include::partial$mq-msg-exchange.adoc[tag=msgRulesEval]
 
-The following `curl` command publishes a message with the value of the `itemCategory`
+This `curl` command publishes a message with the value of the `itemCategory`
 property as `premium`.
 The message routing rule on the `purchases` exchange binding 
 (set up in <<routing-rules-api>>) routes the message to the `premiumPurchases` queue.
@@ -602,7 +602,7 @@ xref:mq-routing-rules.adoc#intelligent-routing-restrictions[Requirements and Res
 [[retrieve-message-api]]
 === Retrieve a Message
 
-The following `curl` command gets a message:
+This `curl` command gets a message:
 
 [source,bash,linenums]
 ----
@@ -615,7 +615,7 @@ curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/<OR
 You can control whether to show the message payload in the response using the `payloadVisibility` query parameter.
 This parameter is useful when retrieving large payloads.
 
-The `payloadVisibility` parameter takes the following options: 
+The `payloadVisibility` parameter takes these options: 
 
 * `full`: Shows the message payload in the response. +
 This option is the default.
@@ -624,7 +624,7 @@ This option is the default.
 
 If the payload is hidden because `payloadVisibility` is set to `none` or `conditional`, the response includes `payloadHidden=true` in the message header.
 
-The following `curl` command gets a message and payload, displaying the payload only if the payload size is smaller than 1 MB:
+This `curl` command gets a message and payload, displaying the payload only if the payload size is smaller than 1 MB:
 
 [source,json,linenums]
 ----
@@ -1003,7 +1003,7 @@ This command returns output similar to:
 
 To create queues and exchanges programatically, you can use a language such as groovy.
 
-The following example consists of the `cloudhub.properties` file in which
+This example consists of the `cloudhub.properties` file in which
 you list the queues and exchanges to create, and a script file that
 references the properties file.
 
@@ -1022,7 +1022,7 @@ script file:
 
 === Configure a Properties File
 
-The following example properties file defines the access credentials,
+This example properties file defines the access credentials,
 organization ID, environment ID, region ID,
 and the names of the queues and exchanges to create:
 

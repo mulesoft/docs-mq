@@ -334,7 +334,7 @@ include::partial$mq-faq.adoc[tag=faqUsageOverage]
 
 When using Anypoint MQ as a message processor with prefetch, use only a global prefetch configuration.
 
-For example, the following local prefetch does not work:
+For example, this local prefetch doesn't work:
 
 [source,xml,linenums]
 ----
