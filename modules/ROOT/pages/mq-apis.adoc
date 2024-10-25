@@ -665,6 +665,7 @@ For more information, see the https://anypoint.mulesoft.com/exchange/portals/any
 include::partial$mq-api-shared.adoc[tag=urlEncoded]
 
 
+[[get-queue-stats]]
 === Get Current Statistics for Queues
 
 You can get a snapshot of the number of messages in the queue and how many are in-flight. 
