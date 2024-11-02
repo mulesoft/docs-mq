@@ -24,11 +24,11 @@ image::mq-tutorial-create-client-apps.png["Client Apps option and Add icon"]
 [calloutlist]
 .. *Client Apps* displays and creates client apps.
 .. *Add* icon adds a client app.
-. Click the *Add* icon (image:icon-blue-plus.png["Add icon in Client Apps",2.5%,2.5%]).
+. Click the *Add* icon (image:icon-blue-plus.png["Add icon in Client Apps page",2.5%,2.5%]).
 . In the *Create Client App* window, enter the name of the client app, such as `DemoClientApp` and click *Save Changes*.
 . Click the client app name to view the client app ID and client secret values in the details pane:
 +
-image::mq-tutorial-client-apps-detail.png["Client app name, Copy, and Show buttons"]
+image::mq-tutorial-client-apps-detail.png["Client app name,  and the Copy and Show buttons for the selected client app"]
 +
 [calloutlist]
 .. Client app name displays client app details.
@@ -37,7 +37,7 @@ image::mq-tutorial-client-apps-detail.png["Client app name, Copy, and Show butto
 . Click *Copy* to copy the client app ID or client secret value to your clipboard.
 . When you configure Anypoint MQ Connector in your Mule app, paste the client app ID and client secret values to the *Anypoint MQ Config* window in Studio:
 +
-image::mq-tutorial-studio7-mq-config.png["URL, Client App ID, and Client Secret fields in the Anypoint MQ Config window"]
+image::mq-tutorial-studio7-mq-config.png["Anypoint MQ Config window showing the URL, Client App ID, and Client Secret fields"]
 +
 For more information, see xref:mq-tutorial.adoc[].
 
