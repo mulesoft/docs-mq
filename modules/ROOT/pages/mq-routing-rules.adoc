@@ -23,7 +23,7 @@ You configure one message routing rule per binding on the exchange.
 include::partial$mq-msg-exchange.adoc[tag=msgRulesEval]
 . Specify filtering criteria by defining `properties` and `headers` in the message.
 +
-If you publish the following message to the `purchases` exchange,
+If you publish this message to the `purchases` exchange,
 the exchange forwards it only to `premiumPurchases` queue and 
 not to the `sizeMedium` queue based on the routing rule configuration.
 +
@@ -158,19 +158,19 @@ xref:mq-queues.adoc#get-a-message-from-a-queue[Get a Message from a Queue].
 [IMPORTANT]
 include::partial$mq-user-props.adoc[tag=mqNumberPropsConnector]
 
-Anypoint MQ supports message routing rules with the following restrictions:
+Anypoint MQ supports message routing rules with these restrictions:
 
 * Exchanges must have 10 or fewer queue bindings.
 +
 include::partial$mq-msg-exchange.adoc[tag=msgExchangeMaxRouting]
-* You can configure a message routing rule on only one property with the following restrictions:
+* You can configure a message routing rule on only one property with these restrictions:
 +
 ** Maximum size of the property name is 180 bytes.
 ** Maximum size of the property value is 45 KB.
 * Property values for routing rules can contain whitespace, alphanumeric (a-z, A-Z, 0-9), and punctuation (@ ! & | # $ % - _ : ; , . ') characters.
 
 
-Anypoint MQ evaluates messages against the routing rule only if they meet the following criteria:
+Anypoint MQ evaluates messages against the routing rule only if they meet these criteria:
 
 * Total number of headers and properties is fewer than 500.
 +

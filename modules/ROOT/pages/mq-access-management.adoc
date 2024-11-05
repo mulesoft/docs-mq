@@ -88,9 +88,9 @@ Follow the steps in xref:access-management::teams.adoc[].
 To switch environments:
 
 . In Anypoint Platform, go to *MQ*.
+. Click the environment button.
 +
 image::mq-switch-env.png["Environment button with Production environment selected"]
-. Click the environment button:
 ** To switch to a different environment, click the name of that environment (for example, *Sandbox*, if you previously created a sandbox environment) and then click *Switch*.
 ** To change your default environment, click *Open your profile to change the default environment* and choose a different environment from the *Default* environment list.
 

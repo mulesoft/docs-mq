@@ -92,7 +92,7 @@ image::mq-connector-ops.png["Operation dropdown in Anypoint Studio"]
 
 If you are using the *auto* state, set a `choice-exception-strategy` and the Anypoint MQ connector automatically sends the ack or nack depending on what exception choices you make. The code that follows illustrates the use of the *auto* state.
 
-The following code demonstrates the Studio flows:
+This code demonstrates the Studio flows:
 
 image::mq-ack-flow.png["MQ acknowledgment mode flows in Anypoint Studio"]
 
@@ -366,7 +366,7 @@ http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
 [[randomerror]]
 == Random Error Generator
 
-The following Java test program generates random errors that you can use to test your app. This program gets a random integer between 0 and 100, and makes these choices depending on the value:
+This Java test program generates random errors that you can use to test your app. This program gets a random integer between 0 and 100, and makes these choices depending on the value:
 
 [%header,cols="10a,30a,60a"]
 |===

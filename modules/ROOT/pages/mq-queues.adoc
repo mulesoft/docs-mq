@@ -410,7 +410,7 @@ image::mq-fifo-msg-groups.png["Message Sender page showing the Message Group ID 
 
 
 
-==== Determine the Message Group to Which a Message Belongs
+==== Determine the Message Group a Message Belongs to
 
 To see which message group a message belongs to:
 
@@ -501,7 +501,7 @@ To assign a DLQ to a queue:
 . <<Create a Queue,Create a queue>>. 
 . Toggle *Assign a Dead Letter Queue* to *On*.
 +
-The following additional fields appear:
+These additional fields appear:
 +
 image::mq-create-q-dlq.png["DLQ fields in the Create Queue page"]
 
