@@ -9,7 +9,7 @@ To create a connected app with Anypoint MQ scopes:
 image::mq-tutorial-create-connected-apps.png["Connected Apps navigation option and Create app button in Access Management"]
 +
 [calloutlist]
-.. *Connected Apps* displays and creates connected apps.
+.. *Connected Apps* menu option displays and creates connected apps.
 .. *Create app* button creates a connected app.
 . Specify a name, such as `DemoApp1` for the app.
 . Select *App acts on its own behalf (client credentials)*.

@@ -222,8 +222,6 @@ For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue on
 +
 image::mq-msg-browser-payload-details-csv.png["Details pane showing the CSV message payload, Full Screen icon, and close details pane icon"]
 +
-include::partial$mq-msg-browser-details.adoc[tag=mqPayloadDetails]
-+
 [NOTE]
 //Shared Big Payload
 include::partial$mq-big-payload.adoc[tag=mqBigPayload]
@@ -255,8 +253,6 @@ For *Delivery Delay* (standard queue only) and *Message Group ID* (FIFO queue on
 . Click the message row to view the message payload in the details pane:
 +
 image::mq-msg-browser-payload-details-json.png["Details pane showing the JSON payload, Full Screen icon, and close details pane icon"]
-+
-include::partial$mq-msg-browser-details.adoc[tag=mqPayloadDetails]
 +
 [NOTE]
 //Shared Big Payload

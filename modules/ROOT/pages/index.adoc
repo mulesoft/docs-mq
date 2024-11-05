@@ -11,7 +11,7 @@ Anypoint MQ supports hybrid use cases, IoT (Internet of Things) in which you col
 and provides a REST API to use with device applications.
 You can also use Anypoint MQ with other app frameworks such as node.js to communicate with queues.
 
-The following spotlight video gives an overview of Anypoint MQ:
+This spotlight video gives an overview of Anypoint MQ:
 
 ++++
 include::_partials/mq-overview-video.html[]

@@ -131,9 +131,8 @@ Anypoint MQ retrieves the messages from the queue and displays them in the Messa
 image::mq-tutorial-msg-browser-payload-details.png["Selected message row and details pane showing the payload"]
 +
 [calloutlist]
-.. Selected message.
-.. Message payload in the details pane.
-
+.. Selected message
+.. Message payload in the details pane
 
 You have successfully created a queue in Anypoint MQ, sent messages to the queue, verified that the messages arrived, and viewed the message payload. Next, you create a connected app to connect a Mule app to Anypoint MQ.
 
@@ -285,8 +284,8 @@ Anypoint MQ retrieves the messages from the queue and displays them in the Messa
 image::mq-tutorial-msg-browser-payload-details.png["Selected message row and details pane showing the payload"]
 +
 [calloutlist]
-.. Selected message.
-.. Message payload in the details pane.
+.. Selected message
+.. Message payload in the details pane
 . Try changing the body text in the `curl` command and repeat the steps to view the message.
 
 === Example App XML for Studio 7.x
