@@ -18,7 +18,7 @@ image::mq-tutorial-create-connected-apps.png["Connected Apps navigation option a
 Scopes are roles with associated permissions, which determine which actions the app can perform within an organization and environment.
 See xref:mq-connected-apps.adoc#mq-scopes[Anypoint MQ Scopes].
 +
-image::mq-conn-apps-scopes.png["Add Scopes windown showing the scopes to add to Anypoint MQ connected apps"]
+image::mq-conn-apps-scopes.png["Add Scopes window showing the scopes to add to Anypoint MQ connected apps"]
 . In *Add Scopes* window:
 //tag::ScopesConnAppTutorial[]
 .. Enter "MQ" in the *Filter scopes* field.
