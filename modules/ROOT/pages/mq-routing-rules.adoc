@@ -10,7 +10,7 @@ a property or header that matches the rule.
 [NOTE]
 include::partial$mq-msg-exchange.adoc[tag=exchBindingNoRules]
 
-image::mq-route-message.png["Rules on exchange bindings route messages to specific queues"]
+image::mq-route-message.png["Rules on exchange bindings routing messages to specific queues"]
 
 For example, you might want to designate a queue to handle all orders for size medium items and another queue for premium items.
 
