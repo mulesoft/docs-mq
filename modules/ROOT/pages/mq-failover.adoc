@@ -200,7 +200,7 @@ To disable failover for a queue:
 +
 Anypoint MQ disables failover for the queue:
 +
-image::mq-queue-settings-failover-disabled.png["Queue Settings page showing showing the failover option deselected"]
+image::mq-queue-settings-failover-disabled.png["Queue Settings page showing the failover option deselected"]
 . Click *Save Changes*.
 +
 The primary queue details shows that failover is disabled:
