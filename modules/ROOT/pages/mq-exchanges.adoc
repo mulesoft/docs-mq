@@ -45,7 +45,7 @@ Message exchange names can contain up to 127 alphanumeric (a-z, A-Z, 0-9) and pu
 They cannot contain spaces or other characters. 
 . Click the checkboxes to bind queues to this message exchange:
 +
-image::mq-exchange-bind-queues.png["Checkboxes to bind queues to an exchange in the Create Exchange page"]
+image::mq-exchange-bind-queues.png["Checkboxes to bind queues to a message exchange in the Create Exchange page"]
 . Click *Save Changes*.
 . In the *Destinations* page, click the message exchange type for the new exchange to display the bound queues in the details pane:
 +
