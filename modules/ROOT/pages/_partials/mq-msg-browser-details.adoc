@@ -30,9 +30,3 @@ Deleting a message is an acknowledgment operation (ACK). For information about h
 .. Queue ID displays the *Queue Settings* page.
 .. Queue details label displays the *Queue Settings* page.
 // end::mqQueueDetails[]
-
-// tag::mqPayloadDetails[]
-[calloutlist]
-.. *Full Screen* icon displays the message payload in a separate window.
-.. *Close* icon closes the details pane.
-// end::mqPayloadDetails[]

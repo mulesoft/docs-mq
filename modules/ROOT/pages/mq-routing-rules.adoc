@@ -10,7 +10,7 @@ a property or header that matches the rule.
 [NOTE]
 include::partial$mq-msg-exchange.adoc[tag=exchBindingNoRules]
 
-image::mq-route-message.png["Routing rules on exchange bindings"]
+image::mq-route-message.png["Rules on exchange bindings routing messages to specific queues"]
 
 For example, you might want to designate a queue to handle all orders for size medium items and another queue for premium items.
 
@@ -23,7 +23,7 @@ You configure one message routing rule per binding on the exchange.
 include::partial$mq-msg-exchange.adoc[tag=msgRulesEval]
 . Specify filtering criteria by defining `properties` and `headers` in the message.
 +
-If you publish the following message to the `purchases` exchange,
+If you publish this message to the `purchases` exchange,
 the exchange forwards it only to `premiumPurchases` queue and 
 not to the `sizeMedium` queue based on the routing rule configuration.
 +
@@ -46,10 +46,10 @@ To create a message routing rule:
 . Click *Destinations* and then click the name of the exchange to configure rules.
 . On the *Exchange Settings* page, click *Add Rule* to add a rule to a bound queue.
 +
-image::mq-exchange-add-rule-bound-queues.png["Add Rule button on the Exchange Settings page"]
+image::mq-exchange-add-rule-bound-queues.png["Exchange Settings page showing the Add Rule button"]
 . Complete the fields on the *Create Routing Rule* page.
 +
-image::mq-exchange-create-routing-rule.png["Create Routing Rule page"]
+image::mq-exchange-create-routing-rule.png["Create Routing Rule form showing example values"]
 +
 * Specify the property name and value to match.
 * For each property type, specify a <<matcher-type,matcher type>>.
@@ -64,7 +64,7 @@ To change a message routing rule:
 . Click *Destinations* and then click the name of the exchange to configure rules.
 . On the *Exchange Settings* page, click *Edit Rule* to change a rule on a bound queue.
 +
-image::mq-exchange-edit-rule-bound-queues.png["Edit Rule button on the Exchange Settings page"]
+image::mq-exchange-edit-rule-bound-queues.png["Exchange Settings page showing the Edit Rule button"]
 . On the *Edit Routing Rule* page, change the rule settings.
 +
 For information about property types and matcher types, see <<matcher-type>>.
@@ -79,7 +79,7 @@ To delete a message routing rule:
 . Click *Destinations* and then click the name of the exchange to configure rules.
 . On the *Exchange Settings* page, click *Delete Rule* .
 +
-image::mq-exchange-delete-rule-bound-queues.png["Delete Rule button on the Exchange Settings page"]
+image::mq-exchange-delete-rule-bound-queues.png["Exchange Settings page showing the Delete Rule button"]
 . In the *Delete Routing Rule* confirmation box, select the checkbox and click *Delete Routing Rule* to verify that you want to delete the rule.
 
 == Create or Change a Message Routing Rule with Anypoint Admin API
@@ -146,7 +146,7 @@ Anypoint MQ displays the *Message Browser* page for the selected queue.
 . Click *Get Messages*.
 . Click the message row to view the message payload, including the user properties, in the details pane:
 +
-image::mq-exchange-user-props.png["View user properties in the Message Browser page"]
+image::mq-exchange-user-props.png["Message Browser details page showing the message payload and user properties"]
 +
 See 
 xref:mq-queues.adoc#get-a-message-from-a-queue[Get a Message from a Queue].
@@ -158,19 +158,19 @@ xref:mq-queues.adoc#get-a-message-from-a-queue[Get a Message from a Queue].
 [IMPORTANT]
 include::partial$mq-user-props.adoc[tag=mqNumberPropsConnector]
 
-Anypoint MQ supports message routing rules with the following restrictions:
+Anypoint MQ supports message routing rules with these restrictions:
 
 * Exchanges must have 10 or fewer queue bindings.
 +
 include::partial$mq-msg-exchange.adoc[tag=msgExchangeMaxRouting]
-* You can configure a message routing rule on only one property with the following restrictions:
+* You can configure a message routing rule on only one property with these restrictions:
 +
 ** Maximum size of the property name is 180 bytes.
 ** Maximum size of the property value is 45 KB.
 * Property values for routing rules can contain whitespace, alphanumeric (a-z, A-Z, 0-9), and punctuation (@ ! & | # $ % - _ : ; , . ') characters.
 
 
-Anypoint MQ evaluates messages against the routing rule only if they meet the following criteria:
+Anypoint MQ evaluates messages against the routing rule only if they meet these criteria:
 
 * Total number of headers and properties is fewer than 500.
 +

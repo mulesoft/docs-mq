@@ -83,18 +83,18 @@ image::mq-global-mode-set.png[]
 
 Lets you manually add Anypoint MQ connector instances to your flow with the *Operation* field set to *ack* or *nack* depending on whether the app is receiving or rejecting a message.
 
-You can set a local state using the Anypoint MQ connector's *Operation* field:
+You can set a local state using the Anypoint MQ connector's *Operation* dropdown:
 
-image::mq-connector-ops.png[]
+image::mq-connector-ops.png["Operation dropdown in Anypoint Studio"]
 
 [[autoflow]]
 == Create an Auto Acknowledge Flow in Anypoint Studio
 
 If you are using the *auto* state, set a `choice-exception-strategy` and the Anypoint MQ connector automatically sends the ack or nack depending on what exception choices you make. The code that follows illustrates the use of the *auto* state.
 
-The following code demonstrates the Studio flows:
+This code demonstrates the Studio flows:
 
-image::mq-ack-flow.png[MQ acknowledgment mode flows]
+image::mq-ack-flow.png["MQ acknowledgment mode flows in Anypoint Studio"]
 
 The two flows in this example:
 
@@ -202,11 +202,11 @@ See <<randomerror,Random Error Generator>> for an explanation of how exceptions 
 
 You can set the manual acknowledgment mode in Studio from the Anypoint MQ connector's Global Element Properties:
 
-image::mq-global-mode-set.png[]
+image::mq-global-mode-set.png["Acknowledgment Mode dropdown in Anypoint Studio"]
 
 In the manual flow, the `choice-exception-strategy` is also set as in the flow. In this case, the app uses individual Anypoint MQ connector instances with the operation set to either ACK or NACK depending on exceptions sent by the <<randomerror,Random Error Java Class>>.
 
-image::mq-manual-flow.png[]
+image::mq-manual-flow.png["Manual acknowledgment mode flow in Anypoint Studio"]
 
 === Manual XML Code
 
@@ -288,7 +288,7 @@ See <<randomerror,Random Error Generator>> for an explanation of how exceptions 
 
 You can set *Acknowledgment Mode* to *NONE* in Studio's *Global Element Properties* menu for Anypoint MQ connector:
 
-image::mq-global-mode-set.png[]
+image::mq-global-mode-set.png["No acknowledgment mode flow in Anypoint Studio"]
 
 In the *NONE* flow, the Anypoint MQ connector always sends an ACK no matter what occurs.
 
@@ -366,7 +366,7 @@ http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
 [[randomerror]]
 == Random Error Generator
 
-The following Java test program generates random errors that you can use to test your app. This program gets a random integer between 0 and 100, and makes these choices depending on the value:
+This Java test program generates random errors that you can use to test your app. This program gets a random integer between 0 and 100, and makes these choices depending on the value:
 
 [%header,cols="10a,30a,60a"]
 |===

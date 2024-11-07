@@ -12,7 +12,7 @@ For example, you might use the audit logs to determine:
 
 [NOTE]
 --
-The audit logging service doesn't record the following as auditable actions:
+The audit logging service doesn't record these actions as auditable:
 
 * Sending, receiving, or browsing messages
 * Failed Anypoint MQ operations
@@ -42,7 +42,14 @@ You can also search by environment, object name, or user.
 
 The *Audit logs* page displays the logs:
 
-image::mq-access-mgmt-audit-logs.png["Filters, the Apply filters button, the filters currently applied, and the Download payload icon on the Audit logs page"]
+image::mq-access-mgmt-audit-logs.png["Filters, Apply filters button, current filters, and Download payload button on the Audit logs page"]
+
+[calloutlist]
+. Select filters.
+. Apply filters.
+. View current filters. 
+. Download payload.
+
 --
 
 === Payloads
@@ -50,10 +57,10 @@ image::mq-access-mgmt-audit-logs.png["Filters, the Apply filters button, the fil
 A _payload_ is a JSON-formatted text file that lists the Anypoint MQ settings in place
 when the action occurs. 
 
-For each action on the *Audit Log* page, click the *Download payload* icon (image:icon-download-payload.png["Download payload icon",2.5%,2.5%])
+For each action on the *Audit Log* page, click the *Download payload* icon (image:icon-download-payload.png["",2.5%,2.5%])
 to download a payload file (`payload.txt`).
 
-The following example shows a formatted version of the
+This example shows a formatted version of the
 contents of `payload.txt` after creating a queue:
 
 [source,json,linenums]

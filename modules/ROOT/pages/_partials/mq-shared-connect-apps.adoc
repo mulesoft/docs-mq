@@ -6,10 +6,10 @@ To create a connected app with Anypoint MQ scopes:
 . Click *Connected Apps* in the navigation pane.
 . Click *Create app*.
 +
-image::mq-tutorial-create-connected-apps.png["Connected Apps option and Create app button"]
+image::mq-tutorial-create-connected-apps.png["Connected Apps navigation option and Create app button in Access Management"]
 +
 [calloutlist]
-.. *Connected Apps* displays and creates connected apps.
+.. *Connected Apps* menu option displays and creates connected apps.
 .. *Create app* button creates a connected app.
 . Specify a name, such as `DemoApp1` for the app.
 . Select *App acts on its own behalf (client credentials)*.
@@ -18,7 +18,7 @@ image::mq-tutorial-create-connected-apps.png["Connected Apps option and Create a
 Scopes are roles with associated permissions, which determine which actions the app can perform within an organization and environment.
 See xref:mq-connected-apps.adoc#mq-scopes[Anypoint MQ Scopes].
 +
-image::mq-conn-apps-scopes.png["Scopes for Anypoint MQ connected apps"]
+image::mq-conn-apps-scopes.png["Add Scopes window showing the scopes to add to Anypoint MQ connected apps"]
 . In *Add Scopes* window:
 //tag::ScopesConnAppTutorial[]
 .. Enter "MQ" in the *Filter scopes* field.
@@ -30,7 +30,7 @@ image::mq-conn-apps-scopes.png["Scopes for Anypoint MQ connected apps"]
 
 [[connected-apps-window]] When you configure the connector in a later step, click *Copy Id* and *Copy Secret* to copy the ID and secret for `DemoApp1`:
 
-image::mq-conn-apps-window.png["Connected Apps window"]
+image::mq-conn-apps-window.png["Connected Apps window showing the Copy Id and Copy Secret buttons"]
 
 //end::ScopesConnAppTutorial[]
 //tag::ScopesConnApp[]
