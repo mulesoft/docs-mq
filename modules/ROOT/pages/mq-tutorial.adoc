@@ -199,7 +199,7 @@ image::mq-tutorial-studio7-flow.png["Publish operation in the Studio 7.x canvas"
 . In the Listener properties window, set *General* > *Path* to `/mq/{messageId}`:
 +
 image::mq-tutorial-studio7-listener-props.png["Listener properties window showing the Path field value"]
-. Click the *Add* icon (image:icon-green-plus.png["",2.5%,2.5%]) for the *Connector configuration* field.
+. Click the green plus icon (image:icon-green-plus.png["",2.5%,2.5%]) for the *Connector configuration* field.
 . In the HTTP Listener *Global Element Properties* window, verify that the value of *Host* is `All Interfaces [0.0.0.0]` and *Port* is `8081`, and then click *OK*:
 +
 image::mq-tutorial-studio7-listener-config.png["Host and Port settings in the Global Element Properties for the Listener"]
@@ -211,7 +211,7 @@ The Listener properties window now indicates that there are no errors.
 image::mq-tutorial-studio7-mq-props.png["Destination property for the Publish operation in Anypoint Studio"]
 +
 The location of the queue must be an environment other than Design.
-. Click the *Add* icon (image:icon-green-plus.png["",2.5%,2.5%]) for the *Connector configuration* field to display the *Global Element Properties* window.
+. Click the green plus icon (image:icon-green-plus.png["",2.5%,2.5%]) for the *Connector configuration* field to display the *Global Element Properties* window.
 . Return to your *Anypoint Platform* > *MQ* browser window to copy the URL, ID, and secret values:
 +
 .. Click *Destinations*.
@@ -382,7 +382,7 @@ image::mq-tutorial-studio6-flow-complete.png["Flow in Studio 6.x Canvas showing 
 . In the HTTP properties window, set *General* > *Path* to `/mq/{messageId}`:
 +
 image::mq-tutorial-studio6-http-props.png["HTTP properties window showing the Path field value"]
-. Click the HTTP connector and click the *Add* icon (image:icon-green-plus.png["Add icon in Studio",2.5%,2.5%]) for *Connector Configuration*.
+. Click the HTTP connector and click the green plus icon (image:icon-green-plus.png["",2.5%,2.5%]) for *Connector Configuration*.
 . In the HTTP Connector *Global Element Properties* window, verify that the value of *Host* is `0.0.0.0` and *Port* is `8081`, and then click *OK*.
 +
 The HTTP properties window now indicates that there are no errors.
@@ -396,7 +396,7 @@ The HTTP properties window now indicates that there are no errors.
 +
 image::mq-tutorial-studio6-set-payload-props.png["Set Payload window showing the payload in the Value field"]
 . In the canvas, click *Anypoint MQ*.
-. In the Anypoint MQ properties window, click the *Add* icon (image:icon-green-plus.png["Add icon in Studio",2.5%,2.5%]) for *Connector Configuration*.
+. In the Anypoint MQ properties window, click the green plus icon (image:icon-green-plus.png["",2.5%,2.5%]) for *Connector Configuration*.
 
 . Return to *Anypoint Platform* > *MQ* to copy the URL, client app ID, and client secret values to Studio:
 +
