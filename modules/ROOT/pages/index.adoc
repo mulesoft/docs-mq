@@ -201,16 +201,17 @@ Billing is based on the number of messages delivered to subscribers from queues,
 [[mq-in-govcloud]]
 == Anypoint MQ in MuleSoft Government Cloud
 
-All features of Anypoint MQ are supported in MuleSoft Government Cloud with these exceptions:
+All features of Anypoint MQ are supported in 
+xref:gov-cloud::index.adoc[MuleSoft Government Cloud] with these exceptions:
 
 * Unencrypted queues are not supported.
 +
 When xref:mq-queues.adoc#create-a-queue[creating a queue], the *Encryption* option is disabled and defaults to selected.
-* xref:mq-client-apps.adoc[Client apps] are not supported.
+* xref:mq-client-apps.adoc[Client apps] aren't supported.
 +
 Use 
 xref:mq-connected-apps.adoc[connected apps] instead.
-* Anypoint Connector for Anypoint MQ versions earlier than 4.x are not supported.
+* Anypoint Connector for Anypoint MQ versions earlier than 4.x aren't supported.
 +
 Using connected apps with Anypoint MQ requires xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.x for Mule 4].
 * These REST APIs in the Anypoint MQ Stats API aren't supported:
@@ -226,11 +227,27 @@ and
 xref:mq-apis.adoc#historical-stats-exchange[exchanges].
 For information, see xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API].
 
+For information about MuleSoft Government Cloud, see
+xref:gov-cloud::index.adoc[].
 
 [[mq-on-hyperforce]]
 == Anypoint MQ on Hyperforce
 
-All features of Anypoint MQ are supported on Hyperforce with these exceptions:
+Anypoint MQ supports these 
+Salesforce Hyperforce (Hyperforce) regions:
+
+* Canada Central (ca-central-1)
+* Japan (ap-northeast-1)
+
+For information about Hyperforce, see
+xref:hyperforce::index.adoc[].
+
+=== Anypoint MQ Features Not Supported on Hyperforce
+
+When you deploy to
+https://ca1.platform.mulesoft.com[Canada Cloud] or 
+https://jp1.platform.mulesoft.com[Japan Cloud],
+all features of Anypoint MQ are supported with these exceptions:
 
 * Deployments to CloudHub 1 aren't supported.
 +
@@ -238,13 +255,13 @@ You can deploy apps to CloudHub 2.0 shared spaces and Anypoint Runtime Fabric.
 * Unencrypted queues aren't supported.
 +
 When xref:mq-queues.adoc#create-a-queue[creating a queue], the *Encryption* option is disabled and defaults to enabled.
-* xref:mq-client-apps.adoc[Client apps] are not supported.
+* xref:mq-client-apps.adoc[Client apps] aren't supported.
 +
 Use xref:mq-connected-apps.adoc[connected apps] instead.
-* Anypoint Connector for Anypoint MQ versions earlier than 4.x are not supported.
+* Anypoint Connector for Anypoint MQ versions earlier than 4.x aren't supported.
 +
 Using connected apps with Anypoint MQ requires xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.x for Mule 4].
-* xref:mq-failover.adoc[Cross-region failover] is not supported.
+* xref:mq-failover.adoc[Cross-region failover] isn't supported.
 * xref:mq-usage.adoc[Usage graphs] aren't available.
 * These REST APIs in the Anypoint MQ Stats API aren't supported:
 +
