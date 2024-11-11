@@ -201,8 +201,8 @@ Billing is based on the number of messages delivered to subscribers from queues,
 [[mq-in-govcloud]]
 == Anypoint MQ in MuleSoft Government Cloud
 
-All features of Anypoint MQ are supported in 
-xref:gov-cloud::index.adoc[MuleSoft Government Cloud] with these exceptions:
+When you deploy to https://gov.anypoint.mulesoft.com/login/[MuleSoft Government Cloud],
+all features of Anypoint MQ are supported with these exceptions:
 
 Unencrypted Queues::
 Unencrypted queues are not supported.
