@@ -1,4 +1,4 @@
-= Retrieving Usage Metrics with Anypoint APIs
+= Retrieving Usage Metrics Using Anypoint APIs
 
 Depending on your control plane, you use different APIs to retrieve Anypoint MQ usage metrics.
 
@@ -13,14 +13,10 @@ Depending on your control plane, you use different APIs to retrieve Anypoint MQ 
 
 
 [[retrieve-metrics-mq-stats-api]]
-== Retrieve Usage Metrics with Anypoint MQ Stats API
+== Retrieve Usage Metrics Using Anypoint MQ Stats API
 
-[NOTE]
-// Not on HF
-include::partial$mq-api-shared.adoc[tag=mqStatsAPInotHF]
-To retrieve these usage metrics on these instances, see <<retrieve-metrics-metering-api>>.
-
-To use the Anypoint MQ Stats API to retrieve usage metrics, see:
+To retrieve Anypoint MQ usage metrics on US Cloud or EU Cloud,
+use the Anypoint MQ Stats API:
 
 * xref:mq-apis.adoc#usage-by-env[Get Usage Metrics by Environment]
 * xref:mq-apis.adoc#usage-by-org[Get Usage Metrics by Organization]
@@ -29,37 +25,237 @@ To use the Anypoint MQ Stats API to retrieve usage metrics, see:
 include::partial$mq-faq.adoc[tag=apiStatsRequests]
 
 [[retrieve-metrics-metering-api]]
-== Retrieve Usage Metrics with Anypoint Metering Query API
+== Retrieve Usage Metrics Using Anypoint Metering Query API
 
 [NOTE]
-These REST APIs are supported on Canada Cloud and Japan Clouds (Hyperforce) only.
+These REST APIs are supported on 
+https://ca1.platform.mulesoft.com/[Canada Cloud] and 
+https://ja1.platform.mulesoft.com/[Japan Clouds] (Hyperforce) only.
 
-To retrieve Anypoint MQ usage metrics on Canada Cloud or Japan Cloud, use the Metering API.
+To retrieve Anypoint MQ usage metrics on Canada Cloud or Japan Cloud, use the Metering Query API:
 
-For example, to retrieve effective API requests:
+* <<get-api-req-root-org>>
+* <<get-api-req-org-id>>
+* <<get-api-req-org-env-id>>
+* <<get-message-units-root-org>>
+* <<get-message-units-org-id>>
+* <<get-message-units-org-env-id>>
 
-. xref:mq-apis.adoc#get-bearer-token[Get a bearer token] for an Anypoint Platform user account that has the Usage Viewer permission for your root organization.
-. Use a command like this:
+=== Before You Begin
+
+* xref:mq-apis.adoc#get-bearer-token[Get a bearer token] for an Anypoint Platform user account that has the Usage Viewer permission for your root organization.
+* Familiarize yourself with how Anypoint MQ uses xref:mq-usage.adoc[API requests and message units].
+* Use the information in this table to construct your queries:
 +
+[%header,cols="15,45a"]
+|===
+| Parameter | Description
+| TIMESERIES | How to group the output:
+
+* Monthly: `P1M`
+* Daily: `P1D`
+* Hourly: `PT1H`
+
+| BETWEEN  | Time frame to retrieve metrics for (timestamp specified in https://currentmillis.com/[milliseconds]).
+| INSTANCE | Anypoint Platform instance:
+
+* Canada Cloud: https://ca1.platform.mulesoft.com/metering/usage
+* Japan Cloud: https://jp1.platform.mulesoft.com/metering/usage
+|===
+
+
+[[get-api-req-root-org]]
+=== Get API Requests by Root Org
+
+Use a command like this:
+
 [source,bash,linenums]
 ----
-curl --location 'https://anypoint.mulesoft.com/metering/usage/api/v1/meters:search' \
+curl --location '<INSTANCE>/metering/usage/api/v1/meters:search' \
 --header 'Authorization: bearer ***' \
 --header 'Content-type: application/json' \
 --data '{
-    "query": "SELECT effective_api_requests FROM mq_effective_api_requests_count WHERE timestamp BETWEEN 1728874800000 AND 1731610357770 TIMESERIES P1M"
+    "query": "SELECT api_requests FROM anypoint_mq_api_requests_count WHERE timestamp BETWEEN 1731207600000 AND 1731963949248 TIMESERIES P1M"
 }'
 ----
-+
-The output includes:
-+
+
+This command returns output similar to:
+
 [source,json,linenums]
 ----
 {
-
-}  
+   "metadata":{
+      "responseAsOf":"2024-11-19T12:00:53.577174248Z"
+   },
+   "data":[
+      {
+         "api_requests":100000.0,
+         "timestamp":1730419200000
+      }
+   ]
+}
 ----
 
+
+[[get-api-req-org-id]]
+=== Get API Requests for a Specific Org ID
+
+Use a command like this:
+
+[source,bash,linenums]
+----
+$ curl --location '<INSTANCE>/metering/usage/api/v1/meters:search' \
+--header 'Authorization: bearer ***' \
+--header 'Content-type: application/json' \
+--data '{
+    "query": "SELECT org_id, api_requests FROM anypoint_mq_api_requests_count WHERE org_id = '\''66310c16-bce5-43c4-b978-5945ed2f99c5'\'' AND timestamp BETWEEN 1731207600000 AND 1731963949248 TIMESERIES P1M"
+}'
+----
+
+This command returns output similar to:
+
+[source,json,linenums]
+----
+{
+   "metadata":{
+      "responseAsOf":"2024-11-19T12:16:38.432741846Z"
+   },
+   "data":[
+      {
+         "org_id":"66310c16-bce5-43c4-b978-5945ed2f99c5",
+         "api_requests":50000.0,
+         "timestamp":1730419200000
+      }
+   ]
+}
+----
+
+[[get-api-req-org-env-id]]
+=== Get API Requests for a Specific Org and Environment
+
+Use a command like this:
+
+[source,bash,linenums]
+----
+curl --location '<INSTANCE>/metering/usage/api/v1/meters:search' \
+--header 'Authorization: bearer ***' \
+--header 'Content-type: application/json' \
+--data '{
+    "query": "SELECT org_id, env_id, api_requests FROM anypoint_mq_api_requests_count WHERE org_id = '\''66310c16-bce5-43c4-b978-5945ed2f99c5'\'' AND env_id = '\''40eeb638-348c-4d80-9db6-7baf88b2d28f'\'' AND timestamp BETWEEN 1731207600000 AND 1731963949248 TIMESERIES P1M"
+}'
+----
+
+This command returns output similar to:
+
+[source,json,linenums]
+----
+curl --location 'https://qax.anypoint.mulesoft.com/metering/usage/api/v1/meters:search' \
+--header 'Authorization: bearer ***' \
+--header 'Content-type: application/json' \
+--data '{
+    "query": "SELECT org_id, env_id, api_requests FROM anypoint_mq_api_requests_count WHERE org_id = '\''66310c16-bce5-43c4-b978-5945ed2f99c5'\'' AND env_id = '\''40eeb638-348c-4d80-9db6-7baf88b2d28f'\'' AND timestamp BETWEEN 1731207600000 AND 1731963949248 TIMESERIES P1M"
+}'
+----
+
+
+[[get-message-units-root-org]]
+=== Get Message Units by Root Org
+
+Use a command like this:
+
+[source,bash,linenums]
+----
+curl --location '<INSTANCE>/metering/usage/api/v1/meters:search' \
+--header 'Authorization: bearer ***' \
+--header 'Content-type: application/json' \
+--data '{
+    "query": "SELECT message_units FROM anypoint_mq_message_units_count WHERE timestamp BETWEEN 1731207600000 AND 1731963949248 TIMESERIES P1M"
+}'
+----
+
+This command returns output similar to:
+
+[source,json,linenums]
+----
+{
+   "metadata":{
+      "responseAsOf":"2024-11-19T12:04:34.195195241Z"
+   },
+   "data":[
+      {
+         "message_units":200000.0,
+         "timestamp":1730419200000
+      }
+   ]
+}
+----
+
+[[get-message-units-org-id]]
+=== Get Message Units for a Specific Org ID
+
+Use a command like this:
+
+[source,bash,linenums]
+----
+curl --location '<INSTANCE>/metering/usage/api/v1/meters:search' \
+--header 'Authorization: bearer ***' \
+--header 'Content-type: application/json' \
+--data '{
+    "query": "SELECT org_id, message_units FROM anypoint_mq_message_units_count WHERE org_id = '\''66310c16-bce5-43c4-b978-5945ed2f99c5'\'' AND timestamp BETWEEN 1731207600000 AND 1731963949248 TIMESERIES P1M"
+}'
+----
+
+This command returns output similar to:
+
+[source,json,linenums]
+----
+{
+   "metadata":{
+      "responseAsOf":"2024-11-19T12:18:43.124633917Z"
+   },
+   "data":[
+      {
+         "message_units":100000.0,
+         "org_id":"66310c16-bce5-43c4-b978-5945ed2f99c5",
+         "timestamp":1730419200000
+      }
+   ]
+}
+----
+
+[[get-message-units-org-env-id]]
+=== Get Message Units for a Specific Org ID and Environment ID
+
+Use a command like this:
+
+[source,bash,linenums]
+----
+$ curl --location '<INSTANCE>/metering/usage/api/v1/meters:search' \
+--header 'Authorization: bearer ***' \
+--header 'Content-type: application/json' \
+--data '{
+    "query": "SELECT org_id, env_id, message_units FROM anypoint_mq_message_units_count WHERE org_id = '\''66310c16-bce5-43c4-b978-5945ed2f99c5'\'' AND env_id = '\''40eeb638-348c-4d80-9db6-7baf88b2d28f'\'' AND timestamp BETWEEN 1731207600000 AND 1731963949248 TIMESERIES P1M"
+}'
+----
+
+This command returns output similar to:
+
+[source,json,linenums]
+----
+{
+   "metadata":{
+      "responseAsOf":"2024-11-19T13:00:37.519794881Z"
+   },
+   "data":[
+      {
+         "message_units":50000.0,
+         "env_id":"40eeb638-348c-4d80-9db6-7baf88b2d28f",
+         "org_id":"66310c16-bce5-43c4-b978-5945ed2f99c5",
+         "timestamp":1730419200000
+      }
+   ]
+}
+----
 
 == See Also
 

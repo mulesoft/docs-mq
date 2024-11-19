@@ -660,7 +660,7 @@ View your entire organization's usage of Anypoint MQ for billing purposes:
 [NOTE]
 // Not on HF
 include::partial$mq-api-shared.adoc[tag=mqStatsAPInotHF]
-To retrieve these usage metrics on these instances, see 
+To retrieve these usage metrics on Canada Cloud and Japan Cloud, see 
 xref:mq-usage-api.adoc#retrieve-metrics-metering-api[Retrieve Usage Metrics with Anypoint Metering Query API].
 
 [NOTE]
@@ -801,7 +801,7 @@ The period is an integer and is the granularity of data points in seconds.
 [NOTE]
 // Not on HF
 include::partial$mq-api-shared.adoc[tag=mqStatsAPInotHF]
-To retrieve these usage metrics on these instances, see 
+To retrieve these usage metrics on Canada Cloud and Japan Cloud, see 
 xref:mq-usage-api.adoc#retrieve-metrics-metering-api[Retrieve Usage Metrics with Anypoint Metering Query API].
 
 You can use the Stats API to retrieve Anypoint MQ usage information by environment for a particular organization:
@@ -852,7 +852,7 @@ include::partial$mq-faq.adoc[tag=returnVals]
 [NOTE]
 // Not on HF
 include::partial$mq-api-shared.adoc[tag=mqStatsAPInotHF]
-To retrieve these usage metrics on these instances, see 
+To retrieve these usage metrics on Canada Cloud and Japan Cloud, see 
 xref:mq-usage-api.adoc#retrieve-metrics-metering-api[Retrieve Usage Metrics with Anypoint Metering Query API].
 
 You can use the Stats API to retrieve Anypoint MQ usage for the root business organization:
