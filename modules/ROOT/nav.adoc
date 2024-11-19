@@ -15,6 +15,7 @@
 ** xref:mq-client-apps.adoc[]
 * xref:mq-monitoring.adoc[]
 ** xref:mq-usage.adoc[]
+** xref:mq-usage-api.adoc[]
 ** xref:mq-audit-logs.adoc[]
 * xref:mq-apis.adoc[]
 * xref:mq-connectors.adoc[]

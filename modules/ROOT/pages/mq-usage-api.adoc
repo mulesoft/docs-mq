@@ -1,0 +1,70 @@
+= Retrieving Usage Metrics with Anypoint APIs
+
+Depending on your control plane, you use different APIs to retrieve Anypoint MQ usage metrics.
+
+[%header,cols="15,15,30"]
+|===
+| Control Plane | API | More Information
+| https://anypoint.mulesoft.com/[US Cloud] | Anypoint MQ Stats | <<retrieve-metrics-mq-stats-api>>
+| https://eu1.anypoint.mulesoft.com/[EU Cloud] | Anypoint MQ Stats | <<retrieve-metrics-mq-stats-api>>
+| https://ca1.platform.mulesoft.com/monitoring[Canada Cloud] (Hyperforce)| Metering API | <<retrieve-metrics-metering-api>>
+| https://jp1.platform.mulesoft.com/monitoring[Japan Cloud] (Hyperforce) | Metering API | <<retrieve-metrics-metering-api>>
+|===
+
+
+[[retrieve-metrics-mq-stats-api]]
+== Retrieve Usage Metrics with Anypoint MQ Stats API
+
+[NOTE]
+// Not on HF
+include::partial$mq-api-shared.adoc[tag=mqStatsAPInotHF]
+To retrieve these usage metrics on these instances, see <<retrieve-metrics-metering-api>>.
+
+To use the Anypoint MQ Stats API to retrieve usage metrics, see:
+
+* xref:mq-apis.adoc#usage-by-env[Get Usage Metrics by Environment]
+* xref:mq-apis.adoc#usage-by-org[Get Usage Metrics by Organization]
+
+[NOTE]
+include::partial$mq-faq.adoc[tag=apiStatsRequests]
+
+[[retrieve-metrics-metering-api]]
+== Retrieve Usage Metrics with Anypoint Metering Query API
+
+[NOTE]
+These REST APIs are supported on Canada Cloud and Japan Clouds (Hyperforce) only.
+
+To retrieve Anypoint MQ usage metrics on Canada Cloud or Japan Cloud, use the Metering API.
+
+For example, to retrieve effective API requests:
+
+. xref:mq-apis.adoc#get-bearer-token[Get a bearer token] for an Anypoint Platform user account that has the Usage Viewer permission for your root organization.
+. Use a command like this:
++
+[source,bash,linenums]
+----
+curl --location 'https://anypoint.mulesoft.com/metering/usage/api/v1/meters:search' \
+--header 'Authorization: bearer ***' \
+--header 'Content-type: application/json' \
+--data '{
+    "query": "SELECT effective_api_requests FROM mq_effective_api_requests_count WHERE timestamp BETWEEN 1728874800000 AND 1731610357770 TIMESERIES P1M"
+}'
+----
++
+The output includes:
++
+[source,json,linenums]
+----
+{
+
+}  
+----
+
+
+== See Also
+
+* xref:mq-faq.adoc#regions[Anypoint MQ Regions]
+* xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API]
+* xref:mq-faq.adoc#regions[Anypoint MQ Regions]
+* Placeholder link to the OSv2 on HF topic
+* Placeholder for Anypoint Metering API
