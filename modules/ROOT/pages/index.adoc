@@ -216,7 +216,7 @@ Billing is based on the number of messages delivered to subscribers from queues,
 * xref:mq-connected-apps.adoc[Connected Apps]
 * xref:mq-apis.adoc#mq-admin-api[Anypoint MQ Admin API]
 * xref:mq-apis.adoc#mq-broker-api[Anypoint MQ Broker API]
-* xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API] (Statistics only)
+* xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API] (Anypoint MQ Statistics only)
 
 
 
