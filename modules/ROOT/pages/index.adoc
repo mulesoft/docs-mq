@@ -218,8 +218,6 @@ Billing is based on the number of messages delivered to subscribers from queues,
 * xref:mq-apis.adoc#mq-broker-api[Anypoint MQ Broker API]
 * xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API] (Anypoint MQ Statistics only)
 
-
-
 | Yes
 | Yes
 | Yes
@@ -229,15 +227,12 @@ Billing is based on the number of messages delivered to subscribers from queues,
 * xref:mq-queues.adoc[Unencrypted Queues]
 * xref:mq-connectors.adoc[Anypoint MQ Connector earlier than 4.x]
 * xref:mq-client-apps.adoc[Client Apps]
-* xref:mq-usage.adoc[Usage Reports]
+* xref:mq-usage.adoc[Usage Reports] (Access Management)
 * xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API] (Usage Metrics)
-
-
 
 | Yes
 | No
 | No
-
 
 |{empty}
 
@@ -251,8 +246,6 @@ Billing is based on the number of messages delivered to subscribers from queues,
 |{empty}
 
 * xref:mq-usage-apis.adoc#mq-stats-api[Anypoint Metering Query API] (Usage Metrics)
-
-
 
 | No
 | Yes
