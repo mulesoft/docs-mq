@@ -197,6 +197,69 @@ Messages are read through long polling. The server holds a request open until ne
 +
 Billing is based on the number of messages delivered to subscribers from queues, rather than the number of queues or message exchanges you create.
 
+[[mq-features-control-plane]]
+== Anypoint MQ Features by Control Plane
+
+[%header,cols="3a,1a,1a,1a"]
+|===
+|Anypoint MQ Feature 
+|https://anypoint.mulesoft.com/[US Cloud] and https://eu1.anypoint.mulesoft.com/[EU Cloud]
+|https://ca1.platform.mulesoft.com/[Canada Cloud] and https://jp1.platform.mulesoft.com/[Japan Cloud] (Hyperforce)
+| MuleSoft Government Cloud
+
+|{empty}
+
+* xref:mq-queues.adoc[Encrypted Queues]
+* xref:mq-exchanges.adoc[Message Exchanges]
+* xref:mq-routing-rules.adoc[Message Routing]
+* xref:mq-connectors.adoc[Anypoint MQ Connector versions 4.x and later]
+* xref:mq-connected-apps.adoc[Connected Apps]
+* xref:mq-apis.adoc#mq-admin-api[Anypoint MQ Admin API]
+* xref:mq-apis.adoc#mq-broker-api[Anypoint MQ Broker API]
+* xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API] (Statistics only)
+
+
+
+| Yes
+| Yes
+| Yes
+
+|{empty}
+
+* xref:mq-queues.adoc[Unencrypted Queues]
+* xref:mq-connectors.adoc[Anypoint MQ Connector earlier than 4.x]
+* xref:mq-client-apps.adoc[Client Apps]
+* xref:mq-usage.adoc[Usage Reports]
+* xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API] (Usage Metrics)
+
+
+
+| Yes
+| No
+| No
+
+
+|{empty}
+
+* xref:mq-failover.adoc[Cross-Region Failover]
+* xref:cloudhub::deploying-to-cloudhub.adoc[CloudHub 1.0 Deployments]
+
+| Yes
+| No
+| Yes
+
+|{empty}
+
+* xref:mq-usage-apis.adoc#mq-stats-api[Anypoint Metering Query API] (Usage Metrics)
+
+
+
+| No
+| Yes
+| No
+
+|===
+
 
 [[mq-in-govcloud]]
 == Anypoint MQ in MuleSoft Government Cloud
