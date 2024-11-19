@@ -149,7 +149,7 @@ This command returns output similar to:
 
 [source,json,linenums]
 ----
-curl --location 'https://qax.anypoint.mulesoft.com/metering/usage/api/v1/meters:search' \
+curl --location '<INSTANCE>/metering/usage/api/v1/meters:search' \
 --header 'Authorization: bearer ***' \
 --header 'Content-type: application/json' \
 --data '{
