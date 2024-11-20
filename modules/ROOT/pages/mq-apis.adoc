@@ -650,16 +650,12 @@ Use the Stats API to retrieve:
 ** <<historical-stats-exchange,Historical statistics for message exchanges>>
 * Usage metrics
 +
-View your entire organization's usage of Anypoint MQ for billing purposes:
+View your entire organization's usage of Anypoint MQ for billing purposes (US and EU Cloud only):
 +
 --
 ** <<usage-by-env,Usage per environment>>
 ** <<usage-by-org,Usage per organization>>
 --
-+
-[NOTE]
-// Not on HF
-include::partial$mq-api-shared.adoc[tag=mqStatsAPInotHF]
 
 
 [NOTE]

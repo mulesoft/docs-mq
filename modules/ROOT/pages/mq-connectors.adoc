@@ -27,6 +27,9 @@ Anypoint Connector for MQ (Anypoint MQ Connector) is available for Mule 4 and Mu
 [[three-for-mule-4]]
 == Anypoint MQ Connector 3.x - Mule 4
 
+[NOTE]
+include::partial$mq-api-shared.adoc[tag=mqConnectorNoHF]
+
 * xref:connectors::anypoint-mq/3.x/anypoint-mq-connector.adoc[Anypoint MQ Connector 3.x for Mule 4]
 ** xref:connectors::anypoint-mq/3.x/anypoint-mq-ack.adoc[ACK and NACK Operations]
 ** xref:connectors::anypoint-mq/3.x/anypoint-mq-listener.adoc[Subscribe Operation]

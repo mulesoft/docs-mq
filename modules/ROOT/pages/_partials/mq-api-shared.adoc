@@ -37,3 +37,7 @@ The encoded string is:
 // tag::mqConnectorNoHF[]
 Only the US Cloud and EU Cloud instances of Anypoint Platform support this connector version.
 // end::mqConnectorNoHF[]
+
+// tag::mqStatsAPInotHF[]
+Only the US Cloud and EU Cloud instances of Anypoint Platform support this REST API.
+// end::mqStatsAPInotHF[]
