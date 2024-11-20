@@ -1,5 +1,6 @@
 = Configuring Anypoint MQ
 :page-aliases: mq-using.adoc
+include::partial$mq-api-shared.adoc[tag=mqFeaturesNoHF]
 
 Configure Anypoint MQ queues, exchanges, and connected apps to send and retrieve messages.
 

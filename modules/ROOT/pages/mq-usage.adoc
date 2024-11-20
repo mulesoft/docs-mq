@@ -1,4 +1,5 @@
 = Viewing Usage Charts
+include::partial$mq-api-shared.adoc[tag=mqFeaturesNoHF]
 
 You can view a chart indicating how much data and how many API requests have been consumed, and how many message units were received.
 
@@ -88,3 +89,4 @@ include::partial$mq-faq.adoc[tag=apiStatsRequests]
 
 * xref:mq-faq.adoc[Anypoint MQ FAQ]
 * xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API]
+* xref:index.adoc#mq-on-hyperforce[Anypoint MQ on Hyperforce]

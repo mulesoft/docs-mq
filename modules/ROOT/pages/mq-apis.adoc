@@ -644,17 +644,23 @@ You can use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform
 Use the Stats API to retrieve:
 
 * Anypoint MQ statistics:
-** Near real-time statistics for queues
-** Historical statistics for queues
-** Historical statistics for message exchanges
+** <<get-queue-stats,Near real-time statistics for queues>>
+** Number of messages currently in a queue
+** <<historical-stats-queue,Historical statistics for queues>>
+** <<historical-stats-exchange,Historical statistics for message exchanges>>
 * Usage metrics
 +
 View your entire organization's usage of Anypoint MQ for billing purposes:
 +
-** Usage per environment
-** Usage per organization
-* Statistics for queues and message exchanges  
-* Number of messages currently in a queue
+--
+** <<usage-by-env,Usage per environment>>
+** <<usage-by-org,Usage per organization>>
+--
++
+[NOTE]
+// Not on HF
+include::partial$mq-api-shared.adoc[tag=mqStatsAPInotHF]
+
 
 [NOTE]
 include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
@@ -791,6 +797,10 @@ The period is an integer and is the granularity of data points in seconds.
 [[usage-by-env]]
 === Get Usage Metrics by Environment 
 
+[NOTE]
+// Not on HF
+include::partial$mq-api-shared.adoc[tag=mqStatsAPInotHF]
+
 You can use the Stats API to retrieve Anypoint MQ usage information by environment for a particular organization:
 
 `/environments/<ENV_ID>?startDate=...&endDate=...&period=...`
@@ -835,6 +845,10 @@ include::partial$mq-faq.adoc[tag=returnVals]
 
 [[usage-by-org]]
 === Get Usage Metrics by Organization
+
+[NOTE]
+// Not on HF
+include::partial$mq-api-shared.adoc[tag=mqStatsAPInotHF]
 
 You can use the Stats API to retrieve Anypoint MQ usage for the root business organization:
 
