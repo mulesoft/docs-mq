@@ -1,4 +1,4 @@
-= Viewing Usage Graphs
+= Viewing Usage Charts
 
 You can view a chart indicating how much data and how many API requests have been consumed, and how many message units were received.
 

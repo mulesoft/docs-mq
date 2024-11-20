@@ -227,7 +227,7 @@ Billing is based on the number of messages delivered to subscribers from queues,
 * xref:mq-queues.adoc[Unencrypted Queues]
 * xref:mq-connectors.adoc[Anypoint MQ Connector earlier than 4.x]
 * xref:mq-client-apps.adoc[Client Apps]
-* xref:mq-usage.adoc[Usage Graphs] (Access Management)
+* xref:mq-usage.adoc[Usage Charts] (Access Management)
 * xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API] (Usage Metrics)
 
 | Yes
@@ -328,8 +328,8 @@ Anypoint Connector for Anypoint MQ versions earlier than 4.x aren't supported.
 Using connected apps with Anypoint MQ requires xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.x for Mule 4].
 Cross-Region Failover::
 xref:mq-failover.adoc[Cross-region failover] isn't supported.
-Usage Graphs::
-xref:mq-usage.adoc[Usage Graphs] aren't available.
+Usage Charts::
+xref:mq-usage.adoc[Usage Charts] aren't available.
 Rest APIs::
 These REST APIs in the Anypoint MQ Stats API aren't supported:
 +
