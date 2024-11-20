@@ -212,8 +212,8 @@ Billing is based on the number of messages delivered to subscribers from queues,
 * xref:mq-queues.adoc[Encrypted Queues]
 * xref:mq-exchanges.adoc[Message Exchanges]
 * xref:mq-routing-rules.adoc[Message Routing]
-* xref:mq-connectors.adoc[Anypoint MQ Connector versions 4.x and later]
 * xref:mq-connected-apps.adoc[Connected Apps]
+* xref:mq-connectors.adoc[Anypoint MQ Connector versions 4.x and later]
 * xref:mq-apis.adoc#mq-admin-api[Anypoint MQ Admin API]
 * xref:mq-apis.adoc#mq-broker-api[Anypoint MQ Broker API]
 * xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API] (Anypoint MQ Statistics only)
@@ -225,9 +225,10 @@ Billing is based on the number of messages delivered to subscribers from queues,
 |{empty}
 
 * xref:mq-queues.adoc[Unencrypted Queues]
-* xref:mq-connectors.adoc[Anypoint MQ Connector earlier than 4.x]
-* xref:mq-client-apps.adoc[Client Apps]
 * xref:mq-usage.adoc[Usage Charts] (Access Management)
+* xref:mq-failover.adoc[Cross-Region Failover]
+* xref:mq-client-apps.adoc[Client Apps]
+* xref:mq-connectors.adoc[Anypoint MQ Connector earlier than 4.x]
 * xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API] (Usage Metrics)
 
 | Yes
@@ -236,7 +237,6 @@ Billing is based on the number of messages delivered to subscribers from queues,
 
 |{empty}
 
-* xref:mq-failover.adoc[Cross-Region Failover]
 * xref:cloudhub::deploying-to-cloudhub.adoc[CloudHub 1.0 Deployments]
 
 | Yes
@@ -273,6 +273,8 @@ Anypoint Connector Versions::
 Anypoint Connector for Anypoint MQ versions earlier than 4.x aren't supported.
 +
 Using connected apps with Anypoint MQ requires xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.x for Mule 4].
+Cross-Region Failover::
+xref:mq-failover.adoc[Cross-region failover] isn't supported.
 REST APIs::
 These REST APIs in the Anypoint MQ Stats API aren't supported:
 +
