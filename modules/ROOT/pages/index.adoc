@@ -203,8 +203,8 @@ Billing is based on the number of messages delivered to subscribers from queues,
 [%header,cols="3a,1a,1a,1a"]
 |===
 |Anypoint MQ Feature 
-|https://anypoint.mulesoft.com/[US Cloud] and https://eu1.anypoint.mulesoft.com/[EU Cloud]
-|https://ca1.platform.mulesoft.com/[Canada Cloud] and https://jp1.platform.mulesoft.com/[Japan Cloud] (Hyperforce)
+|https://anypoint.mulesoft.com/[US Cloud] & https://eu1.anypoint.mulesoft.com/[EU Cloud]
+|https://ca1.platform.mulesoft.com/[Canada Cloud] & https://jp1.platform.mulesoft.com/[Japan Cloud] (Hyperforce)
 | MuleSoft Government Cloud
 
 |{empty}
@@ -227,7 +227,7 @@ Billing is based on the number of messages delivered to subscribers from queues,
 * xref:mq-queues.adoc[Unencrypted Queues]
 * xref:mq-connectors.adoc[Anypoint MQ Connector earlier than 4.x]
 * xref:mq-client-apps.adoc[Client Apps]
-* xref:mq-usage.adoc[Usage Reports] (Access Management)
+* xref:mq-usage.adoc[Usage Graphs] (Access Management)
 * xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API] (Usage Metrics)
 
 | Yes
@@ -329,7 +329,7 @@ Using connected apps with Anypoint MQ requires xref:anypoint-mq-connector::index
 Cross-Region Failover::
 xref:mq-failover.adoc[Cross-region failover] isn't supported.
 Usage Graphs::
-xref:mq-usage.adoc[Usage graphs] aren't available.
+xref:mq-usage.adoc[Usage Graphs] aren't available.
 Rest APIs::
 These REST APIs in the Anypoint MQ Stats API aren't supported:
 +
