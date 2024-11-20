@@ -255,7 +255,7 @@ Billing is based on the number of messages delivered to subscribers from queues,
 
 
 [[mq-in-govcloud]]
-== Anypoint MQ in MuleSoft Government Cloud
+=== Anypoint MQ on MuleSoft Government Cloud
 
 When you deploy to https://gov.anypoint.mulesoft.com/login/[MuleSoft Government Cloud],
 all features of Anypoint MQ are supported with these exceptions:
@@ -291,7 +291,7 @@ For information about MuleSoft Government Cloud, see
 xref:gov-cloud::index.adoc[].
 
 [[mq-on-hyperforce]]
-== Anypoint MQ on Hyperforce
+=== Anypoint MQ on Hyperforce
 
 Anypoint MQ supports these 
 Salesforce Hyperforce (Hyperforce) regions:
