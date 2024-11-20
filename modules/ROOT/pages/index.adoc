@@ -245,6 +245,7 @@ Billing is based on the number of messages delivered to subscribers from queues,
 
 |{empty}
 
+// change this to the Metering UI way
 * xref:mq-usage-apis.adoc#mq-stats-api[Anypoint Metering Query API] (Usage Metrics)
 
 | No
@@ -346,6 +347,8 @@ xref:mq-apis.adoc#historical-stats-queue[queues]
 and
 xref:mq-apis.adoc#historical-stats-exchange[exchanges].
 For information, see xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API].
+// Add the Metering UI way
+
 
 == See Also
 
