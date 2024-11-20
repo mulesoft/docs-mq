@@ -342,7 +342,7 @@ include::partial$mq-faq.adoc[tag=failedTPS]
 
 To create a FIFO queue, see <<Create a Queue>>. To determine if a queue is FIFO or standard (non-FIFO), view its details. 
 
-For the regions in which Anypoint MQ and FIFO queues are available, see the xref:mq-faq#regions[Anypoint MQ FAQ].
+For the regions in which Anypoint MQ and FIFO queues are available, see xref:mq-faq#mq-regions[Anypoint MQ Regions].
 
 For information about creating FIFO queues with the Admin API, see xref:mq-apis.adoc#fifo-queue-api[Create a FIFO Queue Using the Admin API].
 
@@ -443,7 +443,7 @@ A DLQ is essentially the same as any other queue except that it receives only un
 You must have at least two queues for one of them to be assigned as a DLQ. Both queues must be:
 
 * The same type (standard or FIFO)
-* In the same geographical xref:mq-faq.adoc#regions[region]
+* In the same geographical xref:mq-faq.adoc#mq-regions[region]
 * In the same environment and owned by the same Anypoint Platform account.
 
 [[fifo-and-dlq]]

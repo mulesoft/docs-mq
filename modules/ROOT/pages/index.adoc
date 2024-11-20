@@ -203,8 +203,8 @@ Billing is based on the number of messages delivered to subscribers from queues,
 [%header,cols="3a,1a,1a,1a"]
 |===
 |Anypoint MQ Feature 
-|https://anypoint.mulesoft.com/[US Cloud] & https://eu1.anypoint.mulesoft.com/[EU Cloud]
-|https://ca1.platform.mulesoft.com/[Canada Cloud] & https://jp1.platform.mulesoft.com/[Japan Cloud] (Hyperforce)
+|US Cloud and EU Cloud
+|Canada Cloud and Japan Cloud (Hyperforce)
 | MuleSoft Government Cloud
 
 |{empty}
@@ -256,7 +256,7 @@ Billing is based on the number of messages delivered to subscribers from queues,
 
 
 [[mq-in-govcloud]]
-=== Anypoint MQ Features Not Supported on MuleSoft Government Cloud
+== Anypoint MQ on MuleSoft Government Cloud
 
 When you deploy to https://gov.anypoint.mulesoft.com/login/[MuleSoft Government Cloud],
 all features of Anypoint MQ are supported with these exceptions:
@@ -294,23 +294,18 @@ For information about MuleSoft Government Cloud, see
 xref:gov-cloud::index.adoc[].
 
 [[mq-on-hyperforce]]
-=== Anypoint MQ on Hyperforce
+== Anypoint MQ on Hyperforce
 
-Anypoint MQ supports these 
-Salesforce Hyperforce (Hyperforce) regions:
+Anypoint MQ is available on these Salesforce Hyperforce (Hyperforce) instances of Anypoint Platform:
 
-* Canada Central (ca-central-1)
-* Japan (ap-northeast-1)
+* https://ca1.platform.mulesoft.com[Canada Cloud]
+* https://jp1.platform.mulesoft.com[Japan Cloud]
 
-For information about Hyperforce, see
-xref:hyperforce::index.adoc[].
+For information about the regions where Anypoint MQ is available, see
+xref:mq-faq.adoc#mq-regions[Anypoint MQ Regions].
 
-[[mq-on-hyperforce-not-supported]]
-=== Anypoint MQ Features Not Supported on Hyperforce
 
-When you deploy to
-https://ca1.platform.mulesoft.com[Canada Cloud] or 
-https://jp1.platform.mulesoft.com[Japan Cloud],
+When you deploy to Canada Cloud or Japan Cloud,
 all features of Anypoint MQ are supported with these exceptions:
 
 CloudHub 1::
@@ -352,6 +347,7 @@ For information, see xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API].
 
 == See Also
 
+* xref:hyperforce::index.adoc[]
 * xref:mq-glossary.adoc[]
 * xref:mq-connectors.adoc[]
 * xref:mq-faq.adoc[]

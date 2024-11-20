@@ -545,8 +545,7 @@ These examples use the Anypoint MQ Broker API to publish and consume messages an
 * <<send-message-routing>>
 * <<retrieve-message-api>>
 
-
-See the xref:mq-faq.adoc#regions[Anypoint MQ FAQ] for the regions where Anypoint MQ and FIFO are available.
+For the regions where Anypoint MQ and FIFO are available, see xref:mq-faq.adoc#mq-regions[Anypoint MQ Regions]. 
 
 [[send-messages-api]]
 === Send a Message
@@ -1063,7 +1062,8 @@ exchanges=[
 ]
 ----
 
-See the xref:mq-faq#regions[Anypoint MQ FAQ] for the regions where Anypoint MQ and FIFO queues are available.
+For the regions where Anypoint MQ and FIFO queues are available,
+see xref:mq-faq#mq-regions[Anypoint MQ Regions]. 
 
 === Create a Script File
 
