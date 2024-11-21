@@ -266,6 +266,7 @@ the API throttles your requests to 50 transactions per minute (TPM).
 These examples use the Anypoint MQ Admin API to create queues and message routing rules from the command line using `curl`:
 
 * <<fifo-queue-api>>
+* <<fifo-exchange-api>>
 * <<routing-rules-api>>
 * <<enable-failover-api>>
 * <<retrieve-queue-configuration>>
@@ -273,7 +274,7 @@ These examples use the Anypoint MQ Admin API to create queues and message routin
 [[fifo-queue-api]]
 === Create a FIFO Queue
 
-You can create a FIFO queue using the Anypoint MQ Admin API by including the `"fifo": true` field.
+You can create a FIFO queue using the Anypoint MQ Admin API by including `"fifo": true` in the body.
 
 [NOTE]
 The organization from which you use the Administration portal must have an Anypoint MQ FIFO entitlement.
@@ -310,6 +311,35 @@ The response includes output such as:
   "defaultLockTtl" : 120000,
   "defaultDeliveryDelay" : 0
 }, 
+----
+
+[[fifo-exchange-api]]
+=== Create a FIFO Exchange
+
+You can create a FIFO exchange using the Anypoint MQ Admin API by including `"fifo": true` in the body.
+
+[NOTE]
+The organization from which you use the Administration portal must have an Anypoint MQ FIFO entitlement.
+See xref:mq-faq.adoc[Anypoint MQ FAQ] for the regions where Anypoint MQ is available.
+
+Use a `curl` command like the following to create a FIFO exchange:
+
+[source,bash,linenums]
+----
+curl -X PUT "https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/regions/<REGION_ID>/destinations/exchanges/<EXCHANGE_ID>" \
+--header 'Content-Type: application/json' \
+--header 'Authorization: bearer <BEARER_TOKEN>' \
+--data-raw '{
+  "encrypted" : false,
+  "fifo" : true
+}'
+----
+
+The response includes output such as:
+
+[source,json,linenums]
+----
+<NEED EXAMPLE OUTPUT>
 ----
 
 
