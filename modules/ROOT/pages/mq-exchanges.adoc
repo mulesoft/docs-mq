@@ -1,6 +1,6 @@
 = Sending Messages to Multiple Queues Using Message Exchanges
 
-You can send messages to multiple standard
+You can send messages to multiple standard or FIFO
 xref:mq-queues.adoc[queues] simultaneously by binding those queues to
 a _message exchange_. 
 

@@ -12,7 +12,7 @@ Operations that specify the following:
 For information, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations].
 Binding::
 +
-A method for specifying a set of standard queues that form a message exchange, enabling apps to send messages to multiple queues.
+A method for specifying a set of standard or FIFO queues that form a message exchange, enabling apps to send messages to multiple queues.
 +
 When you specify which message queues are bound to a message exchange, Anypoint MQ creates and manages the bindings for you.
 +
@@ -95,6 +95,11 @@ include::partial$mq-failover.adoc[tag=fallbackQnotConfig]
 +
 For information, see xref:mq-failover.adoc[].
 
+[[fifo-exchange]]
+FIFO Exchange::
+A <<message-exchange,message exchange>> that binds multiple <<fifo-queues,FIFO queues>>,
+enabling you to send messages to multiple FIFO queues.
+
 [[fifo-queues]]
 FIFO Queue::
 A queue that processes messages first-in, first-out (FIFO), ensuring message ordering for applications in which the order of messages must be strictly preserved and enforced.
@@ -124,6 +129,7 @@ An identifier that allows only a single app to read a queue.
 Anypoint MQ provides the lock when an app acknowledges a message from a queue.
 Message::
 Serializable xref:mule-runtime::about-mule-message.adoc[Mule Message] content that applications send and receive so that they can communicate with each other.
+[[message-exchange]]
 Message Exchange::
 A pub/sub message source with multiple outputs. Applications register to subscribe to messages that the message exchange publishes.
 +

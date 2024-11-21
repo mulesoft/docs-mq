@@ -12,7 +12,7 @@ Create queues, FIFO queues, and dead-letter queues in Anypoint Platform.
 Send, receive, and purge messages from queues.
 * xref:mq-exchanges.adoc[]
 +
-Send messages to multiple standard xref:mq-queues.adoc[queues] simultaneously by binding those queues to
+Send messages to multiple standard or FIFO xref:mq-queues.adoc[queues] simultaneously by binding those queues to
 a message exchange. 
 +
 Route messages to specific queues that are bound to the message exchange
