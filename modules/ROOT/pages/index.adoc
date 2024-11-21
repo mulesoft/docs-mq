@@ -205,7 +205,7 @@ Billing is based on the number of messages delivered to subscribers from queues,
 |Anypoint MQ Feature 
 |US Cloud and EU Cloud
 |Canada Cloud and Japan Cloud (Hyperforce)
-| MuleSoft Government Cloud
+|MuleSoft Government Cloud
 
 |{empty}
 
@@ -262,14 +262,12 @@ When you deploy to https://gov.anypoint.mulesoft.com/login/[MuleSoft Government 
 all features of Anypoint MQ are supported with these exceptions:
 
 Unencrypted Queues::
-Unencrypted queues are not supported.
+Unencrypted queues aren'tsupported.
 +
 When xref:mq-queues.adoc#create-a-queue[creating a queue], the *Encryption* option is disabled and defaults to selected.
 Client Apps::
 xref:mq-client-apps.adoc[Client apps] aren't supported.
-+
-Use 
-xref:mq-connected-apps.adoc[connected apps] instead.
+Use xref:mq-connected-apps.adoc[connected apps] instead.
 Anypoint Connector Versions::
 Anypoint Connector for Anypoint MQ versions earlier than 4.x aren't supported.
 +
@@ -310,16 +308,13 @@ all features of Anypoint MQ are supported with these exceptions:
 
 CloudHub 1::
 Deployments to CloudHub 1 aren't supported.
-+
 You can deploy apps to CloudHub 2.0 shared spaces and Anypoint Runtime Fabric.
 Unencrypted Queues::
 Unencrypted queues aren't supported.
-+
 When xref:mq-queues.adoc#create-a-queue[creating a queue], the *Encryption* option is disabled and defaults to enabled.
 
 Client Apps::
 xref:mq-client-apps.adoc[Client apps] aren't supported.
-+
 Use xref:mq-connected-apps.adoc[connected apps] instead.
 Anypoint Connector Versions::
 Anypoint Connector for Anypoint MQ versions earlier than 4.x aren't supported.
@@ -333,8 +328,8 @@ Rest APIs::
 These REST APIs in the Anypoint MQ Stats API aren't supported:
 +
 --
-** https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/minor/1.0/console/method/%23322/[Get usage metrics for an org].
-** https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/minor/1.0/console/method/%23383/[Get usage metrics for an environment within an org].
+** xref:mq-apis.adoc#usage-by-org[Get usage metrics for an org]
+** xref:mq-apis.adoc#usage-by-env[Get usage metrics for an environment within an org].
 --
 +
 You can use the Anypoint MQ Stats API only to retrieve metrics for
