@@ -1,5 +1,5 @@
 = Configuring Client Apps
-include::partial$mq-api-shared.adoc[tag=mqFeaturesNoHF]
+include::partial$mq-on-hyperforce.adoc[tag=mqFeaturesNoHF]
 
 When using Anypoint Connector for MQ (Anypoint MQ Connector) version 3.x or earlier,
 you create a client app to generate credentials to use to publish and consume from a queue.

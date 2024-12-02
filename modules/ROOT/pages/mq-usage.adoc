@@ -1,6 +1,11 @@
 = Viewing Anypoint MQ Usage Data
 
-You can view how much data and how many API requests have been consumed, and how many message units were received.
+Anypoint MQ uses API requests to calculate billing.
+Depending on your Anypoint Platform instance, 
+you access usage data in Access Management or Usage.
+
+* <<access-mq-usage-charts, US Cloud or EU Cloud>>
+* <<access-mq-usage-reports, Canada Cloud or Japan Cloud>>
 
 [[api-requests]]
 API requests::
@@ -43,7 +48,7 @@ include::partial$mq-faq.adoc[tag=faqUsageOverage]
 == Access Anypoint MQ Usage Charts
 
 [NOTE]
-include::partial$mq-api-shared.adoc[tag=mqFeaturesNoHFnote]
+include::partial$mq-on-hyperforce.adoc[tag=mqFeaturesNoHFnote]
 
 To view Anypoint MQ usage charts in Access Management:
 
@@ -81,7 +86,7 @@ If this happens, use the Anypoint MQ Stats API xref:mq-apis.adoc#usage-by-org[Us
 == Access Anypoint MQ Usage Reports
 
 [NOTE]
-include::partial$mq-api-shared.adoc[tag=mqFeaturesOnlyHFnote]
+include::partial$mq-on-hyperforce.adoc[tag=mqFeaturesOnlyHFnote]
 
 To view Anypoint MQ usage reports in Usage:
 
@@ -111,7 +116,7 @@ xref:general::usage-reports.adoc[].
 == Retrieve Usage Metrics with Anypoint MQ Stats API
 
 [NOTE]
-include::partial$mq-api-shared.adoc[tag=mqFeaturesNoHFnote]
+include::partial$mq-on-hyperforce.adoc[tag=mqFeaturesNoHFnote]
 
 To use the Anypoint MQ Stats API to retrieve usage metrics, see:
 

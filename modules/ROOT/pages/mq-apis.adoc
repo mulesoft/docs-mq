@@ -658,7 +658,7 @@ View your entire organization's usage of Anypoint MQ for billing purposes (US an
 
 
 [NOTE]
-include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
+include::partial$mq-on-hyperforce.adoc[tag=mqStatsAPIlimits]
 
 For more information, see the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API] in the MuleSoft developer portal.
 
@@ -794,7 +794,7 @@ The period is an integer and is the granularity of data points in seconds.
 
 [NOTE]
 // Not on HF
-include::partial$mq-api-shared.adoc[tag=mqStatsAPInotHF]
+include::partial$mq-on-hyperforce.adoc[tag=mqStatsAPInotHF]
 
 You can use the Stats API to retrieve Anypoint MQ usage information by environment for a particular organization:
 
@@ -803,7 +803,7 @@ You can use the Stats API to retrieve Anypoint MQ usage information by environme
 This information is not real-time and has a latency.
 
 [NOTE]
-include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
+include::partial$mq-on-hyperforce.adoc[tag=mqStatsAPIlimits]
 
 *Sample Request and Response:*
 
@@ -843,14 +843,14 @@ include::partial$mq-faq.adoc[tag=returnVals]
 
 [NOTE]
 // Not on HF
-include::partial$mq-api-shared.adoc[tag=mqStatsAPInotHF]
+include::partial$mq-on-hyperforce.adoc[tag=mqStatsAPInotHF]
 
 You can use the Stats API to retrieve Anypoint MQ usage for the root business organization:
 
 `/organizations/<ORG_ID>?startDate=...&endDate=...&period=...`
 
 [NOTE]
-include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
+include::partial$mq-on-hyperforce.adoc[tag=mqStatsAPIlimits]
 
 
 *Sample Request and Response:*
