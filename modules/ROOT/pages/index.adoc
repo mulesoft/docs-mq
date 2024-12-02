@@ -216,7 +216,7 @@ Billing is based on the number of messages delivered to subscribers from queues,
 * xref:mq-connectors.adoc[Anypoint MQ Connector versions 4.x and later]
 * xref:mq-apis.adoc#mq-admin-api[Anypoint MQ Admin API]
 * xref:mq-apis.adoc#mq-broker-api[Anypoint MQ Broker API]
-* xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API] (Anypoint MQ Statistics only)
+* xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API] (Anypoint MQ Stats only)
 
 | Yes
 | Yes
@@ -225,7 +225,7 @@ Billing is based on the number of messages delivered to subscribers from queues,
 |{empty}
 
 * xref:mq-queues.adoc[Unencrypted Queues]
-* xref:mq-usage.adoc[Usage Charts] (Access Management)
+* xref:mq-usage.adoc#access-mq-usage-charts[Usage Charts] (Access Management)
 * xref:mq-failover.adoc[Cross-Region Failover]
 * xref:mq-client-apps.adoc[Client Apps]
 * xref:mq-connectors.adoc[Anypoint MQ Connector earlier than 4.x]
@@ -245,8 +245,7 @@ Billing is based on the number of messages delivered to subscribers from queues,
 
 |{empty}
 
-// change this to the Metering UI way
-* xref:mq-usage-apis.adoc#mq-stats-api[Anypoint Metering Query API] (Usage Metrics)
+* xref:mq-usage.adoc#access-mq-usage-reports[Usage Reports] (Usage)
 
 | No
 | Yes
@@ -323,7 +322,10 @@ Using connected apps with Anypoint MQ requires xref:anypoint-mq-connector::index
 Cross-Region Failover::
 xref:mq-failover.adoc[Cross-region failover] isn't supported.
 Usage Charts::
-xref:mq-usage.adoc[Usage Charts] aren't available.
+xref:mq-usage.adoc#access-mq-usage-charts[Usage Charts] in Access Management aren't available.
+Use
+xref:mq-usage.adoc#access-mq-usage-reports[Usage Reports] in Usage instead.
+
 Rest APIs::
 These REST APIs in the Anypoint MQ Stats API aren't supported:
 +

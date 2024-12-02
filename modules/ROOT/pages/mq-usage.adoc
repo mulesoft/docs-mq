@@ -1,7 +1,6 @@
-= Viewing Usage Charts
-include::partial$mq-api-shared.adoc[tag=mqFeaturesNoHF]
+= Viewing Anypoint MQ Usage Data
 
-You can view a chart indicating how much data and how many API requests have been consumed, and how many message units were received.
+You can view how much data and how many API requests have been consumed, and how many message units were received.
 
 [[api-requests]]
 API requests::
@@ -40,10 +39,13 @@ Message units are used by Anypoint MQ to determine the size of message data in t
 include::partial$mq-faq.adoc[tag=faqUsageOverage]
 
 
+[[access-mq-usage-charts]]
+== Access Anypoint MQ Usage Charts
 
-== Access Anypoint MQ Usage
+[NOTE]
+include::partial$mq-api-shared.adoc[tag=mqFeaturesNoHFnote]
 
-To view Anypoint MQ usage:
+To view Anypoint MQ usage charts in Access Management:
 
 . In Anypoint Platform, go to *Access Management*.
 . Click *MQ* in the *Subscription* section:
@@ -74,8 +76,42 @@ Base values greater than `0.0` indicate Premium add-on subscriptions.
 In some cases, the stats for the current month might not load when the backend process updates the records.
 If this happens, use the Anypoint MQ Stats API xref:mq-apis.adoc#usage-by-org[Usage Metrics by Organization] to query the daily usage in the current month and then add the daily usage together. 
 
+
+[[access-mq-usage-reports]]
+== Access Anypoint MQ Usage Reports
+
+[NOTE]
+include::partial$mq-api-shared.adoc[tag=mqFeaturesOnlyHFnote]
+
+To view Anypoint MQ usage reports in Usage:
+
+. In Anypoint Platform, go to *Usage*.
+. Select *Anypoint MQ* in the *Product* section:
++
+image::mq-usage-report.png["Anypoint MQ option on the Usage Reports page"]
++
+[calloutlist]
+.. Select the product. 
+.. Select the tab.
+.. Select the period.
+. Select a month from the *Monthly Usage Report* tab or day from the *Daily Usage Report* tab.
++
+The report shows usage for the selected period:
++
+* Total Message units
+* Total Message bytes
+* Total API requests
+* Total Messages received
+. Click *Export as CSV* to download the usage for the selected period.
+
+For more information, see 
+xref:general::usage-reports.adoc[].
+
 [[retrieve-metrics-api]]
 == Retrieve Usage Metrics with Anypoint MQ Stats API
+
+[NOTE]
+include::partial$mq-api-shared.adoc[tag=mqFeaturesNoHFnote]
 
 To use the Anypoint MQ Stats API to retrieve usage metrics, see:
 

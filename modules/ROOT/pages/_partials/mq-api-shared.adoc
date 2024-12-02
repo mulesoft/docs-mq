@@ -33,6 +33,16 @@ The encoded string is:
 :page-notice-banner-message: Only the US Cloud and EU Cloud instances of Anypoint Platform support this feature.
 // end::mqFeaturesNoHF[]
 
+// Note for unsupported features
+// tag::mqFeaturesNoHFnote[]
+Only the US Cloud and EU Cloud instances of Anypoint Platform support this feature.
+// end::mqFeaturesNoHFnote[]
+
+// Note for unsupported features
+// tag::mqFeaturesOnlyHFnote[]
+Only the Canada Cloud and Japan Cloud instances of Anypoint Platform support this feature.
+// end::mqFeaturesOnlyHFnote[]
+
 // unsupported connector version
 // tag::mqConnectorNoHF[]
 Only the US Cloud and EU Cloud instances of Anypoint Platform support this connector version.
