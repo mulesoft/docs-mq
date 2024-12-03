@@ -94,19 +94,14 @@ To view Anypoint MQ usage reports in Usage:
 . Select *Anypoint MQ* in the *Product* section:
 +
 image::mq-usage-report.png["Anypoint MQ option on the Usage Reports page"]
-+
-[calloutlist]
-.. Select the product. 
-.. Select the tab.
-.. Select the period.
 . Select a month from the *Monthly Usage Report* tab or day from the *Daily Usage Report* tab.
 +
-The report shows usage for the selected period:
+The report shows usage for the selected period (total and by object):
 +
-* Total Message units
-* Total Message bytes
-* Total API requests
-* Total Messages received
+* Message units
+* Message bytes
+* API requests
+* Messages received
 . Click *Export as CSV* to download the usage for the selected period.
 
 For more information, see 
