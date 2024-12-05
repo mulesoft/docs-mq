@@ -330,9 +330,9 @@ For information about using a DLQ with a FIFO queue, see <<fifo-and-dlq>>.
 
 Limitations::
 +
-* FIFO queues are limited to 300 TPS (transactions per second).
+* FIFO queues are limited to 300 TPS (transactions per second). 
 +
-However, if you batch ten messages per read and write operation (maximum) using the API, FIFO queues can support up to 3,000 TPS.
+However, if you batch ten messages per read and write operation (maximum) using the API, FIFO queues can support up to 3,000 messages per second.
 +
 //Shared TPS failed
 include::partial$mq-faq.adoc[tag=failedTPS]
