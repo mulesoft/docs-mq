@@ -22,7 +22,7 @@ Message exchanges support only the Publish operation; they don't support the Con
 Anypoint MQ forwards messages published to a message exchange to the bound queues and the app consumes from the queue.
 
 If an app attempts to consume from a message exchange,
-the Anypoint MQ REST API throws the following error:
+the Anypoint MQ REST API throws this error:
 `The destination should be a queue.`
 ====
 
@@ -42,7 +42,7 @@ For *Queue* or *FIFO Queue*, see xref:mq-queues.adoc[].
 . In the *Create Exchange* page, name the message exchange. 
 +
 Message exchange names can contain up to 127 alphanumeric (a-z, A-Z, 0-9) and punctuation (. -) characters.
-They cannot contain spaces or other characters. 
+They can't contain spaces or other characters. 
 . Click the checkboxes to bind queues to this message exchange:
 +
 image::mq-exchange-bind-queues.png["Checkboxes to bind queues to a message exchange in the Create Exchange page"]

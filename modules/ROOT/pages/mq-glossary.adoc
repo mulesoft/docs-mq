@@ -2,7 +2,7 @@
 :page-aliases: mq-understanding.adoc
 
 ACK/NACK::
-Operations that specify the following:
+Operations that specify:
 +
 --
 * ACK operation - An app receives a message, and Anypoint MQ deletes the message. 
@@ -102,7 +102,7 @@ A queue that processes messages first-in, first-out (FIFO), ensuring message ord
 For information, see xref:mq-queues.adoc#fifo-queues[FIFO Queues].
 
 In-Flight::
-Messages that are any of the following states: 
+Messages that are any of these states: 
 +
 --
 * Received by a queue, but not deleted
