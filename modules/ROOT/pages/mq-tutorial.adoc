@@ -23,9 +23,11 @@ Before you begin this tutorial, you must have:
 
 * Familiarity with xref:mq-glossary.adoc[]
 * An https://anypoint.mulesoft.com[Anypoint Platform account^]
-* An Enterprise license
 +
-Contact the MuleSoft Sales team to get a free trial.
+Anypoint MQ isn't available in the trial edition of Anypoint Platform.
+* Anypoint MQ integration add-on
++
+Contact your account team to purchase and activate Anypoint MQ.
 * Anypoint Studio installed on your system
 * A https://curl.haxx.se[`curl` command line tool^] for testing 
 +

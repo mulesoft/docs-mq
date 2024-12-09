@@ -2,7 +2,12 @@
 
 Follow these high-level steps to configure and use Anypoint MQ:
 
-. Contact your Account Team to obtain an Enterprise subscription and activate Anypoint MQ.
+. Contact your account team to purchase and activate the Anypoint MQ integration add-on.
++
+To use this product, you need both:
++
+** A paid Anypoint Platform subscription (Anypoint Integration Starter, Anypoint Integration Advanced package, or a Gold, Platinum, or Titanium subscription)
+** Anypoint MQ integration add-on
 . xref:mq-access-management.adoc[Set up your environment and access permissions].
 . xref:mq-connected-apps.adoc[Configure a connected app] to get an ID and secret to configure Anypoint Connector for MQ (xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector]).
 . Configure a xref:mq-queues.adoc[queue], xref:mq-exchanges.adoc[message exchange], or a xref:mq-queues.adoc#fifoqueues[FIFO queue].
