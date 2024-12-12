@@ -28,22 +28,19 @@ Anypoint MQ:
 
 == Before You Begin Using Anypoint MQ
 
-* Contact your Account Team to purchase and activate the Anypoint MQ integration add-on.
-+
-To use this product, you need both:
-+
---
-** A paid Anypoint Platform subscription (Anypoint Integration Starter, Anypoint Integration Advanced package, or a Gold, Platinum, or Titanium subscription)
-** Anypoint MQ integration add-on
---
+. Make sure you have a paid Anypoint Platform package or subscription with the Anypoint MQ integration add-on.
 +
 Anypoint MQ isn't available in the trial edition of Anypoint Platform.
-+ 
++
+To add Anypoint MQ to your package or subscription, contact your account team.
 After purchasing Anypoint MQ, wait one hour for Anypoint MQ to become available in Anypoint Platform.
-* Set up your environment and permissions.
++
+For information about Anypoint Integration packages, see 
+https://www.mulesoft.com/anypoint-pricing[MuleSoft Anypoint Platform Pricing].
+. Set up your environment and permissions.
 +
 For information, see xref:mq-access-management.adoc[].
-* Review this overview for information about Anypoint MQ.
+. Review this overview for information about Anypoint MQ.
 
 
 == Anypoint MQ Features

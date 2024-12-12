@@ -10,20 +10,12 @@ xref:release-notes::mq/mq-release-notes.adoc[Release Notes].
 [[ent-subscription]]
 == Why is Anypoint MQ not shown in Anypoint Platform?
 
-Anypoint MQ is an integration add-on to Anypoint Platform.
-
-To use this product, you need both:
-
-* A paid Anypoint Platform subscription (Anypoint Integration Starter, Anypoint Integration Advanced package, or a Gold, Platinum, or Titanium subscription)
-* Anypoint MQ integration add-on
-
-Anypoint MQ isn't available in the trial edition of Anypoint Platform.
+Anypoint MQ is an integration add-on to your paid Anypoint Platform package or subscription and isn't available in the trial edition of Anypoint Platform.
 
 To add Anypoint MQ to your package or subscription, contact your account team.
-
 After adding Anypoint MQ, wait one hour for Anypoint MQ to become available in Anypoint Platform.
 
-For more information about Anypoint Integration packages, see 
+For information about Anypoint Integration packages, see 
 https://www.mulesoft.com/anypoint-pricing[MuleSoft Anypoint Platform Pricing].
 
 [[mq-regions]]
