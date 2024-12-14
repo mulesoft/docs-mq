@@ -364,9 +364,11 @@ FIFO queues do not support retrieving messages by message group ID.
 
 If a message doesn't have an associated message group ID, the message is assigned to a default message group. If you require a single group of ordered messages, provide the same message group ID for messages sent to the FIFO queue.
 
-Message order is preserved within the message group, but is not enforced across message groups.
+Anypoint MQ preserves message order within the message group, but not across different message groups.
+In addition, Anypoint MQ doesn't guarantee that messages are processed at the same speed across groups.
+
 If multiple applications send messages associated with the same message group ID to a FIFO queue,
-the messages are stored in the order they arrive.
+Anypoint MQ stores the messages in the order they arrive.
 To preserve message order for an app, make sure that each app uses a specific message group ID to send messages.
 
 ==== Process Messages in Message Groups in Order 
