@@ -322,7 +322,7 @@ You can create a FIFO exchange using the Anypoint MQ Admin API by including `"fi
 The organization from which you use the Administration portal must have an Anypoint MQ FIFO entitlement.
 See xref:mq-faq.adoc[Anypoint MQ FAQ] for the regions where Anypoint MQ is available.
 
-Use a `curl` command like the following to create a FIFO exchange:
+Use a `curl` command like this to create a FIFO exchange:
 
 [source,bash,linenums]
 ----
