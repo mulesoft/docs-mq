@@ -99,7 +99,7 @@ To view Anypoint MQ stats in xref:general::usage-reports.adoc[]:
 . Sign in to Anypoint Platform using an account that has the Usage Viewer permission for your root organization.
 +
 For information, see xref:mq-access-management.adoc#anypoint-mq-permissions[Anypoint MQ Permissions].
-. In Anypoint Platform, go to *Usage Reports*.
+. In Anypoint Platform, go to *Usage*.
 . Select *Anypoint MQ* in the *Product* section:
 +
 image::mq-usage-report.png["Anypoint MQ option on the Usage Reports page"]
