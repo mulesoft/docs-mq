@@ -349,6 +349,7 @@ For information, see xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API].
 == See Also
 
 * xref:hyperforce::index.adoc[]
+* xref:general::usage-reports.adoc[]
 * xref:mq-glossary.adoc[]
 * xref:mq-connectors.adoc[]
 * xref:mq-faq.adoc[]

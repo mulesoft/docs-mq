@@ -94,7 +94,7 @@ If this happens, use the Anypoint MQ Stats API xref:mq-apis.adoc#usage-by-org[Us
 // [NOTE]
 // include::partial$mq-on-hyperforce.adoc[tag=mqFeaturesOnlyHFnote]
 
-To view Anypoint MQ stats in xref:general::usage-reports.adoc[Usage Reports]:
+To view Anypoint MQ stats in xref:general::usage-reports.adoc[]:
 
 . Sign in to Anypoint Platform using an account that has the Usage Viewer permission for your root organization.
 +
@@ -131,6 +131,7 @@ include::partial$mq-faq.adoc[tag=apiStatsRequests]
 
 == See Also
 
+* xref:general::usage-reports.adoc[]
 * xref:mq-faq.adoc[Anypoint MQ FAQ]
 * xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API]
 * xref:index.adoc#mq-on-hyperforce[Anypoint MQ on Hyperforce]
