@@ -12,7 +12,7 @@ Anypoint MQ APIs are available in the https://anypoint.mulesoft.com/exchange/por
 
 == Workflow for an API
 
-This example illustrates the workflow for accessing the Anypoint MQ Broker API:
+This example shows the workflow for accessing the Anypoint MQ Broker API:
 
 image::mq-api-workflow.png["Workflow of the Anypoint MQ Broker API"]
 
