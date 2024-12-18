@@ -60,7 +60,7 @@ include::reuse::partial$access-management/assign-permissions.adoc[tag=assignPerm
 |Read MQ stats
 |
 
-3+h| Usage Permissions
+3+h| Usage Reports Permissions
 |View usage reports.
 |Usage Viewer
 |include::access-management::partial$include-root-org-permissions-note.adoc[]

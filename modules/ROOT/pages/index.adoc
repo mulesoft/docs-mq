@@ -65,8 +65,8 @@ Send and receive messages from any Mule app, whether it's deployed in CloudHub o
 +
 For information, see xref:mq-connectors.adoc[].
 Usage Information::
-View the current and past months' usage, including the total number of messages and API requests.
-Organization administrators and owners access this information from the *Access Management* page.
+View usage data, including the total number of messages and API requests.
+Organization administrators and owners access this information from the xref:general::usage-reports.adoc[*Usage Reports*] page.
 +
 For information, see xref:mq-usage.adoc[].
 REST API::
@@ -280,7 +280,7 @@ Using connected apps with Anypoint MQ requires xref:anypoint-mq-connector::index
 Cross-Region Failover::
 xref:mq-failover.adoc[Cross-region failover] isn't supported.
 Usage Reports::
-xref:mq-usage.adoc#access-mq-usage-reports[Usage Reports] in Usage aren't available.
+Usage data in xref:general::usage-reports.adoc[Usage Reports] isn't available.
 
 REST APIs::
 These REST APIs in the Anypoint MQ Stats API aren't supported:

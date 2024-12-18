@@ -1,7 +1,7 @@
 = Viewing Anypoint MQ Usage Data
 
 Anypoint MQ uses API requests to calculate billing and message requests to determine the size of message data in the response.
-You access Anypoint MQ usage data in Usage.
+You access Anypoint MQ usage data in Usage Reports.
 
 ////
 Depending on your Anypoint Platform instance, 
@@ -94,13 +94,12 @@ If this happens, use the Anypoint MQ Stats API xref:mq-apis.adoc#usage-by-org[Us
 // [NOTE]
 // include::partial$mq-on-hyperforce.adoc[tag=mqFeaturesOnlyHFnote]
 
-To view Anypoint MQ usage reports in Usage:
+To view Anypoint MQ stats in xref:general::usage-reports.adoc[Usage Reports]:
 
 . Sign in to Anypoint Platform using an account that has the Usage Viewer permission for your root organization.
 +
-This permission enables you to view reports in xref:general::usage-reports.adoc[Usage].
 For information, see xref:mq-access-management.adoc#anypoint-mq-permissions[Anypoint MQ Permissions].
-. In Anypoint Platform, go to *Usage*.
+. In Anypoint Platform, go to *Usage Reports*.
 . Select *Anypoint MQ* in the *Product* section:
 +
 image::mq-usage-report.png["Anypoint MQ option on the Usage Reports page"]
