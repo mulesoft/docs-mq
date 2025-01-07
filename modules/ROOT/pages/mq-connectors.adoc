@@ -28,7 +28,7 @@ Anypoint Connector for MQ (Anypoint MQ Connector) is available for Mule 4 and Mu
 == Anypoint MQ Connector 3.x - Mule 4
 
 [NOTE]
-include::partial$mq-api-shared.adoc[tag=mqConnectorNoHF]
+include::partial$mq-on-hyperforce.adoc[tag=mqConnectorNoHF]
 
 * xref:connectors::anypoint-mq/3.x/anypoint-mq-connector.adoc[Anypoint MQ Connector 3.x for Mule 4]
 ** xref:connectors::anypoint-mq/3.x/anypoint-mq-ack.adoc[ACK and NACK Operations]
@@ -43,7 +43,7 @@ include::partial$mq-api-shared.adoc[tag=mqConnectorNoHF]
 == Anypoint MQ Connector 2.x - Mule 4
 
 [NOTE]
-include::partial$mq-api-shared.adoc[tag=mqConnectorNoHF]
+include::partial$mq-on-hyperforce.adoc[tag=mqConnectorNoHF]
 
 * xref:connectors::anypoint-mq/2.x/anypoint-mq-connector.adoc[Anypoint MQ Connector 2.x for Mule 4]
 ** xref:connectors::anypoint-mq/2.x/anypoint-mq-ack.adoc[ACK and NACK Operations]
@@ -58,7 +58,7 @@ include::partial$mq-api-shared.adoc[tag=mqConnectorNoHF]
 == Anypoint MQ Connector - Mule 3
 
 [NOTE]
-include::partial$mq-api-shared.adoc[tag=mqConnectorNoHF]
+include::partial$mq-on-hyperforce.adoc[tag=mqConnectorNoHF]
 
 * xref:3.9@mule-runtime::anypoint-mq-connector.adoc[Anypoint MQ Connector for Mule 3]
 ** xref:3.9@mule-runtime::anypoint-mq-connector-reference.adoc[Anypoint MQ Connector Reference - Mule 3]
