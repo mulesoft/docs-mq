@@ -665,9 +665,16 @@ For more information, see the https://anypoint.mulesoft.com/exchange/portals/any
 [IMPORTANT]
 include::partial$mq-api-shared.adoc[tag=urlEncoded]
 
+=== Metrics for Queues and Exchanges
+
+Use the Anypoint MQ Stats API to get these metrics for queues and exchanges:
+
+* <<get-queue-stats>>
+* <<historical-stats-queue>>
+* <<historical-stats-exchange>>
 
 [[get-queue-stats]]
-=== Get Current Statistics for Queues
+==== Get Current Statistics for Queues
 
 You can get a snapshot of the number of messages in the queue and how many are in-flight. 
 See xref:mq-glossary.adoc[] for a definition of in-flight messages.
@@ -705,16 +712,21 @@ This command returns output similar to:
 ----
 
 [[historical-stats-queue]]
-=== Get Historical Statistics for a Queue
+==== Get Historical Statistics for a Queue
 
 Use this API to fetch historical statistics for a queue.
 Statistics don't get updated in real-time, and there is an approximate latency of five to ten minutes before data is published. The retention period of historical data is 15 months.
-To limit the volume of data, historical data is stored at reduced levels of granularity:
 
-* Data points with a period of fewer than 60 seconds are available for three hours.
-* One-minute data points are available for 15 days.
-* Five-minute data points are available for 63 days.
-* One-hour data points are available for 15 months.
+To limit the volume of data, Anypoint MQ stores historical data at reduced levels of granularity, based on the period:
+
+[%header,cols="30,30"]
+|===
+| Time Series (Period) | Retention Period
+| Fewer than 60 seconds | 3 hours
+| 1 minute | 15 days
+| 5 minutes | 63 days
+| 1 hour | 15 months
+|===
 
 `/queues/{queueId}?startDate=...&endDate=...&period=...`
 
@@ -754,7 +766,7 @@ The duration is an integer and is the granularity of data points in seconds.
 
 
 [[historical-stats-exchange]]
-=== Get Historical Statistics for Exchanges
+==== Get Historical Statistics for Exchanges
 
 Retention policies are the same as in the previous <<historical-stats-queue>> section.
 
@@ -789,18 +801,54 @@ This command returns output similar to:
 
 The period is an integer and is the granularity of data points in seconds.
 
-[[usage-by-env]]
-=== Get Usage Metrics by Environment 
+
+=== Usage Metrics by Environment or Org
 
 [NOTE]
 // Not on HF
 include::partial$mq-on-hyperforce.adoc[tag=mqStatsAPInotHF]
 
+Use the Anypoint MQ Stats API to get these usage metrics:
+
+* <<usage-by-env>>
+* <<usage-by-org>>
+
+[[usage-limits]]
+==== Usage Metrics Limits
+
+[%header,cols="10,15,15a"]
+|===
+| Parameter | Description | Values
+| Time series (`period`) | Interval that the query records |
+
+* `1hour`
+* `1day`
+* `1month`	
+
+|Data retention | Length of time that Anypoint MQ retains the data, based on `period` | 
+
+* `period=1hour`: 3 months 
+* `period=1day`: 12 months
+* `period=1month`: 24 months
+
+| Query timeframe | Maximum interval between `startDate` and `endDate` in the query, based on `period` |
+
+* `period=1hour`: 1 day 
+* `period=1day`: 1 month
+* `period=1month`: 2 months
+
+NOTE: If the interval between `startDate` and `endDate` exceeds the limits, the API returns an HTTP 400 error.
+|===
+
+
+[[usage-by-env]]
+==== Get Usage Metrics by Environment 
+
 You can use the Stats API to retrieve Anypoint MQ usage information by environment for a particular organization:
 
 `/environments/<ENV_ID>?startDate=...&endDate=...&period=...`
 
-This information is not real-time and has a latency.
+This information isn't real-time and has a latency.
 
 [NOTE]
 include::partial$mq-on-hyperforce.adoc[tag=mqStatsAPIlimits]
@@ -839,11 +887,9 @@ For more information about Anypoint MQ billing, see xref:mq-usage.adoc[].
 include::partial$mq-faq.adoc[tag=returnVals]
 
 [[usage-by-org]]
-=== Get Usage Metrics by Organization
+==== Get Usage Metrics by Organization
 
-[NOTE]
-// Not on HF
-include::partial$mq-on-hyperforce.adoc[tag=mqStatsAPInotHF]
+
 
 You can use the Stats API to retrieve Anypoint MQ usage for the root business organization:
 
