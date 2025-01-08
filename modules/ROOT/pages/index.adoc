@@ -243,7 +243,7 @@ Billing is based on the number of messages delivered to subscribers from queues,
 * xref:mq-failover.adoc[Cross-Region Failover]
 * xref:mq-client-apps.adoc[Client Apps]
 * xref:mq-connectors.adoc[Anypoint MQ Connector earlier than 4.x]
-* xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API] (Usage Metrics)
+* xref:mq-apis.adoc#usage-metrics-env-org[Anypoint MQ Stats API] (Usage Metrics)
 
 | Yes
 | No

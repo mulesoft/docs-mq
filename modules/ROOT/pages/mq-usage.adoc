@@ -104,6 +104,7 @@ For information, see xref:mq-access-management.adoc#anypoint-mq-permissions[Anyp
 +
 image::mq-usage-report.png["Anypoint MQ option on the Usage Reports page"]
 . Select a month from the *Monthly Usage Report* tab or day from the *Daily Usage Report* tab.
+
 +
 The report shows usage for the selected period (total and by object):
 +
@@ -111,6 +112,9 @@ The report shows usage for the selected period (total and by object):
 * Message bytes
 * API requests
 * Messages received
++
+[NOTE]
+include::partial$mq-api-shared.adoc[tag=usageDelay]
 . Click *Export as CSV* to download the usage for the selected period.
 
 For more information, see xref:general::usage-reports.adoc[].
