@@ -11,7 +11,7 @@ Anypoint MQ supports hybrid use cases, IoT (Internet of Things) in which you col
 and provides a REST API to use with device applications.
 You can also use Anypoint MQ with other app frameworks such as node.js to communicate with queues.
 
-The following spotlight video gives an overview of Anypoint MQ:
+This spotlight video gives an overview of Anypoint MQ:
 
 ++++
 include::_partials/mq-overview-video.html[]
@@ -28,13 +28,19 @@ Anypoint MQ:
 
 == Before You Begin Using Anypoint MQ
 
-* Contact your Account Team to obtain an Enterprise subscription and activate Anypoint MQ.
-+ 
-After adding an Enterprise subscription, wait one hour for Anypoint MQ to become available. 
-* Set up your environment and permissions.
+. Make sure you have a paid Anypoint Platform package or subscription with the Anypoint MQ integration add-on.
++
+Anypoint MQ isn't available in the trial edition of Anypoint Platform.
++
+To add Anypoint MQ to your package or subscription, contact your account team.
+After purchasing Anypoint MQ, wait one hour for Anypoint MQ to become available in Anypoint Platform.
++
+For information about Anypoint Integration packages, see 
+https://www.mulesoft.com/anypoint-pricing[MuleSoft Anypoint Platform Pricing].
+. Set up your environment and permissions.
 +
 For information, see xref:mq-access-management.adoc[].
-* Review this overview for information about Anypoint MQ.
+. Review this overview for information about Anypoint MQ.
 
 
 == Anypoint MQ Features
@@ -76,7 +82,7 @@ Use connected apps to authenticate with Anypoint Platform by using APIs.
 +
 Register each consumer registered as a connected app with a name, ID, and secret.
 The connected app uses the ID and secret to authenticate and get access to queues and message exchanges within a single environment.
-You cannot use connected apps across multiple environments or business groups.
+You can't use connected apps across multiple environments or business groups.
 +
 For information, see xref:mq-connected-apps.adoc[].
 Large Payloads::
@@ -118,12 +124,12 @@ You can't use Anypoint MQ with CloudHub Insight or Anypoint Monitoring.
 _Message queues_ provide temporary storage that enables applications to communicate in a scalable and reliable way.
 Publishers can publish messages into queues, and subscribers can receive messages from queues. 
 
-image::mq-pub-q-sub.png[Anypoint MQ publisher, queue, and subscriber]
+image::mq-pub-q-sub.png["A publisher sends a message to a queue, and a subscriber reads messages from a queue"]
 
 To distribute messages to multiple queues and consumers, bind multiple queues to a _message exchange_.
 Messages sent to an exchange appear in all of its bound queues simultaneously:
 
-image::mq-pub-ex-sub.png["Message exchange distributing a message to multiple consumers"]
+image::mq-pub-ex-sub.png["A publisher sends messages to an Exchange, which then directs messages to queues, from which consumers retrieve them"]
 
 For example, if a publisher publishes changes in the weather and multiple apps must receive that data,
 use a message exchange to publish a single message to multiple queues for each app.
@@ -142,7 +148,7 @@ include::partial$mq-msg-exchange.adoc[tag=msgExchangeMaxRouting]
 In this example, an app running Salesforce customer relationship manager (CRM) uses Anypoint MQ to 
 communicate with two applications that handle different databases:
 
-image::mq-crm-to-dbs.png["CRM sends a message to Anypoint MQ that apps receive"]
+image::mq-crm-to-dbs.png["A CRM system communicates customer updates through a message exchange, which then relays the information to separate queues for a database and SAP"]
 
 The Salesforce app sends a pub/sub message to an Anypoint MQ message exchange (`customer-updates`).
 The two applications (`customer-consumer-1` and `customer-consumer-2`) receive the message from 
@@ -181,7 +187,7 @@ A locked message does not block other messages from being read.
 +
 --
 *** If a consumer processes a message successfully, the client acknowledges the message, and Anypoint MQ removes the message from the queue.
-*** If a consumer cannot process a message, the message proceeds with a negative acknowledgment and becomes visible in the queue again.
+*** If a consumer can't process a message, the message proceeds with a negative acknowledgment and becomes visible in the queue again.
 --
 +
 For information, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations].
@@ -197,36 +203,154 @@ Messages are read through long polling. The server holds a request open until ne
 +
 Billing is based on the number of messages delivered to subscribers from queues, rather than the number of queues or message exchanges you create.
 
+[[mq-features-control-plane]]
+== Anypoint MQ Features by Control Plane
+
+[%header,cols="3a,1a,1a,1a"]
+|===
+|Anypoint MQ Feature 
+|US Cloud and EU Cloud
+|Canada Cloud and Japan Cloud (Hyperforce)
+|MuleSoft Government Cloud
+
+|{empty}
+
+* xref:mq-queues.adoc[Encrypted Queues]
+* xref:mq-exchanges.adoc[Message Exchanges]
+* xref:mq-routing-rules.adoc[Message Routing]
+* xref:mq-connected-apps.adoc[Connected Apps]
+* xref:mq-connectors.adoc[Anypoint MQ Connector versions 4.x and later]
+* xref:mq-apis.adoc#mq-admin-api[Anypoint MQ Admin API]
+* xref:mq-apis.adoc#mq-broker-api[Anypoint MQ Broker API]
+* xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API] (Anypoint MQ Stats only)
+
+| Yes
+| Yes
+| Yes
+
+|{empty}
+
+* xref:mq-queues.adoc[Unencrypted Queues]
+* xref:mq-usage.adoc#access-mq-usage-charts[Usage Charts] (Access Management)
+* xref:mq-failover.adoc[Cross-Region Failover]
+* xref:mq-client-apps.adoc[Client Apps]
+* xref:mq-connectors.adoc[Anypoint MQ Connector earlier than 4.x]
+* xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API] (Usage Metrics)
+
+| Yes
+| No
+| No
+
+|{empty}
+
+* xref:cloudhub::deploying-to-cloudhub.adoc[CloudHub 1.0 Deployments]
+
+| Yes
+| No
+| Yes
+
+|{empty}
+
+* xref:mq-usage.adoc#access-mq-usage-reports[Usage Reports] (Usage)
+
+| No
+| Yes
+| No
+
+|===
+
 
 [[mq-in-govcloud]]
-== Anypoint MQ in MuleSoft Government Cloud
+== Anypoint MQ on MuleSoft Government Cloud
 
-All features of Anypoint MQ are supported in MuleSoft Government Cloud with the following exceptions:
+When you deploy to https://gov.anypoint.mulesoft.com/login/[MuleSoft Government Cloud],
+all features of Anypoint MQ are supported with these exceptions:
 
-* Unencrypted queues are not supported.
+Unencrypted Queues::
+Unencrypted queues aren'tsupported.
 +
-All queues are encrypted. 
 When xref:mq-queues.adoc#create-a-queue[creating a queue], the *Encryption* option is disabled and defaults to selected.
-* xref:mq-client-apps.adoc[Client apps] are not supported.
-+
-Use 
-xref:mq-connected-apps.adoc[connected apps] instead.
-* Anypoint Connector for Anypoint MQ versions earlier than 4.x are not supported.
+Client Apps::
+xref:mq-client-apps.adoc[Client apps] aren't supported.
+Use xref:mq-connected-apps.adoc[connected apps] instead.
+Anypoint Connector Versions::
+Anypoint Connector for Anypoint MQ versions earlier than 4.x aren't supported.
 +
 Using connected apps with Anypoint MQ requires xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.x for Mule 4].
-* The following REST APIs in the Anypoint MQ Stats API are not supported:
+Cross-Region Failover::
+xref:mq-failover.adoc[Cross-region failover] isn't supported.
+REST APIs::
+These REST APIs in the Anypoint MQ Stats API aren't supported:
 +
 --
 ** https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/minor/1.0/console/method/%23322/[Get usage metrics for an org].
 ** https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/minor/1.0/console/method/%23383/[Get usage metrics for an environment within an org].
 --
 +
-You can use Anypoint MQ Stats API to retrieve metrics for queues and exchanges.
+You can use the Anypoint MQ Stats API only to retrieve metrics for
+xref:mq-apis.adoc#historical-stats-queue[queues]
+and
+xref:mq-apis.adoc#historical-stats-exchange[exchanges].
 For information, see xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API].
+
+For information about MuleSoft Government Cloud, see
+xref:gov-cloud::index.adoc[].
+
+[[mq-on-hyperforce]]
+== Anypoint MQ on Hyperforce
+
+Anypoint MQ is available on these Salesforce Hyperforce (Hyperforce) instances of Anypoint Platform:
+
+* https://ca1.platform.mulesoft.com[Canada Cloud]
+* https://jp1.platform.mulesoft.com[Japan Cloud]
+
+For information about the regions where Anypoint MQ is available, see
+xref:mq-faq.adoc#mq-regions[Anypoint MQ Regions].
+
+
+When you deploy to Canada Cloud or Japan Cloud,
+all features of Anypoint MQ are supported with these exceptions:
+
+CloudHub 1::
+Deployments to CloudHub 1 aren't supported.
+You can deploy apps to CloudHub 2.0 shared spaces and Anypoint Runtime Fabric.
+Unencrypted Queues::
+Unencrypted queues aren't supported.
+When xref:mq-queues.adoc#create-a-queue[creating a queue], the *Encryption* option is disabled and defaults to enabled.
+
+Client Apps::
+xref:mq-client-apps.adoc[Client apps] aren't supported.
+Use xref:mq-connected-apps.adoc[connected apps] instead.
+Anypoint Connector Versions::
+Anypoint Connector for Anypoint MQ versions earlier than 4.x aren't supported.
++
+Using connected apps with Anypoint MQ requires xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.x for Mule 4].
+Cross-Region Failover::
+xref:mq-failover.adoc[Cross-region failover] isn't supported.
+Usage Charts::
+xref:mq-usage.adoc#access-mq-usage-charts[Usage Charts] in Access Management aren't available.
+Use
+xref:mq-usage.adoc#access-mq-usage-reports[Usage Reports] in Usage instead.
+
+Rest APIs::
+These REST APIs in the Anypoint MQ Stats API aren't supported:
++
+--
+** xref:mq-apis.adoc#usage-by-org[Get usage metrics for an org]
+** xref:mq-apis.adoc#usage-by-env[Get usage metrics for an environment within an org].
+--
++
+You can use the Anypoint MQ Stats API only to retrieve metrics for
+xref:mq-apis.adoc#historical-stats-queue[queues]
+and
+xref:mq-apis.adoc#historical-stats-exchange[exchanges].
+For information, see xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API].
+// Add the Metering UI way
 
 
 == See Also
 
+* xref:hyperforce::index.adoc[]
 * xref:mq-glossary.adoc[]
 * xref:mq-connectors.adoc[]
 * xref:mq-faq.adoc[]

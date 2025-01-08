@@ -1,4 +1,5 @@
 = Configuring Cross-Region Failover for Standard Queues
+include::partial$mq-on-hyperforce.adoc[tag=mqFeaturesNoHF]
 
 You can configure failover by specifying a fallback region for standard queues using Anypoint Connector for Anypoint MQ (Anypoint MQ Connector) for Mule 4 version 4.0.10 and later.
 
@@ -116,7 +117,7 @@ Create a queue::
 +
 .. Click the *Add* icon to display the menu:
 +
-image::mq-blue-create.png["Add icon"]
+image::mq-blue-create.png["Destinations page showing the Add icon for adding a queue"]
 .. Select *Queue*.
 +
 Anypoint MQ supports failover for standard queues only.
@@ -126,7 +127,7 @@ For information about queue settings, see xref:mq-queues.adoc#create-a-queue[Cre
 +
 .. Select *Enable Cross-Region Failover*:
 +
-image::mq-create-queues-failover.png["Create Queue popup dialog box with failover option selected"]
+image::mq-create-queues-failover.png["Create Queue dialog box showing the failover option selected"]
 // added screenshot
 // .. Select the fallback region.
 // +
@@ -152,10 +153,11 @@ Anypoint MQ supports failover for standard queues only.
 +
 .. In the *Queue Settings* page, select *Enable Cross-Region Failover*:
 +
-image::mq-queue-settings-failover.png["Queue Settings page with failover option selected"]
+image::mq-queue-settings-failover.png["Queue Settings page showing the failover option selected"]
 +
 [NOTE]
 include::partial$mq-failover.adoc[tag=changeFallbackRegion]
+
 
 .. Click *Save Changes*.
 +
@@ -185,7 +187,7 @@ To view failover configuration for the primary and fallback queues, display the 
 +
 ** The queue details pane for the primary queue includes the fallback queue:
 +
-image::mq-queue-details-primary-queue.png["Details pane for the primary queue with the fallback queue and region"]
+image::mq-queue-details-primary-queue.png["Details pane for the primary queue showing the fallback queue and region"]
 +
 [calloutlist]
 ... Queue type displays the queue details pane for the primary queue.
@@ -193,7 +195,7 @@ image::mq-queue-details-primary-queue.png["Details pane for the primary queue wi
 
 ** The queue details pane for the fallback queue includes the primary queue:
 +
-image::mq-queue-details-fallback-queue.png["Details pane for the fallback queue with the primary queue and region"]
+image::mq-queue-details-fallback-queue.png["Details pane for the fallback queue showing the primary queue and region"]
 +
 [calloutlist]
 ... Queue type displays the queue details pane for the fallback queue.
@@ -223,12 +225,12 @@ To disable failover for a queue:
 +
 Anypoint MQ disables failover for the queue:
 +
-image::mq-queue-settings-failover-disabled.png["Queue Settings page with failover option deselected"]
+image::mq-queue-settings-failover-disabled.png["Queue Settings page showing the failover option deselected"]
 . Click *Save Changes*.
 +
 The primary queue details shows that failover is disabled:
 +
-image::mq-queue-details-primary-queue-fallback-disabled.png["Details pane for the primary queue with the fallback queue and failover status"]
+image::mq-queue-details-primary-queue-fallback-disabled.png["Details pane for the primary queue showing the fallback queue and failover status"]
 . Restart all applications consuming from or publishing to the queue.
 
 [[assign-custom-fb-region-api]]
