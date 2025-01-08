@@ -1,4 +1,4 @@
-= Anypoint MQ Audit Logs
+= Accessing Anypoint MQ Audit Logs
 
 The Anypoint Platform audit logging service logs Anypoint MQ actions on queues,
 exchanges, and client applications.

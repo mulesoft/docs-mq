@@ -22,10 +22,9 @@ include::partial$mq-versions.adoc[tag=mqMuleVersion]
 Before you begin this tutorial, you must have:
 
 * Familiarity with xref:mq-glossary.adoc[]
-* An https://anypoint.mulesoft.com[Anypoint Platform account^]
-* An Enterprise license
+* A paid Anypoint Platform package or subscription with the Anypoint MQ integration add-on
 +
-Contact the MuleSoft Sales team to get a free trial.
+Contact your account team for information.
 * Anypoint Studio installed on your system
 * A https://curl.haxx.se[`curl` command line tool^] for testing 
 +
@@ -60,7 +59,7 @@ image::mq-tutorial-create-choices.png["Add icon showing the Queue, Exchange, and
 image::mq-create-queues.png["Create Queue window showing myDemoQueue in the ID field and other default options"]
 // replace screenshot
 +
-Queue names can contain up to 127 alphanumeric (a-z, A-Z, 0-9) and punctuation (. -) characters. They cannot contain spaces or other characters. 
+Queue names can contain up to 127 alphanumeric (a-z, A-Z, 0-9) and punctuation (. -) characters. They can't contain spaces or other characters. 
 . If you want, specify any other queue settings. 
 +
 For information, see xref:mq-queues.adoc#create-a-queue[Create a Queue].
@@ -292,8 +291,8 @@ image::mq-tutorial-msg-browser-payload-details.png["Selected message row and det
 
 You can use this XML to create the `mq-demo` app in Studio 7.x.
 
-Click *Configuration XML* tab in Studio and compare your XML to this code. Make corrections if needed.
-
+Click the *Configuration XML* tab in Studio and compare your XML to this example.
+Make corrections if necessary.
 
 [source,xml,linenums]
 ----
@@ -445,7 +444,9 @@ Then, use Anypoint MQ to view the results.
 
 After you configure your app using the Anypoint MQ Connector, you can check your configuration against this XML.
 
-Click *Configuration XML* in Studio and compare your XML to this code. If needed, you can make corrections.
+Click *Configuration XML* in Studio and compare your XML to this example.
+Make corrections if necessary.
+
 
 [source,xml,linenums]
 ----

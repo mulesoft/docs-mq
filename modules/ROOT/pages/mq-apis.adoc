@@ -84,7 +84,7 @@ If MFA isn't enabled::
 
 Authenticate with the credentials of a user with the Organization Administrator permission:
 
-. Run the following command, replacing AUTH_SERVER_HOST with the authorization server, for example `\https://anypoint.mulesoft.com/`
+. Run this command, replacing AUTH_SERVER_HOST with the authorization server, for example `\https://anypoint.mulesoft.com/`
 +
 [source,bash,linenums]
 ----
@@ -280,7 +280,7 @@ You can create a FIFO queue using the Anypoint MQ Admin API by including `"fifo"
 The organization from which you use the Administration portal must have an Anypoint MQ FIFO entitlement.
 See xref:mq-faq.adoc[Anypoint MQ FAQ] for the regions where Anypoint MQ is available.
 
-Use a `curl` command like the following to create a FIFO queue:
+Use a `curl` command to create a FIFO queue:
 
 [source,bash,linenums]
 ----
@@ -355,7 +355,7 @@ The new message routing rule can take up to 15 minutes to take effect.
 
 include::partial$mq-msg-exchange.adoc[tag=exchBindingNoRules]
 
-To create a message routing rule, use a `curl` command like the following:
+To create a message routing rule, use a `curl` command like this:
 
 [source,bash,linenums]
 ----
@@ -445,7 +445,7 @@ curl -X GET 'https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/<ORG_ID
 -H 'Authorization: bearer <BEARER_TOKEN>'
 ----
 
-The response from these commands include output similar to the following:
+The response from these commands includes output similar to this:
 
 .Primary Queue
 [%collapsible]
@@ -576,13 +576,12 @@ These examples use the Anypoint MQ Broker API to publish and consume messages an
 * <<send-message-routing>>
 * <<retrieve-message-api>>
 
-
-See the xref:mq-faq.adoc#regions[Anypoint MQ FAQ] for the regions where Anypoint MQ and FIFO are available.
+For the regions where Anypoint MQ and FIFO are available, see xref:mq-faq.adoc#mq-regions[Anypoint MQ Regions]. 
 
 [[send-messages-api]]
 === Send a Message
 
-The following `curl` command publishes a message:
+This `curl` command publishes a message:
 
 [source,bash,linenums]
 ----
@@ -605,7 +604,7 @@ curl -X PUT "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/<OR
 
 include::partial$mq-msg-exchange.adoc[tag=msgRulesEval]
 
-The following `curl` command publishes a message with the value of the `itemCategory`
+This `curl` command publishes a message with the value of the `itemCategory`
 property as `premium`.
 The message routing rule on the `purchases` exchange binding 
 (set up in <<routing-rules-api>>) routes the message to the `premiumPurchases` queue.
@@ -633,7 +632,7 @@ xref:mq-routing-rules.adoc#intelligent-routing-restrictions[Requirements and Res
 [[retrieve-message-api]]
 === Retrieve a Message
 
-The following `curl` command gets a message:
+This `curl` command gets a message:
 
 [source,bash,linenums]
 ----
@@ -646,7 +645,7 @@ curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/<OR
 You can control whether to show the message payload in the response using the `payloadVisibility` query parameter.
 This parameter is useful when retrieving large payloads.
 
-The `payloadVisibility` parameter takes the following options: 
+The `payloadVisibility` parameter takes these options: 
 
 * `full`: Shows the message payload in the response. +
 This option is the default.
@@ -655,7 +654,7 @@ This option is the default.
 
 If the payload is hidden because `payloadVisibility` is set to `none` or `conditional`, the response includes `payloadHidden=true` in the message header.
 
-The following `curl` command gets a message and payload, displaying the payload only if the payload size is smaller than 1 MB:
+This `curl` command gets a message and payload, displaying the payload only if the payload size is smaller than 1 MB:
 
 [source,json,linenums]
 ----
@@ -674,29 +673,39 @@ You can use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform
 
 Use the Stats API to retrieve:
 
-* Anypoint MQ metrics:
-** Near real-time statistics for queues
-** Historical statistics for queues
-** Historical statistics for message exchanges
+* Anypoint MQ statistics:
+** <<get-queue-stats,Near real-time statistics for queues>>
+** Number of messages currently in a queue
+** <<historical-stats-queue,Historical statistics for queues>>
+** <<historical-stats-exchange,Historical statistics for message exchanges>>
 * Usage metrics
 +
-View your entire organization's usage of Anypoint MQ for billing purposes:
+View your entire organization's usage of Anypoint MQ for billing purposes (US and EU Cloud only):
 +
-** Usage per environment
-** Usage per organization
-* Statistics for queues and message exchanges  
-* Number of messages currently in a queue
+--
+** <<usage-by-env,Usage per environment>>
+** <<usage-by-org,Usage per organization>>
+--
+
 
 [NOTE]
-include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
+include::partial$mq-on-hyperforce.adoc[tag=mqStatsAPIlimits]
 
 For more information, see the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API] in the MuleSoft developer portal.
 
 [IMPORTANT]
 include::partial$mq-api-shared.adoc[tag=urlEncoded]
 
+=== Metrics for Queues and Exchanges
 
-=== Get Current Statistics for Queues
+Use the Anypoint MQ Stats API to get these metrics for queues and exchanges:
+
+* <<get-queue-stats>>
+* <<historical-stats-queue>>
+* <<historical-stats-exchange>>
+
+[[get-queue-stats]]
+==== Get Current Statistics for Queues
 
 You can get a snapshot of the number of messages in the queue and how many are in-flight. 
 See xref:mq-glossary.adoc[] for a definition of in-flight messages.
@@ -734,16 +743,21 @@ This command returns output similar to:
 ----
 
 [[historical-stats-queue]]
-=== Get Historical Statistics for a Queue
+==== Get Historical Statistics for a Queue
 
 Use this API to fetch historical statistics for a queue.
 Statistics don't get updated in real-time, and there is an approximate latency of five to ten minutes before data is published. The retention period of historical data is 15 months.
-To limit the volume of data, historical data is stored at reduced levels of granularity:
 
-* Data points with a period of fewer than 60 seconds are available for three hours.
-* One-minute data points are available for 15 days.
-* Five-minute data points are available for 63 days.
-* One-hour data points are available for 15 months.
+To limit the volume of data, Anypoint MQ stores historical data at reduced levels of granularity, based on the period:
+
+[%header,cols="30,30"]
+|===
+| Time Series (Period) | Retention Period
+| Fewer than 60 seconds | 3 hours
+| 1 minute | 15 days
+| 5 minutes | 63 days
+| 1 hour | 15 months
+|===
 
 `/queues/{queueId}?startDate=...&endDate=...&period=...`
 
@@ -783,7 +797,7 @@ The duration is an integer and is the granularity of data points in seconds.
 
 
 [[historical-stats-exchange]]
-=== Get Historical Statistics for Exchanges
+==== Get Historical Statistics for Exchanges
 
 Retention policies are the same as in the previous <<historical-stats-queue>> section.
 
@@ -818,17 +832,57 @@ This command returns output similar to:
 
 The period is an integer and is the granularity of data points in seconds.
 
+
+=== Usage Metrics by Environment or Org
+
+[NOTE]
+// Not on HF
+include::partial$mq-on-hyperforce.adoc[tag=mqStatsAPInotHF]
+
+Use the Anypoint MQ Stats API to get these usage metrics:
+
+* <<usage-by-env>>
+* <<usage-by-org>>
+
+[[usage-limits]]
+==== Usage Metrics Limits
+
+[%header,cols="10,15,15a"]
+|===
+| Parameter | Description | Values
+| Time series (`period`) | Interval that the query records |
+
+* `1hour`
+* `1day`
+* `1month`	
+
+|Data retention | Length of time that Anypoint MQ retains the data, based on `period` | 
+
+* `period=1hour`: 3 months 
+* `period=1day`: 12 months
+* `period=1month`: 24 months
+
+| Query timeframe | Maximum interval between `startDate` and `endDate` in the query, based on `period` |
+
+* `period=1hour`: 1 day 
+* `period=1day`: 1 month
+* `period=1month`: 2 months
+
+NOTE: If the interval between `startDate` and `endDate` exceeds the limits, the API returns an HTTP 400 error.
+|===
+
+
 [[usage-by-env]]
-=== Get Usage Metrics by Environment 
+==== Get Usage Metrics by Environment 
 
 You can use the Stats API to retrieve Anypoint MQ usage information by environment for a particular organization:
 
 `/environments/<ENV_ID>?startDate=...&endDate=...&period=...`
 
-This information is not real-time and has a latency.
+This information isn't real-time and has a latency.
 
 [NOTE]
-include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
+include::partial$mq-on-hyperforce.adoc[tag=mqStatsAPIlimits]
 
 *Sample Request and Response:*
 
@@ -864,14 +918,16 @@ For more information about Anypoint MQ billing, see xref:mq-usage.adoc[].
 include::partial$mq-faq.adoc[tag=returnVals]
 
 [[usage-by-org]]
-=== Get Usage Metrics by Organization
+==== Get Usage Metrics by Organization
+
+
 
 You can use the Stats API to retrieve Anypoint MQ usage for the root business organization:
 
 `/organizations/<ORG_ID>?startDate=...&endDate=...&period=...`
 
 [NOTE]
-include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
+include::partial$mq-on-hyperforce.adoc[tag=mqStatsAPIlimits]
 
 
 *Sample Request and Response:*
@@ -1034,7 +1090,7 @@ This command returns output similar to:
 
 To create queues and exchanges programatically, you can use a language such as groovy.
 
-The following example consists of the `cloudhub.properties` file in which
+This example consists of the `cloudhub.properties` file in which
 you list the queues and exchanges to create, and a script file that
 references the properties file.
 
@@ -1053,7 +1109,7 @@ script file:
 
 === Configure a Properties File
 
-The following example properties file defines the access credentials,
+This example properties file defines the access credentials,
 organization ID, environment ID, region ID,
 and the names of the queues and exchanges to create:
 
@@ -1083,7 +1139,8 @@ exchanges=[
 ]
 ----
 
-See the xref:mq-faq#regions[Anypoint MQ FAQ] for the regions where Anypoint MQ and FIFO queues are available.
+For the regions where Anypoint MQ and FIFO queues are available,
+see xref:mq-faq#mq-regions[Anypoint MQ Regions]. 
 
 === Create a Script File
 
