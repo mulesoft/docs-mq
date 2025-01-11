@@ -1,7 +1,7 @@
 = Viewing Anypoint MQ Usage Data
 
 Anypoint MQ uses API requests to calculate billing and message requests to determine the size of message data in the response.
-You access Anypoint MQ usage data in Usage Reports.
+Access Anypoint MQ usage data in xref:general::usage-reports.adoc[].
 
 ////
 Depending on your Anypoint Platform instance, 
