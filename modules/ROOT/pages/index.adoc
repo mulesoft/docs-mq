@@ -280,7 +280,7 @@ Using connected apps with Anypoint MQ requires xref:anypoint-mq-connector::index
 Cross-Region Failover::
 xref:mq-failover.adoc[Cross-region failover] isn't supported.
 Usage Reports::
-Usage data in xref:general::usage-reports.adoc[Usage Reports] isn't available.
+Usage data in xref:general::usage-reports.adoc[] isn't available.
 
 REST APIs::
 These REST APIs in the Anypoint MQ Stats API aren't supported:
