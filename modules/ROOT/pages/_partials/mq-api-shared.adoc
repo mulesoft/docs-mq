@@ -29,6 +29,6 @@ The encoded string is:
 //end::urlEncodedExample[]
 
 //tag::usageDelay[]
-Usage information for all time series - hourly (API), daily, and monthly - can lag by up to three hours.
+Usage information for all time series - hourly (API), daily, and monthly — can lag by up to three hours.
 //end::usageDelay[]
 
