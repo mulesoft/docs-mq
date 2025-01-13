@@ -24,7 +24,7 @@ include::partial$mq-faq.adoc[tag=apiStatsRequests]
 +
 ** You can retrieve up to 10 messages from a single API call, which only bills as one request.
 +
-Even if the request to retrieve messages does not return a message (for example, if the queue is empty),
+Even if the request to retrieve messages doesn't return a message (for example, if the queue is empty),
 it bills as a single API request.
 ** If a queue sends a message to a DLQ, the message isn't charged against the billable API requests.
 +
