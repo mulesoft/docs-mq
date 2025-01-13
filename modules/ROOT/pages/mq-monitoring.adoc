@@ -4,7 +4,7 @@ Use the Anypoint MQ monitoring features to view usage reports and audit logging 
 
 * xref:mq-usage.adoc[]
 +
-You can view a report that shows usage for a selected period (total usage and by queue or exchange).
+You can view a report that shows usage for a selected period (total usage and usage by queue or message exchange).
 The report includes message units, message bytes, API requests, and messages received.
 * xref:mq-audit-logs.adoc[]
 +

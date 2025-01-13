@@ -269,7 +269,7 @@ all features of Anypoint MQ are supported with these exceptions:
 Unencrypted Queues::
 Unencrypted queues aren't supported.
 +
-When xref:mq-queues.adoc#create-a-queue[creating a queue], the *Encryption* option is disabled and defaults to selected.
+When xref:mq-queues.adoc#create-a-queue[creating a queue], the *Encryption* option is selected and you can't change it.
 Client Apps::
 xref:mq-client-apps.adoc[Client apps] aren't supported.
 Use xref:mq-connected-apps.adoc[connected apps] instead.
