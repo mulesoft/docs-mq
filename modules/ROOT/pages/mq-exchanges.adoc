@@ -35,20 +35,25 @@ To create a message exchange:
 . Click *Destinations*.
 . Click the *Add* icon to display the menu:
 +
+// update screenshot
 image::mq-blue-create.png["Add icon in the Anypoint MQ Destinations page"]
-. Select *Exchange*.
+. Select *Exchange* or *FIFO Exchange*.
 +
 For *Queue* or *FIFO Queue*, see xref:mq-queues.adoc[].
-. In the *Create Exchange* page, name the message exchange. 
+. Name the message exchange in the *Create Exchange* or *Create FIFO Exchange* page.
 +
 Message exchange names can contain up to 127 alphanumeric (a-z, A-Z, 0-9) and punctuation (. -) characters.
 They can't contain spaces or other characters. 
 . Click the checkboxes to bind queues to this message exchange:
 +
+// This screenshot is OK
 image::mq-exchange-bind-queues.png["Checkboxes to bind queues to a message exchange in the Create Exchange page"]
++
+NOTE: You can bind only standard queues to an exchange and only FIFO queues to a FIFO exchange.
 . Click *Save Changes*.
 . In the *Destinations* page, click the message exchange type for the new exchange to display the bound queues in the details pane:
 +
+// update with FIFO Exchange in the left; details is OK
 image::mq-exchange-details-pane.png["Destinations page showing the message exchange type and the bound queues in the details pane"]
 
 
@@ -65,6 +70,8 @@ To bind a queue to a message exchange:
 . Click the message exchange ID to display the *Exchange Settings* page:
 +
 image::mq-bind-queue-to-exchange2.png["Exchange Settings page showing checkboxes for multiple select, and Unbind and Bind buttons"]
++
+NOTE: The page displays only standard queues for a message exchange and only FIFO queues for a FIFO exchange.
 +
 . In the settings page, click *Bind* or *Unbind* for each single queue you want to bind to or unbind from the message exchange.
 +
