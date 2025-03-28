@@ -332,9 +332,7 @@ include::partial$mq-versions.adoc[tag=mqMuleVersion]
 
 === Before You Begin
 
-* Install Studio 6.x. 
-+
-See xref:6.x@studio::to-download-and-install-studio.adoc[].
+* Install Studio 6.x.
 * In Anypoint Platform, change to any environment except Design.
 +
 Ensure that the queue you created in *Anypoint Platform* > *MQ* is also in this environment.
