@@ -19,6 +19,7 @@ include::reuse::partial$access-management/assign-permissions.adoc[tag=assignPerm
 [%header,cols="50a,20a,30a"]
 |===
 |To...|Required Permission|Notes
+3+h| Anypoint MQ Permissions
 |include::access-management::partial$include-permissions-mq.adoc[tag=permsViewClients]
 |View clients
 |
@@ -47,7 +48,6 @@ include::reuse::partial$access-management/assign-permissions.adoc[tag=assignPerm
 * Destination subscriber for given environment
 * Destination publisher for given environment
 
-
 |include::access-management::partial$include-permissions-mq.adoc[tag=permsDestSubEnv]
 |Destination subscriber for given environment
 |
@@ -59,6 +59,13 @@ include::reuse::partial$access-management/assign-permissions.adoc[tag=assignPerm
 |include::access-management::partial$include-permissions-mq.adoc[tag=permsReadStats]
 |Read MQ stats
 |
+
+3+h| Usage Reports Permissions
+|View usage reports.
+|Usage Viewer
+|include::access-management::partial$include-root-org-permissions-note.adoc[]
+
+
 |===
 
 ////

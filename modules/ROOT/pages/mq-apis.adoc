@@ -801,7 +801,7 @@ This command returns output similar to:
 
 The period is an integer and is the granularity of data points in seconds.
 
-
+[[usage-metrics-env-org]]
 === Usage Metrics by Environment or Org
 
 [NOTE]
@@ -853,6 +853,7 @@ This information isn't real-time and has a latency.
 [NOTE]
 include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
 
+
 *Sample Request and Response:*
 
 Use this `curl` command to get usage metrics by environment:
@@ -889,15 +890,12 @@ include::partial$mq-faq.adoc[tag=returnVals]
 [[usage-by-org]]
 ==== Get Usage Metrics by Organization
 
-
-
 You can use the Stats API to retrieve Anypoint MQ usage for the root business organization:
 
 `/organizations/<ORG_ID>?startDate=...&endDate=...&period=...`
 
 [NOTE]
 include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
-
 
 *Sample Request and Response:*
 

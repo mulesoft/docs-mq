@@ -65,8 +65,8 @@ Send and receive messages from any Mule app, whether it's deployed in CloudHub o
 +
 For information, see xref:mq-connectors.adoc[].
 Usage Information::
-View the current and past months' usage, including the total number of messages and API requests.
-Organization administrators and owners access this information from the *Access Management* page.
+View usage data, including the total number of messages and API requests.
+Organization administrators and owners access this information from the xref:general::usage-reports.adoc[*Usage Reports*] page.
 +
 For information, see xref:mq-usage.adoc[].
 REST API::
@@ -230,12 +230,20 @@ Billing is based on the number of messages delivered to subscribers from queues,
 
 |{empty}
 
+* xref:mq-usage.adoc[Usage Reports]
+
+
+| Yes
+| Yes
+| No
+
+|{empty}
+
 * xref:mq-queues.adoc[Unencrypted Queues]
-* xref:mq-usage.adoc#access-mq-usage-charts[Usage Charts] (Access Management)
 * xref:mq-failover.adoc[Cross-Region Failover]
 * xref:mq-client-apps.adoc[Client Apps]
 * xref:mq-connectors.adoc[Anypoint MQ Connector earlier than 4.x]
-* xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API] (Usage Metrics)
+* xref:mq-apis.adoc#usage-metrics-env-org[Anypoint MQ Stats API] (Usage Metrics)
 
 | Yes
 | No
@@ -249,14 +257,6 @@ Billing is based on the number of messages delivered to subscribers from queues,
 | No
 | Yes
 
-|{empty}
-
-* xref:mq-usage.adoc#access-mq-usage-reports[Usage Reports] (Usage)
-
-| No
-| Yes
-| No
-
 |===
 
 
@@ -267,9 +267,9 @@ When you deploy to https://gov.anypoint.mulesoft.com/login/[MuleSoft Government 
 all features of Anypoint MQ are supported with these exceptions:
 
 Unencrypted Queues::
-Unencrypted queues aren'tsupported.
+Unencrypted queues aren't supported.
 +
-When xref:mq-queues.adoc#create-a-queue[creating a queue], the *Encryption* option is disabled and defaults to selected.
+When xref:mq-queues.adoc#create-a-queue[creating a queue], the *Encryption* option is selected and you can't change it.
 Client Apps::
 xref:mq-client-apps.adoc[Client apps] aren't supported.
 Use xref:mq-connected-apps.adoc[connected apps] instead.
@@ -279,6 +279,9 @@ Anypoint Connector for Anypoint MQ versions earlier than 4.x aren't supported.
 Using connected apps with Anypoint MQ requires xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.x for Mule 4].
 Cross-Region Failover::
 xref:mq-failover.adoc[Cross-region failover] isn't supported.
+Usage Reports::
+Usage data in xref:general::usage-reports.adoc[] isn't available.
+
 REST APIs::
 These REST APIs in the Anypoint MQ Stats API aren't supported:
 +
@@ -327,11 +330,6 @@ Anypoint Connector for Anypoint MQ versions earlier than 4.x aren't supported.
 Using connected apps with Anypoint MQ requires xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.x for Mule 4].
 Cross-Region Failover::
 xref:mq-failover.adoc[Cross-region failover] isn't supported.
-Usage Charts::
-xref:mq-usage.adoc#access-mq-usage-charts[Usage Charts] in Access Management aren't available.
-Use
-xref:mq-usage.adoc#access-mq-usage-reports[Usage Reports] in Usage instead.
-
 Rest APIs::
 These REST APIs in the Anypoint MQ Stats API aren't supported:
 +
@@ -351,6 +349,7 @@ For information, see xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API].
 == See Also
 
 * xref:hyperforce::index.adoc[]
+* xref:general::usage-reports.adoc[]
 * xref:mq-glossary.adoc[]
 * xref:mq-connectors.adoc[]
 * xref:mq-faq.adoc[]

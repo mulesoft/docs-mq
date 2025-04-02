@@ -1,16 +1,21 @@
 = Viewing Anypoint MQ Usage Data
 
-Anypoint MQ uses API requests to calculate billing.
+Anypoint MQ uses API requests to calculate billing and message requests to determine the size of message data in the response.
+Access Anypoint MQ usage data in xref:general::usage-reports.adoc[].
+
+////
 Depending on your Anypoint Platform instance, 
 you access usage data in Access Management or Usage.
 
 * <<access-mq-usage-charts, US Cloud or EU Cloud>>
 * <<access-mq-usage-reports, Canada Cloud or Japan Cloud>>
+////
 
 [[api-requests]]
 API requests::
-API requests are used to calculate your monthly quota for billing.
+Anypoint MQ uses API requests to calculate your monthly quota for billing.
 +
+--
 ** Every API call (via the connector or API) to Anypoint MQ counts as one API request.
 +
 include::partial$mq-faq.adoc[tag=apiRequests]
@@ -19,12 +24,13 @@ include::partial$mq-faq.adoc[tag=apiStatsRequests]
 +
 ** You can retrieve up to 10 messages from a single API call, which only bills as one request.
 +
-Even if the request to retrieve messages does not return a message (for example, if the queue is empty),
+Even if the request to retrieve messages doesn't return a message (for example, if the queue is empty),
 it bills as a single API request.
-** If a queue sends a message to a DLQ, the message is not charged against the billable API requests.
+** If a queue sends a message to a DLQ, the message isn't charged against the billable API requests.
 +
 However, if a client sends a message directly to a DLQ, that request is charged.
-
+--
++
 [NOTE]
 ====
 Enabling failover for a queue can result in increased API requests because Anypoint MQ Connector periodically checks the fallback queue for messages to consume. 
@@ -33,9 +39,9 @@ xref:anypoint-mq-connector::anypoint-mq-failover.adoc#configure-check-frequency[
 ====
 
 Message units::
-Message units are not used for billing.
+Message units aren't used for billing.
 +
-Message units are used by Anypoint MQ to determine the size of message data in the response.
+Anypoint MQ uses message units to determine the size of message data in the response.
 +
 ** Each message unit contains 100 KB of data.
 ** Message units are counted by the number of encoded characters in a message. 
@@ -43,7 +49,7 @@ Message units are used by Anypoint MQ to determine the size of message data in t
 //Shared Usage Overage 
 include::partial$mq-faq.adoc[tag=faqUsageOverage]
 
-
+//// 
 [[access-mq-usage-charts]]
 == Access Anypoint MQ Usage Charts
 
@@ -70,7 +76,7 @@ The circle graph changes to red as your usage approaches your license limits:
 +
 image::mq-msg-unit-color.png["Circle graph indicating license limit on the MQ Usage page"]
 +
-NOTE: Monthly billing usage information might be delayed by up to 24 hours.
+NOTE: Usage information for hourly, daily, and monthly billing might be delayed by up to three hours.
 .. Subscription type
 +
 `Base 0.0` indicates the Base subscription.
@@ -80,21 +86,25 @@ Base values greater than `0.0` indicate Premium add-on subscriptions.
 
 In some cases, the stats for the current month might not load when the backend process updates the records.
 If this happens, use the Anypoint MQ Stats API xref:mq-apis.adoc#usage-by-org[Usage Metrics by Organization] to query the daily usage in the current month and then add the daily usage together. 
-
+//// 
 
 [[access-mq-usage-reports]]
 == Access Anypoint MQ Usage Reports
 
-[NOTE]
-include::partial$mq-on-hyperforce.adoc[tag=mqFeaturesOnlyHFnote]
+// [NOTE]
+// include::partial$mq-on-hyperforce.adoc[tag=mqFeaturesOnlyHFnote]
 
-To view Anypoint MQ usage reports in Usage:
+To view Anypoint MQ stats in xref:general::usage-reports.adoc[]:
 
+. Sign in to Anypoint Platform using an account that has the Usage Viewer permission for your root organization.
++
+For information, see xref:mq-access-management.adoc#anypoint-mq-permissions[Anypoint MQ Permissions].
 . In Anypoint Platform, go to *Usage*.
 . Select *Anypoint MQ* in the *Product* section:
 +
 image::mq-usage-report.png["Anypoint MQ option on the Usage Reports page"]
 . Select a month from the *Monthly Usage Report* tab or day from the *Daily Usage Report* tab.
+
 +
 The report shows usage for the selected period (total and by object):
 +
@@ -102,10 +112,12 @@ The report shows usage for the selected period (total and by object):
 * Message bytes
 * API requests
 * Messages received
++
+[NOTE]
+include::partial$mq-api-shared.adoc[tag=usageDelay]
 . Click *Export as CSV* to download the usage for the selected period.
 
-For more information, see 
-xref:general::usage-reports.adoc[].
+For more information, see xref:general::usage-reports.adoc[].
 
 [[retrieve-metrics-api]]
 == Retrieve Usage Metrics with Anypoint MQ Stats API
@@ -123,6 +135,7 @@ include::partial$mq-faq.adoc[tag=apiStatsRequests]
 
 == See Also
 
+* xref:general::usage-reports.adoc[]
 * xref:mq-faq.adoc[Anypoint MQ FAQ]
 * xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API]
 * xref:index.adoc#mq-on-hyperforce[Anypoint MQ on Hyperforce]
