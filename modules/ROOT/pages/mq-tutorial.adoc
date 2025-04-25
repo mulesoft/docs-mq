@@ -332,9 +332,7 @@ include::partial$mq-versions.adoc[tag=mqMuleVersion]
 
 === Before You Begin
 
-* Install Studio 6.x. 
-+
-See xref:6.x@studio::to-download-and-install-studio.adoc[].
+* Install Studio 6.x.
 * In Anypoint Platform, change to any environment except Design.
 +
 Ensure that the queue you created in *Anypoint Platform* > *MQ* is also in this environment.
@@ -478,7 +476,6 @@ http://www.mulesoft.org/schema/mule/anypoint-mq http://www.mulesoft.org/schema/m
 
 * xref:mq-queues.adoc#create-a-queue[Create a Queue]
 * xref:studio::index.adoc[Anypoint Studio 7.x]
-* xref:6.x@studio::index.adoc[Anypoint Studio 6.x]
 * xref:anypoint-mq-connector::index.adoc[Anypoint MQ Connector 4.x for Mule 4]
 * xref:3.9@mule-runtime::anypoint-mq-connector.adoc[Anypoint MQ Connector for Mule 3]
 * xref:runtime-manager::deploying-to-cloudhub.adoc[]
