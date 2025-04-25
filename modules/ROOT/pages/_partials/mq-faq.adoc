@@ -34,5 +34,5 @@ Requests to the Anypoint MQ Stats API don't count against your monthly usage.
 
 // tag::returnVals[]
 Anypoint MQ doesn't use `messageReceiptCount` and `billableUnitCount` for billing, and you can safely ignore them.
-Anypoint MQ uses `messageReceiptCount` to determine the message units displayed on the *MQ Usage* page; `billableUnitCount` is an internally used value set to the same value as `messageReceiptCount`.
+Anypoint MQ uses `messageReceiptCount` to determine the message units displayed on the *MQ Usage* page.
 // end::returnVals[]
