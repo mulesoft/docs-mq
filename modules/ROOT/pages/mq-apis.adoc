@@ -1,4 +1,5 @@
 = Anypoint MQ REST APIs
+:page-notice-banner-message: The limits described under <<usage-limits>> aren't enforced yet. We recommend taking appropriate action to adapt.
 
 The Anypoint MQ APIs enable you to use REST to send and receive messages, administer queues and message exchanges, and analyze results.
 
@@ -815,9 +816,6 @@ Use the Anypoint MQ Stats API to get these usage metrics:
 
 [[usage-limits]]
 ==== Usage Metrics Limits
-
-[NOTE]
-These limits aren't enforced yet. See [link to KB].
 
 [%header,cols="10,15,15a"]
 |===
