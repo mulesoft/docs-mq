@@ -816,6 +816,9 @@ Use the Anypoint MQ Stats API to get these usage metrics:
 [[usage-limits]]
 ==== Usage Metrics Limits
 
+[NOTE]
+These limits aren't enforced yet. See [link to KB].
+
 [%header,cols="10,15,15a"]
 |===
 | Parameter | Description | Values
