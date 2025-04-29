@@ -1,5 +1,5 @@
 = Anypoint MQ REST APIs
-:page-notice-banner-message: The limits described under xref:mq-apis.adoc#usage-limits[Usage Metrics Limits] aren't enforced yet. We recommend taking appropriate action to adapt.
+:page-notice-banner-message: The limits described under xref:mq::mq-apis.adoc#usage-limits[Usage Metrics Limits] aren't enforced yet. We recommend taking appropriate action to adapt.
 
 The Anypoint MQ APIs enable you to use REST to send and receive messages, administer queues and message exchanges, and analyze results.
 
