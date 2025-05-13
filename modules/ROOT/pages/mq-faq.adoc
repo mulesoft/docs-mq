@@ -289,28 +289,6 @@ Mule 4 Example:
 </flow>
 ----
 
-*Mule 3*
-
-. Set `processingStrategy="synchronous"` on the flow.
-+
-Specify this attribute to process messages in the same thread that initially received the message.
-. Set a poll scope to fire the process at specified intervals.
-
-Mule 3 Example:
-
-[source,xml,linenums]
-----
-<flow name="testanypointmq1by1Flow3" processingstrategy="synchronous">
-    <poll doc:name="Poll">
-        <logger doc:name="Logger" level="INFO" message="Polling fired"></logger>
-    </poll>
-    <anypoint-mq:consume config-ref="Anypoint_MQ_Configuration" destination="queuename" doc:name="Anypoint MQ"/>
-    <logger doc:name="Logger" level="INFO" message="Processing message received. #[payload]"/>
-    <anypoint-mq:ack config-ref="Anypoint_MQ_Configuration" doc:name="Anypoint MQ"/>
-    <logger doc:name="Logger" level="INFO" message="Message processed."/>
-</flow>
-----
-
 More than one in-flight message can occur if the processing time between `anypoint-mq:consume` and `anypoint-mq:ack` is higher than the value of the *Default Acknowledgement Timeout* setting for the queue.
 // Make sure to create an exception strategy and NACK the message accordingly.
 
