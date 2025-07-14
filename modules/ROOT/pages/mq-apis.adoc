@@ -1,5 +1,5 @@
 = Anypoint MQ REST APIs
-:page-notice-banner-message: The limits described under <a href="https://docs.mulesoft.com/mq/mq-apis#usage-limits" target="_blank" rel="noopener">Usage Metrics Limits</a> aren't enforced yet. Take appropriate action to adapt. See <a href="https://help.salesforce.com/s/articleView?id=004754267&type=1" target="_blank" rel="noopener">Changes to MQ and Object Store v2 Statistics API</a>. For information about Anypoint MQ Stats API rate limits, see the <a href="https://docs.mulesoft.com/mq/mq-apis#mq-stats-api" target="_blank" rel="noopener">Anypoint MQ Stats API</a> documentation.
+:page-notice-banner-message: The limits described under <a href="https://docs.mulesoft.com/mq/mq-apis#usage-limits" target="_blank" rel="noopener">Usage Metrics Limits</a> aren't enforced yet. Take appropriate action to adapt. See <a href="https://help.salesforce.com/s/articleView?id=004754267&type=1" target="_blank" rel="noopener">Changes to MQ and Object Store v2 Statistics API</a>. For information about Anypoint MQ Stats API rate limits, see <a href="https://docs.mulesoft.com/mq/mq-apis#mq-stats-api" target="_blank" rel="noopener">Anypoint MQ Stats API</a>.
 
 The Anypoint MQ APIs enable you to use REST to send and receive messages, administer queues and message exchanges, and analyze results.
 
