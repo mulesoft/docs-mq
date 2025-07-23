@@ -342,7 +342,7 @@ include::partial$mq-faq.adoc[tag=failedTPS]
 
 To create a FIFO queue, see <<create-queue>>. To determine if a queue is FIFO or standard (non-FIFO), view its details. 
 
-For the regions in which Anypoint MQ and FIFO queues are available, see xref:mq-faq#mq-regions[Anypoint MQ Regions].
+For the regions in which Anypoint MQ and FIFO queues are available, see xref:mq-faq.adoc#mq-regions[Anypoint MQ Regions].
 
 For information about creating FIFO queues with the Admin API, see xref:mq-apis.adoc#fifo-queue-api[Create a FIFO Queue Using the Admin API].
 

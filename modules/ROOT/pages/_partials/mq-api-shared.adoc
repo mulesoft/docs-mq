@@ -13,7 +13,7 @@ For all other https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f
 //tag::urlEncoded[]
 The query parameters must be URL-encoded to preserve their values.
 For example, you must URL-encode a `startDate` of `2024-07-11T17:51:54.000Z` to
-`11T17%3A51%3A54.000Z` before sending it in the query.
+`2024-07-11T17%3A51%3A54.000Z` before sending it in the query.
 //end::urlEncoded[]
 
 //tag::urlEncodedExample[]
@@ -27,4 +27,3 @@ The encoded string is:
 
 `startDate=Sun%2C+25+Sep+2022+23%3A35%3A01+GMT&endDate=Wed%2C+25+Sep+2024+23%3A35%3A01+GMT&period=1month`
 //end::urlEncodedExample[]
-

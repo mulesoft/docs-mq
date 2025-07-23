@@ -18,4 +18,3 @@
 ** xref:mq-audit-logs.adoc[]
 * xref:mq-apis.adoc[]
 * xref:mq-connectors.adoc[]
-** xref:mq-ack-mode.adoc[Acknowledging Messages]
