@@ -66,6 +66,7 @@ Send and receive messages from any Mule app, whether it's deployed in CloudHub o
 +
 For information, see xref:mq-connectors.adoc[].
 Usage Information::
++
 View the current and past months' usage, including the total number of messages and API requests.
 Organization administrators and owners access this information from the *Access Management* page.
 +
@@ -106,6 +107,7 @@ For information, see xref:mq-failover.adoc[].
 
 [[usage-statistics]]
 Usage Statistics::
++
 View a usage statistics chart so that you can manage peak usage and subscription parameters.
 The chart provides current and past usage, including consumed data, API requests, and the total number of messages received.
 +
