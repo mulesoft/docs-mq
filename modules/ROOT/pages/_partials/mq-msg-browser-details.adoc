@@ -1,5 +1,4 @@
 // MQ Message Browser Details Table
-// tag::mqMsgBrowserDetails[]
 [calloutlist]
 .. Selected message.
 .. Message payload in the details pane.
@@ -13,20 +12,8 @@ If you leave the *Message Browser* page, messages automatically return to the qu
 Deleting a message is an acknowledgment operation (ACK). For information about how Anypoint MQ processes ACK messages, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations].
 .. *Full Screen* icon displays the message payload in a separate window.
 .. *Close* icon closes the details pane.
-// end::mqMsgBrowserDetails[]
-
-
-// tag::mqClientAppsDetail[]
-[calloutlist]
-... Client app name displays client app details.
-... *Copy* buttons copies the client app ID or client secret value.
-... *Show* button displays the client secret value.
-// end::mqClientAppsDetail[]
 
 
 // tag::mqQueueDetails[]
-[calloutlist]
-.. Queue type displays the queue details pane.
-.. Queue ID displays the *Queue Settings* page.
-.. Queue details label displays the *Queue Settings* page.
+
 // end::mqQueueDetails[]

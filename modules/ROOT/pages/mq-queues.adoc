@@ -96,7 +96,7 @@ Anypoint MQ creates the queue in the *Destinations* page and displays the queue 
 image::mq-queue-details.png["Destinations page showing the queue type, ID, and details label for the new queue"]
 // I think this screenshot is OK
 +
-include::partial$mq-msg-browser-details.adoc[tag=mqQueueDetails]
+include::partial$mq-queue-details.adoc[]
 
 [[send-message-to-queue]]
 == Send a Message to a Queue
@@ -185,7 +185,7 @@ image::mq-fifo-msg-browser.png["Accept checkbox for retrieving messages from a F
 +
 image::mq-msg-browser-payload-details.png["Message Browser showing the selected message and the details pane showing the payload, and Return Messages, Delete, Full Screen, and Close icons"]
 +
-include::partial$mq-msg-browser-details.adoc[tag=mqMsgBrowserDetails]
+include::partial$mq-msg-browser-details.adoc[]
 +
 //Shared Delete Message
 include::partial$mq-delete-msg.adoc[tag=deleteMsg]

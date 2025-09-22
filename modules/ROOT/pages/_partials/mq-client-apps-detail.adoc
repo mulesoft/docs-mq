@@ -1,0 +1,4 @@
+[calloutlist]
+... Client app name displays client app details.
+... *Copy* buttons copies the client app ID or client secret value.
+... *Show* button displays the client secret value.
