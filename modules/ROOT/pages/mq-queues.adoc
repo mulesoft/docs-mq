@@ -105,7 +105,7 @@ Message content can be text, CSV (comma-separated values), or JSON.
 The maximum size of a message is 10 MB.
 
 // MQ Payload Conversion
-include::partial$mq-big-payload.adoc[tag=mqPayloadConvert]
+include::partial$mq-payload-convert.adoc[]
 
 To send a text message to a queue:
 
@@ -192,7 +192,7 @@ include::partial$mq-delete-msg.adoc[tag=deleteMsg]
 +
 [NOTE]
 //Shared Big Payload
-include::partial$mq-big-payload.adoc[tag=mqBigPayload]
+include::partial$mq-big-payload.adoc[]
 +
 If user properties are configured in the *Message Sender* page or as part of the Publish operation in Anypoint MQ Connector, they appear in the details pane for the message:
 +
@@ -226,7 +226,7 @@ image::mq-msg-browser-payload-details-csv.png["Details pane showing the CSV mess
 +
 [NOTE]
 //Shared Big Payload
-include::partial$mq-big-payload.adoc[tag=mqBigPayload]
+include::partial$mq-big-payload.adoc[]
 
 == Send a JSON Message to a Queue
 
@@ -258,7 +258,7 @@ image::mq-msg-browser-payload-details-json.png["Details pane showing the JSON pa
 +
 [NOTE]
 //Shared Big Payload
-include::partial$mq-big-payload.adoc[tag=mqBigPayload]
+include::partial$mq-big-payload.adoc[]
 
 
 == Purge Messages from a Queue
