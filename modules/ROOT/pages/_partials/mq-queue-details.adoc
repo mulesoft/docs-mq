@@ -1,0 +1,4 @@
+[calloutlist]
+.. Queue type displays the queue details pane.
+.. Queue ID displays the *Queue Settings* page.
+.. Queue details label displays the *Queue Settings* page.

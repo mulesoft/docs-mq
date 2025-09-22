@@ -91,7 +91,7 @@ Large Payloads::
 Send large payloads of up to 10 MB.
 +
 // MQ Payload Conversion
-include::partial$mq-big-payload.adoc[tag=mqPayloadConvert]
+include::partial$mq-payload-convert.adoc[]
 
 [[disaster-recovery]]
 Disaster Recovery::
