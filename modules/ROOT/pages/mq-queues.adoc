@@ -81,7 +81,7 @@ The minimum delivery delay for a message is 0 seconds. The maximum is 15 minutes
 +
 See xref:mq-glossary.adoc#encrypt-queue[Encrypted Queue].
 +
-include::partial$mq-encrypt-queue.adoc[tag=mqEncryptQueue]
+include::partial$mq-encrypt-queue.adoc[]
 ** *Assign a Dead Letter Queue* assigns the DLQ.
 +
 The DLQ is a previously created queue to which to send undeliverable messages.
