@@ -25,7 +25,7 @@ Use this ID and secret to get the access token required to authenticate with the
 +
 image::mq-tutorial-studio7-mq-config.png["Anypoint MQ Config window showing the URL, Client App ID, and Client Secret fields"]
 +
-include::partial$mq-client-id-secret.adoc[tag=mqClientIdSecret]
+include::partial$mq-client-id-secret.adoc[]
 +
 For more information, see xref:mq-tutorial.adoc#configure-mule-4-studio[Create and Connect a Mule 4 App to Anypoint MQ in Anypoint Studio 7] in the Anypoint MQ tutorial.
 
