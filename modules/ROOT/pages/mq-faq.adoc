@@ -15,7 +15,7 @@ Anypoint MQ is an integration add-on to your paid Anypoint Platform package or s
 To add Anypoint MQ to your package or subscription, contact your account team.
 After adding Anypoint MQ, wait one hour for Anypoint MQ to become available in Anypoint Platform.
 
-For information about Anypoint Integration packages, see 
+For information about Anypoint Integration packages, see
 https://www.mulesoft.com/anypoint-pricing[MuleSoft Anypoint Platform Pricing].
 
 [[mq-regions]]
@@ -32,7 +32,7 @@ Anypoint MQ standard and FIFO queues are available in these regions:
                    | US West (Oregon)     |`us-west-2`
                    | Canada  (Central)    |`ca-central-1`
 .2+| Europe        | Europe (Ireland)     |`eu-west-1`
-                   | Europe (London)      |`eu-west-2`
+                   | UK (London)      |`eu-west-2`
 .3+| APAC          | Asia Pacific (Singapore) |`ap-southeast-1`
                    | Asia Pacific (Sydney) |`ap-southeast-2`
                    | Asia Pacific (Tokyo)  |`ap-northeast-1`
@@ -88,7 +88,7 @@ The queues in each region are separate from those in other regions. You can name
 Anypoint MQ doesn't support propagating `correlationId` from a publisher to a subscriber in the same way that APIs propagate it from one layer to another.
 
 To pass an ID between publisher and subscriber, add a user property to send with the message.
-For information, see 
+For information, see
 xref:mq-queues.adoc#send-a-message-to-a-queue[Send a Message to a Queue].
 
 For more information about correlation IDs, see
@@ -123,7 +123,7 @@ If a larger size is required, you can split the payload into multiple messages, 
 
 The *Message Browser* page displays the payload only if the payload size is smaller than 1 MB.
 If the payload size is 1 MB or larger, the *Message Browser* page displays an error.
-In this case, you can use the Anypoint MQ Broker API to display the message payload. 
+In this case, you can use the Anypoint MQ Broker API to display the message payload.
 See xref:mq-apis.adoc#retrieve-message-api[Retrieve a Message].
 
 == Are message exchanges and queues unique and accessible only in their created environment?
@@ -232,7 +232,7 @@ Retries are arbitrary. The `maxRedelivery` parameter indicates how many times th
 == Can I upload and retrieve Anypoint MQ messages in batches?
 
 Using the Anypoint MQ Broker API, you can batch-upload and batch-retrieve messages from a standard or FIFO queue.
-For information, see 
+For information, see
 https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/minor/1.0/console/summary/[Anypoint MQ Broker API^].
 
 You can upload or retrieve a maximum of 10 messages (default) in a single call.
@@ -310,7 +310,7 @@ Yes, the usage charges apply to all environments.
 
 == What happens when our usage exceeds our license limit?
 
-//Shared Usage Overage 
+//Shared Usage Overage
 include::partial$mq-faq.adoc[tag=faqUsageOverage]
 
 
