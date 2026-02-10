@@ -1305,7 +1305,7 @@ This example enables you to test Anypoint MQ from Postman, Anypoint Studio, and 
 [[postsetup]]
 === Set Up Postman
 
-The https://www.getpostman.com/[Postman^] app provides a platform for accessing the Anypoint MQ APIs.
+The https://www.postman.com/[Postman^] app provides a platform for accessing the Anypoint MQ APIs.
 After downloading and installing Postman, supply this information to create an environment:
 
 * ORG_ID
