@@ -21,7 +21,7 @@ Before you begin this tutorial, you must have:
 +
 Contact your account team for information.
 * Anypoint Studio installed on your system
-* A https://curl.haxx.se[`curl` command line tool^] for testing 
+* A https://curl.se/[`curl` command line tool^] for testing 
 +
 This tutorial uses the HTTP Listener trigger to initiate Anypoint MQ Connector access and a `curl` command to submit REST API commands to the Anypoint MQ Broker API.
 
