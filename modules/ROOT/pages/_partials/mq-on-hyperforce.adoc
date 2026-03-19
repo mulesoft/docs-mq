@@ -5,7 +5,7 @@ For information, see xref:mq::index.adoc#mq-on-hyperforce[Anypoint MQ on Hyperfo
 
 // banner for unsupported features
 // tag::mqFeaturesNoHF[]
-:page-notice-banner-message: Only the US Cloud and EU Cloud instances of Anypoint Platform support this feature.
+:page-notice-banner-message: Only the US Cloud and EU Cloud instances of Anypoint Platform support this feature. It isn't supported on MuleSoft Government Cloud instances.
 // end::mqFeaturesNoHF[]
 
 // unsupported connector version
