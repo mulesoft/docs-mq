@@ -81,7 +81,7 @@ The minimum delivery delay for a message is 0 seconds. The maximum is 15 minutes
 +
 See xref:mq-glossary.adoc#encrypt-queue[Encrypted Queue].
 +
-include::partial$mq-encrypt-queue.adoc[tag=mqEncryptQueue]
+include::partial$mq-encrypt-queue.adoc[]
 ** *Assign a Dead Letter Queue* assigns the DLQ.
 +
 The DLQ is a previously created queue to which to send undeliverable messages.
@@ -96,7 +96,7 @@ Anypoint MQ creates the queue in the *Destinations* page and displays the queue 
 image::mq-queue-details.png["Destinations page showing the queue type, ID, and details label for the new queue"]
 // I think this screenshot is OK
 +
-include::partial$mq-msg-browser-details.adoc[tag=mqQueueDetails]
+include::partial$mq-queue-details.adoc[]
 
 [[send-message-to-queue]]
 == Send a Message to a Queue
@@ -105,7 +105,7 @@ Message content can be text, CSV (comma-separated values), or JSON.
 The maximum size of a message is 10 MB.
 
 // MQ Payload Conversion
-include::partial$mq-big-payload.adoc[tag=mqPayloadConvert]
+include::partial$mq-payload-convert.adoc[]
 
 To send a text message to a queue:
 
@@ -185,14 +185,14 @@ image::mq-fifo-msg-browser.png["Accept checkbox for retrieving messages from a F
 +
 image::mq-msg-browser-payload-details.png["Message Browser showing the selected message and the details pane showing the payload, and Return Messages, Delete, Full Screen, and Close icons"]
 +
-include::partial$mq-msg-browser-details.adoc[tag=mqMsgBrowserDetails]
+include::partial$mq-msg-browser-details.adoc[]
 +
 //Shared Delete Message
 include::partial$mq-delete-msg.adoc[tag=deleteMsg]
 +
 [NOTE]
 //Shared Big Payload
-include::partial$mq-big-payload.adoc[tag=mqBigPayload]
+include::partial$mq-big-payload.adoc[]
 +
 If user properties are configured in the *Message Sender* page or as part of the Publish operation in Anypoint MQ Connector, they appear in the details pane for the message:
 +
@@ -226,7 +226,7 @@ image::mq-msg-browser-payload-details-csv.png["Details pane showing the CSV mess
 +
 [NOTE]
 //Shared Big Payload
-include::partial$mq-big-payload.adoc[tag=mqBigPayload]
+include::partial$mq-big-payload.adoc[]
 
 == Send a JSON Message to a Queue
 
@@ -258,7 +258,7 @@ image::mq-msg-browser-payload-details-json.png["Details pane showing the JSON pa
 +
 [NOTE]
 //Shared Big Payload
-include::partial$mq-big-payload.adoc[tag=mqBigPayload]
+include::partial$mq-big-payload.adoc[]
 
 
 == Purge Messages from a Queue
@@ -342,7 +342,7 @@ include::partial$mq-faq.adoc[tag=failedTPS]
 
 To create a FIFO queue, see <<create-queue>>. To determine if a queue is FIFO or standard (non-FIFO), view its details. 
 
-For the regions in which Anypoint MQ and FIFO queues are available, see xref:mq-faq#mq-regions[Anypoint MQ Regions].
+For the regions in which Anypoint MQ and FIFO queues are available, see xref:mq-faq.adoc#mq-regions[Anypoint MQ Regions].
 
 For information about creating FIFO queues with the Admin API, see xref:mq-apis.adoc#fifo-queue-api[Create a FIFO Queue Using the Admin API].
 

@@ -1,4 +1,5 @@
 = Anypoint MQ REST APIs
+:page-notice-banner-message: The limits described under <a href="https://docs.mulesoft.com/mq/mq-apis#usage-limits" target="_blank" rel="noopener">Usage Metrics Limits</a> aren't enforced yet. Take appropriate action to adapt. See <a href="https://help.salesforce.com/s/articleView?id=004754267&type=1" target="_blank" rel="noopener">Changes to MQ and Object Store v2 Statistics API</a>. For information about Anypoint MQ Stats API rate limits, see <a href="https://docs.mulesoft.com/mq/mq-apis#mq-stats-api" target="_blank" rel="noopener">Anypoint MQ Stats API</a>.
 
 The Anypoint MQ APIs enable you to use REST to send and receive messages, administer queues and message exchanges, and analyze results.
 
@@ -689,7 +690,7 @@ View your entire organization's usage of Anypoint MQ for billing purposes (US an
 
 
 [NOTE]
-include::partial$mq-on-hyperforce.adoc[tag=mqStatsAPIlimits]
+include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
 
 For more information, see the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API] in the MuleSoft developer portal.
 
@@ -882,7 +883,7 @@ You can use the Stats API to retrieve Anypoint MQ usage information by environme
 This information isn't real-time and has a latency.
 
 [NOTE]
-include::partial$mq-on-hyperforce.adoc[tag=mqStatsAPIlimits]
+include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
 
 *Sample Request and Response:*
 
@@ -927,7 +928,7 @@ You can use the Stats API to retrieve Anypoint MQ usage for the root business or
 `/organizations/<ORG_ID>?startDate=...&endDate=...&period=...`
 
 [NOTE]
-include::partial$mq-on-hyperforce.adoc[tag=mqStatsAPIlimits]
+include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
 
 
 *Sample Request and Response:*
@@ -1140,7 +1141,7 @@ exchanges=[
 ----
 
 For the regions where Anypoint MQ and FIFO queues are available,
-see xref:mq-faq#mq-regions[Anypoint MQ Regions]. 
+see xref:mq-faq.adoc#mq-regions[Anypoint MQ Regions]. 
 
 === Create a Script File
 
@@ -1335,7 +1336,7 @@ This example enables you to test Anypoint MQ from Postman, Anypoint Studio, and 
 [[postsetup]]
 === Set Up Postman
 
-The https://www.getpostman.com/[Postman^] app provides a platform for accessing the Anypoint MQ APIs.
+The https://www.postman.com/[Postman^] app provides a platform for accessing the Anypoint MQ APIs.
 After downloading and installing Postman, supply this information to create an environment:
 
 * ORG_ID
@@ -1396,7 +1397,7 @@ After you set up an HTTP Listener in Studio, browse to the address `0.0.0.0:8081
 
 == Download Anypoint MQ APIs from Exchange
 
-To download the Anypoint MQ APIs from Exchange, click *Download* and select the format to download: RAML, OAS, or as a connector file for Mule 3 or Mule 4.
+To download the Anypoint MQ APIs from Exchange, click *Download* and select the format to download: RAML, OAS, or as a connector file for Mule 4.
 
 image::mq-exchange-download.png["Download option for Anypoint MQ Admin API in Exchange"]
 

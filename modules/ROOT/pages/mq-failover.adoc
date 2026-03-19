@@ -9,7 +9,7 @@ it switches to the fallback queue to publish and consume messages.
 For information about situations that can cause a region to be considered unavailable, see <<region-unavailability>>.
 
 IMPORTANT: This feature provides _resiliency_ by switching to a fallback queue in a fallback region when the primary region is down.
-It doesn't provide _data redundancy_ by replicating messages across the primary and fallback queues. 
+It doesn't provide _data redundancy_ by replicating messages across the primary and fallback queues.
 
 When the connector detects that the primary region is down, it:
 
@@ -34,7 +34,7 @@ When you disable failover for a queue, apps can still consume any messages that 
 +
 ** This feature is not enabled by default.
 +
-For information about enabling this feature in your app, see 
+For information about enabling this feature in your app, see
 xref:anypoint-mq-connector::anypoint-mq-failover.adoc#enable-failover-feature[Enable Failover in Your App].
 ** Failover support requires Anypoint MQ Connector 4.0.7 or later.
 // +
@@ -65,7 +65,7 @@ However, if the primary region is down, the message is not forwarded to the fall
 * Performance and Billing
 +
 The Consumer and Subscriber operations in Anypoint MQ Connector periodically check the fallback queue for new messages.
-Each request counts against your monthly 
+Each request counts against your monthly
 xref:mq-usage.adoc#api-requests[API request] quota.
 These checks can also cause latency.
 +
@@ -120,7 +120,7 @@ For information about queue settings, see xref:mq-queues.adoc#create-a-queue[Cre
 image::mq-create-queues-failover.png["Create Queue dialog box showing the failover option selected"]
 // added screenshot
 .. Click *Create Queue*.
-+ 
++
 Anypoint MQ creates the queue and also creates a fallback queue in the fallback region.
 // Fallback queue naming
 include::partial$mq-failover.adoc[tag=fallbackQname]
@@ -189,7 +189,7 @@ IMPORTANT: When you disable failover for a queue, you must restart all applicati
 
 When you re-enable failover, Anypoint MQ reinstates the same fallback queue.
 
-To process any messages that remain in the fallback queue after disabling failover, see 
+To process any messages that remain in the fallback queue after disabling failover, see
 xref:anypoint-mq-connector::anypoint-mq-failover.adoc#consume-directly-fallback[Process Messages Directly from the Fallback Queue].
 
 To disable failover for a queue:
@@ -221,19 +221,19 @@ image::mq-queue-details-primary-queue-fallback-disabled.png["Details pane for th
                    | US East (Ohio)       |`us-east-2` | US West (Oregon)|`us-west-2`
                    | US West (Oregon)**     |`us-west-2`| Canada  (Central)|`ca-central-1`
                    | Canada  (Central)*    |`ca-central-1`| US East (N. Virginia)|`us-east-1`
-.2+| Europe        | Europe (Ireland)**     |`eu-west-1`| Europe (London)|`eu-west-2`
-                   | Europe (London)**      |`eu-west-2`| Europe (Ireland)|`eu-west-1` 
+.2+| Europe        | Europe (Ireland)**     |`eu-west-1`| UK (London)|`eu-west-2`
+                   | UK (London)**      |`eu-west-2`| Europe (Ireland)|`eu-west-1`
 .3+| APAC          | Asia Pacific (Singapore)** |`ap-southeast-1`| Asia Pacific (Tokyo)|`ap-northeast-1`
                    | Asia Pacific (Sydney)* |`ap-southeast-2`| Asia Pacific (Singapore)|`ap-southeast-1`
                    | Asia Pacific (Tokyo)**  |`ap-northeast-1`| Asia Pacific (Sydney)|`ap-southeast-2`
 5+h| EU Control Plane
 .2+| Europe        | Europe (Frankfurt)**    |`eu-central-1`| Europe (Ireland)|`eu-west-1`
-                   | Europe (Ireland)**      |`eu-west-1`| Europe (Frankfurt)|`eu-central-1` 
+                   | Europe (Ireland)**      |`eu-west-1`| Europe (Frankfurt)|`eu-central-1`
 |===
 
 [[region-note-unavailable]]
 ^***^ {empty}
-Because Anypoint MQ is available in only one region in this country, 
+Because Anypoint MQ is available in only one region in this country,
 the fallback region is not in the same country as the primary region.
 
 [[region-note]]

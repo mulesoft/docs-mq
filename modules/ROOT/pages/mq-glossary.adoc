@@ -2,6 +2,7 @@
 :page-aliases: mq-understanding.adoc
 
 ACK/NACK::
++
 Operations that specify:
 +
 --
@@ -30,6 +31,7 @@ The period that a message remains unacknowledged before being returned to the qu
 
 [[delay-queue]]
 Delay Queue::
++
 A queue that postpones delivery of new messages for a specified period.
 +
 Consumers can't see messages sent to a delay queue for the delay duration.
@@ -65,7 +67,7 @@ The period during which messages can persist in flight (for up to two weeks), af
 [[encrypt-queue]]
 Encrypted Queue::
 A queue that is encrypted, enabling companies to comply with their data at rest policies.
-include::partial$mq-encrypt-queue.adoc[tag=mqEncryptQueue]
+include::partial$mq-encrypt-queue.adoc[]
 +
 //Shared Encryption
 include::partial$mq-faq.adoc[tag=faqEncryption]
@@ -74,6 +76,7 @@ include::partial$mq-faq.adoc[tag=faqEncryptionQandEx]
 
 [[failover]]
 Failover::
++
 A feature that, when enabled for standard queues, assigns a fallback queue in a fallback region.
 If an application can't reach the Anypoint MQ server in the primary region, the connector automatically diverts message processing to the fallback region.
 +
