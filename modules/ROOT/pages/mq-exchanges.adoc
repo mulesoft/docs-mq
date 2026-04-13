@@ -53,8 +53,6 @@ NOTE: You can bind only standard queues to an exchange and only FIFO queues to a
 . Click *Save Changes*.
 . In the *Destinations* page, click the message exchange type for the new exchange to display the bound queues in the details pane:
 +
-// update with FIFO Exchange in the left; details is OK
-image::mq-exchange-details-pane.png["Destinations page showing the message exchange type and the bound queues in the details pane"]
 
 
 == Bind a Queue to a Message Exchange
