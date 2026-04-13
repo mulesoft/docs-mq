@@ -46,7 +46,6 @@ Message exchange names can contain up to 127 alphanumeric (a-z, A-Z, 0-9) and pu
 They can't contain spaces or other characters. 
 . Click the checkboxes to bind queues to this message exchange:
 +
-// This screenshot is OK
 image::mq-exchange-bind-queues.png["Checkboxes to bind queues to a message exchange in the Create Exchange page"]
 +
 NOTE: You can bind only standard queues to an exchange and only FIFO queues to a FIFO exchange.
