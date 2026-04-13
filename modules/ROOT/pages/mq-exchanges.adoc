@@ -35,8 +35,6 @@ To create a message exchange:
 . Click *Destinations*.
 . Click the *Add* icon to display the menu:
 +
-// update screenshot
-image::mq-blue-create.png["Add icon in the Anypoint MQ Destinations page"]
 . Select *Exchange* or *FIFO Exchange*.
 +
 For *Queue* or *FIFO Queue*, see xref:mq-queues.adoc[].
