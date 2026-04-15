@@ -336,14 +336,15 @@ curl -X PUT "https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/<ORG_ID
 }'
 ----
 
-////
-The response includes output such as:
-
 [source,json,linenums]
 ----
-<NEED EXAMPLE OUTPUT>
+{
+  "encrypted" : false,
+  "type" : "exchange",
+  "fifo" : true,
+  "exchangeId" : <EXCHANGE_ID>
+}
 ----
-////
 
 [[routing-rules-api]]
 === Create or Change Message Routing Rules
