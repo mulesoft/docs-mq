@@ -4,8 +4,8 @@ You can bind a maximum of 450 queues to a message exchange.
 // end::msgExchangeMax[]
 
 // tag::msgExchangeMaxRouting[]
-You can bind a maximum of 10 queues to an exchange with message routing rules defined.
-If an exchange has more than 10 queue bindings, you can't use intelligent message routing.
+You can bind a maximum of 25 queues to an exchange with message routing rules defined.
+If an exchange has more than 25 queue bindings, you can't use intelligent message routing.
 // end::msgExchangeMaxRouting[]
 
 // tag::exchBindingNoRules[]
