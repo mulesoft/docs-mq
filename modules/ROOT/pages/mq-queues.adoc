@@ -40,7 +40,7 @@ image::mq-filters.png["Destinations page showing filter options for message queu
 Before using Anypoint MQ, you must create an environment and give users Anypoint MQ access permissions.
 See xref:mq-access-management.adoc[].
 
-
+[[create-queue]]
 == Create a Queue
 
 To create a standard queue or FIFO queue:
@@ -340,7 +340,7 @@ include::partial$mq-faq.adoc[tag=failedTPS]
 * In some configurations when using the IMMEDIATE acknowledgment mode in the Subscriber operation, FIFO queues don't process messages in order.
 * Before using `prefetch` mode with FIFO queues, see xref:anypoint-mq-connector::anypoint-mq-listener.adoc#fifo-and-prefetch[FIFO Queues and Prefetch Mode].
 
-To create a FIFO queue, see <<Create a Queue>>. To determine if a queue is FIFO or standard (non-FIFO), view its details. 
+To create a FIFO queue, see <<create-queue>>. To determine if a queue is FIFO or standard (non-FIFO), view its details. 
 
 For the regions in which Anypoint MQ and FIFO queues are available, see xref:mq-faq.adoc#mq-regions[Anypoint MQ Regions].
 
