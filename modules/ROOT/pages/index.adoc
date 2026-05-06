@@ -213,7 +213,7 @@ Billing is based on the number of messages delivered to subscribers from queues,
 |===
 |Anypoint MQ Feature 
 |US Cloud and EU Cloud
-|Canada Cloud and Japan Cloud (Hyperforce)
+|Canada Cloud, Japan Cloud, India Cloud
 |MuleSoft Government Cloud
 
 |{empty}
@@ -300,12 +300,13 @@ For information about MuleSoft Government Cloud, see
 xref:gov-cloud::index.adoc[].
 
 [[mq-on-hyperforce]]
-== Anypoint MQ on Hyperforce
+== Anypoint MQ on Control Planes
 
-Anypoint MQ is available on these Salesforce Hyperforce (Hyperforce) instances of Anypoint Platform:
+Anypoint MQ is available on these control planes of Anypoint Platform:
 
 * https://ca1.platform.mulesoft.com[Canada Cloud]
 * https://jp1.platform.mulesoft.com[Japan Cloud]
+* https://in1.platform.mulesoft.com[India Cloud]
 
 For information about the regions where Anypoint MQ is available, see
 xref:mq-faq.adoc#mq-regions[Anypoint MQ Regions].
