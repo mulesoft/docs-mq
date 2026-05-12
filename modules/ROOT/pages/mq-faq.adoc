@@ -52,7 +52,7 @@ Anypoint MQ standard and FIFO queues are available in these regions:
 | Asia Pacific | Japan (Tokyo) | `ap-northeast-1` <<mq-hyperforce,^***^>>
 
 | https://in1.platform.mulesoft.com[India Cloud]
-| Asia Pacific | India | `ap-south-1` <<mq-hyperforce,^***^>>
+| Asia Pacific | India (Mumbai) | `ap-south-1` <<mq-hyperforce,^***^>>
 |===
 
 [[mq-hyperforce]]
