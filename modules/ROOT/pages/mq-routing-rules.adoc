@@ -24,7 +24,7 @@ include::partial$mq-msg-exchange.adoc[tag=msgRulesEval]
 . Specify filtering criteria by defining `properties` and `headers` in the message.
 +
 If you publish this message to the `purchases` exchange,
-the exchange forwards it only to `premiumPurchases` queue and 
+the exchange forwards it only to `premiumPurchases` queue and
 not to the `sizeMedium` queue based on the routing rule configuration.
 +
 [source,json,linenums]
@@ -37,7 +37,7 @@ not to the `sizeMedium` queue based on the routing rule configuration.
 }
 ----
 
-== Create a Message Routing Rule 
+== Create a Message Routing Rule
 
 To create a message routing rule:
 
@@ -55,7 +55,7 @@ image::mq-exchange-create-routing-rule.png["Create Routing Rule form showing exa
 * For each property type, specify a <<matcher-type,matcher type>>.
 . Click *Add Rule*.
 
-== Change a Message Routing Rule 
+== Change a Message Routing Rule
 
 To change a message routing rule:
 
@@ -70,7 +70,7 @@ image::mq-exchange-edit-rule-bound-queues.png["Exchange Settings page showing th
 For information about property types and matcher types, see <<matcher-type>>.
 . Click *Save Rule*.
 
-== Delete a Message Routing Rule 
+== Delete a Message Routing Rule
 
 To delete a message routing rule:
 
@@ -119,7 +119,7 @@ include::partial$mq-user-props.adoc[tag=mqNumberPropsConnector]
 [[send-message-with-routing-props]]
 == Send a Message with Routing Properties
 
-To send messages to an exchange and route them to specific queues, 
+To send messages to an exchange and route them to specific queues,
 use either:
 
 * Anypoint MQ *Message Sender* page:
@@ -131,11 +131,11 @@ When sending the message:
 .. Specify the filter criteria as property name-value pairs to send.
 --
 +
-For information, see 
+For information, see
 xref:mq-exchanges.adoc#send-a-message-to-a-message-exchange[Send a Message to a Message Exchange].
 * Anypoint MQ Broker API:
 +
-For information, see 
+For information, see
 xref:mq-apis.adoc#send-message-routing[Send a Message with Routing Properties].
 
 To view the routing properties on a published message:
@@ -148,7 +148,7 @@ Anypoint MQ displays the *Message Browser* page for the selected queue.
 +
 image::mq-exchange-user-props.png["Message Browser details page showing the message payload and user properties"]
 +
-See 
+See
 xref:mq-queues.adoc#get-a-message-from-a-queue[Get a Message from a Queue].
 
 
@@ -160,7 +160,10 @@ include::partial$mq-user-props.adoc[tag=mqNumberPropsConnector]
 
 Anypoint MQ supports message routing rules with these restrictions:
 
-* Exchanges must have 10 or fewer queue bindings.
+[NOTE]
+FIFO exchanges don't support routing rules. To use routing rules, configure a standard exchange.
+
+* Exchanges must have 25 or fewer queue bindings.
 +
 include::partial$mq-msg-exchange.adoc[tag=msgExchangeMaxRouting]
 * You can configure a message routing rule on only one property with these restrictions:

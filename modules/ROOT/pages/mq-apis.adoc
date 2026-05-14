@@ -13,19 +13,19 @@ Anypoint MQ APIs are available in the https://anypoint.mulesoft.com/exchange/por
 
 == Workflow for an API
 
-This example illustrates the workflow for accessing the Anypoint MQ Broker API:
+This example shows the workflow for accessing the Anypoint MQ Broker API:
 
 image::mq-api-workflow.png["Workflow of the Anypoint MQ Broker API"]
 
 . An app sends a request to Anypoint MQ and sets how long to hold the lock on the message.
 . Anypoint MQ sends the message and the lock ID.
-. The app acknowledges the message and requests Anypoint MQ to delete the message, or the app negatively acknowledges the message and requests Anypoint MQ to make the message available to other apps. The app sends the message ID and lock ID to Anypoint MQ. 
+. The app acknowledges the message and requests Anypoint MQ to delete the message, or the app negatively acknowledges the message and requests Anypoint MQ to make the message available to other apps. The app sends the message ID and lock ID to Anypoint MQ.
 For more information, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NACK Operations].
 . If no action is taken and the duration of a lock's time to live expires, the message is negatively acknowledged and returns to the queue to be available for other apps.
 
 
 [[before-you-begin]]
-== Before You Begin 
+== Before You Begin
 
 * Create an app that uses Anypoint MQ and xref:runtime-manager::deploying-to-cloudhub.adoc[deploy it to CloudHub].
 * <<get-bearer-token,Get a bearer token>> for an Anypoint Platform user using the Access Management API.
@@ -105,7 +105,7 @@ The output includes the token:
   "access_token": "<BEARER_TOKEN>",
   "token_type": "bearer",
   "redirectUrl": "/home/"
-}  
+}
 ----
 . Use this bearer token to access any Anypoint MQ API that requires a bearer token.
 
@@ -247,7 +247,7 @@ The response includes output such as:
   "defaultTtl" : 604800000,
   "defaultLockTtl" : 120000,
   "defaultDeliveryDelay" : 0
-}, 
+},
 ----
 
 See also <<retrieve-queue-configuration>>.
@@ -258,7 +258,7 @@ See also <<retrieve-queue-configuration>>.
 
 The Anypoint MQ Admin API provides access to Anypoint MQ administrative functionality.
 
-You can use the 
+You can use the
 https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Anypoint MQ Admin API] to create and manage queues, message exchanges, and client apps.
 
 If you call the Anypoint MQ Admin API for distinct environments within one minute,
@@ -267,6 +267,7 @@ the API throttles your requests to 50 transactions per minute (TPM).
 These examples use the Anypoint MQ Admin API to create queues and message routing rules from the command line using `curl`:
 
 * <<fifo-queue-api>>
+* <<fifo-exchange-api>>
 * <<routing-rules-api>>
 * <<enable-failover-api>>
 * <<retrieve-queue-configuration>>
@@ -274,7 +275,7 @@ These examples use the Anypoint MQ Admin API to create queues and message routin
 [[fifo-queue-api]]
 === Create a FIFO Queue
 
-You can create a FIFO queue using the Anypoint MQ Admin API by including the `"fifo": true` field.
+You can create a FIFO queue using the Anypoint MQ Admin API by including `"fifo": true` in the body.
 
 [NOTE]
 The organization from which you use the Administration portal must have an Anypoint MQ FIFO entitlement.
@@ -310,12 +311,46 @@ The response includes output such as:
   "defaultTtl" : 604800000,
   "defaultLockTtl" : 120000,
   "defaultDeliveryDelay" : 0
-}, 
+},
 ----
 
+[[fifo-exchange-api]]
+=== Create a FIFO Exchange
+
+You can create a FIFO exchange using the Anypoint MQ Admin API by including `"fifo": true` in the body.
+
+[NOTE]
+The organization from which you use the Administration portal must have an Anypoint MQ FIFO entitlement.
+See xref:mq-faq.adoc[Anypoint MQ FAQ] for the regions where Anypoint MQ is available.
+
+Use a `curl` command like this to create a FIFO exchange:
+
+[source,bash,linenums]
+----
+curl -X PUT "https://anypoint.mulesoft.com/mq/admin/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/regions/<REGION_ID>/destinations/exchanges/<EXCHANGE_ID>" \
+--header 'Content-Type: application/json' \
+--header 'Authorization: bearer <BEARER_TOKEN>' \
+--data-raw '{
+  "encrypted" : false,
+  "fifo" : true
+}'
+----
+
+[source,json,linenums]
+----
+{
+  "encrypted" : false,
+  "type" : "exchange",
+  "fifo" : true,
+  "exchangeId" : <EXCHANGE_ID>
+}
+----
 
 [[routing-rules-api]]
 === Create or Change Message Routing Rules
+
+[NOTE]
+FIFO exchanges don't support routing rules. To use routing rules, configure a standard exchange.
 
 To route a subset of the messages that are published to an exchange to a specific queue,
 use the Admin API to create message routing rules on the binding between the exchange and the queue.
@@ -422,8 +457,8 @@ The response from these commands includes output similar to this:
 ====
 [source,json,linenums]
 ----
-[ 
-{ 
+[
+{
     "encrypted" : true,
     "type" : "queue",
     "queueId" : "00-test",
@@ -439,7 +474,7 @@ The response from these commands includes output similar to this:
 ]
 ----
 <.> This queue is a primary queue.
-<.> Failover is enabled for this queue. 
+<.> Failover is enabled for this queue.
 <.> The fallback queue for this queue is `00-test_fb`. If the primary region goes down, apps publish and consume from this queue.
 <.> The fallback region for this queue is `us-west-2`.
 ====
@@ -509,7 +544,7 @@ The response doesn't include `fallbackConfig` because FIFO queues don't support 
 },
 ]
 ----
-<.> This queue is a FIFO queue, which doesn't support failover. 
+<.> This queue is a FIFO queue, which doesn't support failover.
 ====
 
 .Exchange
@@ -527,14 +562,14 @@ The response doesn't include `fallbackConfig` because exchanges don't support fa
 }
 ]
 ----
-<.> This queue is a message exchange, which doesn't support failover. 
+<.> This queue is a message exchange, which doesn't support failover.
 ====
 
 
 [[mq-broker-api]]
 == Anypoint MQ Broker API
 
-The  
+The
 https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint MQ Broker API^] enables clients to publish, consume, route, and acknowledge messages from queues and message exchanges.
 
 You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ. See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[Anypoint MQ Audit Logging].
@@ -546,7 +581,7 @@ These examples use the Anypoint MQ Broker API to publish and consume messages an
 * <<send-message-routing>>
 * <<retrieve-message-api>>
 
-For the regions where Anypoint MQ and FIFO are available, see xref:mq-faq.adoc#mq-regions[Anypoint MQ Regions]. 
+For the regions where Anypoint MQ and FIFO are available, see xref:mq-faq.adoc#mq-regions[Anypoint MQ Regions].
 
 [[send-messages-api]]
 === Send a Message
@@ -559,14 +594,14 @@ curl -X PUT "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/<OR
 -H "Content-Type: application/json" \
 -H "Authorization: bearer <BEARER_TOKEN>" \
 -H "Cache-Control: no-cache" \
--d '{ 
+-d '{
   "properties": {
     "userDefinedHeader": "User defined stuff",
     "anotherUserDefinedHeader": "Random stuff"
   },
 
   "body": "This is a message payload"
-}' 
+}'
 ----
 
 [[send-message-routing]]
@@ -576,7 +611,7 @@ include::partial$mq-msg-exchange.adoc[tag=msgRulesEval]
 
 This `curl` command publishes a message with the value of the `itemCategory`
 property as `premium`.
-The message routing rule on the `purchases` exchange binding 
+The message routing rule on the `purchases` exchange binding
 (set up in <<routing-rules-api>>) routes the message to the `premiumPurchases` queue.
 
 [source,bash,linenums]
@@ -593,7 +628,7 @@ curl -X PUT "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/<OR
     "itemSize": "large"
   },
   "body": "This is a message payload"
-}' 
+}'
 ----
 
 For information about the message routing rule requirements, see
@@ -615,12 +650,12 @@ curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/<OR
 You can control whether to show the message payload in the response using the `payloadVisibility` query parameter.
 This parameter is useful when retrieving large payloads.
 
-The `payloadVisibility` parameter takes these options: 
+The `payloadVisibility` parameter takes these options:
 
 * `full`: Shows the message payload in the response. +
 This option is the default.
 * `none`: Hides the message payload in the response.
-* `conditional`: Hides the message payload if the payload size is larger than 1 MB. 
+* `conditional`: Hides the message payload if the payload size is larger than 1 MB.
 
 If the payload is hidden because `payloadVisibility` is set to `none` or `conditional`, the response includes `payloadHidden=true` in the message header.
 
@@ -630,7 +665,7 @@ This `curl` command gets a message and payload, displaying the payload only if t
 ----
 curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>/destinations/postmanQueue/messages?pollingTime=10000&batchSize=1&lockTtl=10000&payloadVisibility=conditional" \
 -H "Authorization: bearer <BEARER_TOKEN>" \
--H "Cache-Control: no-cache" 
+-H "Cache-Control: no-cache"
 ----
 
 
@@ -677,7 +712,7 @@ Use the Anypoint MQ Stats API to get these metrics for queues and exchanges:
 [[get-queue-stats]]
 ==== Get Current Statistics for Queues
 
-You can get a snapshot of the number of messages in the queue and how many are in-flight. 
+You can get a snapshot of the number of messages in the queue and how many are in-flight.
 See xref:mq-glossary.adoc[] for a definition of in-flight messages.
 The data updates in almost real-time.
 
@@ -824,17 +859,17 @@ Use the Anypoint MQ Stats API to get these usage metrics:
 
 * `1hour`
 * `1day`
-* `1month`	
+* `1month`
 
-|Data retention | Length of time that Anypoint MQ retains the data, based on `period` | 
+|Data retention | Length of time that Anypoint MQ retains the data, based on `period` |
 
-* `period=1hour`: 3 months 
+* `period=1hour`: 3 months
 * `period=1day`: 12 months
 * `period=1month`: 24 months
 
 | Query timeframe | Maximum interval between `startDate` and `endDate` in the query, based on `period` |
 
-* `period=1hour`: 1 day 
+* `period=1hour`: 1 day
 * `period=1day`: 1 month
 * `period=1month`: 2 months
 
@@ -843,7 +878,7 @@ NOTE: If the interval between `startDate` and `endDate` exceeds the limits, the 
 
 
 [[usage-by-env]]
-==== Get Usage Metrics by Environment 
+==== Get Usage Metrics by Environment
 
 You can use the Stats API to retrieve Anypoint MQ usage information by environment for a particular organization:
 
@@ -1110,7 +1145,7 @@ exchanges=[
 ----
 
 For the regions where Anypoint MQ and FIFO queues are available,
-see xref:mq-faq.adoc#mq-regions[Anypoint MQ Regions]. 
+see xref:mq-faq.adoc#mq-regions[Anypoint MQ Regions].
 
 === Create a Script File
 
@@ -1186,7 +1221,7 @@ class AnypointMQAdminClient {
         def REGION_URL = props.regionID
 
         // build HTTP GET
-        def getDestinationsURL = HOST + '/mq/admin/api/v1/organizations/' + ORG_ID + 
+        def getDestinationsURL = HOST + '/mq/admin/api/v1/organizations/' + ORG_ID +
           '/environments/' + ENV_ID + '/regions/' + REGION_URL + '/destinations'
         def getDestinations = new HttpGet(getDestinationsURL)
 
@@ -1209,7 +1244,7 @@ class AnypointMQAdminClient {
         def REGION_URL = props.regionID
 
         // build HTTP GET
-        def getQueueURL = HOST + '/mq/admin/api/v1/organizations/' + ORG_ID + '/environments/' + 
+        def getQueueURL = HOST + '/mq/admin/api/v1/organizations/' + ORG_ID + '/environments/' +
           ENV_ID + '/regions/' + REGION_URL + '/destinations/queues/' + QUEUE_ID
         def getQueue = new HttpGet(getQueueURL)
 
@@ -1234,7 +1269,7 @@ class AnypointMQAdminClient {
 
         queues.each { QUEUE_ID ->
 
-            def putQueueURL = HOST + '/mq/admin/api/v1/organizations/' + ORG_ID + '/environments/' + 
+            def putQueueURL = HOST + '/mq/admin/api/v1/organizations/' + ORG_ID + '/environments/' +
               ENV_ID + '/regions/' + REGION_URL + '/destinations/queues/' + QUEUE_ID
             def putQueue = new HttpPut(putQueueURL)
 
@@ -1305,7 +1340,7 @@ This example enables you to test Anypoint MQ from Postman, Anypoint Studio, and 
 [[postsetup]]
 === Set Up Postman
 
-The https://www.getpostman.com/[Postman^] app provides a platform for accessing the Anypoint MQ APIs.
+The https://www.postman.com/[Postman^] app provides a platform for accessing the Anypoint MQ APIs.
 After downloading and installing Postman, supply this information to create an environment:
 
 * ORG_ID
@@ -1347,7 +1382,7 @@ This section summarizes the steps.
 
 You can set up a Studio project with:
 
-* An HTTP connector: 
+* An HTTP connector:
   ** Host `0.0.0.0`
   ** Port `8081`
   ** Path in the properties menu set to `/mq/{messageId}`.
