@@ -16,50 +16,10 @@ include::reuse::partial$access-management/assign-permissions.adoc[tag=assignPerm
 == Anypoint MQ Permissions
 
 // These descriptions are the same as scopes in connected apps.
-[%header,cols="50a,20a,30a"]
-|===
-|To...|Required Permission|Notes
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsViewClients]
-|View clients
-|
 
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsViewClearDestinations]
-|
-* View destinations
-* Clear destinations
-|
-
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsManageClients]
-|Manage clients
-|
-
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsAdministerDestinations]
-|Administer destinations
-|
+include::access-management::partial$include-permissions-mq.adoc[tag=mqPermissionsTable]
 
 
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsManageDestinations]
-|Manage destinations (deprecated)
-
-|Assign these permissions instead:
-
-* Administer destinations 
-* Destination subscriber for given environment
-* Destination publisher for given environment
-
-
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsDestSubEnv]
-|Destination subscriber for given environment
-|
-
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsDestPubEnv]
-|Destination publisher for given environment
-|
-
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsReadStats]
-|Read MQ stats
-|
-|===
 
 ////
 
