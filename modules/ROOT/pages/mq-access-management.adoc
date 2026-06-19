@@ -9,57 +9,17 @@ Create an environment and manage the roles of users who administer the Anypoint 
 +
 Follow the steps in xref:access-management::environments.adoc#to-create-a-new-environment[To Create a New Environment].
 * Make sure you have the <<anypoint-mq-permissions,permissions>> required to use Anypoint MQ.
-+
-include::reuse::partial$access-management/assign-permissions.adoc[tag=assignPermissionsLink]
 
 [[anypoint-mq-permissions]]
 == Anypoint MQ Permissions
 
 // These descriptions are the same as scopes in connected apps.
-[%header,cols="50a,20a,30a"]
-|===
-|To...|Required Permission|Notes
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsViewClients]
-|View clients
-|
 
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsViewClearDestinations]
-|
-* View destinations
-* Clear destinations
-|
+include::access-management::partial$include-permissions-mq.adoc[tag=mqPermissionsTable]
 
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsManageClients]
-|Manage clients
-|
+To assign user permissions, follow the steps in xref:access-management::users.adoc#grant-user-permissions[Grant Permissions to Users].
 
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsAdministerDestinations]
-|Administer destinations
-|
-
-
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsManageDestinations]
-|Manage destinations (deprecated)
-
-|Assign these permissions instead:
-
-* Administer destinations 
-* Destination subscriber for given environment
-* Destination publisher for given environment
-
-
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsDestSubEnv]
-|Destination subscriber for given environment
-|
-
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsDestPubEnv]
-|Destination publisher for given environment
-|
-
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsReadStats]
-|Read MQ stats
-|
-|===
+To use teams to assign permissions, follow the steps in xref:access-management::teams.adoc[].
 
 ////
 
