@@ -9,8 +9,6 @@ Create an environment and manage the roles of users who administer the Anypoint 
 +
 Follow the steps in xref:access-management::environments.adoc#to-create-a-new-environment[To Create a New Environment].
 * Make sure you have the <<anypoint-mq-permissions,permissions>> required to use Anypoint MQ.
-+
-include::reuse::partial$access-management/assign-permissions.adoc[tag=assignPermissionsLink]
 
 [[anypoint-mq-permissions]]
 == Anypoint MQ Permissions
@@ -19,7 +17,9 @@ include::reuse::partial$access-management/assign-permissions.adoc[tag=assignPerm
 
 include::access-management::partial$include-permissions-mq.adoc[tag=mqPermissionsTable]
 
+To assign user permissions, follow the steps in xref:access-management::users.adoc#grant-user-permissions[Grant Permissions to Users].
 
+To use teams to assign permissions, follow the steps in xref:access-management::teams.adoc[].
 
 ////
 
