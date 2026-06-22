@@ -54,33 +54,45 @@ The Anypoint MQ scopes are:
 
 |Administer destinations
 |`administer:destinations`
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsAdministerDestinations]
+|* View all destinations and each destination's settings (*ID*, *Type*, *Message TTL*, and *Message Lock Default TTL*).
+* View *In Queue* message stats.
+* View *In Flight* message stats.
+** Create new queues, message exchanges, and bindings.
+** Edit existing queues, message exchanges, and bindings.
+** Purge messages from queues.
 
 |Clear destinations
 |`clear:destinations`
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsViewClearDestinations]
+|* View all destinations and each destination's settings (*ID*, *Type*, *Message TTL*, and *Message Lock Default TTL*).
+* View *In Queue* message stats.
+* View *In Flight* message stats.
 
 |Destination subscriber for given environment
 |`subscribe:destinations`
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsDestSubEnv]
+|* Consume messages from a destination.
+* Delete messages from a destination.
 
 |Destination publisher for given environment
 |`publish:destinations`
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsDestPubEnv]
+|* Send messages to a destination.
+* Update message TTL on a destination.
 
 |Manage clients
 |`manage:clients`
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsManageClients]
+|* View all client apps, including client app IDs and client secrets for each client app.
+* Create client apps.
 
 |Read MQ stats
 |`read:stats`
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsReadStats]
+|View organization and environment statistics.
 
 |View clients
 |`view:clients`
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsViewClients]
+|View all client apps, including client app IDs and client secrets for each client app.
 
 |View destinations
 |`view:destinations`
-|include::access-management::partial$include-permissions-mq.adoc[tag=permsViewClearDestinations]
+|* View all destinations and each destination's settings (*ID*, *Type*, *Message TTL*, and *Message Lock Default TTL*).
+* View *In Queue* message stats.
+* View *In Flight* message stats.
 |===
