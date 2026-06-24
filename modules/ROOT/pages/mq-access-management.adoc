@@ -15,7 +15,7 @@ Follow the steps in xref:access-management::environments.adoc#to-create-a-new-en
 
 // These descriptions are the same as scopes in connected apps.
 
-include::access-management::partial$include-permissions-mq.adoc[tag=mqPermissionsTable]
+include::partial$include-permissions-mq.adoc[tag=mqPermissionsTable]
 
 To assign user permissions, follow the steps in xref:access-management::users.adoc#grant-user-permissions[Grant Permissions to Users].
 
