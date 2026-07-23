@@ -47,15 +47,15 @@
 |This permission is deprecated. Assign these permissions instead:
 
 * Administer destinations
-* Destination subscriber for given environment
-* Destination publisher for given environment
+* Destination subscriber for a given environment
+* Destination publisher for a given environment
 
-|Destination subscriber for given environment
+|Destination subscriber for a given environment
 |* Consume messages from a destination.
 * Delete messages from a destination.
 |
 
-| Destination publisher for given environment
+| Destination publisher for a given environment
 |* Send messages to a destination.
 * Update message TTL on a destination.
 |
