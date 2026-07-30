@@ -6,7 +6,7 @@ Configure Anypoint MQ queues, exchanges, and connected apps to send and retrieve
 
 * xref:mq-access-management.adoc[]
 +
-Use access management to create an environment and manage the roles of users who administer the Anypoint MQ features in Anypoint Platform for your organization.
+Use Access Management to create an environment and manage the roles of users who administer Anypoint MQ features in Anypoint Platform for your organization.
 * xref:mq-queues.adoc[]
 +
 Create queues, FIFO queues, and dead-letter queues in Anypoint Platform.
