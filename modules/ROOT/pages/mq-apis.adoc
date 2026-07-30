@@ -9,7 +9,7 @@ Anypoint MQ provides these APIs:
 * <<mq-broker-api,Anypoint MQ Broker API>>
 * <<mq-stats-api,Anypoint MQ Stats API>>
 
-Anypoint MQ APIs are available in the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/[Developer portal].
+Anypoint MQ APIs are available in the https://dev-portal.mulesoft.com/index.html?filter=api[MuleSoft developer portal].
 
 == Workflow for an API
 
@@ -45,7 +45,7 @@ You need the queue ID for operations with the Anypoint MQ Admin API.
 [[get-bearer-token]]
 === Get the Bearer Token to Use With Anypoint MQ APIs
 
-To access the Anypoint MQ APIs, you must first get the bearer token from the Anypoint Platform user using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Access Management API].
+To access the Anypoint MQ APIs, you must first get the bearer token from the Anypoint Platform user using the https://dev-portal.mulesoft.com/apis/access-management.html[Access Management API].
 
 NOTE: The default time to live (TTL) for the bearer token is 60 minutes.
 
@@ -259,7 +259,7 @@ See also <<retrieve-queue-configuration>>.
 The Anypoint MQ Admin API provides access to Anypoint MQ administrative functionality.
 
 You can use the
-https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Anypoint MQ Admin API] to create and manage queues, message exchanges, and client apps.
+https://dev-portal.mulesoft.com/apis/anypoint-mq-admin.html[Anypoint MQ Admin API] to create and manage queues, message exchanges, and client apps.
 
 If you call the Anypoint MQ Admin API for distinct environments within one minute,
 the API throttles your requests to 50 transactions per minute (TPM).
@@ -387,7 +387,7 @@ Any changes or additions to a message routing rule can take up to 15 minutes to 
 For information about:
 
 * Supported payload for `/rules/routing`,
-see this endpoint in the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/minor/1.0/console/method/%23741/[Anypoint MQ Admin API].
+see this endpoint in the https://dev-portal.mulesoft.com/apis/anypoint-mq-admin.html[Anypoint MQ Admin API].
 * Publishing a message with routing properties, see <<send-message-routing>>.
 * Message routing rule requirements, see
 xref:mq-routing-rules.adoc#intelligent-routing-restrictions[Requirements and Restrictions].
@@ -570,7 +570,7 @@ The response doesn't include `fallbackConfig` because exchanges don't support fa
 == Anypoint MQ Broker API
 
 The
-https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint MQ Broker API^] enables clients to publish, consume, route, and acknowledge messages from queues and message exchanges.
+https://dev-portal.mulesoft.com/apis/anypoint-mq-broker.html[Anypoint MQ Broker API^] enables clients to publish, consume, route, and acknowledge messages from queues and message exchanges.
 
 You can get the organization ID and environment ID in the `payload.txt` file that Anypoint Platform creates for any auditable action in MQ. See xref:access-management::audit-logging.adoc#to-query-audit-logging-for-anypoint-mq[Anypoint MQ Audit Logging].
 
@@ -674,7 +674,7 @@ curl -X GET "https://mq-us-east-1.anypoint.mulesoft.com/api/v1/organizations/<OR
 
 The Anypoint MQ Stats API enables you to get statistics and metrics for queues and message exchanges.
 
-You can use the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API] to perform statistical analysis of queue performance.
+You can use the https://dev-portal.mulesoft.com/apis/anypoint-mq-stats.html[Anypoint MQ Stats API] to perform statistical analysis of queue performance.
 
 Use the Stats API to retrieve:
 
@@ -696,7 +696,7 @@ View your entire organization's usage of Anypoint MQ for billing purposes (US an
 [NOTE]
 include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
 
-For more information, see the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API] in the MuleSoft developer portal.
+For more information, see the https://dev-portal.mulesoft.com/apis/anypoint-mq-stats.html[Anypoint MQ Stats API] in the MuleSoft developer portal.
 
 [IMPORTANT]
 include::partial$mq-api-shared.adoc[tag=urlEncoded]
@@ -972,7 +972,7 @@ include::partial$mq-faq.adoc[tag=returnVals]
 [[exstatapi]]
 === Example: Anypoint MQ Stats API
 
-NOTE: To access the Anypoint MQ Stats API, you must first authenticate using the https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/access-management-api/[Access Management API].
+NOTE: To access the Anypoint MQ Stats API, you must first authenticate using the https://dev-portal.mulesoft.com/apis/access-management.html[Access Management API].
 
 These statistics are provided:
 
@@ -1408,7 +1408,7 @@ image::mq-exchange-download.png["Download option for Anypoint MQ Admin API in Ex
 == See Also
 
 * xref:mq-faq.adoc[Anypoint MQ FAQ]
-* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-admin/[Anypoint MQ Admin API in Anypoint Exchange]
-* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-broker/[Anypoint MQ Broker API in Anypoint Exchange]
-* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/anypoint-mq-stats/[Anypoint MQ Stats API in Anypoint Exchange]
+* https://dev-portal.mulesoft.com/apis/anypoint-mq-admin.html[Anypoint MQ Admin API]
+* https://dev-portal.mulesoft.com/apis/anypoint-mq-broker.html[Anypoint MQ Broker API]
+* https://dev-portal.mulesoft.com/apis/anypoint-mq-stats.html[Anypoint MQ Stats API]
 * xref:mq-routing-rules.adoc[]
