@@ -4,11 +4,11 @@ Anypoint MQ is a multi-tenant, cloud-based message queuing service for exchangin
 The Anypoint MQ messaging broker enables applications to communicate by publishing a Mule message to a queue so that another app can consume the message.
 
 Anypoint MQ is fully integrated with Anypoint Platform, offering access control, client management, and connectors.
-Integration with access management enables you to specify environments and business groups for 
+Integration with Access Management enables you to specify environments and business groups for 
 role-based access control and support for connected apps.
 
-Anypoint MQ supports hybrid use cases, IoT (Internet of Things) in which you collect data from different devices,
-and provides a REST API to use with device applications.
+Anypoint MQ supports hybrid use cases and IoT (Internet of Things), in which you collect data from different devices.
+Anypoint MQ also provides a REST API for device applications.
 You can also use Anypoint MQ with other app frameworks such as node.js to communicate with queues.
 
 This spotlight video gives an overview of Anypoint MQ:
