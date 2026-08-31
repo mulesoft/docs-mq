@@ -1,10 +1,10 @@
 = Anypoint MQ Overview
 
-Anypoint MQ is a multi-tenant, cloud-based message queuing service for exchanging data asynchronously between your applications. 
+Anypoint MQ is a multi-tenant, cloud-based message queuing service for exchanging data asynchronously between your applications.
 The Anypoint MQ messaging broker enables applications to communicate by publishing a Mule message to a queue so that another app can consume the message.
 
 Anypoint MQ is fully integrated with Anypoint Platform, offering access control, client management, and connectors.
-Integration with Access Management enables you to specify environments and business groups for 
+Integration with Access Management enables you to specify environments and business groups for
 role-based access control and support for connected apps.
 
 Anypoint MQ supports hybrid use cases and IoT (Internet of Things), in which you collect data from different devices.
@@ -35,7 +35,7 @@ Anypoint MQ isn't available in the trial edition of Anypoint Platform.
 To add Anypoint MQ to your package or subscription, contact your account team.
 After purchasing Anypoint MQ, wait one hour for Anypoint MQ to become available in Anypoint Platform.
 +
-For information about Anypoint Integration packages, see 
+For information about Anypoint Integration packages, see
 https://www.mulesoft.com/anypoint-pricing[MuleSoft Anypoint Platform Pricing].
 . Set up your environment and permissions.
 +
@@ -50,7 +50,7 @@ Anypoint MQ includes these features:
 Queues and Message Exchanges::
 +
 Send messages to queues and pull messages from queues.
-Use a message exchange to send messages to multiple standard or FIFO queues simultaneously or 
+Use a message exchange to send messages to multiple standard or FIFO queues simultaneously or
 route messages to specific queues by using intelligent message routing rules.
 +
 For information, see:
@@ -95,7 +95,7 @@ include::partial$mq-payload-convert.adoc[]
 
 [[disaster-recovery]]
 Disaster Recovery::
-Ensure your messages are delivered even if services go down temporarily. 
+Ensure your messages are delivered even if services go down temporarily.
 +
 Within each region, Anypoint MQ services deploy to multiple availability zones (AZs) to provide high availability (HA). If service in one availability zone goes down, the Anypoint MQ service operates normally in that region. If all availability zones go down in a region, the Anypoint MQ service is unavailable in that region until at least one of the availability zones comes back up.
 Messages that were already in the Anypoint MQ system before service was interrupted are retained.
@@ -125,12 +125,15 @@ You can't use Anypoint MQ with CloudHub Insight or Anypoint Monitoring.
 == Queues and Message Exchanges
 
 _Message queues_ provide temporary storage that enables applications to communicate in a scalable and reliable way.
-Publishers can publish messages into queues, and subscribers can receive messages from queues. 
+Publishers can publish messages into queues, and subscribers can receive messages from queues.
 
 image::mq-pub-q-sub.png["A publisher sends a message to a queue, and a subscriber reads messages from a queue"]
 
 To distribute messages to multiple queues and consumers, bind multiple queues to a _message exchange_.
-Messages sent to an exchange appear in all of its bound queues simultaneously:
+By default, messages sent to an exchange appear in all of its bound queues simultaneously.
+When you configure message routing rules, a message appears only in queues whose binding
+has no rule or has a rule that the message matches.
+For details, including what happens when no rule matches, see xref:mq-routing-rules.adoc[].
 
 image::mq-pub-ex-sub.png["A publisher sends messages to an Exchange, which then directs messages to queues, from which consumers retrieve them"]
 
@@ -142,19 +145,19 @@ By configuring _intelligent message-routing rules_ on a binding, you can route m
 
 * You can bind a queue to multiple message exchanges.
 * {empty}
-// Max Msg Exchange 
+// Max Msg Exchange
 include::partial$mq-msg-exchange.adoc[tag=msgExchangeMax]
 * {empty}
 include::partial$mq-msg-exchange.adoc[tag=msgExchangeMaxRouting]
 
 
-In this example, an app running Salesforce customer relationship manager (CRM) uses Anypoint MQ to 
+In this example, an app running Salesforce customer relationship manager (CRM) uses Anypoint MQ to
 communicate with two applications that handle different databases:
 
 image::mq-crm-to-dbs.png["A CRM system communicates customer updates through a message exchange, which then relays the information to separate queues for a database and SAP"]
 
 The Salesforce app sends a pub/sub message to an Anypoint MQ message exchange (`customer-updates`).
-The two applications (`customer-consumer-1` and `customer-consumer-2`) receive the message from 
+The two applications (`customer-consumer-1` and `customer-consumer-2`) receive the message from
 the message exchange and send it to their respective databases.
 
 
@@ -197,7 +200,7 @@ For information, see xref:anypoint-mq-connector::anypoint-mq-ack.adoc[ACK and NA
 * Unlimited messages in a queue
 +
 Anypoint MQ doesn't limit the number of messages in a queue.
-The size of each message in a queue is limited to 10 MB. 
+The size of each message in a queue is limited to 10 MB.
 * Long polling
 +
 Messages are read through long polling. The server holds a request open until new data is available, and then Anypoint MQ delivers a batch of messages with a single read.
@@ -211,7 +214,7 @@ Billing is based on the number of messages delivered to subscribers from queues,
 
 [%header,cols="3a,1a,1a,1a"]
 |===
-|Anypoint MQ Feature 
+|Anypoint MQ Feature
 |US Cloud and EU Cloud
 |Canada Cloud, Japan Cloud, India Cloud, Australia Cloud
 |MuleSoft Government Cloud

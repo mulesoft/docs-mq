@@ -2,14 +2,15 @@
 
 You can send messages to multiple standard or FIFO
 xref:mq-queues.adoc[queues] simultaneously by binding those queues to
-a _message exchange_. 
+a _message exchange_.
 
-You can also route messages to specific queues that are bound to the message exchange
+By default, a message exchange sends each message to every bound queue.
+You can instead route messages to specific bound queues
 by creating _intelligent message-routing rules_ on the bindings.
 For information, see xref:mq-routing-rules.adoc[].
 
 The maximum size of a message sent to a message exchange is 10 MB.
-// Max Msg Exchange 
+// Max Msg Exchange
 include::partial$mq-msg-exchange.adoc[tag=msgExchangeMax]
 include::partial$mq-msg-exchange.adoc[tag=msgExchangeMaxRouting]
 
@@ -19,7 +20,8 @@ For information, see xref:mq-queues.adoc#create-a-queue[Create a Queue].
 [NOTE]
 ====
 Message exchanges support only the Publish operation; they don't support the Consume operation.
-Anypoint MQ forwards messages published to a message exchange to the bound queues and the app consumes from the queue.
+Anypoint MQ forwards messages published to a message exchange to the bound queues
+that are eligible under the binding configuration, and the app consumes from the queue.
 
 If an app attempts to consume from a message exchange,
 the Anypoint MQ REST API throws this error:
@@ -41,7 +43,7 @@ For *Queue* or *FIFO Queue*, see xref:mq-queues.adoc[].
 . Name the message exchange in the *Create Exchange* or *Create FIFO Exchange* page.
 +
 Message exchange names can contain up to 127 alphanumeric (a-z, A-Z, 0-9) and punctuation (. -) characters.
-They can't contain spaces or other characters. 
+They can't contain spaces or other characters.
 . Click the checkboxes to bind queues to this message exchange:
 +
 image::mq-exchange-bind-queues.png["Checkboxes to bind queues to a message exchange in the Create Exchange page"]
@@ -55,7 +57,7 @@ NOTE: You can bind only standard queues to an exchange and only FIFO queues to a
 == Bind a Queue to a Message Exchange
 
 [NOTE]
-// Max Msg Exchange 
+// Max Msg Exchange
 include::partial$mq-msg-exchange.adoc[tag=msgExchangeMax]
 include::partial$mq-msg-exchange.adoc[tag=msgExchangeMaxRouting]
 
@@ -76,7 +78,14 @@ image::mq-exchange-bind-selected-queues.png["Bind Selected Queues button"]
 
 == Send a Message to a Message Exchange
 
-Sending a message to a message exchange is similar to sending a message to a queue. The only difference is that you can get the message from any queue bound to a message exchange. The maximum size for a message sent to a message exchange is 10 MB.
+Sending a message to a message exchange is similar to sending a message to a queue.
+The exchange evaluates its bindings and sends the message to each eligible bound queue.
+The maximum size for a message sent to a message exchange is 10 MB.
+
+[IMPORTANT]
+include::partial$mq-msg-exchange.adoc[tag=msgPublishRoutingOutcome]
+
+For details about eligible bindings and unmatched messages, see xref:mq-routing-rules.adoc[].
 
 // MQ Payload Conversion
 include::partial$mq-payload-convert.adoc[]
@@ -100,8 +109,8 @@ image::mq-tutorial-message-sender-user-props.png["Message Sender page showing th
 See xref:mq-queues.adoc#get-a-message-from-a-queue[Get a Message from a Queue].
 
 You also send JSON content or comma-separated values (CSV) in the payload by changing
-the message *Type* value. See 
-xref:mq-queues.adoc#send-a-json-message-to-a-queue[Send a JSON Message to a Queue] and 
+the message *Type* value. See
+xref:mq-queues.adoc#send-a-json-message-to-a-queue[Send a JSON Message to a Queue] and
 xref:mq-queues.adoc#send-a-csv-message-to-a-queue[Send a CSV Message to a Queue].
 
 == Delete a Message Exchange

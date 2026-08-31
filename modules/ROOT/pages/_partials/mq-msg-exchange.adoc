@@ -9,8 +9,17 @@ If an exchange has more than 25 queue bindings, you can't use intelligent messag
 // end::msgExchangeMaxRouting[]
 
 // tag::exchBindingNoRules[]
-Any bindings without configured message routing rules continue to receive all messages from the exchange.
+Bindings without configured message routing rules receive every message published to the exchange.
+If every binding has a configured routing rule and a message matches none of them,
+Anypoint MQ doesn't deliver the message to any bound queue.
 // end::exchBindingNoRules[]
+
+// tag::msgPublishRoutingOutcome[]
+A successful publish operation confirms that Anypoint MQ accepted the message for the exchange.
+It doesn't confirm that a routing rule matched or that a bound queue received the message.
+If no bound queue receives the message, redelivery and dead-letter queue (DLQ) settings
+configured on queues don't apply because the message never enters a queue.
+// end::msgPublishRoutingOutcome[]
 
 // tag::msgRulesEval[]
 Anypoint MQ evaluates the configured message routing rules against all `headers` and `properties` attributes in the published messages.
