@@ -194,8 +194,7 @@ If a server fails and failover occurs, messages continue to be processed by othe
 == Does Anypoint MQ guarantee message delivery?
 
 Yes. Standard queues provide "at least once" message-delivery reliability for messages routed to them.
-For messages published to a standard exchange, routing rules first determine which bound queues,
-if any, receive each message.
+For messages published to a standard exchange, the bindings determine which bound queues, if any, receive each message: a binding with no routing rule receives every message, and a binding with a routing rule receives only messages that match it.
 See <<unmatched-routing-rules,What happens when a message published to an exchange doesn't match any routing rule?>>.
 
 [[unmatched-routing-rules]]
