@@ -131,7 +131,7 @@ image::mq-pub-q-sub.png["A publisher sends a message to a queue, and a subscribe
 
 To distribute messages to multiple queues and consumers, bind multiple queues to a _message exchange_.
 By default, messages sent to an exchange appear in all of its bound queues simultaneously.
-When you configure message-routing rules, a message appears only in queues whose binding
+When you configure message routing rules, a message appears only in queues whose binding
 has no rule or has a rule that the message matches.
 For details, including what happens when no rule matches, see xref:mq-routing-rules.adoc[].
 
