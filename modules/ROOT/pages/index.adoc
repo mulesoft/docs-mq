@@ -130,7 +130,10 @@ Publishers can publish messages into queues, and subscribers can receive message
 image::mq-pub-q-sub.png["A publisher sends a message to a queue, and a subscriber reads messages from a queue"]
 
 To distribute messages to multiple queues and consumers, bind multiple queues to a _message exchange_.
-Messages sent to an exchange appear in all of its bound queues simultaneously:
+By default, messages sent to an exchange appear in all of its bound queues simultaneously.
+When you configure message-routing rules, a message appears only in queues whose binding
+has no rule or has a rule that the message matches.
+For details, including what happens when no rule matches, see xref:mq-routing-rules.adoc[].
 
 image::mq-pub-ex-sub.png["A publisher sends messages to an Exchange, which then directs messages to queues, from which consumers retrieve them"]
 

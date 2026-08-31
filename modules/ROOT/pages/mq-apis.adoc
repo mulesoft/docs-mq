@@ -360,6 +360,9 @@ The new message routing rule can take up to 15 minutes to take effect.
 
 include::partial$mq-msg-exchange.adoc[tag=exchBindingNoRules]
 
+[IMPORTANT]
+include::partial$mq-msg-exchange.adoc[tag=msgPublishRoutingOutcome]
+
 To create a message routing rule, use a `curl` command like this:
 
 [source,bash,linenums]
