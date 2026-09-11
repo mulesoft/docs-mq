@@ -681,19 +681,12 @@ You can use the https://dev-portal.mulesoft.com/apis/anypoint-mq-stats.html[Anyp
 
 Use the Stats API to retrieve:
 
-* Anypoint MQ statistics:
-** <<get-queue-stats,Near real-time statistics for queues>>
-** Number of messages currently in a queue
-** <<historical-stats-queue,Historical statistics for queues>>
-** <<historical-stats-exchange,Historical statistics for message exchanges>>
-* Usage metrics
-+
-View your entire organization's usage of Anypoint MQ for billing purposes (US and EU Cloud only):
-+
---
-** <<usage-by-env,Usage per environment>>
-** <<usage-by-org,Usage per organization>>
---
+* <<get-queue-stats,Near real-time statistics for queues>>
+* Number of messages currently in a queue
+* <<historical-stats-queue,Historical statistics for queues>>
+* <<historical-stats-exchange,Historical statistics for message exchanges>>
+
+For usage metrics, see xref:mq-usage.adoc#anypoint-usage-api[Retrieve Usage Metrics with the Anypoint Usage API].
 
 
 [NOTE]
@@ -839,137 +832,6 @@ This command returns output similar to:
 ----
 
 The period is an integer and is the granularity of data points in seconds.
-
-
-=== Usage Metrics by Environment or Org
-
-[NOTE]
-// Not on HF
-include::partial$mq-on-hyperforce.adoc[tag=mqStatsAPInotHF]
-
-Use the Anypoint MQ Stats API to get these usage metrics:
-
-* <<usage-by-env>>
-* <<usage-by-org>>
-
-[[usage-limits]]
-==== Usage Metrics Limits
-
-[%header,cols="10,15,15a"]
-|===
-| Parameter | Description | Values
-| Time series (`period`) | Interval that the query records |
-
-* `1hour`
-* `1day`
-* `1month`
-
-|Data retention | Length of time that Anypoint MQ retains the data, based on `period` |
-
-* `period=1hour`: 3 months
-* `period=1day`: 12 months
-* `period=1month`: 24 months
-
-| Query timeframe | Maximum interval between `startDate` and `endDate` in the query, based on `period` |
-
-* `period=1hour`: 1 day
-* `period=1day`: 1 month
-* `period=1month`: 2 months
-
-NOTE: If the interval between `startDate` and `endDate` exceeds the limits, the API returns an HTTP 400 error.
-|===
-
-
-[[usage-by-env]]
-==== Get Usage Metrics by Environment
-
-You can use the Stats API to retrieve Anypoint MQ usage information by environment for a particular organization:
-
-`/environments/<ENV_ID>?startDate=...&endDate=...&period=...`
-
-This information isn't real-time and has a latency.
-
-[NOTE]
-include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
-
-*Sample Request and Response:*
-
-Use this `curl` command to get usage metrics by environment:
-
-[source,bash,linenums]
-----
-curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<ORG_ID>/environments/<ENV_ID>?startDate=Thursday%2C%208%20Nov%202024%2004%3A49%3A37%20GMT%26endDate%3DSun%2C%2011%20Nov%202024%2004%3A60%3A44%20GMT%26period%3D1day%0A" \
--H "Authorization: bearer <BEARER_TOKEN>" \
--H "Cache-Control: no-cache"
-----
-
-This command returns output similar to:
-
-[source,json,linenums]
-----
-  {
-    "timestamp": "2024-11-08T00:00Z",
-    "apiRequestCount": 127,
-    "messageReceiptCount": 11,
-    "billableUnitCount": 11,
-    "messageByteCount": 6148
-  }
-----
-
-The `apiRequestCount` returns the number of API requests made to the Anypoint MQ service during the specified period.
-
-include::partial$mq-faq.adoc[tag=apiRequests]
-
-For more information about Anypoint MQ billing, see xref:mq-usage.adoc[].
-
-[NOTE]
-include::partial$mq-faq.adoc[tag=returnVals]
-
-[[usage-by-org]]
-==== Get Usage Metrics by Organization
-
-
-
-You can use the Stats API to retrieve Anypoint MQ usage for the root business organization:
-
-`/organizations/<ORG_ID>?startDate=...&endDate=...&period=...`
-
-[NOTE]
-include::partial$mq-api-shared.adoc[tag=mqStatsAPIlimits]
-
-
-*Sample Request and Response:*
-
-Use this `curl` command to get daily usage metrics by organization for a month:
-
-[source,bash,linenums]
-----
-curl -X GET "https://anypoint.mulesoft.com/mq/stats/api/v1/organizations/<ORG_ID>?startDate=Sun%2C%201%20Oct%202024%2004%3A49%3A37%20GMT%26endDate%3DTue%2C%2031%20Oct%202024%2004%3A50%3A44%20GMT%26period%3D1day" \
--H "Authorization: bearer <BEARER_TOKEN>" \
--H "Cache-Control: no-cache"
-----
-
-This command returns output similar to:
-
-[source,json,linenums]
-----
-  {
-    "timestamp": "2024-10-31T00:00Z",
-    "apiRequestCount": 1066,
-    "messageReceiptCount": 194,
-    "billableUnitCount": 194,
-    "messageByteCount": 107048
-  }
-----
-
-The `apiRequestCount` returns the number of API requests made to the Anypoint MQ service during the specified period.
-
-include::partial$mq-faq.adoc[tag=apiRequests]
-
-For more information about Anypoint MQ billing, see xref:mq-usage.adoc[].
-
-[NOTE]
-include::partial$mq-faq.adoc[tag=returnVals]
 
 
 [[exstatapi]]
