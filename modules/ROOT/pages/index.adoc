@@ -108,8 +108,8 @@ For information, see xref:mq-failover.adoc[].
 [[usage-statistics]]
 Usage Statistics::
 +
-View a usage statistics chart so that you can manage peak usage and subscription parameters.
-The chart provides current and past usage, including consumed data, API requests, and the total number of messages received.
+View usage reports to manage peak usage and subscription parameters.
+Reports provide current and past usage, including consumed data, API requests, and the total number of messages received.
 +
 For information, see xref:mq-usage.adoc[].
 +
@@ -237,11 +237,9 @@ Billing is based on the number of messages delivered to subscribers from queues,
 |{empty}
 
 * xref:mq-queues.adoc[Unencrypted Queues]
-* xref:mq-usage.adoc#access-mq-usage-charts[Usage Charts] (Access Management)
 * xref:mq-failover.adoc[Cross-Region Failover]
 * xref:mq-client-apps.adoc[Client Apps]
 * xref:mq-connectors.adoc[Anypoint MQ Connector earlier than 4.x]
-* xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API] (Usage Metrics)
 
 | Yes
 | No
@@ -259,7 +257,7 @@ Billing is based on the number of messages delivered to subscribers from queues,
 
 * xref:mq-usage.adoc#access-mq-usage-reports[Usage Reports] (Usage)
 
-| No
+| Yes
 | Yes
 | No
 
@@ -296,14 +294,6 @@ All Anypoint MQ features are supported on https://gov.anypoint.mulesoft.com/logi
 | *xref:mq-failover.adoc[Cross-Region Failover]*
 | Not supported
 | Not supported
-
-| *xref:mq-usage.adoc#access-mq-usage-charts[Usage Charts] (Access Management)*
-| Supported
-| Not available. Use xref:mq-usage.adoc#access-mq-usage-reports[Usage Reports] instead.
-
-| *xref:mq-apis.adoc#mq-stats-api[Anypoint MQ Stats API] (Usage Metrics)*
-| Not supported. Use the Stats API only for xref:mq-apis.adoc#historical-stats-queue[queue] and xref:mq-apis.adoc#historical-stats-exchange[exchange] metrics.
-| Not supported. Use the Stats API only for xref:mq-apis.adoc#historical-stats-queue[queue] and xref:mq-apis.adoc#historical-stats-exchange[exchange] metrics.
 
 |===
 
